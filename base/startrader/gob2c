@@ -1,0 +1,112 @@
+#!/bin/bash
+
+#
+# Script file to run b2c on the files in the ../source tree
+#
+# (Script created by alan on 13/Apr/2022 12:10:27)
+#
+
+# Include header to setup standard variables
+. /home/alan/bin/header.inc
+
+arg=${1}
+
+root="${HOME}/dev/BasicGames"
+exe="${root}/b2c/bin/Debug/b2c"
+log="b2c.log"
+
+function translate()
+{
+    # Get argument
+    file=${1}
+    # Get the base part of the file name
+    fn=${file%.*}
+    echo "file='$file' fn='$fn'"
+
+    # Generate the absolute file name, with BAS, C and LOG extensions
+    bfn="./${fn}"
+    ifn="${bfn}.bas"
+    ofn="${bfn}.c"
+    lfn="${bfn}.log"
+    dfn="${bfn}.dbg"
+
+    echo "bfn='$bfn'"
+    echo "ifn='$ifn'"
+    echo "ofn='$ofn'"
+    echo "lfn='$lfn'"
+    echo "Processing: $ifn"
+
+    ${exe} -cist -i"${ifn}" -o"${ofn}" &>"${lfn}"
+    echo "${exe} -cist -i\"${ifn}\" -o\"${ofn}\" &>\"${lfn}\" "
+    cp b2c.dbg ${dfn}
+
+    ls -al "${bfn}"*
+}
+
+function make_vars()
+{
+    fn=${1}
+
+cat <<-EOF >"${fn}.vars"
+# Functions
+
+# Intrinsics (Change mangled name back to original name) 
+SPACE_str     | SPACE
+MID_str       | MID
+CHR_str       | CHR
+RIGHT_str     | RIGHT
+LEFT_str      | LEFT
+
+# Variables
+
+# Line numbers
+EOF
+}
+
+
+if [ "$arg" == "-h" ]; then
+    # Let user get b2c help
+    ${exe} -h
+
+elif [ "$arg" == "" ]; then
+
+    rm ${log} 2>/dev/null
+    
+    # Run through all the files in the directory.
+    echo "Processing:"
+    ls -1 *.bas |\
+    while read file 
+    do
+        echo "=============================================================================" >>${log}
+        echo "  $file"
+        echo "  $file" >>${log}
+        translate "$file" &>>${log}
+    done
+    #clnzero >>${log}
+    echo "Programs that translated:" >>${log}
+    ls -al *.c >>${log}
+
+    echo "Compiling programs:"
+    ls -1 *.c |\
+    while read file
+    do
+        fn=${file%.*}
+        ex=${file##*.}
+        echo "  $fn:"
+        echo "Compiling $fn:" >>${log}
+        if [ ! -e "${fn}.vars" ]; then
+            make_vars "${fn}" 
+        fi
+        goc "${file}" &>>${log}
+    done
+    echo "Finished!"
+
+else
+    # Translate the given file.
+    translate "$arg"
+fi
+
+
+# 
+# end of 'b2call' script file.
+#

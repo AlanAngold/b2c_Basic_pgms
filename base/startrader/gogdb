@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#
+# Script file to SOLVE_THIS_PROBLEM.
+#
+# (Script created by alan on 01/May/2024 18:46:28)
+#
+
+# Include header to setup standard variables
+. /home/alan/bin/header.inc
+
+# NOTE: See ~/bin/cmdline.inc for command-line parsing and filename splitting.
+
+b2c=/home/alan/dev/BasicGames/b2c/bin/Debug/b2c
+src=/home/alan/dev/BasicGames/source/base/startrader
+
+
+file=StarTrader_main
+
+
+gdb --args $b2c -cist -i${src}/basic/${file}.bas -o${src}/basic/${file}.c 
+
+# 
+# end of 'gogdb' script file.
+#

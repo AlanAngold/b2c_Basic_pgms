@@ -1,0 +1,57 @@
+    1 REM NOTE: Basic language type forced to be:
+    2 REM       trs2 - TRS-80 Level II BASIC tokenized file
+   10 CLS:CLEAR1500
+   70 CLS
+   80 PRINT@194,"LOVE";:PRINT@595,;:INPUT"YOUR MESSAGE PLEASE";A$:L=LEN(A$)
+  130 DIMB$(120)
+  140 PRINT@719,"HIT ANY KEY WHEN PRINTER IS READY"
+  150 D$=INKEY$:IFD$=""THEN150
+  160 FORJ=0TOINT(60/L)
+  170 FORI=1TOL
+  180 B$(J*L+I)=MID$(A$,I,1)
+  190 NEXTI:NEXTJ
+  200 C=0
+  210 A1=1:P=1:C=C+1:IFC=37GOTO640
+  220 LPRINT" "
+  230 READA:A1=A1+A:IFP=1GOTO250
+  240 FORI=1TOA:LPRINT" ";:NEXTI:P=1:GOTO260
+  250 FORI=A1-ATOA1-1:LPRINTB$(I);:NEXTI:P=0
+  260 IFA1<61GOTO230
+  270 GOTO210
+  280 DATA 60
+  290 DATA 1, 12, 26,  9, 12
+  300 DATA 3,  8, 24, 17,  8
+  310 DATA 4,  6, 23, 21,  6
+  320 DATA 4,  6, 22, 12,  5,  6,  5
+  330 DATA 4,  6, 21, 11,  8,  6,  4
+  340 DATA 4,  6, 21, 10, 10,  5,  4
+  350 DATA 4,  6, 21,  9, 11,  5,  4
+  360 DATA 4,  6, 21,  8, 11,  6,  4
+  370 DATA 4,  6, 21,  7, 11,  7,  4
+  380 DATA 4,  6, 21,  6, 11,  8,  4
+  390 DATA 4,  6, 19,  1,  1,  5, 11,  9,  4
+  400 DATA 4,  6, 19,  1,  1,  5, 10, 10,  4
+  410 DATA 4,  6, 18,  2,  1,  6,  8, 11,  4
+  420 DATA 4,  6, 17,  3,  1,  7,  5, 13,  4
+  430 DATA 4,  6, 15,  5,  2, 23,  5
+  440 DATA 1, 29,  5, 17,  8
+  450 DATA 1, 29,  9,  9, 12
+  460 DATA 1, 13,  5, 40,  1
+  470 DATA 1, 13,  5, 40,  1
+  480 DATA 4,  6, 13,  3, 10, 6, 12,  5,  1
+  490 DATA 5,  6, 11,  3, 11, 6, 14,  3,  1
+  500 DATA 5,  6, 11,  3, 11, 6, 15,  2,  1
+  510 DATA 6,  6,  9,  3, 12, 6, 16,  1,  1
+  520 DATA 6,  6,  9,  3, 12, 6,  7,  1, 10
+  530 DATA 7,  6,  7,  3, 13, 6,  6,  2, 10
+  540 DATA 7,  6,  7,  3, 13,14, 10
+  550 DATA 8,  6,  5,  3, 14, 6,  6,  2, 10
+  560 DATA 8,  6,  5,  3, 14, 6,  7,  1, 10
+  570 DATA 9,  6,  3,  3, 15, 6, 16,  1,  1
+  580 DATA 9,  6,  3,  3, 15, 6, 15,  2,  1
+  590 DATA10,  6,  1,  3, 16, 6, 14,  3,  1
+  600 DATA10, 10, 16,  6, 12, 5,  1
+  610 DATA11,  8, 13, 27,  1
+  620 DATA11,  8, 13, 27,  1
+  630 DATA 60
+  640 FORI=1TO9:LPRINT" ":NEXTI

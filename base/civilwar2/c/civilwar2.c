@@ -1,0 +1,2264 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of /home/alan/dev/BasicGames/source/base/civilwar2/basic/civilwar2.bas: 
+ *
+                   +-+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   | | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    | | |
+        Address    v v v Original BASIC statement
+    -------------- --- - ------------------------------------------------------------------------------
+    0x55b988911f70 ---------A   00002 PRINT TAB(26) "CIVIL WAR"
+    0x55b988912200 ---------A   00004 PRINT TAB(15) "CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x55b988912360 ---------A   00006 PRINT : PRINT : PRINT
+    0x55b988912430 ---------A   00020 REM ORIGINAL GAME DESIGN: CRAM, GOODIE, HIBBARD LEXINGTON H.S.
+    0x55b9889124f0 ---------A   00030 REM MODIFICATIONS: G. PAUL, R. HESS (TIES), 1973
+    0x55b988917280 ---------A   00050  DIM S(4),C$(14),M1(14),M2(14),C1(14),C2(14),M(14)
+    0x55b988917300 ---------A   00060  REM UNION INFO ON LIKELY CONFEDERATE STRATEGY
+    0x55b988917af0 ---------A   00070  S(1)=25 : S(2)=25 : S(3)=25 : S(4)=25
+    0x55b988917b70 ---------A   00082  REM READ HISTORICAL DATA.
+    0x55b988917ec0 ---------A   00084  FOR D=1 TO 14
+    0x55b9889183c0 ---------A   00086  READ C$(D),M1(D),M2(D),C1(D),C2(D),M(D)
+    0x55b988918460 ---------A   00088  NEXT D
+    0x55b988912570 ---------A   00089  LET D=RND(-1)
+    0x55b9889186f0 ---------A   00090  PRINT
+    0x55b988918850 ---------A   00100  PRINT "DO YOU WANT INSTRUCTIONS";
+    0x55b9889189b0 ---------A T 00110  INPUT X$
+    0x55b988918ba0 ---------A   00120  IF X$="YES" THEN 160
+    0x55b988918ea0 ---------A   00130  IF X$="NO" THEN 370
+    0x55b988919000 ---------A   00140  PRINT "YES OR NO -- ";
+    0x55b988919080 ---------A   00150  GOTO 110
+    0x55b9889191f0 ---------A T 00160  PRINT : PRINT : PRINT : PRINT
+    0x55b988919360 ---------A   00170  PRINT "THIS IS A CIVIL WAR SIMULATION."
+    0x55b9889194e0 ---------A   00180  PRINT "TO PLAY TYPE A RESPONSE WHEN THE COMPUTER ASKS."
+    0x55b988919670 ---------A   00190  PRINT "REMEMBER THAT ALL FACTORS ARE INTERRELATED AND THAT YOUR"
+    0x55b988919810 ---------A   00200  PRINT "RESPONSES COULD CHANGE HISTORY. FACTS AND FIGURES USED ARE"
+    0x55b9889199a0 ---------A   00210  PRINT "BASED ON THE ACTUAL OCCURRENCE. MOST BATTLES TEND TO RESULT"
+    0x55b988919b00 ---------A   00220  PRINT "AS THEY DID IN THE CIVIL WAR, BUT IT ALL DEPENDS ON YOU!!"
+    0x55b988919ba0 ---------A   00230  PRINT
+    0x55b988919d10 ---------A   00240  PRINT "THE OBJECT OF THE GAME IS TO WIN AS MANY BATTLES AS ";
+    0x55b988919e40 ---------A   00245  PRINT "POSSIBLE."
+    0x55b988919ed0 ---------A   00250  PRINT
+    0x55b98891a040 ---------A   00260  PRINT "YOUR CHOICES FOR DEFENSIVE STRATEGY ARE:"
+    0x55b98891a1b0 ---------A   00270  PRINT "        (1) ARTILLERY ATTACK"
+    0x55b98891a540 ---------A   00280  PRINT "        (2) FORTIFICATION AGAINST FRONTAL ATTACK"
+    0x55b98891a6a0 ---------A   00290  PRINT "        (3) FORTIFICATION AGAINST FLANKING MANEUVERS"
+    0x55b98891a800 ---------A   00300  PRINT "        (4) FALLING BACK"
+    0x55b98891a970 ---------A   00310  PRINT " YOUR CHOICES FOR OFFENSIVE STRATEGY ARE:"
+    0x55b98891aac0 ---------A   00320  PRINT "        (1) ARTILLERY ATTACK"
+    0x55b98891ac20 ---------A   00330  PRINT "        (2) FRONTAL ATTACK"
+    0x55b98891ad70 ---------A   00340  PRINT "        (3) FLANKING MANEUVERS"
+    0x55b98891aee0 ---------A   00350  PRINT "        (4) ENCIRCLEMENT"
+    0x55b98891b060 ---------A   00360  PRINT "YOU MAY SURRENDER BY TYPING A '5' FOR YOUR STRATEGY."
+    0x55b98891b2c0 ---------A T 00370  PRINT : PRINT : PRINT : PRINT "ARE THERE TWO GENERALS PRESENT ";
+    0x55b98891b410 ---------A T 00380  PRINT "(ANSWER YES OR NO)";
+    0x55b98891b570 ---------A   00390  INPUT B$
+    0x55b98891b760 ---------A   00400  IF B$="YES" THEN 430
+    0x55b98891b970 ---------A   00410  IF B$ <> "NO" THEN 380
+    0x55b98891bb10 ---------A   00420  PRINT : PRINT "YOU ARE THE CONFEDERACY.   GOOD LUCK!"
+    0x55b98891bb80 ---------A   00425  PRINT
+    0x55b98891bd00 ---------A T 00430  LET D=1
+    0x55b98891bed0 ---------A   00440  IF B$ <> "YES" THEN 460
+    0x55b98891c080 ---------A   00450  LET D=2
+    0x55b98891c200 ---------A T 00460  PRINT "SELECT A BATTLE BY TYPING A NUMBER FROM 1 TO 14 ON"
+    0x55b98891c390 ---------A   00470  PRINT "REQUEST.  TYPE ANY OTHER NUMBER TO END THE SIMULATION."
+    0x55b98891c4f0 ---------A   00480  PRINT "BUT '0' BRINGS BACK EXACT PREVIOUS BATTLE SITUATION"
+    0x55b98891c630 ---------A   00490  PRINT "ALLOWING YOU TO REPLAY IT"
+    0x55b98891c6d0 ---------A   00500  PRINT
+    0x55b98891c840 ---------A   00510  PRINT "NOTE: A NEGATIVE FOOD$ ENTRY CAUSES THE PROGRAM TO "
+    0x55b98891c990 ---------A   00520  PRINT "USE THE ENTRIES FROM THE PREVIOUS BATTLE"
+    0x55b98891ca20 ---------A   00530  PRINT
+    0x55b98891cba0 ---------A   00540  PRINT "AFTER REQUESTING A BATTLE, DO YOU WISH ";
+    0x55b98891cd00 ---------A   00550  PRINT "BATTLE DESCRIPTIONS ";
+    0x55b98891ce50 ---------A T 00560  PRINT "(ANSWER YES OR NO)";
+    0x55b98891cf30 ---------A   00570  INPUT X$
+    0x55b98891d120 ---------A   00580  IF X$="YES" THEN 600
+    0x55b98891d730 ---------A   00590  IF X$ <> "NO" THEN 560
+    0x55b98891e9b0 ---------A T 00600  L=0:W=0:R1=0:Q1=0:M3=0:M4=0:P1=0:P2=0:T1=0:T2=0
+    0x55b988920180 ---------A   00610  F(2)=0:H(2)=0:B(2)=0:R2=0:Q2=0:C6=0:F=0:W0=0:Y=0:Y2=0:U=0:U2=0
+    0x55b9889202b0 ---------A T 00620  PRINT : PRINT : PRINT
+    0x55b988920410 ---------A   00630  PRINT "WHICH BATTLE DO YOU WISH TO SIMULATE";
+    0x55b988920560 ---------A   00640  INPUT A
+    0x55b988920730 ---------A   00650  IF A <> 0 THEN 660
+    0x55b988920970 ---------A   00655  IF R <> 0 THEN 1140
+    0x55b988920b40 ---------A T 00660  IF A <=0 THEN 2860
+    0x55b988920d00 ---------A   00665  IF A >= 15 THEN 2860
+    0x55b988920f20 ---------A   00670  LET C$=C$(A)
+    0x55b988921130 ---------A   00680  LET M1=M1(A)
+    0x55b988921340 ---------A   00690  LET M2=M2(A)
+    0x55b988921550 ---------A   00700  LET C1=C1(A)
+    0x55b988921760 ---------A   00710  LET C2=C2(A)
+    0x55b988921970 ---------A   00720  LET M=M(A)
+    0x55b988921af0 ---------A   00960  LET U=0
+    0x55b988921b60 ---------A   00970  REM  INFLATION CALC
+    0x55b988921fc0 ---------A   00980  LET I1=10+(L-W)*2
+    0x55b988922420 ---------A   00990  LET I2=10+(W-L)*2
+    0x55b988922490 ---------A   01000  REM - MONEY AVAILABLE
+    0x55b988923120 ---------A   01010  LET D(1)=100*INT((M1*(100-I1)/2000)*(1+(R1-Q1)/(R1+1))+.5)
+    0x55b9889237c0 ---------A   01020  LET D(2)=100*INT(M2*(100-I2)/2000+.5)
+    0x55b9889239c0 ---------A   01030  IF B$ <> "YES" THEN 1050
+    0x55b988924510 ---------A   01040  LET D(2)=100*INT((M2*(100-I2)/2000)*(1+(R2-Q2)/(R2+1))+.5)
+    0x55b988924580 ---------A T 01050  REM - MEN   AVAILABLE
+    0x55b988924c20 ---------A   01060  LET M5=INT(M1*(1+(P1-T1)/(M3+1)))
+    0x55b988925290 ---------A   01070  LET M6=INT(M2*(1+(P2-T2)/(M4+1)))
+    0x55b988925620 ---------A   01080  LET F1=5*M1/6
+    0x55b9889257e0 ---------A   01090  PRINT : PRINT : PRINT : PRINT : PRINT
+    0x55b9889259b0 ---------A   01100  PRINT "THIS IS THE BATTLE OF ";C$
+    0x55b988925b80 ---------A   01110  IF X$="NO" THEN 1150
+    0x55b988925d70 ---------A   01120  IF A>11 THEN 1130
+    0x55b988926540 ---------A   01125  ON A GOTO 3580,3620,3650,3690,3720,3750,3780,3800,3830,3860,3890
+    0x55b9889268e0 ---------A T 01130  ON A-11 GOTO 3920,3950,3980
+    0x55b988926a90 ---------A T 01140  PRINT C$" INSTANT REPLAY"
+    0x55b988926b10 ---------A T 01150  PRINT
+    0x55b988926e10 ---------A   01160  PRINT " ","CONFEDERACY"," UNION"
+    0x55b988927210 ---------A   01170  PRINT "MEN"," "M5," "M6
+    0x55b988927760 ---------A   01180  PRINT "MONEY","$";D(1),"$";D(2)
+    0x55b988927df0 ---------A   01190  PRINT "INFLATION"," ";I1+15;"%"," ";I2;"%"
+    0x55b988927e90 ---------A   01195  PRINT
+    0x55b988927f20 ---------A   01200  REM - ONLY IN PRINTOUT IS CONFED INFLATION = I1+15%
+    0x55b988927fe0 ---------A   01210  REM - IF TWO GENERALS, INPUT CONFED. FIRST
+    0x55b988928250 ---------A   01220  FOR I=1 TO D
+    0x55b988928430 ---------A   01230  IF B$ <> "YES" THEN 1260
+    0x55b988928600 ---------A   01240  IF I=2 THEN 1260
+    0x55b988928790 ---------A   01250  PRINT "CONFEDERATE GENERAL---";
+    0x55b9889288e0 ---------A T 01260  PRINT "HOW MUCH DO YOU WISH TO SPEND FOR"
+    0x55b988928a30 ---------A T 01270  PRINT " - FOOD......";
+    0x55b988928b10 ---------A   01280  INPUT F
+    0x55b988928ce0 ---------A   01290  IF F >= 0 THEN 1360
+    0x55b988928eb0 ---------A   01300  IF R1 <> 0 THEN 1330
+    0x55b988928ff0 ---------A   01310  PRINT "NO PREVIOUS ENTRIES"
+    0x55b988929080 ---------A   01320  GOTO 1270
+    0x55b9889291c0 ---------A T 01330  PRINT "ASSUME YOU WANT TO KEEP SAME ALLOCATIONS"
+    0x55b988929230 ---------A   01340  PRINT
+    0x55b9889292a0 ---------A   01350  GOTO 1510
+    0x55b988929430 ---------A T 01360  LET F(I)=F
+    0x55b988929580 ---------A T 01370  PRINT " - SALARIES..";
+    0x55b9889296b0 ---------A   01380  INPUT H(I)
+    0x55b9889298c0 ---------A   01390  LET N=1
+    0x55b988929ae0 ---------A   01400  IF H(I)<0 THEN 1490
+    0x55b988929c40 ---------A T 01410  PRINT " - AMMUNITION";
+    0x55b98892a580 ---------A   01420  INPUT B(I)
+    0x55b98892a710 ---------A   01430  LET N=2
+    0x55b98892a920 ---------A   01440  IF B(I)<0 THEN 1490
+    0x55b98892a9c0 ---------A   01450  PRINT
+    0x55b98892ae10 ---------A   01460  IF F(I)+H(I)+B(I) <= D(I) THEN 1510
+    0x55b98892b040 ---------A   01470  PRINT "THINK AGAIN! YOU HAVE ONLY $"D(I)
+    0x55b98892b0d0 ---------A   01480  GOTO 1270
+    0x55b98892b210 ---------A T 01490  PRINT "NEGATIVE VALUES NOT ALLOWED."
+    0x55b98892b430 ---------A   01500  ON N GOTO 1370,1410
+    0x55b98892b600 ---------A T 01510  IF B$ <> "YES" THEN 1550
+    0x55b98892b7d0 ---------A   01520  IF I=2 THEN 1550
+    0x55b98892b930 ---------A   01530  PRINT "UNION GENERAL---";
+    0x55b98892b9e0 ---------A   01540  NEXT I
+    0x55b98892bc50 ---------A T 01550  FOR Z=1 TO D
+    0x55b98892be40 ---------A   01560  IF B$ <> "YES" THEN 1620
+    0x55b98892c070 ---------A   01570  ON Z GOTO 1580,1600
+    0x55b98892c1c0 ---------A T 01580  PRINT "CONFEDERATE ";
+    0x55b98892c240 ---------A   01590  GOTO 1620
+    0x55b98892c380 ---------A T 01600  PRINT "      UNION ";
+    0x55b98892c3f0 ---------A   01610  REM - FIND MORALE
+    0x55b98892cca0 ---------A T 01620  LET O=((2*F(Z)^2+H(Z)^2)/F1^2+1)
+    0x55b98892ce60 ---------A   01630  IF O<10 THEN 1660
+    0x55b98892cfa0 ---------A   01640  PRINT "MORALE IS HIGH"
+    0x55b98892d010 ---------A   01650  GOTO 1700
+    0x55b98892d1c0 ---------A T 01660  IF O<5 THEN 1690
+    0x55b98892d300 ---------A   01670  PRINT "MORALE IS FAIR"
+    0x55b98892d380 ---------A   01680  GOTO 1700
+    0x55b98892d4b0 ---------A T 01690  PRINT "MORALE IS POOR"
+    0x55b98892d680 ---------A T 01700  IF B$ <> "YES" THEN 1760
+    0x55b98892d8a0 ---------A   01710  LET O(Z)=O
+    0x55b98892d950 ---------A   01720  NEXT Z
+    0x55b98892dbb0 ---------A   01730  LET O2=O(2)
+    0x55b98892dd90 ---------A   01740  LET O=O(1)
+    0x55b98892df10 ---------A   01750  PRINT "CONFEDERATE GENERAL---";
+    0x55b98892df90 ---------A T 01760  REM - ACTUAL OFF/DEF BATTLE SITUATION
+    0x55b98892e170 ---------A   01770  IF M <> 3 THEN 1800
+    0x55b98892e2c0 ---------A   01780  PRINT "YOU ARE ON THE OFFENSIVE"
+    0x55b98892e340 ---------A   01790  GOTO 1840
+    0x55b98892e4f0 ---------A T 01800  IF M <> 1 THEN 1830
+    0x55b98892e640 ---------A   01810  PRINT "YOU ARE ON THE DEFENSIVE"
+    0x55b98892e6d0 ---------A   01820  GOTO 1840
+    0x55b98892e800 ---------A T 01830  PRINT "BOTH SIDES ARE ON THE OFFENSIVE "
+    0x55b98892e880 ---------A T 01840  PRINT
+    0x55b98892e8f0 ---------A   01850  REM - CHOOSE STRATEGIES
+    0x55b98892eae0 ---------A   01860  IF B$ <> "YES" THEN 1910
+    0x55b98892ed10 ---------A   01870  FOR I=1 TO 2
+    0x55b98892ef40 ---------A   01880  ON I GOTO 1890,1920
+    0x55b98892f090 ---------A T 01890  PRINT "CONFEDERATE STRATEGY ";
+    0x55b98892f110 ---------A   01900  GOTO 1920
+    0x55b98892f250 ---------A T 01910  PRINT "YOUR STRATEGY ";
+    0x55b98892f330 ---------A T 01920  INPUT Y
+    0x55b98892f6c0 ---------A   01930  IF ABS(Y-3)<3 THEN 1960
+    0x55b98892f960 ---------A   01940  PRINT "STRATEGY";Y;"NOT ALLOWED."
+    0x55b98892f9e0 ---------A   01950  GOTO 1910
+    0x55b98892fba0 ---------A T 01960  IF B$="YES" THEN 2000
+    0x55b98892fd60 ---------A   01970  IF Y=5 THEN 2830
+    0x55b98892fde0 ---------A   01980  GOSUB 3110
+    0x55b98892fe40 ---------A   01990  GOTO 2170
+    0x55b98892ffe0 ---------A T 02000  IF I=2 THEN 2040
+    0x55b9889301b0 ---------A   02010  LET Y1=Y
+    0x55b988930300 ---------A T 02020  PRINT "UNION STRATEGY ";
+    0x55b9889303b0 ---------A   02030  NEXT I
+    0x55b9889304f0 ---------A T 02040  LET Y2=Y
+    0x55b988930620 ---------A   02050  LET Y=Y1
+    0x55b9889307e0 ---------A   02060  IF Y2=5 THEN 2020
+    0x55b988930870 ---------A   02070  REM : SIMULATED LOSSES-NORTH
+    0x55b9889311d0 ---------A   02080  LET C6=(2*C2/5)*(1+1/(2*(ABS(Y2-Y)+1)))
+    0x55b988931930 ---------A   02090  LET C6=C6*(1.28+(5*M2/6)/(B(2)+1))
+    0x55b988931e60 ---------A   02100  LET C6=INT(C6*(1+1/O2)+.5)
+    0x55b988931ef0 ---------A   02110  REM - IF LOSS > MEN PRESENT, RESCALE LOSSES
+    0x55b9889321a0 ---------A   02120  LET E2=100/O2
+    0x55b988932420 ---------A   02130  IF INT(C6+E2)<M6 THEN 2190
+    0x55b988932780 ---------A   02140  LET C6=INT(13*M6/20)
+    0x55b988932a70 ---------A   02150  LET E2=7*C6/13
+    0x55b988932bf0 ---------A   02160  LET U2=1
+    0x55b988932c70 ---------A T 02170  REM - CALCULATE SIMULATED LOSSES
+    0x55b988932d10 ---------A   02180  PRINT
+    0x55b988933000 ---------A T 02190  PRINT : PRINT : PRINT ,"CONFEDERACY","UNION"
+    0x55b9889339b0 ---------A   02200  LET C5=(2*C1/5)*(1+1/(2*(ABS(Y2-Y)+1)))
+    0x55b9889342e0 ---------A   02210  LET C5=INT(C5*(1+1/O)*(1.28+F1/(B(1)+1))+.5)
+    0x55b988934590 ---------A   02220  LET E=100/O
+    0x55b988934d00 ---------A   02230  IF C5+100/O<M1*(1+(P1-T1)/(M3+1)) THEN 2270
+    0x55b9889354c0 ---------A   02240  LET C5=INT(13*M1/20*(1+(P1-T1)/(M3+1)))
+    0x55b9889357b0 ---------A   02250  LET E=7*C5/13
+    0x55b988935920 ---------A   02260  LET U=1
+    0x55b988935ae0 ---------A T 02270  IF D=1 THEN 2500
+    0x55b988935d30 ---------A T 02280  PRINT "CASUALTIES",C5,C6
+    0x55b988936020 ---------A   02290  PRINT "DESERTIONS",INT(E),INT(E2)
+    0x55b9889360a0 ---------A   02300  PRINT
+    0x55b988936290 ---------A   02310  IF B$ <> "YES" THEN 2350
+    0x55b988936490 ---------A   02320  PRINT "COMPARED TO THE ACTUAL CASUALTIES AT "C$
+    0x55b988936a50 ---------A   02330  PRINT "CONFEDERATE:"INT(100*(C5/C1)+.5)"% OF THE ORIGINAL"
+    0x55b988936fe0 ---------A   02340  PRINT "UNION:      "INT(100*(C6/C2)+.5)"% OF THE ORIGINAL"
+    0x55b988937050 ---------A T 02350  PRINT
+    0x55b9889370c0 ---------A   02360  REM - 1 WHO ONE
+    0x55b988937290 ---------A   02370  IF U <> 1 THEN 2380
+    0x55b988937450 ---------A   02375  IF U2=1 THEN 2460
+    0x55b988937610 ---------A T 02380  IF U=1 THEN 2420
+    0x55b9889377e0 ---------A   02390  IF U2=1 THEN 2440
+    0x55b988937ab0 ---------A   02400  IF C5+E=C6+E2 THEN 2460
+    0x55b988937d80 ---------A   02410  IF C5+E<C6+E2 THEN 2440
+    0x55b988937f40 ---------A T 02420  PRINT "THE UNION WINS "C$
+    0x55b988937fc0 ---------A   02430  GOTO 2600
+    0x55b988938160 ---------A T 02440  PRINT "THE CONFEDERACY WINS "C$
+    0x55b9889381e0 ---------A   02450  GOTO 2660
+    0x55b988938310 ---------A T 02460  PRINT "BATTLE OUTCOME UNRESOLVED"
+    0x55b988938520 ---------A   02470  LET W0=W0+1
+    0x55b9889386d0 ---------A   02480  IF A=0 THEN 2790
+    0x55b988938760 ---------A   02490  GOTO 2680
+    0x55b988938c20 ---------A T 02500  LET C6=INT(17*C2*C1/(C5*20))
+    0x55b988938e30 ---------A   02510  LET E2=5*O
+    0x55b988938ed0 ---------A   02520  GOTO 2280
+    0x55b988939470 ----------   02530  PRINT "YOUR CASUALTIES WERE "INT(100*(C5/C1)+.5)"% OF "
+    0x55b988939630 ----------   02540  PRINT "THE ACTUAL CASUALTIES AT ";C$
+    0x55b9889396b0 ----------   02550  PRINT
+    0x55b988939720 ---------A   02560  REM - FIND WHO WON
+    0x55b988939900 ----------   02570  IF U=1 THEN 2590
+    0x55b988939ff0 ----------   02580  IF C5+E<17*C2*C1/(C5*20)+5*O THEN 2630
+    0x55b98893a1b0 ---------- T 02590  PRINT "YOU LOSE ";C$
+    0x55b98893a360 ---------A T 02600  IF A=0 THEN 2790
+    0x55b98893a580 ---------A   02610  LET L=L+1
+    0x55b98893a600 ---------A   02620  GOTO 2680
+    0x55b98893a7d0 ---------- T 02630  PRINT "YOU WIN ";C$
+    0x55b98893a860 ---------A   02640  REM - CUMULATIVE BATTLE FACTORS WHICH ALTER HISTORICAL
+    0x55b98893a930 ---------A   02650  REM  RESOURCES AVAILABLE.IF A REPLAY DON'T UPDATE.
+    0x55b98893aaf0 ---------A T 02660  IF A=0 THEN 2790
+    0x55b98893ad10 ---------A   02670  LET W=W+1
+    0x55b98893af80 ---------A T 02680  LET T1=T1+C5+E
+    0x55b988929eb0 ---------A   02690  LET T2=T2+C6+E2
+    0x55b98892a080 ---------A   02700  LET P1=P1+C1
+    0x55b98892a260 ---------A   02710  LET P2=P2+C2
+    0x55b98893c2f0 ---------A   02720  LET Q1=Q1+(F(1)+H(1)+B(1))
+    0x55b98893c830 ---------A   02730  LET Q2=Q2+(F(2)+H(2)+B(2))
+    0x55b98893ccb0 ---------A   02740  LET R1=R1+M1*(100-I1)/20
+    0x55b98893d120 ---------A   02750  LET R2=R2+M2*(100-I2)/20
+    0x55b98893d2f0 ---------A   02760  LET M3=M3+M1
+    0x55b98893d4c0 ---------A   02770  LET M4=M4+M2
+    0x55b98893d530 ---------A   02780  GOSUB 3300
+    0x55b98893d7f0 ---------A T 02790  U=0:U2=0
+    0x55b98893d920 ---------A   02800  PRINT "---------------"
+    0x55b98893d9a0 ---------A   02810  GOTO 620
+    0x55b98893da00 ---------A   02820  REM------FINISH OFF
+    0x55b98893db70 ---------A T 02830  PRINT "THE CONFEDERACY HAS SURRENDERED"
+    0x55b98893dc00 ---------A   02840  GOTO 2860
+    0x55b98893dd50 ----------   02850  PRINT "THE UNION HAS SURRENDERED."
+    0x55b98893df60 ---------A T 02860  PRINT : PRINT : PRINT : PRINT : PRINT : PRINT
+    0x55b98893e0d0 ---------A   02870  PRINT "THE CONFEDERACY ";
+    0x55b98893e3e0 ---------A   02880  PRINT "HAS WON "W" BATTLES AND LOST "L
+    0x55b98893e590 ---------A   02890  IF Y=5 THEN 2940
+    0x55b98893e760 ---------A   02900  IF Y2=5 THEN 2920
+    0x55b98893e8e0 ---------A   02910  IF W <= L THEN 2940
+    0x55b98893eac0 ---------A   02915  IF Y=5 THEN 2940
+    0x55b98893ec10 ---------A T 02920  PRINT "THE CONFEDERACY HAS WON THE WAR"
+    0x55b98893ec90 ---------A   02930  GOTO 2950
+    0x55b98893edc0 ---------A T 02940  PRINT "THE UNION HAS WON THE WAR"
+    0x55b98893ee30 ---------A T 02950  PRINT
+    0x55b98893f010 ---------A   02960  IF R1=0 THEN 3100
+    0x55b98893f410 ---------A   02970  PRINT "FOR THE "W+L+W0" BATTLES FOUGHT (EXCUDING RERUNS)"
+    0x55b98893f730 ---------A   02980  PRINT " "," "," ";
+    0x55b98893f960 ---------A   02990  PRINT "CONFEDERACY"," UNION"
+    0x55b98893fe30 ---------A   03000  PRINT "HISTORICAL LOSSES",INT(P1+.5),INT(P2+.5)
+    0x55b9889402e0 ---------A   03010  PRINT "SIMULATED LOSSES",INT(T1+.5),INT(T2+.5)
+    0x55b988940380 ---------A   03020  PRINT
+    0x55b988940bc0 ---------A   03030  PRINT "    % OF ORIGINAL",INT(100*(T1/P1)+.5),INT(100*(T2/P2)+.5)
+    0x55b988940d90 ---------A   03040  IF B$="YES" THEN 3100
+    0x55b988940e40 ---------A   03050  PRINT
+    0x55b988940fc0 ---------A   03060  PRINT "UNION INTELLIGENCE SUGGESTS THAT THE SOUTH USED "
+    0x55b988941120 ---------A   03070  PRINT "STRATEGIES 1, 2, 3, 4 IN THE FOLLOWING PERCENTAGES"
+    0x55b988941690 ---------A   03080  PRINT S(1);S2(2);S(3);S(4)
+    0x55b988941710 ---------A   03090  REM---------------------------------
+    0x55b988941770 ---------A T 03100  STOP
+    0x55b988941820 ---------B G 03110  REM - UNION STRATEGY IS COMPUTER CHOSEN
+    0x55b9889419a0 ---------B   03120  PRINT "UNION STRATEGY IS ";
+    0x55b988941b50 ---------B   03130  IF A <> 0 THEN 3180
+    0x55b988941c40 ---------B T 03140  INPUT Y2
+    0x55b988941e00 ---------B   03150  IF Y2 <=0 THEN 3160
+    0x55b988941ff0 ---------B   03155  IF Y2<5 THEN 3290
+    0x55b988942160 ---------B T 03160  PRINT "ENTER 1 , 2 ,3 , OR 4 (USUALLY PREVIOUS UNION STRATEGY)"
+    0x55b9889421d0 ---------B   03170  GOTO 3140
+    0x55b9889423b0 ---------B T 03180  LET S0=0
+    0x55b988942660 ---------B   03190  LET R=100*RND(0)
+    0x55b988942870 ---------B   03200  FOR I=1 TO 4
+    0x55b988942ae0 ---------B   03210  LET S0=S0+S(I)
+    0x55b988942b80 ---------B   03220  REM - IF ACTUAL STRATEGY INFO IS IN PROGRAM DATA STATEMENTS
+    0x55b988942c50 ---------B   03230  REM   THEN R-100 IS EXTRA WEIGHT GIVEN TO THAT STATEGY.
+    0x55b988942dd0 ---------B   03240  IF R<S0 THEN 3270
+    0x55b988942e90 ---------B   03250  NEXT I
+    0x55b988942f60 ---------B   03260  REM - IF ACTUAL STRAT. IN,THEN HERE IS Y2= HIST. STRAT.
+    0x55b9889430a0 ---------B T 03270  LET Y2=I
+    0x55b988943170 ---------B   03280  PRINT Y2
+    0x55b9889431c0 ---------B T 03290  RETURN
+    0x55b988943290 ---------C G 03300  REM LEARN  PRESENT STRATEGY, START FORGETTING OLD ONES
+    0x55b988943370 ---------C   03310  REM - PRESENT STRATEGY OF SOUTH GAINS 3*S, OTHERS LOSE S
+    0x55b988943450 ---------C   03320  REM   PROBABILITY POINTS, UNLESS A STRATEGY FALLS BELOW 5%.
+    0x55b988943650 ---------C   03330  LET S=3
+    0x55b9889437c0 ---------C   03340  LET S0=0
+    0x55b9889439e0 ---------C   03350  FOR I=1 TO 4
+    0x55b988943c00 ---------C   03360  IF S(I) <= 5 THEN 3390
+    0x55b988943ea0 ---------C   03370  LET S(I)=S(I)-S
+    0x55b988944070 ---------C   03380  LET S0=S0+S
+    0x55b988944120 ---------C T 03390  NEXT I
+    0x55b9889443c0 ---------C   03400  LET S(Y)=S(Y)+S0
+    0x55b988944410 ---------C   03410  RETURN
+    0x55b9889444f0 ---------A   03420  REM - HISTORICAL DATA...CAN ADD MORE (STRAT.,ETC) BY INSERTING
+    0x55b9889445d0 ---------A   03430  REM   DATA STATEMENTS AFTER APPRO. INFO, AND ADJUSTING READ
+    0x55b988944b10 ---------A   03440  DATA "BULL RUN",18000,18500,1967,2708,1
+    0x55b988945020 ---------A   03450  DATA "SHILOH",40000.,44894.,10699,13047,3
+    0x55b988945540 ---------A   03460  DATA "SEVEN DAYS",95000.,115000.,20614,15849,3
+    0x55b988945a50 ---------A   03470  DATA "SECOND BULL RUN",54000.,63000.,10000,14000,2
+    0x55b988945f60 ---------A   03480  DATA "ANTIETAM",40000.,50000.,10000,12000,3
+    0x55b988946470 ---------A   03490  DATA "FREDERICKSBURG",75000.,120000.,5377,12653,1
+    0x55b988946990 ---------A   03500  DATA "MURFREESBORO",38000.,45000.,11000,12000,1
+    0x55b988946ea0 ---------A   03510  DATA "CHANCELLORSVILLE",32000,90000.,13000,17197,2
+    0x55b9889473b0 ---------A   03520  DATA "VICKSBURG",50000.,70000.,12000,19000,1
+    0x55b9889478c0 ---------A   03530  DATA "GETTYSBURG",72500.,85000.,20000,23000,3
+    0x55b988947dd0 ---------A   03540  DATA "CHICKAMAUGA",66000.,60000.,18000,16000,2
+    0x55b9889482e0 ---------A   03550  DATA "CHATTANOOGA",37000.,60000.,36700.,5800,2
+    0x55b9889487f0 ---------A   03560  DATA "SPOTSYLVANIA",62000.,110000.,17723,18000,2
+    0x55b988948d20 ---------A   03570  DATA "ATLANTA",65000.,100000.,8500,3700,1
+    0x55b988948eb0 ---------A T 03580  PRINT "JULY 21, 1861.  GEN. BEAUREGARD, COMMANDING THE SOUTH, MET"
+    0x55b988949040 ---------A   03590  PRINT "UNION FORCES WITH GEN. MCDOWELL IN A PREMATURE BATTLE AT"
+    0x55b9889491a0 ---------A   03600  PRINT "BULL RUN. GEN. JACKSON HELPED PUSH BACK THE UNION ATTACK."
+    0x55b988949240 ---------A   03610  GOTO 1150
+    0x55b9889493a0 ---------A T 03620  PRINT "APRIL 6-7, 1862.  THE CONFEDERATE SURPRISE ATTACK AT"
+    0x55b9889494f0 ---------A   03630  PRINT "SHILOH FAILED DUE TO POOR ORGANIZATION."
+    0x55b988949590 ---------A   03640  GOTO 1150
+    0x55b988949700 ---------A T 03650  PRINT "JUNE 25-JULY 1, 1862.  GENERAL LEE (CSA) UPHELD THE"
+    0x55b988949880 ---------A   03660  PRINT "OFFENSIVE THROUGHOUT THE BATTLE AND FORCED GEN. MCCLELLAN"
+    0x55b9889499d0 ---------A   03670  PRINT "AND THE UNION FORCES AWAY FROM RICHMOND."
+    0x55b988949a70 ---------A   03680  GOTO 1150
+    0x55b988949be0 ---------A T 03690  PRINT "AUG 29-30, 1862.  THE COMBINED CONFEDERATE FORCES UNDER";
+    0x55b988949d40 ---------A   03695  PRINT " LEE"
+    0x55b988949ea0 ---------A   03700  PRINT "AND JACKSON DROVE THE UNION FORCES BACK INTO WASHINGTON."
+    0x55b988949f40 ---------A   03710  GOTO 1150
+    0x55b98894a0a0 ---------A T 03720  PRINT "SEPT 17, 1862.  THE SOUTH FAILED TO INCORPORATE MARYLAND"
+    0x55b98894a1d0 ---------A   03730  PRINT "INTO THE CONFEDERACY."
+    0x55b98894a270 ---------A   03740  GOTO 1150
+    0x55b98894a3e0 ---------A T 03750  PRINT "DEC 13, 1862.  THE CONFEDERACY UNDER LEE SUCCESSFULLY"
+    0x55b98894a530 ---------A   03760  PRINT "REPULSED AN ATTACK BY THE UNION UNDER GEN. BURNSIDE."
+    0x55b98894a5d0 ---------A   03770  GOTO 1150
+    0x55b98894a740 ---------A T 03780  PRINT "DEC 31, 1862.  THE SOUTH UNDER GEN. BRAGG WON A CLOSE ";
+    0x55b98894a870 ---------A   03785  PRINT "BATTLE."
+    0x55b98894a910 ---------A   03790  GOTO 1150
+    0x55b98894aa90 ---------A T 03800  PRINT "MAY 1-6, 1863.  THE SOUTH HAD A COSTLY VICTORY AND LOST"
+    0x55b98894abf0 ---------A   03810  PRINT "ONE OF THEIR OUTSTANDING GENERALS, 'STONEWALL' JACKSON."
+    0x55b98894aca0 ---------A   03820  GOTO 1150
+    0x55b98894ae20 ---------A T 03830  PRINT "JULY 4, 1863.  VICKSBURG WAS A COSTLY DEFEAT FOR THE SOUTH"
+    0x55b98894af70 ---------A   03840  PRINT "BECAUSE IT GAVE THE UNION ACCESS TO THE MISSISSIPPI."
+    0x55b98894b010 ---------A   03850  GOTO 1150
+    0x55b98894b180 ---------A T 03860  PRINT "JULY 1-3, 1863.  A SOUTHERN MISTAKE BY GEN. LEE AT ";
+    0x55b98894b2e0 ---------A   03865  PRINT "GETTYSBURG"
+    0x55b98894b430 ---------A   03870  PRINT "COST THEM ONE OF THE MOST CRUCIAL BATTLES OF THE WAR."
+    0x55b98894b4e0 ---------A   03880  GOTO 1150
+    0x55b98894b650 ---------A T 03890  PRINT "SEPT. 15, 1863. CONFUSION IN A FOREST NEAR CHICKAMAUGA LED"
+    0x55b98894b790 ---------A   03900  PRINT "TO A COSTLY SOUTHERN VICTORY."
+    0x55b98894b840 ---------A   03910  GOTO 1150
+    0x55b98894b9c0 ---------A T 03920  PRINT "NOV. 25, 1863. AFTER THE SOUTH HAD SIEGED GEN. ROSENCRANS'"
+    0x55b98894bb10 ---------A   03930  PRINT "ARMY FOR THREE MONTHS, GEN. GRANT BROKE THE SIEGE."
+    0x55b98894bbb0 ---------A   03940  GOTO 1150
+    0x55b98894bd30 ---------A T 03950  PRINT "MAY 5, 1864.  GRANT'S PLAN TO KEEP LEE ISOLATED BEGAN TO"
+    0x55b98894be90 ---------A   03960  PRINT "FAIL HERE, AND CONTINUED AT COLD HARBOR AND PETERSBURG."
+    0x55b98894bf30 ---------A   03970  GOTO 1150
+    0x55b98894c0b0 ---------A T 03980  PRINT "AUGUST, 1864.  SHERMAN AND THREE VETERAN ARMIES CONVERGED"
+    0x55b98894c210 ---------A   03990  PRINT "ON ATLANTA AND DEALT THE DEATH BLOW TO THE CONFEDERACY."
+    0x55b98894c280 ---------A   04000  GOTO 1150
+    0x55b98894c2c0 ---------A   04010  END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     00110      00150T
+     00160      00120T
+     00370      00130T
+     00380      00410T
+     00430      00400T
+     00460      00440T
+     00560      00590T
+     00600      00580T
+     00620      02810T
+     00660      00650T
+     01050      01030T
+     01130      01120T
+     01140      00655T
+     01150      01110T, 03610T, 03640T, 03680T, 03710T, 03740T, 03770T, 03790T, 
+                03820T, 03850T, 03880T, 03910T, 03940T, 03970T, 04000T
+     01260      01230T, 01240T
+     01270      01320T, 01480T
+     01330      01300T
+     01360      01290T
+     01370      01500T
+     01410      01500T
+     01490      01400T, 01440T
+     01510      01350T, 01460T
+     01550      01510T, 01520T
+     01580      01570T
+     01600      01570T
+     01620      01560T, 01590T
+     01660      01630T
+     01690      01660T
+     01700      01650T, 01680T
+     01760      01700T
+     01800      01770T
+     01830      01800T
+     01840      01790T, 01820T
+     01890      01880T
+     01910      01860T, 01950T
+     01920      01880T, 01900T
+     01960      01930T
+     02000      01960T
+     02020      02060T
+     02040      02000T
+     02170      01990T
+     02190      02130T
+     02270      02230T
+     02280      02520T
+     02350      02310T
+     02380      02370T
+     02420      02380T
+     02440      02390T, 02410T
+     02460      02375T, 02400T
+     02500      02270T
+     02590      02570T
+     02600      02430T
+     02630      02580T
+     02660      02450T
+     02680      02490T, 02620T
+     02790      02480T, 02600T, 02660T
+     02830      01970T
+     02860      00660T, 00665T, 02840T
+     02920      02900T
+     02940      02890T, 02910T, 02915T
+     02950      02930T
+     03100      02960T, 03040T
+     03110      01980G
+     03140      03170T
+     03160      03150T
+     03180      03130T
+     03270      03240T
+     03290      03155T
+     03300      02780G
+     03390      03360T
+     03580      01125T
+     03620      01125T
+     03650      01125T
+     03690      01125T
+     03720      01125T
+     03750      01125T
+     03780      01125T
+     03800      01125T
+     03830      01125T
+     03860      01125T
+     03890      01125T
+     03920      01130T
+     03950      01130T
+     03980      01130T
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start           Target           Return             End    
+  --- --------------   --------------   --------------   -------------- 
+   A) 0x55b988911f70   0x55b988911f70   0x55b98894c2c0   0x55b98894c2c0 
+   B) 0x55b988941820   0x55b988941820   0x55b9889431c0   0x55b9889431c0 
+   C) 0x55b988943290   0x55b988943290   0x55b988944410   0x55b988944410 
+
+    NOTE: Routine B overlaps, or is tangled with, routine A!
+    NOTE: Routine C overlaps, or is tangled with, routine A!
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     04970 - 10000    5040 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for '/home/alan/dev/BasicGames/source/base/civilwar2/basic/civilwar2.bas'
+ *
+    A              Integer 
+    ABS   Function Integer     args=1, int   
+    B     Array    Integer     {0,10} 
+    B$             String  
+    C$    Array    String      {0,15} 
+    C$             String  
+    C1    Array    Integer     {0,15} 
+    C1             Integer 
+    C2    Array    Integer     {0,15} 
+    C2             Integer 
+    C5             Integer 
+    C6             Integer 
+    D              Integer 
+    D     Array    Integer     {0,10} 
+    E              Integer 
+    E2             Integer 
+    F     Array    Integer     {0,10} 
+    F              Integer 
+    F1             Integer 
+    H     Array    Integer     {0,10} 
+    I              Integer 
+    I1             Integer 
+    I2             Integer 
+    INT   Function Integer     args=1, float 
+    L              Integer 
+    M     Array    Integer     {0,15} 
+    M              Integer 
+    M1    Array    Integer     {0,15} 
+    M1             Integer 
+    M2    Array    Integer     {0,15} 
+    M2             Integer 
+    M3             Integer 
+    M4             Integer 
+    M5             Integer 
+    M6             Integer 
+    N              Integer 
+    O              Integer 
+    O     Array    Integer     {0,10} 
+    O2             Integer 
+    P1             Integer 
+    P2             Integer 
+    Q1             Integer 
+    Q2             Integer 
+    R              Integer 
+    R1             Integer 
+    R2             Integer 
+    RND   Function Integer     args=1, int   
+    S     Array    Integer     {0,5} 
+    S              Integer 
+    S0             Integer 
+    S2    Array    Integer     {0,10} 
+    T1             Integer 
+    T2             Integer 
+    TAB   Function String      args=1, 
+    U              Integer 
+    U2             Integer 
+    W              Integer 
+    W0             Integer 
+    X$             String  
+    Y              Integer 
+    Y1             Integer 
+    Y2             Integer 
+    Z              Integer 
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of /home/alan/dev/BasicGames/source/base/civilwar2/basic/civilwar2.bas: 
+ *
+                   +-+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   | | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    | | |
+        Address    v v v Original BASIC statement
+    -------------- --- - ------------------------------------------------------------------------------
+    0x55b988911f70 ---------A   01000 PRINT TAB(10006) "CIVIL WAR"
+    0x55b988912200 ---------A   01010 PRINT TAB(15) "CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x55b988912360 ---------A   01020 PRINT : PRINT : PRINT
+    0x55b988912430 ---------A   01030 REM ORIGINAL GAME DESIGN: CRAM, GOODIE, HIBBARD LEXINGTON H.S.
+    0x55b9889124f0 ---------A   01040 REM MODIFICATIONS: G. PAUL, R. HESS (TIES), 1973
+    0x55b988917280 ---------A   01050  DIM S(4),C$(14),M1(14),M2(14),C1(14),C2(14),M(14)
+    0x55b988917300 ---------A   01060  REM UNION INFO ON LIKELY CONFEDERATE STRATEGY
+    0x55b988917af0 ---------A   01070  S(1)=25 : S(2)=25 : S(3)=25 : S(4)=25
+    0x55b988917b70 ---------A   01080  REM READ HISTORICAL DATA.
+    0x55b988917ec0 ---------A   01090  FOR D=1 TO 14
+    0x55b9889183c0 ---------A   01100  READ C$(D),M1(D),M2(D),C1(D),C2(D),M(D)
+    0x55b988918460 ---------A   01110  NEXT D
+    0x55b988912570 ---------A   01120  LET D=RND(-1)
+    0x55b9889186f0 ---------A   01130  PRINT
+    0x55b988918850 ---------A   01140  PRINT "DO YOU WANT INSTRUCTIONS";
+    0x55b9889189b0 ---------A T 01150  INPUT X$
+    0x55b988918ba0 ---------A   01160  IF X$="YES" THEN 1200
+    0x55b988918ea0 ---------A   01170  IF X$="NO" THEN 1420
+    0x55b988919000 ---------A   01180  PRINT "YES OR NO -- ";
+    0x55b988919080 ---------A   01190  GOTO 1150
+    0x55b9889191f0 ---------A T 01200  PRINT : PRINT : PRINT : PRINT
+    0x55b988919360 ---------A   01210  PRINT "THIS IS A CIVIL WAR SIMULATION."
+    0x55b9889194e0 ---------A   01220  PRINT "TO PLAY TYPE A RESPONSE WHEN THE COMPUTER ASKS."
+    0x55b988919670 ---------A   01230  PRINT "REMEMBER THAT ALL FACTORS ARE INTERRELATED AND THAT YOUR"
+    0x55b988919810 ---------A   01240  PRINT "RESPONSES COULD CHANGE HISTORY. FACTS AND FIGURES USED ARE"
+    0x55b9889199a0 ---------A   01250  PRINT "BASED ON THE ACTUAL OCCURRENCE. MOST BATTLES TEND TO RESULT"
+    0x55b988919b00 ---------A   01260  PRINT "AS THEY DID IN THE CIVIL WAR, BUT IT ALL DEPENDS ON YOU!!"
+    0x55b988919ba0 ---------A   01270  PRINT
+    0x55b988919d10 ---------A   01280  PRINT "THE OBJECT OF THE GAME IS TO WIN AS MANY BATTLES AS ";
+    0x55b988919e40 ---------A   01290  PRINT "POSSIBLE."
+    0x55b988919ed0 ---------A   01300  PRINT
+    0x55b98891a040 ---------A   01310  PRINT "YOUR CHOICES FOR DEFENSIVE STRATEGY ARE:"
+    0x55b98891a1b0 ---------A   01320  PRINT "        (1) ARTILLERY ATTACK"
+    0x55b98891a540 ---------A   01330  PRINT "        (2) FORTIFICATION AGAINST FRONTAL ATTACK"
+    0x55b98891a6a0 ---------A   01340  PRINT "        (3) FORTIFICATION AGAINST FLANKING MANEUVERS"
+    0x55b98891a800 ---------A   01350  PRINT "        (4) FALLING BACK"
+    0x55b98891a970 ---------A   01360  PRINT " YOUR CHOICES FOR OFFENSIVE STRATEGY ARE:"
+    0x55b98891aac0 ---------A   01370  PRINT "        (1) ARTILLERY ATTACK"
+    0x55b98891ac20 ---------A   01380  PRINT "        (2) FRONTAL ATTACK"
+    0x55b98891ad70 ---------A   01390  PRINT "        (3) FLANKING MANEUVERS"
+    0x55b98891aee0 ---------A   01400  PRINT "        (4) ENCIRCLEMENT"
+    0x55b98891b060 ---------A   01410  PRINT "YOU MAY SURRENDER BY TYPING A '5' FOR YOUR STRATEGY."
+    0x55b98891b2c0 ---------A T 01420  PRINT : PRINT : PRINT : PRINT "ARE THERE TWO GENERALS PRESENT ";
+    0x55b98891b410 ---------A T 01430  PRINT "(ANSWER YES OR NO)";
+    0x55b98891b570 ---------A   01440  INPUT B$
+    0x55b98891b760 ---------A   01450  IF B$="YES" THEN 1490
+    0x55b98891b970 ---------A   01460  IF B$ <> "NO" THEN 1430
+    0x55b98891bb10 ---------A   01470  PRINT : PRINT "YOU ARE THE CONFEDERACY.   GOOD LUCK!"
+    0x55b98891bb80 ---------A   01480  PRINT
+    0x55b98891bd00 ---------A T 01490  LET D=1
+    0x55b98891bed0 ---------A   01500  IF B$ <> "YES" THEN 1520
+    0x55b98891c080 ---------A   01510  LET D=2
+    0x55b98891c200 ---------A T 01520  PRINT "SELECT A BATTLE BY TYPING A NUMBER FROM 1 TO 14 ON"
+    0x55b98891c390 ---------A   01530  PRINT "REQUEST.  TYPE ANY OTHER NUMBER TO END THE SIMULATION."
+    0x55b98891c4f0 ---------A   01540  PRINT "BUT '0' BRINGS BACK EXACT PREVIOUS BATTLE SITUATION"
+    0x55b98891c630 ---------A   01550  PRINT "ALLOWING YOU TO REPLAY IT"
+    0x55b98891c6d0 ---------A   01560  PRINT
+    0x55b98891c840 ---------A   01570  PRINT "NOTE: A NEGATIVE FOOD$ ENTRY CAUSES THE PROGRAM TO "
+    0x55b98891c990 ---------A   01580  PRINT "USE THE ENTRIES FROM THE PREVIOUS BATTLE"
+    0x55b98891ca20 ---------A   01590  PRINT
+    0x55b98891cba0 ---------A   01600  PRINT "AFTER REQUESTING A BATTLE, DO YOU WISH ";
+    0x55b98891cd00 ---------A   01610  PRINT "BATTLE DESCRIPTIONS ";
+    0x55b98891ce50 ---------A T 01620  PRINT "(ANSWER YES OR NO)";
+    0x55b98891cf30 ---------A   01630  INPUT X$
+    0x55b98891d120 ---------A   01640  IF X$="YES" THEN 1660
+    0x55b98891d730 ---------A   01650  IF X$ <> "NO" THEN 1620
+    0x55b98891e9b0 ---------A T 01660  L=0:W=0:R1=0:Q1=0:M3=0:M4=0:P1=0:P2=0:T1=0:T2=0
+    0x55b988920180 ---------A   01670  F(2)=0:H(2)=0:B(2)=0:R2=0:Q2=0:C6=0:F=0:W0=0:Y=0:Y2=0:U=0:U2=0
+    0x55b9889202b0 ---------A T 01680  PRINT : PRINT : PRINT
+    0x55b988920410 ---------A   01690  PRINT "WHICH BATTLE DO YOU WISH TO SIMULATE";
+    0x55b988920560 ---------A   01700  INPUT A
+    0x55b988920730 ---------A   01710  IF A <> 0 THEN 1730
+    0x55b988920970 ---------A   01720  IF R <> 0 THEN 2000
+    0x55b988920b40 ---------A T 01730  IF A <=0 THEN 3740
+    0x55b988920d00 ---------A   01740  IF A >= 15 THEN 3740
+    0x55b988920f20 ---------A   01750  LET C$=C$(A)
+    0x55b988921130 ---------A   01760  LET M1=M1(A)
+    0x55b988921340 ---------A   01770  LET M2=M2(A)
+    0x55b988921550 ---------A   01780  LET C1=C1(A)
+    0x55b988921760 ---------A   01790  LET C2=C2(A)
+    0x55b988921970 ---------A   01800  LET M=M(A)
+    0x55b988921af0 ---------A   01810  LET U=0
+    0x55b988921b60 ---------A   01820  REM  INFLATION CALC
+    0x55b988921fc0 ---------A   01830  LET I1=10+(L-W)*2
+    0x55b988922420 ---------A   01840  LET I2=10+(W-L)*2
+    0x55b988922490 ---------A   01850  REM - MONEY AVAILABLE
+    0x55b988923120 ---------A   01860  LET D(1)=100*INT((M1*(100-I1)/2000)*(1+(R1-Q1)/(R1+1))+.5)
+    0x55b9889237c0 ---------A   01870  LET D(2)=100*INT(M2*(100-I2)/2000+.5)
+    0x55b9889239c0 ---------A   01880  IF B$ <> "YES" THEN 1910
+    0x55b988924510 ---------A   01890  LET D(2)=100*INT((M2*(100-I2)/2000)*(1+(R2-Q2)/(R2+1))+.5)
+    0x55b988924580 ---------A   01900  REM - MEN   AVAILABLE
+    0x55b988924c20 ---------A T 01910  LET M5=INT(M1*(1+(P1-T1)/(M3+1)))
+    0x55b988925290 ---------A   01920  LET M6=INT(M2*(1+(P2-T2)/(M4+1)))
+    0x55b988925620 ---------A   01930  LET F1=5*M1/6
+    0x55b9889257e0 ---------A   01940  PRINT : PRINT : PRINT : PRINT : PRINT
+    0x55b9889259b0 ---------A   01950  PRINT "THIS IS THE BATTLE OF ";C$
+    0x55b988925b80 ---------A   01960  IF X$="NO" THEN 2010
+    0x55b988925d70 ---------A   01970  IF A>11 THEN 1990
+    0x55b988926540 ---------A   01980  ON A GOTO 4160,4200,4230,4270,4310,4340,4370,4400,4430,4460,4500
+    0x55b9889268e0 ---------A T 01990  ON A-11 GOTO 4530,4560,4590
+    0x55b988926a90 ---------A T 02000  PRINT C$" INSTANT REPLAY"
+    0x55b988926b10 ---------A T 02010  PRINT
+    0x55b988926e10 ---------A   02020  PRINT " ","CONFEDERACY"," UNION"
+    0x55b988927210 ---------A   02030  PRINT "MEN"," "M5," "M6
+    0x55b988927760 ---------A   02040  PRINT "MONEY","$";D(1),"$";D(2)
+    0x55b988927df0 ---------A   02050  PRINT "INFLATION"," ";I1+15;"%"," ";I2;"%"
+    0x55b988927e90 ---------A   02060  PRINT
+    0x55b988927f20 ---------A   02070  REM - ONLY IN PRINTOUT IS CONFED INFLATION = I1+15%
+    0x55b988927fe0 ---------A   02080  REM - IF TWO GENERALS, INPUT CONFED. FIRST
+    0x55b988928250 ---------A   02090  FOR I=1 TO D
+    0x55b988928430 ---------A   02100  IF B$ <> "YES" THEN 2130
+    0x55b988928600 ---------A   02110  IF I=2 THEN 2130
+    0x55b988928790 ---------A   02120  PRINT "CONFEDERATE GENERAL---";
+    0x55b9889288e0 ---------A T 02130  PRINT "HOW MUCH DO YOU WISH TO SPEND FOR"
+    0x55b988928a30 ---------A T 02140  PRINT " - FOOD......";
+    0x55b988928b10 ---------A   02150  INPUT F
+    0x55b988928ce0 ---------A   02160  IF F >= 0 THEN 2230
+    0x55b988928eb0 ---------A   02170  IF R1 <> 0 THEN 2200
+    0x55b988928ff0 ---------A   02180  PRINT "NO PREVIOUS ENTRIES"
+    0x55b988929080 ---------A   02190  GOTO 2140
+    0x55b9889291c0 ---------A T 02200  PRINT "ASSUME YOU WANT TO KEEP SAME ALLOCATIONS"
+    0x55b988929230 ---------A   02210  PRINT
+    0x55b9889292a0 ---------A   02220  GOTO 2380
+    0x55b988929430 ---------A T 02230  LET F(I)=F
+    0x55b988929580 ---------A T 02240  PRINT " - SALARIES..";
+    0x55b9889296b0 ---------A   02250  INPUT H(I)
+    0x55b9889298c0 ---------A   02260  LET N=1
+    0x55b988929ae0 ---------A   02270  IF H(I)<0 THEN 2360
+    0x55b988929c40 ---------A T 02280  PRINT " - AMMUNITION";
+    0x55b98892a580 ---------A   02290  INPUT B(I)
+    0x55b98892a710 ---------A   02300  LET N=2
+    0x55b98892a920 ---------A   02310  IF B(I)<0 THEN 2360
+    0x55b98892a9c0 ---------A   02320  PRINT
+    0x55b98892ae10 ---------A   02330  IF F(I)+H(I)+B(I) <= D(I) THEN 2380
+    0x55b98892b040 ---------A   02340  PRINT "THINK AGAIN! YOU HAVE ONLY $"D(I)
+    0x55b98892b0d0 ---------A   02350  GOTO 2140
+    0x55b98892b210 ---------A T 02360  PRINT "NEGATIVE VALUES NOT ALLOWED."
+    0x55b98892b430 ---------A   02370  ON N GOTO 2240,2280
+    0x55b98892b600 ---------A T 02380  IF B$ <> "YES" THEN 2420
+    0x55b98892b7d0 ---------A   02390  IF I=2 THEN 2420
+    0x55b98892b930 ---------A   02400  PRINT "UNION GENERAL---";
+    0x55b98892b9e0 ---------A   02410  NEXT I
+    0x55b98892bc50 ---------A T 02420  FOR Z=1 TO D
+    0x55b98892be40 ---------A   02430  IF B$ <> "YES" THEN 2490
+    0x55b98892c070 ---------A   02440  ON Z GOTO 2450,2470
+    0x55b98892c1c0 ---------A T 02450  PRINT "CONFEDERATE ";
+    0x55b98892c240 ---------A   02460  GOTO 2490
+    0x55b98892c380 ---------A T 02470  PRINT "      UNION ";
+    0x55b98892c3f0 ---------A   02480  REM - FIND MORALE
+    0x55b98892cca0 ---------A T 02490  LET O=((2*F(Z)^2+H(Z)^2)/F1^2+1)
+    0x55b98892ce60 ---------A   02500  IF O<10 THEN 2530
+    0x55b98892cfa0 ---------A   02510  PRINT "MORALE IS HIGH"
+    0x55b98892d010 ---------A   02520  GOTO 2570
+    0x55b98892d1c0 ---------A T 02530  IF O<5 THEN 2560
+    0x55b98892d300 ---------A   02540  PRINT "MORALE IS FAIR"
+    0x55b98892d380 ---------A   02550  GOTO 2570
+    0x55b98892d4b0 ---------A T 02560  PRINT "MORALE IS POOR"
+    0x55b98892d680 ---------A T 02570  IF B$ <> "YES" THEN 2640
+    0x55b98892d8a0 ---------A   02580  LET O(Z)=O
+    0x55b98892d950 ---------A   02590  NEXT Z
+    0x55b98892dbb0 ---------A   02600  LET O2=O(2)
+    0x55b98892dd90 ---------A   02610  LET O=O(1)
+    0x55b98892df10 ---------A   02620  PRINT "CONFEDERATE GENERAL---";
+    0x55b98892df90 ---------A   02630  REM - ACTUAL OFF/DEF BATTLE SITUATION
+    0x55b98892e170 ---------A T 02640  IF M <> 3 THEN 2670
+    0x55b98892e2c0 ---------A   02650  PRINT "YOU ARE ON THE OFFENSIVE"
+    0x55b98892e340 ---------A   02660  GOTO 2710
+    0x55b98892e4f0 ---------A T 02670  IF M <> 1 THEN 2700
+    0x55b98892e640 ---------A   02680  PRINT "YOU ARE ON THE DEFENSIVE"
+    0x55b98892e6d0 ---------A   02690  GOTO 2710
+    0x55b98892e800 ---------A T 02700  PRINT "BOTH SIDES ARE ON THE OFFENSIVE "
+    0x55b98892e880 ---------A T 02710  PRINT
+    0x55b98892e8f0 ---------A   02720  REM - CHOOSE STRATEGIES
+    0x55b98892eae0 ---------A   02730  IF B$ <> "YES" THEN 2780
+    0x55b98892ed10 ---------A   02740  FOR I=1 TO 2
+    0x55b98892ef40 ---------A   02750  ON I GOTO 2760,2790
+    0x55b98892f090 ---------A T 02760  PRINT "CONFEDERATE STRATEGY ";
+    0x55b98892f110 ---------A   02770  GOTO 2790
+    0x55b98892f250 ---------A T 02780  PRINT "YOUR STRATEGY ";
+    0x55b98892f330 ---------A T 02790  INPUT Y
+    0x55b98892f6c0 ---------A   02800  IF ABS(Y-3)<3 THEN 2830
+    0x55b98892f960 ---------A   02810  PRINT "STRATEGY";Y;"NOT ALLOWED."
+    0x55b98892f9e0 ---------A   02820  GOTO 2780
+    0x55b98892fba0 ---------A T 02830  IF B$="YES" THEN 2870
+    0x55b98892fd60 ---------A   02840  IF Y=5 THEN 3710
+    0x55b98892fde0 ---------A   02850  GOSUB 4630
+    0x55b98892fe40 ---------A   02860  GOTO 3050
+    0x55b98892ffe0 ---------A T 02870  IF I=2 THEN 2910
+    0x55b9889301b0 ---------A   02880  LET Y1=Y
+    0x55b988930300 ---------A T 02890  PRINT "UNION STRATEGY ";
+    0x55b9889303b0 ---------A   02900  NEXT I
+    0x55b9889304f0 ---------A T 02910  LET Y2=Y
+    0x55b988930620 ---------A   02920  LET Y=Y1
+    0x55b9889307e0 ---------A   02930  IF Y2=5 THEN 2890
+    0x55b988930870 ---------A   02940  REM : SIMULATED LOSSES-NORTH
+    0x55b9889311d0 ---------A   02950  LET C6=(2*C2/5)*(1+1/(2*(ABS(Y2-Y)+1)))
+    0x55b988931930 ---------A   02960  LET C6=C6*(1.28+(5*M2/6)/(B(2)+1))
+    0x55b988931e60 ---------A   02970  LET C6=INT(C6*(1+1/O2)+.5)
+    0x55b988931ef0 ---------A   02980  REM - IF LOSS > MEN PRESENT, RESCALE LOSSES
+    0x55b9889321a0 ---------A   02990  LET E2=100/O2
+    0x55b988932420 ---------A   03000  IF INT(C6+E2)<M6 THEN 3060
+    0x55b988932780 ---------A   03010  LET C6=INT(13*M6/20)
+    0x55b988932a70 ---------A   03020  LET E2=7*C6/13
+    0x55b988932bf0 ---------A   03030  LET U2=1
+    0x55b988932c70 ---------A   03040  REM - CALCULATE SIMULATED LOSSES
+    0x55b988932d10 ---------A T 03050  PRINT
+    0x55b988933000 ---------A T 03060  PRINT : PRINT : PRINT ,"CONFEDERACY","UNION"
+    0x55b9889339b0 ---------A   03070  LET C5=(2*C1/5)*(1+1/(2*(ABS(Y2-Y)+1)))
+    0x55b9889342e0 ---------A   03080  LET C5=INT(C5*(1+1/O)*(1.28+F1/(B(1)+1))+.5)
+    0x55b988934590 ---------A   03090  LET E=100/O
+    0x55b988934d00 ---------A   03100  IF C5+100/O<M1*(1+(P1-T1)/(M3+1)) THEN 3140
+    0x55b9889354c0 ---------A   03110  LET C5=INT(13*M1/20*(1+(P1-T1)/(M3+1)))
+    0x55b9889357b0 ---------A   03120  LET E=7*C5/13
+    0x55b988935920 ---------A   03130  LET U=1
+    0x55b988935ae0 ---------A T 03140  IF D=1 THEN 3380
+    0x55b988935d30 ---------A T 03150  PRINT "CASUALTIES",C5,C6
+    0x55b988936020 ---------A   03160  PRINT "DESERTIONS",INT(E),INT(E2)
+    0x55b9889360a0 ---------A   03170  PRINT
+    0x55b988936290 ---------A   03180  IF B$ <> "YES" THEN 3220
+    0x55b988936490 ---------A   03190  PRINT "COMPARED TO THE ACTUAL CASUALTIES AT "C$
+    0x55b988936a50 ---------A   03200  PRINT "CONFEDERATE:"INT(100*(C5/C1)+.5)"% OF THE ORIGINAL"
+    0x55b988936fe0 ---------A   03210  PRINT "UNION:      "INT(100*(C6/C2)+.5)"% OF THE ORIGINAL"
+    0x55b988937050 ---------A T 03220  PRINT
+    0x55b9889370c0 ---------A   03230  REM - 1 WHO ONE
+    0x55b988937290 ---------A   03240  IF U <> 1 THEN 3260
+    0x55b988937450 ---------A   03250  IF U2=1 THEN 3340
+    0x55b988937610 ---------A T 03260  IF U=1 THEN 3300
+    0x55b9889377e0 ---------A   03270  IF U2=1 THEN 3320
+    0x55b988937ab0 ---------A   03280  IF C5+E=C6+E2 THEN 3340
+    0x55b988937d80 ---------A   03290  IF C5+E<C6+E2 THEN 3320
+    0x55b988937f40 ---------A T 03300  PRINT "THE UNION WINS "C$
+    0x55b988937fc0 ---------A   03310  GOTO 3480
+    0x55b988938160 ---------A T 03320  PRINT "THE CONFEDERACY WINS "C$
+    0x55b9889381e0 ---------A   03330  GOTO 3540
+    0x55b988938310 ---------A T 03340  PRINT "BATTLE OUTCOME UNRESOLVED"
+    0x55b988938520 ---------A   03350  LET W0=W0+1
+    0x55b9889386d0 ---------A   03360  IF A=0 THEN 3670
+    0x55b988938760 ---------A   03370  GOTO 3560
+    0x55b988938c20 ---------A T 03380  LET C6=INT(17*C2*C1/(C5*20))
+    0x55b988938e30 ---------A   03390  LET E2=5*O
+    0x55b988938ed0 ---------A   03400  GOTO 3150
+    0x55b988939470 ----------   03410  PRINT "YOUR CASUALTIES WERE "INT(100*(C5/C1)+.5)"% OF "
+    0x55b988939630 ----------   03420  PRINT "THE ACTUAL CASUALTIES AT ";C$
+    0x55b9889396b0 ----------   03430  PRINT
+    0x55b988939720 ---------A   03440  REM - FIND WHO WON
+    0x55b988939900 ----------   03450  IF U=1 THEN 3470
+    0x55b988939ff0 ----------   03460  IF C5+E<17*C2*C1/(C5*20)+5*O THEN 3510
+    0x55b98893a1b0 ---------- T 03470  PRINT "YOU LOSE ";C$
+    0x55b98893a360 ---------A T 03480  IF A=0 THEN 3670
+    0x55b98893a580 ---------A   03490  LET L=L+1
+    0x55b98893a600 ---------A   03500  GOTO 3560
+    0x55b98893a7d0 ---------- T 03510  PRINT "YOU WIN ";C$
+    0x55b98893a860 ---------A   03520  REM - CUMULATIVE BATTLE FACTORS WHICH ALTER HISTORICAL
+    0x55b98893a930 ---------A   03530  REM  RESOURCES AVAILABLE.IF A REPLAY DON'T UPDATE.
+    0x55b98893aaf0 ---------A T 03540  IF A=0 THEN 3670
+    0x55b98893ad10 ---------A   03550  LET W=W+1
+    0x55b98893af80 ---------A T 03560  LET T1=T1+C5+E
+    0x55b988929eb0 ---------A   03570  LET T2=T2+C6+E2
+    0x55b98892a080 ---------A   03580  LET P1=P1+C1
+    0x55b98892a260 ---------A   03590  LET P2=P2+C2
+    0x55b98893c2f0 ---------A   03600  LET Q1=Q1+(F(1)+H(1)+B(1))
+    0x55b98893c830 ---------A   03610  LET Q2=Q2+(F(2)+H(2)+B(2))
+    0x55b98893ccb0 ---------A   03620  LET R1=R1+M1*(100-I1)/20
+    0x55b98893d120 ---------A   03630  LET R2=R2+M2*(100-I2)/20
+    0x55b98893d2f0 ---------A   03640  LET M3=M3+M1
+    0x55b98893d4c0 ---------A   03650  LET M4=M4+M2
+    0x55b98893d530 ---------A   03660  GOSUB 4840
+    0x55b98893d7f0 ---------A T 03670  U=0:U2=0
+    0x55b98893d920 ---------A   03680  PRINT "---------------"
+    0x55b98893d9a0 ---------A   03690  GOTO 1680
+    0x55b98893da00 ---------A   03700  REM------FINISH OFF
+    0x55b98893db70 ---------A T 03710  PRINT "THE CONFEDERACY HAS SURRENDERED"
+    0x55b98893dc00 ---------A   03720  GOTO 3740
+    0x55b98893dd50 ----------   03730  PRINT "THE UNION HAS SURRENDERED."
+    0x55b98893df60 ---------A T 03740  PRINT : PRINT : PRINT : PRINT : PRINT : PRINT
+    0x55b98893e0d0 ---------A   03750  PRINT "THE CONFEDERACY ";
+    0x55b98893e3e0 ---------A   03760  PRINT "HAS WON "W" BATTLES AND LOST "L
+    0x55b98893e590 ---------A   03770  IF Y=5 THEN 3830
+    0x55b98893e760 ---------A   03780  IF Y2=5 THEN 3810
+    0x55b98893e8e0 ---------A   03790  IF W <= L THEN 3830
+    0x55b98893eac0 ---------A   03800  IF Y=5 THEN 3830
+    0x55b98893ec10 ---------A T 03810  PRINT "THE CONFEDERACY HAS WON THE WAR"
+    0x55b98893ec90 ---------A   03820  GOTO 3840
+    0x55b98893edc0 ---------A T 03830  PRINT "THE UNION HAS WON THE WAR"
+    0x55b98893ee30 ---------A T 03840  PRINT
+    0x55b98893f010 ---------A   03850  IF R1=0 THEN 3990
+    0x55b98893f410 ---------A   03860  PRINT "FOR THE "W+L+W0" BATTLES FOUGHT (EXCUDING RERUNS)"
+    0x55b98893f730 ---------A   03870  PRINT " "," "," ";
+    0x55b98893f960 ---------A   03880  PRINT "CONFEDERACY"," UNION"
+    0x55b98893fe30 ---------A   03890  PRINT "HISTORICAL LOSSES",INT(P1+.5),INT(P2+.5)
+    0x55b9889402e0 ---------A   03900  PRINT "SIMULATED LOSSES",INT(T1+.5),INT(T2+.5)
+    0x55b988940380 ---------A   03910  PRINT
+    0x55b988940bc0 ---------A   03920  PRINT "    % OF ORIGINAL",INT(100*(T1/P1)+.5),INT(100*(T2/P2)+.5)
+    0x55b988940d90 ---------A   03930  IF B$="YES" THEN 3990
+    0x55b988940e40 ---------A   03940  PRINT
+    0x55b988940fc0 ---------A   03950  PRINT "UNION INTELLIGENCE SUGGESTS THAT THE SOUTH USED "
+    0x55b988941120 ---------A   03960  PRINT "STRATEGIES 1, 2, 3, 4 IN THE FOLLOWING PERCENTAGES"
+    0x55b988941690 ---------A   03970  PRINT S(1);S2(2);S(3);S(4)
+    0x55b988941710 ---------A   03980  REM---------------------------------
+    0x55b988941770 ---------A T 03990  STOP
+    0x55b9889444f0 ---------A   04000  REM - HISTORICAL DATA...CAN ADD MORE (STRAT.,ETC) BY INSERTING
+    0x55b9889445d0 ---------A   04010  REM   DATA STATEMENTS AFTER APPRO. INFO, AND ADJUSTING READ
+    0x55b988944b10 ---------A   04020  DATA "BULL RUN",18000,18500,1967,2708,1
+    0x55b988945020 ---------A   04030  DATA "SHILOH",40000.,44894.,10699,13047,3
+    0x55b988945540 ---------A   04040  DATA "SEVEN DAYS",95000.,115000.,20614,15849,3
+    0x55b988945a50 ---------A   04050  DATA "SECOND BULL RUN",54000.,63000.,10000,14000,2
+    0x55b988945f60 ---------A   04060  DATA "ANTIETAM",40000.,50000.,10000,12000,3
+    0x55b988946470 ---------A   04070  DATA "FREDERICKSBURG",75000.,120000.,5377,12653,1
+    0x55b988946990 ---------A   04080  DATA "MURFREESBORO",38000.,45000.,11000,12000,1
+    0x55b988946ea0 ---------A   04090  DATA "CHANCELLORSVILLE",32000,90000.,13000,17197,2
+    0x55b9889473b0 ---------A   04100  DATA "VICKSBURG",50000.,70000.,12000,19000,1
+    0x55b9889478c0 ---------A   04110  DATA "GETTYSBURG",72500.,85000.,20000,23000,3
+    0x55b988947dd0 ---------A   04120  DATA "CHICKAMAUGA",66000.,60000.,18000,16000,2
+    0x55b9889482e0 ---------A   04130  DATA "CHATTANOOGA",37000.,60000.,36700.,5800,2
+    0x55b9889487f0 ---------A   04140  DATA "SPOTSYLVANIA",62000.,110000.,17723,18000,2
+    0x55b988948d20 ---------A   04150  DATA "ATLANTA",65000.,100000.,8500,3700,1
+    0x55b988948eb0 ---------A T 04160  PRINT "JULY 21, 1861.  GEN. BEAUREGARD, COMMANDING THE SOUTH, MET"
+    0x55b988949040 ---------A   04170  PRINT "UNION FORCES WITH GEN. MCDOWELL IN A PREMATURE BATTLE AT"
+    0x55b9889491a0 ---------A   04180  PRINT "BULL RUN. GEN. JACKSON HELPED PUSH BACK THE UNION ATTACK."
+    0x55b988949240 ---------A   04190  GOTO 2010
+    0x55b9889493a0 ---------A T 04200  PRINT "APRIL 6-7, 1862.  THE CONFEDERATE SURPRISE ATTACK AT"
+    0x55b9889494f0 ---------A   04210  PRINT "SHILOH FAILED DUE TO POOR ORGANIZATION."
+    0x55b988949590 ---------A   04220  GOTO 2010
+    0x55b988949700 ---------A T 04230  PRINT "JUNE 25-JULY 1, 1862.  GENERAL LEE (CSA) UPHELD THE"
+    0x55b988949880 ---------A   04240  PRINT "OFFENSIVE THROUGHOUT THE BATTLE AND FORCED GEN. MCCLELLAN"
+    0x55b9889499d0 ---------A   04250  PRINT "AND THE UNION FORCES AWAY FROM RICHMOND."
+    0x55b988949a70 ---------A   04260  GOTO 2010
+    0x55b988949be0 ---------A T 04270  PRINT "AUG 29-30, 1862.  THE COMBINED CONFEDERATE FORCES UNDER";
+    0x55b988949d40 ---------A   04280  PRINT " LEE"
+    0x55b988949ea0 ---------A   04290  PRINT "AND JACKSON DROVE THE UNION FORCES BACK INTO WASHINGTON."
+    0x55b988949f40 ---------A   04300  GOTO 2010
+    0x55b98894a0a0 ---------A T 04310  PRINT "SEPT 17, 1862.  THE SOUTH FAILED TO INCORPORATE MARYLAND"
+    0x55b98894a1d0 ---------A   04320  PRINT "INTO THE CONFEDERACY."
+    0x55b98894a270 ---------A   04330  GOTO 2010
+    0x55b98894a3e0 ---------A T 04340  PRINT "DEC 13, 1862.  THE CONFEDERACY UNDER LEE SUCCESSFULLY"
+    0x55b98894a530 ---------A   04350  PRINT "REPULSED AN ATTACK BY THE UNION UNDER GEN. BURNSIDE."
+    0x55b98894a5d0 ---------A   04360  GOTO 2010
+    0x55b98894a740 ---------A T 04370  PRINT "DEC 31, 1862.  THE SOUTH UNDER GEN. BRAGG WON A CLOSE ";
+    0x55b98894a870 ---------A   04380  PRINT "BATTLE."
+    0x55b98894a910 ---------A   04390  GOTO 2010
+    0x55b98894aa90 ---------A T 04400  PRINT "MAY 1-6, 1863.  THE SOUTH HAD A COSTLY VICTORY AND LOST"
+    0x55b98894abf0 ---------A   04410  PRINT "ONE OF THEIR OUTSTANDING GENERALS, 'STONEWALL' JACKSON."
+    0x55b98894aca0 ---------A   04420  GOTO 2010
+    0x55b98894ae20 ---------A T 04430  PRINT "JULY 4, 1863.  VICKSBURG WAS A COSTLY DEFEAT FOR THE SOUTH"
+    0x55b98894af70 ---------A   04440  PRINT "BECAUSE IT GAVE THE UNION ACCESS TO THE MISSISSIPPI."
+    0x55b98894b010 ---------A   04450  GOTO 2010
+    0x55b98894b180 ---------A T 04460  PRINT "JULY 1-3, 1863.  A SOUTHERN MISTAKE BY GEN. LEE AT ";
+    0x55b98894b2e0 ---------A   04470  PRINT "GETTYSBURG"
+    0x55b98894b430 ---------A   04480  PRINT "COST THEM ONE OF THE MOST CRUCIAL BATTLES OF THE WAR."
+    0x55b98894b4e0 ---------A   04490  GOTO 2010
+    0x55b98894b650 ---------A T 04500  PRINT "SEPT. 15, 1863. CONFUSION IN A FOREST NEAR CHICKAMAUGA LED"
+    0x55b98894b790 ---------A   04510  PRINT "TO A COSTLY SOUTHERN VICTORY."
+    0x55b98894b840 ---------A   04520  GOTO 2010
+    0x55b98894b9c0 ---------A T 04530  PRINT "NOV. 25, 1863. AFTER THE SOUTH HAD SIEGED GEN. ROSENCRANS'"
+    0x55b98894bb10 ---------A   04540  PRINT "ARMY FOR THREE MONTHS, GEN. GRANT BROKE THE SIEGE."
+    0x55b98894bbb0 ---------A   04550  GOTO 2010
+    0x55b98894bd30 ---------A T 04560  PRINT "MAY 5, 1864.  GRANT'S PLAN TO KEEP LEE ISOLATED BEGAN TO"
+    0x55b98894be90 ---------A   04570  PRINT "FAIL HERE, AND CONTINUED AT COLD HARBOR AND PETERSBURG."
+    0x55b98894bf30 ---------A   04580  GOTO 2010
+    0x55b98894c0b0 ---------A T 04590  PRINT "AUGUST, 1864.  SHERMAN AND THREE VETERAN ARMIES CONVERGED"
+    0x55b98894c210 ---------A   04600  PRINT "ON ATLANTA AND DEALT THE DEATH BLOW TO THE CONFEDERACY."
+    0x55b98894c280 ---------A   04610  GOTO 2010
+    0x55b98894c2c0 ---------A   04620  END
+    0x55b988955980 ---------B G 04630 GOTO 4650 (Pseudo Goto)
+    0x55b988941820 ---------B   04640  REM - UNION STRATEGY IS COMPUTER CHOSEN
+    0x55b9889419a0 ---------B T 04650  PRINT "UNION STRATEGY IS ";
+    0x55b988941b50 ---------B   04660  IF A <> 0 THEN 4720
+    0x55b988941c40 ---------B T 04670  INPUT Y2
+    0x55b988941e00 ---------B   04680  IF Y2 <=0 THEN 4700
+    0x55b988941ff0 ---------B   04690  IF Y2<5 THEN 4830
+    0x55b988942160 ---------B T 04700  PRINT "ENTER 1 , 2 ,3 , OR 4 (USUALLY PREVIOUS UNION STRATEGY)"
+    0x55b9889421d0 ---------B   04710  GOTO 4670
+    0x55b9889423b0 ---------B T 04720  LET S0=0
+    0x55b988942660 ---------B   04730  LET R=100*RND(0)
+    0x55b988942870 ---------B   04740  FOR I=1 TO 4
+    0x55b988942ae0 ---------B   04750  LET S0=S0+S(I)
+    0x55b988942b80 ---------B   04760  REM - IF ACTUAL STRATEGY INFO IS IN PROGRAM DATA STATEMENTS
+    0x55b988942c50 ---------B   04770  REM   THEN R-100 IS EXTRA WEIGHT GIVEN TO THAT STATEGY.
+    0x55b988942dd0 ---------B   04780  IF R<S0 THEN 4810
+    0x55b988942e90 ---------B   04790  NEXT I
+    0x55b988942f60 ---------B   04800  REM - IF ACTUAL STRAT. IN,THEN HERE IS Y2= HIST. STRAT.
+    0x55b9889430a0 ---------B T 04810  LET Y2=I
+    0x55b988943170 ---------B   04820  PRINT Y2
+    0x55b9889431c0 ---------B T 04830  RETURN
+    0x55b988955a60 ---------C G 04840 GOTO 4880 (Pseudo Goto)
+    0x55b988943290 ---------C   04850  REM LEARN  PRESENT STRATEGY, START FORGETTING OLD ONES
+    0x55b988943370 ---------C   04860  REM - PRESENT STRATEGY OF SOUTH GAINS 3*S, OTHERS LOSE S
+    0x55b988943450 ---------C   04870  REM   PROBABILITY POINTS, UNLESS A STRATEGY FALLS BELOW 5%.
+    0x55b988943650 ---------C T 04880  LET S=3
+    0x55b9889437c0 ---------C   04890  LET S0=0
+    0x55b9889439e0 ---------C   04900  FOR I=1 TO 4
+    0x55b988943c00 ---------C   04910  IF S(I) <= 5 THEN 4940
+    0x55b988943ea0 ---------C   04920  LET S(I)=S(I)-S
+    0x55b988944070 ---------C   04930  LET S0=S0+S
+    0x55b988944120 ---------C T 04940  NEXT I
+    0x55b9889443c0 ---------C   04950  LET S(Y)=S(Y)+S0
+    0x55b988944410 ---------C   04960  RETURN
+ */
+
+//---------------------------------------------------------------------------
+// $Header$ 
+//
+// NOTE: This program has been automatically tranlated by b2c
+//
+// $Log$ 
+// 
+//---------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+//---------------------------------------------------------------------------
+// Global data area.
+//---------------------------------------------------------------------------
+char* data_04020s[]={"BULL RUN","18000","18500","1967","2708","1"};
+char* data_04030s[]={"SHILOH","40000.","44894.","10699","13047","3"};
+char* data_04040s[]={"SEVEN DAYS","95000.","115000.","20614","15849","3"};
+char* data_04050s[]={"SECOND BULL RUN","54000.","63000.","10000","14000","2"};
+char* data_04060s[]={"ANTIETAM","40000.","50000.","10000","12000","3"};
+char* data_04070s[]={"FREDERICKSBURG","75000.","120000.","5377","12653","1"};
+char* data_04080s[]={"MURFREESBORO","38000.","45000.","11000","12000","1"};
+char* data_04090s[]={"CHANCELLORSVILLE","32000","90000.","13000","17197","2"};
+char* data_04100s[]={"VICKSBURG","50000.","70000.","12000","19000","1"};
+char* data_04110s[]={"GETTYSBURG","72500.","85000.","20000","23000","3"};
+char* data_04120s[]={"CHICKAMAUGA","66000.","60000.","18000","16000","2"};
+char* data_04130s[]={"CHATTANOOGA","37000.","60000.","36700.","5800","2"};
+char* data_04140s[]={"SPOTSYLVANIA","62000.","110000.","17723","18000","2"};
+char* data_04150s[]={"ATLANTA","65000.","100000.","8500","3700","1"};
+//---------------------------------------------------------------------------
+
+
+
+
+typedef enum {TYPE_None,TYPE_Integer,TYPE_Float,TYPE_String}t_type;
+typedef struct{
+    int    LineNum;
+    int    Size;
+    char** SData;
+}t_data;
+t_data ProgramData[] = {
+    { 4020,  6,data_04020s},
+    { 4030,  6,data_04030s},
+    { 4040,  6,data_04040s},
+    { 4050,  6,data_04050s},
+    { 4060,  6,data_04060s},
+    { 4070,  6,data_04070s},
+    { 4080,  6,data_04080s},
+    { 4090,  6,data_04090s},
+    { 4100,  6,data_04100s},
+    { 4110,  6,data_04110s},
+    { 4120,  6,data_04120s},
+    { 4130,  6,data_04130s},
+    { 4140,  6,data_04140s},
+    { 4150,  6,data_04150s},
+    {    0,  0,nullptr       }
+};
+
+#include "intrinsics.h"
+
+
+//---------------------------------------------------------------------------
+// Global variable area.
+//
+// NOTE: Variable names are long to allow for easy editing.
+//---------------------------------------------------------------------------
+int   A_int;        // Comments?
+int   B_int_arr[10];// Comments?
+char* B_str;        // Comments?
+char* C_str_arr[15];// Comments?
+char* C_str;        // Comments?
+int   C1_int_arr[15];   // Comments?
+int   C1_int;       // Comments?
+int   C2_int_arr[15];   // Comments?
+int   C2_int;       // Comments?
+int   C5_int;       // Comments?
+int   C6_int;       // Comments?
+int   D_int;        // Comments?
+int   D_int_arr[10];// Comments?
+int   E_int;        // Comments?
+int   E2_int;       // Comments?
+int   F_int_arr[10];// Comments?
+int   F_int;        // Comments?
+int   F1_int;       // Comments?
+int   H_int_arr[10];// Comments?
+int   I_int;        // Comments?
+int   I1_int;       // Comments?
+int   I2_int;       // Comments?
+int   L_int;        // Comments?
+int   M_int_arr[15];// Comments?
+int   M_int;        // Comments?
+int   M1_int_arr[15];   // Comments?
+int   M1_int;       // Comments?
+int   M2_int_arr[15];   // Comments?
+int   M2_int;       // Comments?
+int   M3_int;       // Comments?
+int   M4_int;       // Comments?
+int   M5_int;       // Comments?
+int   M6_int;       // Comments?
+int   N_int;        // Comments?
+int   O_int;        // Comments?
+int   O_int_arr[10];// Comments?
+int   O2_int;       // Comments?
+int   P1_int;       // Comments?
+int   P2_int;       // Comments?
+int   Q1_int;       // Comments?
+int   Q2_int;       // Comments?
+int   R_int;        // Comments?
+int   R1_int;       // Comments?
+int   R2_int;       // Comments?
+int   S_int_arr[5]; // Comments?
+int   S_int;        // Comments?
+int   S0_int;       // Comments?
+int   S2_int_arr[10];   // Comments?
+int   T1_int;       // Comments?
+int   T2_int;       // Comments?
+int   U_int;        // Comments?
+int   U2_int;       // Comments?
+int   W_int;        // Comments?
+int   W0_int;       // Comments?
+char* X_str;        // Comments?
+int   Y_int;        // Comments?
+int   Y1_int;       // Comments?
+int   Y2_int;       // Comments?
+int   Z_int;        // Comments?
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+char* GLBpStr=nullptr;
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+// Subroutine Prototypes.
+//---------------------------------------------------------------------------
+void Routine_04630();
+void Routine_04840();
+
+//---------------------------------------------------------------------------
+// Program Functions.
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+// Program Subroutines.
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+// Routine B
+//---------------------------------------------------------------------------
+
+void Routine_04630(){
+    // 04630 GOTO 4650 (Pseudo Goto)
+    goto Lbl_04650;
+    // 04640  REM - UNION STRATEGY IS COMPUTER CHOSEN
+
+  Lbl_04650:
+    // 04650  PRINT "UNION STRATEGY IS ";
+    b2c_fprintf(stdout,"UNION STRATEGY IS "); 
+    // 04660  IF A <> 0 THEN 4720
+    if(A_int!=0)goto Lbl_04720;
+
+  Lbl_04670:
+    // 04670  INPUT Y2
+    // Start of Basic INPUT statement 04670
+    printf(" ? ");
+    char inpbuf_04670[100];
+    if(fgets(inpbuf_04670,100,stdin)==nullptr){
+        fprintf(stderr,"ERROR: End of file on input.\n");
+        exit(2);
+    }else{
+        char *ps_04670=strtok(inpbuf_04670," ,\t\n");
+        // This may cause problems if BASIC programmer expected
+        // input strings to be copied instead of just pointing
+        // to the input buffer (ie. strings can be over written).
+        if(ps_04670==nullptr){
+            Y2_int = 0;
+        }else{
+            Y2_int = atof(ps_04670);
+        };
+    }; // End of Basic INPUT statement 04670
+    // 04680  IF Y2 <=0 THEN 4700
+    if(Y2_int<=0)goto Lbl_04700;
+    // 04690  IF Y2<5 THEN 4830
+    if(Y2_int<5)goto Lbl_04830;
+
+  Lbl_04700:
+    // 04700  PRINT "ENTER 1 , 2 ,3 , OR 4 (USUALLY PREVIOUS UNION STRATEGY)"
+    b2c_fprintf(stdout,"ENTER 1 , 2 ,3 , OR 4 (USUALLY PREVIOUS UNION STRATEGY)"); b2c_fprintf(stdout,"\n");
+    // 04710  GOTO 4670
+    goto Lbl_04670;
+
+  Lbl_04720:
+    // 04720  LET S0=0
+    S0_int = 0;
+    // 04730  LET R=100*RND(0)
+    R_int = 100*RND(0);
+    // 04740  FOR I=1 TO 4
+    for(I_int=1;I_int<=4;I_int++){
+        // 04750  LET S0=S0+S(I)
+        S0_int = S0_int+S_int_arr[(int)I_int];
+        // 04760  REM - IF ACTUAL STRATEGY INFO IS IN PROGRAM DATA STATEMENTS
+        // 04770  REM   THEN R-100 IS EXTRA WEIGHT GIVEN TO THAT STATEGY.
+        // 04780  IF R<S0 THEN 4810
+        if(R_int<S0_int)goto Lbl_04810;
+        // 04790  NEXT I
+        int dummy_4790=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 04800  REM - IF ACTUAL STRAT. IN,THEN HERE IS Y2= HIST. STRAT.
+
+  Lbl_04810:
+    // 04810  LET Y2=I
+    Y2_int = I_int;
+    // 04820  PRINT Y2
+    b2c_fprintf(stdout," %d ",Y2_int); b2c_fprintf(stdout,"\n");
+
+  Lbl_04830:
+    // 04830  RETURN
+    return;
+};
+
+
+//---------------------------------------------------------------------------
+// Routine C
+//---------------------------------------------------------------------------
+
+void Routine_04840(){
+    // 04840 GOTO 4880 (Pseudo Goto)
+    goto Lbl_04880;
+    // 04850  REM LEARN  PRESENT STRATEGY, START FORGETTING OLD ONES
+    // 04860  REM - PRESENT STRATEGY OF SOUTH GAINS 3*S, OTHERS LOSE S
+    // 04870  REM   PROBABILITY POINTS, UNLESS A STRATEGY FALLS BELOW 5%.
+
+  Lbl_04880:
+    // 04880  LET S=3
+    S_int = 3;
+    // 04890  LET S0=0
+    S0_int = 0;
+    // 04900  FOR I=1 TO 4
+    for(I_int=1;I_int<=4;I_int++){
+        // 04910  IF S(I) <= 5 THEN 4940
+        if(S_int_arr[(int)I_int]<=5)goto Lbl_04940;
+        // 04920  LET S(I)=S(I)-S
+        S_int_arr[(int)I_int] = S_int_arr[(int)I_int]-S_int;
+        // 04930  LET S0=S0+S
+        S0_int = S0_int+S_int;
+
+  Lbl_04940:
+        // 04940  NEXT I
+        int dummy_4940=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 04950  LET S(Y)=S(Y)+S0
+    S_int_arr[(int)Y_int] = S_int_arr[(int)Y_int]+S0_int;
+    // 04960  RETURN
+    return;
+};
+
+//---------------------------------------------------------------------------
+// Main Program.
+//---------------------------------------------------------------------------
+#pragma argsused
+int main(int argc,char *argv[])
+{
+    // 01000 PRINT TAB(10006) "CIVIL WAR"
+    b2c_fprintf(stdout,"%sCIVIL WAR",TAB(26)); b2c_fprintf(stdout,"\n");
+    // 01010 PRINT TAB(15) "CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    b2c_fprintf(stdout,"%sCREATIVE COMPUTING  MORRISTOWN, NEW JERSEY",TAB(15)); b2c_fprintf(stdout,"\n");
+    // 01020 PRINT : PRINT : PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 01030 REM ORIGINAL GAME DESIGN: CRAM, GOODIE, HIBBARD LEXINGTON H.S.
+    // 01040 REM MODIFICATIONS: G. PAUL, R. HESS (TIES), 1973
+    // 01050  DIM S(4),C$(14),M1(14),M2(14),C1(14),C2(14),M(14)
+    // 01060  REM UNION INFO ON LIKELY CONFEDERATE STRATEGY
+    // 01070  S(1)=25 : S(2)=25 : S(3)=25 : S(4)=25
+    S_int_arr[(int)4] = 25;
+    // 01080  REM READ HISTORICAL DATA.
+    // 01090  FOR D=1 TO 14
+    for(D_int=1;D_int<=14;D_int++){
+        // 01100  READ C$(D),M1(D),M2(D),C1(D),C2(D),M(D)
+        C_str_arr[(int)D_int] = Get_Data_String();
+        M1_int_arr[(int)D_int] = Get_Data_Int();
+        M2_int_arr[(int)D_int] = Get_Data_Int();
+        C1_int_arr[(int)D_int] = Get_Data_Int();
+        C2_int_arr[(int)D_int] = Get_Data_Int();
+        M_int_arr[(int)D_int] = Get_Data_Int();
+        // 01110  NEXT D
+        int dummy_1110=0; // Ignore this line.
+    }; // End-For(D_int)
+    // 01120  LET D=RND(-1)
+    D_int = RND(-1);
+    // 01130  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 01140  PRINT "DO YOU WANT INSTRUCTIONS";
+    b2c_fprintf(stdout,"DO YOU WANT INSTRUCTIONS"); 
+
+  Lbl_01150:
+    // 01150  INPUT X$
+    // Start of Basic INPUT statement 01150
+    printf(" ? ");
+    char inpbuf_01150[100];
+    if(fgets(inpbuf_01150,100,stdin)==nullptr){
+        fprintf(stderr,"ERROR: End of file on input.\n");
+        exit(2);
+    }else{
+        char *ps_01150=strtok(inpbuf_01150," ,\t\n");
+        // This may cause problems if BASIC programmer expected
+        // input strings to be copied instead of just pointing
+        // to the input buffer (ie. strings can be over written).
+        if(ps_01150==nullptr){
+            X_str = "";
+        }else{
+            X_str = ps_01150;
+        };
+    }; // End of Basic INPUT statement 01150
+    // 01160  IF X$="YES" THEN 1200
+    if(strcmp(X_str,"YES")==0)goto Lbl_01200;
+    // 01170  IF X$="NO" THEN 1420
+    if(strcmp(X_str,"NO")==0)goto Lbl_01420;
+    // 01180  PRINT "YES OR NO -- ";
+    b2c_fprintf(stdout,"YES OR NO -- "); 
+    // 01190  GOTO 1150
+    goto Lbl_01150;
+
+  Lbl_01200:
+    // 01200  PRINT : PRINT : PRINT : PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 01210  PRINT "THIS IS A CIVIL WAR SIMULATION."
+    b2c_fprintf(stdout,"THIS IS A CIVIL WAR SIMULATION."); b2c_fprintf(stdout,"\n");
+    // 01220  PRINT "TO PLAY TYPE A RESPONSE WHEN THE COMPUTER ASKS."
+    b2c_fprintf(stdout,"TO PLAY TYPE A RESPONSE WHEN THE COMPUTER ASKS."); b2c_fprintf(stdout,"\n");
+    // 01230  PRINT "REMEMBER THAT ALL FACTORS ARE INTERRELATED AND THAT YOUR"
+    b2c_fprintf(stdout,"REMEMBER THAT ALL FACTORS ARE INTERRELATED AND THAT YOUR"); b2c_fprintf(stdout,"\n");
+    // 01240  PRINT "RESPONSES COULD CHANGE HISTORY. FACTS AND FIGURES USED ARE"
+    b2c_fprintf(stdout,"RESPONSES COULD CHANGE HISTORY. FACTS AND FIGURES USED ARE"); b2c_fprintf(stdout,"\n");
+    // 01250  PRINT "BASED ON THE ACTUAL OCCURRENCE. MOST BATTLES TEND TO RESULT"
+    b2c_fprintf(stdout,"BASED ON THE ACTUAL OCCURRENCE. MOST BATTLES TEND TO RESULT"); b2c_fprintf(stdout,"\n");
+    // 01260  PRINT "AS THEY DID IN THE CIVIL WAR, BUT IT ALL DEPENDS ON YOU!!"
+    b2c_fprintf(stdout,"AS THEY DID IN THE CIVIL WAR, BUT IT ALL DEPENDS ON YOU!!"); b2c_fprintf(stdout,"\n");
+    // 01270  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 01280  PRINT "THE OBJECT OF THE GAME IS TO WIN AS MANY BATTLES AS ";
+    b2c_fprintf(stdout,"THE OBJECT OF THE GAME IS TO WIN AS MANY BATTLES AS "); 
+    // 01290  PRINT "POSSIBLE."
+    b2c_fprintf(stdout,"POSSIBLE."); b2c_fprintf(stdout,"\n");
+    // 01300  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 01310  PRINT "YOUR CHOICES FOR DEFENSIVE STRATEGY ARE:"
+    b2c_fprintf(stdout,"YOUR CHOICES FOR DEFENSIVE STRATEGY ARE:"); b2c_fprintf(stdout,"\n");
+    // 01320  PRINT "        (1) ARTILLERY ATTACK"
+    b2c_fprintf(stdout,"        (1) ARTILLERY ATTACK"); b2c_fprintf(stdout,"\n");
+    // 01330  PRINT "        (2) FORTIFICATION AGAINST FRONTAL ATTACK"
+    b2c_fprintf(stdout,"        (2) FORTIFICATION AGAINST FRONTAL ATTACK"); b2c_fprintf(stdout,"\n");
+    // 01340  PRINT "        (3) FORTIFICATION AGAINST FLANKING MANEUVERS"
+    b2c_fprintf(stdout,"        (3) FORTIFICATION AGAINST FLANKING MANEUVERS"); b2c_fprintf(stdout,"\n");
+    // 01350  PRINT "        (4) FALLING BACK"
+    b2c_fprintf(stdout,"        (4) FALLING BACK"); b2c_fprintf(stdout,"\n");
+    // 01360  PRINT " YOUR CHOICES FOR OFFENSIVE STRATEGY ARE:"
+    b2c_fprintf(stdout," YOUR CHOICES FOR OFFENSIVE STRATEGY ARE:"); b2c_fprintf(stdout,"\n");
+    // 01370  PRINT "        (1) ARTILLERY ATTACK"
+    b2c_fprintf(stdout,"        (1) ARTILLERY ATTACK"); b2c_fprintf(stdout,"\n");
+    // 01380  PRINT "        (2) FRONTAL ATTACK"
+    b2c_fprintf(stdout,"        (2) FRONTAL ATTACK"); b2c_fprintf(stdout,"\n");
+    // 01390  PRINT "        (3) FLANKING MANEUVERS"
+    b2c_fprintf(stdout,"        (3) FLANKING MANEUVERS"); b2c_fprintf(stdout,"\n");
+    // 01400  PRINT "        (4) ENCIRCLEMENT"
+    b2c_fprintf(stdout,"        (4) ENCIRCLEMENT"); b2c_fprintf(stdout,"\n");
+    // 01410  PRINT "YOU MAY SURRENDER BY TYPING A '5' FOR YOUR STRATEGY."
+    b2c_fprintf(stdout,"YOU MAY SURRENDER BY TYPING A '5' FOR YOUR STRATEGY."); b2c_fprintf(stdout,"\n");
+
+  Lbl_01420:
+    // 01420  PRINT : PRINT : PRINT : PRINT "ARE THERE TWO GENERALS PRESENT ";
+    b2c_fprintf(stdout,"ARE THERE TWO GENERALS PRESENT "); 
+
+  Lbl_01430:
+    // 01430  PRINT "(ANSWER YES OR NO)";
+    b2c_fprintf(stdout,"(ANSWER YES OR NO)"); 
+    // 01440  INPUT B$
+    // Start of Basic INPUT statement 01440
+    printf(" ? ");
+    char inpbuf_01440[100];
+    if(fgets(inpbuf_01440,100,stdin)==nullptr){
+        fprintf(stderr,"ERROR: End of file on input.\n");
+        exit(2);
+    }else{
+        char *ps_01440=strtok(inpbuf_01440," ,\t\n");
+        // This may cause problems if BASIC programmer expected
+        // input strings to be copied instead of just pointing
+        // to the input buffer (ie. strings can be over written).
+        if(ps_01440==nullptr){
+            B_str = "";
+        }else{
+            B_str = ps_01440;
+        };
+    }; // End of Basic INPUT statement 01440
+    // 01450  IF B$="YES" THEN 1490
+    if(strcmp(B_str,"YES")==0)goto Lbl_01490;
+    // 01460  IF B$ <> "NO" THEN 1430
+    if(strcmp(B_str,"NO")!=0)goto Lbl_01430;
+    // 01470  PRINT : PRINT "YOU ARE THE CONFEDERACY.   GOOD LUCK!"
+    b2c_fprintf(stdout,"YOU ARE THE CONFEDERACY.   GOOD LUCK!"); b2c_fprintf(stdout,"\n");
+    // 01480  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+
+  Lbl_01490:
+    // 01490  LET D=1
+    D_int = 1;
+    // 01500  IF B$ <> "YES" THEN 1520
+    if(strcmp(B_str,"YES")!=0)goto Lbl_01520;
+    // 01510  LET D=2
+    D_int = 2;
+
+  Lbl_01520:
+    // 01520  PRINT "SELECT A BATTLE BY TYPING A NUMBER FROM 1 TO 14 ON"
+    b2c_fprintf(stdout,"SELECT A BATTLE BY TYPING A NUMBER FROM 1 TO 14 ON"); b2c_fprintf(stdout,"\n");
+    // 01530  PRINT "REQUEST.  TYPE ANY OTHER NUMBER TO END THE SIMULATION."
+    b2c_fprintf(stdout,"REQUEST.  TYPE ANY OTHER NUMBER TO END THE SIMULATION."); b2c_fprintf(stdout,"\n");
+    // 01540  PRINT "BUT '0' BRINGS BACK EXACT PREVIOUS BATTLE SITUATION"
+    b2c_fprintf(stdout,"BUT '0' BRINGS BACK EXACT PREVIOUS BATTLE SITUATION"); b2c_fprintf(stdout,"\n");
+    // 01550  PRINT "ALLOWING YOU TO REPLAY IT"
+    b2c_fprintf(stdout,"ALLOWING YOU TO REPLAY IT"); b2c_fprintf(stdout,"\n");
+    // 01560  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 01570  PRINT "NOTE: A NEGATIVE FOOD$ ENTRY CAUSES THE PROGRAM TO "
+    b2c_fprintf(stdout,"NOTE: A NEGATIVE FOOD$ ENTRY CAUSES THE PROGRAM TO "); b2c_fprintf(stdout,"\n");
+    // 01580  PRINT "USE THE ENTRIES FROM THE PREVIOUS BATTLE"
+    b2c_fprintf(stdout,"USE THE ENTRIES FROM THE PREVIOUS BATTLE"); b2c_fprintf(stdout,"\n");
+    // 01590  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 01600  PRINT "AFTER REQUESTING A BATTLE, DO YOU WISH ";
+    b2c_fprintf(stdout,"AFTER REQUESTING A BATTLE, DO YOU WISH "); 
+    // 01610  PRINT "BATTLE DESCRIPTIONS ";
+    b2c_fprintf(stdout,"BATTLE DESCRIPTIONS "); 
+
+  Lbl_01620:
+    // 01620  PRINT "(ANSWER YES OR NO)";
+    b2c_fprintf(stdout,"(ANSWER YES OR NO)"); 
+    // 01630  INPUT X$
+    // Start of Basic INPUT statement 01630
+    printf(" ? ");
+    char inpbuf_01630[100];
+    if(fgets(inpbuf_01630,100,stdin)==nullptr){
+        fprintf(stderr,"ERROR: End of file on input.\n");
+        exit(2);
+    }else{
+        char *ps_01630=strtok(inpbuf_01630," ,\t\n");
+        // This may cause problems if BASIC programmer expected
+        // input strings to be copied instead of just pointing
+        // to the input buffer (ie. strings can be over written).
+        if(ps_01630==nullptr){
+            X_str = "";
+        }else{
+            X_str = ps_01630;
+        };
+    }; // End of Basic INPUT statement 01630
+    // 01640  IF X$="YES" THEN 1660
+    if(strcmp(X_str,"YES")==0)goto Lbl_01660;
+    // 01650  IF X$ <> "NO" THEN 1620
+    if(strcmp(X_str,"NO")!=0)goto Lbl_01620;
+
+  Lbl_01660:
+    // 01660  L=0:W=0:R1=0:Q1=0:M3=0:M4=0:P1=0:P2=0:T1=0:T2=0
+    T2_int = 0;
+    // 01670  F(2)=0:H(2)=0:B(2)=0:R2=0:Q2=0:C6=0:F=0:W0=0:Y=0:Y2=0:U=0:U2=0
+    U2_int = 0;
+
+  Lbl_01680:
+    // 01680  PRINT : PRINT : PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 01690  PRINT "WHICH BATTLE DO YOU WISH TO SIMULATE";
+    b2c_fprintf(stdout,"WHICH BATTLE DO YOU WISH TO SIMULATE"); 
+    // 01700  INPUT A
+    // Start of Basic INPUT statement 01700
+    printf(" ? ");
+    char inpbuf_01700[100];
+    if(fgets(inpbuf_01700,100,stdin)==nullptr){
+        fprintf(stderr,"ERROR: End of file on input.\n");
+        exit(2);
+    }else{
+        char *ps_01700=strtok(inpbuf_01700," ,\t\n");
+        // This may cause problems if BASIC programmer expected
+        // input strings to be copied instead of just pointing
+        // to the input buffer (ie. strings can be over written).
+        if(ps_01700==nullptr){
+            A_int = 0;
+        }else{
+            A_int = atof(ps_01700);
+        };
+    }; // End of Basic INPUT statement 01700
+    // 01710  IF A <> 0 THEN 1730
+    if(A_int!=0)goto Lbl_01730;
+    // 01720  IF R <> 0 THEN 2000
+    if(R_int!=0)goto Lbl_02000;
+
+  Lbl_01730:
+    // 01730  IF A <=0 THEN 3740
+    if(A_int<=0)goto Lbl_03740;
+    // 01740  IF A >= 15 THEN 3740
+    if(A_int>=15)goto Lbl_03740;
+    // 01750  LET C$=C$(A)
+    GLBpStr=C_str_arr[(int)A_int];
+    C_str = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+    // 01760  LET M1=M1(A)
+    M1_int = M1_int_arr[(int)A_int];
+    // 01770  LET M2=M2(A)
+    M2_int = M2_int_arr[(int)A_int];
+    // 01780  LET C1=C1(A)
+    C1_int = C1_int_arr[(int)A_int];
+    // 01790  LET C2=C2(A)
+    C2_int = C2_int_arr[(int)A_int];
+    // 01800  LET M=M(A)
+    M_int = M_int_arr[(int)A_int];
+    // 01810  LET U=0
+    U_int = 0;
+    // 01820  REM  INFLATION CALC
+    // 01830  LET I1=10+(L-W)*2
+    I1_int = 10+(L_int-W_int)*2;
+    // 01840  LET I2=10+(W-L)*2
+    I2_int = 10+(W_int-L_int)*2;
+    // 01850  REM - MONEY AVAILABLE
+    // 01860  LET D(1)=100*INT((M1*(100-I1)/2000)*(1+(R1-Q1)/(R1+1))+.5)
+    D_int_arr[(int)1] = 100*INT((M1_int*(100-I1_int)/2000)*(1+(R1_int-Q1_int)/(R1_int+1))+0.5);
+    // 01870  LET D(2)=100*INT(M2*(100-I2)/2000+.5)
+    D_int_arr[(int)2] = 100*INT(M2_int*(100-I2_int)/2000+0.5);
+    // 01880  IF B$ <> "YES" THEN 1910
+    if(strcmp(B_str,"YES")!=0)goto Lbl_01910;
+    // 01890  LET D(2)=100*INT((M2*(100-I2)/2000)*(1+(R2-Q2)/(R2+1))+.5)
+    D_int_arr[(int)2] = 100*INT((M2_int*(100-I2_int)/2000)*(1+(R2_int-Q2_int)/(R2_int+1))+0.5);
+    // 01900  REM - MEN   AVAILABLE
+
+  Lbl_01910:
+    // 01910  LET M5=INT(M1*(1+(P1-T1)/(M3+1)))
+    M5_int = INT(M1_int*(1+(P1_int-T1_int)/(M3_int+1)));
+    // 01920  LET M6=INT(M2*(1+(P2-T2)/(M4+1)))
+    M6_int = INT(M2_int*(1+(P2_int-T2_int)/(M4_int+1)));
+    // 01930  LET F1=5*M1/6
+    F1_int = 5*M1_int/6;
+    // 01940  PRINT : PRINT : PRINT : PRINT : PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 01950  PRINT "THIS IS THE BATTLE OF ";C$
+    b2c_fprintf(stdout,"THIS IS THE BATTLE OF %s",C_str); b2c_fprintf(stdout,"\n");
+    // 01960  IF X$="NO" THEN 2010
+    if(strcmp(X_str,"NO")==0)goto Lbl_02010;
+    // 01970  IF A>11 THEN 1990
+    if(A_int>11)goto Lbl_01990;
+    // 01980  ON A GOTO 4160,4200,4230,4270,4310,4340,4370,4400,4430,4460,4500
+    switch((int)(A_int)){
+        case 1: goto Lbl_04160;
+        case 2: goto Lbl_04200;
+        case 3: goto Lbl_04230;
+        case 4: goto Lbl_04270;
+        case 5: goto Lbl_04310;
+        case 6: goto Lbl_04340;
+        case 7: goto Lbl_04370;
+        case 8: goto Lbl_04400;
+        case 9: goto Lbl_04430;
+        case 10: goto Lbl_04460;
+        case 11: goto Lbl_04500;
+        default: break; 
+    };
+
+  Lbl_01990:
+    // 01990  ON A-11 GOTO 4530,4560,4590
+    switch((int)(A_int-11)){
+        case 1: goto Lbl_04530;
+        case 2: goto Lbl_04560;
+        case 3: goto Lbl_04590;
+        default: break; 
+    };
+
+  Lbl_02000:
+    // 02000  PRINT C$" INSTANT REPLAY"
+    b2c_fprintf(stdout,"%s INSTANT REPLAY",C_str); b2c_fprintf(stdout,"\n");
+
+  Lbl_02010:
+    // 02010  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 02020  PRINT " ","CONFEDERACY"," UNION"
+    b2c_fprintf(stdout," @CONFEDERACY@ UNION"); b2c_fprintf(stdout,"\n");
+    // 02030  PRINT "MEN"," "M5," "M6
+    b2c_fprintf(stdout,"MEN@  %d @  %d ",M5_int,M6_int); b2c_fprintf(stdout,"\n");
+    // 02040  PRINT "MONEY","$";D(1),"$";D(2)
+    b2c_fprintf(stdout,"MONEY@$ %d @$ %d ",D_int_arr[(int)1],D_int_arr[(int)2]); b2c_fprintf(stdout,"\n");
+    // 02050  PRINT "INFLATION"," ";I1+15;"%"," ";I2;"%"
+    b2c_fprintf(stdout,"INFLATION@ %d%%@  %d %%",I1_int+15,I2_int); b2c_fprintf(stdout,"\n");
+    // 02060  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 02070  REM - ONLY IN PRINTOUT IS CONFED INFLATION = I1+15%
+    // 02080  REM - IF TWO GENERALS, INPUT CONFED. FIRST
+    // 02090  FOR I=1 TO D
+    for(I_int=1;I_int<=D_int;I_int++){
+        // 02100  IF B$ <> "YES" THEN 2130
+        if(strcmp(B_str,"YES")!=0)goto Lbl_02130;
+        // 02110  IF I=2 THEN 2130
+        if(I_int==2)goto Lbl_02130;
+        // 02120  PRINT "CONFEDERATE GENERAL---";
+        b2c_fprintf(stdout,"CONFEDERATE GENERAL---"); 
+
+  Lbl_02130:
+        // 02130  PRINT "HOW MUCH DO YOU WISH TO SPEND FOR"
+        b2c_fprintf(stdout,"HOW MUCH DO YOU WISH TO SPEND FOR"); b2c_fprintf(stdout,"\n");
+
+  Lbl_02140:
+        // 02140  PRINT " - FOOD......";
+        b2c_fprintf(stdout," - FOOD......"); 
+        // 02150  INPUT F
+        // Start of Basic INPUT statement 02150
+        printf(" ? ");
+        char inpbuf_02150[100];
+        if(fgets(inpbuf_02150,100,stdin)==nullptr){
+            fprintf(stderr,"ERROR: End of file on input.\n");
+            exit(2);
+        }else{
+            char *ps_02150=strtok(inpbuf_02150," ,\t\n");
+            // This may cause problems if BASIC programmer expected
+            // input strings to be copied instead of just pointing
+            // to the input buffer (ie. strings can be over written).
+            if(ps_02150==nullptr){
+                F_int = 0;
+            }else{
+                F_int = atof(ps_02150);
+            };
+        }; // End of Basic INPUT statement 02150
+        // 02160  IF F >= 0 THEN 2230
+        if(F_int>=0)goto Lbl_02230;
+        // 02170  IF R1 <> 0 THEN 2200
+        if(R1_int!=0)goto Lbl_02200;
+        // 02180  PRINT "NO PREVIOUS ENTRIES"
+        b2c_fprintf(stdout,"NO PREVIOUS ENTRIES"); b2c_fprintf(stdout,"\n");
+        // 02190  GOTO 2140
+        goto Lbl_02140;
+
+  Lbl_02200:
+        // 02200  PRINT "ASSUME YOU WANT TO KEEP SAME ALLOCATIONS"
+        b2c_fprintf(stdout,"ASSUME YOU WANT TO KEEP SAME ALLOCATIONS"); b2c_fprintf(stdout,"\n");
+        // 02210  PRINT
+        b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+        // 02220  GOTO 2380
+        goto Lbl_02380;
+
+  Lbl_02230:
+        // 02230  LET F(I)=F
+        F_int_arr[(int)I_int] = F_int;
+
+  Lbl_02240:
+        // 02240  PRINT " - SALARIES..";
+        b2c_fprintf(stdout," - SALARIES.."); 
+        // 02250  INPUT H(I)
+        // Start of Basic INPUT statement 02250
+        printf(" ? ");
+        char inpbuf_02250[100];
+        if(fgets(inpbuf_02250,100,stdin)==nullptr){
+            fprintf(stderr,"ERROR: End of file on input.\n");
+            exit(2);
+        }else{
+            char *ps_02250=strtok(inpbuf_02250," ,\t\n");
+            // This may cause problems if BASIC programmer expected
+            // input strings to be copied instead of just pointing
+            // to the input buffer (ie. strings can be over written).
+            if(ps_02250==nullptr){
+                H_int_arr[(int)I_int] = 0;
+            }else{
+                H_int_arr[(int)I_int] = atof(ps_02250);
+            };
+        }; // End of Basic INPUT statement 02250
+        // 02260  LET N=1
+        N_int = 1;
+        // 02270  IF H(I)<0 THEN 2360
+        if(H_int_arr[(int)I_int]<0)goto Lbl_02360;
+
+  Lbl_02280:
+        // 02280  PRINT " - AMMUNITION";
+        b2c_fprintf(stdout," - AMMUNITION"); 
+        // 02290  INPUT B(I)
+        // Start of Basic INPUT statement 02290
+        printf(" ? ");
+        char inpbuf_02290[100];
+        if(fgets(inpbuf_02290,100,stdin)==nullptr){
+            fprintf(stderr,"ERROR: End of file on input.\n");
+            exit(2);
+        }else{
+            char *ps_02290=strtok(inpbuf_02290," ,\t\n");
+            // This may cause problems if BASIC programmer expected
+            // input strings to be copied instead of just pointing
+            // to the input buffer (ie. strings can be over written).
+            if(ps_02290==nullptr){
+                B_int_arr[(int)I_int] = 0;
+            }else{
+                B_int_arr[(int)I_int] = atof(ps_02290);
+            };
+        }; // End of Basic INPUT statement 02290
+        // 02300  LET N=2
+        N_int = 2;
+        // 02310  IF B(I)<0 THEN 2360
+        if(B_int_arr[(int)I_int]<0)goto Lbl_02360;
+        // 02320  PRINT
+        b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+        // 02330  IF F(I)+H(I)+B(I) <= D(I) THEN 2380
+        if(F_int_arr[(int)I_int]+H_int_arr[(int)I_int]+B_int_arr[(int)I_int]<=D_int_arr[(int)I_int])goto Lbl_02380;
+        // 02340  PRINT "THINK AGAIN! YOU HAVE ONLY $"D(I)
+        b2c_fprintf(stdout,"THINK AGAIN! YOU HAVE ONLY $ %d ",D_int_arr[(int)I_int]); b2c_fprintf(stdout,"\n");
+        // 02350  GOTO 2140
+        goto Lbl_02140;
+
+  Lbl_02360:
+        // 02360  PRINT "NEGATIVE VALUES NOT ALLOWED."
+        b2c_fprintf(stdout,"NEGATIVE VALUES NOT ALLOWED."); b2c_fprintf(stdout,"\n");
+        // 02370  ON N GOTO 2240,2280
+        switch((int)(N_int)){
+            case 1: goto Lbl_02240;
+            case 2: goto Lbl_02280;
+            default: break; 
+        };
+
+  Lbl_02380:
+        // 02380  IF B$ <> "YES" THEN 2420
+        if(strcmp(B_str,"YES")!=0)goto Lbl_02420;
+        // 02390  IF I=2 THEN 2420
+        if(I_int==2)goto Lbl_02420;
+        // 02400  PRINT "UNION GENERAL---";
+        b2c_fprintf(stdout,"UNION GENERAL---"); 
+        // 02410  NEXT I
+        int dummy_2410=0; // Ignore this line.
+    }; // End-For(I_int)
+
+  Lbl_02420:
+    // 02420  FOR Z=1 TO D
+    for(Z_int=1;Z_int<=D_int;Z_int++){
+        // 02430  IF B$ <> "YES" THEN 2490
+        if(strcmp(B_str,"YES")!=0)goto Lbl_02490;
+        // 02440  ON Z GOTO 2450,2470
+        switch((int)(Z_int)){
+            case 1: goto Lbl_02450;
+            case 2: goto Lbl_02470;
+            default: break; 
+        };
+
+  Lbl_02450:
+        // 02450  PRINT "CONFEDERATE ";
+        b2c_fprintf(stdout,"CONFEDERATE "); 
+        // 02460  GOTO 2490
+        goto Lbl_02490;
+
+  Lbl_02470:
+        // 02470  PRINT "      UNION ";
+        b2c_fprintf(stdout,"      UNION "); 
+        // 02480  REM - FIND MORALE
+
+  Lbl_02490:
+        // 02490  LET O=((2*F(Z)^2+H(Z)^2)/F1^2+1)
+        O_int = ((2*IPower(F_int_arr[(int)Z_int],2)+IPower(H_int_arr[(int)Z_int],2))/IPower(F1_int,2)+1);
+        // 02500  IF O<10 THEN 2530
+        if(O_int<10)goto Lbl_02530;
+        // 02510  PRINT "MORALE IS HIGH"
+        b2c_fprintf(stdout,"MORALE IS HIGH"); b2c_fprintf(stdout,"\n");
+        // 02520  GOTO 2570
+        goto Lbl_02570;
+
+  Lbl_02530:
+        // 02530  IF O<5 THEN 2560
+        if(O_int<5)goto Lbl_02560;
+        // 02540  PRINT "MORALE IS FAIR"
+        b2c_fprintf(stdout,"MORALE IS FAIR"); b2c_fprintf(stdout,"\n");
+        // 02550  GOTO 2570
+        goto Lbl_02570;
+
+  Lbl_02560:
+        // 02560  PRINT "MORALE IS POOR"
+        b2c_fprintf(stdout,"MORALE IS POOR"); b2c_fprintf(stdout,"\n");
+
+  Lbl_02570:
+        // 02570  IF B$ <> "YES" THEN 2640
+        if(strcmp(B_str,"YES")!=0)goto Lbl_02640;
+        // 02580  LET O(Z)=O
+        O_int_arr[(int)Z_int] = O_int;
+        // 02590  NEXT Z
+        int dummy_2590=0; // Ignore this line.
+    }; // End-For(Z_int)
+    // 02600  LET O2=O(2)
+    O2_int = O_int_arr[(int)2];
+    // 02610  LET O=O(1)
+    O_int = O_int_arr[(int)1];
+    // 02620  PRINT "CONFEDERATE GENERAL---";
+    b2c_fprintf(stdout,"CONFEDERATE GENERAL---"); 
+    // 02630  REM - ACTUAL OFF/DEF BATTLE SITUATION
+
+  Lbl_02640:
+    // 02640  IF M <> 3 THEN 2670
+    if(M_int!=3)goto Lbl_02670;
+    // 02650  PRINT "YOU ARE ON THE OFFENSIVE"
+    b2c_fprintf(stdout,"YOU ARE ON THE OFFENSIVE"); b2c_fprintf(stdout,"\n");
+    // 02660  GOTO 2710
+    goto Lbl_02710;
+
+  Lbl_02670:
+    // 02670  IF M <> 1 THEN 2700
+    if(M_int!=1)goto Lbl_02700;
+    // 02680  PRINT "YOU ARE ON THE DEFENSIVE"
+    b2c_fprintf(stdout,"YOU ARE ON THE DEFENSIVE"); b2c_fprintf(stdout,"\n");
+    // 02690  GOTO 2710
+    goto Lbl_02710;
+
+  Lbl_02700:
+    // 02700  PRINT "BOTH SIDES ARE ON THE OFFENSIVE "
+    b2c_fprintf(stdout,"BOTH SIDES ARE ON THE OFFENSIVE "); b2c_fprintf(stdout,"\n");
+
+  Lbl_02710:
+    // 02710  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 02720  REM - CHOOSE STRATEGIES
+    // 02730  IF B$ <> "YES" THEN 2780
+    if(strcmp(B_str,"YES")!=0)goto Lbl_02780;
+    // 02740  FOR I=1 TO 2
+    for(I_int=1;I_int<=2;I_int++){
+        // 02750  ON I GOTO 2760,2790
+        switch((int)(I_int)){
+            case 1: goto Lbl_02760;
+            case 2: goto Lbl_02790;
+            default: break; 
+        };
+
+  Lbl_02760:
+        // 02760  PRINT "CONFEDERATE STRATEGY ";
+        b2c_fprintf(stdout,"CONFEDERATE STRATEGY "); 
+        // 02770  GOTO 2790
+        goto Lbl_02790;
+
+  Lbl_02780:
+        // 02780  PRINT "YOUR STRATEGY ";
+        b2c_fprintf(stdout,"YOUR STRATEGY "); 
+
+  Lbl_02790:
+        // 02790  INPUT Y
+        // Start of Basic INPUT statement 02790
+        printf(" ? ");
+        char inpbuf_02790[100];
+        if(fgets(inpbuf_02790,100,stdin)==nullptr){
+            fprintf(stderr,"ERROR: End of file on input.\n");
+            exit(2);
+        }else{
+            char *ps_02790=strtok(inpbuf_02790," ,\t\n");
+            // This may cause problems if BASIC programmer expected
+            // input strings to be copied instead of just pointing
+            // to the input buffer (ie. strings can be over written).
+            if(ps_02790==nullptr){
+                Y_int = 0;
+            }else{
+                Y_int = atof(ps_02790);
+            };
+        }; // End of Basic INPUT statement 02790
+        // 02800  IF ABS(Y-3)<3 THEN 2830
+        if(ABS(Y_int-3)<3)goto Lbl_02830;
+        // 02810  PRINT "STRATEGY";Y;"NOT ALLOWED."
+        b2c_fprintf(stdout,"STRATEGY %d NOT ALLOWED.",Y_int); b2c_fprintf(stdout,"\n");
+        // 02820  GOTO 2780
+        goto Lbl_02780;
+
+  Lbl_02830:
+        // 02830  IF B$="YES" THEN 2870
+        if(strcmp(B_str,"YES")==0)goto Lbl_02870;
+        // 02840  IF Y=5 THEN 3710
+        if(Y_int==5)goto Lbl_03710;
+        // 02850  GOSUB 4630
+        Routine_04630();
+        // 02860  GOTO 3050
+        goto Lbl_03050;
+
+  Lbl_02870:
+        // 02870  IF I=2 THEN 2910
+        if(I_int==2)goto Lbl_02910;
+        // 02880  LET Y1=Y
+        Y1_int = Y_int;
+
+  Lbl_02890:
+        // 02890  PRINT "UNION STRATEGY ";
+        b2c_fprintf(stdout,"UNION STRATEGY "); 
+        // 02900  NEXT I
+        int dummy_2900=0; // Ignore this line.
+    }; // End-For(I_int)
+
+  Lbl_02910:
+    // 02910  LET Y2=Y
+    Y2_int = Y_int;
+    // 02920  LET Y=Y1
+    Y_int = Y1_int;
+    // 02930  IF Y2=5 THEN 2890
+    if(Y2_int==5)goto Lbl_02890;
+    // 02940  REM : SIMULATED LOSSES-NORTH
+    // 02950  LET C6=(2*C2/5)*(1+1/(2*(ABS(Y2-Y)+1)))
+    C6_int = (2*C2_int/5)*(1+1/(2*(ABS(Y2_int-Y_int)+1)));
+    // 02960  LET C6=C6*(1.28+(5*M2/6)/(B(2)+1))
+    C6_int = C6_int*(1.28+(5*M2_int/6)/(B_int_arr[(int)2]+1));
+    // 02970  LET C6=INT(C6*(1+1/O2)+.5)
+    C6_int = INT(C6_int*(1+1/O2_int)+0.5);
+    // 02980  REM - IF LOSS > MEN PRESENT, RESCALE LOSSES
+    // 02990  LET E2=100/O2
+    E2_int = 100/O2_int;
+    // 03000  IF INT(C6+E2)<M6 THEN 3060
+    if(INT(C6_int+E2_int)<M6_int)goto Lbl_03060;
+    // 03010  LET C6=INT(13*M6/20)
+    C6_int = INT(13*M6_int/20);
+    // 03020  LET E2=7*C6/13
+    E2_int = 7*C6_int/13;
+    // 03030  LET U2=1
+    U2_int = 1;
+    // 03040  REM - CALCULATE SIMULATED LOSSES
+
+  Lbl_03050:
+    // 03050  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+
+  Lbl_03060:
+    // 03060  PRINT : PRINT : PRINT ,"CONFEDERACY","UNION"
+    b2c_fprintf(stdout,"@CONFEDERACY@UNION"); b2c_fprintf(stdout,"\n");
+    // 03070  LET C5=(2*C1/5)*(1+1/(2*(ABS(Y2-Y)+1)))
+    C5_int = (2*C1_int/5)*(1+1/(2*(ABS(Y2_int-Y_int)+1)));
+    // 03080  LET C5=INT(C5*(1+1/O)*(1.28+F1/(B(1)+1))+.5)
+    C5_int = INT(C5_int*(1+1/O_int)*(1.28+F1_int/(B_int_arr[(int)1]+1))+0.5);
+    // 03090  LET E=100/O
+    E_int = 100/O_int;
+    // 03100  IF C5+100/O<M1*(1+(P1-T1)/(M3+1)) THEN 3140
+    if(C5_int+100/O_int<M1_int*(1+(P1_int-T1_int)/(M3_int+1)))goto Lbl_03140;
+    // 03110  LET C5=INT(13*M1/20*(1+(P1-T1)/(M3+1)))
+    C5_int = INT(13*M1_int/20*(1+(P1_int-T1_int)/(M3_int+1)));
+    // 03120  LET E=7*C5/13
+    E_int = 7*C5_int/13;
+    // 03130  LET U=1
+    U_int = 1;
+
+  Lbl_03140:
+    // 03140  IF D=1 THEN 3380
+    if(D_int==1)goto Lbl_03380;
+
+  Lbl_03150:
+    // 03150  PRINT "CASUALTIES",C5,C6
+    b2c_fprintf(stdout,"CASUALTIES@ %d @ %d ",C5_int,C6_int); b2c_fprintf(stdout,"\n");
+    // 03160  PRINT "DESERTIONS",INT(E),INT(E2)
+    b2c_fprintf(stdout,"DESERTIONS@ %d @ %d ",INT(E_int),INT(E2_int)); b2c_fprintf(stdout,"\n");
+    // 03170  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 03180  IF B$ <> "YES" THEN 3220
+    if(strcmp(B_str,"YES")!=0)goto Lbl_03220;
+    // 03190  PRINT "COMPARED TO THE ACTUAL CASUALTIES AT "C$
+    b2c_fprintf(stdout,"COMPARED TO THE ACTUAL CASUALTIES AT %s",C_str); b2c_fprintf(stdout,"\n");
+    // 03200  PRINT "CONFEDERATE:"INT(100*(C5/C1)+.5)"% OF THE ORIGINAL"
+    b2c_fprintf(stdout,"CONFEDERATE: %d %% OF THE ORIGINAL",INT(100*(C5_int/C1_int)+0.5)); b2c_fprintf(stdout,"\n");
+    // 03210  PRINT "UNION:      "INT(100*(C6/C2)+.5)"% OF THE ORIGINAL"
+    b2c_fprintf(stdout,"UNION:       %d %% OF THE ORIGINAL",INT(100*(C6_int/C2_int)+0.5)); b2c_fprintf(stdout,"\n");
+
+  Lbl_03220:
+    // 03220  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 03230  REM - 1 WHO ONE
+    // 03240  IF U <> 1 THEN 3260
+    if(U_int!=1)goto Lbl_03260;
+    // 03250  IF U2=1 THEN 3340
+    if(U2_int==1)goto Lbl_03340;
+
+  Lbl_03260:
+    // 03260  IF U=1 THEN 3300
+    if(U_int==1)goto Lbl_03300;
+    // 03270  IF U2=1 THEN 3320
+    if(U2_int==1)goto Lbl_03320;
+    // 03280  IF C5+E=C6+E2 THEN 3340
+    if(C5_int+E_int==C6_int+E2_int)goto Lbl_03340;
+    // 03290  IF C5+E<C6+E2 THEN 3320
+    if(C5_int+E_int<C6_int+E2_int)goto Lbl_03320;
+
+  Lbl_03300:
+    // 03300  PRINT "THE UNION WINS "C$
+    b2c_fprintf(stdout,"THE UNION WINS %s",C_str); b2c_fprintf(stdout,"\n");
+    // 03310  GOTO 3480
+    goto Lbl_03480;
+
+  Lbl_03320:
+    // 03320  PRINT "THE CONFEDERACY WINS "C$
+    b2c_fprintf(stdout,"THE CONFEDERACY WINS %s",C_str); b2c_fprintf(stdout,"\n");
+    // 03330  GOTO 3540
+    goto Lbl_03540;
+
+  Lbl_03340:
+    // 03340  PRINT "BATTLE OUTCOME UNRESOLVED"
+    b2c_fprintf(stdout,"BATTLE OUTCOME UNRESOLVED"); b2c_fprintf(stdout,"\n");
+    // 03350  LET W0=W0+1
+    W0_int = W0_int+1;
+    // 03360  IF A=0 THEN 3670
+    if(A_int==0)goto Lbl_03670;
+    // 03370  GOTO 3560
+    goto Lbl_03560;
+
+  Lbl_03380:
+    // 03380  LET C6=INT(17*C2*C1/(C5*20))
+    C6_int = INT(17*C2_int*C1_int/(C5_int*20));
+    // 03390  LET E2=5*O
+    E2_int = 5*O_int;
+    // 03400  GOTO 3150
+    goto Lbl_03150;
+    // 03440  REM - FIND WHO WON
+
+  Lbl_03480:
+    // 03480  IF A=0 THEN 3670
+    if(A_int==0)goto Lbl_03670;
+    // 03490  LET L=L+1
+    L_int = L_int+1;
+    // 03500  GOTO 3560
+    goto Lbl_03560;
+    // 03520  REM - CUMULATIVE BATTLE FACTORS WHICH ALTER HISTORICAL
+    // 03530  REM  RESOURCES AVAILABLE.IF A REPLAY DON'T UPDATE.
+
+  Lbl_03540:
+    // 03540  IF A=0 THEN 3670
+    if(A_int==0)goto Lbl_03670;
+    // 03550  LET W=W+1
+    W_int = W_int+1;
+
+  Lbl_03560:
+    // 03560  LET T1=T1+C5+E
+    T1_int = T1_int+C5_int+E_int;
+    // 03570  LET T2=T2+C6+E2
+    T2_int = T2_int+C6_int+E2_int;
+    // 03580  LET P1=P1+C1
+    P1_int = P1_int+C1_int;
+    // 03590  LET P2=P2+C2
+    P2_int = P2_int+C2_int;
+    // 03600  LET Q1=Q1+(F(1)+H(1)+B(1))
+    Q1_int = Q1_int+(F_int_arr[(int)1]+H_int_arr[(int)1]+B_int_arr[(int)1]);
+    // 03610  LET Q2=Q2+(F(2)+H(2)+B(2))
+    Q2_int = Q2_int+(F_int_arr[(int)2]+H_int_arr[(int)2]+B_int_arr[(int)2]);
+    // 03620  LET R1=R1+M1*(100-I1)/20
+    R1_int = R1_int+M1_int*(100-I1_int)/20;
+    // 03630  LET R2=R2+M2*(100-I2)/20
+    R2_int = R2_int+M2_int*(100-I2_int)/20;
+    // 03640  LET M3=M3+M1
+    M3_int = M3_int+M1_int;
+    // 03650  LET M4=M4+M2
+    M4_int = M4_int+M2_int;
+    // 03660  GOSUB 4840
+    Routine_04840();
+
+  Lbl_03670:
+    // 03670  U=0:U2=0
+    U2_int = 0;
+    // 03680  PRINT "---------------"
+    b2c_fprintf(stdout,"---------------"); b2c_fprintf(stdout,"\n");
+    // 03690  GOTO 1680
+    goto Lbl_01680;
+    // 03700  REM------FINISH OFF
+
+  Lbl_03710:
+    // 03710  PRINT "THE CONFEDERACY HAS SURRENDERED"
+    b2c_fprintf(stdout,"THE CONFEDERACY HAS SURRENDERED"); b2c_fprintf(stdout,"\n");
+    // 03720  GOTO 3740
+    goto Lbl_03740;
+
+  Lbl_03740:
+    // 03740  PRINT : PRINT : PRINT : PRINT : PRINT : PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 03750  PRINT "THE CONFEDERACY ";
+    b2c_fprintf(stdout,"THE CONFEDERACY "); 
+    // 03760  PRINT "HAS WON "W" BATTLES AND LOST "L
+    b2c_fprintf(stdout,"HAS WON  %d  BATTLES AND LOST  %d ",W_int,L_int); b2c_fprintf(stdout,"\n");
+    // 03770  IF Y=5 THEN 3830
+    if(Y_int==5)goto Lbl_03830;
+    // 03780  IF Y2=5 THEN 3810
+    if(Y2_int==5)goto Lbl_03810;
+    // 03790  IF W <= L THEN 3830
+    if(W_int<=L_int)goto Lbl_03830;
+    // 03800  IF Y=5 THEN 3830
+    if(Y_int==5)goto Lbl_03830;
+
+  Lbl_03810:
+    // 03810  PRINT "THE CONFEDERACY HAS WON THE WAR"
+    b2c_fprintf(stdout,"THE CONFEDERACY HAS WON THE WAR"); b2c_fprintf(stdout,"\n");
+    // 03820  GOTO 3840
+    goto Lbl_03840;
+
+  Lbl_03830:
+    // 03830  PRINT "THE UNION HAS WON THE WAR"
+    b2c_fprintf(stdout,"THE UNION HAS WON THE WAR"); b2c_fprintf(stdout,"\n");
+
+  Lbl_03840:
+    // 03840  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 03850  IF R1=0 THEN 3990
+    if(R1_int==0)goto Lbl_03990;
+    // 03860  PRINT "FOR THE "W+L+W0" BATTLES FOUGHT (EXCUDING RERUNS)"
+    b2c_fprintf(stdout,"FOR THE %d BATTLES FOUGHT (EXCUDING RERUNS)",W_int+L_int+W0_int); b2c_fprintf(stdout,"\n");
+    // 03870  PRINT " "," "," ";
+    b2c_fprintf(stdout," @ @ "); 
+    // 03880  PRINT "CONFEDERACY"," UNION"
+    b2c_fprintf(stdout,"CONFEDERACY@ UNION"); b2c_fprintf(stdout,"\n");
+    // 03890  PRINT "HISTORICAL LOSSES",INT(P1+.5),INT(P2+.5)
+    b2c_fprintf(stdout,"HISTORICAL LOSSES@ %d @ %d ",INT(P1_int+0.5),INT(P2_int+0.5)); b2c_fprintf(stdout,"\n");
+    // 03900  PRINT "SIMULATED LOSSES",INT(T1+.5),INT(T2+.5)
+    b2c_fprintf(stdout,"SIMULATED LOSSES@ %d @ %d ",INT(T1_int+0.5),INT(T2_int+0.5)); b2c_fprintf(stdout,"\n");
+    // 03910  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 03920  PRINT "    % OF ORIGINAL",INT(100*(T1/P1)+.5),INT(100*(T2/P2)+.5)
+    b2c_fprintf(stdout,"    %% OF ORIGINAL@ %d @ %d ",INT(100*(T1_int/P1_int)+0.5),INT(100*(T2_int/P2_int)+0.5)); b2c_fprintf(stdout,"\n");
+    // 03930  IF B$="YES" THEN 3990
+    if(strcmp(B_str,"YES")==0)goto Lbl_03990;
+    // 03940  PRINT
+    b2c_fprintf(stdout,""); b2c_fprintf(stdout,"\n");
+    // 03950  PRINT "UNION INTELLIGENCE SUGGESTS THAT THE SOUTH USED "
+    b2c_fprintf(stdout,"UNION INTELLIGENCE SUGGESTS THAT THE SOUTH USED "); b2c_fprintf(stdout,"\n");
+    // 03960  PRINT "STRATEGIES 1, 2, 3, 4 IN THE FOLLOWING PERCENTAGES"
+    b2c_fprintf(stdout,"STRATEGIES 1, 2, 3, 4 IN THE FOLLOWING PERCENTAGES"); b2c_fprintf(stdout,"\n");
+    // 03970  PRINT S(1);S2(2);S(3);S(4)
+    b2c_fprintf(stdout," %d  %d  %d  %d ",S_int_arr[(int)1],S2_int_arr[(int)2],S_int_arr[(int)3],S_int_arr[(int)4]); b2c_fprintf(stdout,"\n");
+    // 03980  REM---------------------------------
+
+  Lbl_03990:
+    // 03990  STOP
+    exit(1);
+    // 04000  REM - HISTORICAL DATA...CAN ADD MORE (STRAT.,ETC) BY INSERTING
+    // 04010  REM   DATA STATEMENTS AFTER APPRO. INFO, AND ADJUSTING READ
+    // 04020  DATA "BULL RUN",18000,18500,1967,2708,1
+    // 04030  DATA "SHILOH",40000.,44894.,10699,13047,3
+    // 04040  DATA "SEVEN DAYS",95000.,115000.,20614,15849,3
+    // 04050  DATA "SECOND BULL RUN",54000.,63000.,10000,14000,2
+    // 04060  DATA "ANTIETAM",40000.,50000.,10000,12000,3
+    // 04070  DATA "FREDERICKSBURG",75000.,120000.,5377,12653,1
+    // 04080  DATA "MURFREESBORO",38000.,45000.,11000,12000,1
+    // 04090  DATA "CHANCELLORSVILLE",32000,90000.,13000,17197,2
+    // 04100  DATA "VICKSBURG",50000.,70000.,12000,19000,1
+    // 04110  DATA "GETTYSBURG",72500.,85000.,20000,23000,3
+    // 04120  DATA "CHICKAMAUGA",66000.,60000.,18000,16000,2
+    // 04130  DATA "CHATTANOOGA",37000.,60000.,36700.,5800,2
+    // 04140  DATA "SPOTSYLVANIA",62000.,110000.,17723,18000,2
+    // 04150  DATA "ATLANTA",65000.,100000.,8500,3700,1
+
+  Lbl_04160:
+    // 04160  PRINT "JULY 21, 1861.  GEN. BEAUREGARD, COMMANDING THE SOUTH, MET"
+    b2c_fprintf(stdout,"JULY 21, 1861.  GEN. BEAUREGARD, COMMANDING THE SOUTH, MET"); b2c_fprintf(stdout,"\n");
+    // 04170  PRINT "UNION FORCES WITH GEN. MCDOWELL IN A PREMATURE BATTLE AT"
+    b2c_fprintf(stdout,"UNION FORCES WITH GEN. MCDOWELL IN A PREMATURE BATTLE AT"); b2c_fprintf(stdout,"\n");
+    // 04180  PRINT "BULL RUN. GEN. JACKSON HELPED PUSH BACK THE UNION ATTACK."
+    b2c_fprintf(stdout,"BULL RUN. GEN. JACKSON HELPED PUSH BACK THE UNION ATTACK."); b2c_fprintf(stdout,"\n");
+    // 04190  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04200:
+    // 04200  PRINT "APRIL 6-7, 1862.  THE CONFEDERATE SURPRISE ATTACK AT"
+    b2c_fprintf(stdout,"APRIL 6-7, 1862.  THE CONFEDERATE SURPRISE ATTACK AT"); b2c_fprintf(stdout,"\n");
+    // 04210  PRINT "SHILOH FAILED DUE TO POOR ORGANIZATION."
+    b2c_fprintf(stdout,"SHILOH FAILED DUE TO POOR ORGANIZATION."); b2c_fprintf(stdout,"\n");
+    // 04220  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04230:
+    // 04230  PRINT "JUNE 25-JULY 1, 1862.  GENERAL LEE (CSA) UPHELD THE"
+    b2c_fprintf(stdout,"JUNE 25-JULY 1, 1862.  GENERAL LEE (CSA) UPHELD THE"); b2c_fprintf(stdout,"\n");
+    // 04240  PRINT "OFFENSIVE THROUGHOUT THE BATTLE AND FORCED GEN. MCCLELLAN"
+    b2c_fprintf(stdout,"OFFENSIVE THROUGHOUT THE BATTLE AND FORCED GEN. MCCLELLAN"); b2c_fprintf(stdout,"\n");
+    // 04250  PRINT "AND THE UNION FORCES AWAY FROM RICHMOND."
+    b2c_fprintf(stdout,"AND THE UNION FORCES AWAY FROM RICHMOND."); b2c_fprintf(stdout,"\n");
+    // 04260  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04270:
+    // 04270  PRINT "AUG 29-30, 1862.  THE COMBINED CONFEDERATE FORCES UNDER";
+    b2c_fprintf(stdout,"AUG 29-30, 1862.  THE COMBINED CONFEDERATE FORCES UNDER"); 
+    // 04280  PRINT " LEE"
+    b2c_fprintf(stdout," LEE"); b2c_fprintf(stdout,"\n");
+    // 04290  PRINT "AND JACKSON DROVE THE UNION FORCES BACK INTO WASHINGTON."
+    b2c_fprintf(stdout,"AND JACKSON DROVE THE UNION FORCES BACK INTO WASHINGTON."); b2c_fprintf(stdout,"\n");
+    // 04300  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04310:
+    // 04310  PRINT "SEPT 17, 1862.  THE SOUTH FAILED TO INCORPORATE MARYLAND"
+    b2c_fprintf(stdout,"SEPT 17, 1862.  THE SOUTH FAILED TO INCORPORATE MARYLAND"); b2c_fprintf(stdout,"\n");
+    // 04320  PRINT "INTO THE CONFEDERACY."
+    b2c_fprintf(stdout,"INTO THE CONFEDERACY."); b2c_fprintf(stdout,"\n");
+    // 04330  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04340:
+    // 04340  PRINT "DEC 13, 1862.  THE CONFEDERACY UNDER LEE SUCCESSFULLY"
+    b2c_fprintf(stdout,"DEC 13, 1862.  THE CONFEDERACY UNDER LEE SUCCESSFULLY"); b2c_fprintf(stdout,"\n");
+    // 04350  PRINT "REPULSED AN ATTACK BY THE UNION UNDER GEN. BURNSIDE."
+    b2c_fprintf(stdout,"REPULSED AN ATTACK BY THE UNION UNDER GEN. BURNSIDE."); b2c_fprintf(stdout,"\n");
+    // 04360  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04370:
+    // 04370  PRINT "DEC 31, 1862.  THE SOUTH UNDER GEN. BRAGG WON A CLOSE ";
+    b2c_fprintf(stdout,"DEC 31, 1862.  THE SOUTH UNDER GEN. BRAGG WON A CLOSE "); 
+    // 04380  PRINT "BATTLE."
+    b2c_fprintf(stdout,"BATTLE."); b2c_fprintf(stdout,"\n");
+    // 04390  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04400:
+    // 04400  PRINT "MAY 1-6, 1863.  THE SOUTH HAD A COSTLY VICTORY AND LOST"
+    b2c_fprintf(stdout,"MAY 1-6, 1863.  THE SOUTH HAD A COSTLY VICTORY AND LOST"); b2c_fprintf(stdout,"\n");
+    // 04410  PRINT "ONE OF THEIR OUTSTANDING GENERALS, 'STONEWALL' JACKSON."
+    b2c_fprintf(stdout,"ONE OF THEIR OUTSTANDING GENERALS, 'STONEWALL' JACKSON."); b2c_fprintf(stdout,"\n");
+    // 04420  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04430:
+    // 04430  PRINT "JULY 4, 1863.  VICKSBURG WAS A COSTLY DEFEAT FOR THE SOUTH"
+    b2c_fprintf(stdout,"JULY 4, 1863.  VICKSBURG WAS A COSTLY DEFEAT FOR THE SOUTH"); b2c_fprintf(stdout,"\n");
+    // 04440  PRINT "BECAUSE IT GAVE THE UNION ACCESS TO THE MISSISSIPPI."
+    b2c_fprintf(stdout,"BECAUSE IT GAVE THE UNION ACCESS TO THE MISSISSIPPI."); b2c_fprintf(stdout,"\n");
+    // 04450  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04460:
+    // 04460  PRINT "JULY 1-3, 1863.  A SOUTHERN MISTAKE BY GEN. LEE AT ";
+    b2c_fprintf(stdout,"JULY 1-3, 1863.  A SOUTHERN MISTAKE BY GEN. LEE AT "); 
+    // 04470  PRINT "GETTYSBURG"
+    b2c_fprintf(stdout,"GETTYSBURG"); b2c_fprintf(stdout,"\n");
+    // 04480  PRINT "COST THEM ONE OF THE MOST CRUCIAL BATTLES OF THE WAR."
+    b2c_fprintf(stdout,"COST THEM ONE OF THE MOST CRUCIAL BATTLES OF THE WAR."); b2c_fprintf(stdout,"\n");
+    // 04490  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04500:
+    // 04500  PRINT "SEPT. 15, 1863. CONFUSION IN A FOREST NEAR CHICKAMAUGA LED"
+    b2c_fprintf(stdout,"SEPT. 15, 1863. CONFUSION IN A FOREST NEAR CHICKAMAUGA LED"); b2c_fprintf(stdout,"\n");
+    // 04510  PRINT "TO A COSTLY SOUTHERN VICTORY."
+    b2c_fprintf(stdout,"TO A COSTLY SOUTHERN VICTORY."); b2c_fprintf(stdout,"\n");
+    // 04520  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04530:
+    // 04530  PRINT "NOV. 25, 1863. AFTER THE SOUTH HAD SIEGED GEN. ROSENCRANS'"
+    b2c_fprintf(stdout,"NOV. 25, 1863. AFTER THE SOUTH HAD SIEGED GEN. ROSENCRANS'"); b2c_fprintf(stdout,"\n");
+    // 04540  PRINT "ARMY FOR THREE MONTHS, GEN. GRANT BROKE THE SIEGE."
+    b2c_fprintf(stdout,"ARMY FOR THREE MONTHS, GEN. GRANT BROKE THE SIEGE."); b2c_fprintf(stdout,"\n");
+    // 04550  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04560:
+    // 04560  PRINT "MAY 5, 1864.  GRANT'S PLAN TO KEEP LEE ISOLATED BEGAN TO"
+    b2c_fprintf(stdout,"MAY 5, 1864.  GRANT'S PLAN TO KEEP LEE ISOLATED BEGAN TO"); b2c_fprintf(stdout,"\n");
+    // 04570  PRINT "FAIL HERE, AND CONTINUED AT COLD HARBOR AND PETERSBURG."
+    b2c_fprintf(stdout,"FAIL HERE, AND CONTINUED AT COLD HARBOR AND PETERSBURG."); b2c_fprintf(stdout,"\n");
+    // 04580  GOTO 2010
+    goto Lbl_02010;
+
+  Lbl_04590:
+    // 04590  PRINT "AUGUST, 1864.  SHERMAN AND THREE VETERAN ARMIES CONVERGED"
+    b2c_fprintf(stdout,"AUGUST, 1864.  SHERMAN AND THREE VETERAN ARMIES CONVERGED"); b2c_fprintf(stdout,"\n");
+    // 04600  PRINT "ON ATLANTA AND DEALT THE DEATH BLOW TO THE CONFEDERACY."
+    b2c_fprintf(stdout,"ON ATLANTA AND DEALT THE DEATH BLOW TO THE CONFEDERACY."); b2c_fprintf(stdout,"\n");
+    // 04610  GOTO 2010
+    goto Lbl_02010;
+    // 04620  END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

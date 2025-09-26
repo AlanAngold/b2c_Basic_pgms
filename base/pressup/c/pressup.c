@@ -1,0 +1,353 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of /home/alan/dev/BasicGames/source/base/pressup/basic/pressup.bas: 
+ *
+                   +-----+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |     | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |     | |
+        Address    v     v v Original BASIC statement
+    -------------- ------- - ------------------------------------------------------------------------------
+    0x561822348ce0 ---------A   01000 RANDOMIZE
+    0x561822348d70 ---------A   01010 REM *** PRESS UPS ***
+    0x561822348e00 ---------A   01020 REM *** RON BEHRNS ***
+    0x561822348e90 ---------A   01030 REM *** 1979 ***
+    0x561822349090 ---------A   01040 B=0
+    0x5618223492f0 ---------A   01050 R=0
+    0x561822349410 ---------A   01060 PRINT "THIS IS THE GAME OF PRESS UPS"
+    0x561822349570 ---------A   01070 PRINT "INSTRUCTIONS (Y OR N) ";
+    0x5618223496d0 ---------A   01080 INPUT I$
+    0x561822349920 ---------A   01090 IF I$<>"Y" THEN 1270
+    0x561822349aa0 ---------A   01100 PRINT "TWO MAY PLAY -- THE COMPUTER IS YOUR REFEREE"
+    0x561822349be0 ---------A   01110 PRINT "OR YOU MAY PLAY AGAINST THE COMPUTER"
+    0x56182234dee0 ---------A   01120 PRINT
+    0x56182234e070 ---------A   01130 PRINT "ONE PLAYER HAS RED PEGS, THE OTHER BLUE:YELLOW IS NEUTRAL"
+    0x56182234e200 ---------A   01140 PRINT "A PEG IS PRESSED DOWN BY INPUTTING COORDINATES OF A GRID"
+    0x56182234e370 ---------A   01150 PRINT "THE PLAYER WHO PRESSES DOWN ALL HIS PEGS FIRST WINS"
+    0x56182234e4f0 ---------A   01160 PRINT "YOU CAN PRESS DOWN YOUR OPPONENT'S PEGS"
+    0x56182234e780 ---------A   01170 PRINT "IF IT IS IMPOSSIBLE TO PRESS DOWN A PEG NEXT TO THE LAST"
+    0x56182234e8f0 ---------A   01180 PRINT "ONE PRESSED, THE GAME IS OVER."
+    0x56182234ea80 ---------A   01190 PRINT "THE PLAYER WITH THE MOST PEGS PRESSED OF HIS COLOUR WINS"
+    0x56182234ebf0 ---------A   01200 PRINT "END THE GAME AT ANY TIME BY INPUTTING ZERO(0) FOR THE "
+    0x56182234ed00 ---------A   01210 PRINT "X-COORDINATE"
+    0x56182234edb0 ---------A   01220 PRINT
+    0x56182234ef50 ---------A   01230 PRINT "DECIDE WHO STARTS (PLAYER A); A YELLOW PEG MUST BE PRESSED FIRST"
+    0x56182234f0f0 ---------A   01240 PRINT "THEN EACH PLAYER IN TURN PRESSES DOWN A PEG (OF ANY COLOUR)"
+    0x56182234f260 ---------A   01250 PRINT "NEXT TO THE PREVIOUS ONE PRESSED (IN ANY DIRECTION INCLUDING"
+    0x56182234f390 ---------A   01260 PRINT "DIAGONALLY)."
+    0x56182234f420 ---------A T 01270 PRINT
+    0x56182234f580 ---------A   01280 PRINT "PLAY WITH PARTNER(P) OR COMPUTER(C) ";
+    0x56182234f6e0 ---------A   01290 INPUT R$
+    0x56182234f8c0 ---------A   01300 IF R$="C" THEN 1320
+    0x56182234f970 ---------A   01310 GOTO 1350
+    0x56182234fac0 ---------A T 01320 PRINT "COMPUTER HAS BLUE PEGS--OPPONENT IS PLAYER B"
+    0x56182234fe30 ---------A   01330 PRINT "COMPUTER FIRST(Y OR N) ";
+    0x56182234ff80 ---------A   01340 INPUT F$
+    0x561822350010 ---------A T 01350 PRINT
+    0x561822350150 ---------A   01360 PRINT "READY... HERE IS THE BOARD"
+    0x5618223501c0 ---------A   01370 PRINT
+    0x561822350230 ---------A   01380 PRINT
+    0x561822350420 ---------A   01390 DIM P$(7)
+    0x561822350640 ---------A   01400 P$(1)="YBBBBBY"
+    0x561822350870 ---------A   01410 P$(2)="RYYYYYR"
+    0x561822350aa0 ---------A   01420 P$(3)="RYYYYYR"
+    0x561822350cd0 ---------A   01430 P$(4)="RYYYYYR"
+    0x561822350f00 ---------A   01440 P$(5)="RYYYYYR"
+    0x561822351130 ---------A   01450 P$(6)="RYYYYYR"
+    0x561822351360 ---------A   01460 P$(7)="YBBBBBY"
+    0x5618223513d0 ---------A   01470 GOSUB 2000
+    0x561822351440 ---------A   01480 PRINT
+    0x561822351620 ---------A   01490 IF R$="C" THEN 1650
+    0x561822351760 ---------A   01500 PRINT "MOVE:PLAYER A"
+    0x561822351990 ---------A T 01510 INPUT X,Y
+    0x561822351b50 ---------A   01520 IF X>7 THEN 1510
+    0x561822351d20 ---------A   01530 IF Y>7 THEN 1510
+    0x561822352160 ---------A   01540 IF MID$(P$(X),Y,1)="Y" THEN 1570
+    0x5618223522b0 ---------A   01550 PRINT "ILLEGAL MOVE...PRESS A YELLOW PEG!! "
+    0x561822352320 ---------A   01560 GOTO 1510
+    0x561822352520 ---------A T 01570 P9$="*"
+    0x5618223526d0 ---------A   01580 P9=X
+    0x561822352880 ---------A   01590 P8=Y
+    0x5618223528f0 ---------A   01600 GOSUB 3450
+    0x561822352950 ---------A   01610 GOSUB 2000
+    0x5618223529c0 ---------A   01620 PRINT
+    0x561822352b90 ---------A   01630 IF R$="C" THEN 2600
+    0x561822352c20 ---------A   01640 GO TO 1780
+    0x561822353200 ---------A T 01650 IF F$<>"Y" THEN 1760
+    0x561822353700 ---------A   01660 X=INT(3*RND(0) + 3)
+    0x561822353880 ---------A   01670 Y=4
+    0x561822353ab0 ---------A   01680 PRINT "I MOVE ";X;Y
+    0x561822353c40 ---------A   01690 P9$="*"
+    0x561822353d70 ---------A   01700 P9=X
+    0x561822353ea0 ---------A   01710 P8=Y
+    0x561822353f10 ---------A   01720 GOSUB 3450
+    0x561822353f70 ---------A   01730 GOSUB 2000
+    0x561822353fd0 ---------A   01740 PRINT
+    0x561822354050 ---------A   01750 GOTO 1780
+    0x561822354170 ---------A T 01760 PRINT "MOVE; PLAYER B"
+    0x5618223541f0 ---------A   01770 GOTO1510
+    0x561822354310 --------FA T 01780 PRINT "MOVE: PLAYER B"
+    0x561822354380 --------FA   01790 GOSUB 2160
+    0x5618223543e0 --------FA   01800 GOSUB 2310
+    0x561822354560 --------FA   01810 P9$="*"
+    0x561822354690 --------FA   01820 P9=X
+    0x5618223547c0 --------FA   01830 P8=Y
+    0x561822354830 --------FA   01840 GOSUB 3450
+    0x5618223548a0 --------FA   01850 GOSUB 2470
+    0x561822354a60 --------FA   01860 IF R$="C" THEN 2600
+    0x561822354ae0 --------FA   01870 GOSUB 2000
+    0x561822354b50 --------FA   01880 PRINT
+    0x561822354c80 --------FA   01890 PRINT "MOVE: PLAYER A"
+    0x561822354cf0 --------FA   01900 GOSUB 2160
+    0x561822354d50 --------FA   01910 GOSUB 2310
+    0x561822354ed0 --------FA   01920 P9$="*"
+    0x561822355000 --------FA   01930 P9=X
+    0x561822355130 --------FA   01940 P8=Y
+    0x5618223551a0 --------FA   01950 GOSUB 3450
+    0x561822355200 --------FA   01960 GOSUB 2470
+    0x561822355260 --------FA   01970 GOSUB 2000
+    0x5618223552c0 --------FA   01980 PRINT
+    0x561822355330 --------FA   01990 GOTO 1780
+    0x561822355390 ---------B G 02000 REM PRINT BOARD
+    0x561822355420 ---------B   02010 PRINT
+    0x561822355560 ---------B   02020 PRINT "      SECOND NUMBER"
+    0x561822355690 ---------B   02030 PRINT "      1 2 3 4 5 6 7"
+    0x561822355700 ---------B   02040 PRINT
+    0x561822355910 ---------B   02050 F1$="FIRST #"
+    0x561822355ba0 ---------B   02060 FOR I=1 TO 7
+    0x561822355e50 ---------B   02070     FOR J=1 TO 7
+    0x561822355ff0 ---------B   02080 	    IF J<>1 GOTO 2100
+    0x5618223564e0 ---------B   02090 	    PRINT MID$(F1$,I,1);" ";I;" ";
+    0x561822356790 ---------B T 02100 	    PRINT MID$(P$(I),J,1);
+    0x5618223568e0 ---------B   02110 	    PRINT " ";
+    0x561822356990 ---------B   02120     NEXT J
+    0x561822356b90 ---------B   02130     PRINT CHR$(14)
+    0x561822356c40 ---------B   02140 NEXT I
+    0x561822356ca0 ---------B   02150 RETURN
+    0x561822357030 ---------C B 02160 INPUT X(1),Y(1)
+    0x5618223570b0 ---------C   02170 REM CHECK ADJACENCY
+    0x561822357330 ---------C   02180 IF X(1)<0 THEN 2160
+    0x5618223575a0 ---------C   02190 IF Y(1)<0 THEN 2160
+    0x561822357810 ---------C   02200 IF X(1)=0 THEN 2380
+    0x561822357a80 ---------C   02210 IF X(1)>7 THEN 2160
+    0x561822357cf0 ---------C   02220 IF Y(1)>7 THEN 2160
+    0x5618223580e0 ---------C   02230 IF ABS(X-X(1))>1 THEN 2290
+    0x561822358460 ---------C   02240 IF ABS(Y-Y(1))>1 THEN 2290
+    0x561822358940 ---------C   02250 IF MID$(P$(X(1)),Y(1),1)="*" THEN 2160
+    0x561822358b20 ---------C   02260 X=X(1)
+    0x561822358cf0 ---------C   02270 Y=Y(1)
+    0x561822358d40 ---------C   02280 RETURN
+    0x5618223596a0 ---------C T 02290 PRINT "NOT ADJACENT!"
+    0x561822359720 ---------C   02300 GOTO 2160
+    0x561822359aa0 ---------D G 02310 IF MID$(P$(X),Y,1)<>"B" THEN 2330
+    0x561822359cd0 ---------D   02320  B=B+1
+    0x56182235a060 ---------D T 02330 IF MID$(P$(X),Y,1)<>"R" THEN 2350
+    0x56182235a280 ---------D   02340 R=R+1
+    0x56182235a430 ---------D T 02350 IF B=10 THEN 2410
+    0x56182235a5f0 ---------D   02360 IF R=10 THEN 2430
+    0x56182235a650 ---------D   02370 RETURN
+    0x56182235a7d0 --------EC T 02380 IF B>R  THEN 2410
+    0x56182235a950 --------EC   02390 IF R>B THEN 2430
+    0x56182235aaf0 --------EC   02400 IF R=B THEN 2450
+    0x56182235ae10 -------EDC T 02410 PRINT "BLUE IS THE WINNER! ";B;" TO ";R
+    0x56182235aea0 -------EDC   02420 GOTO 2460
+    0x56182235b1a0 -------EDC T 02430 PRINT "RED IS THE WINNER! ";R;" TO ";B
+    0x56182235b230 -------EDC   02440 GOTO 2460
+    0x56182235b3e0 --------EC T 02450 PRINT "IT'S A TIE!!  EACH PLAYER HAS ";B
+    0x56182235b450 -------EDC T 02460 GOTO 3530
+    0x56182235b820 ---------E G 02470 FOR G=X-1 TO X+1
+    0x56182235bc10 ---------E   02480     FOR H=Y-1 TO Y+1
+    0x56182235bde0 ---------E   02490     	IF G=0 THEN 2550
+    0x56182235bfb0 ---------E   02500     	IF H=0 THEN 2540
+    0x56182235c180 ---------E   02510     	IF G=8 THEN 2550
+    0x56182235c360 ---------E   02520     	IF H=8 THEN 2540
+    0x56182235c700 ---------E   02530     	IF MID$(P$(G),H,1)<>"*" THEN 2580
+    0x56182235c7c0 ---------E T 02540     NEXT H
+    0x56182235c880 ---------E T 02550 NEXT G
+    0x56182235c9c0 ---------E   02560 PRINT "GAME OVER"
+    0x56182235ca30 ---------E   02570 GOTO 2380
+    0x56182235ca70 ---------E T 02580 RETURN
+    0x56182235cb00 --------FA   02590 REM COMPUTER'S MOVE
+    0x56182235ccc0 --------FA T 02600 IF X=1 THEN 2620
+    0x56182235ce80 --------FA   02610 IF X<>7 THEN 2790
+    0x56182235d040 --------FA T 02620 IF Y>=4 THEN 2680
+    0x56182235d200 --------FA   02630 K=X
+    0x56182235d4a0 --------FA   02640 L=Y+1
+    0x56182235d830 --------FA   02650 IF MID$(P$(K),L,1)<>"*" THEN 2670
+    0x56182235da50 --------FA   02660 L=Y-1
+    0x56182235dac0 --------FA T 02670 GOTO 3050
+    0x56182235dc60 --------FA T 02680 IF Y<>4 THEN 2740
+    0x56182235dda0 --------FA   02690 K=X
+    0x56182235dfc0 --------FA   02700 L=Y-1
+    0x56182235e350 --------FA   02710 IF MID$(P$(K),L,1)<>"*" THEN 2730
+    0x56182235e570 --------FA   02720 L=Y+1
+    0x56182235e5e0 --------FA T 02730 GOTO 3050
+    0x56182235e700 --------FA T 02740 K=X
+    0x56182235e920 --------FA   02750 L=Y-1
+    0x56182235ecb0 --------FA   02760 IF MID$(P$(K),L,1)<>"*" THEN 2780
+    0x56182235eed0 --------FA   02770 L=Y+1
+    0x56182235ef40 --------FA T 02780 GOTO 3050
+    0x56182235f0e0 --------FA T 02790 IF X>=5 THEN 2930
+    0x56182235f2a0 --------FA   02800 IF Y>=4 THEN 2850
+    0x56182235f320 --------FA   02810 GOSUB 3260
+    0x56182235f520 --------FA   02820 K=X-1
+    0x56182235f730 --------FA   02830 L=Y+1
+    0x56182235f7a0 --------FA   02840 GOTO 3050
+    0x56182235f940 --------FA T 02850 IF Y<>4 THEN 2890
+    0x56182235fb60 --------FA   02860 K=X-1
+    0x56182235fc90 --------FA   02870 L=Y
+    0x56182235fd00 --------FA   02880 GOTO 3050
+    0x56182235fd60 --------FA T 02890 GOSUB 3260
+    0x56182235ff60 --------FA   02900 K=X-1
+    0x561822360170 --------FA   02910 L=Y-1
+    0x5618223601e0 --------FA   02920 GOTO 3050
+    0x561822360380 --------FA T 02930 IF Y>=4 THEN 2980
+    0x561822360400 --------FA   02940 GOSUB 3260
+    0x561822360600 --------FA   02950 K=X+1
+    0x561822360810 --------FA   02960 L=Y+1
+    0x561822360880 --------FA   02970 GOTO 3050
+    0x561822360a20 --------FA T 02980 IF Y<>4 THEN 3020
+    0x561822360c40 --------FA   02990 K=X+1
+    0x561822360d70 --------FA   03000 L=Y
+    0x561822360de0 --------FA   03010 GOTO 3050
+    0x561822360e40 --------FA T 03020 GOSUB 3260
+    0x561822361040 --------FA   03030 K=X+1
+    0x561822361260 --------FA   03040 L=Y-1
+    0x561822361600 --------FA T 03050 IF MID$(P$(K),L,1)<>"*" THEN 3130
+    0x561822361aa0 --------FA T 03060 K=INT(3*RND(0)-0.99999) + X
+    0x561822361c50 --------FA   03070 IF K=0 THEN 3060
+    0x561822361e20 --------FA   03080 IF K=8 THEN 3060
+    0x5618223622c0 --------FA T 03090 L=INT(3*RND(0)-0.99999) + Y
+    0x561822362470 --------FA   03100 IF L=0 THEN 3090
+    0x561822362640 --------FA   03110 IF L=8 THEN 3090
+    0x5618223629e0 --------FA   03120 IF MID$(P$(K),L,1)="*" THEN 3060
+    0x561822362b20 --------FA T 03130 X=K
+    0x561822362c50 --------FA   03140 Y=L
+    0x561822362cc0 --------FA   03150 GOSUB 2310
+    0x561822362e40 --------FA   03160 P9$="*"
+    0x561822362f70 --------FA   03170 P9=X
+    0x5618223630a0 --------FA   03180 P8=Y
+    0x561822363120 --------FA   03190 GOSUB 3450
+    0x561822363340 --------FA   03200 PRINT "I MOVE ";X;Y
+    0x5618223633b0 --------FA   03210 GOSUB 2000
+    0x561822363410 --------FA   03220 PRINT
+    0x561822363480 --------FA   03230 GOSUB 2470
+    0x5618223634f0 --------FA   03240 GOTO 1780
+    0x561822363550 ---------F   03250 REM GRAB CORNER PEG
+    0x561822363730 ---------F G 03260 X(2)=X
+    0x561822363910 ---------F   03270 Y(2)=Y
+    0x561822363e30 ---------F   03280 FOR M=X(2)-1 TO X(2)+1
+    0x561822364360 ---------F   03290     FOR N=Y(2)-1 TO Y(2)+1
+    0x561822364530 ---------F   03300     	IF M=0 THEN 3430
+    0x561822364700 ---------F   03310     	IF N=0 THEN 3420
+    0x5618223648d0 ---------F   03320     	IF M=8 THEN 3430
+    0x561822364aa0 ---------F   03330     	IF N=8 THEN 3420
+    0x561822364c70 ---------F   03340     	IF M=1 THEN 3360
+    0x561822364e40 ---------F   03350     	IF M<>7 THEN 3430
+    0x561822365010 ---------F T 03360     	IF N=1 THEN 3380
+    0x5618223651f0 ---------F   03370     	IF N<>7 THEN 3420
+    0x561822365590 ---------F T 03380     	IF MID$(P$(M),N,1)="*" THEN 3440
+    0x5618223656d0 ---------F   03390     	K=M
+    0x561822365800 ---------F   03400     	L=N
+    0x561822365870 ---------F   03410     	GOTO 3130
+    0x561822365910 ---------F T 03420     NEXT N
+    0x5618223659d0 ---------F T 03430 NEXT M
+    0x561822365a30 ---------F T 03440 RETURN
+    0x561822365b10 ---------G G 03450 REM SUBROUTINE TO INSERT A CHARATER IN A CHARATER STRING
+    0x561822365d20 ---------G   03460 DIM P7(10)
+    0x561822365f00 ---------G   03470 CHANGE P$(P9) TO P7
+    0x561822366110 ---------G   03480 DIM P6(10)
+    0x561822366290 ---------G   03490 CHANGE P9$ TO P6
+    0x5618223664f0 ---------G   03500 P7(P8) = P6(1)
+    0x561822366660 ---------G   03510 CHANGE P7 TO P$(P9)
+    0x5618223666d0 ---------G   03520 RETURN
+    0x561822366730 -------EDC T 03530 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     01270      01090T
+     01320      01300T
+     01350      01310T
+     01510      01520T, 01530T, 01560T, 01770T
+     01570      01540T
+     01650      01490T
+     01760      01650T
+     01780      01640T, 01750T, 01990T, 03240T
+     02000      01470G, 01610G, 01730G, 01870G, 01970G, 03210G
+     02100      02080T
+     02160      01790G, 01900G, 02180T, 02190T, 02210T, 02220T, 02250T, 02300T
+     02290      02230T, 02240T
+     02310      01800G, 01910G, 03150G
+     02330      02310T
+     02350      02330T
+     02380      02200T, 02570T
+     02410      02350T, 02380T
+     02430      02360T, 02390T
+     02450      02400T
+     02460      02420T, 02440T
+     02470      01850G, 01960G, 03230G
+     02540      02500T, 02520T
+     02550      02490T, 02510T
+     02580      02530T
+     02600      01630T, 01860T
+     02620      02600T
+     02670      02650T
+     02680      02620T
+     02730      02710T
+     02740      02680T
+     02780      02760T
+     02790      02610T
+     02850      02800T
+     02890      02850T
+     02930      02790T
+     02980      02930T
+     03020      02980T
+     03050      02670T, 02730T, 02780T, 02840T, 02880T, 02920T, 02970T, 03010T
+     03060      03070T, 03080T, 03120T
+     03090      03100T, 03110T
+     03130      03050T, 03410T
+     03260      02810G, 02890G, 02940G, 03020G
+     03360      03340T
+     03380      03360T
+     03420      03310T, 03330T, 03370T
+     03430      03300T, 03320T, 03350T
+     03440      03380T
+     03450      01600G, 01720G, 01840G, 01950G, 03190G
+     03530      02460T
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start           Target           Return             End    
+  --- --------------   --------------   --------------   -------------- 
+   A) 0x561822348ce0   0x561822348ce0   0x561822366730   0x5618223634f0 
+   B) 0x561822355390   0x561822355390   0x561822356ca0   0x561822356ca0 
+   C) 0x561822357030   0x561822357030   0x561822358d40   0x561822366730 
+   D) 0x561822359aa0   0x561822359aa0   0x56182235a650   0x561822366730 
+   E) 0x56182235a7d0   0x56182235b820   0x56182235ca70   0x561822366730 
+   F) 0x561822354310   0x561822363730   0x561822365a30   0x561822365a30 
+   G) 0x561822365b10   0x561822365b10   0x5618223666d0   0x5618223666d0 
+
+    NOTE: Routine B overlaps, or is tangled with, routine A!
+    NOTE: Routine C overlaps, or is tangled with, routine A!
+    NOTE: Routine D overlaps, or is tangled with, routine A!
+    NOTE: Routine E overlaps, or is tangled with, routine A!
+    NOTE: Routine F overlaps, or is tangled with, routine A!
+    NOTE: Routine D overlaps, or is tangled with, routine C!
+    NOTE: Routine E overlaps, or is tangled with, routine C!
+    NOTE: Routine G overlaps, or is tangled with, routine C!
+    NOTE: Routine E overlaps, or is tangled with, routine D!
+    NOTE: Routine G overlaps, or is tangled with, routine D!
+    NOTE: Routine G overlaps, or is tangled with, routine E!
+
+ */
+
