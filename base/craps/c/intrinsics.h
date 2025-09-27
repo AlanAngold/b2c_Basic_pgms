@@ -8,7 +8,6 @@
 // Revision 1.7  2011-10-16 22:59:27-04  alan
 // Added define for ABS(x) and removed the overloaded int and float ABS routines.
 // Corrected a capitalization on function ST().
-// Added some dummy routines for SaveCommonAreas() and LoadCommonAreas().
 //
 // Revision 1.6  2011-09-30 17:08:38-04  alan
 // Defined LINE_BUFFER size to get rid of magic numbers for buffers.
@@ -63,8 +62,14 @@ typedef unsigned long addr;
 
 char GLB_StrCatBuf[LINE_BUFFER];
 
+
+
+#ifndef TESTING
+
+
 //------------------------------------------------------------------------------
 // Changed name MyFpf to b2c_fprintf 
+
 #pragma argsused
 int b2c_fprintf(FILE *fh,char *fmt,...){
     // This is a fprintf() routine that prints to a buffer so that
@@ -146,6 +151,89 @@ int b2c_fprintf(FILE *fh,char *fmt,...){
 
     return(cnt);
 }
+
+#pragma argsused
+int b2c_printf(char *fmt,...){
+    // This is a fprintf() routine that prints to a buffer so that
+    // the next subroutine zone() can implement BASIC's zone system
+    // for comma delimited print statements.
+    char buf[500],tfmt[20],tbuf[200];
+    buf[0]=tfmt[0]=tbuf[0]=0;
+    static int LinePosn=1;
+    
+    va_list argptr;
+    int cnt;
+    char chr;
+
+    va_start(argptr, fmt);
+    char *pf=fmt,*pb=buf;
+    while(*pf!=0){
+        switch(*pf){
+            case '\100':
+                // Pad to next zone start.
+                while(LinePosn%PrintZone!=0) {
+                    *pb++ = ' ';
+                    LinePosn++;
+                }
+                pf++;
+                break;
+            case '\n':
+                // If we get a end-of-line then terminate the buffer and print
+                // it out.  Clear the buffer and correct our pointer.
+                LinePosn=1;
+                *pb=0;
+                fprintf(stdout,"%s\n",buf);
+                buf[0]=0;
+                pf++;
+                break;
+            case '%':
+                if(*(pf+1)=='%'){
+                    // Escaped '%'s get copied as is.
+                    *pb++ = *pf;
+                    pf+=2;
+                }else{
+#pragma warn -aus
+                    char* ptf=NULL;
+                    // If we have a format field then use it to convert an argument.
+                    ptf=tfmt;
+                    // Copy over the format field until the last character.
+                    *ptf++ = *pf++;
+                    chr=tolower(*pf);
+                    while((chr!='d')&&(chr!='f')&&(chr!='s')){
+                        *ptf++ = *pf++;
+                        chr=tolower(*pf);
+                    }
+                    *ptf++ = chr; // Copy the terminating character.
+                    *ptf=0;       // Terminate the format string.
+                    pf++;         // Increment over the terminating char in input format.
+                    *pb=0;        // Terminate output buffer so we can concat.
+                    // Print the value of the argument to our temp buffer (tbuf).
+                    switch(chr){
+                        case 'd': sprintf(tbuf,tfmt,va_arg(argptr,int)); break;
+                        case 'f': sprintf(tbuf,tfmt,va_arg(argptr,double)); break;
+                        case 's': sprintf(tbuf,tfmt,va_arg(argptr,char*)); break;
+                    }
+                    // Concatenate the temp buf to the output buf and adjust our pointers.
+                    strcat(buf,tbuf);
+                    LinePosn=strlen(buf);
+                    pb=&buf[LinePosn];
+                }
+                break;
+            default:
+                // Normal characters we just copy as is.
+                *pb++ = *pf++;
+                LinePosn++;
+                break;
+        }
+    }
+    // Terminate our buffer and print out anything that remains.
+    *pb=0;
+    if(buf[0]!=0) fprintf(stdout,"%s",buf);
+    va_end(argptr);
+
+    return(cnt);
+}
+
 
 //------------------------------------------------------------------------------
 // All data is in string format.  We just want to index through it with this routine.
@@ -510,27 +598,6 @@ int LEN(char* str) {
 
 
 //------------------------------------------------------------------------------
-// This function will take care of saving the symbols in the COM(MON) statements
-// to a common_area.dat file in a Name::Value(s) format just before the program exit.
-//------------------------------------------------------------------------------
-#pragma argsused FileName
-void SaveCommonAreas(char* FileName)
-{
-}
-
-
-//------------------------------------------------------------------------------
-// This function is just the reverse of the SaveCommonArea() function above and 
-// will read in the common_area.dat file at program startup.  This will initialize
-// all the variables in the COM(MON) statements at program start.
-//------------------------------------------------------------------------------
-#pragma argsused FileName
-void LoadCommonAreas(char* FileName)
-{
-}
-
-
-//------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 char* ClockStr(){
     // TODO: Make this routine return an actual time string HH:MM:SS
@@ -890,9 +957,310 @@ double MAX(double x, double y)
     return rtn; 
 }
 
+char* instr(FILE* fh)
+{
+    char inpbuf[LINE_BUFFER+1], *ps;
+    memset(inpbuf,0,LINE_BUFFER+1);
+    if(fgets(inpbuf,LINE_BUFFER,stdin)==nullptr){
+        fprintf(stderr,"ERROR: End of file on input.\n");
+        exit(2);
+    }
+    return(strdup(inpbuf));
+};
+
+#endif
+
+/*
+ * This function will get stuff from the terminal with some minor 
+ * editing capability and a flag (echoeol) to indicate whether the 
+ * EOL(whatever it might be) should be echoed.
+ *
+ * This routine will return a pointer to the local buffer.  If this
+ * string is needed after this function is called again it should
+ * be duplicated with strdup() or something similar.
+ *
+ * NOTE: This function has been tested on a linux system and will
+ *       have to be modified if used on some other OS. See the system() calls.
+ * NOTE: This function only works on stdin.
+ */
+char getUserStrBuf[LINE_BUFFER+1];
+
+int getUserString(char** instr,bool echoeol)
+{
+    // fh - File handle for input stream
+    // echoeol - Flag indicating whether we echo the users EOL character(s)
+
+    system("stty raw");
+    system("stty -echo");
+
+    // This function just takes care of reading in the user's input into a input buffer
+    // with minor editing functions like BS and arrow keys.  This will allow for
+    // overwriting various points in the user input and erasing characters.
+    memset(getUserStrBuf,0,LINE_BUFFER+1);
+
+    char* pe=getUserStrBuf; // This is the pointer to the current edit point.
+    int chr;
+    while((chr=getchar())!=EOF){
+        //fprintf(stderr,"chr=0x%02x\n",chr);
+        if(chr==0x03){
+            // If user hit Ctrl-C then exit out immediately with no string
+            putchar('\r');
+            putchar('\n');
+            system("stty echo");
+            system("stty cooked");
+            exit(1);
+
+        }else if((chr=='\n')||(chr=='\r')||(chr==0x04)||(chr==0x1A)){
+            // We got some sort of EOL character (0x04=ctrl-D,0x1a=ctrl-z), so...
+
+            // Move the cursor to the end-of-input so the display of the
+            // full line doesn't get occluded by any subsequent output.
+            while(*pe!='\0'){
+                fputc(0x1b,stdout); fputc(0x5b,stdout); fputc(0x43,stdout);
+                pe++;
+            }
+            // Output both the carriage-return(\r) and the newline(\n) if requested.
+            if(echoeol){
+                putchar('\r');
+                putchar('\n');
+            }
+            //fprintf(stderr,"Got eol\n");
+            break;
+        }else{
+            switch(chr){
+                case 0x7f: // BS
+                case 0x08: // BS    
+                    {
+                        // Backspace only works on the end of the line.
+                        if((*pe=='\0')&&(pe>getUserStrBuf)){
+                            *(--pe)='\0';
+                            fputc(0x1b,stdout); fputc(0x5b,stdout); fputc(0x44,stdout);
+                            fputc(' ',stdout);
+                            fputc(0x1b,stdout); fputc(0x5b,stdout); fputc(0x44,stdout);
+                        }
+                    }
+                    break;
+                case 0x1b: // Got the start of an escape sequence (we use cursor movement)
+                    {
+                        char chr1=getchar();
+                        char chr2=getchar();
+                        if((chr1==0x5b)&&(chr2==0x44)){
+                            // Got a left arrow
+                            if(pe>getUserStrBuf){
+                                --pe;
+                                fputc(0x1b,stdout); fputc(0x5b,stdout); fputc(0x44,stdout);
+                            }
+                        }else if((chr1==0x5b)&&(chr2==0x43)){
+                            // Got a right arrow
+                            if(*pe!='\0'){
+                                pe++;
+                                fputc(0x1b,stdout); fputc(0x5b,stdout); fputc(0x43,stdout);
+                            }
+                        }else{
+                            // We got some other escape sequence which we don't handle
+                        }
+                    }    
+                    break;
+                default:
+                    *pe++ = chr;
+                    //*(++pe)='\0';
+                    fputc(chr,stdout);
+                    break;
+            }
+        }
+        //fprintf(stderr,"buf='%s' chr='%c' pe=0x%08lx\n",getUserStrBuf,chr,(unsigned long)pe);
+    }
+    system("stty echo");
+    system("stty cooked");
+
+    *instr=getUserStrBuf;
+    return(0);
+}
+   
+//-------------------- 
+bool b2c_chkerr(const char* fname,void* parg,char** args,int argno)
+{
+    if(parg==nullptr){
+        fprintf(stderr,"ERROR: parg argument is nullptr in %s",fname);
+        return(true);
+    }
+    if(args==nullptr){
+        fprintf(stderr,"ERROR: args argument is nullptr in %s",fname);
+        return(true);
+    }
+    if(args[argno]==nullptr){
+        fprintf(stderr,"ERROR: Argument %d missing in %s",argno,fname);
+        return(true);
+    }
+    return(false);
+}
+
+bool b2c_strtoi(int* parg,char** args,int argno)
+{
+    bool iserror=false;
+
+    if(b2c_chkerr(__FUNCTION__,parg,args,argno)) return(true);
+
+    char* endptr=nullptr;
+    *parg = (int)strtol(args[argno],&endptr,10);
+    if(*endptr!='\0'){
+        fprintf(stdout,"ERROR: Argument %d is not a integer\n",argno);
+        *parg = 0;
+        iserror=true;
+    }
+    return(iserror);
+}    
+
+bool b2c_strtof(float* parg,char** args,int argno)
+{
+    bool iserror=false;
+
+    if(b2c_chkerr(__FUNCTION__,parg,args,argno)) return(true);
+
+    char* endptr=nullptr;
+    *parg = strtof(args[argno],&endptr);
+    if(*endptr!='\0'){
+        fprintf(stdout,"ERROR: Argument %d is not a float\n",argno);
+        *parg = 0.0;
+        iserror=true;
+    }
+    return(iserror);
+}    
+
+bool b2c_strtod(double* parg,char** args,int argno)
+{
+    bool iserror=false;
+
+    if(b2c_chkerr(__FUNCTION__,parg,args,argno)) return(true);
+
+    char* endptr=nullptr;
+    *parg = strtod(args[argno],&endptr);
+    if(*endptr!='\0'){
+        fprintf(stdout,"ERROR: Argument %d is not a double\n",argno);
+        *parg = 0.0;
+        iserror=true;
+    }
+    return(iserror);
+}    
+
+bool b2c_strtos(char** parg,char** args,int argno)
+{
+    if(b2c_chkerr(__FUNCTION__,parg,args,argno)) return(true);
+
+    *parg = strdup(args[argno]);
+    return(false);
+}    
+
+
+int splitStr2Args(char** args,char* instr,int nov,bool echoeol)
+{
+    //fprintf(stderr,"splitStr2Args(args,instr='%s',nov=%d\n",instr,nov);
+    char* ps=instr;
+    int err=0;
+
+    int argidx=0; 
+    while(*ps==' ') *(ps++)='\0'; // Get rid of leading whitespace
+    args[argidx++]=ps; 
+ 
+    bool indqstr=false; 
+    char chr; 
+    while((chr=(*ps))!='\0'){
+        //fprintf(stderr,"buf='%s'\n",ps);
+        //for(int i=0;i<nov;i++) fprintf(stderr,"  args[%d]='%s'\n",i,args[i]);
+        switch(chr){
+            case ',':
+                if(!indqstr){
+                    *ps=0;                   // Terminate previous argument
+                }
+                while(*ps==' ') { *(ps++)='\0';ps--; }; // Get rid of leading whitespace 
+                args[argidx++]=ps+1;
+                break;
+
+            case '"':
+                if(indqstr){
+                    if(*(ps+1)=='"'){
+                        // We have two double-quotes together so insert a real double quote
+                        char* pe=ps;
+                        while(*pe!=0) *pe=*(pe+1); // Shift rest of inp str down 1 to fill gap of "
+                    }else{
+                        *ps='\0';
+                        indqstr=false;
+                    }
+                }else{
+                    // We found the start-" of a double-quoted string.
+                    *ps='\0';
+                    args[argidx-1]=ps+1;
+                    indqstr=true;
+                }
+                break;
+
+            default:
+                // Don't do anything special for normal characters.
+                break;
+
+        }
+        ps++;
+    }
+    if((argidx>=1)&&(argidx<nov)){
+        fprintf(stdout,"%sERROR: Number of arguments is %d should be %d.\n",
+            (echoeol)?"":"\n",argidx-1,nov);
+        args=nullptr;
+        err=0x10;
+    }
+    return(err);
+    
+}
+    
+
+int input(char** args,int nov,bool echoeol)
+{
+    // args - This is a pointer to an array of char* args (preallocated)
+    // nov - Number-of-Variables
+    // nortn - Flag indicating if we echo the carriage return.
+
+    // Clean out the character pointer vector to store the return strings.
+    memset(args,0,sizeof(char*)*nov);
+
+    int err=0;
+    char* instr;    // Pointer to user input string
+    err += getUserString(&instr,echoeol);
+    //fprintf(stderr,"getUserString('%s',%s)=%d\n",instr,(echoeol)?"True":"False",err);
+    if(!err){
+        err += splitStr2Args(args,instr,nov,echoeol);
+        //fprintf(stderr,"splitStr2Args(args,'%s',%d)=%d\n",instr,nov,err);
+        //for(int a=0;a<nov;a++){
+        //    fprintf(stderr,"  args[%d]='%s'\n",a,args[a]);
+        //}
+    }
+
+    return(err);
+}    
+
+/*
+ * This is just a make-do function until a better solution occurs.
+ * 
+ * TODO: One possible solution is to remove the extension from the progname
+ *       lowercase it and then search through the directory to see if there
+ *       any executables whose lowercase version is identical to our program
+ *       name then execute the.  Maybe with permission first.
+ */
+void b2c_chain(char* progname,int progline)
+{
+    int err=0;
+    fprintf(stdout,"Chaining to %s:%d\n",progname,progline);
+    execl(progname,"",nullptr);
+    switch(errno){
+        case EACCES:	fprintf(stderr,"CHAIN: Permission denied.\n"); break;
+        case EMFILE:	fprintf(stderr,"CHAIN: Too many open files.\n"); break;
+        case ENOENT:	fprintf(stderr,"CHAIN: Path or file name not found.\n"); break;
+        case ENOEXEC:	fprintf(stderr,"CHAIN: Exec format error.\n"); break;
+        case ENOMEM:	fprintf(stderr,"CHAIN: Not enough memory.\n"); break;
+        default:	    fprintf(stderr,"CHAIN: Unknown error.\n"); break;
+    };
+    exit(0);
+}
 
 #endif //IntrinsicsH
 //------------------------------------------------------------------------------
-// End of doublerinsics.h
+// End of intrinsics.h
 //------------------------------------------------------------------------------
-
