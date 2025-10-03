@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#
+# Script file to fix a problem from debugging b2c_all.
+#
+# (Script created by alan on 29/Sep/2025 23:24:50)
+#
+
+# Include header to setup standard variables
+. /home/alan/bin/header.inc
+
+# NOTE: See ~/bin/cmdline.inc for command-line parsing and filename splitting.
+
+
+
+hg revert -r41 base/bandit/bandit.vars
+hg revert -r41 base/baseball/baseball.vars
+hg revert -r41 base/clewso/clewso.vars
+hg revert -r41 base/depth/depth.vars
+hg revert -r41 base/maze/maze.vars
+hg revert -r41 base/startrader/StarTrader_main.vars
+hg revert -r41 base/startrader/StarTrader_setup.vars
+hg revert -r41 base/strek2/strek2.vars
+hg revert -r41 base/sumer/sumer.vars
+
+
+
+
+
+
+# 
+# end of 'fix' script file.
+#
