@@ -1,0 +1,25 @@
+Volume 22
+
+Monsterous Startrek Games
+
+Well documented games for members with lots of memory and lots of time
+
+Number	Size	Name		Comments
+
+		catalog.22			Contents of cp/m group vol 22
+		zoso.22				Description and application notes on the programs by Zoso 
+							and Edison Dogge.
+22.1	48k	bigtrek.asc		22.3 Trimmed to load under TDl Disk Basic with 64k memory.
+22.2	39k	bigtrek.bas		Compacted version of 22.1 for much faster load.
+22.3	54k	startrek.txt	Starting point of BigTrek. Purported to work
+							with 8k basic. Unfortunately larger interpreters
+							leave insufficient memory for program. Contains
+							the author credits.
+22.4	21k	strtrk/2.asc	A second appearence of program 21.21 which Zoso
+							included for improvement hints for serious
+							Trekkies who don't have volume 21
+22.5	5k	trekinfo.doc	Detailed rules and features of StarTrek.txt and
+							BigTrek.
+22.6	42k	trekmod.asc		BigTrek trimmed some more and able to load with
+							Microsoft Disk Basic.
+

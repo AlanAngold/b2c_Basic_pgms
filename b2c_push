@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#
+# Script file to push each BAS program into it's own b2c directory structure so they 
+# can be compiled individually with the b2c machinery.
+#
+# (Script created by alan on 08/Oct/2025 18:11:01)
+#
+
+# Include header to setup standard variables
+. /home/alan/bin/header.inc
+
+# NOTE: See ~/bin/cmdline.inc for command-line parsing and filename splitting.
+
+
+ls -1 *.bas |\
+while read file
+do
+    echo "Processing: ${file}"
+    fn=$( echo "$file" | sed "s/\.bas$//g" )
+    mkdir "${fn}"
+    mkdir "${fn}/basic"
+    mkdir "${fn}/c"
+    mkdir "${fn}/cpp"
+    mkdir "${fn}/python"
+
+    mv "${file}" "${fn}/basic"
+    
+done
+
+# 
+# end of 'b2c_push' script file.
+#

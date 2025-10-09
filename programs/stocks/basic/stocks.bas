@@ -1,0 +1,218 @@
+# NOTE: Type forced to be:
+# gwba - GW-BASIC tokenized file (or BASICA)
+   10 CLS:PRINT TAB(30);"STOCK MARKET"
+   20 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+   30 PRINT:PRINT:PRINT
+  100 REM   STOCK MARKET SIMULATION      -STOCK-
+  101 REM   LOTS OF REM STATEMENTS FOLLOW THAT I DIDN'T TYPE IN
+  113 X=1
+  114 GOSUB 9000:A=INT((RND(X)/10)*100+0.5)/100
+  115 T5=0
+  116 X9=0
+  117 N1=0
+  118 N2=0
+  119 E1=0
+  120 E2=0
+  121 REM   INTRODUCTION
+  122 INPUT "Do you want instructions";Z9$:PRINT:PRINT
+  126 IF LEFT$(Z9$,1)="n" THEN 200
+  130 PRINT "This program plays the stock market.  You will be given"
+  132 PRINT "$10,000 and may buy or sell stocks.  The stock prices will"
+  134 PRINT "be generated randomly and therefore this model does not"
+  135 PRINT "represent exactly what happens on the exchange.  A table"
+  136 PRINT "of available stocks, their prices, and the number of shares"
+  137 PRINT "in your portfolio will be printed.  Following this, the"
+  138 PRINT "initials of each stock will be printed with a question"
+  139 PRINT "mark.  Here you indicate a transaction.  To buy a stock"
+  140 PRINT "type +NNN; to sell a stock type -NNN; where NNN is the"
+  141 PRINT "number of shares.  a brokerage fee of 1% will be charged"
+  142 PRINT "on all transactions.  Note that if a stock's value drops"
+  143 PRINT "to zero it may rebound to a positive value again.  You"
+  144 PRINT "have $10,000 to invest.  Use integers for all your inputs."
+  145 PRINT "(Note:  to get a `feel' for the market run for at least"
+  146 PRINT "10 days.)"
+  147 PRINT "-----GOOD LUCK-----"
+  200 REM   GENERATION OF STOCK TABLE;  INPUT REQUESTS
+  210 REM   INITIAL STOCK VALUES
+  220 S(1)=100
+  230 S(2)=85
+  240 S(3)=150
+  250 S(4)=140
+  260 S(5)=110
+  265 REM   INITIAL T8 = # DAYS FOR FIRST TREND SLOPE (A)
+  266 GOSUB 9000:T8=INT(4.99*RND(X)+1)
+  267 REM   RANDOMIZE SIGN OF FIRST TREND SLOPE (A)
+  268 GOSUB 9000:IF RND(X)>0.5 THEN 270
+  269 A=-A
+  270 REM   RANDOMIZE INITIAL VALUES
+  280 GOSUB 830
+  285 REM   INITIAL PORTFOLIO CONTENTS
+  290 FOR I=1 TO 5
+  300 P(I)=0
+  305 Z(I)=0
+  310 NEXT I
+  320 PRINT:PRINT
+  333 REM   INITIALIZE CASH ASSETS: C
+  335 C=10000
+  338 REM   PRINT INITIAL PORTFOLIO
+  340 PRINT "STOCK"," ","INITIALS","PRICE/SHARE"
+  350 PRINT "Int. Ballistic Missiles","  IBM",S(1)
+  352 PRINT "Red Cross of America","  RCA",S(2)
+  354 PRINT "Lichtenstein, Bumrap & Joke","  LBJ",S(3)
+  356 PRINT "American Bankrupt Co.","  ABC",S(4)
+  358 PRINT "Censured Books Store","  CBS",S(5)
+  360 PRINT
+  361 REM   NYSE AVERAGE: Z5;  TEMP. VALUE: Z4;  NET CHANGE: Z6
+  363 Z4=Z5
+  364 Z5=0
+  365 T=0
+  370 FOR I=1 TO 5
+  375 Z5=Z5+S(I)
+  380 T=T+S(I)*P(I)
+  390 NEXT I
+  391 Z5=INT(100*(Z5/5)+0.5)/100
+  392 Z6=INT((Z5-Z4)*100+0.5)/100
+  393 REM   TOTAL ASSETS: D
+  394 D=T+C
+  395 IF X9>0 THEN 398
+  396 PRINT "New York Stock Exchange Average: ";Z5
+  397 GOTO 399
+  398 PRINT "New York Stock Exchange Average: ";Z5;"   Net Change: ";Z6
+  399 PRINT
+  400 T=INT(100*T+0.5)/100
+  401 PRINT "Total Stock Assets are   $";T
+  403 C=INT(100*C+0.5)/100
+  405 PRINT "Total Cash Assets are    $";C
+  407 D=INT(100*D+0.5)/100
+  408 PRINT "Total Assets are         $";D
+  410 PRINT
+  411 IF X9=0 THEN 416
+  412 INPUT "Do you wish to continue";Q9$
+  414 IF LEFT$(Q9$,1)="n" THEN 998
+  416 REM   INPUT TRANSACTIONS
+  420 PRINT "What is your transaction in"
+  430 INPUT "  IBM";Z(1):IF S(1)=0 THEN AB=1:GOSUB 9010
+  450 INPUT "  RCA";Z(2):IF S(2)=0 THEN AB=2:GOSUB 9010
+  470 INPUT "  LBJ";Z(3):IF S(3)=0 THEN AB=3:GOSUB 9010
+  490 INPUT "  ABC";Z(4):IF S(4)=0 THEN AB=4:GOSUB 9010
+  510 INPUT "  CBS";Z(5):IF S(5)=0 THEN AB=5:GOSUB 9010
+  525 PRINT
+  530 REM   TOTAL DAY'S PURCHASES IN $ : P5
+  540 P5=0
+  550 REM   TOTAL DAY'S SALES IN $ : S5
+  560 S5=0
+  570 FOR I=1 TO 5
+  575 Z(I)=INT(Z(I)+0.5)
+  580 IF Z(I)<=0 THEN 610
+  590 P5=P5+Z(I)*S(I)
+  600 GOTO 620
+  610 S5=S5-Z(I)*S(I)
+  612 IF -Z(I)<=P(I) THEN 620
+  614 PRINT "You have oversold a stock.  Try again.":GOTO 420
+  620 NEXT I
+  622 REM   TOTAL VALUE OF TRANSACTIONS: T5
+  625 T5=P5+S5
+  630 REM   BROKERAGE FEE: B5
+  640 B5=INT(0.01*T5*100+0.5)/100
+  650 REM   CASH ASSETS = OLD CASH ASSETS-TOTAL PURCHASES
+  652 REM   -BROKERAGE FEES+TOTAL SALES: C5
+  654 C5=C-P5-B5+S5
+  656 IF C5=>0 THEN 674
+  658 PRINT "You have used $";-C5;"more than you have.":GOTO 420
+  674 C=C5
+  675 REM   CALCULATE NEW PORTFOLIO
+  680 FOR I=1 TO 5
+  690 P(I)=P(I)+Z(I)
+  700 NEXT I
+  710 REM   CALCULATE NEW STOCK VALUES
+  720 GOSUB 830
+  750 REM   PRINT PORTFOLIO
+  751 REM   BELL RINGING--DIFFERENT ON MANY COMPUTERS
+  752 FOR I=1 TO 20
+  753 PRINT CHR$(135);
+  754 NEXT I
+  755 PRINT
+  756 PRINT "**********  END OF DAY'S TRADING"
+  757 PRINT
+  758 PRINT
+  769 PRINT "STOCK","PRICE/SHARE","HOLDINGS","VALUE","NET PRICE CHANGE"
+  770 PRINT "IBM",S(1),P(1),S(1)*P(1),C(1)
+  771 PRINT "RCA",S(2),P(2),S(2)*P(2),C(2)
+  772 PRINT "LBJ",S(3),P(3),S(3)*P(3),C(3)
+  773 PRINT "ABC",S(4),P(4),S(4)*P(4),C(4)
+  774 PRINT "CBS",S(5),P(5),S(5)*P(5),C(5)
+  775 X9=1
+  780 PRINT
+  790 PRINT
+  810 GOTO 360
+  829 REM   NEW STOCK VALUES - SUBROUTINE
+  830 REM   RANDOMLY PRODUCE NEW STOCK VALUES BASED ON PREVIOUS
+  831 REM   DAY'S VALUES
+  832 REM   N1,N2 ARE RANDOM NUMBERS OF DAYS WHICH RESPECTIVELY
+  833 REM
+  834 REM
+  840 REM
+  841 IF N1>0 THEN 850
+  845 GOSUB 9000:I1=INT(4.99*RND(X)+1)
+  846 GOSUB 9000:N1=INT(4.99*RND(X)+1)
+  847 E1=1
+  850 REM   IF N2 DAYS HAVE PASSED, PICK AN I2, SET E2, DETERMINE NEW N2
+  851 IF N2>0 THEN 860
+  855 GOSUB 9000:I2=INT(4.99*RND(X)+1)
+  856 GOSUB 9000:N2=INT(4.99*RND(X)+1)
+  857 E2=1
+  860 REM   DEDUCT ONE DAY FROM N1 AND N2
+  861 N1=N1-1
+  862 N2=N2-1
+  890 REM   LOOP THROUGH ALL STOCKS
+  900 FOR I=1 TO 5
+  910 GOSUB 9000:X1=RND(X)
+  915 IF X1>0.25 THEN 920
+  916 X1=0.25
+  917 GOTO 935
+  920 IF X1>0.5 THEN 925
+  921 X1=0.5
+  922 GOTO 935
+  925 IF X1>0.75 THEN 930
+  926 X1=0.75
+  927 GOTO 935
+  930 X1=0
+  931 REM   BIG CHANGE CONSTANT: W3  (SET TO ZERO INITIALLY)
+  935 W3=0
+  936 IF E1<1 THEN 945
+  937 IF INT(I1+0.5)<>INT(I+0.5) THEN 945
+  938 REM   ADD 10 PTS. TO THIS STOCK; RESET E1
+  939 W3=10
+  943 E1=0
+  945 IF E2<1 THEN 955
+  947 IF INT(I2+0.5)<>INT(I+0.5) THEN 955
+  948 REM   SUBTRACT 10 PTS. FROM THIS STOCK; RESET E2
+  949 W3=W3-10
+  953 E2=0
+  954 REM   C(I) IS CHANGE IN STOCK VALUE
+  955 GOSUB 9000:C(I)=INT(A*S(I))+X1+INT(3-6*RND(X)+0.5)+W3
+  956 C(I)=INT(100*C(I)+0.5)/100
+  957 S(I)=S(I)+C(I)
+  960 IF S(I)>0 THEN 967
+  964 C(I)=0
+  965 S(I)=0
+  966 GOTO 970
+  967 S(I)=INT(100*S(I)+0.5)/100
+  970 NEXT I
+  972 REM   AFTER T8 DAYS RANDOMLY CHANGE TREND SIGN AND SLOPE
+  973 T8=T8-1
+  974 IF T8<1 THEN 985
+  980 RETURN
+  985 REM   RANDOMLY CHANGE TREND SIGN AND SLOPE (A), AND DURATION
+  986 REM   OF TREND (T8)
+  990 GOSUB 9000:T8=INT(4.99*RND(X)+1)
+  992 GOSUB 9000:A=INT((RND(X)/10)*100+0.5)/100
+  993 GOSUB 9000:S4=RND(X)
+  994 IF S4<=0.5 THEN 997
+  995 A=-A
+  997 RETURN
+  998 PRINT:PRINT "Your broker says, `It may interest you to know that you":PRINT "made a total profit of $";D-10000;"in the Stock Market.'"
+  999 END
+ 9000 RANDOMIZE(VAL(RIGHT$(TIME$,2))):RETURN
+ 9010 PRINT "Your broker says, `This company has gone bankrupt.'"
+ 9020 Z(AB)=0:P(AB)=0:RETURN

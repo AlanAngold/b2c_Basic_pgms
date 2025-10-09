@@ -1,0 +1,158 @@
+# NOTE: Type forced to be:
+# trs2 - TRS-80 Level II BASIC tokenized file
+   10 : REM ' ** BIORHYTHMIC CALENDER **
+   20 : REM ' 
+   30 : REM ' THIS PROGRAM PROVIDES BIORHYTHMIC CHARTS FOR A
+   40 : REM ' REQUESTED MONTH. OUTPUT MAY BE TO THE SCREEN OR
+   50 : REM ' TO THE SCREEN AND PRINTER BOTH.
+   60 : REM ' 
+   70 : REM ' THIS PROGRAM WILL RUN ON A TRS-80 16K LEVEL II
+   80 : REM ' SYSTEM WITH OR WITHOUT PRINTER.
+   90 : REM ' 
+  100 : REM ' ORIGINAL AUTHOR : J. D. ROBERTSON
+  110 : REM ' PUBLISHED BY : CREATIVE COMPUTING
+  120 : REM ' JAN-FEB 1978, P 75
+  130 : REM ' MINOR MODS BY : BOB WITHERS
+  140 : REM ' 
+  150 DIM P1(23),P2(23),E1(28),E2(28),I1(33),I2(33)
+  160 DIM W$(7),L$(41),M$(12)
+  170 DATA SU,M,TU,W,TH,F,SA
+  180 DATA JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC
+  190 CLS : PRINT CHR$ (23) : PRINT : PRINT : PRINT 
+  200 PRINT "     Biorhythmic Calendar"
+  210 PRINT : PRINT : PRINT "       One Moment Please"
+  220 FOR N = 1 TO 23
+  230 P2(N) = SIN (6.283185307 * (N - 1) / 23)
+  240 P1(N) = INT (21.5 + 20 * P2(N))
+  250 NEXT N
+  260 FOR N = 1 TO 28
+  270 E2(N) = SIN (6.283185307 * (N - 1) / 28)
+  280 E1(N) = INT (21.5 + 20 * E2(N))
+  290 NEXT N
+  300 FOR N = 1 TO 33
+  310 I2(N) = SIN (6.283185307 * (N - 1) / 33)
+  320 I1(N) = INT (21.5 + 20 * I2(N))
+  330 NEXT N
+  340 FOR N = 1 TO 7 : READ W$(N) : NEXT 
+  350 FOR N = 1 TO 12 : READ M$(N) : NEXT 
+  360 FOR N = 1 TO 41 : L$(N) = " ": NEXT 
+  370 CLS : PRINT "Enter Your Name"; : INPUT N$
+  380 PRINT "Enter Birth Date"
+  390 INPUT "10,9,1943 means Oct 9, 1943";M,D,Y
+  400 IF M < 1 OR M > 12 THEN 380
+  410 IF D < 1 OR D > 31 THEN 380
+  420 IF Y < 1000 THEN 380
+  430 PRINT "Enter Month and Year for biorhythmic calender"
+  440 INPUT "4,1977 means April 1977";M4,Y4
+  450 IF M4 < 1 OR M4 > 12 THEN 430
+  460 IF Y4 < 1000 THEN 430
+  470 GOSUB 1450 : M = M4 : D = 1 : Y = Y4 : GOSUB 1080 : S1 = J : GOSUB 1450 : L1 = 31
+  480 IF M4 = 12 THEN 510
+  490 GOSUB 1210 : S3 = N3 : M = M4 + 1 : GOSUB 1210
+  500 L1 = N3 - S3
+  510 B = J - S1 + 1
+  520 E = B + L1 - 1
+  530 CLS : PRINT "Would you like output to printer as well as screen (Y/N) ";
+  540 Z$ = INKEY$ : IF Z$ = ""THEN 540
+  550 IF Z$ = "Y" OR Z$ = "y" THEN PR = 1 : GOTO 580
+  560 IF Z$ = "N" OR Z$ = "n" THEN PR = 0 : GOTO 580
+  570 GOTO 540
+  580 CLS 
+  590 PRINT "  Bio"; TAB 56);M$(M4)
+  600 IF PR = 1 THEN LPRINT "  Bio"; TAB 56);M$(M4)
+  610 PRINT " Index"; TAB 54);Y
+  620 IF PR = 1 THEN LPRINT " Index"; TAB 54);Y
+  630 PRINT TAB 9);"-....................0";
+  640 IF PR = 1 THEN LPRINT TAB 9);"-....................0";
+  650 PRINT "....................+"
+  660 IF PR = 1 THEN LPRINT "....................+"
+  670 V = 0
+  680 FOR I = B TO E
+  690 V = V + 1
+  700 J3 = I - 1
+  710 K1 = INT (J3 / 23)
+  720 K2 = J3 - (K1 * 23) + 1
+  730 K3 = INT (J3 / 28)
+  740 K4 = J3 - (K3 * 28) + 1
+  750 K5 = INT (J3 / 33)
+  760 K6 = J3 - (K5 * 33) + 1
+  770 P = P1(K2)
+  780 Q = E1(K4)
+  790 R = I1(K6)
+  800 O = P2(K2) + E2(K4) + I2(K6)
+  810 O = INT (16666 * (O + 3)) + 1
+  820 L$(21) = CHR$ (191)
+  830 L$(P) = "P"
+  840 L$(Q) = "E"
+  850 L$(R) = "I"
+  860 PRINT O; TAB 10);
+  870 IF PR = 1 THEN LPRINT O; TAB 10);
+  880 FOR N = 1 TO 41
+  890 PRINT TAB 7);L$(N);
+  900 IF PR < > 1 THEN 930
+  910 IF N = 21 AND L$(N) = CHR$ (191) THEN LPRINT "."; : GOTO 930
+  920 LPRINT TAB 7);L$(N);
+  930 NEXT N
+  940 PRINT TAB 54);V; TAB 58);W$(N2)
+  950 IF PR = 1 THEN LPRINT TAB 54);V; TAB 58);W$(N2)
+  960 L$(P) = " ": L$(Q) = " ": L$(R) = " "
+  970 N2 = N2 + 1
+  980 IF N2 < 8 THEN 1000
+  990 N2 = 1
+ 1000 NEXT I
+ 1010 PRINT TAB 9);"-....................0....................+"
+ 1020 IF PR = 1 THEN LPRINT TAB 9);"-....................0....................+"
+ 1030 PRINT TAB (64 - LEN (N$)) / 2);N$
+ 1040 IF PR = 1 THEN LPRINT TAB (64 - LEN (N$)) / 2);N$
+ 1050 PRINT : PRINT "Would you like another chart (Y/N)? ";
+ 1060 Z$ = INKEY$ : IF Z$ = "Y" OR Z$ = "y" THEN 360
+ 1070 IF Z$ = "N" OR Z$ = "n" THEN END : ELSE 1060
+ 1080 IF M < 3 THEN 1120
+ 1090 M1 = M - 2
+ 1100 Y1 = Y
+ 1110 GOTO 1140
+ 1120 M1 = M + 10
+ 1130 Y1 = Y - 1
+ 1140 C = INT (Y1 / 100)
+ 1150 D1 = Y1 - (C * 100)
+ 1160 N4 = INT ((13 * M1 - 1) / 5) + D + D1 + INT (D1 / 4)
+ 1170 N = N4 + INT (C / 4) - 2 * C + 77
+ 1180 N1 = INT (N / 7)
+ 1190 N2 = N - (N1 * 7) + 1
+ 1200 RETURN 
+ 1210 Y2 = INT (Y / 4)
+ 1220 Y3 = Y - (Y2 * 4)
+ 1230 IF Y3 = 0 THEN 1250
+ 1240 GOTO 1350
+ 1250 Y2 = INT (Y / 100)
+ 1260 Y3 = Y - (Y2 * 100)
+ 1270 IF Y3 = 0 THEN 1290
+ 1280 GOTO 1330
+ 1290 Y2 = INT (Y / 400)
+ 1300 Y3 = Y - (Y2 * 400)
+ 1310 IF Y3 = 0 THEN 1330
+ 1320 GOTO 1350
+ 1330 L1 = 1
+ 1340 GOTO 1360
+ 1350 L1 = 0
+ 1360 N1 = INT ((3055 * (M + 2)) / 100) - 91
+ 1370 L = 0
+ 1380 IF M < 3 THEN 1430
+ 1390 IF L1 = 0 THEN 1420
+ 1400 L = 1
+ 1410 GOTO 1430
+ 1420 L = 2
+ 1430 N3 = N1 + D - L
+ 1440 RETURN 
+ 1450 IF M < 3 THEN 1490
+ 1460 M1 = M - 3
+ 1470 Y1 = Y
+ 1480 GOTO 1510
+ 1490 M1 = M + 9
+ 1500 Y1 = Y - 1
+ 1510 C = INT (Y1 / 100)
+ 1520 D1 = Y1 - (C = 100)
+ 1530 N = INT ((146097 * C) / 4) + D + INT ((1461 * D1) / 4)
+ 1540 J = N + 1721119 + INT ((153 * M1 + 2) / 5)
+ 1550 RETURN 
+ 1560 END 

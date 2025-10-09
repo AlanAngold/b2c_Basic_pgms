@@ -1,0 +1,310 @@
+1000 REM  ***        MANOR          ***
+1100 REM  *** BY LEON BARADAT  1986 ***
+1200 REM  Special thanks to Rene Baradat for historical background
+1300 REM  and advice, and to the program Dukedom from Big Computer
+1400 REM  Games by David Ahl.
+1500 DIM T(22,40)
+1600 H$(0)="Dismal":H$(1)="Poor":H$(2)="Fair":H$(3)="Good":H$(4)="Very Good":H$(5)="Excellent"
+1700 W(1)=180:W(2)=85:W(3)=130:W(4)=120:W(5)=100:FOR A=1 TO 5:W1(A)=W(A):FF(A)=50:NEXT:R=250
+1800 PP(1)=265:PP(2)=125:PP(3)=190:PP(4)=170:PP(5)=140:MO(1)=1:MO(2)=1:MO(3)=1
+1900 NS=115:NS(1)=202:NS(2)=95:NS(3)=147:NS(4)=133:NS(5)=108
+2000 SE(0)=219:SE(1)=176:SE(2)=177:SE(3)=178:SE(4)=15:SE(5)=8:WL(1)=2425:WL(2)=1135:WL(3)=1760:WL(4)=1593:WL(5)=1302:FOR A=1 TO 5:SEE(A)=SE(A):NEXT
+2100 GOSUB 29700:Y=INT(21+RND*5):YAB=Y
+2200 FOR A=1 TO 10:FOR B=1 TO 23:T(A,B)=176:NEXT:NEXT:FOR A=17 TO 22:FOR B=1 TO 40:T(A,B)=178:NEXT:NEXT
+2300 FOR A=1 TO 5:FOR B=24 TO 40:T(A,B)=8:NEXT:NEXT:FOR A=9 TO 18:FOR B=30 TO 40:T(A,B)=15:NEXT:NEXT
+2400 FOR A=9 TO 16:FOR B=16 TO 29:T(A,B)=219:NEXT:NEXT:FOR A=11 TO 18:FOR B=1 TO 15:T(A,B)=177:NEXT:NEXT:FOR A=10 TO 12:T(A,15)=219:NEXT:FOR A=1 TO 10:T(11,A)=176:NEXT
+2500 FOR A=12 TO 15:T(18,A)=178:NEXT:FOR A=7 TO 8:FOR B=24 TO 31:T(A,B)=8:NEXT:NEXT:FOR A=38 TO 40:T(8,A)=15:NEXT:FOR A=24 TO 40:T(6,A)=8:NEXT:FOR A=16 TO 27:T(17,A)=219:NEXT
+2600 FOR A=7 TO 8:FOR B=32 TO 40:T(A,B)=15:NEXT:NEXT:FOR A=32 TO 40:T(19,A)=15:NEXT:T(7,32)=8:T(17,28)=15:T(17,29)=15:FOR A=36 TO 40:T(20,A)=15:NEXT:FOR A=38 TO 40:T(21,A)=15:NEXT
+2700 D$(1)="Duke of Leonshire":D$(2)="Baron of Crisco":D$(3)="Marquis of Adelmynde":D$(4)="Earl of Cretinburgh":D$(5)="Viscount of Whatsitsname"
+2800 CLS:KEY OFF:PRINT
+2900 PT=10:NT=10:L=1385:LE=75:P(1)=60:P(2)=75:P(3)=15:P(4)=15:P(5)=20:P(6)=5
+3000 L(1)=500:L(2)=625:L(3)=185:G=150:P=15:F=50:F(1)=50:F(2)=50:F(3)=50:FOR A=1 TO 3:P1(A)=P(A):NEXT
+3100 L$(0)="Depleted":L$(1)="Poor":L$(2)="Fair":L$(3)="Fair":L$(4)="Good":L$(5)="Good":L$(6)="Fallow":L$(7)="Fallow"
+3200 P$(1)="Peasants":P$(2)="Serfs":P$(3)="Nobles":P$(4)="Able-bodied Peasants":P$(5)="Able-bodied Serfs":P$(6)="Able-bodied Knights"
+3300 IF CL$="M" THEN 3400 ELSE CL(1)=13:CL(2)=11:CL(3)=14:CL(4)=12:CL(5)=15:CL(6)=12
+3400 CLS:COLOR 12,0:PRINT " *** MANOR ***":PRINT:COLOR 7,0:GOTO 7300
+3500 GOSUB 29700:P(1)=P(1)+INT(RND*(P(1)/9)+3.5)-INT(RND*(P(1)/11)+1.5)
+3600 GOSUB 29700:P(2)=P(2)+INT(RND*(P(2)/9)+3.5)-INT(RND*(P(2)/11)+1.5)
+3700 GOSUB 29700:P(3)=P(3)+INT(RND*(P(3)/11)+1.5)-INT(RND*(P(3)/11)+1.5)
+3800 GOSUB 29700:P(4)=P(4)+INT(RND*(P(1)/2.4-P(4))/2+RND*P(1)/5-P(1)/10):P(5)=P(5)+INT(RND*(P(2)/2.5-P(4))/2+RND*P(2)/5-P(2)/10)
+3900 GOSUB 29700:P(6)=P(6)+INT(RND*(P(3)/3-P(6))/2+RND*P(6)/5-P(6)/10):FOR A=4 TO 6:Y(A)=P(A)-Z(A):NEXT
+4000 GOSUB 29700:PA=PA-INT(RND*P(2)/1.5+1):GOSUB 29700:SA=SA-INT(RND*P(3)/1.5+1):GOSUB 29700:NA=NA-INT(RND*P(5)/1.5+1)
+4100 FOR A=1 TO 6:IF P(A)<0 THEN P(A)=0
+4200 NEXT:FOR A=1 TO 3:IF MO(A)>.8 THEN 4400 ELSE COLOR 4,0:PRINT "The "P$(A)" are grumbling ";:IF MO(A)<.65 THEN COLOR 12,0:PRINT "much ";:COLOR 4,0
+4300 PRINT "about conditions on the Manor, my lord";:IF MO(A)<.7 THEN PRINT "!" ELSE PRINT "."
+4400 IF MO(A)<1.2 THEN 4600 ELSE COLOR 6,0:PRINT "You're ";:IF MO(A)>1.8 THEN PRINT "very ";
+4500 PRINT "popular with the "P$(A)", your excellency."
+4600 NEXT:IF G>0 THEN GP=INT(RND*20+.5):GE=INT(G*GP/100+.5):IF GE>0 THEN COLOR 3,0:PRINT "Rats ate"STR$(GP)"% of our grain reserves,":PRINT " totalling"GE"bushels.":G=INT(G-GE+.5)
+4700 IF (MO(1)+MO(2))/2>.2 AND L(1)/P(1)>5 AND L(2)/P(2)>5 THEN 5300 ELSE COLOR 12,0:PRINT "My lord, the rabble is rising against us!!!":FOR A=1 TO 3:GOSUB 29700:C1(A)=INT(RND*(P(A+3)/5)+.5)
+4800 GOSUB 31900:NEXT:FOR A=1 TO 400000!:NEXT:PRINT
+4900 IF MO(3)<.2 OR L(3)/P(3)<7 THEN PRINT "The nobles are joining the revolt, your excellency!":C1(3)=500:FOR A=1 TO 500000!:NEXT
+5000 IF C1(1)+C1(2)<C1(3)*2 THEN PRINT "The peasants have stormed your home and strung you up...":GOTO 30200
+5100 PRINT "The revolt has been quelled...":PRINT C1(1)"peasants and"C1(2)"serfs were killed in the attempt,"
+5200 PRINT " and"C1(3)"nobles were killed defending you.":FOR A=1 TO 3:P(A)=P(A)-C1(A):MO(A)=MO(A)*(P(A)-C1(A))/P(A):P(A+3)=INT(P(A+3)-C1(A)/8):NEXT
+5300 IF MO(3)<.2 OR L(3)/P(3)<7 THEN GOSUB 29700:IF RND*1<.5 THEN COLOR 5,0:PRINT:PRINT "You sit down to dinner one evening, and your food":PRINT "taster collapses.  It seems the nobles are trying":PRINT "to tell you something, your excellency...":GOTO 5500
+5400 IF MO(3)<.2 OR L(3)/P(3)<7 THEN COLOR 4,0:PRINT:PRINT "You sit down to dinner one evening, and":PRINT "next morning your servants find you on":PRINT "the floor, poisoned by your nobles.":GOTO 30100
+5500 GOSUB 29700:IF INT(RND*100+1)<3*(20-(65-Y)) THEN COLOR 5,0:PRINT "You have died of old age, at"Y"years.":GOTO 30100
+5600 GOSUB 29700:IF RND*100>3-(H-10)/2 THEN 6400 ELSE COLOR 4,0:PRINT:PRINT "The Black Death is sweeping the area!":FOR A=1 TO 5:GOSUB 29700:IF RND*1<.3 THEN PLA(A)=1:GOSUB 29700:PP(A)=INT(PP(A)*(RND*.3+.6)):NEXT
+5700 GOSUB 31900:GOSUB 29700:IF RND*1>.3 THEN 6200 ELSE PRINT "The Manor has been struck by the Plague!":FOR A=1 TO 6:GOSUB 29700:P2(A)=INT(RND*P(A)/3):NEXT:PD=INT(100*(P2(1)+P2(2)+P2(3))/(P(1)+P(2)+P(3))+.5)
+5800 PRINT STR$(PD)"% of the population has died, my lord.":PRINT " Take care not to fall victim as well!":PRINT " (Press a key, your excellency.)":PRINT
+5900 A$=INKEY$:IF A$="" THEN 5900
+6000 GOSUB 29700:IF INT(RND*100+1)<PD THEN PRINT "You've been stricken by the Plague and died!":GOTO 30100
+6100 FOR A=1 TO 6:P(A)=P(A)-P2(A):NEXT:COLOR 2,0:PRINT "You have avoided contracting the Plague."
+6200 FOR A=1 TO 5:GOSUB 29700:IF RND*1+PLA(A)>.9000001 THEN COLOR 6,0:PRINT "Rumor has it that the "D$(A)"'s manor":PRINT " is being ravaged by the Plague!":FOR B=1 TO 1000:NEXT
+6300 NEXT
+6400 G=INT(G+.5):P=INT(P+.5):FOR A=1 TO 3:IF P(A+3)>P(A)*.4 THEN P(A+3)=INT(P(A)*.4+.5)
+6500 NEXT
+6600 APSS=APSS+MO(1)+MO(2)+MO(3):IF Y-YAB>0 THEN APS=APSS/(Y-YAB) ELSE APS=APSS
+6700 IF Y-YAB>0 THEN R1=INT(100*(L/1385)^.6*(BLL/10+1)^.3*APS/3*((Y-YAB)/15)^.05*(((WL(2)/1135+WL(5)/1302+(2-WL(1)/2425)+(2-WL(3)/1760))/4)^.2))
+6800 IF Y-YAB>0 THEN COLOR 7,0:PRINT:PRINT "Your performance so far:"R1" (";:CC=R1-R:GOSUB 29800:PRINT:PRINT:R=R1
+6900 Y=Y+1:COLOR 15,0:PRINT "  At age"STR$(Y)":":PRINT:NW=0:COLOR 7,0
+7000 FOR A=1 TO 3:PRINT P$(A),,P(A);:PRINT TAB(34);"(";:CC=P(A)-P1(A):GOSUB 29800:NEXT
+7100 FOR A=4 TO 6:PRINT P$(A),P(A);:PRINT TAB(34);"(";:CC=Y(A):GOSUB 29800:NEXT:PRINT
+7200 A$=INKEY$:IF A$="" THEN 7200
+7300 PRINT "Total Population",P(1)+P(2)+P(3);:PRINT TAB(34);"(";:CC=P(1)+P(2)+P(3)-P1(1)-P1(2)-P1(3):GOSUB 29800
+7400 PRINT "Able Population",P(4)+P(5)+P(6);:PRINT TAB(34);"(";:CC=Y(4)+Y(5)+Y(6):GOSUB 29800
+7500 PRINT "Grain",,G:FOR A=1 TO 3:P1(A)=P(A):NEXT:PRINT "Pounds",,P
+7600 PRINT:PRINT "Total Land in Earldom",L"acres":PRINT "Acre / Person ",INT(L/(P(1)+P(2)+P(3)+8)+.5)
+7700 FOR A=1 TO 3:PRINT P$(A)"' Land   ",INT(L(A)/P(A)*10)/10;"acres":NEXT:PRINT "Your own Estates",LE"acres":PRINT
+7800 FOR A=1 TO 3:PRINT "Fertility of "P$(A)"' Land:   ",L$(INT(F(A)/10)):NEXT
+7900 IF LE>0 THEN PRINT "Fertility of your Estates: ",,L$(INT(F/10))
+8000 PRINT "Total Fertility of Earldom: ",L$(INT((F*LE+F(1)*L(1)+F(2)*L(2)+F(3)*L(3))/(10*L)))
+8100 PRINT:FOR A=4 TO 6:Z(A)=P(A):NEXT
+8200 COLOR 2,0:PRINT "Taxes to Peasants ("STR$(PT)"% last year ) ";:INPUT PT1:IF PT1>30 THEN INPUT"  Are you certain";A$:IF LEFT$(A$,1)<>"Y" AND LEFT$(A$,1)<>"y" THEN 8200
+8300 IF PT1<0 THEN 8200 ELSE PT=PT1
+8400 PRINT "Taxes to Nobles ("STR$(NT)"% last year ) ";:INPUT NT1:IF NT1>30 THEN INPUT"  Are you certain";A$:IF LEFT$(A$,1)<>"Y" AND LEFT$(A$,1)<>"y" THEN 8400
+8500 IF NT1<0 THEN 8400 ELSE NT=NT1
+8600 MO(1)=MO(1)+RND*(PT-10)/50+(PT-10)/100:MO(3)=MO(3)+RND*(PT-10)/40+(PT-10)/80
+8700 LF=0:IF G<1 OR LE<1 THEN 8900 ELSE INPUT "Land to be farmed by Serfs";LF:IF LF>LE THEN 8700
+8800 IF LF>G THEN PRINT " You have only enough grain to plant"G"acres, sir!":GOTO 8700
+8900 GOSUB 29700:H=RND*6+9.5:PRINT "Harvest:  "H$(H-10)".":HE=INT(H*LF*F/100+.5):PRINT HE"bushels were harvested on your estates.":PRINT:HE1=HE
+9000 F=F-.2*LF+.22*(LE-LF):IF F<0 THEN F=0
+9100 IF PQ1(A)<0 THEN PQ1(A)=0
+9200 FOR A=1 TO 5:GOSUB 29700:PQ(A)=ABS(RND*WL(A)/50-WL(A)/100+WL(A)/2):PQ1(A)=INT(PQ1(A)+PQ(A)*H*FF(A)/100-PP(A)*22):IF PQ1(A)<0 THEN PP(A)=INT(PP(A)+PQ1(A)/22)
+9300 FF(A)=FF(A)-.2*PQ(A)+.22*(WL(A)-PQ(A)):IF FF(A)<0 THEN FF(A)=0
+9400 GOSUB 29700:PP(A)=PP(A)+INT(RND*(PP(A)/9)+3.5-RND*(PP(A)/11)+1.5):W(A)=PP(A)/1.75:IF FF(A)>65 THEN FF(A)=65
+9500 IF PP(A)<=0 THEN PP(A)=1
+9600 IF W(A)<=0 THEN W(A)=1
+9700 PQ1(A)=PQ1(A)*.75:NEXT:G=G+HE:IF F>65 THEN F=65
+9800 FOR A=1 TO 3:LP(A)=L(A)/P(A):EP=5:IF LP(A)>10 THEN GOSUB 29700:EP=5+(RND*2+3)/4*((LP(A)-11)/2)
+9900 IF LP(A)<5 THEN EP=LP(A)
+10000 IF LP(A)<5 THEN COLOR 10,0:PRINT "Sir, the "P$(A)" haven't enough land to feed themselves!":COLOR 2,0
+10100 H(A)=INT(EP*H*(F(A)/100)*P(A)+.5):PRINT "The "P$(A)" harvested"INT(H(A)/P(A)+.5)"bushels of grain on"INT(EP)"acres of land."
+10200 GOSUB 29700:TA=20+INT(RND*6):TB=INT(H(A)*TA/100+.5):H(A)=H(A)-TB
+10300 F(A)=F(A)-1.5*EP+1.7*(LP(A)-5):IF F(A)>65 THEN F(A)=65
+10400 IF F(A)<=0 THEN F(A)=0:COLOR 10,0:PRINT "Sir, the "P$(A)"' land is totally depleted!":COLOR 2,0
+10500 NEXT:PTC=INT(H(1)*PT/100+.5):NTC=INT(H(3)*NT/100+.5):H(1)=H(1)-PTC:H(3)=H(3)-NTC
+10600 FOR A=1 TO 3:EG(A)=H(A)/P(A):IF EG(A)=>23 OR G<1 THEN 11000
+10700 PRINT:PRINT " The "P$(A)" are going hungry, my lord.  We have"G"bushels in store.":INPUT " How many bushels (if any) will you give them";A1
+10800 IF A1<0 THEN A1=0
+10900 H(A)=H(A)+A1:EG(A)=H(A)/P(A):G=G-A1
+11000 IF EG(A)=>20 THEN 11200 ELSE COLOR 10,0:PRINT "Some of the "P$(A)" are starving.":COLOR 2,0
+11100 GOSUB 29700:VA=INT((RND*1+.5)*(P(A)*20-H(A))/20+.5):ST=ST+VA:P(A)=P(A)-VA:GOSUB 29700:P(3+A)=P(3+A)-INT(VA/(RND*5)+.5)
+11200 IF EG(A)=>20 AND EG(A)<25 THEN PRINT "Many of the "P$(A)" are malnourished.":GOSUB 29700:VA=INT(RND*1*(P(A)*25-H(A))/25):P(A)=P(A)-VA:P(3+A)=P(3+A)-INT(VA/10)
+11300 IF P(A)<0 THEN P(A)=0
+11400 IF P(3+A)<0 THEN P(3+A)=0
+11500 NEXT:PRINT:PRINT "The King and the Church collected"TB"bushels from the population."
+11600 IF PTC>0 THEN PRINT "You collected"PTC"bushels from the Peasants.":H(1)=H(1)-PTC:H(3)=H(3)-NTC
+11700 FOR A=1 TO 2:GOSUB 29700:MO(A)=MO(A)+RND*(L(A)/P(A)-8.3)/10+(L(A)/P(A)-8.3)/10:NEXT:GOSUB 29700:MO(3)=MO(3)+RND*(L(3)/P(3)-12.3)/10+(L(3)/P(3)-12.3)/10
+11800 GOSUB 29700:P1=INT(RND*(NTC/10)+.5):NTC=NTC-P1:FOR A=1 TO 3:MO(A)=MO(A)+((H(A)/P(A)-22)/P(A))/2:IF MO(A)>2 THEN MO(A)=2 ELSE IF MO(A)<.1 THEN MO(A)=.1
+11900 NEXT:P1=INT(P1+.5):IF NTC>0 THEN PRINT "You collected"NTC"bushels and"P1"pounds from your Nobles."
+12000 G=G+PTC+NTC:P=P+P1:IF P(4)<1 THEN 12200 ELSE PRINT:PRINT "You have"P(4);P$(4)" and"P(6);P$(6):PRINT " as well as"G"bushels of grain and"P"Pounds."
+12100 INPUT "How many peasants will you knight this year";K:IF K<0 THEN 12100 ELSE IF K>P(4) AND K>0 THEN PRINT "You don't have enough peasants!":K=P(4):FOR A=1 TO 500:NEXT
+12200 IF K>0 AND K<=P(4) THEN P(1)=P(1)-K:P(3)=P(3)+K:P(4)=P(4)-K:P(6)=P(6)+K:G=G-K*25:P=P-K*5:LE=LE-K*5:L(1)=L(1)-K*10:L(3)=L(3)+K*15
+12300 PRINT:GOSUB 29700:G=G-INT(200+RND*150):IF G<0 THEN 13200 ELSE GOSUB 29700:IF RND*1<.83 THEN 13200
+12400 GOSUB 29700:B=INT(RND*5+1):IF D$(B)="province" OR G+P*5<10 THEN 13200
+12500 IF WL(B)<1 OR NS(B)<1 THEN 12400
+12600 GOSUB 29700:LQ=INT(RND*10+1)*10:COLOR CL(B):PRINT:PRINT "The "D$(B)" wants to sell"LQ"acres of land.":GOSUB 29700:LC=INT(RND*10+19):B1=B:COLOR 2
+12700 PRINT "He's selling at"LC"bushels an acre,":PRINT " and you can afford"INT((G+P*5)/LC)"acres."
+12800 BL=0:INPUT "How much do you want to buy";BL:IF BL>LQ THEN PRINT "He is offering only"LQ"acres, your excellency.":BL=LQ
+12900 IF BL*LC>G+P*5 THEN PRINT "But you only have enough for"INT((G+P*5)/LC)"acres!":GOTO 12700
+13000 IF BL<1 THEN 13200 ELSE G=G-LC*BL:PQ1(B)=PQ1(B)+LC*BL:IF G<0 THEN P=P+INT(G/5+.9000001):G=G-G/5-INT(-G/5)
+13100 F=(F*LE+FF(B)*BL)/(LE+BL):LE=LE+BL:BLL=BLL+BL:L=L+BL:SE=SE(B):SE1=219:SE2=BL/12:GOSUB 22500
+13200 IF B>40 THEN B=40
+13300 IF LE<1 THEN 14100 ELSE PRINT:PRINT "You have"LE"acres in your demesne,"G"bushels":PRINT " of grain, and"P"pounds sterling."
+13400 IF BL>0 THEN A$=INKEY$:IF A$="" THEN 13400 ELSE 14100
+13500 INPUT "How much land do you wish to sell (return for none)";BL:IF BL<1 THEN 14100
+13600 GOSUB 29700:B1=INT(RND*5+1):LC=INT(RND*10+19):IF WL(B1)<1 OR NS(B1)<1 OR PQ1(B1)<100 THEN 13200
+13700 IF BL>LE THEN PRINT " You don't have that much in your demesne!":GOTO 13400
+13800 PRINT:PRINT " The "D$(B1)" expresses an interest, and":PRINT " you agree on a price of"LC"bushels per acre.":PRINT " To receive the"BL*LC"bushels, press a key."
+13900 A$=INKEY$:IF A$="" THEN 13900
+14000 B=B1:LE=LE-BL:L=L-BL:G=G+LC*BL:SE=219:SE1=SE(B):SE2=BL/12:GOSUB 22500
+14100 CLS:CL=2:FOR A=1 TO 22:FOR B=1 TO 40:IF T(A,B)=T(A,B-1) THEN 14300 ELSE IF T(A,B)=176 THEN CL=13 ELSE IF T(A,B)=177 THEN CL=11 ELSE IF T(A,B)=178 THEN CL=14 ELSE IF T(A,B)=15 THEN CL=12 ELSE IF T(A,B)=8 THEN CL=15 ELSE CL=2
+14200 COLOR CL,0
+14300 PRINT CHR$(T(A,B));:NEXT:PRINT:NEXT:IF RT=1 THEN 22700 ELSE FOR A=1 TO 5:LOCATE 7+A,45:COLOR CL(A):PRINT STRING$(2,SE(A))"  ";D$(A):NEXT:LOCATE 14,45:COLOR 2:PRINT STRING$(2,219);"  You, the Earl of Couldoud"
+14400 A$=INKEY$:IF A$="" THEN 14400
+14500 GOSUB 29700:TP=RND*.5+.1:CLS:COLOR 6,0:PRINT:PRINT "The King's Sheriff has arrived at the manor.":PRINT
+14600 KT=1:IF G+P*5>800 THEN KT=KT+(G+P*5-800)/500:IF KT=>2 THEN PRINT "Taxes are high this year, my lord.":PRINT
+14700 PRINT "Taxes to your estates:":TL=ABS(INT(LE*.15*TP*KT/5)):TL1=ABS(INT(LE*.15-TL*5+.5)):PRINT " Tax on your land:",TL"pounds,"TL1"bushels of grain"
+14800 TH=HE1*.15*KT:TH1=ABS(INT(TH*TP/5+.5)):PRINT " Tax on your harvest:",TH1"pounds,"ABS(INT(TH-TH1*5))"bushels of grain"
+14900 GOSUB 29700:MT=INT(RND*40+KT/2+PTF/2):MT1=INT(MT*TP/5):PRINT " Miscellaneous:",MT1"pounds,"INT(MT-MT1*5)"bushels of grain"
+15000 TTL=INT(TL+TH1+TI1):TTT=INT(TL1+(TH-TH1*5)+(TI-TI1*10)+.5):PRINT "  Total Taxes:",TTL+MT1"pounds,"TTT+INT(MT-MT1*5)"bushels of grain.":P=P-TTL:G=G-TTT
+15100 IF MT>0 THEN CT=0:PRINT "Shall I cover up the"MT1"pounds and"MT-MT1*5"bushels":INPUT " in miscellaneous taxes";X$:IF LEFT$(X$,1)<>"Y" AND LEFT$(X$,1)<>"y" THEN PRINT:GOTO 15300
+15200 P=P-MT1:G=G-MT-MT1*5:CT=MT:PRINT
+15300 IF CT<1 THEN 15500 ELSE GOSUB 29700:IF RND*1>.65 THEN PRINT " He didn't catch us, your excellency.":PRINT:PRINT:GOTO 15500
+15400 GOSUB 29700:PTF=INT(RND*CT+1)*2:PRINT " He found"PTF/2"bushels missing.":PRINT:PRINT:PFF=PFF+PTF/2
+15500 IF P<0 THEN G=G+P*6:PRINT "You've had to spend"INT(-P*5.9+.5)"bushels of grain":PRINT "in place of"INT(-P+.5)"pounds, at a loss.":PRINT:P=0:GOTO 15700
+15600 IF G<0 THEN P=P+G/4:PRINT "You've had to spend"INT(-G/4.1+.5)"pounds sterling":PRINT "in place of"INT(-G+.5)"bushels, at a loss.":PRINT:G=0
+15700 IF G>0 THEN PRINT "You have"G"bushels of grain in your storehouses":IF P>0 THEN PRINT " and"P"pounds sterling left in your treasury"
+15800 IF G<1 AND P>0 THEN PRINT "We have only"INT(P)"pounds remaining, your excellency."
+15900 IF G<1 AND P<1 THEN PRINT "We are in debt, your excellency!"
+16000 FOR A=4 TO 6:IF P(A)<0 THEN P(A)=0
+16100 NEXT:J=0:I1=0:WC=0:LT2=0
+16200 J=J+1:IF J>5 THEN 25400
+16300 GOSUB 29700:I=INT(RND*5+1):IF RIGHT$(D$(I),8)="province" THEN 16200 ELSE IF RND*1>(W(I)-W1(I))/W(I) THEN 16200
+16400 PRINT:COLOR 4,0:GOSUB 29700:IF RND*1<.35+ABS(HT(I)/100) THEN 18000
+16500 GOSUB 29700:IF RND*1<.5 THEN 16800 ELSE I1=I-1:IF I1<1 THEN I1=5
+16600 IF WL(I1)<1 OR NS(I1)<1 THEN 16300
+16700 CHB=(W(I)/(W(I)+W(I1)))*100:GOSUB 29700:IF INT(RND*100+1)>CHB THEN 22100 ELSE 17000
+16800 GOSUB 29700:I1=INT(RND*5+1):IF I1=I OR RIGHT$(D$(I1),8)="province" THEN 16800
+16900 IF WL(I1)<1 OR NS(I1)<1 THEN 16300 ELSE CHB=(W(I)/(W(I)+W(I1)))*100:GOSUB 29700:IF INT(RND*100+1)>CHB THEN 22400
+17000 NW=1:PRINT:PRINT "The "D$(I)" is invading the "D$(I1)"!"
+17100 GOSUB 29700:IF INT(RND*100+1)>CHB THEN 17600 ELSE GOSUB 29700:W(I)=INT(W(I)-W(I)*RND*.2+.5):W(I1)=INT(W(I1)-W(I1)*RND*.3+.5)
+17200 GOSUB 29700:WL=INT(RND*1+1.5)*CHB:FF(I)=(FF(I)*WL(I)+FF(I1)*WL)/(WL(I)+WL):WL(I)=WL(I)+WL
+17300 WL(I1)=WL(I1)+WL:LT=SE(I):LT1=SE(I1):PRINT "The "D$(I)" has gained a "H$(INT(WL/30))" victory!":I2=I:I3=I1
+17400 GOSUB 29300:IF TK=1 THEN 20400 ELSE TK=0:GS=1:LQ=WL(I1):GOTO 20900
+17500 TAK=INT(WL/10.91+.5):IF TAK>NS(I1) THEN 29300 ELSE NS(I1)=NS(I1)-TAK:NS(I)=NS(I)+TAK:GOTO 20900
+17600 PRINT "The "D$(I1)" has driven back the invading forces!":GOSUB 29700:W(I)=INT(W(I)-W(I)*RND*.4+.5):W(I1)=INT(W(I1)-W(I1)*RND*.25+.5)
+17700 WL=INT(RND*1+1)*(100-CHB):FF(I1)=(FF(I1)*WL(I1)+FF(I)*WL)/(WL(I1)+WL):WL(I)=WL(I)-WL:WL(I1)=WL(I1)+WL:LT=SE(I1):LT1=SE(I):GS=1
+17800 TAK=INT(WL/10.91+.5):IF TAK>NS(I) THEN 29300 ELSE NS(I)=NS(I)-TAK:NS(I1)=NS(I1)+TAK:GOTO 20900
+17900 I2=I1:I3=I:GOSUB 29300:IF TK=1 THEN 20400 ELSE TK=0:WL(I)=WL(I)-WL:WL(I1)=WL(I1)+WL:LT=SE(I1):LT1=SE(I):GS=1:LQ=WL(I):GOTO 20900
+18000 GOSUB 29700:IF RND*1<=HT(I)/150+W1(I)/W(I) THEN GOSUB 29700:A=INT(RND*4+1):B=INT(RND*4+1):IF RIGHT$(D$(A),8)="province" OR RIGHT$(D$(B),8)="province" THEN 18000
+18100 IF B>4 THEN GOSUB 29700:B=INT(RND*4+1)
+18200 IF A>6 THEN GOSUB 29700:A=INT(RND*4+1)
+18300 IF A<>B THEN I=6:D$(6)=D$(A)+" has allied with the "+D$(B)+" and     ":W(6)=W(A)+W(B):LT2=SE(A)
+18400 ARMY=1.2*(P(4)+P(4)*MO(1)+P(5)+P(5)*MO(2)+P(6)+P(6)*5*MO(3)/(.65+P(6)/(P(4)+P(6)))^.5)/2
+18500 CHA=3*HT(I)+(W(I)/(W(I)+ARMY))*100:GOSUB 29700:IF INT(RND*100+1)>CHA THEN 22300 ELSE COLOR CL(I):PRINT "The "D$(I)" is marching on us!":COLOR 12:NW=1:NWT=1:GOSUB 31900
+18600 IF I=6 THEN I=A
+18700 MF=0:IF G<1 AND P<1 THEN 19000 ELSE INPUT "Do you want to try to find mercenaries";X$:IF LEFT$(X$,1)<>"Y" AND LEFT$(X$,1)<>"y" THEN 19000 ELSE GOSUB 29700:MF=INT(RND*26-5):IF MF<0 THEN MF=0
+18800 PRINT "You found"MF"mercenaries to fight for you":IF MF*20>G+P*5 THEN MF=INT((G+P*5)/20):PRINT "but you can only afford to hire"MF
+18900 ARMY=ARMY+MF*3:CHA=ABS(HT(I))+(W(I)/(W(I)+ARMY))*100:G=G-MF*20:IF G<0 THEN P=P-INT(-G/5+.9000001):G=0
+19000 PRINT "Your army consists of:":FOR A=1 TO 3:PRINT P(A+3);P$(A):NEXT:IF MF>0 THEN PRINT " and"MF"Mercenaries"
+19100 GOSUB 29700:GD=P(4)+P(5)+P(6):IF G<RND*.4+.6*.4*GD*1.25 THEN PRINT "We haven't enough grain to withstand a siege!"
+19200 RT=1:INPUT "Shall we retreat to the castle";X$:IF LEFT$(X$,1)<>"Y" AND LEFT$(X$,1)<>"y" THEN 19600
+19300 CHA=CHA*.8:GOSUB 29700:RT=RND*.35+.65:PS=(P(1)-P(4))*(RND*.25+.1):SS=(P(2)-P(5))*(RND*.25+.1)
+19400 G=G-.4*GD*(RND*.4+1):IF G<0 THEN PRINT "We've been starved out!":MN(1)=INT(-G/2+.5):MN(2)=MN(1):MN(3)=0:CHA=CHA*1.1
+19500 GOSUB 29700:IF INT(RND*100+1)>CHA THEN 19700 ELSE FOR A=4 TO 6:GOSUB 29700:C(A)=INT(RND*(P(A)*.3+.5+MN(A))+.8):NEXT:GOTO 20100
+19600 GOSUB 29700:PS=(P(1)-P(4))*(RND*.1):SS=(P(2)-P(5))*(RND*.1):GOSUB 29700:IF INT(RND*100+1)>CHA THEN 19700 ELSE FOR A=4 TO 6:GOSUB 29700:C(A)=INT(RND*(P(A)*.45+1)+.8):NEXT:GOTO 20100
+19700 GOSUB 29700:WL=INT((RND*.5+2)*CHA):IF WL>25 THEN WL=INT(WL/10+.5)*10:GOSUB 29700:PQ1=PQ1*(RND*.25+.65)
+19800 PRINT:PRINT "We lost, your excellency!  He's taken"WL"acres of our land!":SE(I)=SEE(I)
+19900 FF(I)=(FF(I)*WL(I)+F*WL)/(WL(I)+WL):WL(I)=WL(I)+WL:L=L-WL:LE=LE-WL:LT=SE(I):LT1=219:GOSUB 29700:HT(I)=HT(I)-(RND*WL/2+WL/4+C(4)+C(5)+C(6))/50
+20000 FOR A=1 TO 3:MO(A)=MO(A)*1.5*(P(A+3)-C(A+3))/P(A+3)*1.1+.01-WL/200:NEXT:GOSUB 29700:W(I)=INT(W(I)-RND*CHA/5+CHA/5+.5):WC=INT(RND*CHA/5+CHA/5+.5):PP(I)=PP(I)-WC:GOSUB 29200:GOTO 20600
+20100 GOSUB 29700:WL=ABS(INT(RT*(RND*.5+1.5)*(100-CHA))):IF WL>25 THEN WL=INT(WL/10+.5)*10:GOSUB 29700:PQ1=PQ1*(RND*.3+.65)
+20200 PRINT:PRINT "Victory, my lord!  We've driven the enemy back"WL"acres into his own manor!":GOSUB 29700:WC=INT(RND*CHA/4+CHA/4+.5):GOSUB 29700:HT(I)=HT(I)+(RND*WL/2+WL/4+WC)/50
+20300 F=(F*LE+FF(I)*WL)/(LE+WL):WL(I)=WL(I)-WL:L=L+WL:LE=LE+WL:LT=219:LT1=SE(I):FOR A=1 TO 3:MO(A)=MO(A)*1.5*(P(A+3)-C(A+3))/(P(A+3)*.9000001+.01)+WL/200:NEXT:GOSUB 28800
+20400 GOSUB 29700:W(I)=INT(W(I)-RND*CHA/4+CHA/4+.5):PP(I)=PP(I)-WC
+20500 IF NW=0 THEN 25400
+20600 PRINT:PRINT "War Casualties:":FOR A=1 TO 3:PRINT " "P$(A),C(A+3)"out of"P(A+3):NEXT:FOR A=4 TO 6:P(A-3)=P(A-3)-C(A):P(A)=P(A)-C(A):NEXT
+20700 IF LT2<>0 THEN IF LT1=SE(I) THEN LT1=LT2 ELSE LT=LT2
+20800 PRINT "The "D$(I)" lost"WC"men."
+20900 AB=0:TM=VAL(TIME$)*60+VAL(MID$(TIME$,4,2))+VAL(RIGHT$(TIME$,2))/60:IF WL(I)=0 THEN ABA=0 ELSE ABA=INT(WL/12)
+21000 AB1=0:GOSUB 29700:A=INT(RND*21+1):B=INT(RND*40+1):IF T(A,B)<>LT1 THEN 21000 ELSE FOR A1=A-1 TO A+1 STEP 2:FOR B1=B-1 TO B+1 STEP 2:IF A1>22 THEN A1=20
+21100 IF B1>40 THEN B1=38
+21200 IF T(A1,B1)=LT THEN T(A,B)=LT:AB1=1
+21300 IF AB1=0 THEN 21800 ELSE FOR A1=A-1 TO A+1:FOR B1=B-1 TO B+1:IF A1>22 THEN A1=20
+21400 IF B1>40 THEN B1=38
+21500 IF T(A1,B1)=LT1 THEN T(A1,B1)=LT:AB1=AB1+1
+21600 IF AB+AB1=>ABA THEN 22300
+21700 NEXT:NEXT
+21800 NEXT:NEXT:IF AB1>0 THEN AB=AB+AB1:NS(I)=NS(I)-AB1:IF NS(I)<1 THEN AB=ABA
+21900 IF (VAL(TIME$)*60+VAL(MID$(TIME$,4,2))+VAL(RIGHT$(TIME$,2))/60)-TM>.3 THEN AB=ABA:GOTO 21600
+22000 IF AB<ABA THEN 21000
+22100 IF J<5 THEN 16200
+22200 IF GS=1 THEN GS=0:GOTO 20400
+22300 GOTO 25400
+22400 GOSUB 29700:IF RND*1<.4 THEN 16300 ELSE 25400
+22500 IF BL<7 THEN RETURN
+22600 RT=1:GOTO 14100
+22700 RT=0:COLOR CL(B1):LOCATE 12,42:PRINT "Choose which will be transacted":LOCATE 13,44:PRINT "with the "D$(B1)":":LOCATE 15,56:PRINT STRING$(2,SE(B1)):A=13:B=22
+22800 COLOR 2:LOCATE A,B:PRINT CHR$(26)
+22900 A$=INKEY$:IF A$="" THEN 22900
+23000 IF LEN(A$)=1 THEN 23500 ELSE A$=RIGHT$(A$,1)
+23100 IF A$="K" THEN A$="4" ELSE IF A$="M" THEN A$="6"
+23200 IF A$="H" THEN A$="8" ELSE IF A$="P" THEN A$="2"
+23300 IF A$="G" THEN A$="7" ELSE IF A$="I" THEN A$="9"
+23400 IF A$="O" THEN A$="1" ELSE IF A$="Q" THEN A$="3"
+23500 IF A$="1" OR A$="2" OR A$="3" THEN LOCATE A,B:PRINT CHR$(T(A,B)):A=A+1
+23600 IF A$="7" OR A$="8" OR A$="9" THEN LOCATE A,B:PRINT CHR$(T(A,B)):A=A-1
+23700 IF A$="9" OR A$="6" OR A$="3" THEN LOCATE A,B:PRINT CHR$(T(A,B)):B=B+1
+23800 IF A$="7" OR A$="4" OR A$="1" THEN LOCATE A,B:PRINT CHR$(T(A,B)):B=B-1
+23900 IF VAL(A$)=0 THEN 24100
+24000 GOTO 22800
+24100 IF T(A,B)=SE THEN T(A,B)=SE1:SE2=SE2-1:LOCATE A,B:PRINT CHR$(T(A,B))
+24200 IF SE2=>.5 THEN 22800 ELSE CLS:RETURN
+24300 CLS:COLOR 3,0:PRINT:PRINT "Distribution of land:":FOR A=1 TO 3:PRINT INT(L(A)/P(A)*10)/10"("L(A)") for your "P$(A)",":NEXT
+24400 PRINT LE"for your Estates,":PRINT "  and"L"acres Total."
+24500 IF LE<0 THEN 24800
+24600 IF G<LE/2 THEN PRINT "But you have only enough grain to plant"INT(G)"acres, my lord."
+24700 INPUT "Do you want to redistribute the land";X$:IF VAL(X$)>0 THEN 24700 ELSE IF LEFT$(X$,1)<>"Y" AND LEFT$(X$,1)<>"y" THEN 25300
+24800 PRINT:INPUT "Land for the Peasants";L5:IF L5>L THEN 24800 ELSE IF L5>L(1) THEN F(1)=(F(1)*L(1)+(F(2)+F(3)+F)/3*(L(2)+L(3)+LE))/L
+24900 L(1)=L5:PRINT "Land for the Serfs ("L-L5"max ) ";:INPUT L5:IF L5>L-L(1) THEN 24900 ELSE IF L5>L(2) THEN F(2)=(F(2)*L(2)+(F(1)+F(3)+F)/3*(L(1)+L(3)+LE))/L
+25000 L(2)=L5:PRINT "Land for your Nobles ("L-L(1)-L5"max ) ";:INPUT L6:IF L6>L-L(1)-L(2) THEN 25000 ELSE IF L6>L(3) THEN F(3)=(F(3)*L(3)+(F(1)+F(2)+F)/3*(L(1)+L(2)+LE))/L
+25100 L(3)=L6:LEE=LE:LE=L-L(1)-L(2)-L(3):PRINT "Land for your Estates:"LE:IF LE>LEE THEN F=(F*LEE+(F(1)+F(2)+F(3))/3*(L(1)+L(2)+L(3)))/L
+25200 PRINT:PRINT "How does it look now?":FOR A=1 TO 3:PRINT INT(L(A)/P(A)*10)/10"("L(A)") for your "P$(A)",":NEXT:GOTO 24400
+25300 PRINT:PRINT:GOTO 3500
+25400 TK=0:X$="":COLOR 12,0:PRINT:INPUT "Do you want to go to war";X$:COLOR 4,0:IF VAL(X$)>0 THEN 25400
+25500 PRINT:IF LEFT$(X$,1)<>"Y" AND LEFT$(X$,1)<>"y" THEN 24300 ELSE FOR A=1 TO 5:COLOR CL(A):PRINT A;D$(A),STRING$(2,SE(A)):NEXT:PRINT:COLOR 12
+25600 IF P(4)+P(5)+P(6)<1 THEN PRINT "How can you invade someone without soldiers?":RETURN
+25700 ARMY=1.2*(P(4)+P(4)*MO(1)+P(5)+P(5)*MO(2)+P(6)+P(6)*5*MO(3)/(.65+P(6)/(P(4)+P(6)))^.5)/2:INPUT "Which one do you want to invade";I:IF I<1 OR I>5 THEN 25400 ELSE I=INT(I)
+25800 IF D$(I)="province" THEN PRINT "As you recall, my lord, you have already":PRINT "  subjugated that particular fief.":GOTO 25400
+25900 MF=0:IF G<1 AND P<1 THEN 26200 ELSE NWT=1:INPUT "Do you want to try to hire mercenaries";X$:IF LEFT$(X$,1)<>"Y" AND LEFT$(X$,1)<>"y" THEN 26200 ELSE GOSUB 29700:MF=INT(RND*26-5):IF MF<0 THEN MF=0
+26000 PRINT "You found"MF"mercenaries":IF MF*20>G+P*5 THEN MF=INT((G+P*5)/20):PRINT "but you can only afford"MF"
+26100 PRINT:ARMY=ARMY+MF*3
+26200 PRINT "Your army is ready, my lord!":FOR A=1 TO 3:PRINT P(A+3);P$(A):NEXT:IF MF>0 THEN PRINT " and"MF"mercenaries":PRINT
+26300 CHA=ABS(HT(I))+(W(I)/(ARMY+W(I)))*100:CHA=CHA*1.2
+26400 FOR A=1 TO 3:IF MO(A)<0 THEN MO(A)=0
+26500 NEXT:PRINT "The rabble seems ";:IF (MO(1)+MO(2))/2>1.15 THEN PRINT "enthusiastic." ELSE IF (MO(1)+MO(2))/2<.85 THEN PRINT "sullen." ELSE PRINT "quiet."
+26600 PRINT "You gather your knights.  They are ";
+26700 IF CHA*MO(3)^.5>80 THEN PRINT "in favor of invasion." ELSE IF CHA*MO(3)^.5<40 THEN PRINT "wondering what life";CHR$(13);"  will be like under the "D$(I)"." ELSE PRINT "unsure about the invasion."
+26800 IF P(6)*2<P(4) THEN 27000 ELSE PRINT "  They are complaining ";:IF P(6)=>P(4) THEN PRINT "greatly ";
+26900 PRINT "that they are too":PRINT "  many and the peasants too few!"
+27000 PRINT:INPUT "Shall I sound the horns, my lord";A$:COLOR 7,0:IF LEFT$(A$,1)<>"Y" AND LEFT$(A$,1)<>"y" THEN 25400
+27100 PRINT:G=G-MF*20:IF G<0 THEN P=P-INT(-G/5+.9000001):G=0
+27200 IF W(I)<0 THEN CHA=0
+27300 GOSUB 29700:IF INT(RND*100+1)>CHA THEN 27400 ELSE FOR A=4 TO 6:GOSUB 29700:C(A)=INT((RND*.4+.1)*P(A)+.8):NEXT:SS=INT(RND*(PP(I)*.1)+PP(I)*.1):GOTO 27500
+27400 FOR A=4 TO 6:GOSUB 29700:C(A)=INT((RND*.3+.05)*P(A)+.8):NEXT:SS=INT(RND*(PP(I)*.3)+PP(I)*.2):GOTO 28000
+27500 GOSUB 29700:WL=INT((RND*.5+1.5)*CHA):IF WL>25 THEN WL=INT(WL/10+.5)*10:GOSUB 29700:PQ1(A)=PQ1(A)*(RND*.25+.65)
+27600 PRINT "We've lost, sir!  The "D$(I)"'s forces have pushed us":PRINT WL"acres back across the border!":LQ=L:GOSUB 29700:W(I)=INT(W(I)-(RND*CHA/5+CHA/5+.5)):WC=INT(RND*CHA/5+CHA/5+.5):PP(I)=PP(I)-WC
+27700 FF(I)=(FF(I)*WL(I)+F*WL)/(WL(I)+WL):WL(I)=WL(I)+WL:L=L-WL:LE=LE-WL:GOSUB 29200
+27800 IF TK=1 THEN 28400 ELSE LT=SE(I):LT1=219:FOR A=1 TO 3:MO(A)=MO(A)*1.5*(P(A+3)-C(A+3))/(P(A+3)*1.1+.01)-WL/200:NEXT
+27900 GOSUB 29700:HT(I)=HT(I)-(RND*WL/2+WL/4+C(4)+C(5)+C(6))/50:GOTO 28400
+28000 GOSUB 29700:WL=INT((RND*.5+2)*(100-CHA)):IF WL>25 THEN WL=INT(WL/10+.5)*10:GOSUB 29700:PQ1=PQ1*(RND*.3+.65)
+28100 PRINT "Victory!  We have pushed the "D$(I)"'s forces":PRINT WL"acres into his territory!":GOSUB 29700:W(I)=INT(W(I)-RND*CHA/4+CHA/4+.5):WC=INT(RND*CHA/4+CHA/4+.5):PP(I)=PP(I)-WC
+28200 F=(F*LE+FF(I)*.9*WL)/(LE+WL):WL(I)=WL(I)-WL:L=L+WL:LE=LE+WL:GOSUB 28800:IF TK=1 THEN 28500
+28300 LT=219:LT1=SE(I):FOR A=1 TO 3:MO(A)=MO(A)*1.5*(P(A+3)-C(A+3))/(P(A+3)*.9000001+.01)+WL/200:NEXT:LQ=WL(I):GOSUB 29700:HT(I)=HT(I)+(RND*WL/2+WL/4+WC)/50
+28400 IF NWT=0 THEN GS=0
+28500 NW=0:PRINT:PRINT "War Casualties:":FOR A=1 TO 3:PRINT " "P$(A),C(A+3)"out of"P(A+3):NEXT:FOR A=4 TO 6:P(A-3)=P(A-3)-C(A):P(A)=P(A)-C(A):NEXT:IF TK=0 THEN GS=0
+28600 GOTO 20800
+28700 GOTO 25400
+28800 GOSUB 29700:IF RND*1>W(I)/W1(I) THEN 28900 ELSE IF RIGHT$(D$(I),8)="province" OR WL(I)>0 THEN RETURN
+28900 PRINT:PRINT "You have overrun the "D$(I)"'s entire manor,":D$(I)="province":LT=SE(I):LT1=219:L=INT(L+WL(I)):LE=INT(LE+WL(I)):WL(I)=0
+29000 GG=ABS(INT(PQ(I)*H*FF(I)/100*.75)):GOSUB 29700:GG1=INT((RND*.2+.2)*GG/5):GG=GG-GG1*5:PRINT " taken"GG"bushels of grain and"GG1"pounds":PRINT " from his stores, and acquired"
+29100 FOR A=1 TO 6:GOSUB 29700:PAC=ABS(INT(RND*PP(I)/A)):PRINT " "PAC;P$(A):P(A)=P(A)+PAC:NEXT:W(A)=0:G=G+GG:P=P+GG1:GOTO 29500
+29200 GOSUB 29700:IF L>0 AND RND*1<ARMY/105 THEN RETURN ELSE PRINT:PRINT "The "D$(I)" has overrun your whole manor!":PRINT "Sorry, but there's nothing I can do for you.":PRINT "Your reign has ended.  Farewell.":L=0:GOTO 30100
+29300 GOSUB 29700:IF WL(I2)>0 AND RND*1<W(I2)/W1(I2) THEN RETURN ELSE PRINT:PRINT "The "D$(I3)" has overrun the "D$(I2)"!":LT=SE(I2):LT1=SE(I3):D$(I2)=D$(I3)+"'s province"
+29400 GOSUB 29700:PP(I3)=PP(I3)+RND*PP(I2)/4:W(I3)=W(I2)+RND*PP(I2)/4:W(I2)=0:WL(I3)=INT(WL(I3)+WL(I2)):WL(I2)=0
+29500 PRINT:PRINT "Time to redraw the map...":FOR A=1 TO 22:FOR B=1 TO 40:IF T(A,B)=LT THEN T(A,B)=LT1
+29600 NEXT:NEXT:TK=1:PRINT:RETURN
+29700 RANDOMIZE(VAL(RIGHT$(TIME$,2))):RETURN
+29800 IF CC<0 THEN PRINT STR$(CC);")":RETURN
+29900 IF CC=0 THEN PRINT CHR$(241);"0)":RETURN
+30000 PRINT "+";RIGHT$(STR$(CC),LEN(STR$(CC))-1);")":RETURN
+30100 FOR A=1 TO 5000:NEXT:Y=Y+1:APSS=APSS+MO(1)+MO(2)+MO(3):APS=APSS/(Y-YAB)
+30200 COLOR 5,0:PRINT:PRINT:PRINT "By the end of your reign you had":IF L>1385 THEN PRINT "increased your manor's area by"STR$(INT(10000*L/1385)/100-100)"%, or"
+30300 IF L<1385 THEN PRINT "lost"STR$(100-(INT(10000*L/1385)/100))"% of your manor's area, or"
+30400 IF L=1385 THEN PRINT "not changed your manor's area at all.":GOTO 30600
+30500 PRINT ABS(1385-L)"acres of land -- totaling"L"acres."
+30600 PRINT:FOR A=1 TO 6:PRINT " "P$(A);TAB(23);P(A):NEXT
+30700 TOT=P(1)+P(2)+P(3):POP=P(4)+P(5)+P(6):PRINT:PRINT "You had a total population of"TOT:PRINT " and an able-bodied population of"POP
+30800 PRINT:PRINT "Your performance rating was"INT(100*(L/1385)^.6*(BLL/10+1)^.3*APS/3*((Y-YAB)*2.5/(ST+5))^.1*((Y-YAB)/15)^.05*(((WL(2)/1135+WL(5)/1302+(2-WL(1)/2425)+(2-WL(3)/1760))/4)^.2)):PRINT:PRINT
+30900 A$=INKEY$:IF A$="" THEN 30900
+31000 PRINT:PRINT " Base Score of:"INT(10000*(L/1385)^.6+.5)/100"for land gain/loss"
+31100 PRINT "  x"INT(100*(BLL/10+1)^.3+.5)/100"for peaceful acquisition of land"
+31200 PRINT "  x"INT(APS/3*100+.5)/100"for your people's happiness"
+31300 PRINT "  x"INT(100*((Y-YAB)*2.5/(ST+5))^.1+.5)/100"for starvations suffered under you"
+31400 PRINT "  x"INT(100*(1-PFF/5000)+.5)/100"for your economic honesty with the King"
+31500 PRINT "  x"INT(((Y-YAB)/15)^.05*100+.5)/100"for your longevity of reign"
+31600 PRINT "  x"INT((100*((WL(2)/1135+WL(5)/1302)/2)^.2)+.5)/100"for your military campaigns against":PRINT,"your weaker neighbors"
+31700 PRINT "  x"INT((100*(((2-WL(1)/2425)+(2-WL(3)/1760))/2)^.2)+.5)/100"for your military campaigns against":PRINT,"your stronger neighbors
+31800 COLOR 7,0:END
+31900 SOUND 500,.7:SOUND 475,.7:SOUND 500,.7:SOUND 500,.7:FOR A1=1 TO 400:NEXT:RETURN

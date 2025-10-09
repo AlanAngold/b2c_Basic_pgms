@@ -1,0 +1,899 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of basic/golf.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5eeb19815ac0 ---------A   00001 PRINT TAB(34);"GOLF"
+    0x5eeb19816e10 ---------A   00002 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5eeb19815210 ---------A   00003 PRINT:PRINT:PRINT
+    0x5eeb198164c0 ---------A   00004 PRINT "WELCOME TO THE CREATIVE COMPUTING COUNTRY CLUB,"
+    0x5eeb19816980 ---------A   00005 PRINT "AN EIGHTEEN HOLE CHAMPIONSHIP LAYOUT LOCATED A SHORT"
+    0x5eeb19814dd0 ---------A   00006 PRINT "DISTANCE FROM SCENIC DOWNTOWN MORRISTOWN.  THE"
+    0x5eeb198165c0 ---------A   00007 PRINT "COMMENTATOR WILL EXPLAIN THE GAME AS YOU PLAY."
+    0x5eeb19814be0 ---------A   00008 PRINT "ENJOY YOUR GAME; SEE YOU AT THE 19TH HOLE..."
+    0x5eeb198156c0 ---------A   00009 PRINT:PRINT: DIM L(10)
+    0x5eeb198169d0 ---------A   00010 G1=18
+    0x5eeb1981cac0 ---------A   00020 G2=0
+    0x5eeb1981cd50 ---------A   00030 G3=0
+    0x5eeb1981d020 ---------A   00040 A=0
+    0x5eeb1981d2f0 ---------A   00050 N=.8
+    0x5eeb1981d5c0 ---------A   00060 S2=0
+    0x5eeb1981d870 ---------A   00070 F=1
+    0x5eeb1981d9e0 ---------A T 00080 PRINT "WHAT IS YOUR HANDICAP";
+    0x5eeb1981dbf0 ---------A   00090 INPUT H:PRINT
+    0x5eeb198145b0 ---------A   00100 IF H>30 THEN 470
+    0x5eeb1981e060 ---------A   00110 IF H<0 THEN 470
+    0x5eeb1981e1d0 ---------A T 00120 PRINT "DIFFICULTIES AT GOLF INCLUDE:"
+    0x5eeb1981e370 ---------A   00130 PRINT "0=HOOK, 1=SLICE, 2=POOR DISTANCE, 4=TRAP SHOTS, 5=PUTTING"
+    0x5eeb1981e4c0 ---------A   00140 PRINT "WHICH ONE (ONLY ONE) IS YOUR WORST";
+    0x5eeb1981e730 ---------A   00150 INPUT T:PRINT
+    0x5eeb1981e980 ---------A   00160 IF T>5 THEN 120
+    0x5eeb1981ec60 ---------A   00170 S1=0
+    0x5eeb1981ecd0 ---------A   00210 REM
+    0x5eeb1981efb0 ---------A T 00230 L(0)=0
+    0x5eeb1981f280 ---------A   00240 J=0
+    0x5eeb1981f550 ---------A   00245 Q=0
+    0x5eeb1981f880 ---------A   00250 S2=S2+1
+    0x5eeb1981fb50 ---------A   00260 K=0
+    0x5eeb1981fdc0 ---------A   00270 IF F=1 THEN 310
+    0x5eeb19820530 ---------A   00290 PRINT "YOUR SCORE ON HOLE";F-1;"WAS";S1
+    0x5eeb198205a0 ---------A   00291 GOTO 1750
+    0x5eeb198209c0 ---------A T 00292 IF S1>P+2 THEN 297
+    0x5eeb19820c40 ---------A   00293 IF S1=P THEN 299
+    0x5eeb19820fc0 ---------A   00294 IF S1=P-1 THEN 301
+    0x5eeb19821340 ---------A   00295 IF S1=P-2 THEN 303
+    0x5eeb198213a0 ---------A   00296 GOTO 310
+    0x5eeb198214e0 ---------A T 00297 PRINT "KEEP YOUR HEAD DOWN."
+    0x5eeb19821530 ---------A   00298 GOTO 310
+    0x5eeb19821670 ---------A T 00299 PRINT "A PAR.  NICE GOING."
+    0x5eeb198216e0 ---------A   00300 GOTO 310
+    0x5eeb19821820 ---------A T 00301 PRINT "A BIRDIE."
+    0x5eeb19821890 ---------A   00302 GOTO 310
+    0x5eeb19821ab0 ---------A T 00303 IF P=3 THEN 306
+    0x5eeb19821c10 ---------A   00304 PRINT "A GREAT BIG EAGLE."
+    0x5eeb19821c90 ---------A   00305 GOTO 310
+    0x5eeb19821dd0 ---------A T 00306 PRINT "A HOLE IN ONE."
+    0x5eeb19822020 ---------A T 00310 IF F=19 THEN 1710
+    0x5eeb19822240 ---------A   00315 S1=0
+    0x5eeb198222b0 ---------A   00316 PRINT
+    0x5eeb19822500 ---------A T 00320 IF S1=0 THEN 1590
+    0x5eeb19822820 ---------A   00330 IF L(0)<1 THEN 1150
+    0x5eeb19822b00 ---------A   00340 X=0
+    0x5eeb19822e40 ---------A   00350 IF L(0)>5 THEN 1190
+    0x5eeb19823540 ---------A   00360 PRINT "SHOT WENT";D1;"YARDS.  IT'S";D2;"YARDS FROM THE CUP."
+    0x5eeb19823a50 ---------A   00362 PRINT "BALL IS";INT(O);"YARDS OFF LINE... IN ";
+    0x5eeb19823ac0 ---------A   00380 GOSUB 400
+    0x5eeb19823b20 ---------A   00390 GOTO 620
+    0x5eeb19823e40 ---------B G 00400 IF L(X)=1 THEN 480
+    0x5eeb19824180 ---------B   00410 IF L(X)=2 THEN 500
+    0x5eeb198244c0 ---------B   00420 IF L(X)=3 THEN 520
+    0x5eeb19824800 ---------B   00430 IF L(X)=4 THEN 540
+    0x5eeb19824f50 ---------B   00440 IF L(X)=5 THEN 560
+    0x5eeb198252a0 ---------B   00450 IF L(X)=6 THEN 580
+    0x5eeb19825400 ---------B   00460 PRINT "OUT OF BOUNDS."
+    0x5eeb19825490 ---------B   00465 GOTO 1690
+    0x5eeb198255e0 ---------A T 00470 PRINT "PGA HANDICAPS RANGE FROM 0 TO 30."
+    0x5eeb19825650 ---------A   00472 GOTO 80
+    0x5eeb19825790 ---------B T 00480 PRINT "FAIRWAY."
+    0x5eeb19825800 ---------B   00490 GOTO 1690
+    0x5eeb19825940 ---------B T 00500 PRINT "ROUGH."
+    0x5eeb198259b0 ---------B   00510 GOTO 1690
+    0x5eeb19825af0 ---------B T 00520 PRINT "TREES."
+    0x5eeb19825b70 ---------B   00530 GOTO 1690
+    0x5eeb19825cb0 ---------B T 00540 PRINT "ADJACENT FAIRWAY."
+    0x5eeb19825d20 ---------B   00550 GOTO 1690
+    0x5eeb19825e60 ---------B T 00560 PRINT "TRAP."
+    0x5eeb19825ed0 ---------B   00570 GOTO 1690
+    0x5eeb19826010 ---------B T 00580 PRINT "WATER."
+    0x5eeb19826080 ---------B   00590 GOTO 1690
+    0x5eeb198262d0 ---------A T 00620 IF A=1 THEN 629
+    0x5eeb19826460 ---------A   00621 PRINT "SELECTION OF CLUBS"
+    0x5eeb19826600 ---------A   00622 PRINT "YARDAGE DESIRED                       SUGGESTED CLUBS"
+    0x5eeb198267a0 ---------A   00623 PRINT "200 TO 280 YARDS                           1 TO 4"
+    0x5eeb19826940 ---------A   00624 PRINT "100 TO 200 YARDS                          19 TO 13"
+    0x5eeb19826ab0 ---------A   00625 PRINT "  0 TO 100 YARDS                          29 TO 23"
+    0x5eeb19826cd0 ---------A   00626 A=1
+    0x5eeb19826e50 ---------A T 00629 PRINT "WHAT CLUB DO YOU CHOOSE";
+    0x5eeb19827060 ---------A   00630 INPUT C
+    0x5eeb198270e0 ---------A   00632 PRINT
+    0x5eeb19827330 ---------A   00635 IF C<1 THEN 690
+    0x5eeb19827590 ---------A   00637 IF C>29 THEN 690
+    0x5eeb198277f0 ---------A   00640 IF C>4 THEN 710
+    0x5eeb19827b10 ---------A T 00650 IF L(0)<=5 THEN 740
+    0x5eeb19827d70 ---------A   00660 IF C=14 THEN 740
+    0x5eeb19827fd0 ---------A   00665 IF C=23 THEN 740
+    0x5eeb19828050 ---------A   00670 GOTO 690
+    0x5eeb19828390 ---------A T 00680 S1=S1-1
+    0x5eeb198284f0 ---------A T 00690 PRINT "THAT CLUB IS NOT IN THE BAG."
+    0x5eeb19828560 ---------A   00693 PRINT
+    0x5eeb198285d0 ---------A   00700 GOTO 620
+    0x5eeb19828810 ---------A T 00710 IF C<12 THEN 690
+    0x5eeb19828b50 ---------A   00720 C=C-6
+    0x5eeb19828bc0 ---------A   00730 GOTO 650
+    0x5eeb19828ee0 ---------A T 00740 S1=S1+1
+    0x5eeb198291b0 ---------A   00741 W=1
+    0x5eeb19829410 ---------A   00742 IF C>13 THEN 960
+    0x5eeb19829970 ---------A   00746 IF INT(F/3)=F/3 THEN 952
+    0x5eeb19829bd0 ---------A T 00752 IF C<4 THEN 756
+    0x5eeb19829c50 ---------A   00754 GOTO 760
+    0x5eeb19829f50 ---------A T 00756 IF L(0)=2 THEN 862
+    0x5eeb1982a1e0 ---------A T 00760 IF S1>7 THEN 867
+    0x5eeb1982b220 ---------A T 00770 D1=INT(((30-H)*2.5+187-((30-H)*.25+15)*C/2)+25*RND(1))
+    0x5eeb1982b650 ---------A   00780 D1=INT(D1*W)
+    0x5eeb1982b8c0 ---------A   00800 IF T=2 THEN 1170
+    0x5eeb1982c450 ---------A T 00830 O=(RND(1)/.8)*(2*H+16)*ABS(TAN(D1*.0035))
+    0x5eeb1982ce20 ---------A   00840 D2=INT(SQR(O^2+ABS(D-D1)^2))
+    0x5eeb1982d190 ---------A   00850 IF D-D1<0 THEN 870
+    0x5eeb1982d220 ---------A   00860 GOTO 890
+    0x5eeb1982d360 ---------A T 00862 PRINT "YOU DUBBED IT."
+    0x5eeb1982d570 ---------A   00864 D1=35
+    0x5eeb1982d5e0 ---------A   00866 GOTO 830
+    0x5eeb1982d820 ---------A T 00867 IF D<200 THEN 1300
+    0x5eeb1982d8a0 ---------A   00868 GOTO 770
+    0x5eeb1982db00 ---------A T 00870 IF D2<20 THEN 890
+    0x5eeb1982dc70 ---------A   00880 PRINT "TOO MUCH CLUB. YOU'RE PAST THE HOLE."
+    0x5eeb1982e770 ---------A T 00890 B=D
+    0x5eeb1982e9a0 ---------A   00900 D=D2
+    0x5eeb1982ebf0 ---------A   00910 IF D2>27 THEN 1020
+    0x5eeb1982ee50 ---------A   00920 IF D2>20 THEN 1100
+    0x5eeb1982f0b0 ---------A   00930 IF D2>.5 THEN 1120
+    0x5eeb1982f390 ---------A   00940 L(0)=9
+    0x5eeb1982f430 ---------A   00950 GOTO 1470
+    0x5eeb19830370 ---------A T 00952 IF S2+Q+(10*(F-1)/18)<(F-1)*(72+((H+1)/.85))/18 THEN 956
+    0x5eeb198303f0 ---------A   00954 GOTO 752
+    0x5eeb19830720 ---------A T 00956 Q=Q+1
+    0x5eeb19830c70 ---------A   00957 IF S1/2<>INT(S1/2) THEN 1011
+    0x5eeb19830d20 ---------A   00958 GOTO 862
+    0x5eeb19830e90 ---------A T 00960 PRINT "NOW GAUGE YOUR DISTANCE BY A PERCENTAGE (1 TO 100)"
+    0x5eeb19831000 ---------A   00961 PRINT "OF A FULL SWING";
+    0x5eeb19831470 ---------A   00970 INPUT W: W=W/100
+    0x5eeb198314e0 ---------A   00972 PRINT
+    0x5eeb19831730 ---------A   00980 IF W>1 THEN 680
+    0x5eeb19831a50 ---------A   00985 IF L(0)=5 THEN 1280
+    0x5eeb19831cb0 ---------A   00990 IF C=14 THEN 760
+    0x5eeb19831ff0 ---------A   01000 C=C-10
+    0x5eeb19832060 ---------A   01010 GOTO 760
+    0x5eeb198322d0 ---------A T 01011 IF D<95 THEN 862
+    0x5eeb19832740 ---------A   01012 PRINT "BALL HIT TREE - BOUNCED INTO ROUGH";D-75;"YARDS FROM HOLE."
+    0x5eeb19832a70 ---------A   01014 D=D-75
+    0x5eeb19832ae0 ---------A   01018 GOTO 620
+    0x5eeb19832d20 ---------A T 01020 IF O<30 THEN 1150
+    0x5eeb19832f80 ---------A   01022 IF J>0 THEN 1150
+    0x5eeb198331e0 ---------A   01030 IF T>0 THEN 1070
+    0x5eeb19833730 ---------A   01035 S9=(S2+1)/15
+    0x5eeb19833a90 ---------A   01036 IF INT(S9)=S9 THEN 1075
+    0x5eeb19833c10 ---------A T 01040 PRINT "YOU HOOKED- ";
+    0x5eeb19833fc0 ---------A   01050 L(0)=L(2)
+    0x5eeb19834210 ---------A T 01055 IF O>45 THEN 1092
+    0x5eeb19834290 ---------A   01060 GOTO 320
+    0x5eeb19834700 ---------A T 01070 S9=(S2+1)/15
+    0x5eeb19834a60 ---------A   01071 IF INT(S9)=S9 THEN 1040
+    0x5eeb19834be0 ---------A T 01075 PRINT "YOU SLICED- ";
+    0x5eeb19834f90 ---------A   01080 L(0)=L(1)
+    0x5eeb19835000 ---------A   01090 GOTO 1055
+    0x5eeb19835140 ---------A T 01092 PRINT "BADLY."
+    0x5eeb198351b0 ---------A   01094 GOTO 320
+    0x5eeb19835470 ---------A T 01100 L(0)=5
+    0x5eeb198354e0 ---------A   01110 GOTO 320
+    0x5eeb198357a0 ---------A T 01120 L(0)=8
+    0x5eeb19835bb0 ---------A   01130 D2=INT(D2*3)
+    0x5eeb19835c20 ---------A   01140 GOTO 1380
+    0x5eeb19835ee0 ---------A T 01150 L(0)=1
+    0x5eeb19835f50 ---------A   01160 GOTO 320
+    0x5eeb19836350 ---------A T 01170 D1=INT(.85*D1)
+    0x5eeb198363d0 ---------A   01180 GOTO 830
+    0x5eeb198366f0 ---------A T 01190 IF L(0)>6 THEN 1260
+    0x5eeb19836860 ---------A   01200 PRINT "YOUR SHOT WENT INTO THE WATER."
+    0x5eeb19836bc0 ---------A T 01210 S1=S1+1
+    0x5eeb19836d30 ---------A   01220 PRINT "PENALTY STROKE ASSESSED.  HIT FROM PREVIOUS LOCATION."
+    0x5eeb19837060 ---------A   01230 J=J+1
+    0x5eeb19837330 ---------A   01240 L(0)=1
+    0x5eeb19837560 ---------A   01242 D=B
+    0x5eeb198375f0 ---------A   01250 GOTO 620
+    0x5eeb19837740 ---------A T 01260 PRINT "YOUR SHOT WENT OUT OF BOUNDS."
+    0x5eeb198377b0 ---------A   01270 GOTO 1210
+    0x5eeb19837a00 ---------A T 01280 IF T=3 THEN 1320
+    0x5eeb198383c0 ---------A T 01300 D2=1+(3*INT((80/(40-H))*RND(1)))
+    0x5eeb19838440 ---------A   01310 GOTO 1380
+    0x5eeb19838760 ---------A T 01320 IF RND(1)>N THEN 1360
+    0x5eeb19838ac0 ---------A   01330 N=N*.2
+    0x5eeb19838c20 ---------A   01340 PRINT "SHOT DUBBED, STILL IN TRAP."
+    0x5eeb19838c90 ---------A   01350 GOTO 620
+    0x5eeb19838e90 ---------A T 01360 N=.8
+    0x5eeb19838f20 ---------A   01370 GOTO 1300
+    0x5eeb19839280 ---------A T 01380 PRINT "ON GREEN,";D2;"FEET FROM THE PIN."
+    0x5eeb19839400 ---------A   01381 PRINT "CHOOSE YOUR PUTT POTENCY (1 TO 13):";
+    0x5eeb19839610 ---------A   01400 INPUT I
+    0x5eeb19839960 ---------A   01410 S1=S1+1
+    0x5eeb1983a030 ---------A   01420 IF S1+1-P>(H*.072)+2 THEN 1470
+    0x5eeb1983a290 ---------A   01425 IF K>2 THEN 1470
+    0x5eeb1983a5d0 ---------A   01428 K=K+1
+    0x5eeb1983a830 ---------A   01430 IF T=4 THEN 1530
+    0x5eeb1983b0b0 ---------A   01440 D2=D2-I*(4+2*RND(1))+1.5
+    0x5eeb1983b300 ---------A T 01450 IF D2<-2 THEN 1560
+    0x5eeb1983b570 ---------A   01460 IF D2>2 THEN 1500
+    0x5eeb1983b6d0 ---------A T 01470 PRINT "YOU HOLED IT."
+    0x5eeb1983b740 ---------A   01472 PRINT
+    0x5eeb1983ba70 ---------A   01480 F=F+1
+    0x5eeb1983baf0 ---------A   01490 GOTO 230
+    0x5eeb1983bc30 ---------A T 01500 PRINT "PUTT SHORT."
+    0x5eeb1983bf40 ---------A T 01505 D2=INT(D2)
+    0x5eeb1983bfc0 ---------A   01510 GOTO 1380
+    0x5eeb1983c820 ---------A T 01530 D2=D2-I*(4+1*RND(1))+1
+    0x5eeb1983c8a0 ---------A   01550 GOTO 1450
+    0x5eeb1983c9e0 ---------A T 01560 PRINT "PASSED BY CUP."
+    0x5eeb1983cc10 ---------A   01570 D2=-D2
+    0x5eeb1983cc80 ---------A   01580 GOTO 1505
+    0x5eeb1983d1e0 ---------A T 01590 READ D,P,L(1),L(2)
+    0x5eeb1983d270 ---------A   01595 PRINT
+    0x5eeb1983d8d0 ---------A   01600 PRINT "YOU ARE AT THE TEE OFF HOLE";F;"DISTANCE";D;"YARDS, PAR";P
+    0x5eeb1983dc30 ---------A   01605 G3=G3+P
+    0x5eeb1983dda0 ---------A   01620 PRINT "ON YOUR RIGHT IS ";
+    0x5eeb1983dfb0 ---------A   01630 X=1
+    0x5eeb1983e030 ---------A   01640 GOSUB 400
+    0x5eeb1983e190 ---------A   01650 PRINT "ON YOUR LEFT IS ";
+    0x5eeb1983e3a0 ---------A   01660 X=2
+    0x5eeb1983e410 ---------A   01670 GOSUB 400
+    0x5eeb1983e470 ---------A   01680 GOTO 620
+    0x5eeb1983e4b0 ---------B T 01690 RETURN
+    0x5eeb1983f370 ---------A   01700 DATA 361,4,4,2,389,4,3,3,206,3,4,2,500,5,7,2
+    0x5eeb19840200 ---------A   01702 DATA 408,4,2,4,359,4,6,4,424,4,4,2,388,4,4,4
+    0x5eeb19841090 ---------A   01704 DATA 196,3,7,2,400,4,7,2,560,5,7,2,132,3,2,2
+    0x5eeb19841f10 ---------A   01706 DATA 357,4,4,4,294,4,2,4,475,5,2,3,375,4,4,2
+    0x5eeb19842680 ---------A   01708 DATA 180,3,6,2,550,5,6,6
+    0x5eeb198426f0 ---------A T 01710 PRINT
+    0x5eeb19842a70 ---------A T 01750 G2=G2+S1
+    0x5eeb198431d0 ---------A   01760 PRINT "TOTAL PAR FOR";F-1;"HOLES IS";G3;"  YOUR TOTAL IS";G2
+    0x5eeb19843540 ---------A   01761 IF G1=F-1 THEN 1770
+    0x5eeb198435c0 ---------A   01765 GOTO 292
+    0x5eeb19843600 ---------A T 01770 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     00080      00472T
+     00120      00160T
+     00230      01490T
+     00292      01765T
+     00297      00292T
+     00299      00293T
+     00301      00294T
+     00303      00295T
+     00306      00303T
+     00310      00270T, 00296T, 00298T, 00300T, 00302T, 00305T
+     00320      01060T, 01094T, 01110T, 01160T
+     00400      00380G, 01640G, 01670G
+     00470      00100T, 00110T
+     00480      00400T
+     00500      00410T
+     00520      00420T
+     00540      00430T
+     00560      00440T
+     00580      00450T
+     00620      00390T, 00700T, 01018T, 01250T, 01350T, 01680T
+     00629      00620T
+     00650      00730T
+     00680      00980T
+     00690      00635T, 00637T, 00670T, 00710T
+     00710      00640T
+     00740      00650T, 00660T, 00665T
+     00752      00954T
+     00756      00752T
+     00760      00754T, 00990T, 01010T
+     00770      00868T
+     00830      00866T, 01180T
+     00862      00756T, 00958T, 01011T
+     00867      00760T
+     00870      00850T
+     00890      00860T, 00870T
+     00952      00746T
+     00956      00952T
+     00960      00742T
+     01011      00957T
+     01020      00910T
+     01040      01071T
+     01055      01090T
+     01070      01030T
+     01075      01036T
+     01092      01055T
+     01100      00920T
+     01120      00930T
+     01150      00330T, 01020T, 01022T
+     01170      00800T
+     01190      00350T
+     01210      01270T
+     01260      01190T
+     01280      00985T
+     01300      00867T, 01370T
+     01320      01280T
+     01360      01320T
+     01380      01140T, 01310T, 01510T
+     01450      01550T
+     01470      00950T, 01420T, 01425T
+     01500      01460T
+     01505      01580T
+     01530      01430T
+     01560      01450T
+     01590      00320T
+     01690      00465T, 00490T, 00510T, 00530T, 00550T, 00570T, 00590T
+     01710      00310T
+     01750      00291T
+     01770      01761T
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
+  --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
+   A) 0x5eeb19815ac0 (00001)   0x000000000000 (00000)   0x5eeb19843600 (01770)   0x5eeb19843600 (01770)   
+   B) 0x5eeb19823e40 (00400)   0x5eeb19823e40 (00400)   0x5eeb1983e4b0 (01690)   0x5eeb1983e4b0 (01690)   
+
+    NOTE: Routine B overlaps, or is tangled with, routine A!
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     03450 - 10000    6560 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for 'basic/golf.bas'
+ *
+    A                        Float       
+    ABS             Function Integer         args=1, int    
+    ASC             Function Integer         args=1, char*  
+    ATN             Function Float           args=1, float  
+    B                        Float       
+    C                        Float       
+    CDBL            Function Float           args=1, int    
+    CHR$            Function String          args=1, int    
+    CINT            Function Integer         args=1, float  
+    COS             Function Float           args=1, float  
+    CSNG            Function Float           args=1, int    
+    CVD             Function Float           args=1, float  
+    CVI             Function Integer         args=1, char*  
+    CVS             Function Float           args=1, char*  
+    D                        Float       
+    D1                       Float       
+    D2                       Float       
+    ENVIRON$        Function String          args=1, int    
+    EOF             Function Integer         args=1, int    
+    EXP             Function Float           args=1, int    
+    EXTERR          Function Integer         args=1, int    
+    F                        Float       
+    FIX             Function Integer         args=1, float  
+    FRE             Function Integer         args=1, char*  
+    G1                       Float       
+    G2                       Float       
+    G3                       Float       
+    H                        Float       
+    HEX$            Function String          args=1, int    
+    I                        Float       
+    INP             Function Integer         args=1, int    
+    INPUT$          Function String          args=2, int    int    
+    INSTR           Function Integer         args=3, int    char*  char*  
+    INT             Function Integer         args=1, float  
+    IOCTL$          Function String          args=1, int    
+    J                        Float       
+    K                        Float       
+    L               Array    Float           {0,9} 
+    LEFT$           Function String          args=2, char*  int    
+    LEN             Function Integer         args=1, char*  
+    LOC             Function Integer         args=1, int    
+    LOF             Function Integer         args=1, int    
+    LOG             Function Float           args=1, float  
+    LPOS            Function Integer         args=1, Any    
+    MAX             Function Integer         args=1, int    
+    MID$            Function String          args=2, char*  int    
+    MIN             Function Integer         args=1, int    
+    MKD$            Function String          args=1, int    
+    MKI$            Function String          args=1, float  
+    MKS$            Function String          args=1, float  
+    N                        Float       
+    O                        Float       
+    OCT$            Function String          args=1, float  
+    P                        Float       
+    PEEK            Function Integer         args=1, int    
+    PEN             Function Integer         args=1, char*  
+    PLAY            Function Integer         args=1, Any    
+    PMAP            Function Integer         args=2, int    int    
+    POINT           Function Integer         args=2, int    int    
+    POS             Function Integer         args=1, Any    
+    Q                        Float       
+    RIGHT$          Function String          args=2, char*  int    
+    RND             Function Float           args=1, int    
+    S1                       Float       
+    S2                       Float       
+    S9                       Float       
+    SGN             Function Integer         args=1, int    
+    SIN             Function Float           args=1, float  
+    SPACE$          Function String          args=1, int    
+    SPC             Function Integer         args=1, int    
+    SQR             Function Float           args=1, float  
+    STICK           Function Integer         args=1, int    
+    STR$            Function String          args=1, float  
+    STRING$         Function String          args=2, int    int    
+    T                        Float       
+    TAB$            Function String          args=1, int    
+    TAN             Function Float           args=1, int    
+    TIMER           Function Float           args=0, 
+    VAL             Function Integer         args=1, char*  
+    VARPTR          Function Integer         args=1, Any    
+    VARPTR$         Function String          args=1, Any    
+    W                        Float       
+    X                        Float       
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of basic/golf.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5eeb19815ac0 ---------A   01000 PRINT TAB(34);"GOLF"
+    0x5eeb19816e10 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5eeb19815210 ---------A   01020 PRINT:PRINT:PRINT
+    0x5eeb198164c0 ---------A   01030 PRINT "WELCOME TO THE CREATIVE COMPUTING COUNTRY CLUB,"
+    0x5eeb19816980 ---------A   01040 PRINT "AN EIGHTEEN HOLE CHAMPIONSHIP LAYOUT LOCATED A SHORT"
+    0x5eeb19814dd0 ---------A   01050 PRINT "DISTANCE FROM SCENIC DOWNTOWN MORRISTOWN.  THE"
+    0x5eeb198165c0 ---------A   01060 PRINT "COMMENTATOR WILL EXPLAIN THE GAME AS YOU PLAY."
+    0x5eeb19814be0 ---------A   01070 PRINT "ENJOY YOUR GAME; SEE YOU AT THE 19TH HOLE..."
+    0x5eeb198156c0 ---------A   01080 PRINT:PRINT: DIM L(10)
+    0x5eeb198169d0 ---------A   01090 G1=18
+    0x5eeb1981cac0 ---------A   01100 G2=0
+    0x5eeb1981cd50 ---------A   01110 G3=0
+    0x5eeb1981d020 ---------A   01120 A=0
+    0x5eeb1981d2f0 ---------A   01130 N=.8
+    0x5eeb1981d5c0 ---------A   01140 S2=0
+    0x5eeb1981d870 ---------A   01150 F=1
+    0x5eeb1981d9e0 ---------A T 01160 PRINT "WHAT IS YOUR HANDICAP";
+    0x5eeb1981dbf0 ---------A   01170 INPUT H:PRINT
+    0x5eeb198145b0 ---------A   01180 IF H>30 THEN 1610
+    0x5eeb1981e060 ---------A   01190 IF H<0 THEN 1610
+    0x5eeb1981e1d0 ---------A T 01200 PRINT "DIFFICULTIES AT GOLF INCLUDE:"
+    0x5eeb1981e370 ---------A   01210 PRINT "0=HOOK, 1=SLICE, 2=POOR DISTANCE, 4=TRAP SHOTS, 5=PUTTING"
+    0x5eeb1981e4c0 ---------A   01220 PRINT "WHICH ONE (ONLY ONE) IS YOUR WORST";
+    0x5eeb1981e730 ---------A   01230 INPUT T:PRINT
+    0x5eeb1981e980 ---------A   01240 IF T>5 THEN 1200
+    0x5eeb1981ec60 ---------A   01250 S1=0
+    0x5eeb1981ecd0 ---------A   01260 REM
+    0x5eeb1981efb0 ---------A T 01270 L(0)=0
+    0x5eeb1981f280 ---------A   01280 J=0
+    0x5eeb1981f550 ---------A   01290 Q=0
+    0x5eeb1981f880 ---------A   01300 S2=S2+1
+    0x5eeb1981fb50 ---------A   01310 K=0
+    0x5eeb1981fdc0 ---------A   01320 IF F=1 THEN 1500
+    0x5eeb19820530 ---------A   01330 PRINT "YOUR SCORE ON HOLE";F-1;"WAS";S1
+    0x5eeb198205a0 ---------A   01340 GOTO 3180
+    0x5eeb198209c0 ---------A T 01350 IF S1>P+2 THEN 1400
+    0x5eeb19820c40 ---------A   01360 IF S1=P THEN 1420
+    0x5eeb19820fc0 ---------A   01370 IF S1=P-1 THEN 1440
+    0x5eeb19821340 ---------A   01380 IF S1=P-2 THEN 1460
+    0x5eeb198213a0 ---------A   01390 GOTO 1500
+    0x5eeb198214e0 ---------A T 01400 PRINT "KEEP YOUR HEAD DOWN."
+    0x5eeb19821530 ---------A   01410 GOTO 1500
+    0x5eeb19821670 ---------A T 01420 PRINT "A PAR.  NICE GOING."
+    0x5eeb198216e0 ---------A   01430 GOTO 1500
+    0x5eeb19821820 ---------A T 01440 PRINT "A BIRDIE."
+    0x5eeb19821890 ---------A   01450 GOTO 1500
+    0x5eeb19821ab0 ---------A T 01460 IF P=3 THEN 1490
+    0x5eeb19821c10 ---------A   01470 PRINT "A GREAT BIG EAGLE."
+    0x5eeb19821c90 ---------A   01480 GOTO 1500
+    0x5eeb19821dd0 ---------A T 01490 PRINT "A HOLE IN ONE."
+    0x5eeb19822020 ---------A T 01500 IF F=19 THEN 3170
+    0x5eeb19822240 ---------A   01510 S1=0
+    0x5eeb198222b0 ---------A   01520 PRINT
+    0x5eeb19822500 ---------A T 01530 IF S1=0 THEN 3010
+    0x5eeb19822820 ---------A   01540 IF L(0)<1 THEN 2550
+    0x5eeb19822b00 ---------A   01550 X=0
+    0x5eeb19822e40 ---------A   01560 IF L(0)>5 THEN 2590
+    0x5eeb19823540 ---------A   01570 PRINT "SHOT WENT";D1;"YARDS.  IT'S";D2;"YARDS FROM THE CUP."
+    0x5eeb19823a50 ---------A   01580 PRINT "BALL IS";INT(O);"YARDS OFF LINE... IN ";
+    0x5eeb19823ac0 ---------A   01590 GOSUB 3230
+    0x5eeb19823b20 ---------A   01600 GOTO 1630
+    0x5eeb198255e0 ---------A T 01610 PRINT "PGA HANDICAPS RANGE FROM 0 TO 30."
+    0x5eeb19825650 ---------A   01620 GOTO 1160
+    0x5eeb198262d0 ---------A T 01630 IF A=1 THEN 1700
+    0x5eeb19826460 ---------A   01640 PRINT "SELECTION OF CLUBS"
+    0x5eeb19826600 ---------A   01650 PRINT "YARDAGE DESIRED                       SUGGESTED CLUBS"
+    0x5eeb198267a0 ---------A   01660 PRINT "200 TO 280 YARDS                           1 TO 4"
+    0x5eeb19826940 ---------A   01670 PRINT "100 TO 200 YARDS                          19 TO 13"
+    0x5eeb19826ab0 ---------A   01680 PRINT "  0 TO 100 YARDS                          29 TO 23"
+    0x5eeb19826cd0 ---------A   01690 A=1
+    0x5eeb19826e50 ---------A T 01700 PRINT "WHAT CLUB DO YOU CHOOSE";
+    0x5eeb19827060 ---------A   01710 INPUT C
+    0x5eeb198270e0 ---------A   01720 PRINT
+    0x5eeb19827330 ---------A   01730 IF C<1 THEN 1810
+    0x5eeb19827590 ---------A   01740 IF C>29 THEN 1810
+    0x5eeb198277f0 ---------A   01750 IF C>4 THEN 1840
+    0x5eeb19827b10 ---------A T 01760 IF L(0)<=5 THEN 1870
+    0x5eeb19827d70 ---------A   01770 IF C=14 THEN 1870
+    0x5eeb19827fd0 ---------A   01780 IF C=23 THEN 1870
+    0x5eeb19828050 ---------A   01790 GOTO 1810
+    0x5eeb19828390 ---------A T 01800 S1=S1-1
+    0x5eeb198284f0 ---------A T 01810 PRINT "THAT CLUB IS NOT IN THE BAG."
+    0x5eeb19828560 ---------A   01820 PRINT
+    0x5eeb198285d0 ---------A   01830 GOTO 1630
+    0x5eeb19828810 ---------A T 01840 IF C<12 THEN 1810
+    0x5eeb19828b50 ---------A   01850 C=C-6
+    0x5eeb19828bc0 ---------A   01860 GOTO 1760
+    0x5eeb19828ee0 ---------A T 01870 S1=S1+1
+    0x5eeb198291b0 ---------A   01880 W=1
+    0x5eeb19829410 ---------A   01890 IF C>13 THEN 2210
+    0x5eeb19829970 ---------A   01900 IF INT(F/3)=F/3 THEN 2160
+    0x5eeb19829bd0 ---------A T 01910 IF C<4 THEN 1930
+    0x5eeb19829c50 ---------A   01920 GOTO 1940
+    0x5eeb19829f50 ---------A T 01930 IF L(0)=2 THEN 2020
+    0x5eeb1982a1e0 ---------A T 01940 IF S1>7 THEN 2050
+    0x5eeb1982b220 ---------A T 01950 D1=INT(((30-H)*2.5+187-((30-H)*.25+15)*C/2)+25*RND(1))
+    0x5eeb1982b650 ---------A   01960 D1=INT(D1*W)
+    0x5eeb1982b8c0 ---------A   01970 IF T=2 THEN 2570
+    0x5eeb1982c450 ---------A T 01980 O=(RND(1)/.8)*(2*H+16)*ABS(TAN(D1*.0035))
+    0x5eeb1982ce20 ---------A   01990 D2=INT(SQR(O^2+ABS(D-D1)^2))
+    0x5eeb1982d190 ---------A   02000 IF D-D1<0 THEN 2070
+    0x5eeb1982d220 ---------A   02010 GOTO 2090
+    0x5eeb1982d360 ---------A T 02020 PRINT "YOU DUBBED IT."
+    0x5eeb1982d570 ---------A   02030 D1=35
+    0x5eeb1982d5e0 ---------A   02040 GOTO 1980
+    0x5eeb1982d820 ---------A T 02050 IF D<200 THEN 2700
+    0x5eeb1982d8a0 ---------A   02060 GOTO 1950
+    0x5eeb1982db00 ---------A T 02070 IF D2<20 THEN 2090
+    0x5eeb1982dc70 ---------A   02080 PRINT "TOO MUCH CLUB. YOU'RE PAST THE HOLE."
+    0x5eeb1982e770 ---------A T 02090 B=D
+    0x5eeb1982e9a0 ---------A   02100 D=D2
+    0x5eeb1982ebf0 ---------A   02110 IF D2>27 THEN 2340
+    0x5eeb1982ee50 ---------A   02120 IF D2>20 THEN 2500
+    0x5eeb1982f0b0 ---------A   02130 IF D2>.5 THEN 2520
+    0x5eeb1982f390 ---------A   02140 L(0)=9
+    0x5eeb1982f430 ---------A   02150 GOTO 2890
+    0x5eeb19830370 ---------A T 02160 IF S2+Q+(10*(F-1)/18)<(F-1)*(72+((H+1)/.85))/18 THEN 2180
+    0x5eeb198303f0 ---------A   02170 GOTO 1910
+    0x5eeb19830720 ---------A T 02180 Q=Q+1
+    0x5eeb19830c70 ---------A   02190 IF S1/2<>INT(S1/2) THEN 2300
+    0x5eeb19830d20 ---------A   02200 GOTO 2020
+    0x5eeb19830e90 ---------A T 02210 PRINT "NOW GAUGE YOUR DISTANCE BY A PERCENTAGE (1 TO 100)"
+    0x5eeb19831000 ---------A   02220 PRINT "OF A FULL SWING";
+    0x5eeb19831470 ---------A   02230 INPUT W: W=W/100
+    0x5eeb198314e0 ---------A   02240 PRINT
+    0x5eeb19831730 ---------A   02250 IF W>1 THEN 1800
+    0x5eeb19831a50 ---------A   02260 IF L(0)=5 THEN 2690
+    0x5eeb19831cb0 ---------A   02270 IF C=14 THEN 1940
+    0x5eeb19831ff0 ---------A   02280 C=C-10
+    0x5eeb19832060 ---------A   02290 GOTO 1940
+    0x5eeb198322d0 ---------A T 02300 IF D<95 THEN 2020
+    0x5eeb19832740 ---------A   02310 PRINT "BALL HIT TREE - BOUNCED INTO ROUGH";D-75;"YARDS FROM HOLE."
+    0x5eeb19832a70 ---------A   02320 D=D-75
+    0x5eeb19832ae0 ---------A   02330 GOTO 1630
+    0x5eeb19832d20 ---------A T 02340 IF O<30 THEN 2550
+    0x5eeb19832f80 ---------A   02350 IF J>0 THEN 2550
+    0x5eeb198331e0 ---------A   02360 IF T>0 THEN 2430
+    0x5eeb19833730 ---------A   02370 S9=(S2+1)/15
+    0x5eeb19833a90 ---------A   02380 IF INT(S9)=S9 THEN 2450
+    0x5eeb19833c10 ---------A T 02390 PRINT "YOU HOOKED- ";
+    0x5eeb19833fc0 ---------A   02400 L(0)=L(2)
+    0x5eeb19834210 ---------A T 02410 IF O>45 THEN 2480
+    0x5eeb19834290 ---------A   02420 GOTO 1530
+    0x5eeb19834700 ---------A T 02430 S9=(S2+1)/15
+    0x5eeb19834a60 ---------A   02440 IF INT(S9)=S9 THEN 2390
+    0x5eeb19834be0 ---------A T 02450 PRINT "YOU SLICED- ";
+    0x5eeb19834f90 ---------A   02460 L(0)=L(1)
+    0x5eeb19835000 ---------A   02470 GOTO 2410
+    0x5eeb19835140 ---------A T 02480 PRINT "BADLY."
+    0x5eeb198351b0 ---------A   02490 GOTO 1530
+    0x5eeb19835470 ---------A T 02500 L(0)=5
+    0x5eeb198354e0 ---------A   02510 GOTO 1530
+    0x5eeb198357a0 ---------A T 02520 L(0)=8
+    0x5eeb19835bb0 ---------A   02530 D2=INT(D2*3)
+    0x5eeb19835c20 ---------A   02540 GOTO 2780
+    0x5eeb19835ee0 ---------A T 02550 L(0)=1
+    0x5eeb19835f50 ---------A   02560 GOTO 1530
+    0x5eeb19836350 ---------A T 02570 D1=INT(.85*D1)
+    0x5eeb198363d0 ---------A   02580 GOTO 1980
+    0x5eeb198366f0 ---------A T 02590 IF L(0)>6 THEN 2670
+    0x5eeb19836860 ---------A   02600 PRINT "YOUR SHOT WENT INTO THE WATER."
+    0x5eeb19836bc0 ---------A T 02610 S1=S1+1
+    0x5eeb19836d30 ---------A   02620 PRINT "PENALTY STROKE ASSESSED.  HIT FROM PREVIOUS LOCATION."
+    0x5eeb19837060 ---------A   02630 J=J+1
+    0x5eeb19837330 ---------A   02640 L(0)=1
+    0x5eeb19837560 ---------A   02650 D=B
+    0x5eeb198375f0 ---------A   02660 GOTO 1630
+    0x5eeb19837740 ---------A T 02670 PRINT "YOUR SHOT WENT OUT OF BOUNDS."
+    0x5eeb198377b0 ---------A   02680 GOTO 2610
+    0x5eeb19837a00 ---------A T 02690 IF T=3 THEN 2720
+    0x5eeb198383c0 ---------A T 02700 D2=1+(3*INT((80/(40-H))*RND(1)))
+    0x5eeb19838440 ---------A   02710 GOTO 2780
+    0x5eeb19838760 ---------A T 02720 IF RND(1)>N THEN 2760
+    0x5eeb19838ac0 ---------A   02730 N=N*.2
+    0x5eeb19838c20 ---------A   02740 PRINT "SHOT DUBBED, STILL IN TRAP."
+    0x5eeb19838c90 ---------A   02750 GOTO 1630
+    0x5eeb19838e90 ---------A T 02760 N=.8
+    0x5eeb19838f20 ---------A   02770 GOTO 2700
+    0x5eeb19839280 ---------A T 02780 PRINT "ON GREEN,";D2;"FEET FROM THE PIN."
+    0x5eeb19839400 ---------A   02790 PRINT "CHOOSE YOUR PUTT POTENCY (1 TO 13):";
+    0x5eeb19839610 ---------A   02800 INPUT I
+    0x5eeb19839960 ---------A   02810 S1=S1+1
+    0x5eeb1983a030 ---------A   02820 IF S1+1-P>(H*.072)+2 THEN 2890
+    0x5eeb1983a290 ---------A   02830 IF K>2 THEN 2890
+    0x5eeb1983a5d0 ---------A   02840 K=K+1
+    0x5eeb1983a830 ---------A   02850 IF T=4 THEN 2960
+    0x5eeb1983b0b0 ---------A   02860 D2=D2-I*(4+2*RND(1))+1.5
+    0x5eeb1983b300 ---------A T 02870 IF D2<-2 THEN 2980
+    0x5eeb1983b570 ---------A   02880 IF D2>2 THEN 2930
+    0x5eeb1983b6d0 ---------A T 02890 PRINT "YOU HOLED IT."
+    0x5eeb1983b740 ---------A   02900 PRINT
+    0x5eeb1983ba70 ---------A   02910 F=F+1
+    0x5eeb1983baf0 ---------A   02920 GOTO 1270
+    0x5eeb1983bc30 ---------A T 02930 PRINT "PUTT SHORT."
+    0x5eeb1983bf40 ---------A T 02940 D2=INT(D2)
+    0x5eeb1983bfc0 ---------A   02950 GOTO 2780
+    0x5eeb1983c820 ---------A T 02960 D2=D2-I*(4+1*RND(1))+1
+    0x5eeb1983c8a0 ---------A   02970 GOTO 2870
+    0x5eeb1983c9e0 ---------A T 02980 PRINT "PASSED BY CUP."
+    0x5eeb1983cc10 ---------A   02990 D2=-D2
+    0x5eeb1983cc80 ---------A   03000 GOTO 2940
+    0x5eeb1983d1e0 ---------A T 03010 READ D,P,L(1),L(2)
+    0x5eeb1983d270 ---------A   03020 PRINT
+    0x5eeb1983d8d0 ---------A   03030 PRINT "YOU ARE AT THE TEE OFF HOLE";F;"DISTANCE";D;"YARDS, PAR";P
+    0x5eeb1983dc30 ---------A   03040 G3=G3+P
+    0x5eeb1983dda0 ---------A   03050 PRINT "ON YOUR RIGHT IS ";
+    0x5eeb1983dfb0 ---------A   03060 X=1
+    0x5eeb1983e030 ---------A   03070 GOSUB 3230
+    0x5eeb1983e190 ---------A   03080 PRINT "ON YOUR LEFT IS ";
+    0x5eeb1983e3a0 ---------A   03090 X=2
+    0x5eeb1983e410 ---------A   03100 GOSUB 3230
+    0x5eeb1983e470 ---------A   03110 GOTO 1630
+    0x5eeb1983f370 ---------A   03120 DATA 361,4,4,2,389,4,3,3,206,3,4,2,500,5,7,2
+    0x5eeb19840200 ---------A   03130 DATA 408,4,2,4,359,4,6,4,424,4,4,2,388,4,4,4
+    0x5eeb19841090 ---------A   03140 DATA 196,3,7,2,400,4,7,2,560,5,7,2,132,3,2,2
+    0x5eeb19841f10 ---------A   03150 DATA 357,4,4,4,294,4,2,4,475,5,2,3,375,4,4,2
+    0x5eeb19842680 ---------A   03160 DATA 180,3,6,2,550,5,6,6
+    0x5eeb198426f0 ---------A T 03170 PRINT
+    0x5eeb19842a70 ---------A T 03180 G2=G2+S1
+    0x5eeb198431d0 ---------A   03190 PRINT "TOTAL PAR FOR";F-1;"HOLES IS";G3;"  YOUR TOTAL IS";G2
+    0x5eeb19843540 ---------A   03200 IF G1=F-1 THEN 3220
+    0x5eeb198435c0 ---------A   03210 GOTO 1350
+    0x5eeb19843600 ---------A T 03220 END
+    0x5eeb19823e40 ---------B G 03230 IF L(X)=1 THEN 3310
+    0x5eeb19824180 ---------B   03240 IF L(X)=2 THEN 3330
+    0x5eeb198244c0 ---------B   03250 IF L(X)=3 THEN 3350
+    0x5eeb19824800 ---------B   03260 IF L(X)=4 THEN 3370
+    0x5eeb19824f50 ---------B   03270 IF L(X)=5 THEN 3390
+    0x5eeb198252a0 ---------B   03280 IF L(X)=6 THEN 3410
+    0x5eeb19825400 ---------B   03290 PRINT "OUT OF BOUNDS."
+    0x5eeb19825490 ---------B   03300 GOTO 3430
+    0x5eeb19825790 ---------B T 03310 PRINT "FAIRWAY."
+    0x5eeb19825800 ---------B   03320 GOTO 3430
+    0x5eeb19825940 ---------B T 03330 PRINT "ROUGH."
+    0x5eeb198259b0 ---------B   03340 GOTO 3430
+    0x5eeb19825af0 ---------B T 03350 PRINT "TREES."
+    0x5eeb19825b70 ---------B   03360 GOTO 3430
+    0x5eeb19825cb0 ---------B T 03370 PRINT "ADJACENT FAIRWAY."
+    0x5eeb19825d20 ---------B   03380 GOTO 3430
+    0x5eeb19825e60 ---------B T 03390 PRINT "TRAP."
+    0x5eeb19825ed0 ---------B   03400 GOTO 3430
+    0x5eeb19826010 ---------B T 03410 PRINT "WATER."
+    0x5eeb19826080 ---------B   03420 GOTO 3430
+    0x5eeb1984a500 ---------B T 03430 GOTO 03440
+    0x5eeb1984a540 ---------B T 03440 RETURN
+ */
+
+//---------------------------------------------------------------------------
+// $Header$ 
+//
+// NOTE: This program has been automatically tranlated by b2c
+//
+// $Log$ 
+// 
+//---------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+//---------------------------------------------------------------------------
+// Global data area.
+//---------------------------------------------------------------------------
+char* data_03120s[]={"361","4","4","2","389","4","3","3","206","3","4","2","500","5","7","2"};
+char* data_03130s[]={"408","4","2","4","359","4","6","4","424","4","4","2","388","4","4","4"};
+char* data_03140s[]={"196","3","7","2","400","4","7","2","560","5","7","2","132","3","2","2"};
+char* data_03150s[]={"357","4","4","4","294","4","2","4","475","5","2","3","375","4","4","2"};
+char* data_03160s[]={"180","3","6","2","550","5","6","6"};
+//---------------------------------------------------------------------------
+
+
+
+
+typedef enum {TYPE_None,TYPE_Integer,TYPE_Float,TYPE_String}t_type;
+typedef struct{
+    int    LineNum;
+    int    Size;
+    char** SData;
+}t_data;
+t_data ProgramData[] = {
+    { 3120, 16,data_03120s},
+    { 3130, 16,data_03130s},
+    { 3140, 16,data_03140s},
+    { 3150, 16,data_03150s},
+    { 3160,  8,data_03160s},
+    {    0,  0,nullptr       }
+};
+
+#include "intrinsics.h"
+
+
+//---------------------------------------------------------------------------
+// Global variable area.
+//
+// NOTE: Variable names are long to allow for easy editing.
+//---------------------------------------------------------------------------
+float  A_flt;                                     // Basic: A 
+float  B_flt;                                     // Basic: B 
+float  C_flt;                                     // Basic: C 
+float  D_flt;                                     // Basic: D 
+float  D1_flt;                                    // Basic: D1 
+float  D2_flt;                                    // Basic: D2 
+float  F_flt;                                     // Basic: F 
+float  G1_flt;                                    // Basic: G1 
+float  G2_flt;                                    // Basic: G2 
+float  G3_flt;                                    // Basic: G3 
+float  H_flt;                                     // Basic: H 
+float  I_flt;                                     // Basic: I 
+float  J_flt;                                     // Basic: J 
+float  K_flt;                                     // Basic: K 
+float  L_flt_arr[10];                             // Basic: L 
+float  N_flt;                                     // Basic: N 
+float  O_flt;                                     // Basic: O 
+float  P_flt;                                     // Basic: P 
+float  Q_flt;                                     // Basic: Q 
+float  S1_flt;                                    // Basic: S1 
+float  S2_flt;                                    // Basic: S2 
+float  S9_flt;                                    // Basic: S9 
+float  T_flt;                                     // Basic: T 
+float  W_flt;                                     // Basic: W 
+float  X_flt;                                     // Basic: X 
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+char* GLBpStr=nullptr;
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+// Subroutine Prototypes.
+//---------------------------------------------------------------------------
+void Routine_03230();
+
+//---------------------------------------------------------------------------
+// Program Functions.
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+// Common area load and store routines.
+//---------------------------------------------------------------------------
+// void  LoadCommonAreas(char* filename){
+//     json_error_t error;
+// 
+//     // Read in the COMMON area save-file
+//     json_t *root = json_load_file(filename, 0, &error);
+//     if (!root) {
+//         fprintf(stderr, "Error reading JSON file: %s\n",error.text);
+//         return;
+//     }
+// 
+//     // Get the number of variables read.
+//     int count = json_array_size(root);
+// 
+//     // Read in each variable and store it...
+//     for(int v=0;v<count;v++){
+// 
+//     }
+// 
+//     // Get rid of storage area
+//     json_decref(root);
+// };
+// void  SaveCommonAreas(char* file){
+// };
+//---------------------------------------------------------------------------
+// Program Subroutines.
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+// Routine B
+//---------------------------------------------------------------------------
+
+void Routine_03230(){
+    // 03230 IF L(X)=1 THEN 3310
+    if(L_flt_arr[(int)X_flt]==1)goto Lbl_03310;
+    // 03240 IF L(X)=2 THEN 3330
+    if(L_flt_arr[(int)X_flt]==2)goto Lbl_03330;
+    // 03250 IF L(X)=3 THEN 3350
+    if(L_flt_arr[(int)X_flt]==3)goto Lbl_03350;
+    // 03260 IF L(X)=4 THEN 3370
+    if(L_flt_arr[(int)X_flt]==4)goto Lbl_03370;
+    // 03270 IF L(X)=5 THEN 3390
+    if(L_flt_arr[(int)X_flt]==5)goto Lbl_03390;
+    // 03280 IF L(X)=6 THEN 3410
+    if(L_flt_arr[(int)X_flt]==6)goto Lbl_03410;
+    // 03290 PRINT "OUT OF BOUNDS."
+    b2c_printf("Out of bounds.\n");
+    // 03300 GOTO 3430
+    goto Lbl_03430;
+
+  Lbl_03310:
+    // 03310 PRINT "FAIRWAY."
+    b2c_printf("Fairway.\n");
+    // 03320 GOTO 3430
+    goto Lbl_03430;
+
+  Lbl_03330:
+    // 03330 PRINT "ROUGH."
+    b2c_printf("Rough.\n");
+    // 03340 GOTO 3430
+    goto Lbl_03430;
+
+  Lbl_03350:
+    // 03350 PRINT "TREES."
+    b2c_printf("Trees.\n");
+    // 03360 GOTO 3430
+    goto Lbl_03430;
+
+  Lbl_03370:
+    // 03370 PRINT "ADJACENT FAIRWAY."
+    b2c_printf("Adjacent fairway.\n");
+    // 03380 GOTO 3430
+    goto Lbl_03430;
+
+  Lbl_03390:
+    // 03390 PRINT "TRAP."
+    b2c_printf("Trap.\n");
+    // 03400 GOTO 3430
+    goto Lbl_03430;
+
+  Lbl_03410:
+    // 03410 PRINT "WATER."
+    b2c_printf("Water.\n");
+    // 03420 GOTO 3430
+    goto Lbl_03430;
+
+  Lbl_03430:
+    // 03430 GOTO 03440
+    goto Lbl_03440;
+
+  Lbl_03440:
+    // 03440 RETURN
+    return;
+};
+
+//---------------------------------------------------------------------------
+// Main Program.
+//---------------------------------------------------------------------------
+#pragma argsused
+int main(int argc,char *argv[])
+{

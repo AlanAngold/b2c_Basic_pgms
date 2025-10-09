@@ -1,0 +1,9 @@
+2022-03-13
+    * The programs tokenized/TREK1.BAS and tokenized/TREKPRG1.BAS seem to be the Basic versions of the
+      tokenized files tokenized/TREK.BAS and tokenized/TREKPRG.BAS.
+    * The files trek.bas and trek_prg.bas seem to be cleaner versions of tokenized/TREK1.BAS and 
+      tokenized/TREKPRG1.BAS. They have the statement separator ':' spaced ' : ' and the extra characters
+      at the end of the file are also deleted. 
+    * The trek.bas and trek_prg.bas files seem to have a floating point problem.  Numbers like 17.1 appear
+      as 17.09999996 etc.
+

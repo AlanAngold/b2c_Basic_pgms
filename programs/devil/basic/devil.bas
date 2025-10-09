@@ -1,0 +1,126 @@
+# NOTE: Type forced to be:
+# gwba - GW-BASIC tokenized file (or BASICA)
+    1 REM  ** THE DEVIL'S DUNGEON **
+   10 DIM R(16),L(65),F(16),X(19),B(16)
+   20 CLS:LOCATE 10,14:PRINT "Please wait...":L=1:G=0:E=0:X=16
+   30 D=1:YS=101:YD=101
+   40 FOR I=0 TO 65:L(I)=0:NEXT
+   50 FOR I=1 TO X:GOSUB 2000:N=INT(3*RND(1)+1)
+   60 IF I=1 THEN N=3
+   70 FOR J=1 TO N
+   80 GOSUB 2000:R=INT(64*RND(1)+1)
+   90 IF L(R)<>0 THEN 80
+  100 L(R)=I
+  110 NEXT J
+  120 GOSUB 2000:R(I)=INT(524287.0*RND(1)):B(I)=0
+  130 NEXT I:B(L)=1
+  135 CLS:PRINT
+  140 R(1)=24576:FOR I=1 TO 19:X(I)=0:NEXT
+  145 REM   HAZARDS
+  150 GOSUB 2000:IF RND(1)<0.01 THEN PRINT "Tremor":FOR I=1 TO 20:GOSUB 2000:L(I)=INT(X)*RND(1)+1:NEXT
+  160 GOSUB 2000:IF RND(1)<0.01 THEN PRINT "Tremor":FOR I=1 TO 20:L(I)=0:NEXT
+  170 GOSUB 2000:IF X(1)*X(12)=1 AND RND(1)<0.4 THEN PRINT "Cursed by a Demon!":YD=INT(0.5*YD)
+  180 GOSUB 2000:IF X(9)*X(11)=1 AND RND(1)<0.4 THEN PRINT "Gassed!":YS=INT(0.5*YS)
+  190 YD=YD-D
+  200 YS=YS-D
+  210 IF YS<=0 OR YD<=0 THEN PRINT "You're dead...":END
+  215 REM   OUTPUT STATUS
+  220 PRINT:PRINT "Gold ";G
+  230 PRINT "Experience";E;" Level";D
+  240 PRINT "Speed:";YD;" Strength:";YS:PRINT:GOSUB 250:GOTO 310
+  245 REM   ADJACENT ROOMS
+  250 FOR I=1 TO X:F(I)=0:NEXT
+  260 FOR I=1 TO 64
+  270 IF L<>L(I) THEN 300
+  280 IF L(I+1)<>0 AND L(I+1)<>L THEN F(L(I+1))=1
+  290 IF L(I-1)<>0 AND L(I-1)<>L THEN F(L(I-1))=1
+  300 NEXT:RETURN
+  305 REM   CONVERT
+  310 N=R(L)
+  320 FOR I=1 TO 19:Q=INT(N/2):X(I)=2*(N/2-Q):N=Q:NEXT
+  325 REM   MONSTERS
+  330 IF X(2)=0 THEN MS=0:GOTO 380
+  340 IF F=1 THEN 370
+  350 MS=D*(X(3)+2*X(4)+4*X(5)+L)
+  360 MD=D*(X(6)+2*X(7)+4*X(8)+L)
+  370 PRINT "Monster's Speed:";MD;" Monster's Strength:";MS
+  380 IF X(1)*X(12)=1 THEN PRINT "Demons"
+  390 IF X(9)*X(11)=1 THEN PRINT "Poisonous Gas"
+  395 REM   TREASURE
+  400 IF X(19)<>1 THEN T=0:GOTO 430
+  410 T=X(11)+2*X(12)+4*X(13)+1
+  420 PRINT "Maximum Gold: ";T*L*D+1
+  425 REM   SLIDES AND DROPOFFS
+  430 S=X(15)+2*X(16)+4*X(17)+8*X(18)+1
+  440 IF S>X THEN X=1
+  450 IF S=0 THEN S=1
+  460 IF X(14)=0 OR S=L THEN 480
+  470 PRINT "Slide to";S
+  480 IF X(19)*X(13)=1 THEN PRINT "Dropoff to Level";D+1
+  485 REM   INPUT MOVE
+  490 PRINT "Move from";L;"to";
+  500 FOR I=1 TO X
+  510 IF F(I)=1 AND I<>L THEN PRINT I;
+  520 NEXT I
+  530 INPUT M:IF M=88 THEN 1000
+  540 IF M<0 AND X(19)*X(13)=1 THEN D=D+1:F=0:GOTO 40
+  550 IF M<0 THEN PRINT "No Dropoff":GOTO 150
+  560 IF M>X AND L=1 THEN PRINT "You found";G;"Gold Pieces."
+  570 IF M<=X THEN 600
+  575 REM   MAGIC WAND
+  580 GOSUB 2000:IF RND(1)<0.4 THEN PRINT "It backfired!":YS=INT(0.5*YS):YD=INT(0.5*YD):GOTO 150
+  590 PRINT "The Wand works.":R(L)=266240.0:GOTO 220
+  600 IF MS>0 THEN 700
+  610 IF M<>0 OR L<>1 THEN 920
+  620 PRINT "Experience";E;" Speed";YD:PRINT "Strength";YS
+  630 INPUT "Add Speed";N
+  640 IF E-N<0 THEN PRINT "You need more Experience.":GOTO 620
+  650 E=E-N:YD=YD+N:PRINT "Experience left:";E
+  660 INPUT "Add Strength";N
+  670 IF E-N<0 THEN PRINT "You need more Experience.":GOTO 660
+  680 E=E-N:YS=YS+N
+  690 GOTO 220
+  695 REM   FIGHT
+  700 F=1
+  710 IF M>0 THEN 900
+  720 GOSUB 2000:YH=INT(RND(1)*YS):GOSUB 2000:NH=INT(RND(1)*MS)
+  730 IF YH>MS THEN YH=MS
+  740 IF MH>YS THEN MH=YS
+  750 GOSUB 2000:IF RND(1)*YD>RND(1)*MD THEN 780
+  760 PRINT "The Monster attacks...":YS=YS-MH:MS=MS-INT(0.5*YH)
+  770 GOTO 800
+  780 PRINT "You attack...":MS=MS-YH:YS=YS-INT(0.5*YH)
+  800 E=E+2*YH
+  810 IF MS<=0 THEN PRINT "The Monster's dead!":R(L)=R(L)-2:GOTO 150
+  815 PRINT
+  820 PRINT "The Monster's still alive.":GOTO 150
+  895 REM   RUN
+  900 GOSUB 2000:IF RND(1)*YD>RND(1)*MD THEN PRINT "You escaped.":GOTO 150
+  910 PRINT "The Monster hit you.":YS=YS-INT(0.2*MS):GOTO 970
+  920 IF T=0 THEN 970
+  930 GOSUB 2000:G1=INT(RND(1)*T*L*D)+1
+  940 GOSUB 2000:IF X(1)*X(12)=1 AND RND(1)<0.4 THEN PRINT "The Demon stole your Gold!":G1=0
+  950 PRINT "You found";G1;"Gold Pieces!":G=G+G1:R(L)=R(L)-512
+  960 E=E+G1
+  965 REM   MOVE
+  970 IF F(M)=1 OR M=S THEN L=M:F=0:E=E+D:B(L)=1:GOTO 150
+  980 PRINT "That room is not adjascent.":GOTO 150
+  995 REM   PRINT ROOMS
+ 1000 L1=L:FOR K=1 TO X
+ 1010 IF B(K)<>1 THEN 1070
+ 1020 PRINT K;"--";
+ 1030 L=K:GOSUB 250
+ 1040 FOR J=1 TO X
+ 1050 IF F(J)=1 AND J<>K THEN PRINT J;
+ 1060 NEXT J:PRINT
+ 1070 NEXT K
+ 1080 L=L1:GOTO 220
+ 2000 RANDOMIZE(VAL(RIGHT$(TIME$,2))):RETURN
+ 3000 REM   IN ROOM #1:
+ 3010 REM    To trade experience                 enter 0
+ 3020 REM    To end adventure                    Enter 99
+ 3030 REM   IN ANY ROOM BUT #1:
+ 3040 REM    To move to adjascent room           Enter #
+ 3050 REM    To fight monster                    Enter 0
+ 3060 REM    To use a dropoff                    Enter a negative #
+ 3070 REM    To use your magic wand              Enter 99

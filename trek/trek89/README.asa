@@ -1,0 +1,7 @@
+2022-03-13
+    * NOTE: The files in this directory are the working set
+            Any files in the "Original Files" directory are obsolete
+    * NOTE: There have been some spelling corrections made in these files.
+    * NOTE: The LST files are original.  The BAS files are the detokenized
+            versions of the files in the tokenized directory. These two
+            sets of files should only differ in spacing between tokens.

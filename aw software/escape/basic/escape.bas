@@ -1,0 +1,13 @@
+# NOTE: Type forced to be:
+# trs2 - TRS-80 Level II BASIC tokenized file
+   10 CLS : PRINT "ESCAPE"
+   20 P = 15360
+   22 POKE 16320 + 30,43
+   30 IF PEEK (P) = 191 THEN P = PP
+   35 POKE PP,32 : POKE P,42
+   40 PP = P : I$ = INKEY$ : IF I$ < > ""THEN 50 : ELSE POKE RND (1024 - 64) + 15360,191 : GOTO 40
+   50 IF I$ = "," THEN IF P = 15360 THEN 40 : ELSE P = P - 1 : GOTO 100
+   60 IF I$ = "." THEN IF P = 15360 THEN 40 : ELSE P = P + 1 : GOTO 100
+   70 IF I$ = "[" THEN IF P < 15360 - 64 THEN 40 : ELSE P = P - 64 : GOTO 100
+   80 IF I$ = "<ERROR>" THEN IF P > 16384 - 64 THEN 40 : ELSE P = P + 64
+  100 IF P = 16320 + 30 THEN END : ELSE 30

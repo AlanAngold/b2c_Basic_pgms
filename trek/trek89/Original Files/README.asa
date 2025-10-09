@@ -1,0 +1,5 @@
+2022-03-13
+    * The BAS files in this directory are the tokenized files 
+    * The LST files were the original listings and *may* be more accurate then the
+      detokenized BAS files.
+    * NOTE: This version of these files is old and should be ignored.
