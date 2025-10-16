@@ -1,3 +1,13 @@
+Oct 16,2025
+----------------------------------------------------------------------------------------------------------------------
+NOTE: At the moment the C-language translations, that exist, within each project subdirectory are not working 
+      properly, due to a broken b2c being run on all the directories.  This problem will be corrected shortly 
+      and this README.txt updated.
+
+NOTE: Only a few directories have working C-programs (sumer, depth, etc).  When I have a chance to upgrate
+      my b2c program I'll regenerate all the C-programs which should bring some new translations online.
+----------------------------------------------------------------------------------------------------------------------
+
 Sept 26,2025
 
 This directory contains all the Basic source files that I've been able to collect over the years.  It consists mainly
