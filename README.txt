@@ -6,6 +6,51 @@ NOTE: At the moment the C-language translations, that exist, within each project
 
 NOTE: Only a few directories have working C-programs (sumer, depth, etc).  When I have a chance to upgrate
       my b2c program I'll regenerate all the C-programs which should bring some new translations online.
+
+The following programs are generating C-listings (maybe only partial listings):
+    base/3dpltcc
+    base/bandit
+    base/baseball
+    base/civilwar2
+    base/clewso
+    base/craps
+    base/depth
+    base/gunner
+    base/hangmn
+    base/horses
+    base/lovepst
+    base/lunar
+    base/number
+    base/othelo
+    base/pressup
+    base/rabbit
+    base/startrader
+    base/startrek
+    base/sumer
+    base/supst
+    base/war
+    base/warfish
+    ccgames/batnum
+    ccgames/chemist
+    ccgames/dspace
+    ccgames/litquiz
+    ccgames/yahtzee
+    cpm_games/batnum
+    cpm_games/chemist
+    cpm_games/dspace
+    cpm_games/litquiz
+    cpm_games/yahtzee
+    external/basketbl
+    external/batnum
+    external/bombsawy
+    external/bullfght
+    external/footbal1
+    external/golf
+    external/guess
+    external/hamurabi
+    external/hurkle
+    external/kinema
+
 ----------------------------------------------------------------------------------------------------------------------
 
 Sept 26,2025
