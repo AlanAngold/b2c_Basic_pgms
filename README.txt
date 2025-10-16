@@ -1,5 +1,6 @@
 Oct 16,2025
-----------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+--------
 NOTE: At the moment the C-language translations, that exist, within each project subdirectory are not working 
       properly, due to a broken b2c being run on all the directories.  This problem will be corrected shortly 
       and this README.txt updated.
@@ -51,26 +52,30 @@ The following programs are generating C-listings (maybe only partial listings):
     external/hurkle
     external/kinema
 
-----------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+--------
 
 Sept 26,2025
 
-This directory contains all the Basic source files that I've been able to collect over the years.  It consists mainly
-of tokenized basic (used to shrink the Basic files for smaller machines) and actual ASCII Basic listings.
+This directory contains all the Basic source files that I've been able to collect over the years.  It 
+consists mainly of tokenized basic (used to shrink the Basic files for smaller machines) and actual 
+ASCII Basic listings.
 
-I've developed a program, dump2asc, to convert from tokenized Basic to ASCII Basic listings.  Currently it only converts in 
-one direction -- I didn't see any reason to go back to tokenized Basic since I wasn't interested in running these
-programs on small machines.  dump2asc can convert a number of tokenized file varieties (GW-Basic un/protected mostly).  
+I've developed a program, dump2asc, to convert from tokenized Basic to ASCII Basic listings.  Currently it 
+only converts in one direction -- I didn't see any reason to go back to tokenized Basic since I wasn't 
+interested in running these programs on small machines.  dump2asc can convert a number of tokenized file 
+varieties (GW-Basic un/protected mostly).  
 
-The b2c program converts a variety of Basics to C.  Originally the idea was to take any Basic and convert it over, but 
-it turns out that there are some inconsistancies in the Basic language from vendor to vendor.  The program does have
-the ability to produce a good guess at which Basic is being translated by counting the translation errors for the
-program for each Basic that it understands.  This isn't completely foolproof since b2c isn't complete yet and may
-not understand all statements, but more importantly because different versions of Basic can have mutually incompatible 
-statements which run differently for each Basic.  
+The b2c program converts a variety of Basics to C.  Originally the idea was to take any Basic and convert 
+it over, but it turns out that there are some inconsistancies in the Basic language from vendor to vendor.  
+The program does have the ability to produce a good guess at which Basic is being translated by counting 
+the translation errors for the program for each Basic that it understands.  This isn't completely 
+foolproof since b2c isn't complete yet and may not understand all statements, but more importantly 
+because different versions of Basic can have mutually incompatible statements which run differently 
+for each Basic.  
 
-The list at the bottom of this file contains just two directory tree levels of my larger tree.  The listing below
-shows what each subdirectory in the 'base' directory looks like (roughly).
+The list at the bottom of this file contains just two directory tree levels of my larger tree.  The listing 
+below shows what each subdirectory in the 'base' directory looks like (roughly).
 
     sumer/
     ├── basic
@@ -89,12 +94,13 @@ shows what each subdirectory in the 'base' directory looks like (roughly).
     ├── sumer.log
     └── sumer.vars
 
-The files above include the BAS file(s) of the original Basic program.  Sometimes there are multiple BAS files if the Basic
-program is large and CHAINed together.  The C directory contains the b2c translated files of the corresponding BAS files.
-The cpp and python directories are for future development.  The VARS file in the base directory of the program is a 
-file that allows the program to give the C-listing more meaningfull names and is just a straight subsitution: C-name for 
-Basic-name.  Currently these files have to be hand generated but in the future I'll have b2c generate VARS files for
-each program it compiles.  This is what part of SUMER's VARS file looks like:
+The files above include the BAS file(s) of the original Basic program.  Sometimes there are multiple 
+BAS files if the Basic program is large and CHAINed together.  The C directory contains the b2c translated 
+188d3c940ffiles of the corresponding BAS files.  The cpp and python directories are for future development.  The 
+VARS file in the base directory of the program is a file that allows the program to give the C-listing 
+more meaningfull names and is just a straight subsitution: C-name for Basic-name.  Currently these files 
+have to be hand generated but in the future I'll have b2c generate VARS files for each program it compiles.  
+This is what part of SUMER's VARS file looks like:
 
     # Routines
     Routine_06510 | Get_Budget_Input
@@ -157,25 +163,27 @@ each program it compiles.  This is what part of SUMER's VARS file looks like:
     Z_str_arr   | MoneyLender_Names
     Z8_flt      | Acres_Reposessed
 
-The sumer.vars file was generated iteratively using b2c to insert more and more descriptive labels and names into the C-source
-as it becomes obvious how the original Basic programmer used them.  This is a fairly simple process for anybody 
-comfortable with reading Basic code.
+The sumer.vars file was generated iteratively using b2c to insert more and more descriptive labels 
+and names into the C-source as it becomes obvious how the original Basic programmer used them.  This 
+is a fairly simple process for anybody comfortable with reading Basic code.
     
-Only some of the programs in 'base' have been converted to working 'C' language programs by my b2c program.  This list
-of programs are my test suite for my b2c (Basic to C) translation program.  b2c is currently being developed
-and so these C-translations may change as I figure out the translation problem.  As well, as b2c becomes more complete
-the list of programs that have working copies will increase (and not decrease hopefully).
+Only some of the programs in 'base' have been converted to working 'C' language programs by my b2c program.  
+This list of programs are my test suite for my b2c (Basic to C) translation program.  b2c is currently 
+being developed and so these C-translations may change as I figure out the translation problem.  As well, 
+as b2c becomes more complete the list of programs that have working copies will increase (and not decrease 
+hopefully).
 
-As well, I will move more of the other subdirectories/Bas-source into this repo as time permits.  Currently only the
-'base' directory is available.  I'll also make b2c and dump2asc sources available on my github.
+As well, I will move more of the other subdirectories/Bas-source into this repo as time permits.  Currently 
+only the 'base' directory is available.  I'll also make b2c and dump2asc sources available on my github.
 
-The b2c/dump2asc projects were developed originally because a friend, Dave, and I hand-typed these BAS programs in to the
-machine we were working on.  It was tedious and no-fun at all.  Playing the games was fun which of course made us wish
-for improvements in the games.  However, Basic was really a tedious language to develop programs in because it lead
-to spagetti code and all sorts of bad programming practices.  At the time C was my preferred language and so I thought
-"why spend 10s of hours of my time hand converting these programs when I could make a commpiler to translate them in 
-a split second, and it would only require thousands of hours."  That may be a good approximation -- programmer economics ;-).
-Anyway, the compiler project is much more fun. 
+The b2c/dump2asc projects were developed originally because a friend, Dave, and I hand-typed these BAS 
+programs in to the machine we were working on.  It was tedious and no-fun at all.  Playing the games was 
+fun which of course made us wish for improvements in the games.  However, Basic was really a tedious 
+language to develop programs in because it lead to spagetti code and all sorts of bad programming practices.  
+At the time C was my preferred language and so I thought "why spend 10s of hours of my time hand converting 
+these programs when I could make a commpiler to translate them in a split second, and it would only 
+require thousands of hours."  That may be a good approximation -- programmer economics ;-).  Anyway, the 
+compiler project is much more fun. 
 
 If you find these Basic programs interesting or are interested in the b2c/dump2asc programs let me know. 
 
