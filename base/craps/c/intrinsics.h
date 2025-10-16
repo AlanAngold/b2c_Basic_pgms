@@ -1248,7 +1248,7 @@ void b2c_chain(char* progname,int progline)
 {
     int err=0;
     fprintf(stdout,"Chaining to %s:%d\n",progname,progline);
-    execl(progname,"",nullptr);
+    //execl(progname,"",nullptr);
     switch(errno){
         case EACCES:	fprintf(stderr,"CHAIN: Permission denied.\n"); break;
         case EMFILE:	fprintf(stderr,"CHAIN: Too many open files.\n"); break;
