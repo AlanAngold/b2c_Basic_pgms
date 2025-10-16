@@ -9,6 +9,8 @@ filint
 initgit
 mkghrepo
 .hgignore
+b2c_push
+b2c_trn
 
 # Directories
 .hg

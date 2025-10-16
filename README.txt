@@ -8,6 +8,10 @@ NOTE: At the moment the C-language translations, that exist, within each project
 NOTE: Only a few directories have working C-programs (sumer, depth, etc).  When I have a chance to upgrate
       my b2c program I'll regenerate all the C-programs which should bring some new translations online.
 
+NOTE: The translator program b2c and all these Basic programs are translated on a linux (Ubuntu) system and 
+      may have adjustments that need to be made for other OSes.  Please let me know about these if you
+      trip across them.
+
 The following programs are generating C-listings (maybe only partial listings):
     base/3dpltcc
     base/bandit
