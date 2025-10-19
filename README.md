@@ -154,587 +154,590 @@ NonAligned@gmail.com
 
 
 Directory structure of projects in repo:
-.
-├── ascii art
-│   ├── monalisa
-│   ├── nude82
-│   ├── playbcal
-│   ├── snoopy
-│   ├── spock
-│   └── tokenized
-├── aw software
-│   ├── advdraw2
-│   ├── Autorun
-│   ├── battle
-│   ├── escape
-│   ├── spacetax
-│   ├── tokenized
-│   └── tomb
-├── base
-│   ├── 3dpltcc
-│   ├── 6502
-│   ├── advdraw
-│   ├── amazing
-│   ├── animal
-│   ├── bandit
-│   ├── baseball
-│   ├── battle
-│   ├── biocljr
-│   ├── biorhythm
-│   ├── blkbxcc1
-│   ├── bshipcc
-│   ├── btlstr
-│   ├── cartoon
-│   ├── chase
-│   ├── chkrscc
-│   ├── civilwar2
-│   ├── clewso
-│   ├── cowboy
-│   ├── craps
-│   ├── depth
-│   ├── dndchar
-│   ├── dptchgcc
-│   ├── drawart
-│   ├── elisa
-│   ├── empire
-│   ├── escape
-│   ├── evasncc
-│   ├── flipdsc
-│   ├── ftballcc
-│   ├── galem30
-│   ├── golf
-│   ├── greed2
-│   ├── gunner
-│   ├── hamurabi
-│   ├── hangmn
-│   ├── hanoi
-│   ├── hockey
-│   ├── horses
-│   ├── icbm
-│   ├── jigsawcc
-│   ├── joust
-│   ├── lander
-│   ├── lem
-│   ├── life
-│   ├── lifetwo
-│   ├── litquiz
-│   ├── lovepst
-│   ├── lunar
-│   ├── masmind
-│   ├── masters
-│   ├── maze
-│   ├── mgwmpcc
-│   ├── notonecc
-│   ├── number
-│   ├── othelo
-│   ├── pressup
-│   ├── queen
-│   ├── rabbit
-│   ├── robot
-│   ├── romlncc
-│   ├── rsxmasd
-│   ├── salvocc
-│   ├── seabatl
-│   ├── seabtcc
-│   ├── spacetax
-│   ├── spacewar
-│   ├── startrader
-│   ├── startrek
-│   ├── strek2
-│   ├── strek40
-│   ├── strwrscc
-│   ├── sumer
-│   ├── supst
-│   ├── tictac
-│   ├── tomb
-│   ├── trade
-│   ├── trek
-│   ├── tunlv
-│   ├── war
-│   ├── warfish
-│   ├── wrsrccc
-│   ├── wumpus
-│   └── xstrek
-├── ccgames
-│   ├── 23-match
-│   ├── aceyducy
-│   ├── amazing
-│   ├── amazingp
-│   ├── animal
-│   ├── awari
-│   ├── bagels
-│   ├── banner
-│   ├── basketbl
-│   ├── batnum
-│   ├── battle
-│   ├── blackjck
-│   ├── bombard
-│   ├── bombsawy
-│   ├── bounce
-│   ├── bowling
-│   ├── boxing
-│   ├── bug
-│   ├── bullfght
-│   ├── bullseye
-│   ├── bunny
-│   ├── buzzword
-│   ├── calendar
-│   ├── change
-│   ├── checkers
-│   ├── chemist
-│   ├── chief
-│   ├── chomp
-│   ├── civilwar
-│   ├── combat
-│   ├── craps
-│   ├── cube
-│   ├── depthchg
-│   ├── diamond
-│   ├── dice
-│   ├── digits
-│   ├── dspace
-│   ├── evenwin1
-│   ├── evenwin2
-│   ├── flipflop
-│   ├── footbal1
-│   ├── footbal2
-│   ├── furtradr
-│   ├── golf
-│   ├── gomoko
-│   ├── granprix
-│   ├── guess
-│   ├── gunner
-│   ├── hamurabi
-│   ├── hangman
-│   ├── hello
-│   ├── hexapawn
-│   ├── hilo
-│   ├── hi-q
-│   ├── hockey
-│   ├── hockey1
-│   ├── horsrace
-│   ├── hurkle
-│   ├── kinema
-│   ├── king
-│   ├── lem
-│   ├── letter
-│   ├── life2
-│   ├── litquiz
-│   ├── love
-│   ├── love-p
-│   ├── madlibs
-│   ├── mastrmnd
-│   ├── mathdice
-│   ├── menu_disk1
-│   ├── menu_disk2
-│   ├── mugwump
-│   ├── name
-│   ├── nicoma
-│   ├── nim
-│   ├── number
-│   ├── onecheck
-│   ├── orbit
-│   ├── pizza
-│   ├── poetry
-│   ├── poker
-│   ├── qubic
-│   ├── queen
-│   ├── reverse
-│   ├── rocksp
-│   ├── roulette
-│   ├── rusrou
-│   ├── salvo
-│   ├── sinewave
-│   ├── slalom
-│   ├── splat
-│   ├── stars
-│   ├── stock
-│   ├── synonym
-│   ├── target
-│   ├── tictac1
-│   ├── tictac2
-│   ├── towers
-│   ├── train
-│   ├── trap
-│   ├── war
-│   ├── weekday
-│   ├── word
-│   └── yahtzee
-├── classics
-│   ├── animal
-│   ├── biorhythm
-│   ├── elisa
-│   ├── hamurabi
-│   ├── hanoi
-│   ├── lander
-│   ├── life
-│   ├── startrek
-│   ├── startrek1
-│   ├── tictac
-│   ├── tokenized
-│   └── Wumpus
-├── cpm_games
-│   ├── 23-match
-│   ├── aceyducy
-│   ├── amazing
-│   ├── amazingp
-│   ├── animal
-│   ├── awari
-│   ├── baccrrt
-│   ├── bagels
-│   ├── banner
-│   ├── baseball
-│   ├── basketbl
-│   ├── batnum
-│   ├── battle
-│   ├── bigtrek
-│   ├── bigtrek_z
-│   ├── biocal
-│   ├── birthday
-│   ├── blackjck
-│   ├── blackjck1
-│   ├── bombard
-│   ├── bombsawy
-│   ├── bounce
-│   ├── bowling
-│   ├── boxing
-│   ├── budget
-│   ├── bug
-│   ├── bullfght
-│   ├── bullseye
-│   ├── bunny
-│   ├── buzzword
-│   ├── calendar
-│   ├── chain
-│   ├── change
-│   ├── chase
-│   ├── checkers
-│   ├── chemist
-│   ├── chess
-│   ├── chief
-│   ├── chomp
-│   ├── civilwar
-│   ├── civilwar1
-│   ├── climates
-│   ├── cloud-9
-│   ├── combat
-│   ├── craps
-│   ├── craps1
-│   ├── crazy-8
-│   ├── cube
-│   ├── depthchg
-│   ├── diamond
-│   ├── dice
-│   ├── digits
-│   ├── docs
-│   ├── dspace
-│   ├── evenwin1
-│   ├── evenwin2
-│   ├── flipflop
-│   ├── footbal1
-│   ├── footbal2
-│   ├── furtradr
-│   ├── galaxy
-│   ├── galaxy2
-│   ├── golf
-│   ├── gomoko
-│   ├── granprix
-│   ├── guess
-│   ├── gunner
-│   ├── hamurabi
-│   ├── hangman
-│   ├── hello
-│   ├── hexapawn
-│   ├── hilo
-│   ├── hi-q
-│   ├── hockey
-│   ├── hockey1
-│   ├── horsrace
-│   ├── hurkle
-│   ├── kinema
-│   ├── king
-│   ├── lem
-│   ├── letter
-│   ├── life2
-│   ├── litquiz
-│   ├── love
-│   ├── love-p
-│   ├── madlibs
-│   ├── mastrmnd
-│   ├── mathdice
-│   ├── menu
-│   ├── menu2
-│   ├── monoply
-│   ├── monster
-│   ├── mugwump
-│   ├── name
-│   ├── nicoma
-│   ├── nim
-│   ├── nuketank
-│   ├── number
-│   ├── onecheck
-│   ├── orbit
-│   ├── pizza
-│   ├── poetry
-│   ├── poker
-│   ├── qubic
-│   ├── queen
-│   ├── reverse
-│   ├── rocksp
-│   ├── rose
-│   ├── roulette
-│   ├── rusrou
-│   ├── salvo
-│   ├── sinewave
-│   ├── slalom
-│   ├── splat
-│   ├── square
-│   ├── star
-│   ├── stars
-│   ├── startrek
-│   ├── starwars
-│   ├── stock
-│   ├── strtrk#2
-│   ├── swarms
-│   ├── synonym
-│   ├── target
-│   ├── tictac1
-│   ├── tictac2
-│   ├── towers
-│   ├── train
-│   ├── trap
-│   ├── trekmod
-│   ├── tvigammo
-│   ├── war
-│   ├── weather
-│   ├── weekday
-│   ├── word
-│   ├── wordpuzl
-│   ├── word-pzl
-│   ├── yahtzee
-│   └── zilch
-├── creative computing
-│   ├── 3dpltcc1
-│   ├── 3dpltcc2
-│   ├── biocljr1
-│   ├── biocljr2
-│   ├── blkbxcc1
-│   ├── bshipcc
-│   ├── chase
-│   ├── chkrscc1
-│   ├── chkrscc2
-│   ├── dptchgcc
-│   ├── drawart
-│   ├── evasncc1
-│   ├── evasncc2
-│   ├── flipdsc1
-│   ├── flipdsc2
-│   ├── flipdsc3
-│   ├── ftballcc
-│   ├── golf
-│   ├── greed2a
-│   ├── greed2b
-│   ├── hockey
-│   ├── jigsawcc
-│   ├── lem
-│   ├── lifetwo
-│   ├── litquiz
-│   ├── lovepst1
-│   ├── lovepst2
-│   ├── lovepst3
-│   ├── lovepst4
-│   ├── masters1
-│   ├── masters2
-│   ├── masters3
-│   ├── mgwmpcc1
-│   ├── mgwmpcc2
-│   ├── notonecc
-│   ├── queen
-│   ├── romlncc1
-│   ├── romlncc2
-│   ├── romlncc3
-│   ├── salvocc
-│   ├── seabatl
-│   ├── seabtcc1
-│   ├── seabtcc2
-│   ├── strwrscc
-│   ├── supstrkg
-│   ├── supstrki
-│   ├── supstrtb
-│   ├── tokenized
-│   ├── tunlvis5
-│   ├── tunlvsn1
-│   ├── tunlvsn2
-│   ├── tunlvsn3
-│   ├── tunlvsn4
-│   ├── warfish
-│   ├── wrsrccc1
-│   ├── wrsrccc2
-│   ├── wrsrccc3
-│   ├── wrsrccc4
-│   └── wumpus2a
-├── external
-│   ├── 23-match
-│   ├── 3dplot
-│   ├── aceyducy
-│   ├── amazing
-│   ├── animal
-│   ├── awari
-│   ├── bagels
-│   ├── banner
-│   ├── basketbl
-│   ├── batnum
-│   ├── battle
-│   ├── blackjck
-│   ├── bombard
-│   ├── bombsawy
-│   ├── bounce
-│   ├── bowling
-│   ├── boxing
-│   ├── bug
-│   ├── bullfght
-│   ├── bullseye
-│   ├── bunny
-│   ├── buzzword
-│   ├── calendar
-│   ├── change
-│   ├── checkers
-│   ├── chemist
-│   ├── chief
-│   ├── chomp
-│   ├── combat
-│   ├── craps
-│   ├── cube
-│   ├── depthchg
-│   ├── diamond
-│   ├── dice
-│   ├── digits
-│   ├── evenwin1
-│   ├── evenwin2
-│   ├── flipflop
-│   ├── footbal1
-│   ├── footbal2
-│   ├── furtradr
-│   ├── golf
-│   ├── gomoko
-│   ├── guess
-│   ├── gunner
-│   ├── hamurabi
-│   ├── hangman
-│   ├── hello
-│   ├── hexapawn
-│   ├── hilo
-│   ├── hi-q
-│   ├── hockey
-│   ├── horsrace
-│   ├── hurkle
-│   ├── kaleido
-│   ├── kinema
-│   ├── king
-│   ├── lem
-│   ├── letter
-│   ├── life
-│   ├── life2
-│   ├── litquiz
-│   ├── love
-│   ├── lunar
-│   ├── mandelbt
-│   ├── mastrmnd
-│   ├── mathdice
-│   ├── mugwump
-│   ├── name
-│   ├── neoload
-│   ├── nicoma
-│   ├── nim
-│   ├── number
-│   ├── onecheck
-│   ├── orbit
-│   ├── pizza
-│   ├── poetry
-│   ├── poker
-│   ├── qubic
-│   ├── queen
-│   ├── reverse
-│   ├── rocket
-│   ├── rocksp
-│   ├── roulette
-│   ├── rusrou
-│   ├── salvo
-│   ├── sinewave
-│   ├── slalom
-│   ├── slots
-│   ├── splat
-│   ├── stars
-│   ├── stock
-│   ├── suite
-│   ├── synonym
-│   ├── target
-│   ├── test
-│   ├── test1
-│   ├── tictac1
-│   ├── tictac2
-│   ├── tokenized
-│   ├── towers
-│   ├── train
-│   ├── trap
-│   ├── war
-│   ├── weekday
-│   └── word
-├── misc
-│   ├── mayfield_super_trek
-│   └── superstartrek
-├── other
-│   ├── amazing
-│   ├── cartoon
-│   ├── masmind
-│   ├── robot11
-│   ├── rsxmasd1
-│   ├── startrek2
-│   └── tokenized
-├── programs
-│   ├── civil
-│   ├── devil
-│   ├── duke
-│   ├── elements
-│   ├── farkle
-│   ├── flash
-│   ├── fur
-│   ├── intro
-│   ├── launch
-│   ├── lunar
-│   ├── manor
-│   ├── merchant
-│   ├── monster
-│   ├── poker
-│   ├── pres2000
-│   ├── pres90
-│   ├── quad
-│   ├── rabbit
-│   ├── seabat
-│   ├── stat
-│   ├── stocks
-│   ├── super
-│   ├── superint
-│   ├── tokenized
-│   ├── twonky
-│   ├── vidpin
-│   └── wumpus1
-├── samples
-│   ├── art
-│   ├── ball
-│   ├── calendar
-│   ├── circle
-│   ├── colorbar
-│   ├── comm
-│   ├── donkey
-│   ├── mortgage
-│   ├── music
-│   ├── piechart
-│   ├── samples
-│   ├── space
-│   └── tokenized
-├── struggle
-│   └── sfc
-└── trek
-    ├── trek
-    └── trek89
+
+    .
+    ├── ascii art
+    │   ├── monalisa
+    │   ├── nude82
+    │   ├── playbcal
+    │   ├── snoopy
+    │   ├── spock
+    │   └── tokenized
+    ├── aw software
+    │   ├── advdraw2
+    │   ├── Autorun
+    │   ├── battle
+    │   ├── escape
+    │   ├── spacetax
+    │   ├── tokenized
+    │   └── tomb
+    ├── base
+    │   ├── 3dpltcc
+    │   ├── 6502
+    │   ├── advdraw
+    │   ├── amazing
+    │   ├── animal
+    │   ├── bandit
+    │   ├── baseball
+    │   ├── battle
+    │   ├── biocljr
+    │   ├── biorhythm
+    │   ├── blkbxcc1
+    │   ├── bshipcc
+    │   ├── btlstr
+    │   ├── cartoon
+    │   ├── chase
+    │   ├── chkrscc
+    │   ├── civilwar2
+    │   ├── clewso
+    │   ├── cowboy
+    │   ├── craps
+    │   ├── depth
+    │   ├── dndchar
+    │   ├── dptchgcc
+    │   ├── drawart
+    │   ├── elisa
+    │   ├── empire
+    │   ├── escape
+    │   ├── evasncc
+    │   ├── flipdsc
+    │   ├── ftballcc
+    │   ├── galem30
+    │   ├── golf
+    │   ├── greed2
+    │   ├── gunner
+    │   ├── hamurabi
+    │   ├── hangmn
+    │   ├── hanoi
+    │   ├── hockey
+    │   ├── horses
+    │   ├── icbm
+    │   ├── jigsawcc
+    │   ├── joust
+    │   ├── lander
+    │   ├── lem
+    │   ├── life
+    │   ├── lifetwo
+    │   ├── litquiz
+    │   ├── lovepst
+    │   ├── lunar
+    │   ├── masmind
+    │   ├── masters
+    │   ├── maze
+    │   ├── mgwmpcc
+    │   ├── notonecc
+    │   ├── number
+    │   ├── othelo
+    │   ├── pressup
+    │   ├── queen
+    │   ├── rabbit
+    │   ├── robot
+    │   ├── romlncc
+    │   ├── rsxmasd
+    │   ├── salvocc
+    │   ├── seabatl
+    │   ├── seabtcc
+    │   ├── spacetax
+    │   ├── spacewar
+    │   ├── startrader
+    │   ├── startrek
+    │   ├── strek2
+    │   ├── strek40
+    │   ├── strwrscc
+    │   ├── sumer
+    │   ├── supst
+    │   ├── tictac
+    │   ├── tomb
+    │   ├── trade
+    │   ├── trek
+    │   ├── tunlv
+    │   ├── war
+    │   ├── warfish
+    │   ├── wrsrccc
+    │   ├── wumpus
+    │   └── xstrek
+    ├── ccgames
+    │   ├── 23-match
+    │   ├── aceyducy
+    │   ├── amazing
+    │   ├── amazingp
+    │   ├── animal
+    │   ├── awari
+    │   ├── bagels
+    │   ├── banner
+    │   ├── basketbl
+    │   ├── batnum
+    │   ├── battle
+    │   ├── blackjck
+    │   ├── bombard
+    │   ├── bombsawy
+    │   ├── bounce
+    │   ├── bowling
+    │   ├── boxing
+    │   ├── bug
+    │   ├── bullfght
+    │   ├── bullseye
+    │   ├── bunny
+    │   ├── buzzword
+    │   ├── calendar
+    │   ├── change
+    │   ├── checkers
+    │   ├── chemist
+    │   ├── chief
+    │   ├── chomp
+    │   ├── civilwar
+    │   ├── combat
+    │   ├── craps
+    │   ├── cube
+    │   ├── depthchg
+    │   ├── diamond
+    │   ├── dice
+    │   ├── digits
+    │   ├── dspace
+    │   ├── evenwin1
+    │   ├── evenwin2
+    │   ├── flipflop
+    │   ├── footbal1
+    │   ├── footbal2
+    │   ├── furtradr
+    │   ├── golf
+    │   ├── gomoko
+    │   ├── granprix
+    │   ├── guess
+    │   ├── gunner
+    │   ├── hamurabi
+    │   ├── hangman
+    │   ├── hello
+    │   ├── hexapawn
+    │   ├── hilo
+    │   ├── hi-q
+    │   ├── hockey
+    │   ├── hockey1
+    │   ├── horsrace
+    │   ├── hurkle
+    │   ├── kinema
+    │   ├── king
+    │   ├── lem
+    │   ├── letter
+    │   ├── life2
+    │   ├── litquiz
+    │   ├── love
+    │   ├── love-p
+    │   ├── madlibs
+    │   ├── mastrmnd
+    │   ├── mathdice
+    │   ├── menu_disk1
+    │   ├── menu_disk2
+    │   ├── mugwump
+    │   ├── name
+    │   ├── nicoma
+    │   ├── nim
+    │   ├── number
+    │   ├── onecheck
+    │   ├── orbit
+    │   ├── pizza
+    │   ├── poetry
+    │   ├── poker
+    │   ├── qubic
+    │   ├── queen
+    │   ├── reverse
+    │   ├── rocksp
+    │   ├── roulette
+    │   ├── rusrou
+    │   ├── salvo
+    │   ├── sinewave
+    │   ├── slalom
+    │   ├── splat
+    │   ├── stars
+    │   ├── stock
+    │   ├── synonym
+    │   ├── target
+    │   ├── tictac1
+    │   ├── tictac2
+    │   ├── towers
+    │   ├── train
+    │   ├── trap
+    │   ├── war
+    │   ├── weekday
+    │   ├── word
+    │   └── yahtzee
+    ├── classics
+    │   ├── animal
+    │   ├── biorhythm
+    │   ├── elisa
+    │   ├── hamurabi
+    │   ├── hanoi
+    │   ├── lander
+    │   ├── life
+    │   ├── startrek
+    │   ├── startrek1
+    │   ├── tictac
+    │   ├── tokenized
+    │   └── Wumpus
+    ├── cpm_games
+    │   ├── 23-match
+    │   ├── aceyducy
+    │   ├── amazing
+    │   ├── amazingp
+    │   ├── animal
+    │   ├── awari
+    │   ├── baccrrt
+    │   ├── bagels
+    │   ├── banner
+    │   ├── baseball
+    │   ├── basketbl
+    │   ├── batnum
+    │   ├── battle
+    │   ├── bigtrek
+    │   ├── bigtrek_z
+    │   ├── biocal
+    │   ├── birthday
+    │   ├── blackjck
+    │   ├── blackjck1
+    │   ├── bombard
+    │   ├── bombsawy
+    │   ├── bounce
+    │   ├── bowling
+    │   ├── boxing
+    │   ├── budget
+    │   ├── bug
+    │   ├── bullfght
+    │   ├── bullseye
+    │   ├── bunny
+    │   ├── buzzword
+    │   ├── calendar
+    │   ├── chain
+    │   ├── change
+    │   ├── chase
+    │   ├── checkers
+    │   ├── chemist
+    │   ├── chess
+    │   ├── chief
+    │   ├── chomp
+    │   ├── civilwar
+    │   ├── civilwar1
+    │   ├── climates
+    │   ├── cloud-9
+    │   ├── combat
+    │   ├── craps
+    │   ├── craps1
+    │   ├── crazy-8
+    │   ├── cube
+    │   ├── depthchg
+    │   ├── diamond
+    │   ├── dice
+    │   ├── digits
+    │   ├── docs
+    │   ├── dspace
+    │   ├── evenwin1
+    │   ├── evenwin2
+    │   ├── flipflop
+    │   ├── footbal1
+    │   ├── footbal2
+    │   ├── furtradr
+    │   ├── galaxy
+    │   ├── galaxy2
+    │   ├── golf
+    │   ├── gomoko
+    │   ├── granprix
+    │   ├── guess
+    │   ├── gunner
+    │   ├── hamurabi
+    │   ├── hangman
+    │   ├── hello
+    │   ├── hexapawn
+    │   ├── hilo
+    │   ├── hi-q
+    │   ├── hockey
+    │   ├── hockey1
+    │   ├── horsrace
+    │   ├── hurkle
+    │   ├── kinema
+    │   ├── king
+    │   ├── lem
+    │   ├── letter
+    │   ├── life2
+    │   ├── litquiz
+    │   ├── love
+    │   ├── love-p
+    │   ├── madlibs
+    │   ├── mastrmnd
+    │   ├── mathdice
+    │   ├── menu
+    │   ├── menu2
+    │   ├── monoply
+    │   ├── monster
+    │   ├── mugwump
+    │   ├── name
+    │   ├── nicoma
+    │   ├── nim
+    │   ├── nuketank
+    │   ├── number
+    │   ├── onecheck
+    │   ├── orbit
+    │   ├── pizza
+    │   ├── poetry
+    │   ├── poker
+    │   ├── qubic
+    │   ├── queen
+    │   ├── reverse
+    │   ├── rocksp
+    │   ├── rose
+    │   ├── roulette
+    │   ├── rusrou
+    │   ├── salvo
+    │   ├── sinewave
+    │   ├── slalom
+    │   ├── splat
+    │   ├── square
+    │   ├── star
+    │   ├── stars
+    │   ├── startrek
+    │   ├── starwars
+    │   ├── stock
+    │   ├── strtrk#2
+    │   ├── swarms
+    │   ├── synonym
+    │   ├── target
+    │   ├── tictac1
+    │   ├── tictac2
+    │   ├── towers
+    │   ├── train
+    │   ├── trap
+    │   ├── trekmod
+    │   ├── tvigammo
+    │   ├── war
+    │   ├── weather
+    │   ├── weekday
+    │   ├── word
+    │   ├── wordpuzl
+    │   ├── word-pzl
+    │   ├── yahtzee
+    │   └── zilch
+    ├── creative computing
+    │   ├── 3dpltcc1
+    │   ├── 3dpltcc2
+    │   ├── biocljr1
+    │   ├── biocljr2
+    │   ├── blkbxcc1
+    │   ├── bshipcc
+    │   ├── chase
+    │   ├── chkrscc1
+    │   ├── chkrscc2
+    │   ├── dptchgcc
+    │   ├── drawart
+    │   ├── evasncc1
+    │   ├── evasncc2
+    │   ├── flipdsc1
+    │   ├── flipdsc2
+    │   ├── flipdsc3
+    │   ├── ftballcc
+    │   ├── golf
+    │   ├── greed2a
+    │   ├── greed2b
+    │   ├── hockey
+    │   ├── jigsawcc
+    │   ├── lem
+    │   ├── lifetwo
+    │   ├── litquiz
+    │   ├── lovepst1
+    │   ├── lovepst2
+    │   ├── lovepst3
+    │   ├── lovepst4
+    │   ├── masters1
+    │   ├── masters2
+    │   ├── masters3
+    │   ├── mgwmpcc1
+    │   ├── mgwmpcc2
+    │   ├── notonecc
+    │   ├── queen
+    │   ├── romlncc1
+    │   ├── romlncc2
+    │   ├── romlncc3
+    │   ├── salvocc
+    │   ├── seabatl
+    │   ├── seabtcc1
+    │   ├── seabtcc2
+    │   ├── strwrscc
+    │   ├── supstrkg
+    │   ├── supstrki
+    │   ├── supstrtb
+    │   ├── tokenized
+    │   ├── tunlvis5
+    │   ├── tunlvsn1
+    │   ├── tunlvsn2
+    │   ├── tunlvsn3
+    │   ├── tunlvsn4
+    │   ├── warfish
+    │   ├── wrsrccc1
+    │   ├── wrsrccc2
+    │   ├── wrsrccc3
+    │   ├── wrsrccc4
+    │   └── wumpus2a
+    ├── external
+    │   ├── 23-match
+    │   ├── 3dplot
+    │   ├── aceyducy
+    │   ├── amazing
+    │   ├── animal
+    │   ├── awari
+    │   ├── bagels
+    │   ├── banner
+    │   ├── basketbl
+    │   ├── batnum
+    │   ├── battle
+    │   ├── blackjck
+    │   ├── bombard
+    │   ├── bombsawy
+    │   ├── bounce
+    │   ├── bowling
+    │   ├── boxing
+    │   ├── bug
+    │   ├── bullfght
+    │   ├── bullseye
+    │   ├── bunny
+    │   ├── buzzword
+    │   ├── calendar
+    │   ├── change
+    │   ├── checkers
+    │   ├── chemist
+    │   ├── chief
+    │   ├── chomp
+    │   ├── combat
+    │   ├── craps
+    │   ├── cube
+    │   ├── depthchg
+    │   ├── diamond
+    │   ├── dice
+    │   ├── digits
+    │   ├── evenwin1
+    │   ├── evenwin2
+    │   ├── flipflop
+    │   ├── footbal1
+    │   ├── footbal2
+    │   ├── furtradr
+    │   ├── golf
+    │   ├── gomoko
+    │   ├── guess
+    │   ├── gunner
+    │   ├── hamurabi
+    │   ├── hangman
+    │   ├── hello
+    │   ├── hexapawn
+    │   ├── hilo
+    │   ├── hi-q
+    │   ├── hockey
+    │   ├── horsrace
+    │   ├── hurkle
+    │   ├── kaleido
+    │   ├── kinema
+    │   ├── king
+    │   ├── lem
+    │   ├── letter
+    │   ├── life
+    │   ├── life2
+    │   ├── litquiz
+    │   ├── love
+    │   ├── lunar
+    │   ├── mandelbt
+    │   ├── mastrmnd
+    │   ├── mathdice
+    │   ├── mugwump
+    │   ├── name
+    │   ├── neoload
+    │   ├── nicoma
+    │   ├── nim
+    │   ├── number
+    │   ├── onecheck
+    │   ├── orbit
+    │   ├── pizza
+    │   ├── poetry
+    │   ├── poker
+    │   ├── qubic
+    │   ├── queen
+    │   ├── reverse
+    │   ├── rocket
+    │   ├── rocksp
+    │   ├── roulette
+    │   ├── rusrou
+    │   ├── salvo
+    │   ├── sinewave
+    │   ├── slalom
+    │   ├── slots
+    │   ├── splat
+    │   ├── stars
+    │   ├── stock
+    │   ├── suite
+    │   ├── synonym
+    │   ├── target
+    │   ├── test
+    │   ├── test1
+    │   ├── tictac1
+    │   ├── tictac2
+    │   ├── tokenized
+    │   ├── towers
+    │   ├── train
+    │   ├── trap
+    │   ├── war
+    │   ├── weekday
+    │   └── word
+    ├── misc
+    │   ├── mayfield_super_trek
+    │   └── superstartrek
+    ├── other
+    │   ├── amazing
+    │   ├── cartoon
+    │   ├── masmind
+    │   ├── robot11
+    │   ├── rsxmasd1
+    │   ├── startrek2
+    │   └── tokenized
+    ├── programs
+    │   ├── civil
+    │   ├── devil
+    │   ├── duke
+    │   ├── elements
+    │   ├── farkle
+    │   ├── flash
+    │   ├── fur
+    │   ├── intro
+    │   ├── launch
+    │   ├── lunar
+    │   ├── manor
+    │   ├── merchant
+    │   ├── monster
+    │   ├── poker
+    │   ├── pres2000
+    │   ├── pres90
+    │   ├── quad
+    │   ├── rabbit
+    │   ├── seabat
+    │   ├── stat
+    │   ├── stocks
+    │   ├── super
+    │   ├── superint
+    │   ├── tokenized
+    │   ├── twonky
+    │   ├── vidpin
+    │   └── wumpus1
+    ├── samples
+    │   ├── art
+    │   ├── ball
+    │   ├── calendar
+    │   ├── circle
+    │   ├── colorbar
+    │   ├── comm
+    │   ├── donkey
+    │   ├── mortgage
+    │   ├── music
+    │   ├── piechart
+    │   ├── samples
+    │   ├── space
+    │   └── tokenized
+    ├── struggle
+    │   └── sfc
+    └── trek
+        ├── trek
+        └── trek89
+    
+    
