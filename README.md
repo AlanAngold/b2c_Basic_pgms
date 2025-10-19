@@ -12,49 +12,7 @@ NOTE: The translator program b2c and all these Basic programs are translated on 
       may have adjustments that need to be made for other OSes.  Please let me know about these if you
       trip across them.
 
-The following programs are generating C-listings (maybe only partial listings):
-    base/3dpltcc
-    base/bandit
-    base/baseball
-    base/civilwar2
-    base/clewso
-    base/craps
-    base/depth
-    base/gunner
-    base/hangmn
-    base/horses
-    base/lovepst
-    base/lunar
-    base/number
-    base/othelo
-    base/pressup
-    base/rabbit
-    base/startrader
-    base/startrek
-    base/sumer
-    base/supst
-    base/war
-    base/warfish
-    ccgames/batnum
-    ccgames/chemist
-    ccgames/dspace
-    ccgames/litquiz
-    ccgames/yahtzee
-    cpm_games/batnum
-    cpm_games/chemist
-    cpm_games/dspace
-    cpm_games/litquiz
-    cpm_games/yahtzee
-    external/basketbl
-    external/batnum
-    external/bombsawy
-    external/bullfght
-    external/footbal1
-    external/golf
-    external/guess
-    external/hamurabi
-    external/hurkle
-    external/kinema
+The status of each program is available in the README.md in each group directory.
 
 --------------------------------------------------------------------------------------------------------------
 --------

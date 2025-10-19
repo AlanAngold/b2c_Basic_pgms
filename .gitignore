@@ -12,6 +12,23 @@ mkghrepo
 b2c_push
 b2c_trn
 
+# The program executable files
+base/bandit/c/bandit
+base/civilwar2/c/civilwar2
+base/craps/c/craps
+base/depth/c/depth
+base/gunner/c/gunner
+base/hangmn/c/hangmn
+base/horses/c/horses
+base/joust/c/joust
+base/litquiz/c/litquiz
+base/lunar/c/lunar
+base/number/c/number
+base/othelo/c/othelo
+base/sumer/c/sumer
+base/war/c/war
+
+
 # Directories
 .hg
 # ascii art
@@ -84,4 +101,4 @@ Mkfile.old
 dkms.conf
 
 # debug information files
-*.dwo
+.dwo
