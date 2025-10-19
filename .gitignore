@@ -27,6 +27,36 @@ base/number/c/number
 base/othelo/c/othelo
 base/sumer/c/sumer
 base/war/c/war
+creative computing/litquiz/c/litquiz
+external/23-match/c/23-match
+external/boxing/c/boxing
+external/bullfght/c/bullfght
+external/change/c/change
+external/chemist/c/chemist
+external/combat/c/combat
+external/craps/c/craps
+external/cube/c/cube
+external/dice/c/dice
+external/evenwin1/c/evenwin1
+external/golf/c/golf
+external/guess/c/guess
+external/hilo/c/hilo
+external/hurkle/c/hurkle
+external/kinema/c/kinema
+external/litquiz/c/litquiz
+external/mathdice/c/mathdice
+external/mugwump/c/mugwump
+external/nim/c/nim
+external/orbit/c/orbit
+external/rusrou/c/rusrou
+external/sinewave/c/sinewave
+external/stock/c/stock
+external/target/c/target
+external/test1/c/test1
+external/tictac1/c/tictac1
+external/train/c/train
+external/war/c/war
+external/weekday/c/weekday
 
 
 # Directories
