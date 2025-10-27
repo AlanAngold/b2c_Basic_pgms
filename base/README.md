@@ -6,7 +6,7 @@
 |   4 | amazing              |      NO     |      NO     |   NO  |     NO   |
 |   5 | animal               |      NO     |      NO     |   NO  |     NO   |
 |   6 | bandit               |     YES     |      NO     |   NO  |     NO   |
-|   7 | baseball             |     YES     |     YES     |  UNK  |    UNK   |
+|   7 | baseball             |     YES     |     YES     |  YES  |    UNK   |
 |   8 | battle               |      NO     |      NO     |   NO  |     NO   |
 |   9 | biocljr              |      NO     |      NO     |   NO  |     NO   |
 |  10 | biorhythm            |      NO     |      NO     |   NO  |     NO   |
@@ -19,8 +19,8 @@
 |  17 | civilwar2            |      NO     |      NO     |   NO  |     NO   |
 |  18 | clewso               |     YES     |      NO     |   NO  |     NO   |
 |  19 | cowboy               |      NO     |      NO     |   NO  |     NO   |
-|  20 | craps                |     YES     |     YES     |  UNK  |    UNK   |
-|  21 | depth                |     YES     |     YES     |  UNK  |    UNK   |
+|  20 | craps                |     YES     |     YES     |  YES  |    UNK   |
+|  21 | depth                |     YES     |     YES     |  YES  |    UNK   |
 |  22 | dndchar              |      NO     |      NO     |   NO  |     NO   |
 |  23 | dptchgcc             |      NO     |      NO     |   NO  |     NO   |
 |  24 | drawart              |      NO     |      NO     |   NO  |     NO   |
@@ -33,7 +33,7 @@
 |  31 | galem30              |      NO     |      NO     |   NO  |     NO   |
 |  32 | golf                 |      NO     |      NO     |   NO  |     NO   |
 |  33 | greed2               |      NO     |      NO     |   NO  |     NO   |
-|  34 | gunner               |     YES     |     YES     |  UNK  |    UNK   |
+|  34 | gunner               |     YES     |     YES     |  YES  |    UNK   |
 |  35 | hamurabi             |      NO     |      NO     |   NO  |     NO   |
 |  36 | hangmn               |     YES     |      NO     |   NO  |     NO   |
 |  37 | hanoi                |      NO     |      NO     |   NO  |     NO   |
@@ -54,7 +54,7 @@
 |  52 | maze                 |      NO     |      NO     |   NO  |     NO   |
 |  53 | mgwmpcc              |      NO     |      NO     |   NO  |     NO   |
 |  54 | notonecc             |      NO     |      NO     |   NO  |     NO   |
-|  55 | number               |     YES     |     YES     |  UNK  |    UNK   |
+|  55 | number               |     YES     |     YES     |  YES  |    UNK   |
 |  56 | othelo               |      NO     |      NO     |   NO  |     NO   |
 |  57 | pressup              |      NO     |      NO     |   NO  |     NO   |
 |  58 | queen                |      NO     |      NO     |   NO  |     NO   |
@@ -72,7 +72,7 @@
 |  70 | strek2               |      NO     |      NO     |   NO  |     NO   |
 |  71 | strek40              |      NO     |      NO     |   NO  |     NO   |
 |  72 | strwrscc             |      NO     |      NO     |   NO  |     NO   |
-|  73 | sumer                |     YES     |     YES     |  UNK  |    UNK   |
+|  73 | sumer                |     YES     |     YES     |  YES  |    UNK   |
 |  74 | supst                |      NO     |      NO     |   NO  |     NO   |
 |  75 | tictac               |      NO     |      NO     |   NO  |     NO   |
 |  76 | tomb                 |      NO     |      NO     |   NO  |     NO   |
