@@ -13,7 +13,7 @@
 |  11 | battle               |      NO     |      NO     |   NO  |     NO   |
 |  12 | blackjck             |      NO     |      NO     |   NO  |     NO   |
 |  13 | bombard              |      NO     |      NO     |   NO  |     NO   |
-|  14 | bombsawy             |     YES     |     YES     |  UNK  |    UNK   |
+|  14 | bombsawy             |     YES     |     YES     |  YES  |    UNK   |
 |  15 | bounce               |      NO     |      NO     |   NO  |     NO   |
 |  16 | bowling              |      NO     |      NO     |   NO  |     NO   |
 |  17 | boxing               |      NO     |      NO     |   NO  |     NO   |
@@ -96,7 +96,7 @@
 |  94 | synonym              |      NO     |      NO     |   NO  |     NO   |
 |  95 | target               |      NO     |      NO     |   NO  |     NO   |
 |  96 | test                 |      NO     |      NO     |   NO  |     NO   |
-|  97 | test1                |     YES     |     YES     |  UNK  |    UNK   |
+|  97 | test1                |     YES     |     YES     |  YES  |    YES   |
 |  98 | tictac1              |      NO     |      NO     |   NO  |     NO   |
 |  99 | tictac2              |      NO     |      NO     |   NO  |     NO   |
 | 100 | tokenized            |      NO     |      NO     |   NO  |     NO   |
