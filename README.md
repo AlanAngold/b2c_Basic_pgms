@@ -11,6 +11,16 @@ NOTES:
 
 - The status of each program is available in the README.md in each group directory.
 
+- Currently only the following files are translated, compiled and runable:
+ - base/depth
+ - base/gunner
+ - base/number
+ - base/craps
+ - base/sumer
+ - base/baseball
+ - external/test1 (trival test program)
+ - external/bombsawy
+
 --------------------------------------------------------------------------------------------------------------
 --------
 
