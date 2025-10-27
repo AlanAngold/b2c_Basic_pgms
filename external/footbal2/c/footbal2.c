@@ -1,3 +1,566 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of basic/footbal2.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x598e2254ab80 ---------A   00001 PRINT TAB(32);"FOOTBALL"
+    0x598e2254bf30 ---------A   00002 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x598e2254c0b0 ---------A   00003 PRINT:PRINT:PRINT
+    0x598e2253a2b0 ---------A   00100 REM
+    0x598e22552140 ---------A   00120 DIM A(20),B(20),C(40),H(2),T(2),W(2),X(2),Y(2),Z(2)
+    0x598e22552940 ---------A   00130 DIM M$(2),D(2),P$(20)
+    0x598e22552aa0 ---------A   00140 PRINT "PRESENTING N.F.U. FOOTBALL (NO FORTRAN USED)"
+    0x598e22552b40 ---------A   00145 PRINT:PRINT
+    0x598e225496d0 ---------A T 00150 INPUT "DO YOU WANT INSTRUCTIONS";A$
+    0x598e22549670 ---------A   00160 IF A$="NO" THEN 290
+    0x598e22553150 ---------A   00165 IF A$<>"YES" THEN 150
+    0x598e22553310 ---------A   00170 PRINT "THIS IS A FOOTBALL GAME FOR TWO TEAMS IN WHICH PLAYERS MUST"
+    0x598e225534c0 ---------A   00180 PRINT "PREPARE A TAPE WITH A DATA STATEMENT (1770 FOR TEAM 1,"
+    0x598e22553670 ---------A   00190 PRINT "1780 FOR TEAM 2) IN WHICH EACH TEAM SCRAMBLES NOS. 1-20"
+    0x598e22553820 ---------A   00195 PRINT "THESE NUMBERS ARE THEN ASSIGNED TO TWENTY GIVEN PLAYS."
+    0x598e225539c0 ---------A   00200 PRINT"A LIST OF NOS. AND THEIR PLAYS IS PROVIDED WITH"
+    0x598e22553b70 ---------A   00210 PRINT "BOTH TEAMS HAVING THE SAME PLAYS. THE MORE SIMILAR THE"
+    0x598e22553d10 ---------A   00220 PRINT "PLAYS THE LESS YARDAGE GAINED.  SCORES ARE GIVEN"
+    0x598e22553eb0 ---------A   00223 PRINT "WHENEVER SCORES ARE MADE. SCORES MAY ALSO BE OBTAINED"
+    0x598e22554050 ---------A   00225 PRINT "BY INPUTTING 99,99 FOR PLAY NOS. TO PUNT OR ATTEMPT A"
+    0x598e22554200 ---------A   00227 PRINT "FIELD GOAL, INPUT 77,77 FOR PLAY NUMBERS. QUESTIONS WILL BE"
+    0x598e225543b0 ---------A   00230 PRINT "ASKED THEN. ON 4TH DOWN, YOU WILL ALSO BE ASKED WHETHER"
+    0x598e22554560 ---------A   00240 PRINT "YOU WANT TO PUNT OR ATTEMPT A FIELD GOAL. IF THE ANSWER TO"
+    0x598e22554700 ---------A   00250 PRINT "BOTH QUESTIONS IS NO IT WILL BE ASSUMED YOU WANT TO"
+    0x598e225548a0 ---------A   00260 PRINT "TRY AND GAIN YARDAGE. ANSWER ALL QUESTIONS YES OR NO."
+    0x598e22554a40 ---------A   00270 PRINT "THE GAME IS PLAYED UNTIL PLAYERS TERMINATE (CONTROL-C)."
+    0x598e22554ba0 ---------A   00280 PRINT "PLEASE PREPARE A TAPE AND RUN.": STOP
+    0x598e22554f90 ---------A T 00290 PRINT:PRINT "PLEASE INPUT SCORE LIMIT ON GAME";:INPUT E
+    0x598e22555750 ---------A   00300 FOR I=1 TO 40: READ N: IF I>20 THEN 350
+    0x598e22555ac0 ---------A   00330 A(N)=I: GOTO 360
+    0x598e22555ec0 ---------A T 00350 B(N)=I-20
+    0x598e225562e0 ---------A T 00360 C(I)=N: NEXT I
+    0x598e225568c0 ---------A   00370 FOR I=1 TO 20: READ P$(I): NEXT I
+    0x598e22556f80 ---------A   00380 L=0: T=1
+    0x598e225572e0 ---------A T 00410 PRINT "TEAM";T;"PLAY CHART"
+    0x598e22557430 ---------A   00420 PRINT "NO.      PLAY"
+    0x598e22557700 ---------A   00430 FOR I=1 TO 20
+    0x598e22557780 ---------A   00440 REM
+    0x598e22557e10 ---------A   00450 PRINT C(I+L);TAB(6);P$(I)
+    0x598e22557f40 ---------A   00460 NEXT I
+    0x598e22558470 ---------A   00630 L=L+20:T=2
+    0x598e22558510 ---------A   00640 PRINT
+    0x598e225586a0 ---------A   00650 PRINT "TEAR OFF HERE----------------------------------------------"
+    0x598e22558ae0 ---------A   00660 FOR X=1 TO 11: PRINT: NEXT X
+    0x598e22558ef0 ---------A   00670 FOR Z=1 TO 3000: NEXT Z
+    0x598e22559170 ---------A   00680 IF L=20 THEN 410
+    0x598e22559cb0 ---------A   00690 D(1)=0: D(2)=3: M$(1)="--->": M$(2)="<---"
+    0x598e2255a7a0 ---------A   00700 H(1)=0: H(2)=0: T(1)=2: T(2)=1
+    0x598e2255b290 ---------A   00710 W(1)=-1: W(2)=1: X(1)=100: X(2)=0
+    0x598e2255bd70 ---------A   00720 Y(1)=1: Y(2)=-1: Z(1)=0: Z(2)=100
+    0x598e2255be10 ---------A   00725 GOSUB 1910
+    0x598e2255bf80 ---------A   00730 PRINT "TEAM 1 DEFENDS 0 YD GOAL -- TEAM 2 DEFENDS 100 YD GOAL."
+    0x598e2255c560 ---------A   00740 T=INT(2*RND(1)+1)
+    0x598e2255c700 ---------A   00760 PRINT: PRINT "THE COIN IS FLIPPED"
+    0x598e2255ce00 ---------A T 00765 P=X(T)-Y(T)*40
+    0x598e2255d1e0 ---------A   00770 GOSUB 1860: PRINT : PRINT "TEAM";T;"RECEIVES KICK-OFF"
+    0x598e2255d870 ---------A   00780 K=INT(26*RND(1)+40)
+    0x598e2255ddd0 ---------A T 00790 P=P-Y(T)*K
+    0x598e2255e450 ---------A T 00794 IF W(T)*P<Z(T)+10 THEN 810
+    0x598e2255e620 ---------A   00795 PRINT: PRINT "BALL WENT OUT OF ENDZONE --AUTOMATIC TOUCHBACK--"
+    0x598e2255e6b0 ---------A   00796 GOTO 870 
+    0x598e2255eb60 ---------A T 00810 PRINT "BALL WENT";K;"YARDS.  NOW ON";P:GOSUB 1900
+    0x598e2255f010 ---------A T 00830 PRINT "TEAM";T;"DO YOU WANT TO RUNBACK";:INPUT A$
+    0x598e2255f2a0 ---------A   00840 IF A$="YES" THEN 1430
+    0x598e2255f530 ---------A   00845 IF A$<>"NO" THEN 830
+    0x598e2255fea0 ---------A   00850 IF W(T)*P<Z(T) THEN 880
+    0x598e225604c0 ---------A T 00870 P=Z(T)-W(T)*20
+    0x598e225609b0 ---------A T 00880 D=1: S=P
+    0x598e22560ef0 ---------A T 00885 FOR I=1 TO 72: PRINT "=";: NEXT I
+    0x598e225615c0 ---------A   00890 PRINT: PRINT "TEAM";T;"DOWN";D;"ON";P
+    0x598e22561820 ---------A   00893 IF D<>1 THEN 900
+    0x598e225620c0 ---------A   00895 IF Y(T)*(P+Y(T)*10)>=X(T) THEN 898
+    0x598e22562330 ---------A   00897 C=4: GOTO 900
+    0x598e22562530 ---------A T 00898 C=8
+    0x598e225627b0 ---------A T 00900 IF C=8 THEN 904
+    0x598e225631b0 ---------A   00901 PRINT TAB(27);10-(Y(T)*P-Y(T)*S);"YARDS TO 1ST DOWN"
+    0x598e22563230 ---------A   00902 GOTO 910
+    0x598e225639c0 ---------A T 00904 PRINT TAB(27);X(T)-Y(T)*P;"YARDS"
+    0x598e22563c50 ---------A T 00910 GOSUB 1900: IF D=4 THEN 1180
+    0x598e22563cd0 ---------A T 00920 REM
+    0x598e225643f0 ---------A   00930 U=INT(3*RND(0)-1): GOTO 940
+    0x598e22564560 ---------A T 00936 PRINT "ILLEGAL PLAY NUMBER, CHECK AND"
+    0x598e225646e0 ---------A T 00940 PRINT "INPUT OFFENSIVE PLAY, DEFENSIVE PLAY";
+    0x598e22564940 ---------A   00950 IF T=2 THEN 970
+    0x598e22564d60 ---------A   00960 INPUT P1,P2: GOTO 975
+    0x598e22564f80 ---------A T 00970 INPUT P2,P1
+    0x598e225651e0 ---------A T 00975 IF P1=77 THEN 1180
+    0x598e22565440 ---------A   00980 IF P1>20 THEN 1800
+    0x598e225656a0 ---------A   00985 IF P1<1 THEN 1800
+    0x598e22565900 ---------A   00990 IF P2>20 THEN 1800
+    0x598e22565b70 ---------A   00992 IF P2<1 THEN 1800
+    0x598e225661b0 ---------A   00995 P1=INT(P1): P2=INT(P2)
+    0x598e22567310 ---------A   01000 Y=INT(ABS(A(P1)-B(P2))/19*((X(T)-Y(T)*P+25)*RND(1)-15))
+    0x598e225675c0 ---------A   01005 PRINT: IF T=2 THEN 1015
+    0x598e22567900 ---------A   01010 IF A(P1)<11 THEN 1048
+    0x598e22567990 ---------A   01012 GOTO 1020
+    0x598e22567cb0 ---------A T 01015 IF B(P2)<11 THEN 1048
+    0x598e22567f20 ---------A T 01020 IF U<>0 THEN 1035
+    0x598e22568180 ---------A   01025 PRINT "PASS INCOMPLETE TEAM";T
+    0x598e225683f0 ---------A   01030 Y=0: GOTO 1050
+    0x598e225689c0 ---------A T 01035 G=RND(1): IF G>.025 THEN 1040
+    0x598e22568c40 ---------A   01037 IF Y>2 THEN 1045
+    0x598e22568e00 ---------A T 01040 PRINT "QUARTERBACK SCRAMBLED": GOTO 1050
+    0x598e22568fa0 ---------A T 01045 PRINT "PASS COMPLETED": GOTO 1050
+    0x598e225690e0 ---------A T 01048 PRINT "THE BALL WAS RUN"
+    0x598e22569650 ---------A T 01050 P=P-W(T)*Y
+    0x598e22569b10 ---------A   01060 PRINT: PRINT "NET YARDS GAINED ON DOWN";D;"ARE ";Y
+    0x598e2256a060 ---------A   01070 G=RND(1): IF G>.025 THEN 1110
+    0x598e2256a620 ---------A T 01080 PRINT: PRINT "** LOSS OF POSSESSION FROM TEAM";T;"TO TEAM";T(T)
+    0x598e2256aa20 ---------A   01100 GOSUB 1850: PRINT: T=T(T): GOTO 830
+    0x598e2256af70 ---------A T 01110 IF Y(T)*P>=X(T) THEN 1320
+    0x598e2256b4e0 ---------A   01120 IF W(T)*P>=Z(T) THEN 1230
+    0x598e2256bc70 ---------A   01130 IF Y(T)*P-Y(T)*S>=10 THEN 880
+    0x598e2256c210 ---------A   01140 D=D+1: IF D<>5 THEN 885
+    0x598e2256c7d0 ---------A   01160 PRINT: PRINT "CONVERSION UNSUCCESSFUL TEAM";T:T=T(T)
+    0x598e2256c8a0 ---------A   01170 GOSUB 1850: GOTO 880
+    0x598e2256cd40 ---------A T 01180 PRINT "DOES TEAM";T;"WANT TO PUNT";: INPUT A$
+    0x598e2256cfd0 ---------A   01185 IF A$="NO" THEN 1200
+    0x598e2256d280 ---------A   01187 IF A$<>"YES" THEN 1180
+    0x598e2256db50 ---------A T 01190 PRINT:PRINT "TEAM";T;"WILL PUNT": G=RND(1): IF G<.025 THEN 1080
+    0x598e2256e4e0 ---------A   01195 GOSUB 1850: K=INT(25*RND(1)+35): T=T(T): GOTO 790
+    0x598e2256e990 ---------A T 01200 PRINT "DOES TEAM";T;"WANT TO ATTEMPT A FIELD GOAL";: INPUT A$
+    0x598e2256ec20 ---------A   01210 IF A$="YES" THEN 1640
+    0x598e2256eea0 ---------A   01215 IF A$<>"NO" THEN 1200
+    0x598e2256ef50 ---------A   01217 GOTO 920
+    0x598e2256f300 ---------A T 01230 PRINT: PRINT "SAFETY AGAINST TEAM";T;"**********************OH-OH"
+    0x598e2256fa30 ---------A   01240 H(T(T))=H(T(T))+2: GOSUB 1810
+    0x598e2256ff00 ---------A   01280 PRINT"TEAM";T;"DO YOU WANT TO PUNT INSTEAD OF A KICKOFF";:INPUT A$
+    0x598e225707a0 ---------A   01290 P=Z(T)-W(T)*20: IF A$="YES" THEN 1190
+    0x598e22571380 ---------A T 01320 PRINT: PRINT "TOUCHDOWN BY TEAM";T;"*********************YEA TEAM"
+    0x598e22571b70 ---------A   01340 Q=7: G=RND(1): IF G>.1 THEN 1380
+    0x598e22571f20 ---------A   01360 Q=6: PRINT "EXTRA POINT NO GOOD": GOTO 1390
+    0x598e22572070 ---------A T 01380 PRINT "EXTRA POINT GOOD"
+    0x598e225725d0 ---------A T 01390 H(T)=H(T)+Q: GOSUB 1810
+    0x598e22572920 ---------A   01420 T=T(T): GOTO 765
+    0x598e22572f00 ---------A T 01430 K=INT(9*RND(0)+1)
+    0x598e22573c50 ---------A   01440 R=INT(((X(T)-Y(T)*P+25)*RND(1)-15)/K)
+    0x598e225741c0 ---------A   01460 P=P-W(T)*R
+    0x598e22574670 ---------A   01480 PRINT:PRINT "RUNBACK TEAM";T;R;"YARDS"
+    0x598e22574ba0 ---------A   01485 G=RND(1): IF G<.025 THEN 1080
+    0x598e22575110 ---------A   01490 IF Y(T)*P>=X(T) THEN 1320
+    0x598e22575670 ---------A   01500 IF W(T)*P>=Z(T) THEN 1230
+    0x598e22575710 ---------A   01510 GOTO 880
+    0x598e22575ac0 ---------A T 01640 PRINT: PRINT "TEAM";T;"WILL ATTEMPT A FIELD GOAL"
+    0x598e22575ff0 ---------A   01645 G=RND(1): IF G<.025 THEN 1080
+    0x598e225766b0 ---------A   01650 F=INT(35*RND(1)+20)
+    0x598e22576a60 ---------A   01660 PRINT: PRINT "KICK IS";F;"YARDS LONG"
+    0x598e22577280 ---------A   01680 P=P-W(T)*F: G=RND(1)
+    0x598e225774e0 ---------A   01690 IF G<.35 THEN 1735
+    0x598e22577a70 ---------A   01700 IF Y(T)*P<X(T) THEN 1740
+    0x598e22577df0 ---------A   01710 PRINT "FIELD GOAL GOOD FOR TEAM";T;"*********************YEA"
+    0x598e22578060 ---------A   01720 Q=3: GOTO 1390
+    0x598e225781d0 ---------A T 01735 PRINT "BALL WENT WIDE"
+    0x598e22578560 ---------A T 01740 PRINT "FIELD GOAL UNSUCCESFUL TEAM";T;"-----------------TOO BAD"
+    0x598e22578bf0 ---------A   01742 GOSUB 1850: IF Y(T)*P<X(T)+10 THEN 1745
+    0x598e22578f70 ---------A   01744 T=T(T): GOTO 794
+    0x598e22579210 ---------A T 01745 PRINT: PRINT "BALL NOW ON";P
+    0x598e225795e0 ---------A   01750 T=T(T): GOSUB 1900: GOTO 830
+    0x598e2257a7f0 ---------A   01770 DATA 17,8,4,14,19,3,10,1,7,11,15,9,5,20,13,18,16,2,12,6
+    0x598e2257ba10 ---------A   01780 DATA 20,2,17,5,8,18,12,11,1,4,19,14,10,7,9,15,6,13,16,3
+    0x598e2257bf10 ---------A   01790 DATA "PITCHOUT","TRIPLE REVERSE","DRAW","QB SNEAK","END AROUND"
+    0x598e2257c320 ---------A   01792 DATA "DOUBLE REVERSE","LEFT SWEEP","RIGHT SWEEP","OFF TACKLE"
+    0x598e2257c660 ---------A   01794 DATA "WISHBONE OPTION","FLARE PASS","SCREEN PASS"
+    0x598e2257ca80 ---------A   01796 DATA "ROLL OUT OPTION","RIGHT CURL","LEFT CURL","WISHBONE OPTION"
+    0x598e2257ce70 ---------A   01798 DATA "SIDELINE PASS","HALF-BACK OPTION","RAZZLE-DAZZLE","BOMB!!!!"
+    0x598e2257d0e0 ---------A T 01800 IF P1<>99 THEN 936
+    0x598e2257d470 ---------A G 01810 PRINT: PRINT "TEAM 1 SCORE IS";H(1)
+    0x598e2257d7e0 ---------A   01820 PRINT "TEAM 2 SCORE IS";H(2): PRINT
+    0x598e2257db60 ---------A   01825 IF H(T)<E THEN 1830
+    0x598e2257df20 ---------A   01827 PRINT "TEAM";T;"WINS*******************": GOTO 2000
+    0x598e2257e160 ---------A T 01830 IF P1=99 THEN 940
+    0x598e2257e1c0 ---------A   01835 RETURN
+    0x598e2257e260 ----------   01850 PRINT
+    0x598e2257e800 ----------   01860 FOR X=1 TO 72: PRINT "+";: NEXT X: PRINT
+    0x598e2257e850 ----------   01870 RETURN
+    0x598e2257f030 ---------B G 01900 PRINT TAB(D(T)+5+P/2);M$(T)
+    0x598e2257f1e0 ---------B G 01910 PRINT "TEAM 1 [0   10   20   30   40   50   60   70   80   90";
+    0x598e2257f330 ---------B   01915 PRINT "   100] TEAM 2"
+    0x598e2257f3a0 ---------B   01920 PRINT
+    0x598e2257f3f0 ---------B   01930 RETURN
+    0x598e2257f450 ---------A T 02000 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     00150      00165T
+     00290      00160T
+     00350      00300T
+     00360      00330T
+     00410      00680T
+     00765      01420T
+     00790      01195T
+     00794      01744T
+     00810      00794T
+     00830      00845T, 01100T, 01750T
+     00870      00796T
+     00880      00850T, 01130T, 01170T, 01510T
+     00885      01140T
+     00898      00895T
+     00900      00893T, 00897T
+     00904      00900T
+     00910      00902T
+     00920      01217T
+     00936      01800T
+     00940      00930T, 01830T
+     00970      00950T
+     00975      00960T
+     01015      01005T
+     01020      01012T
+     01035      01020T
+     01040      01035T
+     01045      01037T
+     01048      01010T, 01015T
+     01050      01030T, 01040T, 01045T
+     01080      01190T, 01485T, 01645T
+     01110      01070T
+     01180      00910T, 00975T, 01187T
+     01190      01290T
+     01200      01185T, 01215T
+     01230      01120T, 01500T
+     01320      01110T, 01490T
+     01380      01340T
+     01390      01360T, 01720T
+     01430      00840T
+     01640      01210T
+     01735      01690T
+     01740      01700T
+     01745      01742T
+     01800      00980T, 00985T, 00990T, 00992T
+     01810      01240G, 01390G
+     01830      01825T
+     01900      00810G
+     01910      00725G
+     02000      01827T
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
+  --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
+   A) 0x598e2254ab80 (00001)   0x598e2254ab80 (00001)   0x598e2257f450 (02000)   0x598e2257f450 (02000)   
+   B) 0x598e2257f030 (01900)   0x598e2257f030 (01900)   0x598e2257f3f0 (01930)   0x598e2257f3f0 (01930)   
+
+    NOTE: Routine B overlaps, or is tangled with, routine A!
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     02790 - 10000    7220 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for 'basic/footbal2.bas'
+ *
+    A               Array    Integer         {0,19} 
+    A$                       String      
+    ABS             Function Integer         args=1, int    
+    ASC             Function Integer         args=1, char*  
+    ATN             Function Float           args=1, float  
+    B               Array    Integer         {0,19} 
+    C               Array    Integer         {0,39} 
+    CDBL            Function Float           args=1, int    
+    CHR$            Function String          args=1, int    
+    CINT            Function Integer         args=1, float  
+    COS             Function Float           args=1, float  
+    CSNG            Function Float           args=1, int    
+    CVD             Function Float           args=1, float  
+    CVI             Function Integer         args=1, char*  
+    CVS             Function Float           args=1, char*  
+    D               Array    Integer         {0,1} 
+    E                        Integer     
+    ENVIRON$        Function String          args=1, int    
+    EOF             Function Integer         args=1, int    
+    EXP             Function Float           args=1, int    
+    EXTERR          Function Integer         args=1, int    
+    F                        Integer     
+    FIX             Function Integer         args=1, float  
+    FRE             Function Integer         args=1, char*  
+    G                        Integer     
+    H               Array    Integer         {0,1} 
+    HEX$            Function String          args=1, int    
+    I                        Integer     
+    INP             Function Integer         args=1, int    
+    INPUT$          Function String          args=2, int    int    
+    INSTR           Function Integer         args=3, int    char*  char*  
+    INT             Function Integer         args=1, float  
+    IOCTL$          Function String          args=1, int    
+    K                        Integer     
+    L                        Integer     
+    LEFT$           Function String          args=2, char*  int    
+    LEN             Function Integer         args=1, char*  
+    LOC             Function Integer         args=1, int    
+    LOF             Function Integer         args=1, int    
+    LOG             Function Float           args=1, float  
+    LPOS            Function Integer         args=1, Any    
+    M$              Array    String          {0,1} 
+    MAX             Function Integer         args=1, int    
+    MID$            Function String          args=2, char*  int    
+    MIN             Function Integer         args=1, int    
+    MKD$            Function String          args=1, int    
+    MKI$            Function String          args=1, float  
+    MKS$            Function String          args=1, float  
+    N                        Integer     
+    OCT$            Function String          args=1, float  
+    P                        Integer     
+    P$              Array    String          {0,19} 
+    P1                       Integer     
+    P2                       Integer     
+    PEEK            Function Integer         args=1, int    
+    PEN             Function Integer         args=1, char*  
+    PLAY            Function Integer         args=1, Any    
+    PMAP            Function Integer         args=2, int    int    
+    POINT           Function Integer         args=2, int    int    
+    POS             Function Integer         args=1, Any    
+    Q                        Integer     
+    R                        Integer     
+    RIGHT$          Function String          args=2, char*  int    
+    RND             Function Float           args=1, int    
+    S                        Integer     
+    SGN             Function Integer         args=1, int    
+    SIN             Function Float           args=1, float  
+    SPACE$          Function String          args=1, int    
+    SPC             Function Unknown (0)    args=1, int    
+    SQR             Function Float           args=1, float  
+    STICK           Function Integer         args=1, int    
+    STR$            Function String          args=1, float  
+    STRING$         Function String          args=2, int    int    
+    T               Array    Integer         {0,1} 
+    TAB             Function Unknown (0)    args=1, int    
+    TAB$            Function String          args=1, int    
+    TAN             Function Float           args=1, int    
+    TIMER           Function Float           args=0, 
+    U                        Integer     
+    VAL             Function Integer         args=1, char*  
+    VARPTR          Function Integer         args=1, Any    
+    VARPTR$         Function String          args=1, Any    
+    W               Array    Integer         {0,1} 
+    X               Array    Integer         {0,1} 
+    Y               Array    Integer         {0,1} 
+    Z               Array    Integer         {0,1} 
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of basic/footbal2.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x598e2254ab80 ---------A   01000 PRINT TAB(32);"FOOTBALL"
+    0x598e2254bf30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x598e2254c0b0 ---------A   01020 PRINT:PRINT:PRINT
+    0x598e2253a2b0 ---------A   01030 REM
+    0x598e22552140 ---------A   01040 DIM A(20),B(20),C(40),H(2),T(2),W(2),X(2),Y(2),Z(2)
+    0x598e22552940 ---------A   01050 DIM M$(2),D(2),P$(20)
+    0x598e22552aa0 ---------A   01060 PRINT "PRESENTING N.F.U. FOOTBALL (NO FORTRAN USED)"
+    0x598e22552b40 ---------A   01070 PRINT:PRINT
+    0x598e225496d0 ---------A T 01080 INPUT "DO YOU WANT INSTRUCTIONS";A$
+    0x598e22549670 ---------A   01090 IF A$="NO" THEN 1270
+    0x598e22553150 ---------A   01100 IF A$<>"YES" THEN 1080
+    0x598e22553310 ---------A   01110 PRINT "THIS IS A FOOTBALL GAME FOR TWO TEAMS IN WHICH PLAYERS MUST"
+    0x598e225534c0 ---------A   01120 PRINT "PREPARE A TAPE WITH A DATA STATEMENT (1770 FOR TEAM 1,"
+    0x598e22553670 ---------A   01130 PRINT "1780 FOR TEAM 2) IN WHICH EACH TEAM SCRAMBLES NOS. 1-20"
+    0x598e22553820 ---------A   01140 PRINT "THESE NUMBERS ARE THEN ASSIGNED TO TWENTY GIVEN PLAYS."
+    0x598e225539c0 ---------A   01150 PRINT"A LIST OF NOS. AND THEIR PLAYS IS PROVIDED WITH"
+    0x598e22553b70 ---------A   01160 PRINT "BOTH TEAMS HAVING THE SAME PLAYS. THE MORE SIMILAR THE"
+    0x598e22553d10 ---------A   01170 PRINT "PLAYS THE LESS YARDAGE GAINED.  SCORES ARE GIVEN"
+    0x598e22553eb0 ---------A   01180 PRINT "WHENEVER SCORES ARE MADE. SCORES MAY ALSO BE OBTAINED"
+    0x598e22554050 ---------A   01190 PRINT "BY INPUTTING 99,99 FOR PLAY NOS. TO PUNT OR ATTEMPT A"
+    0x598e22554200 ---------A   01200 PRINT "FIELD GOAL, INPUT 77,77 FOR PLAY NUMBERS. QUESTIONS WILL BE"
+    0x598e225543b0 ---------A   01210 PRINT "ASKED THEN. ON 4TH DOWN, YOU WILL ALSO BE ASKED WHETHER"
+    0x598e22554560 ---------A   01220 PRINT "YOU WANT TO PUNT OR ATTEMPT A FIELD GOAL. IF THE ANSWER TO"
+    0x598e22554700 ---------A   01230 PRINT "BOTH QUESTIONS IS NO IT WILL BE ASSUMED YOU WANT TO"
+    0x598e225548a0 ---------A   01240 PRINT "TRY AND GAIN YARDAGE. ANSWER ALL QUESTIONS YES OR NO."
+    0x598e22554a40 ---------A   01250 PRINT "THE GAME IS PLAYED UNTIL PLAYERS TERMINATE (CONTROL-C)."
+    0x598e22554ba0 ---------A   01260 PRINT "PLEASE PREPARE A TAPE AND RUN.": STOP
+    0x598e22554f90 ---------A T 01270 PRINT:PRINT "PLEASE INPUT SCORE LIMIT ON GAME";:INPUT E
+    0x598e22555750 ---------A   01280 FOR I=1 TO 40: READ N: IF I>20 THEN 1300
+    0x598e22555ac0 ---------A   01290 A(N)=I: GOTO 1310
+    0x598e22555ec0 ---------A T 01300 B(N)=I-20
+    0x598e225562e0 ---------A T 01310 C(I)=N: NEXT I
+    0x598e225568c0 ---------A   01320 FOR I=1 TO 20: READ P$(I): NEXT I
+    0x598e22556f80 ---------A   01330 L=0: T=1
+    0x598e225572e0 ---------A T 01340 PRINT "TEAM";T;"PLAY CHART"
+    0x598e22557430 ---------A   01350 PRINT "NO.      PLAY"
+    0x598e22557700 ---------A   01360 FOR I=1 TO 20
+    0x598e22557780 ---------A   01370 REM
+    0x598e22557e10 ---------A   01380 PRINT C(I+L);TAB(6);P$(I)
+    0x598e22557f40 ---------A   01390 NEXT I
+    0x598e22558470 ---------A   01400 L=L+20:T=2
+    0x598e22558510 ---------A   01410 PRINT
+    0x598e225586a0 ---------A   01420 PRINT "TEAR OFF HERE----------------------------------------------"
+    0x598e22558ae0 ---------A   01430 FOR X=1 TO 11: PRINT: NEXT X
+    0x598e22558ef0 ---------A   01440 FOR Z=1 TO 3000: NEXT Z
+    0x598e22559170 ---------A   01450 IF L=20 THEN 1340
+    0x598e22559cb0 ---------A   01460 D(1)=0: D(2)=3: M$(1)="--->": M$(2)="<---"
+    0x598e2255a7a0 ---------A   01470 H(1)=0: H(2)=0: T(1)=2: T(2)=1
+    0x598e2255b290 ---------A   01480 W(1)=-1: W(2)=1: X(1)=100: X(2)=0
+    0x598e2255bd70 ---------A   01490 Y(1)=1: Y(2)=-1: Z(1)=0: Z(2)=100
+    0x598e2255be10 ---------A   01500 GOSUB 2740
+    0x598e2255bf80 ---------A   01510 PRINT "TEAM 1 DEFENDS 0 YD GOAL -- TEAM 2 DEFENDS 100 YD GOAL."
+    0x598e2255c560 ---------A   01520 T=INT(2*RND(1)+1)
+    0x598e2255c700 ---------A   01530 PRINT: PRINT "THE COIN IS FLIPPED"
+    0x598e2255ce00 ---------A T 01540 P=X(T)-Y(T)*40
+    0x598e2255d1e0 ---------A   01550 GOSUB 1860: PRINT : PRINT "TEAM";T;"RECEIVES KICK-OFF"
+    0x598e2255d870 ---------A   01560 K=INT(26*RND(1)+40)
+    0x598e2255ddd0 ---------A T 01570 P=P-Y(T)*K
+    0x598e2255e450 ---------A T 01580 IF W(T)*P<Z(T)+10 THEN 1610
+    0x598e2255e620 ---------A   01590 PRINT: PRINT "BALL WENT OUT OF ENDZONE --AUTOMATIC TOUCHBACK--"
+    0x598e2255e6b0 ---------A   01600 GOTO 1660 
+    0x598e2255eb60 ---------A T 01610 PRINT "BALL WENT";K;"YARDS.  NOW ON";P:GOSUB 2730
+    0x598e2255f010 ---------A T 01620 PRINT "TEAM";T;"DO YOU WANT TO RUNBACK";:INPUT A$
+    0x598e2255f2a0 ---------A   01630 IF A$="YES" THEN 2350
+    0x598e2255f530 ---------A   01640 IF A$<>"NO" THEN 1620
+    0x598e2255fea0 ---------A   01650 IF W(T)*P<Z(T) THEN 1670
+    0x598e225604c0 ---------A T 01660 P=Z(T)-W(T)*20
+    0x598e225609b0 ---------A T 01670 D=1: S=P
+    0x598e22560ef0 ---------A T 01680 FOR I=1 TO 72: PRINT "=";: NEXT I
+    0x598e225615c0 ---------A   01690 PRINT: PRINT "TEAM";T;"DOWN";D;"ON";P
+    0x598e22561820 ---------A   01700 IF D<>1 THEN 1740
+    0x598e225620c0 ---------A   01710 IF Y(T)*(P+Y(T)*10)>=X(T) THEN 1730
+    0x598e22562330 ---------A   01720 C=4: GOTO 1740
+    0x598e22562530 ---------A T 01730 C=8
+    0x598e225627b0 ---------A T 01740 IF C=8 THEN 1770
+    0x598e225631b0 ---------A   01750 PRINT TAB(27);10-(Y(T)*P-Y(T)*S);"YARDS TO 1ST DOWN"
+    0x598e22563230 ---------A   01760 GOTO 1780
+    0x598e225639c0 ---------A T 01770 PRINT TAB(27);X(T)-Y(T)*P;"YARDS"
+    0x598e22563c50 ---------A T 01780 GOSUB 1900: IF D=4 THEN 2160
+    0x598e22563cd0 ---------A   01790 REM
+    0x598e225643f0 ---------A T 01800 U=INT(3*RND(0)-1): GOTO 1820
+    0x598e22564560 ---------A T 01810 PRINT "ILLEGAL PLAY NUMBER, CHECK AND"
+    0x598e225646e0 ---------A T 01820 PRINT "INPUT OFFENSIVE PLAY, DEFENSIVE PLAY";
+    0x598e22564940 ---------A   01830 IF T=2 THEN 1850
+    0x598e22564d60 ---------A   01840 INPUT P1,P2: GOTO 1860
+    0x598e22564f80 ---------A T 01850 INPUT P2,P1
+    0x598e225651e0 ---------A T 01860 IF P1=77 THEN 2160
+    0x598e22565440 ---------A   01870 IF P1>20 THEN 2650
+    0x598e225656a0 ---------A   01880 IF P1<1 THEN 2650
+    0x598e22565900 ---------A   01890 IF P2>20 THEN 2650
+    0x598e22565b70 ---------A   01900 IF P2<1 THEN 2650
+    0x598e225661b0 ---------A   01910 P1=INT(P1): P2=INT(P2)
+    0x598e22567310 ---------A   01920 Y=INT(ABS(A(P1)-B(P2))/19*((X(T)-Y(T)*P+25)*RND(1)-15))
+    0x598e225675c0 ---------A   01930 PRINT: IF T=2 THEN 1960
+    0x598e22567900 ---------A   01940 IF A(P1)<11 THEN 2040
+    0x598e22567990 ---------A   01950 GOTO 1970
+    0x598e22567cb0 ---------A T 01960 IF B(P2)<11 THEN 2040
+    0x598e22567f20 ---------A T 01970 IF U<>0 THEN 2000
+    0x598e22568180 ---------A   01980 PRINT "PASS INCOMPLETE TEAM";T
+    0x598e225683f0 ---------A   01990 Y=0: GOTO 2050
+    0x598e225689c0 ---------A T 02000 G=RND(1): IF G>.025 THEN 2020
+    0x598e22568c40 ---------A   02010 IF Y>2 THEN 2030
+    0x598e22568e00 ---------A T 02020 PRINT "QUARTERBACK SCRAMBLED": GOTO 2050
+    0x598e22568fa0 ---------A T 02030 PRINT "PASS COMPLETED": GOTO 2050
+    0x598e225690e0 ---------A T 02040 PRINT "THE BALL WAS RUN"
+    0x598e22569650 ---------A T 02050 P=P-W(T)*Y
+    0x598e22569b10 ---------A   02060 PRINT: PRINT "NET YARDS GAINED ON DOWN";D;"ARE ";Y
+    0x598e2256a060 ---------A   02070 G=RND(1): IF G>.025 THEN 2100
+    0x598e2256a620 ---------A T 02080 PRINT: PRINT "** LOSS OF POSSESSION FROM TEAM";T;"TO TEAM";T(T)
+    0x598e2256aa20 ---------A   02090 GOSUB 1850: PRINT: T=T(T): GOTO 1620
+    0x598e2256af70 ---------A T 02100 IF Y(T)*P>=X(T) THEN 2290
+    0x598e2256b4e0 ---------A   02110 IF W(T)*P>=Z(T) THEN 2250
+    0x598e2256bc70 ---------A   02120 IF Y(T)*P-Y(T)*S>=10 THEN 1670
+    0x598e2256c210 ---------A   02130 D=D+1: IF D<>5 THEN 1680
+    0x598e2256c7d0 ---------A   02140 PRINT: PRINT "CONVERSION UNSUCCESSFUL TEAM";T:T=T(T)
+    0x598e2256c8a0 ---------A   02150 GOSUB 1850: GOTO 1670
+    0x598e2256cd40 ---------A T 02160 PRINT "DOES TEAM";T;"WANT TO PUNT";: INPUT A$
+    0x598e2256cfd0 ---------A   02170 IF A$="NO" THEN 2210
+    0x598e2256d280 ---------A   02180 IF A$<>"YES" THEN 2160
+    0x598e2256db50 ---------A T 02190 PRINT:PRINT "TEAM";T;"WILL PUNT": G=RND(1): IF G<.025 THEN 2080
+    0x598e2256e4e0 ---------A   02200 GOSUB 1850: K=INT(25*RND(1)+35): T=T(T): GOTO 1570
+    0x598e2256e990 ---------A T 02210 PRINT "DOES TEAM";T;"WANT TO ATTEMPT A FIELD GOAL";: INPUT A$
+    0x598e2256ec20 ---------A   02220 IF A$="YES" THEN 2430
+    0x598e2256eea0 ---------A   02230 IF A$<>"NO" THEN 2210
+    0x598e2256ef50 ---------A   02240 GOTO 1800
+    0x598e2256f300 ---------A T 02250 PRINT: PRINT "SAFETY AGAINST TEAM";T;"**********************OH-OH"
+    0x598e2256fa30 ---------A   02260 H(T(T))=H(T(T))+2: GOSUB 2660
+    0x598e2256ff00 ---------A   02270 PRINT"TEAM";T;"DO YOU WANT TO PUNT INSTEAD OF A KICKOFF";:INPUT A$
+    0x598e225707a0 ---------A   02280 P=Z(T)-W(T)*20: IF A$="YES" THEN 2190
+    0x598e22571380 ---------A T 02290 PRINT: PRINT "TOUCHDOWN BY TEAM";T;"*********************YEA TEAM"
+    0x598e22571b70 ---------A   02300 Q=7: G=RND(1): IF G>.1 THEN 2320
+    0x598e22571f20 ---------A   02310 Q=6: PRINT "EXTRA POINT NO GOOD": GOTO 2330
+    0x598e22572070 ---------A T 02320 PRINT "EXTRA POINT GOOD"
+    0x598e225725d0 ---------A T 02330 H(T)=H(T)+Q: GOSUB 2660
+    0x598e22572920 ---------A   02340 T=T(T): GOTO 1540
+    0x598e22572f00 ---------A T 02350 K=INT(9*RND(0)+1)
+    0x598e22573c50 ---------A   02360 R=INT(((X(T)-Y(T)*P+25)*RND(1)-15)/K)
+    0x598e225741c0 ---------A   02370 P=P-W(T)*R
+    0x598e22574670 ---------A   02380 PRINT:PRINT "RUNBACK TEAM";T;R;"YARDS"
+    0x598e22574ba0 ---------A   02390 G=RND(1): IF G<.025 THEN 2080
+    0x598e22575110 ---------A   02400 IF Y(T)*P>=X(T) THEN 2290
+    0x598e22575670 ---------A   02410 IF W(T)*P>=Z(T) THEN 2250
+    0x598e22575710 ---------A   02420 GOTO 1670
+    0x598e22575ac0 ---------A T 02430 PRINT: PRINT "TEAM";T;"WILL ATTEMPT A FIELD GOAL"
+    0x598e22575ff0 ---------A   02440 G=RND(1): IF G<.025 THEN 2080
+    0x598e225766b0 ---------A   02450 F=INT(35*RND(1)+20)
+    0x598e22576a60 ---------A   02460 PRINT: PRINT "KICK IS";F;"YARDS LONG"
+    0x598e22577280 ---------A   02470 P=P-W(T)*F: G=RND(1)
+    0x598e225774e0 ---------A   02480 IF G<.35 THEN 2520
+    0x598e22577a70 ---------A   02490 IF Y(T)*P<X(T) THEN 2530
+    0x598e22577df0 ---------A   02500 PRINT "FIELD GOAL GOOD FOR TEAM";T;"*********************YEA"
+    0x598e22578060 ---------A   02510 Q=3: GOTO 2330
+    0x598e225781d0 ---------A T 02520 PRINT "BALL WENT WIDE"
+    0x598e22578560 ---------A T 02530 PRINT "FIELD GOAL UNSUCCESFUL TEAM";T;"-----------------TOO BAD"
+    0x598e22578bf0 ---------A   02540 GOSUB 1850: IF Y(T)*P<X(T)+10 THEN 2560
+    0x598e22578f70 ---------A   02550 T=T(T): GOTO 1580
+    0x598e22579210 ---------A T 02560 PRINT: PRINT "BALL NOW ON";P
+    0x598e225795e0 ---------A   02570 T=T(T): GOSUB 1900: GOTO 1620
+    0x598e2257a7f0 ---------A   02580 DATA 17,8,4,14,19,3,10,1,7,11,15,9,5,20,13,18,16,2,12,6
+    0x598e2257ba10 ---------A   02590 DATA 20,2,17,5,8,18,12,11,1,4,19,14,10,7,9,15,6,13,16,3
+    0x598e2257bf10 ---------A   02600 DATA "PITCHOUT","TRIPLE REVERSE","DRAW","QB SNEAK","END AROUND"
+    0x598e2257c320 ---------A   02610 DATA "DOUBLE REVERSE","LEFT SWEEP","RIGHT SWEEP","OFF TACKLE"
+    0x598e2257c660 ---------A   02620 DATA "WISHBONE OPTION","FLARE PASS","SCREEN PASS"
+    0x598e2257ca80 ---------A   02630 DATA "ROLL OUT OPTION","RIGHT CURL","LEFT CURL","WISHBONE OPTION"
+    0x598e2257ce70 ---------A   02640 DATA "SIDELINE PASS","HALF-BACK OPTION","RAZZLE-DAZZLE","BOMB!!!!"
+    0x598e2257d0e0 ---------A T 02650 IF P1<>99 THEN 1810
+    0x598e2257d470 ---------A G 02660 PRINT: PRINT "TEAM 1 SCORE IS";H(1)
+    0x598e2257d7e0 ---------A   02670 PRINT "TEAM 2 SCORE IS";H(2): PRINT
+    0x598e2257db60 ---------A   02680 IF H(T)<E THEN 2700
+    0x598e2257df20 ---------A   02690 PRINT "TEAM";T;"WINS*******************": GOTO 2720
+    0x598e2257e160 ---------A T 02700 IF P1=99 THEN 1820
+    0x598e22584c80 ---------A   02710 GOTO 09900
+    0x598e2257f450 ---------A T 02720 END
+    0x598e2257f030 ---------B G 02730 PRINT TAB(D(T)+5+P/2);M$(T)
+    0x598e2257f1e0 ---------B G 02740 PRINT "TEAM 1 [0   10   20   30   40   50   60   70   80   90";
+    0x598e2257f330 ---------B   02750 PRINT "   100] TEAM 2"
+    0x598e2257f3a0 ---------B   02760 PRINT
+    0x598e22584cc0 ---------B   02770 GOTO 02780
+    0x598e22584d00 ---------B T 02780 RETURN
+ */
+
 //---------------------------------------------------------------------------
 // $Header$ 
 //
@@ -128,579 +691,3 @@ void Routine_02730();
 
 void Routine_02730(){
     // 02730 PRINT TAB(D(T)+5+P/2);M$(T)
-    b2c_printf("%s\n",M_str_arr[T_int_arr[0]]);
-
-void Routine_02740(){
-    // 02740 PRINT "TEAM 1 [0   10   20   30   40   50   60   70   80   90";
-    b2c_printf("Team 1 [0   10   20   30   40   50   60   70   80   90");
-    // 02750 PRINT "   100] TEAM 2"
-    b2c_printf("   100] team 2\n");
-    // 02760 PRINT
-    b2c_printf("");
-    // 02770 GOTO 02780
-    goto Lbl_02780;
-
-  Lbl_02780:
-    // 02780 RETURN
-    return;
-};
-
-//---------------------------------------------------------------------------
-// Main Program.
-//---------------------------------------------------------------------------
-#pragma argsused
-int main(int argc,char *argv[])
-{
-    // 01000 PRINT TAB(32);"FOOTBALL"
-    b2c_printf("Football\n");
-    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    b2c_printf("Creative computing  morristown, new jersey\n");
-    // 01020 PRINT:PRINT:PRINT
-    b2c_printf("");
-    // 01030 REM
-    // 01040 DIM A(20),B(20),C(40),H(2),T(2),W(2),X(2),Y(2),Z(2)
-    // 01050 DIM M$(2),D(2),P$(20)
-    // 01060 PRINT "PRESENTING N.F.U. FOOTBALL (NO FORTRAN USED)"
-    b2c_printf("Presenting n.F.U. Football (no fortran used)\n");
-    // 01070 PRINT:PRINT
-    b2c_printf("");
-
-  Lbl_01080:
-    // 01080 INPUT "DO YOU WANT INSTRUCTIONS";A$
-    // Start of Basic INPUT statement 01080
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout,""DO YOU WANT INSTRUCTIONS"");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtos(&A_str,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01080
-    // 01090 IF A$="NO" THEN 1270
-    if(strcmp(A_str,"No")==0)goto Lbl_01270;
-    // 01100 IF A$<>"YES" THEN 1080
-    if(strcmp(A_str,"Yes")!=0)goto Lbl_01080;
-    // 01110 PRINT "THIS IS A FOOTBALL GAME FOR TWO TEAMS IN WHICH PLAYERS MUST"
-    b2c_printf("This is a football game for two teams in which players must\n");
-    // 01120 PRINT "PREPARE A TAPE WITH A DATA STATEMENT (1770 FOR TEAM 1,"
-    b2c_printf("Prepare a tape with a data statement (1770 for team 1,\n");
-    // 01130 PRINT "1780 FOR TEAM 2) IN WHICH EACH TEAM SCRAMBLES NOS. 1-20"
-    b2c_printf("1780 for team 2) in which each team scrambles nos. 1-20\n");
-    // 01140 PRINT "THESE NUMBERS ARE THEN ASSIGNED TO TWENTY GIVEN PLAYS."
-    b2c_printf("These numbers are then assigned to twenty given plays.\n");
-    // 01150 PRINT"A LIST OF NOS. AND THEIR PLAYS IS PROVIDED WITH"
-    b2c_printf("A list of nos. And their plays is provided with\n");
-    // 01160 PRINT "BOTH TEAMS HAVING THE SAME PLAYS. THE MORE SIMILAR THE"
-    b2c_printf("Both teams having the same plays. The more similar the\n");
-    // 01170 PRINT "PLAYS THE LESS YARDAGE GAINED.  SCORES ARE GIVEN"
-    b2c_printf("Plays the less yardage gained.  Scores are given\n");
-    // 01180 PRINT "WHENEVER SCORES ARE MADE. SCORES MAY ALSO BE OBTAINED"
-    b2c_printf("Whenever scores are made. Scores may also be obtained\n");
-    // 01190 PRINT "BY INPUTTING 99,99 FOR PLAY NOS. TO PUNT OR ATTEMPT A"
-    b2c_printf("By inputting 99,99 for play nos. To punt or attempt a\n");
-    // 01200 PRINT "FIELD GOAL, INPUT 77,77 FOR PLAY NUMBERS. QUESTIONS WILL BE"
-    b2c_printf("Field goal, input 77,77 for play numbers. Questions will be\n");
-    // 01210 PRINT "ASKED THEN. ON 4TH DOWN, YOU WILL ALSO BE ASKED WHETHER"
-    b2c_printf("Asked then. On 4th down, you will also be asked whether\n");
-    // 01220 PRINT "YOU WANT TO PUNT OR ATTEMPT A FIELD GOAL. IF THE ANSWER TO"
-    b2c_printf("You want to punt or attempt a field goal. If the answer to\n");
-    // 01230 PRINT "BOTH QUESTIONS IS NO IT WILL BE ASSUMED YOU WANT TO"
-    b2c_printf("Both questions is no it will be assumed you want to\n");
-    // 01240 PRINT "TRY AND GAIN YARDAGE. ANSWER ALL QUESTIONS YES OR NO."
-    b2c_printf("Try and gain yardage. Answer all questions yes or no.\n");
-    // 01250 PRINT "THE GAME IS PLAYED UNTIL PLAYERS TERMINATE (CONTROL-C)."
-    b2c_printf("The game is played until players terminate (control-c).\n");
-    // 01260 PRINT "PLEASE PREPARE A TAPE AND RUN.": STOP
-    exit(1);
-
-  Lbl_01270:
-    // 01270 PRINT:PRINT "PLEASE INPUT SCORE LIMIT ON GAME";:INPUT E
-    // Start of Basic INPUT statement 01270
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&E_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01270
-    // 01280 FOR I=1 TO 40: READ N: IF I>20 THEN 1300
-    if(I_int>20)goto Lbl_01300;
-    // 01290 A(N)=I: GOTO 1310
-    goto Lbl_01310;
-
-  Lbl_01300:
-    // 01300 B(N)=I-20
-    B_int_arr[N_int] = I_int-20;
-
-  Lbl_01310:
-    // 01310 C(I)=N: NEXT I
-    int dummy_1310=0; // Ignore this line.
-}; // End-For(I_int)
-// 01320 FOR I=1 TO 20: READ P$(I): NEXT I
-int dummy_1320=0; // Ignore this line.
-r* CName(const char*)}; // End-For(I_int)
-r* CName(const char*)// 01330 L=0: T=1
-r* CName(const char*)T_int_arr[0] = 1;
-
-  Lbl_01340:
-r* CName(const char*)// 01340 PRINT "TEAM";T;"PLAY CHART"
-r* CName(const char*)b2c_printf("Team %d TeamPlay chart\n",T_int_arr[0]);
-r* CName(const char*)// 01350 PRINT "NO.      PLAY"
-r* CName(const char*)b2c_printf("No.      Play\n");
-r* CName(const char*)// 01360 FOR I=1 TO 20
-r* CName(const char*)for(I_int=1;I_int<=20;I_int++){
-// 01370 REM
-// 01380 PRINT C(I+L);TAB(6);P$(I)
-b2c_printf(" %d ½:(X½:(X%s\n",C_int_arr[I_int+L_int],P_str_arr[I_int]);
-// 01390 NEXT I
-int dummy_1390=0; // Ignore this line.
-r* CName(const char*)}; // End-For(I_int)
-r* CName(const char*)// 01400 L=L+20:T=2
-r* CName(const char*)T_int_arr[0] = 2;
-r* CName(const char*)// 01410 PRINT
-r* CName(const char*)b2c_printf("");
-r* CName(const char*)// 01420 PRINT "TEAR OFF HERE----------------------------------------------"
-r* CName(const char*)b2c_printf("Tear off here----------------------------------------------\n");
-r* CName(const char*)// 01430 FOR X=1 TO 11: PRINT: NEXT X
-r* CName(const char*)int dummy_1430=0; // Ignore this line.
-Name(const char*)}; // End-For(X_int_arr[0])
-Name(const char*)// 01440 FOR Z=1 TO 3000: NEXT Z
-Name(const char*)int dummy_1440=0; // Ignore this line.
-(const char*)}; // End-For(Z_int_arr[0])
-(const char*)// 01450 IF L=20 THEN 1340
-(const char*)if(L_int==20)goto Lbl_01340;
-(const char*)// 01460 D(1)=0: D(2)=3: M$(1)="--->": M$(2)="<---"
-(const char*)GLBpStr="<---";
-(const char*)M_str_arr[2] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
-(const char*)// 01470 H(1)=0: H(2)=0: T(1)=2: T(2)=1
-(const char*)T_int_arr[2] = 1;
-(const char*)// 01480 W(1)=-1: W(2)=1: X(1)=100: X(2)=0
-(const char*)X_int_arr[2] = 0;
-(const char*)// 01490 Y(1)=1: Y(2)=-1: Z(1)=0: Z(2)=100
-(const char*)Z_int_arr[2] = 100;
-(const char*)// 01500 GOSUB 2740
-(const char*)Routine_02740();
-(const char*)// 01510 PRINT "TEAM 1 DEFENDS 0 YD GOAL -- TEAM 2 DEFENDS 100 YD GOAL."
-(const char*)b2c_printf("Team 1 defends 0 yd goal -- team 2 defends 100 yd goal.\n");
-(const char*)// 01520 T=INT(2*RND(1)+1)
-(const char*)T_int_arr[0] = INT(2*RND(1)+1);
-(const char*)// 01530 PRINT: PRINT "THE COIN IS FLIPPED"
-(const char*)b2c_printf("The coin is flipped\n");
-
-  Lbl_01540:
-(const char*)// 01540 P=X(T)-Y(T)*40
-(const char*)P_int = X_int_arr[T_int_arr[0]]-Y_int_arr[T_int_arr[0]]*40;
-(const char*)// 01550 GOSUB 1860: PRINT : PRINT "TEAM";T;"RECEIVES KICK-OFF"
-(const char*)b2c_printf("Team %d TeamReceives kick-off\n",T_int_arr[0]);
-(const char*)// 01560 K=INT(26*RND(1)+40)
-(const char*)K_int = INT(26*RND(1)+40);
-
-  Lbl_01570:
-(const char*)// 01570 P=P-Y(T)*K
-(const char*)P_int = P_int-Y_int_arr[T_int_arr[0]]*K_int;
-
-  Lbl_01580:
-(const char*)// 01580 IF W(T)*P<Z(T)+10 THEN 1610
-(const char*)if(W_int_arr[T_int_arr[0]]*P_int<Z_int_arr[T_int_arr[0]]+10)goto Lbl_01610;
-(const char*)// 01590 PRINT: PRINT "BALL WENT OUT OF ENDZONE --AUTOMATIC TOUCHBACK--"
-(const char*)b2c_printf("Ball went out of endzone --automatic touchback--\n");
-(const char*)// 01600 GOTO 1660 
-(const char*)goto Lbl_01660;
-
-  Lbl_01610:
-(const char*)// 01610 PRINT "BALL WENT";K;"YARDS.  NOW ON";P:GOSUB 2730
-(const char*)Routine_02730();
-
-  Lbl_01620:
-(const char*)// 01620 PRINT "TEAM";T;"DO YOU WANT TO RUNBACK";:INPUT A$
-(const char*)// Start of Basic INPUT statement 01620
-(const char*){
-Name(const char*)int numargs=1;
-Name(const char*)char *args[numargs+1];
-Name(const char*)bool echoeol=true;
-Name(const char*)while(true){
-r* CName(const char*)fprintf(stdout," ? ");
-r* CName(const char*)int err=input(args,numargs,echoeol);
-r* CName(const char*)if(err==0x03) break;
-r* CName(const char*)if(err || 
-(err += b2c_strtos(&A_str,args,0)) ){
- printf("?Redo from start\n");
-r* CName(const char*)}else{
-r* CName(const char*)    break;
-r* CName(const char*)};
-Name(const char*)};
-(const char*)}; // End of Basic INPUT statement 01620
-(const char*)// 01630 IF A$="YES" THEN 2350
-(const char*)if(strcmp(A_str,"Yes")==0)goto Lbl_02350;
-(const char*)// 01640 IF A$<>"NO" THEN 1620
-(const char*)if(strcmp(A_str,"No")!=0)goto Lbl_01620;
-(const char*)// 01650 IF W(T)*P<Z(T) THEN 1670
-(const char*)if(W_int_arr[T_int_arr[0]]*P_int<Z_int_arr[T_int_arr[0]])goto Lbl_01670;
-
-  Lbl_01660:
-(const char*)// 01660 P=Z(T)-W(T)*20
-(const char*)P_int = Z_int_arr[T_int_arr[0]]-W_int_arr[T_int_arr[0]]*20;
-
-  Lbl_01670:
-(const char*)// 01670 D=1: S=P
-(const char*)S_int = P_int;
-
-  Lbl_01680:
-(const char*)// 01680 FOR I=1 TO 72: PRINT "=";: NEXT I
-(const char*)int dummy_1680=0; // Ignore this line.
-st char*)}; // End-For(I_int)
-st char*)// 01690 PRINT: PRINT "TEAM";T;"DOWN";D;"ON";P
-st char*)b2c_printf("Team %d TeamDownDown %d DownOnOn %d \n",T_int_arr[0],D_int_arr[0],P_int);
-st char*)// 01700 IF D<>1 THEN 1740
-st char*)if(D_int_arr[0]!=1)goto Lbl_01740;
-st char*)// 01710 IF Y(T)*(P+Y(T)*10)>=X(T) THEN 1730
-st char*)if(Y_int_arr[T_int_arr[0]]*(P_int+Y_int_arr[T_int_arr[0]]*10)>=X_int_arr[T_int_arr[0]])goto Lbl_01730;
-st char*)// 01720 C=4: GOTO 1740
-st char*)goto Lbl_01740;
-
-  Lbl_01730:
-st char*)// 01730 C=8
-st char*)C_int_arr[0] = 8;
-
-  Lbl_01740:
-st char*)// 01740 IF C=8 THEN 1770
-st char*)if(C_int_arr[0]==8)goto Lbl_01770;
-st char*)// 01750 PRINT TAB(27);10-(Y(T)*P-Y(T)*S);"YARDS TO 1ST DOWN"
-st char*)b2c_printf("Yards to 1st down\n");
-st char*)// 01760 GOTO 1780
-st char*)goto Lbl_01780;
-
-  Lbl_01770:
-st char*)// 01770 PRINT TAB(27);X(T)-Y(T)*P;"YARDS"
-st char*)b2c_printf("Yards\n");
-
-  Lbl_01780:
-st char*)// 01780 GOSUB 1900: IF D=4 THEN 2160
-st char*)if(D_int_arr[0]==4)goto Lbl_02160;
-st char*)// 01790 REM
-
-  Lbl_01800:
-st char*)// 01800 U=INT(3*RND(0)-1): GOTO 1820
-st char*)goto Lbl_01820;
-
-  Lbl_01810:
-st char*)// 01810 PRINT "ILLEGAL PLAY NUMBER, CHECK AND"
-st char*)b2c_printf("Illegal play number, check and\n");
-
-  Lbl_01820:
-st char*)// 01820 PRINT "INPUT OFFENSIVE PLAY, DEFENSIVE PLAY";
-st char*)b2c_printf("Input offensive play, defensive play");
-st char*)// 01830 IF T=2 THEN 1850
-st char*)if(T_int_arr[0]==2)goto Lbl_01850;
-st char*)// 01840 INPUT P1,P2: GOTO 1860
-st char*)goto Lbl_01860;
-
-  Lbl_01850:
-st char*)// 01850 INPUT P2,P1
-st char*)// Start of Basic INPUT statement 01850
-st char*){
-(const char*)int numargs=2;
-(const char*)char *args[numargs+1];
-(const char*)bool echoeol=true;
-(const char*)while(true){
-Name(const char*)fprintf(stdout," ? ");
-Name(const char*)int err=input(args,numargs,echoeol);
-Name(const char*)if(err==0x03) break;
-Name(const char*)if(err || 
-r* CName(const char*)(err += b2c_strtoi(&P2_int,args,0)) ||
-r* CName(const char*)(err += b2c_strtoi(&P1_int,args,1)) ){
-r* CName(const char*) printf("?Redo from start\n");
-Name(const char*)}else{
-Name(const char*)    break;
-Name(const char*)};
-(const char*)};
-st char*)}; // End of Basic INPUT statement 01850
-
-  Lbl_01860:
-st char*)// 01860 IF P1=77 THEN 2160
-st char*)if(P1_int==77)goto Lbl_02160;
-st char*)// 01870 IF P1>20 THEN 2650
-st char*)if(P1_int>20)goto Lbl_02650;
-st char*)// 01880 IF P1<1 THEN 2650
-st char*)if(P1_int<1)goto Lbl_02650;
-st char*)// 01890 IF P2>20 THEN 2650
-st char*)if(P2_int>20)goto Lbl_02650;
-st char*)// 01900 IF P2<1 THEN 2650
-st char*)if(P2_int<1)goto Lbl_02650;
-st char*)// 01910 P1=INT(P1): P2=INT(P2)
-st char*)P2_int = INT(P2_int);
-st char*)// 01920 Y=INT(ABS(A(P1)-B(P2))/19*((X(T)-Y(T)*P+25)*RND(1)-15))
-st char*)Y_int_arr[0] = INT(ABS(A_int_arr[P1_int]-B_int_arr[P2_int])/19*((X_int_arr[T_int_arr[0]]-Y_int_arr[T_int_arr[0]]*P_int+25)*RND(1)-15));
-st char*)// 01930 PRINT: IF T=2 THEN 1960
-st char*)if(T_int_arr[0]==2)goto Lbl_01960;
-st char*)// 01940 IF A(P1)<11 THEN 2040
-st char*)if(A_int_arr[P1_int]<11)goto Lbl_02040;
-st char*)// 01950 GOTO 1970
-st char*)goto Lbl_01970;
-
-  Lbl_01960:
-st char*)// 01960 IF B(P2)<11 THEN 2040
-st char*)if(B_int_arr[P2_int]<11)goto Lbl_02040;
-
-  Lbl_01970:
-st char*)// 01970 IF U<>0 THEN 2000
-st char*)if(U_int!=0)goto Lbl_02000;
-st char*)// 01980 PRINT "PASS INCOMPLETE TEAM";T
-st char*)b2c_printf("Pass incomplete team %d \n",T_int_arr[0]);
-st char*)// 01990 Y=0: GOTO 2050
-st char*)goto Lbl_02050;
-
-  Lbl_02000:
-st char*)// 02000 G=RND(1): IF G>.025 THEN 2020
-st char*)if(G_int>0.03)goto Lbl_02020;
-st char*)// 02010 IF Y>2 THEN 2030
-st char*)if(Y_int_arr[0]>2)goto Lbl_02030;
-
-  Lbl_02020:
-st char*)// 02020 PRINT "QUARTERBACK SCRAMBLED": GOTO 2050
-st char*)goto Lbl_02050;
-
-  Lbl_02030:
-st char*)// 02030 PRINT "PASS COMPLETED": GOTO 2050
-st char*)goto Lbl_02050;
-
-  Lbl_02040:
-st char*)// 02040 PRINT "THE BALL WAS RUN"
-st char*)b2c_printf("The ball was run\n");
-
-  Lbl_02050:
-st char*)// 02050 P=P-W(T)*Y
-st char*)P_int = P_int-W_int_arr[T_int_arr[0]]*Y_int_arr[0];
-st char*)// 02060 PRINT: PRINT "NET YARDS GAINED ON DOWN";D;"ARE ";Y
-st char*)b2c_printf("Net yards gained on down %d Net yards gained on downAre Are  %d \n",D_int_arr[0],Y_int_arr[0]);
-st char*)// 02070 G=RND(1): IF G>.025 THEN 2100
-st char*)if(G_int>0.03)goto Lbl_02100;
-
-  Lbl_02080:
-st char*)// 02080 PRINT: PRINT "** LOSS OF POSSESSION FROM TEAM";T;"TO TEAM";T(T)
-st char*)b2c_printf("** loss of possession from team %d ** loss of possession from teamTo teamTo team %d \n",T_int_arr[0],T_int_arr[T_int_arr[0]]);
-st char*)// 02090 GOSUB 1850: PRINT: T=T(T): GOTO 1620
-st char*)goto Lbl_01620;
-
-  Lbl_02100:
-st char*)// 02100 IF Y(T)*P>=X(T) THEN 2290
-st char*)if(Y_int_arr[T_int_arr[0]]*P_int>=X_int_arr[T_int_arr[0]])goto Lbl_02290;
-st char*)// 02110 IF W(T)*P>=Z(T) THEN 2250
-st char*)if(W_int_arr[T_int_arr[0]]*P_int>=Z_int_arr[T_int_arr[0]])goto Lbl_02250;
-st char*)// 02120 IF Y(T)*P-Y(T)*S>=10 THEN 1670
-st char*)if(Y_int_arr[T_int_arr[0]]*P_int-Y_int_arr[T_int_arr[0]]*S_int>=10)goto Lbl_01670;
-st char*)// 02130 D=D+1: IF D<>5 THEN 1680
-st char*)if(D_int_arr[0]!=5)goto Lbl_01680;
-st char*)// 02140 PRINT: PRINT "CONVERSION UNSUCCESSFUL TEAM";T:T=T(T)
-st char*)T_int_arr[0] = T_int_arr[T_int_arr[0]];
-st char*)// 02150 GOSUB 1850: GOTO 1670
-st char*)goto Lbl_01670;
-
-  Lbl_02160:
-st char*)// 02160 PRINT "DOES TEAM";T;"WANT TO PUNT";: INPUT A$
-st char*)// Start of Basic INPUT statement 02160
-st char*){
-(const char*)int numargs=1;
-(const char*)char *args[numargs+1];
-(const char*)bool echoeol=true;
-(const char*)while(true){
-Name(const char*)fprintf(stdout," ? ");
-Name(const char*)int err=input(args,numargs,echoeol);
-Name(const char*)if(err==0x03) break;
-Name(const char*)if(err || 
-r* CName(const char*)(err += b2c_strtos(&A_str,args,0)) ){
-r* CName(const char*) printf("?Redo from start\n");
-Name(const char*)}else{
-Name(const char*)    break;
-Name(const char*)};
-(const char*)};
-st char*)}; // End of Basic INPUT statement 02160
-st char*)// 02170 IF A$="NO" THEN 2210
-st char*)if(strcmp(A_str,"No")==0)goto Lbl_02210;
-st char*)// 02180 IF A$<>"YES" THEN 2160
-st char*)if(strcmp(A_str,"Yes")!=0)goto Lbl_02160;
-
-  Lbl_02190:
-st char*)// 02190 PRINT:PRINT "TEAM";T;"WILL PUNT": G=RND(1): IF G<.025 THEN 2080
-st char*)if(G_int<0.03)goto Lbl_02080;
-st char*)// 02200 GOSUB 1850: K=INT(25*RND(1)+35): T=T(T): GOTO 1570
-st char*)goto Lbl_01570;
-
-  Lbl_02210:
-st char*)// 02210 PRINT "DOES TEAM";T;"WANT TO ATTEMPT A FIELD GOAL";: INPUT A$
-st char*)// Start of Basic INPUT statement 02210
-st char*){
-(const char*)int numargs=1;
-(const char*)char *args[numargs+1];
-(const char*)bool echoeol=true;
-(const char*)while(true){
-Name(const char*)fprintf(stdout," ? ");
-Name(const char*)int err=input(args,numargs,echoeol);
-Name(const char*)if(err==0x03) break;
-Name(const char*)if(err || 
-r* CName(const char*)(err += b2c_strtos(&A_str,args,0)) ){
-r* CName(const char*) printf("?Redo from start\n");
-Name(const char*)}else{
-Name(const char*)    break;
-Name(const char*)};
-(const char*)};
-st char*)}; // End of Basic INPUT statement 02210
-st char*)// 02220 IF A$="YES" THEN 2430
-st char*)if(strcmp(A_str,"Yes")==0)goto Lbl_02430;
-st char*)// 02230 IF A$<>"NO" THEN 2210
-st char*)if(strcmp(A_str,"No")!=0)goto Lbl_02210;
-st char*)// 02240 GOTO 1800
-st char*)goto Lbl_01800;
-
-  Lbl_02250:
-st char*)// 02250 PRINT: PRINT "SAFETY AGAINST TEAM";T;"**********************OH-OH"
-st char*)b2c_printf("Safety against team %d Safety against team**********************oh-oh\n",T_int_arr[0]);
-st char*)// 02260 H(T(T))=H(T(T))+2: GOSUB 2660
-st char*)Routine_02660();
-st char*)// 02270 PRINT"TEAM";T;"DO YOU WANT TO PUNT INSTEAD OF A KICKOFF";:INPUT A$
-st char*)// Start of Basic INPUT statement 02270
-st char*){
-(const char*)int numargs=1;
-(const char*)char *args[numargs+1];
-(const char*)bool echoeol=true;
-(const char*)while(true){
-Name(const char*)fprintf(stdout," ? ");
-Name(const char*)int err=input(args,numargs,echoeol);
-Name(const char*)if(err==0x03) break;
-Name(const char*)if(err || 
-r* CName(const char*)(err += b2c_strtos(&A_str,args,0)) ){
-r* CName(const char*) printf("?Redo from start\n");
-Name(const char*)}else{
-Name(const char*)    break;
-Name(const char*)};
-(const char*)};
-st char*)}; // End of Basic INPUT statement 02270
-st char*)// 02280 P=Z(T)-W(T)*20: IF A$="YES" THEN 2190
-st char*)if(strcmp(A_str,"Yes")==0)goto Lbl_02190;
-
-  Lbl_02290:
-st char*)// 02290 PRINT: PRINT "TOUCHDOWN BY TEAM";T;"*********************YEA TEAM"
-st char*)b2c_printf("Touchdown by team %d Touchdown by team*********************yea team\n",T_int_arr[0]);
-st char*)// 02300 Q=7: G=RND(1): IF G>.1 THEN 2320
-st char*)if(G_int>0.1)goto Lbl_02320;
-st char*)// 02310 Q=6: PRINT "EXTRA POINT NO GOOD": GOTO 2330
-st char*)goto Lbl_02330;
-
-  Lbl_02320:
-st char*)// 02320 PRINT "EXTRA POINT GOOD"
-st char*)b2c_printf("Extra point good\n");
-
-  Lbl_02330:
-st char*)// 02330 H(T)=H(T)+Q: GOSUB 2660
-st char*)Routine_02660();
-st char*)// 02340 T=T(T): GOTO 1540
-st char*)goto Lbl_01540;
-
-  Lbl_02350:
-st char*)// 02350 K=INT(9*RND(0)+1)
-st char*)K_int = INT(9*RND(0)+1);
-st char*)// 02360 R=INT(((X(T)-Y(T)*P+25)*RND(1)-15)/K)
-st char*)R_int = INT(((X_int_arr[T_int_arr[0]]-Y_int_arr[T_int_arr[0]]*P_int+25)*RND(1)-15)/K_int);
-st char*)// 02370 P=P-W(T)*R
-st char*)P_int = P_int-W_int_arr[T_int_arr[0]]*R_int;
-st char*)// 02380 PRINT:PRINT "RUNBACK TEAM";T;R;"YARDS"
-st char*)b2c_printf("Runback team %d Runback team %d Runback teamYards\n",T_int_arr[0],R_int);
-st char*)// 02390 G=RND(1): IF G<.025 THEN 2080
-st char*)if(G_int<0.03)goto Lbl_02080;
-st char*)// 02400 IF Y(T)*P>=X(T) THEN 2290
-st char*)if(Y_int_arr[T_int_arr[0]]*P_int>=X_int_arr[T_int_arr[0]])goto Lbl_02290;
-st char*)// 02410 IF W(T)*P>=Z(T) THEN 2250
-st char*)if(W_int_arr[T_int_arr[0]]*P_int>=Z_int_arr[T_int_arr[0]])goto Lbl_02250;
-st char*)// 02420 GOTO 1670
-st char*)goto Lbl_01670;
-
-  Lbl_02430:
-st char*)// 02430 PRINT: PRINT "TEAM";T;"WILL ATTEMPT A FIELD GOAL"
-st char*)b2c_printf("Team %d TeamWill attempt a field goal\n",T_int_arr[0]);
-st char*)// 02440 G=RND(1): IF G<.025 THEN 2080
-st char*)if(G_int<0.03)goto Lbl_02080;
-st char*)// 02450 F=INT(35*RND(1)+20)
-st char*)F_int = INT(35*RND(1)+20);
-st char*)// 02460 PRINT: PRINT "KICK IS";F;"YARDS LONG"
-st char*)b2c_printf("Kick is %d Kick isYards long\n",F_int);
-st char*)// 02470 P=P-W(T)*F: G=RND(1)
-st char*)G_int = RND(1);
-st char*)// 02480 IF G<.35 THEN 2520
-st char*)if(G_int<0.35)goto Lbl_02520;
-st char*)// 02490 IF Y(T)*P<X(T) THEN 2530
-st char*)if(Y_int_arr[T_int_arr[0]]*P_int<X_int_arr[T_int_arr[0]])goto Lbl_02530;
-st char*)// 02500 PRINT "FIELD GOAL GOOD FOR TEAM";T;"*********************YEA"
-st char*)b2c_printf("Field goal good for team %d Field goal good for team*********************yea\n",T_int_arr[0]);
-st char*)// 02510 Q=3: GOTO 2330
-st char*)goto Lbl_02330;
-
-  Lbl_02520:
-st char*)// 02520 PRINT "BALL WENT WIDE"
-st char*)b2c_printf("Ball went wide\n");
-
-  Lbl_02530:
-st char*)// 02530 PRINT "FIELD GOAL UNSUCCESFUL TEAM";T;"-----------------TOO BAD"
-st char*)b2c_printf("Field goal unsuccesful team %d Field goal unsuccesful team-----------------too bad\n",T_int_arr[0]);
-st char*)// 02540 GOSUB 1850: IF Y(T)*P<X(T)+10 THEN 2560
-st char*)if(Y_int_arr[T_int_arr[0]]*P_int<X_int_arr[T_int_arr[0]]+10)goto Lbl_02560;
-st char*)// 02550 T=T(T): GOTO 1580
-st char*)goto Lbl_01580;
-
-  Lbl_02560:
-st char*)// 02560 PRINT: PRINT "BALL NOW ON";P
-st char*)b2c_printf("Ball now on %d \n",P_int);
-st char*)// 02570 T=T(T): GOSUB 1900: GOTO 1620
-st char*)goto Lbl_01620;
-st char*)// 02580 DATA 17,8,4,14,19,3,10,1,7,11,15,9,5,20,13,18,16,2,12,6
-st char*)// 02590 DATA 20,2,17,5,8,18,12,11,1,4,19,14,10,7,9,15,6,13,16,3
-st char*)// 02600 DATA "PITCHOUT","TRIPLE REVERSE","DRAW","QB SNEAK","END AROUND"
-st char*)// 02610 DATA "DOUBLE REVERSE","LEFT SWEEP","RIGHT SWEEP","OFF TACKLE"
-st char*)// 02620 DATA "WISHBONE OPTION","FLARE PASS","SCREEN PASS"
-st char*)// 02630 DATA "ROLL OUT OPTION","RIGHT CURL","LEFT CURL","WISHBONE OPTION"
-st char*)// 02640 DATA "SIDELINE PASS","HALF-BACK OPTION","RAZZLE-DAZZLE","BOMB!!!!"
-
-  Lbl_02650:
-st char*)// 02650 IF P1<>99 THEN 1810
-st char*)if(P1_int!=99)goto Lbl_01810;
-
-void Routine_02660(){
-st char*)// 02660 PRINT: PRINT "TEAM 1 SCORE IS";H(1)
-st char*)b2c_printf("Team 1 score is %d \n",H_int_arr[1]);
-st char*)// 02670 PRINT "TEAM 2 SCORE IS";H(2): PRINT
-st char*)b2c_printf("");
-st char*)// 02680 IF H(T)<E THEN 2700
-st char*)if(H_int_arr[T_int_arr[0]]<E_int)goto Lbl_02700;
-st char*)// 02690 PRINT "TEAM";T;"WINS*******************": GOTO 2720
-st char*)goto Lbl_02720;
-
-  Lbl_02700:
-st char*)// 02700 IF P1=99 THEN 1820
-st char*)if(P1_int==99)goto Lbl_01820;
-st char*)// 02710 GOTO 09900
-st char*)goto Lbl_09900;
-
-  Lbl_02720:
-st char*)// 02720 END
-   return(0);
-};
-
-//---------------------------------------------------------------------------
-// End of $RCSfile$ 
-//---------------------------------------------------------------------------

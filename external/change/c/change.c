@@ -1,3 +1,255 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of basic/change.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x58ad41c2ab80 ---------A   00002 PRINT TAB(33);"CHANGE"
+    0x58ad41c2bf30 ---------A   00004 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x58ad41c1a2b0 ---------A   00005 PRINT:PRINT:PRINT
+    0x58ad41c297f0 ---------A   00006 PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
+    0x58ad41c2bae0 ---------A   00008 PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
+    0x58ad41c29e90 ---------A   00009 PRINT:PRINT
+    0x58ad41c29670 ---------A T 00010 PRINT "COST OF ITEM";:INPUT A:PRINT "AMOUNT OF PAYMENT";:INPUT P
+    0x58ad41c31ec0 ---------A   00020 C=P-A:M=C:IF C<>0 THEN 90
+    0x58ad41c31fe0 ---------A   00025 PRINT "CORRECT AMOUNT, THANK YOU."
+    0x58ad41c32030 ---------A   00030 GOTO 400
+    0x58ad41c32270 ---------A T 00090 IF C>0 THEN 120
+    0x58ad41c2a040 ---------A   00095 PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
+    0x58ad41c32590 ---------A   00100 GOTO 10
+    0x58ad41c327d0 ---------A T 00120 PRINT "YOUR CHANGE, $";C
+    0x58ad41c32ca0 ---------A   00130 D=INT(C/10)
+    0x58ad41c32ed0 ---------A   00140 IF D=0 THEN 155
+    0x58ad41c33130 ---------A   00150 PRINT D;"TEN DOLLAR BILL(S)"
+    0x58ad41c335c0 ---------A T 00155 C=M-(D*10)
+    0x58ad41c33a90 ---------A   00160 E=INT(C/5)
+    0x58ad41c33cc0 ---------A   00170 IF E=0 THEN 185
+    0x58ad41c33f20 ---------A   00180 PRINT E;"FIVE DOLLARS BILL(S)"
+    0x58ad41c345d0 ---------A T 00185 C=M-(D*10+E*5)
+    0x58ad41c349a0 ---------A   00190 F=INT(C)
+    0x58ad41c34bd0 ---------A   00200 IF F=0 THEN 215
+    0x58ad41c34e30 ---------A   00210 PRINT F;"ONE DOLLAR BILL(S)"
+    0x58ad41c35600 ---------A T 00215 C=M-(D*10+E*5+F)
+    0x58ad41c35930 ---------A   00220 C=C*100
+    0x58ad41c35c20 ---------A   00225 N=C
+    0x58ad41c360f0 ---------A   00230 G=INT(C/50)
+    0x58ad41c36350 ---------A   00240 IF G=0 THEN 255
+    0x58ad41c365b0 ---------A   00250 PRINT G;"ONE HALF DOLLAR(S)"
+    0x58ad41c36a40 ---------A T 00255 C=N-(G*50)
+    0x58ad41c36f10 ---------A   00260 H=INT(C/25)
+    0x58ad41c37380 ---------A   00270 IF H=0 THEN 285
+    0x58ad41c375e0 ---------A   00280 PRINT H;"QUARTER(S)"
+    0x58ad41c37c90 ---------A T 00285 C=N-(G*50+H*25)
+    0x58ad41c38160 ---------A   00290 I=INT(C/10)
+    0x58ad41c383b0 ---------A   00300 IF I=0 THEN 315
+    0x58ad41c38620 ---------A   00310 PRINT I;"DIME(S)"
+    0x58ad41c38ef0 ---------A T 00315 C=N-(G*50+H*25+I*10)
+    0x58ad41c393c0 ---------A   00320 J=INT(C/5)
+    0x58ad41c39610 ---------A   00330 IF J=0 THEN 345
+    0x58ad41c39880 ---------A   00340 PRINT J;"NICKEL(S)"
+    0x58ad41c3a370 ---------A T 00345 C=N-(G*50+H*25+I*10+J*5)
+    0x58ad41c3a840 ---------A   00350 K=INT(C+.5)
+    0x58ad41c3aa90 ---------A   00360 IF K=0 THEN 380
+    0x58ad41c3ad00 ---------A   00370 PRINT K;"PENNY(S)"
+    0x58ad41c3ae60 ---------A T 00380 PRINT "THANK YOU, COME AGAIN."
+    0x58ad41c3af20 ---------A   00390 PRINT:PRINT
+    0x58ad41c3af90 ---------A T 00400 GOTO 10
+    0x58ad41c3afd0 ---------A   00410 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     00010      00100T, 00400T
+     00090      00020T
+     00120      00090T
+     00155      00140T
+     00185      00170T
+     00215      00200T
+     00255      00240T
+     00285      00270T
+     00315      00300T
+     00345      00330T
+     00380      00360T
+     00400      00030T
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
+  --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
+   A) 0x58ad41c2ab80 (00002)   0x58ad41c2ab80 (00002)   0x58ad41c3afd0 (00410)   0x58ad41c3afd0 (00410)   
+
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     01510 - 10000    8500 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for 'basic/change.bas'
+ *
+    A                        Integer     
+    ABS             Function Integer         args=1, int    
+    ASC             Function Integer         args=1, char*  
+    ATN             Function Float           args=1, float  
+    C                        Integer     
+    CDBL            Function Float           args=1, int    
+    CHR$            Function String          args=1, int    
+    CINT            Function Integer         args=1, float  
+    COS             Function Float           args=1, float  
+    CSNG            Function Float           args=1, int    
+    CVD             Function Float           args=1, float  
+    CVI             Function Integer         args=1, char*  
+    CVS             Function Float           args=1, char*  
+    D                        Integer     
+    E                        Integer     
+    ENVIRON$        Function String          args=1, int    
+    EOF             Function Integer         args=1, int    
+    EXP             Function Float           args=1, int    
+    EXTERR          Function Integer         args=1, int    
+    F                        Integer     
+    FIX             Function Integer         args=1, float  
+    FRE             Function Integer         args=1, char*  
+    G                        Integer     
+    H                        Integer     
+    HEX$            Function String          args=1, int    
+    I                        Integer     
+    INP             Function Integer         args=1, int    
+    INPUT$          Function String          args=2, int    int    
+    INSTR           Function Integer         args=3, int    char*  char*  
+    INT             Function Integer         args=1, float  
+    IOCTL$          Function String          args=1, int    
+    J                        Integer     
+    K                        Integer     
+    LEFT$           Function String          args=2, char*  int    
+    LEN             Function Integer         args=1, char*  
+    LOC             Function Integer         args=1, int    
+    LOF             Function Integer         args=1, int    
+    LOG             Function Float           args=1, float  
+    LPOS            Function Integer         args=1, Any    
+    M                        Integer     
+    MAX             Function Integer         args=1, int    
+    MID$            Function String          args=2, char*  int    
+    MIN             Function Integer         args=1, int    
+    MKD$            Function String          args=1, int    
+    MKI$            Function String          args=1, float  
+    MKS$            Function String          args=1, float  
+    N                        Integer     
+    OCT$            Function String          args=1, float  
+    P                        Integer     
+    PEEK            Function Integer         args=1, int    
+    PEN             Function Integer         args=1, char*  
+    PLAY            Function Integer         args=1, Any    
+    PMAP            Function Integer         args=2, int    int    
+    POINT           Function Integer         args=2, int    int    
+    POS             Function Integer         args=1, Any    
+    RIGHT$          Function String          args=2, char*  int    
+    RND             Function Float           args=1, int    
+    SGN             Function Integer         args=1, int    
+    SIN             Function Float           args=1, float  
+    SPACE$          Function String          args=1, int    
+    SPC             Function Unknown (0)    args=1, int    
+    SQR             Function Float           args=1, float  
+    STICK           Function Integer         args=1, int    
+    STR$            Function String          args=1, float  
+    STRING$         Function String          args=2, int    int    
+    TAB             Function Unknown (0)    args=1, int    
+    TAB$            Function String          args=1, int    
+    TAN             Function Float           args=1, int    
+    TIMER           Function Float           args=0, 
+    VAL             Function Integer         args=1, char*  
+    VARPTR          Function Integer         args=1, Any    
+    VARPTR$         Function String          args=1, Any    
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of basic/change.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x58ad41c2ab80 ---------A   01000 PRINT TAB(33);"CHANGE"
+    0x58ad41c2bf30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x58ad41c1a2b0 ---------A   01020 PRINT:PRINT:PRINT
+    0x58ad41c297f0 ---------A   01030 PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
+    0x58ad41c2bae0 ---------A   01040 PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
+    0x58ad41c29e90 ---------A   01050 PRINT:PRINT
+    0x58ad41c29670 ---------A T 01060 PRINT "COST OF ITEM";:INPUT A:PRINT "AMOUNT OF PAYMENT";:INPUT P
+    0x58ad41c31ec0 ---------A   01070 C=P-A:M=C:IF C<>0 THEN 1100
+    0x58ad41c31fe0 ---------A   01080 PRINT "CORRECT AMOUNT, THANK YOU."
+    0x58ad41c32030 ---------A   01090 GOTO 1490
+    0x58ad41c32270 ---------A T 01100 IF C>0 THEN 1130
+    0x58ad41c2a040 ---------A   01110 PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
+    0x58ad41c32590 ---------A   01120 GOTO 1060
+    0x58ad41c327d0 ---------A T 01130 PRINT "YOUR CHANGE, $";C
+    0x58ad41c32ca0 ---------A   01140 D=INT(C/10)
+    0x58ad41c32ed0 ---------A   01150 IF D=0 THEN 1170
+    0x58ad41c33130 ---------A   01160 PRINT D;"TEN DOLLAR BILL(S)"
+    0x58ad41c335c0 ---------A T 01170 C=M-(D*10)
+    0x58ad41c33a90 ---------A   01180 E=INT(C/5)
+    0x58ad41c33cc0 ---------A   01190 IF E=0 THEN 1210
+    0x58ad41c33f20 ---------A   01200 PRINT E;"FIVE DOLLARS BILL(S)"
+    0x58ad41c345d0 ---------A T 01210 C=M-(D*10+E*5)
+    0x58ad41c349a0 ---------A   01220 F=INT(C)
+    0x58ad41c34bd0 ---------A   01230 IF F=0 THEN 1250
+    0x58ad41c34e30 ---------A   01240 PRINT F;"ONE DOLLAR BILL(S)"
+    0x58ad41c35600 ---------A T 01250 C=M-(D*10+E*5+F)
+    0x58ad41c35930 ---------A   01260 C=C*100
+    0x58ad41c35c20 ---------A   01270 N=C
+    0x58ad41c360f0 ---------A   01280 G=INT(C/50)
+    0x58ad41c36350 ---------A   01290 IF G=0 THEN 1310
+    0x58ad41c365b0 ---------A   01300 PRINT G;"ONE HALF DOLLAR(S)"
+    0x58ad41c36a40 ---------A T 01310 C=N-(G*50)
+    0x58ad41c36f10 ---------A   01320 H=INT(C/25)
+    0x58ad41c37380 ---------A   01330 IF H=0 THEN 1350
+    0x58ad41c375e0 ---------A   01340 PRINT H;"QUARTER(S)"
+    0x58ad41c37c90 ---------A T 01350 C=N-(G*50+H*25)
+    0x58ad41c38160 ---------A   01360 I=INT(C/10)
+    0x58ad41c383b0 ---------A   01370 IF I=0 THEN 1390
+    0x58ad41c38620 ---------A   01380 PRINT I;"DIME(S)"
+    0x58ad41c38ef0 ---------A T 01390 C=N-(G*50+H*25+I*10)
+    0x58ad41c393c0 ---------A   01400 J=INT(C/5)
+    0x58ad41c39610 ---------A   01410 IF J=0 THEN 1430
+    0x58ad41c39880 ---------A   01420 PRINT J;"NICKEL(S)"
+    0x58ad41c3a370 ---------A T 01430 C=N-(G*50+H*25+I*10+J*5)
+    0x58ad41c3a840 ---------A   01440 K=INT(C+.5)
+    0x58ad41c3aa90 ---------A   01450 IF K=0 THEN 1470
+    0x58ad41c3ad00 ---------A   01460 PRINT K;"PENNY(S)"
+    0x58ad41c3ae60 ---------A T 01470 PRINT "THANK YOU, COME AGAIN."
+    0x58ad41c3af20 ---------A   01480 PRINT:PRINT
+    0x58ad41c3af90 ---------A T 01490 GOTO 1060
+    0x58ad41c3afd0 ---------A   01500 END
+ */
+
 //---------------------------------------------------------------------------
 // $Header$ 
 //
@@ -98,150 +350,3 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
-    // 01000 PRINT TAB(33);"CHANGE"
-    b2c_printf("Change\n");
-    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    b2c_printf("Creative computing  morristown, new jersey\n");
-    // 01020 PRINT:PRINT:PRINT
-    b2c_printf("");
-    // 01030 PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
-    b2c_printf("I, your friendly microcomputer, will determine\n");
-    // 01040 PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
-    b2c_printf("The correct change for items costing up to $100.\n");
-    // 01050 PRINT:PRINT
-    b2c_printf("");
-
-  Lbl_01060:
-    // 01060 PRINT "COST OF ITEM";:INPUT A:PRINT "AMOUNT OF PAYMENT";:INPUT P
-    // Start of Basic INPUT statement 01060
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&P_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01060
-    // 01070 C=P-A:M=C:IF C<>0 THEN 1100
-    if(C_int!=0)goto Lbl_01100;
-    // 01080 PRINT "CORRECT AMOUNT, THANK YOU."
-    b2c_printf("Correct amount, thank you.\n");
-    // 01090 GOTO 1490
-    goto Lbl_01490;
-
-  Lbl_01100:
-    // 01100 IF C>0 THEN 1130
-    if(C_int>0)goto Lbl_01130;
-    // 01110 PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
-    b2c_printf("Sorry, you have short-changed me $");
-    // 01120 GOTO 1060
-    goto Lbl_01060;
-
-  Lbl_01130:
-    // 01130 PRINT "YOUR CHANGE, $";C
-    b2c_printf("Your change, $ %d \n",C_int);
-    // 01140 D=INT(C/10)
-    D_int = INT(C_int/10);
-    // 01150 IF D=0 THEN 1170
-    if(D_int==0)goto Lbl_01170;
-    // 01160 PRINT D;"TEN DOLLAR BILL(S)"
-    b2c_printf(" %d h¡£–_Ten dollar bill(s)\n",D_int);
-
-  Lbl_01170:
-    // 01170 C=M-(D*10)
-    C_int = M_int-(D_int*10);
-    // 01180 E=INT(C/5)
-    E_int = INT(C_int/5);
-    // 01190 IF E=0 THEN 1210
-    if(E_int==0)goto Lbl_01210;
-    // 01200 PRINT E;"FIVE DOLLARS BILL(S)"
-    b2c_printf(" %d i¡£–_Five dollars bill(s)\n",E_int);
-
-  Lbl_01210:
-    // 01210 C=M-(D*10+E*5)
-    C_int = M_int-(D_int*10+E_int*5);
-    // 01220 F=INT(C)
-    F_int = INT(C_int);
-    // 01230 IF F=0 THEN 1250
-    if(F_int==0)goto Lbl_01250;
-    // 01240 PRINT F;"ONE DOLLAR BILL(S)"
-    b2c_printf(" %d X¡£–_One dollar bill(s)\n",F_int);
-
-  Lbl_01250:
-    // 01250 C=M-(D*10+E*5+F)
-    C_int = M_int-(D_int*10+E_int*5+F_int);
-    // 01260 C=C*100
-    C_int = C_int*100;
-    // 01270 N=C
-    N_int = C_int;
-    // 01280 G=INT(C/50)
-    G_int = INT(C_int/50);
-    // 01290 IF G=0 THEN 1310
-    if(G_int==0)goto Lbl_01310;
-    // 01300 PRINT G;"ONE HALF DOLLAR(S)"
-    b2c_printf(" %d b¡£–_One half dollar(s)\n",G_int);
-
-  Lbl_01310:
-    // 01310 C=N-(G*50)
-    C_int = N_int-(G_int*50);
-    // 01320 H=INT(C/25)
-    H_int = INT(C_int/25);
-    // 01330 IF H=0 THEN 1350
-    if(H_int==0)goto Lbl_01350;
-    // 01340 PRINT H;"QUARTER(S)"
-    b2c_printf(" %d ]¡£–_Quarter(s)\n",H_int);
-
-  Lbl_01350:
-    // 01350 C=N-(G*50+H*25)
-    C_int = N_int-(G_int*50+H_int*25);
-    // 01360 I=INT(C/10)
-    I_int = INT(C_int/10);
-    // 01370 IF I=0 THEN 1390
-    if(I_int==0)goto Lbl_01390;
-    // 01380 PRINT I;"DIME(S)"
-    b2c_printf(" %d ^¡£–_Dime(s)\n",I_int);
-
-  Lbl_01390:
-    // 01390 C=N-(G*50+H*25+I*10)
-    C_int = N_int-(G_int*50+H_int*25+I_int*10);
-    // 01400 J=INT(C/5)
-    J_int = INT(C_int/5);
-    // 01410 IF J=0 THEN 1430
-    if(J_int==0)goto Lbl_01430;
-    // 01420 PRINT J;"NICKEL(S)"
-    b2c_printf(" %d `¡£–_Nickel(s)\n",J_int);
-
-  Lbl_01430:
-    // 01430 C=N-(G*50+H*25+I*10+J*5)
-    C_int = N_int-(G_int*50+H_int*25+I_int*10+J_int*5);
-    // 01440 K=INT(C+.5)
-    K_int = INT(C_int+0.5);
-    // 01450 IF K=0 THEN 1470
-    if(K_int==0)goto Lbl_01470;
-    // 01460 PRINT K;"PENNY(S)"
-    b2c_printf(" %d d¡£–_Penny(s)\n",K_int);
-
-  Lbl_01470:
-    // 01470 PRINT "THANK YOU, COME AGAIN."
-    b2c_printf("Thank you, come again.\n");
-    // 01480 PRINT:PRINT
-    b2c_printf("");
-
-  Lbl_01490:
-    // 01490 GOTO 1060
-    goto Lbl_01060;
-    // 01500 END
-   return(0);
-};
-
-//---------------------------------------------------------------------------
-// End of $RCSfile$ 
-//---------------------------------------------------------------------------

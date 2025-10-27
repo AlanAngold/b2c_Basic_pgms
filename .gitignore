@@ -11,6 +11,9 @@ mkghrepo
 .hgignore
 b2c_push
 b2c_trn
+*.swp
+*.swo
+doall
 
 # The program executable files
 base/bandit/c/bandit

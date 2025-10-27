@@ -11,7 +11,7 @@
 |   9 | banner               |      NO     |      NO     |   NO  |     NO   |
 |  10 | baseball             |      NO     |      NO     |   NO  |     NO   |
 |  11 | basketbl             |      NO     |      NO     |   NO  |     NO   |
-|  12 | batnum               |     YES     |      NO     |   NO  |     NO   |
+|  12 | batnum               |      NO     |      NO     |   NO  |     NO   |
 |  13 | battle               |      NO     |      NO     |   NO  |     NO   |
 |  14 | bigtrek              |      NO     |      NO     |   NO  |     NO   |
 |  15 | bigtrek_z            |      NO     |      NO     |   NO  |     NO   |
@@ -30,12 +30,12 @@
 |  28 | bullseye             |      NO     |      NO     |   NO  |     NO   |
 |  29 | bunny                |      NO     |      NO     |   NO  |     NO   |
 |  30 | buzzword             |      NO     |      NO     |   NO  |     NO   |
-|  31 | calendar             |     YES     |      NO     |   NO  |     NO   |
+|  31 | calendar             |      NO     |      NO     |   NO  |     NO   |
 |  32 | chain                |      NO     |      NO     |   NO  |     NO   |
 |  33 | change               |      NO     |      NO     |   NO  |     NO   |
 |  34 | chase                |      NO     |      NO     |   NO  |     NO   |
 |  35 | checkers             |      NO     |      NO     |   NO  |     NO   |
-|  36 | chemist              |     YES     |      NO     |   NO  |     NO   |
+|  36 | chemist              |      NO     |      NO     |   NO  |     NO   |
 |  37 | chess                |      NO     |      NO     |   NO  |     NO   |
 |  38 | chief                |      NO     |      NO     |   NO  |     NO   |
 |  39 | chomp                |      NO     |      NO     |   NO  |     NO   |
@@ -53,9 +53,9 @@
 |  51 | dice                 |      NO     |      NO     |   NO  |     NO   |
 |  52 | digits               |      NO     |      NO     |   NO  |     NO   |
 |  53 | docs                 |      NO     |      NO     |   NO  |     NO   |
-|  54 | dspace               |     YES     |      NO     |   NO  |     NO   |
+|  54 | dspace               |      NO     |      NO     |   NO  |     NO   |
 |  55 | evenwin1             |      NO     |      NO     |   NO  |     NO   |
-|  56 | evenwin2             |     YES     |      NO     |   NO  |     NO   |
+|  56 | evenwin2             |      NO     |      NO     |   NO  |     NO   |
 |  57 | flipflop             |      NO     |      NO     |   NO  |     NO   |
 |  58 | footbal1             |      NO     |      NO     |   NO  |     NO   |
 |  59 | footbal2             |      NO     |      NO     |   NO  |     NO   |
@@ -82,7 +82,7 @@
 |  80 | lem                  |      NO     |      NO     |   NO  |     NO   |
 |  81 | letter               |      NO     |      NO     |   NO  |     NO   |
 |  82 | life2                |      NO     |      NO     |   NO  |     NO   |
-|  83 | litquiz              |     YES     |      NO     |   NO  |     NO   |
+|  83 | litquiz              |      NO     |      NO     |   NO  |     NO   |
 |  84 | love                 |      NO     |      NO     |   NO  |     NO   |
 |  85 | love-p               |      NO     |      NO     |   NO  |     NO   |
 |  86 | madlibs              |      NO     |      NO     |   NO  |     NO   |
@@ -137,5 +137,5 @@
 | 135 | word                 |      NO     |      NO     |   NO  |     NO   |
 | 136 | wordpuzl             |      NO     |      NO     |   NO  |     NO   |
 | 137 | word-pzl             |      NO     |      NO     |   NO  |     NO   |
-| 138 | yahtzee              |     YES     |      NO     |   NO  |     NO   |
+| 138 | yahtzee              |      NO     |      NO     |   NO  |     NO   |
 | 139 | zilch                |      NO     |      NO     |   NO  |     NO   |

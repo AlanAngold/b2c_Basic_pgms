@@ -1,3 +1,750 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of basic/king.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5abdf9355b80 ---------A   00001 PRINT TAB(34);"KING"
+    0x5abdf9356ed0 ---------A   00002 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5abdf9357050 ---------A   00003 PRINT:PRINT:PRINT
+    0x5abdf9355910 ---------A   00004 PRINT "DO YOU WANT INSTRUCTIONS";
+    0x5abdf93546d0 ---------A   00005 INPUT Z$
+    0x5abdf9354e80 ---------A   00006 N5=8
+    0x5abdf9354670 ---------A   00010 IF LEFT$(Z$,1)="N" THEN 47
+    0x5abdf9354ca0 ---------A   00011 IF Z$="AGAIN" THEN 1960
+    0x5abdf935c840 ---------A   00012 PRINT:PRINT:PRINT
+    0x5abdf935c9a0 ---------A   00020 PRINT "CONGRATULATIONS! YOU'VE JUST BEEN ELECTED PREMIER OF SETATS"
+    0x5abdf935cb50 ---------A   00022 PRINT "DETINU, A SMALL COMMUNIST ISLAND 30 BY 70 MILES LONG. YOUR"
+    0x5abdf935cd00 ---------A   00024 PRINT "JOB IS TO DECIDE UPON THE CONTRY'S BUDGET AND DISTRIBUTE"
+    0x5abdf935cea0 ---------A   00026 PRINT "MONEY TO YOUR COUNTRYMEN FROM THE COMMUNAL TREASURY."
+    0x5abdf935d050 ---------A   00028 PRINT "THE MONEY SYSTEM IS RALLODS, AND EACH PERSON NEEDS 100"
+    0x5abdf935d200 ---------A   00030 PRINT "RALLODS PER YEAR TO SURVIVE. YOUR COUNTRY'S INCOME COMES"
+    0x5abdf935d3b0 ---------A   00032 PRINT "FROM FARM PRODUCE AND TOURISTS VISITING YOUR MAGNIFICENT"
+    0x5abdf935d560 ---------A   00034 PRINT "FORESTS, HUNTING, FISHING, ETC. HALF YOUR LAND IS FARM LAND"
+    0x5abdf935d710 ---------A   00036 PRINT "WHICH ALSO HAS AN EXCELLENT MINERAL CONTENT AND MAY BE SOLD"
+    0x5abdf935d8c0 ---------A   00038 PRINT "TO FOREIGN INDUSTRY (STRIP MINING) WHO IMPORT AND SUPPORT"
+    0x5abdf935da20 ---------A   00040 PRINT "THEIR OWN WORKERS. CROPS COST BETWEEN 10 AND 15 RALLODS PER"
+    0x5abdf935db80 ---------A   00042 PRINT "SQUARE MILE TO PLANT."
+    0x5abdf935de50 ---------A   00044 PRINT "YOUR GOAL IS TO COMPLETE YOUR";N5;"YEAR TERM OF OFFICE."
+    0x5abdf935dfa0 ---------A   00046 PRINT "GOOD LUCK!"
+    0x5abdf935e030 ---------A T 00047 PRINT
+    0x5abdf935ea00 ---------A   00050 A=INT(60000+(1000*RND(1))-(1000*RND(1)))
+    0x5abdf935f3f0 ---------A   00055 B=INT(500+(10*RND(1))-(10*RND(1)))
+    0x5abdf935f6c0 ---------A   00065 D=2000
+    0x5abdf935fd50 ---------A T 00100 W=INT(10*RND(1)+95)
+    0x5abdf935fde0 ---------A   00102 PRINT
+    0x5abdf9360150 ---------A   00105 PRINT "YOU NOW HAVE ";A;" RALLODS IN THE TREASURY."
+    0x5abdf9360500 ---------A   00110 PRINT INT(B);:PRINT "COUNTRYMEN, ";
+    0x5abdf9360d10 ---------A   00115 V9=INT(((RND(1)/2)*10+10))
+    0x5abdf9361030 ---------A   00120 IF C=0 THEN 140
+    0x5abdf93615c0 ---------A   00130 PRINT INT(C);"FOREIGN WORKERS, ";
+    0x5abdf9361a10 ---------A T 00140 PRINT "AND";INT(D);"SQ. MILES OF LAND."
+    0x5abdf9361ca0 ---------A   00150 PRINT "THIS YEAR INDUSTRY WILL BUY LAND FOR";W;
+    0x5abdf9361e30 ---------A   00152 PRINT "RALLODS PER SQUARE MILE."
+    0x5abdf9362190 ---------A   00155 PRINT "LAND CURRENTLY COSTS";V9;"RALLODS PER SQUARE MILE TO PLANT."
+    0x5abdf9362230 ---------A   00162 PRINT
+    0x5abdf93623c0 ---------A T 00200 PRINT "HOW MANY SQUARE MILES DO YOU WISH TO SELL TO INDUSTRY";
+    0x5abdf93625d0 ---------A   00210 INPUT H
+    0x5abdf9362840 ---------A   00215 IF H<0 THEN 200
+    0x5abdf9362c00 ---------A   00220 IF H<=D-1000 THEN 300
+    0x5abdf9363080 ---------A   00230 PRINT "***  THINK AGAIN. YOU ONLY HAVE";D-1000;"SQUARE MILES OF FARM LAND."
+    0x5abdf93633c0 ---------A   00240 IF X<>0 THEN 200
+    0x5abdf93635c0 ---------A   00250 PRINT:PRINT "(FOREIGN INDUSTRY WILL ONLY BUY FARM LAND BECAUSE"
+    0x5abdf9363750 ---------A   00260 PRINT "FOREST LAND IS UNECONOMICAL TO STRIP MINE DUE TO TREES,"
+    0x5abdf93638b0 ---------A   00270 PRINT "THICKER TOP SOIL, ETC.)"
+    0x5abdf9363ac0 ---------A   00280 X=1
+    0x5abdf9363b30 ---------A   00299 GOTO 200
+    0x5abdf9363f50 ---------A T 00300 D=INT(D-H)
+    0x5abdf9364510 ---------A   00310 A=INT(A+(H*W))
+    0x5abdf93646b0 ---------A T 00320 PRINT "HOW MANY RALLODS WILL YOU DISTRIBUTE AMONG YOUR COUNTRYMEN";
+    0x5abdf93648c0 ---------A   00340 INPUT I
+    0x5abdf9364b20 ---------A   00342 IF I<0 THEN 320
+    0x5abdf9364da0 ---------A   00350 IF I<A THEN 400
+    0x5abdf9365050 ---------A   00360 IF I=A THEN 380
+    0x5abdf93653d0 ---------A   00370 PRINT "   THINK AGAIN. YOU'VE ONLY";A;" RALLODS IN THE TREASURY"
+    0x5abdf9365440 ---------A   00375 GOTO 320
+    0x5abdf9365700 ---------A T 00380 J=0
+    0x5abdf93659d0 ---------A   00390 K=0
+    0x5abdf9365be0 ---------A   00395 A=0
+    0x5abdf9365c50 ---------A   00399 GOTO 1000
+    0x5abdf9366090 ---------A T 00400 A=INT(A-I)
+    0x5abdf9366220 ---------A T 00410 PRINT "HOW MANY SQUARE MILES DO YOU WISH TO PLANT";
+    0x5abdf9366780 ---------A   00420 INPUT J
+    0x5abdf93669e0 ---------A   00421 IF J<0 THEN 410
+    0x5abdf9366d90 ---------A   00422 IF J<=B*2 THEN 426
+    0x5abdf9366f20 ---------A   00423 PRINT "   SORRY, BUT EACH COUNTRYMAN CAN ONLY PLANT 2 SQ. MILES."
+    0x5abdf9366fa0 ---------A   00424 GOTO 410
+    0x5abdf9367330 ---------A T 00426 IF J<=D-1000 THEN 430
+    0x5abdf93677b0 ---------A   00427 PRINT "   SORRY, BUT YOU'VE ONLY";D-1000;"SQ. MILES OF FARM LAND."
+    0x5abdf9367820 ---------A   00428 GOTO 410
+    0x5abdf9367d00 ---------A T 00430 U1=INT(J*V9)
+    0x5abdf9367f70 ---------A   00435 IF U1<A THEN 500
+    0x5abdf9368230 ---------A   00440 IF U1=A THEN 490
+    0x5abdf93685b0 ---------A   00450 PRINT "   THINK AGAIN. YOU'VE ONLY";A;" RALLODS LEFT IN THE TREASURY."
+    0x5abdf9368620 ---------A   00460 GOTO 410
+    0x5abdf9368820 ---------A T 00490 K=0
+    0x5abdf9368a30 ---------A   00495 A=0
+    0x5abdf9368aa0 ---------A   00499 GOTO 1000
+    0x5abdf9368e10 ---------A T 00500 A=A-U1
+    0x5abdf9368fb0 ---------A T 00510 PRINT "HOW MANY RALLODS DO YOU WISH TO SPEND ON POLLUTION CONTROL";
+    0x5abdf9369100 ---------A   00520 INPUT K
+    0x5abdf9369360 ---------A   00522 IF K<0 THEN 510
+    0x5abdf9369610 ---------A   00530 IF K<=A THEN 1000
+    0x5abdf9369980 ---------A   00540 PRINT "   THINK AGAIN. YOU ONLY HAVE ";A;" RALLODS REMAINING."
+    0x5abdf93699f0 ---------A   00550 GOTO 510
+    0x5abdf9369c30 ---------A T 00600 IF H<>0 THEN 1002
+    0x5abdf9369e90 ---------A   00602 IF I<>0 THEN 1002
+    0x5abdf936a0f0 ---------A   00604 IF J<>0 THEN 1002
+    0x5abdf936a350 ---------A   00606 IF K<>0 THEN 1002
+    0x5abdf936a3d0 ---------A   00609 PRINT
+    0x5abdf936a550 ---------A   00612 PRINT "GOODBYE."
+    0x5abdf936a700 ---------A   00614 PRINT "(IF YOU WISH TO CONTINUE THIS GAME AT A LATER DATE, ANSWER"
+    0x5abdf936a890 ---------A   00616 PRINT "'AGAIN' WHEN ASKED IF YOU WANT INSTRUCTIONS AT THE START"
+    0x5abdf936a9e0 ---------A   00617 PRINT "OF THE GAME)."
+    0x5abdf936aa30 ---------A   00618 STOP
+    0x5abdf936aab0 ---------A T 01000 GOTO 600
+    0x5abdf936ab10 ---------A T 01002 PRINT
+    0x5abdf936ab80 ---------A   01003 PRINT
+    0x5abdf936afb0 ---------A   01010 A=INT(A-K)
+    0x5abdf936b2b0 ---------A   01020 A4=A
+    0x5abdf936b810 ---------A   01100 IF INT(I/100-B)>=0 THEN 1120
+    0x5abdf936bba0 ---------A   01105 IF I/100<50 THEN 1700
+    0x5abdf936c160 ---------A   01110 PRINT INT(B-(I/100));"COUNTRYMEN DIED OF STARVATION"
+    0x5abdf936c850 ---------A T 01120 F1=INT(RND(1)*(2000-D))
+    0x5abdf936caa0 ---------A   01122 IF K<25 THEN 1130
+    0x5abdf936d020 ---------A   01125 F1=INT(F1/(K/25))
+    0x5abdf936d2a0 ---------A T 01130 IF F1<=0 THEN 1150
+    0x5abdf936d540 ---------A   01140 PRINT F1;"COUNTRYMEN DIED OF CARBON-MONOXIDE AND DUST INHALATION"
+    0x5abdf936dad0 ---------A T 01150 IF INT((I/100)-B)<0 THEN 1170
+    0x5abdf936dd30 ---------A   01160 IF F1>0 THEN 1180
+    0x5abdf936dde0 ---------A   01165 GOTO 1200
+    0x5abdf936e650 ---------A T 01170 PRINT "   YOU WERE FORCED TO SPEND";INT((F1+(B-(I/100)))*9);
+    0x5abdf936e7c0 ---------A   01172 PRINT "RALLODS ON FUNERAL EXPENSES"
+    0x5abdf936ef60 ---------A   01174 B5=INT(F1+(B-(I/100)))
+    0x5abdf936f8d0 ---------A   01175 A=INT(A-((F1+(B-(I/100)))*9))
+    0x5abdf936f970 ---------A   01176 GOTO 1185
+    0x5abdf936fed0 ---------A T 01180 PRINT "   YOU WERE FORCED TO SPEND ";INT(F1*9);"RALLODS ON ";
+    0x5abdf9370020 ---------A   01181 PRINT "FUNERAL EXPENSES."
+    0x5abdf9370250 ---------A   01182 B5=F1
+    0x5abdf93707c0 ---------A   01183 A=INT(A-(F1*9))
+    0x5abdf9370a40 ---------A T 01185 IF A>=0 THEN 1194
+    0x5abdf9370bd0 ---------A   01187 PRINT "   INSUFFICIENT RESERVES TO COVER COST - LAND WAS SOLD"
+    0x5abdf9371160 ---------A   01189 D=INT(D+(A/W))
+    0x5abdf9371370 ---------A   01190 A=0
+    0x5abdf93717a0 ---------A T 01194 B=INT(B-B5)
+    0x5abdf9371a00 ---------A T 01200 IF H=0 THEN 1250
+    0x5abdf9372c30 ---------A   01220 C1=INT(H+(RND(1)*10)-(RND(1)*20))
+    0x5abdf9372e80 ---------A   01224 IF C>0 THEN 1230
+    0x5abdf93731e0 ---------A   01226 C1=C1+20
+    0x5abdf9373480 ---------A T 01230 PRINT C1;"WORKERS CAME TO THE COUNTRY AND";
+    0x5abdf9374460 ---------A T 01250 P1=INT(((I/100-B)/10)+(K/25)-((2000-D)/50)-(F1/2))
+    0x5abdf93747b0 ---------A   01255 PRINT ABS(P1);"COUNTRYMEN ";
+    0x5abdf9374a00 ---------A   01260 IF P1<0 THEN 1275
+    0x5abdf9374b80 ---------A   01265 PRINT "CAME TO";
+    0x5abdf9374bf0 ---------A   01270 GOTO 1280
+    0x5abdf9374d60 ---------A T 01275 PRINT "LEFT";
+    0x5abdf9374eb0 ---------A T 01280 PRINT " THE ISLAND."
+    0x5abdf93752e0 ---------A   01290 B=INT(B+P1)
+    0x5abdf9375730 ---------A   01292 C=INT(C+C1)
+    0x5abdf93760e0 ---------A   01305 U2=INT(((2000-D)*((RND(1)+1.5)/2)))
+    0x5abdf9376350 ---------A   01310 IF C=0 THEN 1324
+    0x5abdf93767b0 ---------A   01320 PRINT "OF ";INT(J);"SQ. MILES PLANTED,";
+    0x5abdf9376a20 ---------A T 01324 IF J>U2 THEN 1330
+    0x5abdf9376c90 ---------A   01326 U2=J
+    0x5abdf93771e0 ---------A T 01330 PRINT " YOU HARVESTED ";INT(J-U2);"SQ. MILES OF CROPS."
+    0x5abdf9377430 ---------A   01340 IF U2=0 THEN 1370
+    0x5abdf9377760 ---------A   01344 IF T1>=2 THEN 1370
+    0x5abdf93778e0 ---------A   01350 PRINT "   (DUE TO ";
+    0x5abdf9377b40 ---------A   01355 IF T1=0 THEN 1365
+    0x5abdf9377cf0 ---------A   01360 PRINT "INCREASED ";
+    0x5abdf9377e70 ---------A T 01365 PRINT "AIR AND WATER POLLUTION FROM FOREIGN INDUSTRY.)"
+    0x5abdf9378610 ---------A T 01370 Q=INT((J-U2)*(W/2))
+    0x5abdf9378a40 ---------A   01380 PRINT "MAKING";INT(Q);"RALLODS."
+    0x5abdf9378e80 ---------A   01390 A=INT(A+Q)
+    0x5abdf9379820 ---------A   01400 V1=INT(((B-P1)*22)+(RND(1)*500))
+    0x5abdf9379e60 ---------A   01405 V2=INT((2000-D)*15)
+    0x5abdf937a4a0 ---------A   01410 PRINT " YOU MADE";ABS(INT(V1-V2));"RALLODS FROM TOURIST TRADE."
+    0x5abdf937a700 ---------A   01420 IF V2=0 THEN 1450
+    0x5abdf937ab70 ---------A   01425 IF V1-V2>=V3 THEN 1450
+    0x5abdf937acf0 ---------A   01430 PRINT "   DECREASE BECAUSE ";
+    0x5abdf937b1a0 ---------A   01435 G1=10*RND(1)
+    0x5abdf937b3f0 ---------A   01440 IF G1<=2 THEN 1460
+    0x5abdf937b650 ---------A   01442 IF G1<=4 THEN 1465
+    0x5abdf937b8b0 ---------A   01444 IF G1<=6 THEN 1470
+    0x5abdf937bb20 ---------A   01446 IF G1<=8 THEN 1475
+    0x5abdf937bd80 ---------A   01448 IF G1<=10 THEN 1480
+    0x5abdf937c1c0 ---------A T 01450 V3=INT(A+V3)
+    0x5abdf937c5f0 ---------A   01451 A=INT(A+V3)
+    0x5abdf937c690 ---------A   01452 GOTO 1500
+    0x5abdf937c7f0 ---------A T 01460 PRINT "FISH POPULATION HAS DWINDLED DUE TO WATER POLLUTION."
+    0x5abdf937c890 ---------A   01462 GOTO 1450
+    0x5abdf937c9f0 ---------A T 01465 PRINT "AIR POLLUTION IS KILLING GAME BIRD POPULATION."
+    0x5abdf937ca90 ---------A   01467 GOTO 1450
+    0x5abdf937cbf0 ---------A T 01470 PRINT "MINERAL BATHS ARE BEING RUINED BY WATER POLLUTION."
+    0x5abdf937cc90 ---------A   01472 GOTO 1450
+    0x5abdf937cdf0 ---------A T 01475 PRINT "UNPLEASANT SMOG IS DISCOURAGING SUN BATHERS."
+    0x5abdf937ce90 ---------A   01477 GOTO 1450
+    0x5abdf937cff0 ---------A T 01480 PRINT "HOTELS ARE LOOKING SHABBY DUE TO SMOG GRIT."
+    0x5abdf937d070 ---------A   01482 GOTO 1450
+    0x5abdf937d2b0 ---------A T 01500 IF B5>200 THEN 1600
+    0x5abdf937d520 ---------A   01505 IF B<343 THEN 1700
+    0x5abdf937d8c0 ---------A   01510 IF (A4/100)>5 THEN 1800
+    0x5abdf937db50 ---------A T 01515 IF C>B THEN 1550
+    0x5abdf937df90 ---------A   01520 IF N5-1=X5 THEN 1900
+    0x5abdf937e010 ---------A   01545 GOTO 2000
+    0x5abdf937e070 ---------A T 01550 PRINT
+    0x5abdf937e110 ---------A   01552 PRINT
+    0x5abdf937e2b0 ---------A   01560 PRINT "THE NUMBER OF FOREIGN WORKERS HAS EXCEEDED THE NUMBER"
+    0x5abdf937e430 ---------A   01562 PRINT "OF COUNTRYMEN. AS A MINORITY, THEY HAVE REVOLTED AND"
+    0x5abdf937e5a0 ---------A   01564 PRINT "TAKEN OVER THE COUNTRY."
+    0x5abdf937e8e0 ---------A T 01570 IF RND(1)<=.5 THEN 1580
+    0x5abdf937ea70 ---------A   01574 PRINT "YOU HAVE BEEN THROWN OUT OF OFFICE AND ARE NOW"
+    0x5abdf937ebc0 ---------A   01576 PRINT "RESIDING IN PRISON."
+    0x5abdf937ec50 ---------A   01578 GOTO 1590
+    0x5abdf937eda0 ---------A T 01580 PRINT "YOU HAVE BEEN ASSASSINATED."
+    0x5abdf937ee10 ---------A T 01590 PRINT
+    0x5abdf937ee80 ---------A   01592 PRINT
+    0x5abdf937eed0 ---------A   01596 STOP
+    0x5abdf937ef50 ---------A T 01600 PRINT
+    0x5abdf937efe0 ---------A   01602 PRINT
+    0x5abdf937f270 ---------A   01610 PRINT B5;"COUNTRYMEN DIED IN ONE YEAR!!!!!"
+    0x5abdf937f410 ---------A   01615 PRINT "DUE TO THIS EXTREME MISMANAGEMENT, YOU HAVE NOT ONLY"
+    0x5abdf937f580 ---------A   01620 PRINT "BEEN IMPEACHED AND THROWN OUT OF OFFICE, BUT YOU"
+    0x5abdf937fb10 ---------A   01622 M6=INT(RND(1)*10)
+    0x5abdf937fd60 ---------A   01625 IF M6<=3 THEN 1670
+    0x5abdf937ffd0 ---------A   01630 IF M6<=6 THEN 1680
+    0x5abdf9380250 ---------A   01635 IF M6<=10 THEN 1690
+    0x5abdf93803c0 ---------A T 01670 PRINT "ALSO HAD YOUR LEFT EYE GOUGED OUT!"
+    0x5abdf9380450 ---------A   01672 GOTO 1590
+    0x5abdf93805b0 ---------A T 01680 PRINT "HAVE ALSO GAINED A VERY BAD REPUTATION."
+    0x5abdf9380640 ---------A   01682 GOTO 1590
+    0x5abdf93807a0 ---------A T 01690 PRINT "HAVE ALSO BEEN DECLARED NATIONAL FINK."
+    0x5abdf9380810 ---------A   01692 GOTO 1590
+    0x5abdf9380870 ---------A T 01700 PRINT
+    0x5abdf9380910 ---------A   01702 PRINT
+    0x5abdf9380ab0 ---------A   01710 PRINT "OVER ONE THIRD OF THE POPULTATION HAS DIED SINCE YOU"
+    0x5abdf9380c30 ---------A   01715 PRINT "WERE ELECTED TO OFFICE. THE PEOPLE (REMAINING)"
+    0x5abdf9380d80 ---------A   01720 PRINT "HATE YOUR GUTS."
+    0x5abdf9380e00 ---------A   01730 GOTO 1570
+    0x5abdf9381160 ---------A T 01800 IF B5-F1<2 THEN 1515
+    0x5abdf9381210 ---------A   01807 PRINT
+    0x5abdf93813b0 ---------A   01815 PRINT "MONEY WAS LEFT OVER IN THE TREASURY WHICH YOU DID"
+    0x5abdf9381550 ---------A   01820 PRINT "NOT SPEND. AS A RESULT, SOME OF YOUR COUNTRYMEN DIED"
+    0x5abdf93816f0 ---------A   01825 PRINT "OF STARVATION. THE PUBLIC IS ENRAGED AND YOU HAVE"
+    0x5abdf9381870 ---------A   01830 PRINT "BEEN FORCED TO EITHER RESIGN OR COMMIT SUICIDE."
+    0x5abdf93819f0 ---------A   01835 PRINT "THE CHOICE IS YOURS."
+    0x5abdf9381b80 ---------A   01840 PRINT "IF YOU CHOOSE THE LATTER, PLEASE TURN OFF YOUR COMPUTER"
+    0x5abdf9381cd0 ---------A   01845 PRINT "BEFORE PROCEEDING."
+    0x5abdf9381d40 ---------A   01850 GOTO 1590
+    0x5abdf9381da0 ---------A T 01900 PRINT
+    0x5abdf9381e30 ---------A   01902 PRINT
+    0x5abdf9381fc0 ---------A   01920 PRINT "CONGRATULATIONS!!!!!!!!!!!!!!!!!!"
+    0x5abdf9382350 ---------A   01925 PRINT "YOU HAVE SUCCESFULLY COMPLETED YOUR";N5;"YEAR TERM"
+    0x5abdf93824f0 ---------A   01930 PRINT "OF OFFICE. YOU WERE, OF COURSE, EXTREMELY LUCKY, BUT"
+    0x5abdf93826a0 ---------A   01935 PRINT "NEVERTHELESS, IT'S QUITE AN ACHIEVEMENT. GOODBYE AND GOOD"
+    0x5abdf9382830 ---------A   01940 PRINT "LUCK - YOU'LL PROBABLY NEED IT IF YOU'RE THE TYPE THAT"
+    0x5abdf9382980 ---------A   01945 PRINT "PLAYS THIS GAME."
+    0x5abdf9382a20 ---------A   01950 GOTO 1590
+    0x5abdf9382bb0 ---------A T 01960 PRINT "HOW MANY YEARS HAD YOU BEEN IN OFFICE WHEN INTERRUPTED";
+    0x5abdf9382d00 ---------A   01961 INPUT X5
+    0x5abdf9382f60 ---------A   01962 IF X5<0 THEN 1590
+    0x5abdf93831f0 ---------A   01963 IF X5<8 THEN 1969
+    0x5abdf9383570 ---------A   01965 PRINT "   COME ON, YOUR TERM IN OFFICE IS ONLY";N5;"YEARS."
+    0x5abdf9383600 ---------A   01967 GOTO 1960
+    0x5abdf9383770 ---------A T 01969 PRINT "HOW MUCH DID YOU HAVE IN THE TREASURY";
+    0x5abdf93838c0 ---------A   01970 INPUT A
+    0x5abdf9383b30 ---------A   01971 IF A<0 THEN 1590
+    0x5abdf9383cb0 ---------A   01975 PRINT "HOW MANY COUNTRYMEN";    
+    0x5abdf9383e00 ---------A   01976 INPUT B
+    0x5abdf9384070 ---------A   01977 IF B<0 THEN 1590
+    0x5abdf93841f0 ---------A   01980 PRINT "HOW MANY WORKERS";
+    0x5abdf9384340 ---------A   01981 INPUT C
+    0x5abdf93845c0 ---------A   01982 IF C<0 THEN 1590
+    0x5abdf9384750 ---------A T 01990 PRINT "HOW MANY SQUARE MILES OF LAND";
+    0x5abdf9371b60 ---------A   01991 INPUT D
+    0x5abdf9371dd0 ---------A   01992 IF D<0 THEN 1590
+    0x5abdf9372030 ---------A   01993 IF D>2000 THEN 1996
+    0x5abdf9385800 ---------A   01994 IF D>1000 THEN 100
+    0x5abdf93859b0 ---------A T 01996 PRINT "   COME ON, YOU STARTED WITH 1000 SQ. MILES OF FARM LAND"
+    0x5abdf9385b20 ---------A   01997 PRINT "   AND 10,000 SQ. MILES OF FOREST LAND."
+    0x5abdf9385b90 ---------A   01998 GOTO 1990
+    0x5abdf9385eb0 ---------A T 02000 X5=X5+1
+    0x5abdf93860c0 ---------A   02020 B5=0
+    0x5abdf9386130 ---------A   02040 GOTO 100
+    0x5abdf9386170 ---------A   02046 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     00047      00010T
+     00100      01994T, 02040T
+     00140      00120T
+     00200      00215T, 00240T, 00299T
+     00300      00220T
+     00320      00342T, 00375T
+     00380      00360T
+     00400      00350T
+     00410      00421T, 00424T, 00428T, 00460T
+     00426      00422T
+     00430      00426T
+     00490      00440T
+     00500      00435T
+     00510      00522T, 00550T
+     00600      01000T
+     01000      00399T, 00499T, 00530T
+     01002      00600T, 00602T, 00604T, 00606T
+     01120      01100T
+     01130      01122T
+     01150      01130T
+     01170      01150T
+     01180      01160T
+     01185      01176T
+     01194      01185T
+     01200      01165T
+     01230      01224T
+     01250      01200T
+     01275      01260T
+     01280      01270T
+     01324      01310T
+     01330      01324T
+     01365      01355T
+     01370      01340T, 01344T
+     01450      01420T, 01425T, 01462T, 01467T, 01472T, 01477T, 01482T
+     01460      01440T
+     01465      01442T
+     01470      01444T
+     01475      01446T
+     01480      01448T
+     01500      01452T
+     01515      01800T
+     01550      01515T
+     01570      01730T
+     01580      01570T
+     01590      01578T, 01672T, 01682T, 01692T, 01850T, 01950T, 01962T, 01971T, 
+                01977T, 01982T, 01992T
+     01600      01500T
+     01670      01625T
+     01680      01630T
+     01690      01635T
+     01700      01105T, 01505T
+     01800      01510T
+     01900      01520T
+     01960      00011T, 01967T
+     01969      01963T
+     01990      01998T
+     01996      01993T
+     02000      01545T
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
+  --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
+   A) 0x5abdf9355b80 (00001)   0x5abdf9355b80 (00001)   0x5abdf9386170 (02046)   0x5abdf9386170 (02046)   
+
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     03680 - 10000    6330 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for 'basic/king.bas'
+ *
+    A                        Integer     
+    A4                       Integer     
+    ABS             Function Integer         args=1, int    
+    ASC             Function Integer         args=1, char*  
+    ATN             Function Float           args=1, float  
+    B                        Integer     
+    B5                       Integer     
+    C                        Integer     
+    C1                       Integer     
+    CDBL            Function Float           args=1, int    
+    CHR$            Function String          args=1, int    
+    CINT            Function Integer         args=1, float  
+    COS             Function Float           args=1, float  
+    CSNG            Function Float           args=1, int    
+    CVD             Function Float           args=1, float  
+    CVI             Function Integer         args=1, char*  
+    CVS             Function Float           args=1, char*  
+    D                        Integer     
+    ENVIRON$        Function String          args=1, int    
+    EOF             Function Integer         args=1, int    
+    EXP             Function Float           args=1, int    
+    EXTERR          Function Integer         args=1, int    
+    F1                       Integer     
+    FIX             Function Integer         args=1, float  
+    FRE             Function Integer         args=1, char*  
+    G1                       Integer     
+    H                        Integer     
+    HEX$            Function String          args=1, int    
+    I                        Integer     
+    INP             Function Integer         args=1, int    
+    INPUT$          Function String          args=2, int    int    
+    INSTR           Function Integer         args=3, int    char*  char*  
+    INT             Function Integer         args=1, float  
+    IOCTL$          Function String          args=1, int    
+    J                        Integer     
+    K                        Integer     
+    LEFT$           Function String          args=2, char*  int    
+    LEN             Function Integer         args=1, char*  
+    LOC             Function Integer         args=1, int    
+    LOF             Function Integer         args=1, int    
+    LOG             Function Float           args=1, float  
+    LPOS            Function Integer         args=1, Any    
+    M6                       Integer     
+    MAX             Function Integer         args=1, int    
+    MID$            Function String          args=2, char*  int    
+    MIN             Function Integer         args=1, int    
+    MKD$            Function String          args=1, int    
+    MKI$            Function String          args=1, float  
+    MKS$            Function String          args=1, float  
+    N5                       Integer     
+    OCT$            Function String          args=1, float  
+    P1                       Integer     
+    PEEK            Function Integer         args=1, int    
+    PEN             Function Integer         args=1, char*  
+    PLAY            Function Integer         args=1, Any    
+    PMAP            Function Integer         args=2, int    int    
+    POINT           Function Integer         args=2, int    int    
+    POS             Function Integer         args=1, Any    
+    Q                        Integer     
+    RIGHT$          Function String          args=2, char*  int    
+    RND             Function Float           args=1, int    
+    SGN             Function Integer         args=1, int    
+    SIN             Function Float           args=1, float  
+    SPACE$          Function String          args=1, int    
+    SPC             Function Unknown (0)    args=1, int    
+    SQR             Function Float           args=1, float  
+    STICK           Function Integer         args=1, int    
+    STR$            Function String          args=1, float  
+    STRING$         Function String          args=2, int    int    
+    T1                       Integer     
+    TAB             Function Unknown (0)    args=1, int    
+    TAB$            Function String          args=1, int    
+    TAN             Function Float           args=1, int    
+    TIMER           Function Float           args=0, 
+    U1                       Integer     
+    U2                       Integer     
+    V1                       Integer     
+    V2                       Integer     
+    V3                       Integer     
+    V9                       Integer     
+    VAL             Function Integer         args=1, char*  
+    VARPTR          Function Integer         args=1, Any    
+    VARPTR$         Function String          args=1, Any    
+    W                        Integer     
+    X                        Integer     
+    X5                       Integer     
+    Z$                       String      
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of basic/king.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5abdf9355b80 ---------A   01000 PRINT TAB(34);"KING"
+    0x5abdf9356ed0 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5abdf9357050 ---------A   01020 PRINT:PRINT:PRINT
+    0x5abdf9355910 ---------A   01030 PRINT "DO YOU WANT INSTRUCTIONS";
+    0x5abdf93546d0 ---------A   01040 INPUT Z$
+    0x5abdf9354e80 ---------A   01050 N5=8
+    0x5abdf9354670 ---------A   01060 IF LEFT$(Z$,1)="N" THEN 1230
+    0x5abdf9354ca0 ---------A   01070 IF Z$="AGAIN" THEN 3410
+    0x5abdf935c840 ---------A   01080 PRINT:PRINT:PRINT
+    0x5abdf935c9a0 ---------A   01090 PRINT "CONGRATULATIONS! YOU'VE JUST BEEN ELECTED PREMIER OF SETATS"
+    0x5abdf935cb50 ---------A   01100 PRINT "DETINU, A SMALL COMMUNIST ISLAND 30 BY 70 MILES LONG. YOUR"
+    0x5abdf935cd00 ---------A   01110 PRINT "JOB IS TO DECIDE UPON THE CONTRY'S BUDGET AND DISTRIBUTE"
+    0x5abdf935cea0 ---------A   01120 PRINT "MONEY TO YOUR COUNTRYMEN FROM THE COMMUNAL TREASURY."
+    0x5abdf935d050 ---------A   01130 PRINT "THE MONEY SYSTEM IS RALLODS, AND EACH PERSON NEEDS 100"
+    0x5abdf935d200 ---------A   01140 PRINT "RALLODS PER YEAR TO SURVIVE. YOUR COUNTRY'S INCOME COMES"
+    0x5abdf935d3b0 ---------A   01150 PRINT "FROM FARM PRODUCE AND TOURISTS VISITING YOUR MAGNIFICENT"
+    0x5abdf935d560 ---------A   01160 PRINT "FORESTS, HUNTING, FISHING, ETC. HALF YOUR LAND IS FARM LAND"
+    0x5abdf935d710 ---------A   01170 PRINT "WHICH ALSO HAS AN EXCELLENT MINERAL CONTENT AND MAY BE SOLD"
+    0x5abdf935d8c0 ---------A   01180 PRINT "TO FOREIGN INDUSTRY (STRIP MINING) WHO IMPORT AND SUPPORT"
+    0x5abdf935da20 ---------A   01190 PRINT "THEIR OWN WORKERS. CROPS COST BETWEEN 10 AND 15 RALLODS PER"
+    0x5abdf935db80 ---------A   01200 PRINT "SQUARE MILE TO PLANT."
+    0x5abdf935de50 ---------A   01210 PRINT "YOUR GOAL IS TO COMPLETE YOUR";N5;"YEAR TERM OF OFFICE."
+    0x5abdf935dfa0 ---------A   01220 PRINT "GOOD LUCK!"
+    0x5abdf935e030 ---------A T 01230 PRINT
+    0x5abdf935ea00 ---------A   01240 A=INT(60000+(1000*RND(1))-(1000*RND(1)))
+    0x5abdf935f3f0 ---------A   01250 B=INT(500+(10*RND(1))-(10*RND(1)))
+    0x5abdf935f6c0 ---------A   01260 D=2000
+    0x5abdf935fd50 ---------A T 01270 W=INT(10*RND(1)+95)
+    0x5abdf935fde0 ---------A   01280 PRINT
+    0x5abdf9360150 ---------A   01290 PRINT "YOU NOW HAVE ";A;" RALLODS IN THE TREASURY."
+    0x5abdf9360500 ---------A   01300 PRINT INT(B);:PRINT "COUNTRYMEN, ";
+    0x5abdf9360d10 ---------A   01310 V9=INT(((RND(1)/2)*10+10))
+    0x5abdf9361030 ---------A   01320 IF C=0 THEN 1340
+    0x5abdf93615c0 ---------A   01330 PRINT INT(C);"FOREIGN WORKERS, ";
+    0x5abdf9361a10 ---------A T 01340 PRINT "AND";INT(D);"SQ. MILES OF LAND."
+    0x5abdf9361ca0 ---------A   01350 PRINT "THIS YEAR INDUSTRY WILL BUY LAND FOR";W;
+    0x5abdf9361e30 ---------A   01360 PRINT "RALLODS PER SQUARE MILE."
+    0x5abdf9362190 ---------A   01370 PRINT "LAND CURRENTLY COSTS";V9;"RALLODS PER SQUARE MILE TO PLANT."
+    0x5abdf9362230 ---------A   01380 PRINT
+    0x5abdf93623c0 ---------A T 01390 PRINT "HOW MANY SQUARE MILES DO YOU WISH TO SELL TO INDUSTRY";
+    0x5abdf93625d0 ---------A   01400 INPUT H
+    0x5abdf9362840 ---------A   01410 IF H<0 THEN 1390
+    0x5abdf9362c00 ---------A   01420 IF H<=D-1000 THEN 1500
+    0x5abdf9363080 ---------A   01430 PRINT "***  THINK AGAIN. YOU ONLY HAVE";D-1000;"SQUARE MILES OF FARM LAND."
+    0x5abdf93633c0 ---------A   01440 IF X<>0 THEN 1390
+    0x5abdf93635c0 ---------A   01450 PRINT:PRINT "(FOREIGN INDUSTRY WILL ONLY BUY FARM LAND BECAUSE"
+    0x5abdf9363750 ---------A   01460 PRINT "FOREST LAND IS UNECONOMICAL TO STRIP MINE DUE TO TREES,"
+    0x5abdf93638b0 ---------A   01470 PRINT "THICKER TOP SOIL, ETC.)"
+    0x5abdf9363ac0 ---------A   01480 X=1
+    0x5abdf9363b30 ---------A   01490 GOTO 1390
+    0x5abdf9363f50 ---------A T 01500 D=INT(D-H)
+    0x5abdf9364510 ---------A   01510 A=INT(A+(H*W))
+    0x5abdf93646b0 ---------A T 01520 PRINT "HOW MANY RALLODS WILL YOU DISTRIBUTE AMONG YOUR COUNTRYMEN";
+    0x5abdf93648c0 ---------A   01530 INPUT I
+    0x5abdf9364b20 ---------A   01540 IF I<0 THEN 1520
+    0x5abdf9364da0 ---------A   01550 IF I<A THEN 1630
+    0x5abdf9365050 ---------A   01560 IF I=A THEN 1590
+    0x5abdf93653d0 ---------A   01570 PRINT "   THINK AGAIN. YOU'VE ONLY";A;" RALLODS IN THE TREASURY"
+    0x5abdf9365440 ---------A   01580 GOTO 1520
+    0x5abdf9365700 ---------A T 01590 J=0
+    0x5abdf93659d0 ---------A   01600 K=0
+    0x5abdf9365be0 ---------A   01610 A=0
+    0x5abdf9365c50 ---------A   01620 GOTO 1980
+    0x5abdf9366090 ---------A T 01630 A=INT(A-I)
+    0x5abdf9366220 ---------A T 01640 PRINT "HOW MANY SQUARE MILES DO YOU WISH TO PLANT";
+    0x5abdf9366780 ---------A   01650 INPUT J
+    0x5abdf93669e0 ---------A   01660 IF J<0 THEN 1640
+    0x5abdf9366d90 ---------A   01670 IF J<=B*2 THEN 1700
+    0x5abdf9366f20 ---------A   01680 PRINT "   SORRY, BUT EACH COUNTRYMAN CAN ONLY PLANT 2 SQ. MILES."
+    0x5abdf9366fa0 ---------A   01690 GOTO 1640
+    0x5abdf9367330 ---------A T 01700 IF J<=D-1000 THEN 1730
+    0x5abdf93677b0 ---------A   01710 PRINT "   SORRY, BUT YOU'VE ONLY";D-1000;"SQ. MILES OF FARM LAND."
+    0x5abdf9367820 ---------A   01720 GOTO 1640
+    0x5abdf9367d00 ---------A T 01730 U1=INT(J*V9)
+    0x5abdf9367f70 ---------A   01740 IF U1<A THEN 1810
+    0x5abdf9368230 ---------A   01750 IF U1=A THEN 1780
+    0x5abdf93685b0 ---------A   01760 PRINT "   THINK AGAIN. YOU'VE ONLY";A;" RALLODS LEFT IN THE TREASURY."
+    0x5abdf9368620 ---------A   01770 GOTO 1640
+    0x5abdf9368820 ---------A T 01780 K=0
+    0x5abdf9368a30 ---------A   01790 A=0
+    0x5abdf9368aa0 ---------A   01800 GOTO 1980
+    0x5abdf9368e10 ---------A T 01810 A=A-U1
+    0x5abdf9368fb0 ---------A T 01820 PRINT "HOW MANY RALLODS DO YOU WISH TO SPEND ON POLLUTION CONTROL";
+    0x5abdf9369100 ---------A   01830 INPUT K
+    0x5abdf9369360 ---------A   01840 IF K<0 THEN 1820
+    0x5abdf9369610 ---------A   01850 IF K<=A THEN 1980
+    0x5abdf9369980 ---------A   01860 PRINT "   THINK AGAIN. YOU ONLY HAVE ";A;" RALLODS REMAINING."
+    0x5abdf93699f0 ---------A   01870 GOTO 1820
+    0x5abdf9369c30 ---------A T 01880 IF H<>0 THEN 1990
+    0x5abdf9369e90 ---------A   01890 IF I<>0 THEN 1990
+    0x5abdf936a0f0 ---------A   01900 IF J<>0 THEN 1990
+    0x5abdf936a350 ---------A   01910 IF K<>0 THEN 1990
+    0x5abdf936a3d0 ---------A   01920 PRINT
+    0x5abdf936a550 ---------A   01930 PRINT "GOODBYE."
+    0x5abdf936a700 ---------A   01940 PRINT "(IF YOU WISH TO CONTINUE THIS GAME AT A LATER DATE, ANSWER"
+    0x5abdf936a890 ---------A   01950 PRINT "'AGAIN' WHEN ASKED IF YOU WANT INSTRUCTIONS AT THE START"
+    0x5abdf936a9e0 ---------A   01960 PRINT "OF THE GAME)."
+    0x5abdf936aa30 ---------A   01970 STOP
+    0x5abdf936aab0 ---------A T 01980 GOTO 1880
+    0x5abdf936ab10 ---------A T 01990 PRINT
+    0x5abdf936ab80 ---------A   02000 PRINT
+    0x5abdf936afb0 ---------A   02010 A=INT(A-K)
+    0x5abdf936b2b0 ---------A   02020 A4=A
+    0x5abdf936b810 ---------A   02030 IF INT(I/100-B)>=0 THEN 2060
+    0x5abdf936bba0 ---------A   02040 IF I/100<50 THEN 3160
+    0x5abdf936c160 ---------A   02050 PRINT INT(B-(I/100));"COUNTRYMEN DIED OF STARVATION"
+    0x5abdf936c850 ---------A T 02060 F1=INT(RND(1)*(2000-D))
+    0x5abdf936caa0 ---------A   02070 IF K<25 THEN 2090
+    0x5abdf936d020 ---------A   02080 F1=INT(F1/(K/25))
+    0x5abdf936d2a0 ---------A T 02090 IF F1<=0 THEN 2110
+    0x5abdf936d540 ---------A   02100 PRINT F1;"COUNTRYMEN DIED OF CARBON-MONOXIDE AND DUST INHALATION"
+    0x5abdf936dad0 ---------A T 02110 IF INT((I/100)-B)<0 THEN 2140
+    0x5abdf936dd30 ---------A   02120 IF F1>0 THEN 2190
+    0x5abdf936dde0 ---------A   02130 GOTO 2280
+    0x5abdf936e650 ---------A T 02140 PRINT "   YOU WERE FORCED TO SPEND";INT((F1+(B-(I/100)))*9);
+    0x5abdf936e7c0 ---------A   02150 PRINT "RALLODS ON FUNERAL EXPENSES"
+    0x5abdf936ef60 ---------A   02160 B5=INT(F1+(B-(I/100)))
+    0x5abdf936f8d0 ---------A   02170 A=INT(A-((F1+(B-(I/100)))*9))
+    0x5abdf936f970 ---------A   02180 GOTO 2230
+    0x5abdf936fed0 ---------A T 02190 PRINT "   YOU WERE FORCED TO SPEND ";INT(F1*9);"RALLODS ON ";
+    0x5abdf9370020 ---------A   02200 PRINT "FUNERAL EXPENSES."
+    0x5abdf9370250 ---------A   02210 B5=F1
+    0x5abdf93707c0 ---------A   02220 A=INT(A-(F1*9))
+    0x5abdf9370a40 ---------A T 02230 IF A>=0 THEN 2270
+    0x5abdf9370bd0 ---------A   02240 PRINT "   INSUFFICIENT RESERVES TO COVER COST - LAND WAS SOLD"
+    0x5abdf9371160 ---------A   02250 D=INT(D+(A/W))
+    0x5abdf9371370 ---------A   02260 A=0
+    0x5abdf93717a0 ---------A T 02270 B=INT(B-B5)
+    0x5abdf9371a00 ---------A T 02280 IF H=0 THEN 2330
+    0x5abdf9372c30 ---------A   02290 C1=INT(H+(RND(1)*10)-(RND(1)*20))
+    0x5abdf9372e80 ---------A   02300 IF C>0 THEN 2320
+    0x5abdf93731e0 ---------A   02310 C1=C1+20
+    0x5abdf9373480 ---------A T 02320 PRINT C1;"WORKERS CAME TO THE COUNTRY AND";
+    0x5abdf9374460 ---------A T 02330 P1=INT(((I/100-B)/10)+(K/25)-((2000-D)/50)-(F1/2))
+    0x5abdf93747b0 ---------A   02340 PRINT ABS(P1);"COUNTRYMEN ";
+    0x5abdf9374a00 ---------A   02350 IF P1<0 THEN 2380
+    0x5abdf9374b80 ---------A   02360 PRINT "CAME TO";
+    0x5abdf9374bf0 ---------A   02370 GOTO 2390
+    0x5abdf9374d60 ---------A T 02380 PRINT "LEFT";
+    0x5abdf9374eb0 ---------A T 02390 PRINT " THE ISLAND."
+    0x5abdf93752e0 ---------A   02400 B=INT(B+P1)
+    0x5abdf9375730 ---------A   02410 C=INT(C+C1)
+    0x5abdf93760e0 ---------A   02420 U2=INT(((2000-D)*((RND(1)+1.5)/2)))
+    0x5abdf9376350 ---------A   02430 IF C=0 THEN 2450
+    0x5abdf93767b0 ---------A   02440 PRINT "OF ";INT(J);"SQ. MILES PLANTED,";
+    0x5abdf9376a20 ---------A T 02450 IF J>U2 THEN 2470
+    0x5abdf9376c90 ---------A   02460 U2=J
+    0x5abdf93771e0 ---------A T 02470 PRINT " YOU HARVESTED ";INT(J-U2);"SQ. MILES OF CROPS."
+    0x5abdf9377430 ---------A   02480 IF U2=0 THEN 2540
+    0x5abdf9377760 ---------A   02490 IF T1>=2 THEN 2540
+    0x5abdf93778e0 ---------A   02500 PRINT "   (DUE TO ";
+    0x5abdf9377b40 ---------A   02510 IF T1=0 THEN 2530
+    0x5abdf9377cf0 ---------A   02520 PRINT "INCREASED ";
+    0x5abdf9377e70 ---------A T 02530 PRINT "AIR AND WATER POLLUTION FROM FOREIGN INDUSTRY.)"
+    0x5abdf9378610 ---------A T 02540 Q=INT((J-U2)*(W/2))
+    0x5abdf9378a40 ---------A   02550 PRINT "MAKING";INT(Q);"RALLODS."
+    0x5abdf9378e80 ---------A   02560 A=INT(A+Q)
+    0x5abdf9379820 ---------A   02570 V1=INT(((B-P1)*22)+(RND(1)*500))
+    0x5abdf9379e60 ---------A   02580 V2=INT((2000-D)*15)
+    0x5abdf937a4a0 ---------A   02590 PRINT " YOU MADE";ABS(INT(V1-V2));"RALLODS FROM TOURIST TRADE."
+    0x5abdf937a700 ---------A   02600 IF V2=0 THEN 2690
+    0x5abdf937ab70 ---------A   02610 IF V1-V2>=V3 THEN 2690
+    0x5abdf937acf0 ---------A   02620 PRINT "   DECREASE BECAUSE ";
+    0x5abdf937b1a0 ---------A   02630 G1=10*RND(1)
+    0x5abdf937b3f0 ---------A   02640 IF G1<=2 THEN 2720
+    0x5abdf937b650 ---------A   02650 IF G1<=4 THEN 2740
+    0x5abdf937b8b0 ---------A   02660 IF G1<=6 THEN 2760
+    0x5abdf937bb20 ---------A   02670 IF G1<=8 THEN 2780
+    0x5abdf937bd80 ---------A   02680 IF G1<=10 THEN 2800
+    0x5abdf937c1c0 ---------A T 02690 V3=INT(A+V3)
+    0x5abdf937c5f0 ---------A   02700 A=INT(A+V3)
+    0x5abdf937c690 ---------A   02710 GOTO 2820
+    0x5abdf937c7f0 ---------A T 02720 PRINT "FISH POPULATION HAS DWINDLED DUE TO WATER POLLUTION."
+    0x5abdf937c890 ---------A   02730 GOTO 2690
+    0x5abdf937c9f0 ---------A T 02740 PRINT "AIR POLLUTION IS KILLING GAME BIRD POPULATION."
+    0x5abdf937ca90 ---------A   02750 GOTO 2690
+    0x5abdf937cbf0 ---------A T 02760 PRINT "MINERAL BATHS ARE BEING RUINED BY WATER POLLUTION."
+    0x5abdf937cc90 ---------A   02770 GOTO 2690
+    0x5abdf937cdf0 ---------A T 02780 PRINT "UNPLEASANT SMOG IS DISCOURAGING SUN BATHERS."
+    0x5abdf937ce90 ---------A   02790 GOTO 2690
+    0x5abdf937cff0 ---------A T 02800 PRINT "HOTELS ARE LOOKING SHABBY DUE TO SMOG GRIT."
+    0x5abdf937d070 ---------A   02810 GOTO 2690
+    0x5abdf937d2b0 ---------A T 02820 IF B5>200 THEN 3010
+    0x5abdf937d520 ---------A   02830 IF B<343 THEN 3160
+    0x5abdf937d8c0 ---------A   02840 IF (A4/100)>5 THEN 3220
+    0x5abdf937db50 ---------A T 02850 IF C>B THEN 2880
+    0x5abdf937df90 ---------A   02860 IF N5-1=X5 THEN 3320
+    0x5abdf937e010 ---------A   02870 GOTO 3640
+    0x5abdf937e070 ---------A T 02880 PRINT
+    0x5abdf937e110 ---------A   02890 PRINT
+    0x5abdf937e2b0 ---------A   02900 PRINT "THE NUMBER OF FOREIGN WORKERS HAS EXCEEDED THE NUMBER"
+    0x5abdf937e430 ---------A   02910 PRINT "OF COUNTRYMEN. AS A MINORITY, THEY HAVE REVOLTED AND"
+    0x5abdf937e5a0 ---------A   02920 PRINT "TAKEN OVER THE COUNTRY."
+    0x5abdf937e8e0 ---------A T 02930 IF RND(1)<=.5 THEN 2970
+    0x5abdf937ea70 ---------A   02940 PRINT "YOU HAVE BEEN THROWN OUT OF OFFICE AND ARE NOW"
+    0x5abdf937ebc0 ---------A   02950 PRINT "RESIDING IN PRISON."
+    0x5abdf937ec50 ---------A   02960 GOTO 2980
+    0x5abdf937eda0 ---------A T 02970 PRINT "YOU HAVE BEEN ASSASSINATED."
+    0x5abdf937ee10 ---------A T 02980 PRINT
+    0x5abdf937ee80 ---------A   02990 PRINT
+    0x5abdf937eed0 ---------A   03000 STOP
+    0x5abdf937ef50 ---------A T 03010 PRINT
+    0x5abdf937efe0 ---------A   03020 PRINT
+    0x5abdf937f270 ---------A   03030 PRINT B5;"COUNTRYMEN DIED IN ONE YEAR!!!!!"
+    0x5abdf937f410 ---------A   03040 PRINT "DUE TO THIS EXTREME MISMANAGEMENT, YOU HAVE NOT ONLY"
+    0x5abdf937f580 ---------A   03050 PRINT "BEEN IMPEACHED AND THROWN OUT OF OFFICE, BUT YOU"
+    0x5abdf937fb10 ---------A   03060 M6=INT(RND(1)*10)
+    0x5abdf937fd60 ---------A   03070 IF M6<=3 THEN 3100
+    0x5abdf937ffd0 ---------A   03080 IF M6<=6 THEN 3120
+    0x5abdf9380250 ---------A   03090 IF M6<=10 THEN 3140
+    0x5abdf93803c0 ---------A T 03100 PRINT "ALSO HAD YOUR LEFT EYE GOUGED OUT!"
+    0x5abdf9380450 ---------A   03110 GOTO 2980
+    0x5abdf93805b0 ---------A T 03120 PRINT "HAVE ALSO GAINED A VERY BAD REPUTATION."
+    0x5abdf9380640 ---------A   03130 GOTO 2980
+    0x5abdf93807a0 ---------A T 03140 PRINT "HAVE ALSO BEEN DECLARED NATIONAL FINK."
+    0x5abdf9380810 ---------A   03150 GOTO 2980
+    0x5abdf9380870 ---------A T 03160 PRINT
+    0x5abdf9380910 ---------A   03170 PRINT
+    0x5abdf9380ab0 ---------A   03180 PRINT "OVER ONE THIRD OF THE POPULTATION HAS DIED SINCE YOU"
+    0x5abdf9380c30 ---------A   03190 PRINT "WERE ELECTED TO OFFICE. THE PEOPLE (REMAINING)"
+    0x5abdf9380d80 ---------A   03200 PRINT "HATE YOUR GUTS."
+    0x5abdf9380e00 ---------A   03210 GOTO 2930
+    0x5abdf9381160 ---------A T 03220 IF B5-F1<2 THEN 2850
+    0x5abdf9381210 ---------A   03230 PRINT
+    0x5abdf93813b0 ---------A   03240 PRINT "MONEY WAS LEFT OVER IN THE TREASURY WHICH YOU DID"
+    0x5abdf9381550 ---------A   03250 PRINT "NOT SPEND. AS A RESULT, SOME OF YOUR COUNTRYMEN DIED"
+    0x5abdf93816f0 ---------A   03260 PRINT "OF STARVATION. THE PUBLIC IS ENRAGED AND YOU HAVE"
+    0x5abdf9381870 ---------A   03270 PRINT "BEEN FORCED TO EITHER RESIGN OR COMMIT SUICIDE."
+    0x5abdf93819f0 ---------A   03280 PRINT "THE CHOICE IS YOURS."
+    0x5abdf9381b80 ---------A   03290 PRINT "IF YOU CHOOSE THE LATTER, PLEASE TURN OFF YOUR COMPUTER"
+    0x5abdf9381cd0 ---------A   03300 PRINT "BEFORE PROCEEDING."
+    0x5abdf9381d40 ---------A   03310 GOTO 2980
+    0x5abdf9381da0 ---------A T 03320 PRINT
+    0x5abdf9381e30 ---------A   03330 PRINT
+    0x5abdf9381fc0 ---------A   03340 PRINT "CONGRATULATIONS!!!!!!!!!!!!!!!!!!"
+    0x5abdf9382350 ---------A   03350 PRINT "YOU HAVE SUCCESFULLY COMPLETED YOUR";N5;"YEAR TERM"
+    0x5abdf93824f0 ---------A   03360 PRINT "OF OFFICE. YOU WERE, OF COURSE, EXTREMELY LUCKY, BUT"
+    0x5abdf93826a0 ---------A   03370 PRINT "NEVERTHELESS, IT'S QUITE AN ACHIEVEMENT. GOODBYE AND GOOD"
+    0x5abdf9382830 ---------A   03380 PRINT "LUCK - YOU'LL PROBABLY NEED IT IF YOU'RE THE TYPE THAT"
+    0x5abdf9382980 ---------A   03390 PRINT "PLAYS THIS GAME."
+    0x5abdf9382a20 ---------A   03400 GOTO 2980
+    0x5abdf9382bb0 ---------A T 03410 PRINT "HOW MANY YEARS HAD YOU BEEN IN OFFICE WHEN INTERRUPTED";
+    0x5abdf9382d00 ---------A   03420 INPUT X5
+    0x5abdf9382f60 ---------A   03430 IF X5<0 THEN 2980
+    0x5abdf93831f0 ---------A   03440 IF X5<8 THEN 3470
+    0x5abdf9383570 ---------A   03450 PRINT "   COME ON, YOUR TERM IN OFFICE IS ONLY";N5;"YEARS."
+    0x5abdf9383600 ---------A   03460 GOTO 3410
+    0x5abdf9383770 ---------A T 03470 PRINT "HOW MUCH DID YOU HAVE IN THE TREASURY";
+    0x5abdf93838c0 ---------A   03480 INPUT A
+    0x5abdf9383b30 ---------A   03490 IF A<0 THEN 2980
+    0x5abdf9383cb0 ---------A   03500 PRINT "HOW MANY COUNTRYMEN";    
+    0x5abdf9383e00 ---------A   03510 INPUT B
+    0x5abdf9384070 ---------A   03520 IF B<0 THEN 2980
+    0x5abdf93841f0 ---------A   03530 PRINT "HOW MANY WORKERS";
+    0x5abdf9384340 ---------A   03540 INPUT C
+    0x5abdf93845c0 ---------A   03550 IF C<0 THEN 2980
+    0x5abdf9384750 ---------A T 03560 PRINT "HOW MANY SQUARE MILES OF LAND";
+    0x5abdf9371b60 ---------A   03570 INPUT D
+    0x5abdf9371dd0 ---------A   03580 IF D<0 THEN 2980
+    0x5abdf9372030 ---------A   03590 IF D>2000 THEN 3610
+    0x5abdf9385800 ---------A   03600 IF D>12700 THEN 100
+    0x5abdf93859b0 ---------A T 03610 PRINT "   COME ON, YOU STARTED WITH 1000 SQ. MILES OF FARM LAND"
+    0x5abdf9385b20 ---------A   03620 PRINT "   AND 10,000 SQ. MILES OF FOREST LAND."
+    0x5abdf9385b90 ---------A   03630 GOTO 3560
+    0x5abdf9385eb0 ---------A T 03640 X5=X5+1
+    0x5abdf93860c0 ---------A   03650 B5=0
+    0x5abdf9386130 ---------A   03660 GOTO 1270
+    0x5abdf9386170 ---------A   03670 END
+ */
+
 //---------------------------------------------------------------------------
 // $Header$ 
 //
@@ -113,818 +860,3 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
-    // 01000 PRINT TAB(34);"KING"
-    b2c_printf("King\n");
-    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    b2c_printf("Creative computing  morristown, new jersey\n");
-    // 01020 PRINT:PRINT:PRINT
-    b2c_printf("");
-    // 01030 PRINT "DO YOU WANT INSTRUCTIONS";
-    b2c_printf("Do you want instructions");
-    // 01040 INPUT Z$
-    // Start of Basic INPUT statement 01040
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtos(&Z_str,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01040
-    // 01050 N5=8
-    N5_int = 8;
-    // 01060 IF LEFT$(Z$,1)="N" THEN 1230
-    if(LEFT$(Z_str,1)=='N')goto Lbl_01230;
-    // 01070 IF Z$="AGAIN" THEN 3410
-    if(strcmp(Z_str,"Again")==0)goto Lbl_03410;
-    // 01080 PRINT:PRINT:PRINT
-    b2c_printf("");
-    // 01090 PRINT "CONGRATULATIONS! YOU'VE JUST BEEN ELECTED PREMIER OF SETATS"
-    b2c_printf("Congratulations! You've just been elected premier of setats\n");
-    // 01100 PRINT "DETINU, A SMALL COMMUNIST ISLAND 30 BY 70 MILES LONG. YOUR"
-    b2c_printf("Detinu, a small communist island 30 by 70 miles long. Your\n");
-    // 01110 PRINT "JOB IS TO DECIDE UPON THE CONTRY'S BUDGET AND DISTRIBUTE"
-    b2c_printf("Job is to decide upon the contry's budget and distribute\n");
-    // 01120 PRINT "MONEY TO YOUR COUNTRYMEN FROM THE COMMUNAL TREASURY."
-    b2c_printf("Money to your countrymen from the communal treasury.\n");
-    // 01130 PRINT "THE MONEY SYSTEM IS RALLODS, AND EACH PERSON NEEDS 100"
-    b2c_printf("The money system is rallods, and each person needs 100\n");
-    // 01140 PRINT "RALLODS PER YEAR TO SURVIVE. YOUR COUNTRY'S INCOME COMES"
-    b2c_printf("Rallods per year to survive. Your country's income comes\n");
-    // 01150 PRINT "FROM FARM PRODUCE AND TOURISTS VISITING YOUR MAGNIFICENT"
-    b2c_printf("From farm produce and tourists visiting your magnificent\n");
-    // 01160 PRINT "FORESTS, HUNTING, FISHING, ETC. HALF YOUR LAND IS FARM LAND"
-    b2c_printf("Forests, hunting, fishing, etc. Half your land is farm land\n");
-    // 01170 PRINT "WHICH ALSO HAS AN EXCELLENT MINERAL CONTENT AND MAY BE SOLD"
-    b2c_printf("Which also has an excellent mineral content and may be sold\n");
-    // 01180 PRINT "TO FOREIGN INDUSTRY (STRIP MINING) WHO IMPORT AND SUPPORT"
-    b2c_printf("To foreign industry (strip mining) who import and support\n");
-    // 01190 PRINT "THEIR OWN WORKERS. CROPS COST BETWEEN 10 AND 15 RALLODS PER"
-    b2c_printf("Their own workers. Crops cost between 10 and 15 rallods per\n");
-    // 01200 PRINT "SQUARE MILE TO PLANT."
-    b2c_printf("Square mile to plant.\n");
-    // 01210 PRINT "YOUR GOAL IS TO COMPLETE YOUR";N5;"YEAR TERM OF OFFICE."
-    b2c_printf("Your goal is to complete your %d Your goal is to complete yourYear term of office.\n",N5_int);
-    // 01220 PRINT "GOOD LUCK!"
-    b2c_printf("Good luck!\n");
-
-  Lbl_01230:
-    // 01230 PRINT
-    b2c_printf("");
-    // 01240 A=INT(60000+(1000*RND(1))-(1000*RND(1)))
-    A_int = INT(60000+(1000*RND(1))-(1000*RND(1)));
-    // 01250 B=INT(500+(10*RND(1))-(10*RND(1)))
-    B_int = INT(500+(10*RND(1))-(10*RND(1)));
-    // 01260 D=2000
-    D_int = 2000;
-
-  Lbl_01270:
-    // 01270 W=INT(10*RND(1)+95)
-    W_int = INT(10*RND(1)+95);
-    // 01280 PRINT
-    b2c_printf("");
-    // 01290 PRINT "YOU NOW HAVE ";A;" RALLODS IN THE TREASURY."
-    b2c_printf("You now have  %d You now have  rallods in the treasury.\n",A_int);
-    // 01300 PRINT INT(B);:PRINT "COUNTRYMEN, ";
-    b2c_printf("Countrymen, ");
-    // 01310 V9=INT(((RND(1)/2)*10+10))
-    V9_int = INT(((RND(1)/2)*10+10));
-    // 01320 IF C=0 THEN 1340
-    if(C_int==0)goto Lbl_01340;
-    // 01330 PRINT INT(C);"FOREIGN WORKERS, ";
-    b2c_printf("Foreign workers, ");
-
-  Lbl_01340:
-    // 01340 PRINT "AND";INT(D);"SQ. MILES OF LAND."
-    b2c_printf("AndSq. Miles of land.\n");
-    // 01350 PRINT "THIS YEAR INDUSTRY WILL BUY LAND FOR";W;
-    b2c_printf("This year industry will buy land for %d This year industry will buy land for\n",W_int);
-    // 01360 PRINT "RALLODS PER SQUARE MILE."
-    b2c_printf("Rallods per square mile.\n");
-    // 01370 PRINT "LAND CURRENTLY COSTS";V9;"RALLODS PER SQUARE MILE TO PLANT."
-    b2c_printf("Land currently costs %d Land currently costsRallods per square mile to plant.\n",V9_int);
-    // 01380 PRINT
-    b2c_printf("");
-
-  Lbl_01390:
-    // 01390 PRINT "HOW MANY SQUARE MILES DO YOU WISH TO SELL TO INDUSTRY";
-    b2c_printf("How many square miles do you wish to sell to industry");
-    // 01400 INPUT H
-    // Start of Basic INPUT statement 01400
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&H_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01400
-    // 01410 IF H<0 THEN 1390
-    if(H_int<0)goto Lbl_01390;
-    // 01420 IF H<=D-1000 THEN 1500
-    if(H_int<=D_int-1000)goto Lbl_01500;
-    // 01430 PRINT "***  THINK AGAIN. YOU ONLY HAVE";D-1000;"SQUARE MILES OF FARM LAND."
-    b2c_printf("***  think again. You only haveSquare miles of farm land.\n");
-    // 01440 IF X<>0 THEN 1390
-    if(X_int!=0)goto Lbl_01390;
-    // 01450 PRINT:PRINT "(FOREIGN INDUSTRY WILL ONLY BUY FARM LAND BECAUSE"
-    b2c_printf("(foreign industry will only buy farm land because\n");
-    // 01460 PRINT "FOREST LAND IS UNECONOMICAL TO STRIP MINE DUE TO TREES,"
-    b2c_printf("Forest land is uneconomical to strip mine due to trees,\n");
-    // 01470 PRINT "THICKER TOP SOIL, ETC.)"
-    b2c_printf("Thicker top soil, etc.)\n");
-    // 01480 X=1
-    X_int = 1;
-    // 01490 GOTO 1390
-    goto Lbl_01390;
-
-  Lbl_01500:
-    // 01500 D=INT(D-H)
-    D_int = INT(D_int-H_int);
-    // 01510 A=INT(A+(H*W))
-    A_int = INT(A_int+(H_int*W_int));
-
-  Lbl_01520:
-    // 01520 PRINT "HOW MANY RALLODS WILL YOU DISTRIBUTE AMONG YOUR COUNTRYMEN";
-    b2c_printf("How many rallods will you distribute among your countrymen");
-    // 01530 INPUT I
-    // Start of Basic INPUT statement 01530
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&I_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01530
-    // 01540 IF I<0 THEN 1520
-    if(I_int<0)goto Lbl_01520;
-    // 01550 IF I<A THEN 1630
-    if(I_int<A_int)goto Lbl_01630;
-    // 01560 IF I=A THEN 1590
-    if(I_int==A_int)goto Lbl_01590;
-    // 01570 PRINT "   THINK AGAIN. YOU'VE ONLY";A;" RALLODS IN THE TREASURY"
-    b2c_printf("   think again. You've only %d    think again. You've only rallods in the treasury\n",A_int);
-    // 01580 GOTO 1520
-    goto Lbl_01520;
-
-  Lbl_01590:
-    // 01590 J=0
-    J_int = 0;
-    // 01600 K=0
-    K_int = 0;
-    // 01610 A=0
-    A_int = 0;
-    // 01620 GOTO 1980
-    goto Lbl_01980;
-
-  Lbl_01630:
-    // 01630 A=INT(A-I)
-    A_int = INT(A_int-I_int);
-
-  Lbl_01640:
-    // 01640 PRINT "HOW MANY SQUARE MILES DO YOU WISH TO PLANT";
-    b2c_printf("How many square miles do you wish to plant");
-    // 01650 INPUT J
-    // Start of Basic INPUT statement 01650
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&J_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01650
-    // 01660 IF J<0 THEN 1640
-    if(J_int<0)goto Lbl_01640;
-    // 01670 IF J<=B*2 THEN 1700
-    if(J_int<=B_int*2)goto Lbl_01700;
-    // 01680 PRINT "   SORRY, BUT EACH COUNTRYMAN CAN ONLY PLANT 2 SQ. MILES."
-    b2c_printf("   sorry, but each countryman can only plant 2 sq. Miles.\n");
-    // 01690 GOTO 1640
-    goto Lbl_01640;
-
-  Lbl_01700:
-    // 01700 IF J<=D-1000 THEN 1730
-    if(J_int<=D_int-1000)goto Lbl_01730;
-    // 01710 PRINT "   SORRY, BUT YOU'VE ONLY";D-1000;"SQ. MILES OF FARM LAND."
-    b2c_printf("   sorry, but you've onlySq. Miles of farm land.\n");
-    // 01720 GOTO 1640
-    goto Lbl_01640;
-
-  Lbl_01730:
-    // 01730 U1=INT(J*V9)
-    U1_int = INT(J_int*V9_int);
-    // 01740 IF U1<A THEN 1810
-    if(U1_int<A_int)goto Lbl_01810;
-    // 01750 IF U1=A THEN 1780
-    if(U1_int==A_int)goto Lbl_01780;
-    // 01760 PRINT "   THINK AGAIN. YOU'VE ONLY";A;" RALLODS LEFT IN THE TREASURY."
-    b2c_printf("   think again. You've only %d    think again. You've only rallods left in the treasury.\n",A_int);
-    // 01770 GOTO 1640
-    goto Lbl_01640;
-
-  Lbl_01780:
-    // 01780 K=0
-    K_int = 0;
-    // 01790 A=0
-    A_int = 0;
-    // 01800 GOTO 1980
-    goto Lbl_01980;
-
-  Lbl_01810:
-    // 01810 A=A-U1
-    A_int = A_int-U1_int;
-
-  Lbl_01820:
-    // 01820 PRINT "HOW MANY RALLODS DO YOU WISH TO SPEND ON POLLUTION CONTROL";
-    b2c_printf("How many rallods do you wish to spend on pollution control");
-    // 01830 INPUT K
-    // Start of Basic INPUT statement 01830
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&K_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01830
-    // 01840 IF K<0 THEN 1820
-    if(K_int<0)goto Lbl_01820;
-    // 01850 IF K<=A THEN 1980
-    if(K_int<=A_int)goto Lbl_01980;
-    // 01860 PRINT "   THINK AGAIN. YOU ONLY HAVE ";A;" RALLODS REMAINING."
-    b2c_printf("   think again. You only have  %d    think again. You only have  rallods remaining.\n",A_int);
-    // 01870 GOTO 1820
-    goto Lbl_01820;
-
-  Lbl_01880:
-    // 01880 IF H<>0 THEN 1990
-    if(H_int!=0)goto Lbl_01990;
-    // 01890 IF I<>0 THEN 1990
-    if(I_int!=0)goto Lbl_01990;
-    // 01900 IF J<>0 THEN 1990
-    if(J_int!=0)goto Lbl_01990;
-    // 01910 IF K<>0 THEN 1990
-    if(K_int!=0)goto Lbl_01990;
-    // 01920 PRINT
-    b2c_printf("");
-    // 01930 PRINT "GOODBYE."
-    b2c_printf("Goodbye.\n");
-    // 01940 PRINT "(IF YOU WISH TO CONTINUE THIS GAME AT A LATER DATE, ANSWER"
-    b2c_printf("(if you wish to continue this game at a later date, answer\n");
-    // 01950 PRINT "'AGAIN' WHEN ASKED IF YOU WANT INSTRUCTIONS AT THE START"
-    b2c_printf("'again' when asked if you want instructions at the start\n");
-    // 01960 PRINT "OF THE GAME)."
-    b2c_printf("Of the game).\n");
-    // 01970 STOP
-    exit(1);
-
-  Lbl_01980:
-    // 01980 GOTO 1880
-    goto Lbl_01880;
-
-  Lbl_01990:
-    // 01990 PRINT
-    b2c_printf("");
-    // 02000 PRINT
-    b2c_printf("");
-    // 02010 A=INT(A-K)
-    A_int = INT(A_int-K_int);
-    // 02020 A4=A
-    A4_int = A_int;
-    // 02030 IF INT(I/100-B)>=0 THEN 2060
-    if(INT(I_int/100-B_int)>=0)goto Lbl_02060;
-    // 02040 IF I/100<50 THEN 3160
-    if(I_int/100<50)goto Lbl_03160;
-    // 02050 PRINT INT(B-(I/100));"COUNTRYMEN DIED OF STARVATION"
-    b2c_printf("Countrymen died of starvation\n");
-
-  Lbl_02060:
-    // 02060 F1=INT(RND(1)*(2000-D))
-    F1_int = INT(RND(1)*(2000-D_int));
-    // 02070 IF K<25 THEN 2090
-    if(K_int<25)goto Lbl_02090;
-    // 02080 F1=INT(F1/(K/25))
-    F1_int = INT(F1_int/(K_int/25));
-
-  Lbl_02090:
-    // 02090 IF F1<=0 THEN 2110
-    if(F1_int<=0)goto Lbl_02110;
-    // 02100 PRINT F1;"COUNTRYMEN DIED OF CARBON-MONOXIDE AND DUST INHALATION"
-    b2c_printf(" %d „0nIbCountrymen died of carbon-monoxide and dust inhalation\n",F1_int);
-
-  Lbl_02110:
-    // 02110 IF INT((I/100)-B)<0 THEN 2140
-    if(INT((I_int/100)-B_int)<0)goto Lbl_02140;
-    // 02120 IF F1>0 THEN 2190
-    if(F1_int>0)goto Lbl_02190;
-    // 02130 GOTO 2280
-    goto Lbl_02280;
-
-  Lbl_02140:
-    // 02140 PRINT "   YOU WERE FORCED TO SPEND";INT((F1+(B-(I/100)))*9);
-    b2c_printf("   you were forced to spend");
-    // 02150 PRINT "RALLODS ON FUNERAL EXPENSES"
-    b2c_printf("Rallods on funeral expenses\n");
-    // 02160 B5=INT(F1+(B-(I/100)))
-    B5_int = INT(F1_int+(B_int-(I_int/100)));
-    // 02170 A=INT(A-((F1+(B-(I/100)))*9))
-    A_int = INT(A_int-((F1_int+(B_int-(I_int/100)))*9));
-    // 02180 GOTO 2230
-    goto Lbl_02230;
-
-  Lbl_02190:
-    // 02190 PRINT "   YOU WERE FORCED TO SPEND ";INT(F1*9);"RALLODS ON ";
-    b2c_printf("   you were forced to spend Rallods on ");
-    // 02200 PRINT "FUNERAL EXPENSES."
-    b2c_printf("Funeral expenses.\n");
-    // 02210 B5=F1
-    B5_int = F1_int;
-    // 02220 A=INT(A-(F1*9))
-    A_int = INT(A_int-(F1_int*9));
-
-  Lbl_02230:
-    // 02230 IF A>=0 THEN 2270
-    if(A_int>=0)goto Lbl_02270;
-    // 02240 PRINT "   INSUFFICIENT RESERVES TO COVER COST - LAND WAS SOLD"
-    b2c_printf("   insufficient reserves to cover cost - land was sold\n");
-    // 02250 D=INT(D+(A/W))
-    D_int = INT(D_int+(A_int/W_int));
-    // 02260 A=0
-    A_int = 0;
-
-  Lbl_02270:
-    // 02270 B=INT(B-B5)
-    B_int = INT(B_int-B5_int);
-
-  Lbl_02280:
-    // 02280 IF H=0 THEN 2330
-    if(H_int==0)goto Lbl_02330;
-    // 02290 C1=INT(H+(RND(1)*10)-(RND(1)*20))
-    C1_int = INT(H_int+(RND(1)*10)-(RND(1)*20));
-    // 02300 IF C>0 THEN 2320
-    if(C_int>0)goto Lbl_02320;
-    // 02310 C1=C1+20
-    C1_int = C1_int+20;
-
-  Lbl_02320:
-    // 02320 PRINT C1;"WORKERS CAME TO THE COUNTRY AND";
-    b2c_printf(" %d êçx¸Workers came to the country andWorkers came to the country and\n",C1_int);
-
-  Lbl_02330:
-    // 02330 P1=INT(((I/100-B)/10)+(K/25)-((2000-D)/50)-(F1/2))
-    P1_int = INT(((I_int/100-B_int)/10)+(K_int/25)-((2000-D_int)/50)-(F1_int/2));
-    // 02340 PRINT ABS(P1);"COUNTRYMEN ";
-    b2c_printf("Countrymen ");
-    // 02350 IF P1<0 THEN 2380
-    if(P1_int<0)goto Lbl_02380;
-    // 02360 PRINT "CAME TO";
-    b2c_printf("Came to");
-    // 02370 GOTO 2390
-    goto Lbl_02390;
-
-  Lbl_02380:
-    // 02380 PRINT "LEFT";
-    b2c_printf("Left");
-
-  Lbl_02390:
-    // 02390 PRINT " THE ISLAND."
-    b2c_printf(" the island.\n");
-    // 02400 B=INT(B+P1)
-    B_int = INT(B_int+P1_int);
-    // 02410 C=INT(C+C1)
-    C_int = INT(C_int+C1_int);
-    // 02420 U2=INT(((2000-D)*((RND(1)+1.5)/2)))
-    U2_int = INT(((2000-D_int)*((RND(1)+1.5)/2)));
-    // 02430 IF C=0 THEN 2450
-    if(C_int==0)goto Lbl_02450;
-    // 02440 PRINT "OF ";INT(J);"SQ. MILES PLANTED,";
-    b2c_printf("Of Sq. Miles planted,");
-
-  Lbl_02450:
-    // 02450 IF J>U2 THEN 2470
-    if(J_int>U2_int)goto Lbl_02470;
-    // 02460 U2=J
-    U2_int = J_int;
-
-  Lbl_02470:
-    // 02470 PRINT " YOU HARVESTED ";INT(J-U2);"SQ. MILES OF CROPS."
-    b2c_printf(" you harvested Sq. Miles of crops.\n");
-    // 02480 IF U2=0 THEN 2540
-    if(U2_int==0)goto Lbl_02540;
-    // 02490 IF T1>=2 THEN 2540
-    if(T1_int>=2)goto Lbl_02540;
-    // 02500 PRINT "   (DUE TO ";
-    b2c_printf("   (due to ");
-    // 02510 IF T1=0 THEN 2530
-    if(T1_int==0)goto Lbl_02530;
-    // 02520 PRINT "INCREASED ";
-    b2c_printf("Increased ");
-
-  Lbl_02530:
-    // 02530 PRINT "AIR AND WATER POLLUTION FROM FOREIGN INDUSTRY.)"
-    b2c_printf("Air and water pollution from foreign industry.)\n");
-
-  Lbl_02540:
-    // 02540 Q=INT((J-U2)*(W/2))
-    Q_int = INT((J_int-U2_int)*(W_int/2));
-    // 02550 PRINT "MAKING";INT(Q);"RALLODS."
-    b2c_printf("MakingRallods.\n");
-    // 02560 A=INT(A+Q)
-    A_int = INT(A_int+Q_int);
-    // 02570 V1=INT(((B-P1)*22)+(RND(1)*500))
-    V1_int = INT(((B_int-P1_int)*22)+(RND(1)*500));
-    // 02580 V2=INT((2000-D)*15)
-    V2_int = INT((2000-D_int)*15);
-    // 02590 PRINT " YOU MADE";ABS(INT(V1-V2));"RALLODS FROM TOURIST TRADE."
-    b2c_printf(" you madeRallods from tourist trade.\n");
-    // 02600 IF V2=0 THEN 2690
-    if(V2_int==0)goto Lbl_02690;
-    // 02610 IF V1-V2>=V3 THEN 2690
-    if(V1_int-V2_int>=V3_int)goto Lbl_02690;
-    // 02620 PRINT "   DECREASE BECAUSE ";
-    b2c_printf("   decrease because ");
-    // 02630 G1=10*RND(1)
-    G1_int = 10*RND(1);
-    // 02640 IF G1<=2 THEN 2720
-    if(G1_int<=2)goto Lbl_02720;
-    // 02650 IF G1<=4 THEN 2740
-    if(G1_int<=4)goto Lbl_02740;
-    // 02660 IF G1<=6 THEN 2760
-    if(G1_int<=6)goto Lbl_02760;
-    // 02670 IF G1<=8 THEN 2780
-    if(G1_int<=8)goto Lbl_02780;
-    // 02680 IF G1<=10 THEN 2800
-    if(G1_int<=10)goto Lbl_02800;
-
-  Lbl_02690:
-    // 02690 V3=INT(A+V3)
-    V3_int = INT(A_int+V3_int);
-    // 02700 A=INT(A+V3)
-    A_int = INT(A_int+V3_int);
-    // 02710 GOTO 2820
-    goto Lbl_02820;
-
-  Lbl_02720:
-    // 02720 PRINT "FISH POPULATION HAS DWINDLED DUE TO WATER POLLUTION."
-    b2c_printf("Fish population has dwindled due to water pollution.\n");
-    // 02730 GOTO 2690
-    goto Lbl_02690;
-
-  Lbl_02740:
-    // 02740 PRINT "AIR POLLUTION IS KILLING GAME BIRD POPULATION."
-    b2c_printf("Air pollution is killing game bird population.\n");
-    // 02750 GOTO 2690
-    goto Lbl_02690;
-
-  Lbl_02760:
-    // 02760 PRINT "MINERAL BATHS ARE BEING RUINED BY WATER POLLUTION."
-    b2c_printf("Mineral baths are being ruined by water pollution.\n");
-    // 02770 GOTO 2690
-    goto Lbl_02690;
-
-  Lbl_02780:
-    // 02780 PRINT "UNPLEASANT SMOG IS DISCOURAGING SUN BATHERS."
-    b2c_printf("Unpleasant smog is discouraging sun bathers.\n");
-    // 02790 GOTO 2690
-    goto Lbl_02690;
-
-  Lbl_02800:
-    // 02800 PRINT "HOTELS ARE LOOKING SHABBY DUE TO SMOG GRIT."
-    b2c_printf("Hotels are looking shabby due to smog grit.\n");
-    // 02810 GOTO 2690
-    goto Lbl_02690;
-
-  Lbl_02820:
-    // 02820 IF B5>200 THEN 3010
-    if(B5_int>200)goto Lbl_03010;
-    // 02830 IF B<343 THEN 3160
-    if(B_int<343)goto Lbl_03160;
-    // 02840 IF (A4/100)>5 THEN 3220
-    if((A4_int/100)>5)goto Lbl_03220;
-
-  Lbl_02850:
-    // 02850 IF C>B THEN 2880
-    if(C_int>B_int)goto Lbl_02880;
-    // 02860 IF N5-1=X5 THEN 3320
-    if(N5_int-1==X5_int)goto Lbl_03320;
-    // 02870 GOTO 3640
-    goto Lbl_03640;
-
-  Lbl_02880:
-    // 02880 PRINT
-    b2c_printf("");
-    // 02890 PRINT
-    b2c_printf("");
-    // 02900 PRINT "THE NUMBER OF FOREIGN WORKERS HAS EXCEEDED THE NUMBER"
-    b2c_printf("The number of foreign workers has exceeded the number\n");
-    // 02910 PRINT "OF COUNTRYMEN. AS A MINORITY, THEY HAVE REVOLTED AND"
-    b2c_printf("Of countrymen. As a minority, they have revolted and\n");
-    // 02920 PRINT "TAKEN OVER THE COUNTRY."
-    b2c_printf("Taken over the country.\n");
-
-  Lbl_02930:
-    // 02930 IF RND(1)<=.5 THEN 2970
-    if(RND(1)<=0.5)goto Lbl_02970;
-    // 02940 PRINT "YOU HAVE BEEN THROWN OUT OF OFFICE AND ARE NOW"
-    b2c_printf("You have been thrown out of office and are now\n");
-    // 02950 PRINT "RESIDING IN PRISON."
-    b2c_printf("Residing in prison.\n");
-    // 02960 GOTO 2980
-    goto Lbl_02980;
-
-  Lbl_02970:
-    // 02970 PRINT "YOU HAVE BEEN ASSASSINATED."
-    b2c_printf("You have been assassinated.\n");
-
-  Lbl_02980:
-    // 02980 PRINT
-    b2c_printf("");
-    // 02990 PRINT
-    b2c_printf("");
-    // 03000 STOP
-    exit(1);
-
-  Lbl_03010:
-    // 03010 PRINT
-    b2c_printf("");
-    // 03020 PRINT
-    b2c_printf("");
-    // 03030 PRINT B5;"COUNTRYMEN DIED IN ONE YEAR!!!!!"
-    b2c_printf(" %d 1nIbCountrymen died in one year!!!!!\n",B5_int);
-    // 03040 PRINT "DUE TO THIS EXTREME MISMANAGEMENT, YOU HAVE NOT ONLY"
-    b2c_printf("Due to this extreme mismanagement, you have not only\n");
-    // 03050 PRINT "BEEN IMPEACHED AND THROWN OUT OF OFFICE, BUT YOU"
-    b2c_printf("Been impeached and thrown out of office, but you\n");
-    // 03060 M6=INT(RND(1)*10)
-    M6_int = INT(RND(1)*10);
-    // 03070 IF M6<=3 THEN 3100
-    if(M6_int<=3)goto Lbl_03100;
-    // 03080 IF M6<=6 THEN 3120
-    if(M6_int<=6)goto Lbl_03120;
-    // 03090 IF M6<=10 THEN 3140
-    if(M6_int<=10)goto Lbl_03140;
-
-  Lbl_03100:
-    // 03100 PRINT "ALSO HAD YOUR LEFT EYE GOUGED OUT!"
-    b2c_printf("Also had your left eye gouged out!\n");
-    // 03110 GOTO 2980
-    goto Lbl_02980;
-
-  Lbl_03120:
-    // 03120 PRINT "HAVE ALSO GAINED A VERY BAD REPUTATION."
-    b2c_printf("Have also gained a very bad reputation.\n");
-    // 03130 GOTO 2980
-    goto Lbl_02980;
-
-  Lbl_03140:
-    // 03140 PRINT "HAVE ALSO BEEN DECLARED NATIONAL FINK."
-    b2c_printf("Have also been declared national fink.\n");
-    // 03150 GOTO 2980
-    goto Lbl_02980;
-
-  Lbl_03160:
-    // 03160 PRINT
-    b2c_printf("");
-    // 03170 PRINT
-    b2c_printf("");
-    // 03180 PRINT "OVER ONE THIRD OF THE POPULTATION HAS DIED SINCE YOU"
-    b2c_printf("Over one third of the popultation has died since you\n");
-    // 03190 PRINT "WERE ELECTED TO OFFICE. THE PEOPLE (REMAINING)"
-    b2c_printf("Were elected to office. The people (remaining)\n");
-    // 03200 PRINT "HATE YOUR GUTS."
-    b2c_printf("Hate your guts.\n");
-    // 03210 GOTO 2930
-    goto Lbl_02930;
-
-  Lbl_03220:
-    // 03220 IF B5-F1<2 THEN 2850
-    if(B5_int-F1_int<2)goto Lbl_02850;
-    // 03230 PRINT
-    b2c_printf("");
-    // 03240 PRINT "MONEY WAS LEFT OVER IN THE TREASURY WHICH YOU DID"
-    b2c_printf("Money was left over in the treasury which you did\n");
-    // 03250 PRINT "NOT SPEND. AS A RESULT, SOME OF YOUR COUNTRYMEN DIED"
-    b2c_printf("Not spend. As a result, some of your countrymen died\n");
-    // 03260 PRINT "OF STARVATION. THE PUBLIC IS ENRAGED AND YOU HAVE"
-    b2c_printf("Of starvation. The public is enraged and you have\n");
-    // 03270 PRINT "BEEN FORCED TO EITHER RESIGN OR COMMIT SUICIDE."
-    b2c_printf("Been forced to either resign or commit suicide.\n");
-    // 03280 PRINT "THE CHOICE IS YOURS."
-    b2c_printf("The choice is yours.\n");
-    // 03290 PRINT "IF YOU CHOOSE THE LATTER, PLEASE TURN OFF YOUR COMPUTER"
-    b2c_printf("If you choose the latter, please turn off your computer\n");
-    // 03300 PRINT "BEFORE PROCEEDING."
-    b2c_printf("Before proceeding.\n");
-    // 03310 GOTO 2980
-    goto Lbl_02980;
-
-  Lbl_03320:
-    // 03320 PRINT
-    b2c_printf("");
-    // 03330 PRINT
-    b2c_printf("");
-    // 03340 PRINT "CONGRATULATIONS!!!!!!!!!!!!!!!!!!"
-    b2c_printf("Congratulations!!!!!!!!!!!!!!!!!!\n");
-    // 03350 PRINT "YOU HAVE SUCCESFULLY COMPLETED YOUR";N5;"YEAR TERM"
-    b2c_printf("You have succesfully completed your %d You have succesfully completed yourYear term\n",N5_int);
-    // 03360 PRINT "OF OFFICE. YOU WERE, OF COURSE, EXTREMELY LUCKY, BUT"
-    b2c_printf("Of office. You were, of course, extremely lucky, but\n");
-    // 03370 PRINT "NEVERTHELESS, IT'S QUITE AN ACHIEVEMENT. GOODBYE AND GOOD"
-    b2c_printf("Nevertheless, it's quite an achievement. Goodbye and good\n");
-    // 03380 PRINT "LUCK - YOU'LL PROBABLY NEED IT IF YOU'RE THE TYPE THAT"
-    b2c_printf("Luck - you'll probably need it if you're the type that\n");
-    // 03390 PRINT "PLAYS THIS GAME."
-    b2c_printf("Plays this game.\n");
-    // 03400 GOTO 2980
-    goto Lbl_02980;
-
-  Lbl_03410:
-    // 03410 PRINT "HOW MANY YEARS HAD YOU BEEN IN OFFICE WHEN INTERRUPTED";
-    b2c_printf("How many years had you been in office when interrupted");
-    // 03420 INPUT X5
-    // Start of Basic INPUT statement 03420
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&X5_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 03420
-    // 03430 IF X5<0 THEN 2980
-    if(X5_int<0)goto Lbl_02980;
-    // 03440 IF X5<8 THEN 3470
-    if(X5_int<8)goto Lbl_03470;
-    // 03450 PRINT "   COME ON, YOUR TERM IN OFFICE IS ONLY";N5;"YEARS."
-    b2c_printf("   come on, your term in office is only %d    come on, your term in office is onlyYears.\n",N5_int);
-    // 03460 GOTO 3410
-    goto Lbl_03410;
-
-  Lbl_03470:
-    // 03470 PRINT "HOW MUCH DID YOU HAVE IN THE TREASURY";
-    b2c_printf("How much did you have in the treasury");
-    // 03480 INPUT A
-    // Start of Basic INPUT statement 03480
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&A_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 03480
-    // 03490 IF A<0 THEN 2980
-    if(A_int<0)goto Lbl_02980;
-    // 03500 PRINT "HOW MANY COUNTRYMEN";    
-    b2c_printf("How many countrymen");
-    // 03510 INPUT B
-    // Start of Basic INPUT statement 03510
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&B_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 03510
-    // 03520 IF B<0 THEN 2980
-    if(B_int<0)goto Lbl_02980;
-    // 03530 PRINT "HOW MANY WORKERS";
-    b2c_printf("How many workers");
-    // 03540 INPUT C
-    // Start of Basic INPUT statement 03540
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&C_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 03540
-    // 03550 IF C<0 THEN 2980
-    if(C_int<0)goto Lbl_02980;
-
-  Lbl_03560:
-    // 03560 PRINT "HOW MANY SQUARE MILES OF LAND";
-    b2c_printf("How many square miles of land");
-    // 03570 INPUT D
-    // Start of Basic INPUT statement 03570
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&D_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 03570
-    // 03580 IF D<0 THEN 2980
-    if(D_int<0)goto Lbl_02980;
-    // 03590 IF D>2000 THEN 3610
-    if(D_int>2000)goto Lbl_03610;
-    // 03600 IF D>12700 THEN 100
-    if(D_int>1000)goto Lbl_01270;
-
-  Lbl_03610:
-    // 03610 PRINT "   COME ON, YOU STARTED WITH 1000 SQ. MILES OF FARM LAND"
-    b2c_printf("   come on, you started with 1000 sq. Miles of farm land\n");
-    // 03620 PRINT "   AND 10,000 SQ. MILES OF FOREST LAND."
-    b2c_printf("   and 10,000 sq. Miles of forest land.\n");
-    // 03630 GOTO 3560
-    goto Lbl_03560;
-
-  Lbl_03640:
-    // 03640 X5=X5+1
-    X5_int = X5_int+1;
-    // 03650 B5=0
-    B5_int = 0;
-    // 03660 GOTO 1270
-    goto Lbl_01270;
-    // 03670 END
-   return(0);
-};
-
-//---------------------------------------------------------------------------
-// End of $RCSfile$ 
-//---------------------------------------------------------------------------

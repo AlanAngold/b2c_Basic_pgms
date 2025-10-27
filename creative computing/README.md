@@ -24,7 +24,7 @@
 |  22 | jigsawcc             |      NO     |      NO     |   NO  |     NO   |
 |  23 | lem                  |      NO     |      NO     |   NO  |     NO   |
 |  24 | lifetwo              |      NO     |      NO     |   NO  |     NO   |
-|  25 | litquiz              |     YES     |     YES     |  UNK  |    UNK   |
+|  25 | litquiz              |      NO     |      NO     |   NO  |     NO   |
 |  26 | lovepst1             |      NO     |      NO     |   NO  |     NO   |
 |  27 | lovepst2             |      NO     |      NO     |   NO  |     NO   |
 |  28 | lovepst3             |      NO     |      NO     |   NO  |     NO   |

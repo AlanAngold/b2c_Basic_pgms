@@ -8,37 +8,37 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x6390cad36cf0 ---------A   00001 PRINT CHR$(26)
-    0x6390cad36db0 ---------A   00003 PRINT TAB(33);"CHEMST":PRINT
-    0x6390cad36f30 ---------A   00006 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x6390cad34920 ---------A   00008 PRINT:PRINT:PRINT
-    0x6390cad34f80 ---------A   00010 PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
-    0x6390cad34dd0 ---------A   00020 PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
-    0x6390cad34bb0 ---------A   00030 PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
-    0x6390cad37160 ---------A   00040 PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
-    0x6390cad35670 ---------A   00050 PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
-    0x6390cad34fd0 ---------A   00060 PRINT "YOU FACE THE CONSEQUENCES."
-    0x6390cad357d0 ---------A   00070 PRINT:PRINT
-    0x6390cad3cc80 ---------A T 00100 A=INT(RND(1)*50)
-    0x6390cad3d140 ---------A   00110 W=7*A/3
-    0x6390cad3d370 ---------A   00120 PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
-    0x6390cad34610 ---------A   00130 INPUT R
-    0x6390cad3da20 ---------A   00140 D=ABS(W-R)
-    0x6390cad345b0 ---------A   00150 IF D>W/20 THEN 200
-    0x6390cad3def0 ---------A   00160 PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
-    0x6390cad3df60 ---------A   00170 PRINT
-    0x6390cad3e000 ---------A   00180 GOTO 100
-    0x6390cad3e180 ---------A T 00200 PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
-    0x6390cad3e300 ---------A   00210 PRINT " OF QUIVERING PROTOPLASM!":PRINT
-    0x6390cad3e6f0 ---------A   00220 T=T+1
-    0x6390cad3e970 ---------A   00230 IF T=9 THEN 260
-    0x6390cad3eb40 ---------A   00240 PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE.":PRINT
-    0x6390cad3ebe0 ---------A   00250 GOTO 100
-    0x6390cad3ed80 ---------A T 00260 PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
-    0x6390cad3ef00 ---------A   00270 PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
-    0x6390cad3f010 ---------A   00275 PRINT:PRINT:PRINT
-    0x6390cad3f080 ---------A   00280 RUN "MENU"
-    0x6390cad3f280 ---------A   00999 INPUT L9
+    0x5e2d1ce93db0 ---------A   00001 PRINT CHR$(26)
+    0x5e2d1ce93e70 ---------A   00003 PRINT TAB(33);"CHEMST":PRINT
+    0x5e2d1ce93ff0 ---------A   00006 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5e2d1ce919e0 ---------A   00008 PRINT:PRINT:PRINT
+    0x5e2d1ce92040 ---------A   00010 PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
+    0x5e2d1ce91e90 ---------A   00020 PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
+    0x5e2d1ce91c70 ---------A   00030 PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
+    0x5e2d1ce94220 ---------A   00040 PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
+    0x5e2d1ce92730 ---------A   00050 PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
+    0x5e2d1ce92090 ---------A   00060 PRINT "YOU FACE THE CONSEQUENCES."
+    0x5e2d1ce92890 ---------A   00070 PRINT:PRINT
+    0x5e2d1ce99d40 ---------A T 00100 A=INT(RND(1)*50)
+    0x5e2d1ce9a200 ---------A   00110 W=7*A/3
+    0x5e2d1ce9a430 ---------A   00120 PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
+    0x5e2d1ce916d0 ---------A   00130 INPUT R
+    0x5e2d1ce9aae0 ---------A   00140 D=ABS(W-R)
+    0x5e2d1ce91670 ---------A   00150 IF D>W/20 THEN 200
+    0x5e2d1ce9afb0 ---------A   00160 PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
+    0x5e2d1ce9b020 ---------A   00170 PRINT
+    0x5e2d1ce9b0c0 ---------A   00180 GOTO 100
+    0x5e2d1ce9b240 ---------A T 00200 PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
+    0x5e2d1ce9b3c0 ---------A   00210 PRINT " OF QUIVERING PROTOPLASM!":PRINT
+    0x5e2d1ce9b7b0 ---------A   00220 T=T+1
+    0x5e2d1ce9ba30 ---------A   00230 IF T=9 THEN 260
+    0x5e2d1ce9bc00 ---------A   00240 PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE.":PRINT
+    0x5e2d1ce9bca0 ---------A   00250 GOTO 100
+    0x5e2d1ce9be40 ---------A T 00260 PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
+    0x5e2d1ce9bfc0 ---------A   00270 PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
+    0x5e2d1ce9c0d0 ---------A   00275 PRINT:PRINT:PRINT
+    0x5e2d1ce9c140 ---------A   00280 RUN "MENU"
+    0x5e2d1ce9c340 ---------A   00999 INPUT L9
  */
 
 /*
@@ -60,7 +60,7 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x6390cad36cf0 (00001)   0x000000000000 (00000)   0x6390cad3f280 (00999)   0x6390cad3f280 (00999)   
+   A) 0x5e2d1ce93db0 (00001)   0x5e2d1ce93db0 (00001)   0x5e2d1ce9c340 (00999)   0x5e2d1ce9c340 (00999)   
 
 
  */
@@ -82,7 +82,7 @@
 /*
  *  Symbol Table Listing for 'basic/chemist.bas'
  *
-    A                        Float       
+    A                        Integer     
     ABS             Function Integer         args=1, int    
     ASC             Function Integer         args=1, char*  
     ATN             Function Float           args=1, float  
@@ -94,7 +94,7 @@
     CVD             Function Float           args=1, float  
     CVI             Function Integer         args=1, char*  
     CVS             Function Float           args=1, char*  
-    D                        Float       
+    D                        Integer     
     ENVIRON$        Function String          args=1, int    
     EOF             Function Integer         args=1, int    
     EXP             Function Float           args=1, int    
@@ -107,7 +107,7 @@
     INSTR           Function Integer         args=3, int    char*  char*  
     INT             Function Integer         args=1, float  
     IOCTL$          Function String          args=1, int    
-    L9                       Float       
+    L9                       Integer     
     LEFT$           Function String          args=2, char*  int    
     LEN             Function Integer         args=1, char*  
     LOC             Function Integer         args=1, int    
@@ -127,25 +127,26 @@
     PMAP            Function Integer         args=2, int    int    
     POINT           Function Integer         args=2, int    int    
     POS             Function Integer         args=1, Any    
-    R                        Float       
+    R                        Integer     
     RIGHT$          Function String          args=2, char*  int    
     RND             Function Float           args=1, int    
     SGN             Function Integer         args=1, int    
     SIN             Function Float           args=1, float  
     SPACE$          Function String          args=1, int    
-    SPC             Function Integer         args=1, int    
+    SPC             Function Unknown (0)    args=1, int    
     SQR             Function Float           args=1, float  
     STICK           Function Integer         args=1, int    
     STR$            Function String          args=1, float  
     STRING$         Function String          args=2, int    int    
-    T                        Float       
+    T                        Integer     
+    TAB             Function Unknown (0)    args=1, int    
     TAB$            Function String          args=1, int    
     TAN             Function Float           args=1, int    
     TIMER           Function Float           args=0, 
     VAL             Function Integer         args=1, char*  
     VARPTR          Function Integer         args=1, Any    
     VARPTR$         Function String          args=1, Any    
-    W                        Float       
+    W                        Integer     
 
  */
 
@@ -160,37 +161,37 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x6390cad36cf0 ---------A   01000 PRINT CHR$(26)
-    0x6390cad36db0 ---------A   01010 PRINT TAB(10103);"CHEMST":PRINT
-    0x6390cad36f30 ---------A   01020 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x6390cad34920 ---------A   01030 PRINT:PRINT:PRINT
-    0x6390cad34f80 ---------A   01040 PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
-    0x6390cad34dd0 ---------A   01050 PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
-    0x6390cad34bb0 ---------A   01060 PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
-    0x6390cad37160 ---------A   01070 PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
-    0x6390cad35670 ---------A   01080 PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
-    0x6390cad34fd0 ---------A   01090 PRINT "YOU FACE THE CONSEQUENCES."
-    0x6390cad357d0 ---------A   01100 PRINT:PRINT
-    0x6390cad3cc80 ---------A T 01110 A=INT(RND(1)*50)
-    0x6390cad3d140 ---------A   01120 W=7*A/3
-    0x6390cad3d370 ---------A   01130 PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
-    0x6390cad34610 ---------A   01140 INPUT R
-    0x6390cad3da20 ---------A   01150 D=ABS(W-R)
-    0x6390cad345b0 ---------A   01160 IF D>W/20 THEN 1200
-    0x6390cad3def0 ---------A   01170 PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
-    0x6390cad3df60 ---------A   01180 PRINT
-    0x6390cad3e000 ---------A   01190 GOTO 1110
-    0x6390cad3e180 ---------A T 01200 PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
-    0x6390cad3e300 ---------A   01210 PRINT " OF QUIVERING PROTOPLASM!":PRINT
-    0x6390cad3e6f0 ---------A   01220 T=T+1
-    0x6390cad3e970 ---------A   01230 IF T=9 THEN 1260
-    0x6390cad3eb40 ---------A   01240 PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE.":PRINT
-    0x6390cad3ebe0 ---------A   01250 GOTO 1110
-    0x6390cad3ed80 ---------A T 01260 PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
-    0x6390cad3ef00 ---------A   01270 PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
-    0x6390cad3f010 ---------A   01280 PRINT:PRINT:PRINT
-    0x6390cad3f080 ---------A   01290 RUN "MENU"
-    0x6390cad3f280 ---------A   01300 INPUT L9
+    0x5e2d1ce93db0 ---------A   01000 PRINT CHR$(26)
+    0x5e2d1ce93e70 ---------A   01010 PRINT TAB(10103);"CHEMST":PRINT
+    0x5e2d1ce93ff0 ---------A   01020 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5e2d1ce919e0 ---------A   01030 PRINT:PRINT:PRINT
+    0x5e2d1ce92040 ---------A   01040 PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
+    0x5e2d1ce91e90 ---------A   01050 PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
+    0x5e2d1ce91c70 ---------A   01060 PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
+    0x5e2d1ce94220 ---------A   01070 PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
+    0x5e2d1ce92730 ---------A   01080 PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
+    0x5e2d1ce92090 ---------A   01090 PRINT "YOU FACE THE CONSEQUENCES."
+    0x5e2d1ce92890 ---------A   01100 PRINT:PRINT
+    0x5e2d1ce99d40 ---------A T 01110 A=INT(RND(1)*50)
+    0x5e2d1ce9a200 ---------A   01120 W=7*A/3
+    0x5e2d1ce9a430 ---------A   01130 PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
+    0x5e2d1ce916d0 ---------A   01140 INPUT R
+    0x5e2d1ce9aae0 ---------A   01150 D=ABS(W-R)
+    0x5e2d1ce91670 ---------A   01160 IF D>W/20 THEN 1200
+    0x5e2d1ce9afb0 ---------A   01170 PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
+    0x5e2d1ce9b020 ---------A   01180 PRINT
+    0x5e2d1ce9b0c0 ---------A   01190 GOTO 1110
+    0x5e2d1ce9b240 ---------A T 01200 PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
+    0x5e2d1ce9b3c0 ---------A   01210 PRINT " OF QUIVERING PROTOPLASM!":PRINT
+    0x5e2d1ce9b7b0 ---------A   01220 T=T+1
+    0x5e2d1ce9ba30 ---------A   01230 IF T=9 THEN 1260
+    0x5e2d1ce9bc00 ---------A   01240 PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE.":PRINT
+    0x5e2d1ce9bca0 ---------A   01250 GOTO 1110
+    0x5e2d1ce9be40 ---------A T 01260 PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
+    0x5e2d1ce9bfc0 ---------A   01270 PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
+    0x5e2d1ce9c0d0 ---------A   01280 PRINT:PRINT:PRINT
+    0x5e2d1ce9c140 ---------A   01290 RUN "MENU"
+    0x5e2d1ce9c340 ---------A   01300 INPUT L9
  */
 
 //---------------------------------------------------------------------------
@@ -231,12 +232,12 @@ t_data ProgramData[] = {
 //
 // NOTE: Variable names are long to allow for easy editing.
 //---------------------------------------------------------------------------
-float  A_flt;                                     // Basic: A 
-float  D_flt;                                     // Basic: D 
-float  L9_flt;                                    // Basic: L9 
-float  R_flt;                                     // Basic: R 
-float  T_flt;                                     // Basic: T 
-float  W_flt;                                     // Basic: W 
+int    A_int;                                     // Basic: A 
+int    D_int;                                     // Basic: D 
+int    L9_int;                                    // Basic: L9 
+int    R_int;                                     // Basic: R 
+int    T_int;                                     // Basic: T 
+int    W_int;                                     // Basic: W 
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 char* GLBpStr=nullptr;
@@ -286,7 +287,3 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
-    // 01000 PRINT CHR$(26)
-    b2c_printf("");
-    // 01010 PRINT TAB(10103);"CHEMST":PRINT
-    b2c_printf("");

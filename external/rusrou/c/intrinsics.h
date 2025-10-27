@@ -57,6 +57,7 @@
 #define ABS(x)      (((x)<0)?(-x):(x))
 
 #define LINE_BUFFER 1000
+#define WINTH         
 
 typedef unsigned long addr;
 
@@ -66,6 +67,59 @@ char GLB_StrCatBuf[LINE_BUFFER];
 
 #ifndef TESTING
 
+//------------------------------------------------------------------------------
+// These are PRINT (not USING) helper functions.
+//------------------------------------------------------------------------------
+// NOTE: Positions on the output are 1-based not 0-based and the max position is the screen WIDTH (see WIDTH statement)
+// NOTE: TAB,SPC may only be used with PRINT, LPRINT and PRINT# statements.
+
+// SPC Function.  Addeds 'spcs' blanks to output;
+//     SPC() has an implied ';' after it (ie. TAB() at end-of-line will not emit new-line).
+//
+void b2c_SPC(char* buf,int posn)
+{
+    const char* blanks="                                                                                                    ";
+    if((1<=posn)&&(posn<=255)){
+        strcat(buf,blanks+100-posn );
+    }
+}
+
+// TAB Function.  To space to position 'posn' on the output.  If current posn is
+//     already past that position then output a new-line and go to that position.
+//     1 <= posn <= 255
+//     TAB() has an implied ';' after it (ie. TAB() at end-of-line will not emit new-line).
+// 
+void b2c_TAB(char* buf,int posn)
+{
+    if((1<=posn)&&(posn<=255)){
+        int len=strlen(buf);
+        len = posn-len;
+        if(len>0){
+            b2c_SPC(buf,len-1);
+        }else if(len<0){
+            strcat(buf,"\n");
+            b2c_SPC(buf,posn-1);
+        }else{
+            // Do nothing, current buffer position is where TAB(posn) was aiming for.
+        }     
+    }
+}
+
+
+void b2c_FLT(char *buf,float value)
+{
+    char lbuf[100];
+    sprintf(lbuf,"%7.2f",value);
+    strcat(buf,lbuf);
+}
+
+void b2c_INT(char *buf,int value)
+{
+    char lbuf[100];
+    sprintf(lbuf,"%d",value);
+    if(value>=0) strcat(buf," ");
+    strcat(buf,lbuf);
+}
 
 //------------------------------------------------------------------------------
 // Changed name MyFpf to b2c_fprintf 

@@ -1,3 +1,321 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of basic/onecheck.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x626f9297eb80 ---------A   00002 PRINT TAB(30);"ONE CHECK"
+    0x626f9297ff30 ---------A   00004 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x626f929800b0 ---------A   00006 PRINT: PRINT: PRINT
+    0x626f9297da20 ---------A   00008 DIM A(64)
+    0x626f9297d830 ---------A   00010 PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
+    0x626f9297de40 ---------A   00015 PRINT
+    0x626f9297f6f0 ---------A   00020 PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
+    0x626f92980100 ---------A   00025 PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
+    0x626f9297e670 ---------A   00030 PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
+    0x626f9297e780 ---------A   00035 PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
+    0x626f929858f0 ---------A   00040 PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
+    0x626f92985a90 ---------A   00045 PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
+    0x626f92985c30 ---------A   00050 PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
+    0x626f92985d80 ---------A   00055 PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
+    0x626f92985e90 ---------A   00060 PRINT "QUESTION 'JUMP FROM ?'"
+    0x626f92985ee0 ---------A   00062 PRINT
+    0x626f92985ff0 ---------A   00063 PRINT "HERE IS THE NUMERICAL BOARD:"
+    0x626f92986040 ---------A   00066 PRINT
+    0x626f9297d6d0 ---------A T 00070 FOR J=1 TO 57 STEP 8
+    0x626f92987540 ---------A   00074 PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
+    0x626f92987c10 ---------A   00075 PRINT TAB(24);J+6;TAB(28);J+7
+    0x626f92987d40 ---------A   00076 NEXT J
+    0x626f92987df0 ---------A   00077 PRINT
+    0x626f92987f60 ---------A   00078 PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
+    0x626f92987fd0 ---------A   00079 PRINT
+    0x626f9297d670 ---------A   00080 FOR J=1 TO 64
+    0x626f92988540 ---------A   00082 A(J)=1
+    0x626f92988670 ---------A   00084 NEXT J
+    0x626f929889f0 ---------A   00086 FOR J=19 TO 43 STEP 8
+    0x626f92988ed0 ---------A   00088 FOR I=J TO J+3
+    0x626f929891d0 ---------A   00090 A(I)=0
+    0x626f92989300 ---------A   00092 NEXT I
+    0x626f92989440 ---------A   00094 NEXT J
+    0x626f92989930 ---------A   00096 M=0
+    0x626f929899a0 ---------A   00098 GOTO 340
+    0x626f92989bc0 ---------A T 00100 INPUT "JUMP FROM";F
+    0x626f92989e20 ---------A   00105 IF F=0 THEN 500
+    0x626f9298a060 ---------A   00110 INPUT "TO";T
+    0x626f9298a0c0 ---------A   00112 PRINT
+    0x626f9298a140 ---------A   00118 REM *** CHECK LEGALITY OF MOVE
+    0x626f9298a760 ---------A   00120 F1=INT((F-1)/8)
+    0x626f9298ac70 ---------A   00130 F2=F-8*F1
+    0x626f9298b280 ---------A   00140 T1=INT((T-1)/8)
+    0x626f9298b790 ---------A   00150 T2=T-8*T1
+    0x626f9298b9e0 ---------A   00160 IF F1>7 THEN 230
+    0x626f9298bc40 ---------A   00170 IF T1>7 THEN 230
+    0x626f9298bea0 ---------A   00180 IF F2>8 THEN 230
+    0x626f9298c110 ---------A   00190 IF T2>8 THEN 230
+    0x626f9298c580 ---------A   00200 IF ABS(F1-T1)<>2 THEN 230
+    0x626f9298c9f0 ---------A   00210 IF ABS(F2-T2)<>2 THEN 230
+    0x626f9298cf90 ---------A   00212 IF A((T+F)/2)=0 THEN 230
+    0x626f9298d2d0 ---------A   00215 IF A(F)=0 THEN 230
+    0x626f9298d610 ---------A   00220 IF A(T)=1 THEN 230
+    0x626f9298d6a0 ---------A   00225 GOTO 250
+    0x626f9298d7f0 ---------A T 00230 PRINT "ILLEGAL MOVE.  TRY AGAIN..."
+    0x626f9298d870 ---------A   00240 GOTO 100
+    0x626f9298d8d0 ---------A   00245 REM *** UPDATE BOARD
+    0x626f9298dbd0 ---------A T 00250 A(T)=1
+    0x626f9298dec0 ---------A   00260 A(F)=0
+    0x626f9298e410 ---------A   00270 A((T+F)/2)=0
+    0x626f9298e740 ---------A   00290 M=M+1
+    0x626f9298e7b0 ---------A   00310 REM *** PRINT BOARD
+    0x626f9298eb60 ---------A T 00340 FOR J=1 TO 57 STEP 8
+    0x626f9298ef80 ---------A   00350 FOR I=J TO J+7
+    0x626f9298f1e0 ---------A   00360 PRINT A(I);
+    0x626f9298f720 ---------A   00370 NEXT I
+    0x626f9298f7a0 ---------A   00380 PRINT
+    0x626f9298f8d0 ---------A   00390 NEXT J
+    0x626f9298f950 ---------A   00400 PRINT
+    0x626f9298f9d0 ---------A   00410 GOTO 100
+    0x626f9298fa40 ---------A   00490 REM *** END GAME SUMMARY
+    0x626f9298fd20 ---------A T 00500 S=0
+    0x626f9298fff0 ---------A   00510 FOR I=1 TO 64
+    0x626f92990430 ---------A   00520 S=S+A(I)
+    0x626f92990560 ---------A   00530 NEXT I
+    0x626f92990b40 ---------A   00540 PRINT:PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
+    0x626f92990ca0 ---------A   00550 PRINT "REMAINING ON THE BOARD."
+    0x626f92990d20 ---------A   00560 PRINT
+    0x626f92990f50 ---------A T 00562 INPUT "TRY AGAIN";A$
+    0x626f929911d0 ---------A   00570 IF A$="YES" THEN 70
+    0x626f92991470 ---------A   00575 IF A$="NO" THEN 600
+    0x626f929915e0 ---------A   00580 PRINT "PLEASE ANSWER 'YES' OR 'NO'."
+    0x626f92991650 ---------A   00590 GOTO 562
+    0x626f929916c0 ---------A T 00600 PRINT
+    0x626f92991820 ---------A   00610 PRINT "O.K.  HOPE YOU HAD FUN!!"
+    0x626f92991870 ---------A   00999 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     00070      00570T
+     00100      00240T, 00410T
+     00230      00160T, 00170T, 00180T, 00190T, 00200T, 00210T, 00212T, 00215T, 
+                00220T
+     00250      00225T
+     00340      00098T
+     00500      00105T
+     00562      00590T
+     00600      00575T
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
+  --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
+   A) 0x626f9297eb80 (00002)   0x626f9297eb80 (00002)   0x626f92991870 (00999)   0x626f92991870 (00999)   
+
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     01860 - 10000    8150 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for 'basic/onecheck.bas'
+ *
+    A               Array    Integer         {0,63} 
+    A$                       String      
+    ABS             Function Integer         args=1, int    
+    ASC             Function Integer         args=1, char*  
+    ATN             Function Float           args=1, float  
+    CDBL            Function Float           args=1, int    
+    CHR$            Function String          args=1, int    
+    CINT            Function Integer         args=1, float  
+    COS             Function Float           args=1, float  
+    CSNG            Function Float           args=1, int    
+    CVD             Function Float           args=1, float  
+    CVI             Function Integer         args=1, char*  
+    CVS             Function Float           args=1, char*  
+    ENVIRON$        Function String          args=1, int    
+    EOF             Function Integer         args=1, int    
+    EXP             Function Float           args=1, int    
+    EXTERR          Function Integer         args=1, int    
+    F                        Integer     
+    F1                       Integer     
+    F2                       Integer     
+    FIX             Function Integer         args=1, float  
+    FRE             Function Integer         args=1, char*  
+    HEX$            Function String          args=1, int    
+    I                        Integer     
+    INP             Function Integer         args=1, int    
+    INPUT$          Function String          args=2, int    int    
+    INSTR           Function Integer         args=3, int    char*  char*  
+    INT             Function Integer         args=1, float  
+    IOCTL$          Function String          args=1, int    
+    J                        Integer     
+    LEFT$           Function String          args=2, char*  int    
+    LEN             Function Integer         args=1, char*  
+    LOC             Function Integer         args=1, int    
+    LOF             Function Integer         args=1, int    
+    LOG             Function Float           args=1, float  
+    LPOS            Function Integer         args=1, Any    
+    M                        Integer     
+    MAX             Function Integer         args=1, int    
+    MID$            Function String          args=2, char*  int    
+    MIN             Function Integer         args=1, int    
+    MKD$            Function String          args=1, int    
+    MKI$            Function String          args=1, float  
+    MKS$            Function String          args=1, float  
+    OCT$            Function String          args=1, float  
+    PEEK            Function Integer         args=1, int    
+    PEN             Function Integer         args=1, char*  
+    PLAY            Function Integer         args=1, Any    
+    PMAP            Function Integer         args=2, int    int    
+    POINT           Function Integer         args=2, int    int    
+    POS             Function Integer         args=1, Any    
+    RIGHT$          Function String          args=2, char*  int    
+    RND             Function Float           args=1, int    
+    S                        Integer     
+    SGN             Function Integer         args=1, int    
+    SIN             Function Float           args=1, float  
+    SPACE$          Function String          args=1, int    
+    SPC             Function Unknown (0)    args=1, int    
+    SQR             Function Float           args=1, float  
+    STICK           Function Integer         args=1, int    
+    STR$            Function String          args=1, float  
+    STRING$         Function String          args=2, int    int    
+    T                        Integer     
+    T1                       Integer     
+    T2                       Integer     
+    TAB             Function Unknown (0)    args=1, int    
+    TAB$            Function String          args=1, int    
+    TAN             Function Float           args=1, int    
+    TIMER           Function Float           args=0, 
+    VAL             Function Integer         args=1, char*  
+    VARPTR          Function Integer         args=1, Any    
+    VARPTR$         Function String          args=1, Any    
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of basic/onecheck.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x626f9297eb80 ---------A   01000 PRINT TAB(30);"ONE CHECK"
+    0x626f9297ff30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x626f929800b0 ---------A   01020 PRINT: PRINT: PRINT
+    0x626f9297da20 ---------A   01030 DIM A(64)
+    0x626f9297d830 ---------A   01040 PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
+    0x626f9297de40 ---------A   01050 PRINT
+    0x626f9297f6f0 ---------A   01060 PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
+    0x626f92980100 ---------A   01070 PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
+    0x626f9297e670 ---------A   01080 PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
+    0x626f9297e780 ---------A   01090 PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
+    0x626f929858f0 ---------A   01100 PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
+    0x626f92985a90 ---------A   01110 PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
+    0x626f92985c30 ---------A   01120 PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
+    0x626f92985d80 ---------A   01130 PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
+    0x626f92985e90 ---------A   01140 PRINT "QUESTION 'JUMP FROM ?'"
+    0x626f92985ee0 ---------A   01150 PRINT
+    0x626f92985ff0 ---------A   01160 PRINT "HERE IS THE NUMERICAL BOARD:"
+    0x626f92986040 ---------A   01170 PRINT
+    0x626f9297d6d0 ---------A T 01180 FOR J=1 TO 57 STEP 8
+    0x626f92987540 ---------A   01190 PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
+    0x626f92987c10 ---------A   01200 PRINT TAB(24);J+6;TAB(28);J+7
+    0x626f92987d40 ---------A   01210 NEXT J
+    0x626f92987df0 ---------A   01220 PRINT
+    0x626f92987f60 ---------A   01230 PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
+    0x626f92987fd0 ---------A   01240 PRINT
+    0x626f9297d670 ---------A   01250 FOR J=1 TO 64
+    0x626f92988540 ---------A   01260 A(J)=1
+    0x626f92988670 ---------A   01270 NEXT J
+    0x626f929889f0 ---------A   01280 FOR J=19 TO 43 STEP 8
+    0x626f92988ed0 ---------A   01290 FOR I=J TO J+3
+    0x626f929891d0 ---------A   01300 A(I)=0
+    0x626f92989300 ---------A   01310 NEXT I
+    0x626f92989440 ---------A   01320 NEXT J
+    0x626f92989930 ---------A   01330 M=0
+    0x626f929899a0 ---------A   01340 GOTO 1620
+    0x626f92989bc0 ---------A T 01350 INPUT "JUMP FROM";F
+    0x626f92989e20 ---------A   01360 IF F=0 THEN 1710
+    0x626f9298a060 ---------A   01370 INPUT "TO";T
+    0x626f9298a0c0 ---------A   01380 PRINT
+    0x626f9298a140 ---------A   01390 REM *** CHECK LEGALITY OF MOVE
+    0x626f9298a760 ---------A   01400 F1=INT((F-1)/8)
+    0x626f9298ac70 ---------A   01410 F2=F-8*F1
+    0x626f9298b280 ---------A   01420 T1=INT((T-1)/8)
+    0x626f9298b790 ---------A   01430 T2=T-8*T1
+    0x626f9298b9e0 ---------A   01440 IF F1>7 THEN 1540
+    0x626f9298bc40 ---------A   01450 IF T1>7 THEN 1540
+    0x626f9298bea0 ---------A   01460 IF F2>8 THEN 1540
+    0x626f9298c110 ---------A   01470 IF T2>8 THEN 1540
+    0x626f9298c580 ---------A   01480 IF ABS(F1-T1)<>2 THEN 1540
+    0x626f9298c9f0 ---------A   01490 IF ABS(F2-T2)<>2 THEN 1540
+    0x626f9298cf90 ---------A   01500 IF A((T+F)/2)=0 THEN 1540
+    0x626f9298d2d0 ---------A   01510 IF A(F)=0 THEN 1540
+    0x626f9298d610 ---------A   01520 IF A(T)=1 THEN 1540
+    0x626f9298d6a0 ---------A   01530 GOTO 1570
+    0x626f9298d7f0 ---------A T 01540 PRINT "ILLEGAL MOVE.  TRY AGAIN..."
+    0x626f9298d870 ---------A   01550 GOTO 1350
+    0x626f9298d8d0 ---------A   01560 REM *** UPDATE BOARD
+    0x626f9298dbd0 ---------A T 01570 A(T)=1
+    0x626f9298dec0 ---------A   01580 A(F)=0
+    0x626f9298e410 ---------A   01590 A((T+F)/2)=0
+    0x626f9298e740 ---------A   01600 M=M+1
+    0x626f9298e7b0 ---------A   01610 REM *** PRINT BOARD
+    0x626f9298eb60 ---------A T 01620 FOR J=1 TO 57 STEP 8
+    0x626f9298ef80 ---------A   01630 FOR I=J TO J+7
+    0x626f9298f1e0 ---------A   01640 PRINT A(I);
+    0x626f9298f720 ---------A   01650 NEXT I
+    0x626f9298f7a0 ---------A   01660 PRINT
+    0x626f9298f8d0 ---------A   01670 NEXT J
+    0x626f9298f950 ---------A   01680 PRINT
+    0x626f9298f9d0 ---------A   01690 GOTO 1350
+    0x626f9298fa40 ---------A   01700 REM *** END GAME SUMMARY
+    0x626f9298fd20 ---------A T 01710 S=0
+    0x626f9298fff0 ---------A   01720 FOR I=1 TO 64
+    0x626f92990430 ---------A   01730 S=S+A(I)
+    0x626f92990560 ---------A   01740 NEXT I
+    0x626f92990b40 ---------A   01750 PRINT:PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
+    0x626f92990ca0 ---------A   01760 PRINT "REMAINING ON THE BOARD."
+    0x626f92990d20 ---------A   01770 PRINT
+    0x626f92990f50 ---------A T 01780 INPUT "TRY AGAIN";A$
+    0x626f929911d0 ---------A   01790 IF A$="YES" THEN 1180
+    0x626f92991470 ---------A   01800 IF A$="NO" THEN 1830
+    0x626f929915e0 ---------A   01810 PRINT "PLEASE ANSWER 'YES' OR 'NO'."
+    0x626f92991650 ---------A   01820 GOTO 1780
+    0x626f929916c0 ---------A T 01830 PRINT
+    0x626f92991820 ---------A   01840 PRINT "O.K.  HOPE YOU HAD FUN!!"
+    0x626f92991870 ---------A   01850 END
+ */
+
 //---------------------------------------------------------------------------
 // $Header$ 
 //
@@ -97,246 +415,3 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
-    // 01000 PRINT TAB(30);"ONE CHECK"
-    b2c_printf("One check\n");
-    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    b2c_printf("Creative computing  morristown, new jersey\n");
-    // 01020 PRINT: PRINT: PRINT
-    b2c_printf("");
-    // 01030 DIM A(64)
-    // 01040 PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
-    b2c_printf("Solitaire checker puzzle by david ahl\n");
-    // 01050 PRINT
-    b2c_printf("");
-    // 01060 PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
-    b2c_printf("48 checkers are placed on the 2 outside spaces of a\n");
-    // 01070 PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
-    b2c_printf("Standard 64-square checkerboard.  The object is to\n");
-    // 01080 PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
-    b2c_printf("Remove as many checkers as possible by diagonal jumps\n");
-    // 01090 PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
-    b2c_printf("(as in standard checkers).  Use the numbered board to\n");
-    // 01100 PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
-    b2c_printf("Indicate the square you wish to jump from and to.  On\n");
-    // 01110 PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
-    b2c_printf("The board printed out on each turn '1' indicates a\n");
-    // 01120 PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
-    b2c_printf("Checker and '0' an empty square.  When you have no\n");
-    // 01130 PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
-    b2c_printf("Possible jumps remaining, input a '0' in response to\n");
-    // 01140 PRINT "QUESTION 'JUMP FROM ?'"
-    b2c_printf("Question 'jump from ?'\n");
-    // 01150 PRINT
-    b2c_printf("");
-    // 01160 PRINT "HERE IS THE NUMERICAL BOARD:"
-    b2c_printf("Here is the numerical board:\n");
-    // 01170 PRINT
-    b2c_printf("");
-
-  Lbl_01180:
-    // 01180 FOR J=1 TO 57 STEP 8
-    for(J_int=1;J_int<=57;J_int+=8){
-        // 01190 PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
-        b2c_printf(" %d [O 5[[O 5[_int+1_int+1_int+1_int+2_int+2_int+2_int+3_int+3_int+3_int+4_int+4_int+4_int+5_int+5\n",J_int);
-        // 01200 PRINT TAB(24);J+6;TAB(28);J+7
-        b2c_printf("");
-        // 01210 NEXT J
-        int dummy_1210=0; // Ignore this line.
-    }; // End-For(J_int)
-    // 01220 PRINT
-    b2c_printf("");
-    // 01230 PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
-    b2c_printf("And here is the opening position of the checkers.\n");
-    // 01240 PRINT
-    b2c_printf("");
-    // 01250 FOR J=1 TO 64
-    for(J_int=1;J_int<=64;J_int++){
-        // 01260 A(J)=1
-        A_int_arr[J_int] = 1;
-        // 01270 NEXT J
-        int dummy_1270=0; // Ignore this line.
-    }; // End-For(J_int)
-    // 01280 FOR J=19 TO 43 STEP 8
-    for(J_int=19;J_int<=43;J_int+=8){
-        // 01290 FOR I=J TO J+3
-        for(I_int=J_int;I_int<=J_int+3;I_int++){
-            // 01300 A(I)=0
-            A_int_arr[I_int] = 0;
-            // 01310 NEXT I
-            int dummy_1310=0; // Ignore this line.
-        }; // End-For(I_int)
-        // 01320 NEXT J
-        int dummy_1320=0; // Ignore this line.
-    }; // End-For(J_int)
-    // 01330 M=0
-    M_int = 0;
-    // 01340 GOTO 1620
-    goto Lbl_01620;
-
-  Lbl_01350:
-    // 01350 INPUT "JUMP FROM";F
-    // Start of Basic INPUT statement 01350
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout,""JUMP FROM"");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&F_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01350
-    // 01360 IF F=0 THEN 1710
-    if(F_int==0)goto Lbl_01710;
-    // 01370 INPUT "TO";T
-    // Start of Basic INPUT statement 01370
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout,""TO"");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&T_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01370
-    // 01380 PRINT
-    b2c_printf("");
-    // 01390 REM *** CHECK LEGALITY OF MOVE
-    // 01400 F1=INT((F-1)/8)
-    F1_int = INT((F_int-1)/8);
-    // 01410 F2=F-8*F1
-    F2_int = F_int-8*F1_int;
-    // 01420 T1=INT((T-1)/8)
-    T1_int = INT((T_int-1)/8);
-    // 01430 T2=T-8*T1
-    T2_int = T_int-8*T1_int;
-    // 01440 IF F1>7 THEN 1540
-    if(F1_int>7)goto Lbl_01540;
-    // 01450 IF T1>7 THEN 1540
-    if(T1_int>7)goto Lbl_01540;
-    // 01460 IF F2>8 THEN 1540
-    if(F2_int>8)goto Lbl_01540;
-    // 01470 IF T2>8 THEN 1540
-    if(T2_int>8)goto Lbl_01540;
-    // 01480 IF ABS(F1-T1)<>2 THEN 1540
-    if(ABS(F1_int-T1_int)!=2)goto Lbl_01540;
-    // 01490 IF ABS(F2-T2)<>2 THEN 1540
-    if(ABS(F2_int-T2_int)!=2)goto Lbl_01540;
-    // 01500 IF A((T+F)/2)=0 THEN 1540
-    if(A_int_arr[(T_int+F_int)/2]==0)goto Lbl_01540;
-    // 01510 IF A(F)=0 THEN 1540
-    if(A_int_arr[F_int]==0)goto Lbl_01540;
-    // 01520 IF A(T)=1 THEN 1540
-    if(A_int_arr[T_int]==1)goto Lbl_01540;
-    // 01530 GOTO 1570
-    goto Lbl_01570;
-
-  Lbl_01540:
-    // 01540 PRINT "ILLEGAL MOVE.  TRY AGAIN..."
-    b2c_printf("Illegal move.  Try again...\n");
-    // 01550 GOTO 1350
-    goto Lbl_01350;
-    // 01560 REM *** UPDATE BOARD
-
-  Lbl_01570:
-    // 01570 A(T)=1
-    A_int_arr[T_int] = 1;
-    // 01580 A(F)=0
-    A_int_arr[F_int] = 0;
-    // 01590 A((T+F)/2)=0
-    A_int_arr[(T_int+F_int)/2] = 0;
-    // 01600 M=M+1
-    M_int = M_int+1;
-    // 01610 REM *** PRINT BOARD
-
-  Lbl_01620:
-    // 01620 FOR J=1 TO 57 STEP 8
-    for(J_int=1;J_int<=57;J_int+=8){
-        // 01630 FOR I=J TO J+7
-        for(I_int=J_int;I_int<=J_int+7;I_int++){
-            // 01640 PRINT A(I);
-            b2c_printf(" %d gO 5[\n",A_int_arr[I_int]);
-            // 01650 NEXT I
-            int dummy_1650=0; // Ignore this line.
-        }; // End-For(I_int)
-        // 01660 PRINT
-        b2c_printf("");
-        // 01670 NEXT J
-        int dummy_1670=0; // Ignore this line.
-    }; // End-For(J_int)
-    // 01680 PRINT
-    b2c_printf("");
-    // 01690 GOTO 1350
-    goto Lbl_01350;
-    // 01700 REM *** END GAME SUMMARY
-
-  Lbl_01710:
-    // 01710 S=0
-    S_int = 0;
-    // 01720 FOR I=1 TO 64
-    for(I_int=1;I_int<=64;I_int++){
-        // 01730 S=S+A(I)
-        S_int = S_int+A_int_arr[I_int];
-        // 01740 NEXT I
-        int dummy_1740=0; // Ignore this line.
-    }; // End-For(I_int)
-    // 01750 PRINT:PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
-    b2c_printf("You made %d You madeJumps and hadJumps and had %d Jumps and hadPieces\n",M_int,S_int);
-    // 01760 PRINT "REMAINING ON THE BOARD."
-    b2c_printf("Remaining on the board.\n");
-    // 01770 PRINT
-    b2c_printf("");
-
-  Lbl_01780:
-    // 01780 INPUT "TRY AGAIN";A$
-    // Start of Basic INPUT statement 01780
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout,""TRY AGAIN"");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtos(&A_str,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01780
-    // 01790 IF A$="YES" THEN 1180
-    if(strcmp(A_str,"Yes")==0)goto Lbl_01180;
-    // 01800 IF A$="NO" THEN 1830
-    if(strcmp(A_str,"No")==0)goto Lbl_01830;
-    // 01810 PRINT "PLEASE ANSWER 'YES' OR 'NO'."
-    b2c_printf("Please answer 'yes' or 'no'.\n");
-    // 01820 GOTO 1780
-    goto Lbl_01780;
-
-  Lbl_01830:
-    // 01830 PRINT
-    b2c_printf("");
-    // 01840 PRINT "O.K.  HOPE YOU HAD FUN!!"
-    b2c_printf("O.K.  Hope you had fun!!\n");
-    // 01850 END
-   return(0);
-};
-
-//---------------------------------------------------------------------------
-// End of $RCSfile$ 
-//---------------------------------------------------------------------------

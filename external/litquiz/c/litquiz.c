@@ -1,3 +1,238 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of basic/litquiz.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5ab82bbddb80 ---------A   00001 PRINT TAB(25);"LITERATURE QUIZ"
+    0x5ab82bbdef30 ---------A   00002 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5ab82bbdf0b0 ---------A   00003 PRINT:PRINT:PRINT
+    0x5ab82bbdc7f0 ---------A   00005 R=0
+    0x5ab82bbdce40 ---------A   00010 PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
+    0x5ab82bbde6f0 ---------A   00012 PRINT: PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
+    0x5ab82bbdf100 ---------A   00013 PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
+    0x5ab82bbdd700 ---------A   00015 PRINT: PRINT "GOOD LUCK!": PRINT: PRINT
+    0x5ab82bbdd890 ---------A   00040 PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
+    0x5ab82bbdce90 ---------A   00042 PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
+    0x5ab82bbdc670 ---------A   00043 INPUT A: IF A=3 THEN 46
+    0x5ab82bbe4e10 ---------A   00044 PRINT "SORRY...FIGARO WAS HIS NAME.": GOTO 50
+    0x5ab82bbe4f10 ---------A T 00046 PRINT "VERY GOOD!  HERE'S ANOTHER."
+    0x5ab82bbe51e0 ---------A   00047 R=R+1
+    0x5ab82bbe52d0 ---------A T 00050 PRINT: PRINT
+    0x5ab82bbe5470 ---------A   00051 PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
+    0x5ab82bbe55d0 ---------A   00052 PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
+    0x5ab82bbe5950 ---------A   00053 INPUT A: IF A=2 THEN 56
+    0x5ab82bbe5ae0 ---------A   00054 PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN.": GOTO 60
+    0x5ab82bbe5c20 ---------A T 00056 PRINT "PRETTY GOOD!"
+    0x5ab82bbe5f50 ---------A   00057 R=R+1
+    0x5ab82bbe6030 ---------A T 00060 PRINT: PRINT
+    0x5ab82bbe61c0 ---------A   00061 PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
+    0x5ab82bbe6320 ---------A   00062 PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
+    0x5ab82bbe66e0 ---------A   00063 INPUT A: IF A=4 THEN 66
+    0x5ab82bbe68d0 ---------A   00064 PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME.": GOTO 70
+    0x5ab82bbe6a20 ---------A T 00066 PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
+    0x5ab82bbe6d50 ---------A   00067 R=R+1
+    0x5ab82bbe6e40 ---------A T 00070 PRINT:PRINT
+    0x5ab82bbe6fe0 ---------A   00071 PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
+    0x5ab82bbe7190 ---------A   00072 PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
+    0x5ab82bbe7540 ---------A   00073 INPUT A: IF A=3 THEN 76
+    0x5ab82bbe76b0 ---------A   00074 PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
+    0x5ab82bbe7930 ---------A   00075 GOTO 80
+    0x5ab82bbe7a70 ---------A T 00076 PRINT "GOOD MEMORY!"
+    0x5ab82bbe7da0 ---------A   00077 R=R+1
+    0x5ab82bbe7e60 ---------A T 00080 PRINT:PRINT
+    0x5ab82bbe80b0 ---------A   00085 IF R=4 THEN 100
+    0x5ab82bbe8340 ---------A   00090 IF R<2 THEN 200
+    0x5ab82bbe84d0 ---------A   00092 PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
+    0x5ab82bbe8630 ---------A   00094 PRINT "READING THE NURSERY GREATS."
+    0x5ab82bbe8680 ---------A   00096 STOP
+    0x5ab82bbe8860 ---------A T 00100 PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
+    0x5ab82bbe89e0 ---------A   00110 PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
+    0x5ab82bbe8b40 ---------A   00120 PRINT "LITERATURE (HA, HA, HA)"
+    0x5ab82bbe8b90 ---------A   00130 STOP
+    0x5ab82bbe8d60 ---------A T 00200 PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
+    0x5ab82bbe8ec0 ---------A   00205 PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
+    0x5ab82bbe8f10 ---------A   00999 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     00046      00043T
+     00050      00044T
+     00056      00053T
+     00060      00054T
+     00066      00063T
+     00070      00064T
+     00076      00073T
+     00080      00075T
+     00100      00085T
+     00200      00090T
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
+  --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
+   A) 0x5ab82bbddb80 (00001)   0x5ab82bbddb80 (00001)   0x5ab82bbe8f10 (00999)   0x5ab82bbe8f10 (00999)   
+
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     01490 - 10000    8520 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for 'basic/litquiz.bas'
+ *
+    A                        Integer     
+    ABS             Function Integer         args=1, int    
+    ASC             Function Integer         args=1, char*  
+    ATN             Function Float           args=1, float  
+    CDBL            Function Float           args=1, int    
+    CHR$            Function String          args=1, int    
+    CINT            Function Integer         args=1, float  
+    COS             Function Float           args=1, float  
+    CSNG            Function Float           args=1, int    
+    CVD             Function Float           args=1, float  
+    CVI             Function Integer         args=1, char*  
+    CVS             Function Float           args=1, char*  
+    ENVIRON$        Function String          args=1, int    
+    EOF             Function Integer         args=1, int    
+    EXP             Function Float           args=1, int    
+    EXTERR          Function Integer         args=1, int    
+    FIX             Function Integer         args=1, float  
+    FRE             Function Integer         args=1, char*  
+    HEX$            Function String          args=1, int    
+    INP             Function Integer         args=1, int    
+    INPUT$          Function String          args=2, int    int    
+    INSTR           Function Integer         args=3, int    char*  char*  
+    INT             Function Integer         args=1, float  
+    IOCTL$          Function String          args=1, int    
+    LEFT$           Function String          args=2, char*  int    
+    LEN             Function Integer         args=1, char*  
+    LOC             Function Integer         args=1, int    
+    LOF             Function Integer         args=1, int    
+    LOG             Function Float           args=1, float  
+    LPOS            Function Integer         args=1, Any    
+    MAX             Function Integer         args=1, int    
+    MID$            Function String          args=2, char*  int    
+    MIN             Function Integer         args=1, int    
+    MKD$            Function String          args=1, int    
+    MKI$            Function String          args=1, float  
+    MKS$            Function String          args=1, float  
+    OCT$            Function String          args=1, float  
+    PEEK            Function Integer         args=1, int    
+    PEN             Function Integer         args=1, char*  
+    PLAY            Function Integer         args=1, Any    
+    PMAP            Function Integer         args=2, int    int    
+    POINT           Function Integer         args=2, int    int    
+    POS             Function Integer         args=1, Any    
+    R                        Integer     
+    RIGHT$          Function String          args=2, char*  int    
+    RND             Function Float           args=1, int    
+    SGN             Function Integer         args=1, int    
+    SIN             Function Float           args=1, float  
+    SPACE$          Function String          args=1, int    
+    SPC             Function Unknown (0)    args=1, int    
+    SQR             Function Float           args=1, float  
+    STICK           Function Integer         args=1, int    
+    STR$            Function String          args=1, float  
+    STRING$         Function String          args=2, int    int    
+    TAB             Function Unknown (0)    args=1, int    
+    TAB$            Function String          args=1, int    
+    TAN             Function Float           args=1, int    
+    TIMER           Function Float           args=0, 
+    VAL             Function Integer         args=1, char*  
+    VARPTR          Function Integer         args=1, Any    
+    VARPTR$         Function String          args=1, Any    
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of basic/litquiz.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5ab82bbddb80 ---------A   01000 PRINT TAB(25);"LITERATURE QUIZ"
+    0x5ab82bbdef30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5ab82bbdf0b0 ---------A   01020 PRINT:PRINT:PRINT
+    0x5ab82bbdc7f0 ---------A   01030 R=0
+    0x5ab82bbdce40 ---------A   01040 PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
+    0x5ab82bbde6f0 ---------A   01050 PRINT: PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
+    0x5ab82bbdf100 ---------A   01060 PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
+    0x5ab82bbdd700 ---------A   01070 PRINT: PRINT "GOOD LUCK!": PRINT: PRINT
+    0x5ab82bbdd890 ---------A   01080 PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
+    0x5ab82bbdce90 ---------A   01090 PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
+    0x5ab82bbdc670 ---------A   01100 INPUT A: IF A=3 THEN 1120
+    0x5ab82bbe4e10 ---------A   01110 PRINT "SORRY...FIGARO WAS HIS NAME.": GOTO 1140
+    0x5ab82bbe4f10 ---------A T 01120 PRINT "VERY GOOD!  HERE'S ANOTHER."
+    0x5ab82bbe51e0 ---------A   01130 R=R+1
+    0x5ab82bbe52d0 ---------A T 01140 PRINT: PRINT
+    0x5ab82bbe5470 ---------A   01150 PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
+    0x5ab82bbe55d0 ---------A   01160 PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
+    0x5ab82bbe5950 ---------A   01170 INPUT A: IF A=2 THEN 1190
+    0x5ab82bbe5ae0 ---------A   01180 PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN.": GOTO 1210
+    0x5ab82bbe5c20 ---------A T 01190 PRINT "PRETTY GOOD!"
+    0x5ab82bbe5f50 ---------A   01200 R=R+1
+    0x5ab82bbe6030 ---------A T 01210 PRINT: PRINT
+    0x5ab82bbe61c0 ---------A   01220 PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
+    0x5ab82bbe6320 ---------A   01230 PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
+    0x5ab82bbe66e0 ---------A   01240 INPUT A: IF A=4 THEN 1260
+    0x5ab82bbe68d0 ---------A   01250 PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME.": GOTO 1280
+    0x5ab82bbe6a20 ---------A T 01260 PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
+    0x5ab82bbe6d50 ---------A   01270 R=R+1
+    0x5ab82bbe6e40 ---------A T 01280 PRINT:PRINT
+    0x5ab82bbe6fe0 ---------A   01290 PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
+    0x5ab82bbe7190 ---------A   01300 PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
+    0x5ab82bbe7540 ---------A   01310 INPUT A: IF A=3 THEN 1340
+    0x5ab82bbe76b0 ---------A   01320 PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
+    0x5ab82bbe7930 ---------A   01330 GOTO 1360
+    0x5ab82bbe7a70 ---------A T 01340 PRINT "GOOD MEMORY!"
+    0x5ab82bbe7da0 ---------A   01350 R=R+1
+    0x5ab82bbe7e60 ---------A T 01360 PRINT:PRINT
+    0x5ab82bbe80b0 ---------A   01370 IF R=4 THEN 1420
+    0x5ab82bbe8340 ---------A   01380 IF R<2 THEN 1460
+    0x5ab82bbe84d0 ---------A   01390 PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
+    0x5ab82bbe8630 ---------A   01400 PRINT "READING THE NURSERY GREATS."
+    0x5ab82bbe8680 ---------A   01410 STOP
+    0x5ab82bbe8860 ---------A T 01420 PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
+    0x5ab82bbe89e0 ---------A   01430 PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
+    0x5ab82bbe8b40 ---------A   01440 PRINT "LITERATURE (HA, HA, HA)"
+    0x5ab82bbe8b90 ---------A   01450 STOP
+    0x5ab82bbe8d60 ---------A T 01460 PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
+    0x5ab82bbe8ec0 ---------A   01470 PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
+    0x5ab82bbe8f10 ---------A   01480 END
+ */
+
 //---------------------------------------------------------------------------
 // $Header$ 
 //
@@ -87,126 +322,3 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
-    // 01000 PRINT TAB(25);"LITERATURE QUIZ"
-    b2c_printf("Literature quiz\n");
-    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    b2c_printf("Creative computing  morristown, new jersey\n");
-    // 01020 PRINT:PRINT:PRINT
-    b2c_printf("");
-    // 01030 R=0
-    R_int = 0;
-    // 01040 PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
-    b2c_printf("Test your knowledge of children's literature.\n");
-    // 01050 PRINT: PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
-    b2c_printf("This is a multiple-choice quiz.\n");
-    // 01060 PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
-    b2c_printf("Type a 1, 2, 3, or 4 after the question mark.\n");
-    // 01070 PRINT: PRINT "GOOD LUCK!": PRINT: PRINT
-    b2c_printf("");
-    // 01080 PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
-    b2c_printf("In pinocchio, what was the name of the cat\n");
-    // 01090 PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
-    b2c_printf("1)tigger, 2)cicero, 3)figaro, 4)guipetto");
-    // 01100 INPUT A: IF A=3 THEN 1120
-    if(A_int==3)goto Lbl_01120;
-    // 01110 PRINT "SORRY...FIGARO WAS HIS NAME.": GOTO 1140
-    goto Lbl_01140;
-
-  Lbl_01120:
-    // 01120 PRINT "VERY GOOD!  HERE'S ANOTHER."
-    b2c_printf("Very good!  Here's another.\n");
-    // 01130 R=R+1
-    R_int = R_int+1;
-
-  Lbl_01140:
-    // 01140 PRINT: PRINT
-    b2c_printf("");
-    // 01150 PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
-    b2c_printf("From whose garden did bugs bunny steal the carrots?\n");
-    // 01160 PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
-    b2c_printf("1)mr. Nixon's, 2)elmer fudd's, 3)clem judd's, 4)stromboli's");
-    // 01170 INPUT A: IF A=2 THEN 1190
-    if(A_int==2)goto Lbl_01190;
-    // 01180 PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN.": GOTO 1210
-    goto Lbl_01210;
-
-  Lbl_01190:
-    // 01190 PRINT "PRETTY GOOD!"
-    b2c_printf("Pretty good!\n");
-    // 01200 R=R+1
-    R_int = R_int+1;
-
-  Lbl_01210:
-    // 01210 PRINT: PRINT
-    b2c_printf("");
-    // 01220 PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
-    b2c_printf("In the wizard of os, dorothy's dog was named\n");
-    // 01230 PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
-    b2c_printf("1)cicero, 2)trixia, 3)king, 4)toto");
-    // 01240 INPUT A: IF A=4 THEN 1260
-    if(A_int==4)goto Lbl_01260;
-    // 01250 PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME.": GOTO 1280
-    goto Lbl_01280;
-
-  Lbl_01260:
-    // 01260 PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
-    b2c_printf("Yea!  You're a real literature giant.\n");
-    // 01270 R=R+1
-    R_int = R_int+1;
-
-  Lbl_01280:
-    // 01280 PRINT:PRINT
-    b2c_printf("");
-    // 01290 PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
-    b2c_printf("Who was the fair maiden who ate the poison apple\n");
-    // 01300 PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
-    b2c_printf("1)sleeping beauty, 2)cinderella, 3)snow white, 4)wendy");
-    // 01310 INPUT A: IF A=3 THEN 1340
-    if(A_int==3)goto Lbl_01340;
-    // 01320 PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
-    b2c_printf("Oh, come on now...It was snow white.\n");
-    // 01330 GOTO 1360
-    goto Lbl_01360;
-
-  Lbl_01340:
-    // 01340 PRINT "GOOD MEMORY!"
-    b2c_printf("Good memory!\n");
-    // 01350 R=R+1
-    R_int = R_int+1;
-
-  Lbl_01360:
-    // 01360 PRINT:PRINT
-    b2c_printf("");
-    // 01370 IF R=4 THEN 1420
-    if(R_int==4)goto Lbl_01420;
-    // 01380 IF R<2 THEN 1460
-    if(R_int<2)goto Lbl_01460;
-    // 01390 PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
-    b2c_printf("Not bad, but you might spend a little more time\n");
-    // 01400 PRINT "READING THE NURSERY GREATS."
-    b2c_printf("Reading the nursery greats.\n");
-    // 01410 STOP
-    exit(1);
-
-  Lbl_01420:
-    // 01420 PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
-    b2c_printf("Wow!  That's super!  You really know your nursery\n");
-    // 01430 PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
-    b2c_printf("Your next quiz will be on 2nd century chinese\n");
-    // 01440 PRINT "LITERATURE (HA, HA, HA)"
-    b2c_printf("Literature (ha, ha, ha)\n");
-    // 01450 STOP
-    exit(1);
-
-  Lbl_01460:
-    // 01460 PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
-    b2c_printf("Ugh.  That was definitely not too swift.  Back to\n");
-    // 01470 PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
-    b2c_printf("Nursery school for you, my friend.\n");
-    // 01480 END
-   return(0);
-};
-
-//---------------------------------------------------------------------------
-// End of $RCSfile$ 
-//---------------------------------------------------------------------------

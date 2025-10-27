@@ -1,3 +1,255 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of basic/craps.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5b0155b9e5d0 ---------A   01000 REM THIS PROGRAM SIMULATES THE GAME OF CRAPS
+    0x5b0155baeb80 ---------A   01010 RANDOMIZE
+    0x5b0155bafed0 ---------A T 01020 PRINT"FOR RULES, TYPE 'RULES', OTHERWISE TYPE 'GO'"
+    0x5b0155bad6d0 ---------A   01030 INPUT R$
+    0x5b0155bad670 ---------A   01040 IF R$="RULES" THEN 1080
+    0x5b0155baf1b0 ---------A   01050 IF R$="GO" THEN 1130
+    0x5b0155baff90 ---------A   01060 PRINT"INVALID COMMAND"
+    0x5b0155bae040 ---------A   01070 GOTO 1020
+    0x5b0155bb0050 ---------A T 01080 PRINT"A 7 OR 11 ON THE FIRST THROW WINS"
+    0x5b0155bafe10 ---------A   01090 PRINT"YOU CAN ALSO WIN BY THROWING A 4,5,6,8,9,10"
+    0x5b0155baf6c0 ---------A   01100 PRINT"AND MATCHING IT BEFORE THROWING A 7, IF ON"
+    0x5b0155bb01a0 ---------A   01110 PRINT"THE FIRST THROW A 2,3, OR A 12 COMES UP"
+    0x5b0155bae6a0 ---------A   01120 PRINT"YOU LOSE AUTOMATICALLY"
+    0x5b0155bb5880 ---------A T 01130 LET J=0
+    0x5b0155bb58d0 ---------A T 01140 GOSUB 1480
+    0x5b0155bb5c50 ---------A   01150 LET D1=N
+    0x5b0155bb5cc0 ---------A   01160 GOSUB 1480
+    0x5b0155bb5fa0 ---------A   01170 LET D2=N
+    0x5b0155bb63b0 ---------A   01180 LET D3=D1+D2
+    0x5b0155bb66e0 ---------A   01190 LET J=J+1
+    0x5b0155bb6930 ---------A   01200 IF J=1 THEN 1250
+    0x5b0155bb6c70 ---------A   01210 IF D3=D4 THEN 1440
+    0x5b0155bb6eb0 ---------A   01220 IF D3=7 THEN 1460
+    0x5b0155bb7110 ---------A T 01230 PRINT"YOU THROW A ";D3
+    0x5b0155bb7180 ---------A   01240 GOTO 1140
+    0x5b0155bb73c0 ---------A T 01250 IF D3=7 THEN 1320
+    0x5b0155bb7620 ---------A   01260 IF D3=2 THEN 1340
+    0x5b0155bb7880 ---------A   01270 IF D3=3 THEN 1340
+    0x5b0155bb7ae0 ---------A   01280 IF D3=12 THEN 1340
+    0x5b0155bb7d40 ---------A   01290 IF D3=11 THEN 1320
+    0x5b0155bb7f80 ---------A   01300 LET D4=D3
+    0x5b0155bb8000 ---------A   01310 GOTO 1230
+    0x5b0155bb8340 ---------A T 01320 PRINT"YOU THROW A ";D3;" YOU WIN"
+    0x5b0155bb85d0 ---------A   01330 GOTO 1350
+    0x5b0155bb8910 ---------A T 01340 PRINT"YOU THROW A ";D3;" YOU LOSE"
+    0x5b0155bb89a0 ---------A T 01350 PRINT
+    0x5b0155bb8b00 ---------A   01360 PRINT"TO CONTINUE TYPE 'Y', IF NOT TYPE'N'"
+    0x5b0155bb8d20 ---------A   01370 INPUT L$
+    0x5b0155bb8fb0 ---------A   01380 IF L$="Y" THEN 1420
+    0x5b0155bb9250 ---------A   01390 IF L$="N" THEN 1400
+    0x5b0155bb93d0 ---------A T 01400 PRINT"WHAT? QUITTING ALREADY, CRAP OUT DID YOU?"
+    0x5b0155bb9420 ---------A   01410 STOP
+    0x5b0155bb94a0 ---------A T 01420 PRINT
+    0x5b0155bb9530 ---------A   01430 GOTO 1130
+    0x5b0155bb9870 ---------A T 01440 PRINT"YOU THROW A ";D3;" YOU WIN BY MATCHING"
+    0x5b0155bb9900 ---------A   01450 GOTO 1350
+    0x5b0155bb9c40 ---------A T 01460 PRINT"YOU THROW A ";D3;" SORRY, YOU LOSE"
+    0x5b0155bb9cb0 ---------A   01470 GOTO 1350
+    0x5b0155bba1b0 ---------B G 01480 LET N=1+INT(6*RND)
+    0x5b0155bba200 ---------B   01490 RETURN
+    0x5b0155bba260 ---------A   01500 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     01020      01070T
+     01080      01040T
+     01130      01050T, 01430T
+     01140      01240T
+     01230      01310T
+     01250      01200T
+     01320      01250T, 01290T
+     01340      01260T, 01270T, 01280T
+     01350      01330T, 01450T, 01470T
+     01400      01390T
+     01420      01380T
+     01440      01210T
+     01460      01220T
+     01480      01140G, 01160G
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
+  --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
+   A) 0x5b0155b9e5d0 (01000)   0x5b0155b9e5d0 (01000)   0x5b0155bba260 (01500)   0x5b0155bba260 (01500)   
+   B) 0x5b0155bba1b0 (01480)   0x5b0155bba1b0 (01480)   0x5b0155bba200 (01490)   0x5b0155bba200 (01490)   
+
+    NOTE: Routine B overlaps, or is tangled with, routine A!
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     01520 - 10000    8490 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for 'basic/craps.bas'
+ *
+    ABS             Function Integer         args=1, int    
+    ASC             Function Integer         args=1, char*  
+    ATN             Function Float           args=1, float  
+    CDBL            Function Float           args=1, int    
+    CHR$            Function String          args=1, int    
+    CINT            Function Integer         args=1, float  
+    COS             Function Float           args=1, float  
+    CSNG            Function Float           args=1, int    
+    CVD             Function Float           args=1, float  
+    CVI             Function Integer         args=1, char*  
+    CVS             Function Float           args=1, char*  
+    D1                       Integer     
+    D2                       Integer     
+    D3                       Integer     
+    D4                       Integer     
+    ENVIRON$        Function String          args=1, int    
+    EOF             Function Integer         args=1, int    
+    EXP             Function Float           args=1, int    
+    EXTERR          Function Integer         args=1, int    
+    FIX             Function Integer         args=1, float  
+    FRE             Function Integer         args=1, char*  
+    HEX$            Function String          args=1, int    
+    INP             Function Integer         args=1, int    
+    INPUT$          Function String          args=2, int    int    
+    INSTR           Function Integer         args=3, int    char*  char*  
+    INT             Function Integer         args=1, float  
+    IOCTL$          Function String          args=1, int    
+    J                        Integer     
+    L$                       String      
+    LEFT$           Function String          args=2, char*  int    
+    LEN             Function Integer         args=1, char*  
+    LOC             Function Integer         args=1, int    
+    LOF             Function Integer         args=1, int    
+    LOG             Function Float           args=1, float  
+    LPOS            Function Integer         args=1, Any    
+    MAX             Function Integer         args=1, int    
+    MID$            Function String          args=2, char*  int    
+    MIN             Function Integer         args=1, int    
+    MKD$            Function String          args=1, int    
+    MKI$            Function String          args=1, float  
+    MKS$            Function String          args=1, float  
+    N                        Integer     
+    OCT$            Function String          args=1, float  
+    PEEK            Function Integer         args=1, int    
+    PEN             Function Integer         args=1, char*  
+    PLAY            Function Integer         args=1, Any    
+    PMAP            Function Integer         args=2, int    int    
+    POINT           Function Integer         args=2, int    int    
+    POS             Function Integer         args=1, Any    
+    R$                       String      
+    RIGHT$          Function String          args=2, char*  int    
+    RND             Function Float           args=1, int    
+    SGN             Function Integer         args=1, int    
+    SIN             Function Float           args=1, float  
+    SPACE$          Function String          args=1, int    
+    SPC             Function Unknown (0)    args=1, int    
+    SQR             Function Float           args=1, float  
+    STICK           Function Integer         args=1, int    
+    STR$            Function String          args=1, float  
+    STRING$         Function String          args=2, int    int    
+    TAB             Function Unknown (0)    args=1, int    
+    TAB$            Function String          args=1, int    
+    TAN             Function Float           args=1, int    
+    TIMER           Function Float           args=0, 
+    VAL             Function Integer         args=1, char*  
+    VARPTR          Function Integer         args=1, Any    
+    VARPTR$         Function String          args=1, Any    
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of basic/craps.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5b0155b9e5d0 ---------A   01000 REM THIS PROGRAM SIMULATES THE GAME OF CRAPS
+    0x5b0155baeb80 ---------A   01010 RANDOMIZE
+    0x5b0155bafed0 ---------A T 01020 PRINT"FOR RULES, TYPE 'RULES', OTHERWISE TYPE 'GO'"
+    0x5b0155bad6d0 ---------A   01030 INPUT R$
+    0x5b0155bad670 ---------A   01040 IF R$="RULES" THEN 1080
+    0x5b0155baf1b0 ---------A   01050 IF R$="GO" THEN 1130
+    0x5b0155baff90 ---------A   01060 PRINT"INVALID COMMAND"
+    0x5b0155bae040 ---------A   01070 GOTO 1020
+    0x5b0155bb0050 ---------A T 01080 PRINT"A 7 OR 11 ON THE FIRST THROW WINS"
+    0x5b0155bafe10 ---------A   01090 PRINT"YOU CAN ALSO WIN BY THROWING A 4,5,6,8,9,10"
+    0x5b0155baf6c0 ---------A   01100 PRINT"AND MATCHING IT BEFORE THROWING A 7, IF ON"
+    0x5b0155bb01a0 ---------A   01110 PRINT"THE FIRST THROW A 2,3, OR A 12 COMES UP"
+    0x5b0155bae6a0 ---------A   01120 PRINT"YOU LOSE AUTOMATICALLY"
+    0x5b0155bb5880 ---------A T 01130 LET J=0
+    0x5b0155bb58d0 ---------A T 01140 GOSUB 1490
+    0x5b0155bb5c50 ---------A   01150 LET D1=N
+    0x5b0155bb5cc0 ---------A   01160 GOSUB 1490
+    0x5b0155bb5fa0 ---------A   01170 LET D2=N
+    0x5b0155bb63b0 ---------A   01180 LET D3=D1+D2
+    0x5b0155bb66e0 ---------A   01190 LET J=J+1
+    0x5b0155bb6930 ---------A   01200 IF J=1 THEN 1250
+    0x5b0155bb6c70 ---------A   01210 IF D3=D4 THEN 1440
+    0x5b0155bb6eb0 ---------A   01220 IF D3=7 THEN 1460
+    0x5b0155bb7110 ---------A T 01230 PRINT"YOU THROW A ";D3
+    0x5b0155bb7180 ---------A   01240 GOTO 1140
+    0x5b0155bb73c0 ---------A T 01250 IF D3=7 THEN 1320
+    0x5b0155bb7620 ---------A   01260 IF D3=2 THEN 1340
+    0x5b0155bb7880 ---------A   01270 IF D3=3 THEN 1340
+    0x5b0155bb7ae0 ---------A   01280 IF D3=12 THEN 1340
+    0x5b0155bb7d40 ---------A   01290 IF D3=11 THEN 1320
+    0x5b0155bb7f80 ---------A   01300 LET D4=D3
+    0x5b0155bb8000 ---------A   01310 GOTO 1230
+    0x5b0155bb8340 ---------A T 01320 PRINT"YOU THROW A ";D3;" YOU WIN"
+    0x5b0155bb85d0 ---------A   01330 GOTO 1350
+    0x5b0155bb8910 ---------A T 01340 PRINT"YOU THROW A ";D3;" YOU LOSE"
+    0x5b0155bb89a0 ---------A T 01350 PRINT
+    0x5b0155bb8b00 ---------A   01360 PRINT"TO CONTINUE TYPE 'Y', IF NOT TYPE'N'"
+    0x5b0155bb8d20 ---------A   01370 INPUT L$
+    0x5b0155bb8fb0 ---------A   01380 IF L$="Y" THEN 1420
+    0x5b0155bb9250 ---------A   01390 IF L$="N" THEN 1400
+    0x5b0155bb93d0 ---------A T 01400 PRINT"WHAT? QUITTING ALREADY, CRAP OUT DID YOU?"
+    0x5b0155bb9420 ---------A   01410 STOP
+    0x5b0155bb94a0 ---------A T 01420 PRINT
+    0x5b0155bb9530 ---------A   01430 GOTO 1130
+    0x5b0155bb9870 ---------A T 01440 PRINT"YOU THROW A ";D3;" YOU WIN BY MATCHING"
+    0x5b0155bb9900 ---------A   01450 GOTO 1350
+    0x5b0155bb9c40 ---------A T 01460 PRINT"YOU THROW A ";D3;" SORRY, YOU LOSE"
+    0x5b0155bb9cb0 ---------A   01470 GOTO 1350
+    0x5b0155bba260 ---------A   01480 END
+    0x5b0155bba1b0 ---------B G 01490 LET N=1+INT(6*RND)
+    0x5b0155bbc750 ---------B   01500 GOTO 01510
+    0x5b0155bbc790 ---------B T 01510 RETURN
+ */
+
 //---------------------------------------------------------------------------
 // $Header$ 
 //
@@ -116,7 +368,7 @@ int main(int argc,char *argv[])
 
   Lbl_01020:
     // 01020 PRINT"FOR RULES, TYPE 'RULES', OTHERWISE TYPE 'GO'"
-    b2c_printf("For rules, type 'rules', otherwise type 'go'\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"FOR RULES, TYPE 'RULES', OTHERWISE TYPE 'GO'");strcat(buf,"\n");fputs(buf,fh); };
     // 01030 INPUT R$
     // Start of Basic INPUT statement 01030
     {
@@ -136,25 +388,25 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 01030
     // 01040 IF R$="RULES" THEN 1080
-    if(strcmp(R_str,"Rules")==0)goto Lbl_01080;
+    if(strcmp(R_str,"RULES")==0)goto Lbl_01080;
     // 01050 IF R$="GO" THEN 1130
-    if(strcmp(R_str,"Go")==0)goto Lbl_01130;
+    if(strcmp(R_str,"GO")==0)goto Lbl_01130;
     // 01060 PRINT"INVALID COMMAND"
-    b2c_printf("Invalid command\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"INVALID COMMAND");strcat(buf,"\n");fputs(buf,fh); };
     // 01070 GOTO 1020
     goto Lbl_01020;
 
   Lbl_01080:
     // 01080 PRINT"A 7 OR 11 ON THE FIRST THROW WINS"
-    b2c_printf("A 7 or 11 on the first throw wins\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"A 7 OR 11 ON THE FIRST THROW WINS");strcat(buf,"\n");fputs(buf,fh); };
     // 01090 PRINT"YOU CAN ALSO WIN BY THROWING A 4,5,6,8,9,10"
-    b2c_printf("You can also win by throwing a 4,5,6,8,9,10\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU CAN ALSO WIN BY THROWING A 4,5,6,8,9,10");strcat(buf,"\n");fputs(buf,fh); };
     // 01100 PRINT"AND MATCHING IT BEFORE THROWING A 7, IF ON"
-    b2c_printf("And matching it before throwing a 7, if on\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"AND MATCHING IT BEFORE THROWING A 7, IF ON");strcat(buf,"\n");fputs(buf,fh); };
     // 01110 PRINT"THE FIRST THROW A 2,3, OR A 12 COMES UP"
-    b2c_printf("The first throw a 2,3, or a 12 comes up\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE FIRST THROW A 2,3, OR A 12 COMES UP");strcat(buf,"\n");fputs(buf,fh); };
     // 01120 PRINT"YOU LOSE AUTOMATICALLY"
-    b2c_printf("You lose automatically\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU LOSE AUTOMATICALLY");strcat(buf,"\n");fputs(buf,fh); };
 
   Lbl_01130:
     // 01130 LET J=0
@@ -182,7 +434,7 @@ int main(int argc,char *argv[])
 
   Lbl_01230:
     // 01230 PRINT"YOU THROW A ";D3
-    b2c_printf("You throw a  %d \n",D3_int);
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU THROW A "); b2c_INT(buf,D3_int);strcat(buf,"\n");fputs(buf,fh); };
     // 01240 GOTO 1140
     goto Lbl_01140;
 
@@ -204,19 +456,19 @@ int main(int argc,char *argv[])
 
   Lbl_01320:
     // 01320 PRINT"YOU THROW A ";D3;" YOU WIN"
-    b2c_printf("You throw a  %d You throw a  you win\n",D3_int);
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU THROW A "); b2c_INT(buf,D3_int);strcat(buf," YOU WIN");strcat(buf,"\n");fputs(buf,fh); };
     // 01330 GOTO 1350
     goto Lbl_01350;
 
   Lbl_01340:
     // 01340 PRINT"YOU THROW A ";D3;" YOU LOSE"
-    b2c_printf("You throw a  %d You throw a  you lose\n",D3_int);
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU THROW A "); b2c_INT(buf,D3_int);strcat(buf," YOU LOSE");strcat(buf,"\n");fputs(buf,fh); };
 
   Lbl_01350:
     // 01350 PRINT
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01360 PRINT"TO CONTINUE TYPE 'Y', IF NOT TYPE'N'"
-    b2c_printf("To continue type 'y', if not type'n'\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TO CONTINUE TYPE 'Y', IF NOT TYPE'N'");strcat(buf,"\n");fputs(buf,fh); };
     // 01370 INPUT L$
     // Start of Basic INPUT statement 01370
     {
@@ -242,25 +494,25 @@ int main(int argc,char *argv[])
 
   Lbl_01400:
     // 01400 PRINT"WHAT? QUITTING ALREADY, CRAP OUT DID YOU?"
-    b2c_printf("What? Quitting already, crap out did you?\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WHAT? QUITTING ALREADY, CRAP OUT DID YOU?");strcat(buf,"\n");fputs(buf,fh); };
     // 01410 STOP
     exit(1);
 
   Lbl_01420:
     // 01420 PRINT
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01430 GOTO 1130
     goto Lbl_01130;
 
   Lbl_01440:
     // 01440 PRINT"YOU THROW A ";D3;" YOU WIN BY MATCHING"
-    b2c_printf("You throw a  %d You throw a  you win by matching\n",D3_int);
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU THROW A "); b2c_INT(buf,D3_int);strcat(buf," YOU WIN BY MATCHING");strcat(buf,"\n");fputs(buf,fh); };
     // 01450 GOTO 1350
     goto Lbl_01350;
 
   Lbl_01460:
     // 01460 PRINT"YOU THROW A ";D3;" SORRY, YOU LOSE"
-    b2c_printf("You throw a  %d You throw a  sorry, you lose\n",D3_int);
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU THROW A "); b2c_INT(buf,D3_int);strcat(buf," SORRY, YOU LOSE");strcat(buf,"\n");fputs(buf,fh); };
     // 01470 GOTO 1350
     goto Lbl_01350;
     // 01480 END

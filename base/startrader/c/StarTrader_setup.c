@@ -1,3 +1,759 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of basic/StarTrader_setup.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x55e5590f1550 ---------A   00001  REM Written in HP Basic
+    0x55e5590f1610 ---------A   00002  REM From: http://www.langesite.com/startrader/
+    0x55e559105030 ---------A   00010 COM S[12,15],T[12,12],T$[72],B[3,12]
+    0x55e559100820 ---------A   00020 COM W,D9,K9,X9,D1,X1,P9,T9,S9,Y9,H
+    0x55e55910c190 ---------A   00030 COM Y1,R9,G9,Q,M[6,3],C[6,3]
+    0x55e55910c6b0 ---------A   00035 COM S1,T1,R
+    0x55e55910c6f0 ---------A   00040 REM *** STAR TRADERS ***
+    0x55e55910c730 ---------A   00050 REM <<<GAME SET-UP MODULE>>>
+    0x55e55910c7d0 ---------A   00060 REM S IS THE STAR SYSTEM INFO ARRAY
+    0x55e55910c870 ---------A   00070 REM T IS THE TRADING SHIP INFO ARRAY
+    0x55e55910c920 ---------A   00080 REM T$ IS THE TRADING SHIP NAME STRING
+    0x55e55910c9e0 ---------A   00090 REM M AND C DETERMINE A STAR'S PRODUCTIVITY/MONTH
+    0x55e55910caa0 ---------A   00092 REM   PROD/MO. = S(7,J) * M(I,R1)  +  C(I,R1)
+    0x55e55910cb60 ---------A   00094 REM   WHERE J IS THE STAR ID #,I THE MERCHANDISE #,
+    0x55e55910cc20 ---------A   00096 REM   AND R1 IS THE DEVELOPMENT CLASS OF THE STAR
+    0x55e55910ccc0 ---------A   00100 REM B CONTAINS THE BANK ACCOUNTS
+    0x55e55910cd60 ---------A   00110 REM A$ IS THE STANDARD INPUT BUFFER
+    0x55e55910d020 ---------A   00120 DIM A$[6]
+    0x55e55910d0a0 ---------A   00130 REM R9 IS THE SPEED OF A SHIP IN LIGHT-YEARS PER DAY
+    0x55e55910d120 ---------A   00140 REM D9 IS THE MINIMUM  DISTANCE ALLOWED BETWEEN STARS
+    0x55e55910d1c0 ---------A   00150 REM Q IS THE PROBABILITY OF A DELAY
+    0x55e55910d280 ---------A   00160 REM K9 IS THE MAX NUMBER OF BIDDING ROUNDS
+    0x55e55910d340 ---------A   00170 REM W IS THE MAX WEIGHT OF A TRADING SHIP
+    0x55e55910d3c0 ---------A   00180 REM X9 CONTROLS THE PROFIT MARGIN; HIGH X9 LIMITS THE %
+    0x55e55910d440 ---------A   00190 REM G9 IS THE STELLAR DEVELOPMENT INCREMENT 1<=G9<=5
+    0x55e55910d4e0 ---------A   00195 REM R=1 IF THIS IS A RESTART
+    0x55e5591030f0 ---------A   00200 LET R9=2/7
+    0x55e5591031b0 ---------A   00210 LET D9=15
+    0x55e55910db80 ---------A   00220 LET Q=.1
+    0x55e55910dd90 ---------A   00230 LET K9=3
+    0x55e55910dfa0 ---------A   00240 LET W=30
+    0x55e55910e1b0 ---------A   00250 LET X9=36
+    0x55e55910e3c0 ---------A   00260 LET G9=1.25
+    0x55e55910e800 ---------A   00265 LET R=0
+    0x55e55910e890 ---------A   00270 REM D1 IS THE DAY OF THIS YEAR (1<=D1<=360)
+    0x55e55910e910 ---------A   00280 REM Y1 IS THIS YEAR
+    0x55e55910eb30 ---------A   00290 LET D1=1
+    0x55e55910ed50 ---------A   00300 LET Y1=2070
+    0x55e55910edd0 ---------A   00302 REM SET UP ECONOMETRICS MODEL
+    0x55e55910ee30 ---------A   00304 RESTORE 2410
+    0x55e55910f070 ---------A   00306 MAT READ M,C
+    0x55e55910f0e0 ---------A   00310 REM *** BLOCK #1
+    0x55e55910f290 ---------A   00320 PRINT "INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)";
+    0x55e5591006d0 ---------A   00330 INPUT A$
+    0x55e559100670 ---------A   00340 IF A$[1,1]="N" THEN 590
+    0x55e55910f7e0 ---------A   00350 PRINT 
+    0x55e55910f980 ---------A   00360 PRINT "     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT"
+    0x55e55910fb20 ---------A   00370 PRINT "HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR"
+    0x55e55910fcc0 ---------A   00380 PRINT "SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY"
+    0x55e55910fe40 ---------A   00390 PRINT "FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED."
+    0x55e55910fee0 ---------A   00400 PRINT 
+    0x55e559110080 ---------A   00410 PRINT "     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR"
+    0x55e559110220 ---------A   00420 PRINT "TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO"
+    0x55e5591103c0 ---------A   00430 PRINT "STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU"
+    0x55e559110530 ---------A   00440 PRINT "DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS."
+    0x55e5591105d0 ---------A   00450 PRINT 
+    0x55e559110770 ---------A   00460 PRINT "     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY"
+    0x55e559110910 ---------A   00470 PRINT "GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT"
+    0x55e559110ab0 ---------A   00480 PRINT "HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY"
+    0x55e559110c20 ---------A   00490 PRINT "MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS."
+    0x55e559110cc0 ---------A   00500 PRINT 
+    0x55e559110e60 ---------A   00510 PRINT "     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A"
+    0x55e5591111f0 ---------A   00520 PRINT "WEEK AND CAN CARRY UP TO";W;" TONS OF CARGO.  ONLY"
+    0x55e559111390 ---------A   00530 PRINT "CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM."
+    0x55e559111530 ---------A   00540 PRINT "THEY PAY 5% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE"
+    0x55e559111ac0 ---------A   00550 PRINT "PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL"
+    0x55e559111c10 ---------A   00560 PRINT "BANK."
+    0x55e559111c80 ---------A   00570 PRINT 
+    0x55e559111cf0 ---------A   00580 REM *** BLOCK #2
+    0x55e559111ea0 ---------A T 00590 PRINT "HAVE ALL PLAYERS PLAYED BEFORE";
+    0x55e559111ff0 ---------A   00600 INPUT A$
+    0x55e559112080 ---------A   00605 PRINT 
+    0x55e559112470 ---------A   00610 IF A$[1,1]="Y" THEN 630
+    0x55e559112510 ---------A   00620 GOTO 660
+    0x55e559112680 ---------A T 00630 PRINT "DO YOU WANT TO SET UP YOUR OWN GAME";
+    0x55e5591127d0 ---------A   00640 INPUT A$
+    0x55e559112860 ---------A   00645 PRINT 
+    0x55e559112c60 ---------A   00650 IF A$[1,1]="Y" THEN 760
+    0x55e559112de0 ---------A T 00660 PRINT "HOW MANY PLAYERS";
+    0x55e559112f30 ---------A   00670 INPUT P9
+    0x55e559112fc0 ---------A   00675 PRINT 
+    0x55e559113460 ---------A   00680 GOTO P9-1 OF 710,710,710
+    0x55e5591135b0 ---------A   00690 PRINT "2,3, OR 4 CAN PLAY"
+    0x55e559113620 ---------A   00700 GOTO 660
+    0x55e559113940 ---------A T 00710 T9=2*P9
+    0x55e559113d70 ---------A   00720 S9=3*P9+1
+    0x55e5591140a0 ---------A   00730 Y9=Y1+5
+    0x55e559114110 ---------A   00740 GOTO 1350
+    0x55e559114170 ---------A   00750 REM *** BLOCK #3
+    0x55e559114300 ---------A T 00760 PRINT "IS THIS A RESTART";
+    0x55e559114450 ---------A   00770 INPUT A$
+    0x55e5591144e0 ---------A   00775 PRINT 
+    0x55e559114900 ---------A   00780 IF A$[1,1]="N" THEN 940
+    0x55e559114ac0 ---------A   00790 PRINT "LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'"
+    0x55e559114c40 ---------A   00800 PRINT "YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY"
+    0x55e559114cb0 ---------A   00810 PRINT 
+    0x55e559114e10 ---------A   00820 INPUT T$
+    0x55e5591153e0 ---------A   00830 INPUT W,D9,K9,X9,D1,Y1
+    0x55e5591159a0 ---------A   00835 INPUT P9,T9,S9,Y9,T1,S1
+    0x55e559115d60 ---------A   00840 FOR J=1 TO S9
+    0x55e5591161e0 ---------A   00845 FOR I=1 TO 9 STEP 4
+    0x55e559116fe0 ---------A   00850 INPUT S[I,J],S[I+1,J],S[I+2,J],S[I+3,J]
+    0x55e559117120 ---------A   00855 NEXT I
+    0x55e559117260 ---------A   00860 NEXT J
+    0x55e559117560 ---------A   00870 FOR J=1 TO T9
+    0x55e559117920 ---------A   00875 FOR I=1 TO 9 STEP 4
+    0x55e559118720 ---------A   00880 INPUT T[I,J],T[I+1,J],T[I+2,J],T[I+3,J]
+    0x55e559118860 ---------A   00885 NEXT I
+    0x55e5591189a0 ---------A   00890 NEXT J
+    0x55e559118cb0 ---------A   00900 FOR I=1 TO P9
+    0x55e5591194b0 ---------A   00910 INPUT B[1,I],B[2,I],B[3,I]
+    0x55e5591195f0 ---------A   00920 NEXT I
+    0x55e559119810 ---------A   00925 R=1
+    0x55e5591198b0 ---------A   00930 CHAIN "$TRADES"
+    0x55e559119a30 ---------A T 00940 PRINT "HOW MANY PLAYERS";
+    0x55e559119b80 ---------A   00950 INPUT P9
+    0x55e559119c10 ---------A   00955 PRINT 
+    0x55e55911a090 ---------A   00960 IF P9 >= 2 AND P9 <= 12 THEN 990
+    0x55e55911a200 ---------A   00970 PRINT "2,3,4, ... ,12 CAN PLAY"
+    0x55e55911a280 ---------A   00980 GOTO 940
+    0x55e55911a3f0 ---------A T 00990 PRINT "HOW MANY SHIPS PER PLAYER";
+    0x55e55911a600 ---------A   01000 INPUT X
+    0x55e55911a680 ---------A   01005 PRINT 
+    0x55e55911a8d0 ---------A   01010 IF X<1 THEN 990
+    0x55e55911ac40 ---------A   01020 T9=P9*X
+    0x55e55911aeb0 ---------A   01030 IF T9 <= 12 THEN 1070
+    0x55e55911b050 ---------A   01040 PRINT "I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;"
+    0x55e55911b5a0 ---------A   01050 PRINT P9;" PLAYERS TIMES";X;" SHIPS MAKES";T9
+    0x55e55911b620 ---------A   01060 GOTO 990
+    0x55e55911bf90 ---------A T 01070 PRINT "HOW MANY STAR SYSTEMS";
+    0x55e55911c0e0 ---------A   01080 INPUT S9
+    0x55e55911c170 ---------A   01085 PRINT 
+    0x55e55911c5f0 ---------A   01090 IF S9 >= 4 AND S9 <= 13 THEN 1120
+    0x55e55911c750 ---------A   01100 PRINT "FROM 4 TO 13 STARS"
+    0x55e55911c7e0 ---------A   01110 GOTO 1070
+    0x55e55911c950 ---------A T 01120 PRINT "ENTER THE LENGTH OF GAME IN YEARS";
+    0x55e55911caa0 ---------A T 01130 INPUT X
+    0x55e55911cb30 ---------A   01135 PRINT 
+    0x55e55911d0b0 ---------A   01140 IF X >= 1 AND INT(X)=X THEN 1170
+    0x55e55911d220 ---------A   01150 PRINT "CHOOSE A POSITIVE INTEGER"
+    0x55e55911d290 ---------A   01160 GOTO 1130
+    0x55e55911d5f0 ---------A T 01170 Y9=Y1+X
+    0x55e55911d780 ---------A T 01180 PRINT "WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)";
+    0x55e55911d8d0 ---------A   01190 INPUT W
+    0x55e55911d950 ---------A   01195 PRINT 
+    0x55e55911dbd0 ---------A   01200 IF W<25 THEN 1180
+    0x55e55911dd70 ---------A T 01210 PRINT "WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)";
+    0x55e55911dec0 ---------A   01220 INPUT D9
+    0x55e55911df50 ---------A   01225 PRINT 
+    0x55e55911e3d0 ---------A   01230 IF D9 <= 25 AND D9 >= 10 THEN 1260
+    0x55e55911e540 ---------A   01240 PRINT "MIN SPACING 10, MAX 25"
+    0x55e55911e5d0 ---------A   01250 GOTO 1210
+    0x55e55911e740 ---------A T 01260 PRINT "HOW MANY BIDS OR OFFERS(USUALLY 3)";
+    0x55e55911e890 ---------A   01270 INPUT K9
+    0x55e55911e910 ---------A   01275 PRINT 
+    0x55e55911eb90 ---------A   01280 IF K9<1 THEN 1260
+    0x55e55911ed40 ---------A   01290 PRINT "SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER"
+    0x55e55911eed0 ---------A   01300 PRINT "THE NUMBER, THE LOWER THE PROFIT % ... USUALLY SET TO 2"
+    0x55e55911f040 ---------A   01310 PRINT "...YOUR NUMBER";
+    0x55e55911f1a0 ---------A   01320 INPUT X9
+    0x55e55911f720 ---------A   01330 X9=18*(ABS(X9) MIN 5)
+    0x55e55911f790 ---------A   01340 REM *** BLOCK #4.1
+    0x55e55911fd90 ---------A T 01350 S[11,1]=S[12,1]=0
+    0x55e559120120 ---------A   01360 S[7,1]=15
+    0x55e559120190 ---------A   01370 REM *** BLOCK #4.2
+    0x55e5591203b0 ---------A   01380 H=1
+    0x55e5591205c0 ---------A   01390 S1=2
+    0x55e559120630 ---------A   01400 GOSUB 1920
+    0x55e559120830 ---------A   01410 S1=3
+    0x55e5591208a0 ---------A   01420 GOSUB 1920
+    0x55e559120aa0 ---------A   01430 S1=4
+    0x55e559120b10 ---------A   01440 GOSUB 2010
+    0x55e559120e10 ---------A   01450 FOR S1=5 TO S9
+    0x55e5591216f0 ---------A   01460 GOSUB S1-3*INT((S1-1)/3) OF 1920,2010,2060
+    0x55e559121820 ---------A   01470 NEXT S1
+    0x55e5591218a0 ---------A   01480 REM *** BLOCK #4.3
+    0x55e559121ba0 ---------A   01490 FOR S1=1 TO S9
+    0x55e559121e80 ---------A   01500 FOR J=1 TO 6
+    0x55e559122260 ---------A   01510 S[J,S1]=0
+    0x55e559122390 ---------A   01520 NEXT J
+    0x55e5591225f0 ---------A   01530 IF S1>1 THEN 1560
+    0x55e559122810 ---------A   01540 I=1
+    0x55e559122890 ---------A   01550 GOTO 1600
+    0x55e559122f50 ---------A T 01560 I=4*INT(14*RND(0))+5
+    0x55e559123350 ---------A   01570 FOR J=2 TO S1-1
+    0x55e559123770 ---------A   01580 IF I=S[8,J] THEN 1560
+    0x55e5591238b0 ---------A   01590 NEXT J
+    0x55e559123c90 ---------A T 01600 S[8,S1]=I
+    0x55e559124040 ---------A   01610 S[9,S1]=270
+    0x55e559124510 ---------A   01620 S[10,S1]=Y1-1
+    0x55e559124640 ---------A   01630 NEXT S1
+    0x55e5591246c0 ---------A   01640 REM *** BLOCK #4.4
+    0x55e559124a80 ---------A   01650 T1=L=1
+    0x55e559124af0 ---------A   01655 PRINT 
+    0x55e559124b90 ---------A   01657 PRINT 
+    0x55e559124d10 ---------A   01660 PRINT "CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)"
+    0x55e559125120 ---------A   01670 FOR I=1 TO T9/P9
+    0x55e5591251a0 ---------A   01680 PRINT 
+    0x55e559125560 ---------A   01690 FOR P1=1 TO P9
+    0x55e559125e20 ---------A   01700 T[1,T1]=T[2,T1]=T[6,T1]=0
+    0x55e5591261d0 ---------A   01710 T[3,T1]=15
+    0x55e559126800 ---------A   01720 T[4,T1]=T[5,T1]=10
+    0x55e559126bb0 ---------A   01730 T[7,T1]=25
+    0x55e559126f80 ---------A   01740 T[9,T1]=D1
+    0x55e559127350 ---------A   01750 T[10,T1]=Y1
+    0x55e559127730 ---------A   01760 T[11,T1]=5000
+    0x55e559127bb0 ---------A   01770 PRINT "   CAPTAIN";P1;"WHAT DO YOU CHRISTEN YOUR SHIP #";I;
+    0x55e559127fc0 ---------A   01780 INPUT T$[L,L+5]
+    0x55e559128300 ---------A   01790 T1=T1+1
+    0x55e559128630 ---------A   01800 L=L+6
+    0x55e559128760 ---------A   01810 NEXT P1
+    0x55e5591288a0 ---------A   01820 NEXT I
+    0x55e559128920 ---------A   01830 REM *** BLOCK #4.5
+    0x55e559128ce0 ---------A   01840 FOR B1=1 TO P9
+    0x55e5591290a0 ---------A   01850 B[1,B1]=0
+    0x55e559129470 ---------A   01860 B[2,B1]=D1
+    0x55e559129840 ---------A   01870 B[3,B1]=Y1
+    0x55e559129970 ---------A   01880 NEXT B1
+    0x55e559129a20 ---------A   01890 CHAIN "$TRADES"
+    0x55e559129ab0 ---------B   01900 REM *** GOSUBS FOLLOW ***
+    0x55e559129b40 ---------B   01910 REM <FRONTIER> GOSUB
+    0x55e55912a080 ---------B B 01920 X=(RND(0)-.5)*100
+    0x55e55912a550 ---------B   01930 Y=50*RND(0)
+    0x55e55912aaa0 ---------B   01940 IF (ABS(X)<25) AND (Y<25) THEN 1920
+    0x55e55912ad80 ---------B   01950 F=1
+    0x55e55912adf0 ---------B   01960 GOSUB 2190
+    0x55e55912b030 ---------B   01970 IF F=0 THEN 1920
+    0x55e55912b3f0 ---------B   01980 S[7,S1]=0
+    0x55e55912b440 ---------B   01990 RETURN
+    0x55e55912b4e0 ---------C   02000 REM *** <UNDERDEVELOPED> GOSUB
+    0x55e55912b7c0 ---------C G 02010 E=100
+    0x55e55912b830 ---------C   02020 GOSUB 2110
+    0x55e55912bbd0 ---------C   02030 S[7,S1]=5
+    0x55e55912bc20 ---------C   02040 RETURN
+    0x55e55912bcc0 ---------D   02050 REM *** <DEVELOPED> GOSUB
+    0x55e55912bee0 ---------D G 02060 E=50
+    0x55e55912bf50 ---------D   02070 GOSUB 2110
+    0x55e55912c2f0 ---------D   02080 S[7,S1]=10
+    0x55e55912c340 ---------D   02090 RETURN
+    0x55e55912c3e0 ---------E   02100 REM *** <GENERATE CO-ORDS> GOSUB
+    0x55e55912c940 ---------E B 02110 X=(RND(0)-.5)*E
+    0x55e55912ce50 ---------E   02120 Y=RND(0)*E/2
+    0x55e55912d060 ---------E   02130 F=1
+    0x55e55912d0d0 ---------E   02140 GOSUB 2190
+    0x55e55912d310 ---------E   02150 IF F=0 THEN 2110
+    0x55e55912d370 ---------E   02160 RETURN
+    0x55e55912d410 ---------F   02170 REM *** <TEST STAR CO-ORDS> GOSUB
+    0x55e55912d4d0 ---------F   02180 REM FIRST CONVERT CO-ORDS TO NEXT HALF-BOARD
+    0x55e55912d940 ---------F G 02190 GOTO H OF 2300,2260,2240,2200
+    0x55e55912dc30 ---------F T 02200 Z=X
+    0x55e55912de60 ---------F   02210 X=-Y
+    0x55e55912e090 ---------F   02220 Y=Z
+    0x55e55912e100 ---------F   02230 GOTO 2300
+    0x55e55912e320 ---------F T 02240 Y=-Y
+    0x55e55912e390 ---------F   02250 GOTO 2300
+    0x55e55912e5b0 ---------F T 02260 Z=X
+    0x55e55912e7e0 ---------F   02270 X=Y
+    0x55e55911b850 ---------F   02280 Y=Z
+    0x55e55911b8d0 ---------F   02290 REM SECOND, TEST PROXIMITY
+    0x55e55911bd00 ---------F T 02300 FOR J=1 TO S1-1
+    0x55e559130360 ---------F   02310 IF SQR((X-S[11,J])^2+(Y-S[12,J])^2) >= D9 THEN 2340
+    0x55e559130580 ---------F   02320 F=0
+    0x55e5591305d0 ---------F   02330 RETURN
+    0x55e559130710 ---------F T 02340 NEXT J
+    0x55e5591307e0 ---------F   02350 REM FINALLY, ENTER CO-ORDS AND INCREMENT HALF-BOARD CTR
+    0x55e559130ca0 ---------F   02360 S[11,S1]=INT(X)
+    0x55e559131150 ---------F   02370 S[12,S1]=INT(Y)
+    0x55e5591311c0 ---------F   02380 REM H=1+(H <= 3)*H
+    0x55e5591316a0 ---------F   02381 H=MOD(1+H)
+    0x55e5591316f0 ---------F   02390 RETURN
+    0x55e5591317b0 ---------A   02400 REM *** DATA FOR ECONOMETRIC MODEL FOLLOWS ***
+    0x55e559131830 ---------A   02410 REM MODEL #1
+    0x55e5591328e0 ---------A   02420 DATA -0.025,-0.05,-0.025,0,-0.025,-0.025,0,.1,.1,-0.025,.1,0,.1,.2,.1,.1,-0.025,0
+    0x55e559133590 ---------A   02430 DATA 1,1.5,.5,.75,.75,.75,-0.25,-0.25,-0.25,0,-0.5,.5,0,-0.5
+    0x55e559133980 ---------A   02440 DATA 0,.5,1.5,0
+    0x55e5591339d0 ---------A   02450 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     00590      00340T
+     00630      00610T
+     00660      00620T, 00700T
+     00710      00680T, 00680T, 00680T
+     00760      00650T
+     00940      00780T, 00980T
+     00990      00960T, 01010T, 01060T
+     01070      01030T, 01110T
+     01120      01090T
+     01130      01160T
+     01170      01140T
+     01180      01200T
+     01210      01250T
+     01260      01230T, 01280T
+     01350      00740T
+     01560      01530T, 01580T
+     01600      01550T
+     01920      01400G, 01420G, 01460G, 01940T, 01970T
+     02010      01440G, 01460G
+     02060      01460G
+     02110      02020G, 02070G, 02150T
+     02190      01960G, 02140G
+     02200      02190T
+     02240      02190T
+     02260      02190T
+     02300      02190T, 02230T, 02250T
+     02340      02310T
+     02410      00304G
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
+  --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
+   A) 0x55e5590f1550 (00001)   0x55e5590f1550 (00001)   0x55e5591339d0 (02450)   0x55e5591339d0 (02450)   
+   B) 0x55e559129ab0 (01900)   0x55e55912a080 (01920)   0x55e55912b440 (01990)   0x55e55912b440 (01990)   
+   C) 0x55e55912b4e0 (02000)   0x55e55912b7c0 (02010)   0x55e55912bc20 (02040)   0x55e55912bc20 (02040)   
+   D) 0x55e55912bcc0 (02050)   0x55e55912bee0 (02060)   0x55e55912c340 (02090)   0x55e55912c340 (02090)   
+   E) 0x55e55912c3e0 (02100)   0x55e55912c940 (02110)   0x55e55912d370 (02160)   0x55e55912d370 (02160)   
+   F) 0x55e55912d410 (02170)   0x55e55912d940 (02190)   0x55e5591305d0 (02330)   0x55e5591316f0 (02390)   
+
+    NOTE: Routine B overlaps, or is tangled with, routine A!
+    NOTE: Routine C overlaps, or is tangled with, routine A!
+    NOTE: Routine D overlaps, or is tangled with, routine A!
+    NOTE: Routine E overlaps, or is tangled with, routine A!
+    NOTE: Routine F overlaps, or is tangled with, routine A!
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     03810 - 10000    6200 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for 'basic/StarTrader_setup.bas'
+ *
+    A$              Array    String          {0,5} 
+    ABS             Function Integer         args=1, int    
+    ASC             Function Integer         args=1, char*  
+    ATN             Function Float           args=1, float  
+    B               Array    Integer         {0,2} {0,11} 
+    B1                       Integer     
+    C               Array    Integer         {0,5} {0,2} 
+    CDBL            Function Float           args=1, int    
+    CHR$            Function String          args=1, int    
+    CINT            Function Integer         args=1, float  
+    COS             Function Float           args=1, float  
+    CSNG            Function Float           args=1, int    
+    CVD             Function Float           args=1, float  
+    CVI             Function Integer         args=1, char*  
+    CVS             Function Float           args=1, char*  
+    D1                       Integer     
+    D9                       Integer     
+    E                        Integer     
+    ENVIRON$        Function String          args=1, int    
+    EOF             Function Integer         args=1, int    
+    EXP             Function Float           args=1, int    
+    EXTERR          Function Integer         args=1, int    
+    F                        Integer     
+    FIX             Function Integer         args=1, float  
+    FRE             Function Integer         args=1, char*  
+    G9                       Integer     
+    H                        Integer     
+    HEX$            Function String          args=1, int    
+    I                        Integer     
+    INP             Function Integer         args=1, int    
+    INPUT$          Function String          args=2, int    int    
+    INSTR           Function Integer         args=3, int    char*  char*  
+    INT             Function Integer         args=1, float  
+    IOCTL$          Function String          args=1, int    
+    J                        Integer     
+    K9                       Integer     
+    L                        Integer     
+    LEFT$           Function String          args=2, char*  int    
+    LEN             Function Integer         args=1, char*  
+    LOC             Function Integer         args=1, int    
+    LOF             Function Integer         args=1, int    
+    LOG             Function Float           args=1, float  
+    LPOS            Function Integer         args=1, Any    
+    M               Array    Integer         {0,5} {0,2} 
+    MAX             Function Integer         args=1, int    
+    MID$            Function String          args=2, char*  int    
+    MIN             Function Integer         args=1, int    
+    MKD$            Function String          args=1, int    
+    MKI$            Function String          args=1, float  
+    MKS$            Function String          args=1, float  
+    MOD             Array    Integer         {0,9} 
+    OCT$            Function String          args=1, float  
+    P1                       Integer     
+    P9                       Integer     
+    PEEK            Function Integer         args=1, int    
+    PEN             Function Integer         args=1, char*  
+    PLAY            Function Integer         args=1, Any    
+    PMAP            Function Integer         args=2, int    int    
+    POINT           Function Integer         args=2, int    int    
+    POS             Function Integer         args=1, Any    
+    Q                        Integer     
+    R                        Integer     
+    R9                       Integer     
+    RIGHT$          Function String          args=2, char*  int    
+    RND             Function Float           args=1, int    
+    S               Array    Integer         {0,11} {0,14} 
+    S1                       Integer     
+    S9                       Integer     
+    SGN             Function Integer         args=1, int    
+    SIN             Function Float           args=1, float  
+    SPACE$          Function String          args=1, int    
+    SPC             Function Unknown (0)    args=1, int    
+    SQR             Function Float           args=1, float  
+    STICK           Function Integer         args=1, int    
+    STR$            Function String          args=1, float  
+    STRING$         Function String          args=2, int    int    
+    T               Array    Integer         {0,11} {0,11} 
+    T$              Array    String          {0,71} 
+    T1                       Integer     
+    T9                       Integer     
+    TAB             Function Unknown (0)    args=1, int    
+    TAB$            Function String          args=1, int    
+    TAN             Function Float           args=1, int    
+    TIMER           Function Float           args=0, 
+    VAL             Function Integer         args=1, char*  
+    VARPTR          Function Integer         args=1, Any    
+    VARPTR$         Function String          args=1, Any    
+    W                        Integer     
+    X                        Integer     
+    X1                       Integer     
+    X9                       Integer     
+    Y                        Integer     
+    Y1                       Integer     
+    Y9                       Integer     
+    Z                        Integer     
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of basic/StarTrader_setup.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x55e5590f1550 ---------A   01000  REM Written in HP Basic
+    0x55e5590f1610 ---------A   01010  REM From: http://www.langesite.com/startrader/
+    0x55e559105030 ---------A   01020 COM S[12,15],T[12,12],T$[72],B[3,12]
+    0x55e559100820 ---------A   01030 COM W,D9,K9,X9,D1,X1,P9,T9,S9,Y9,H
+    0x55e55910c190 ---------A   01040 COM Y1,R9,G9,Q,M[6,3],C[6,3]
+    0x55e55910c6b0 ---------A   01050 COM S1,T1,R
+    0x55e55910c6f0 ---------A   01060 REM *** STAR TRADERS ***
+    0x55e55910c730 ---------A   01070 REM <<<GAME SET-UP MODULE>>>
+    0x55e55910c7d0 ---------A   01080 REM S IS THE STAR SYSTEM INFO ARRAY
+    0x55e55910c870 ---------A   01090 REM T IS THE TRADING SHIP INFO ARRAY
+    0x55e55910c920 ---------A   01100 REM T$ IS THE TRADING SHIP NAME STRING
+    0x55e55910c9e0 ---------A   01110 REM M AND C DETERMINE A STAR'S PRODUCTIVITY/MONTH
+    0x55e55910caa0 ---------A   01120 REM   PROD/MO. = S(7,J) * M(I,R1)  +  C(I,R1)
+    0x55e55910cb60 ---------A   01130 REM   WHERE J IS THE STAR ID #,I THE MERCHANDISE #,
+    0x55e55910cc20 ---------A   01140 REM   AND R1 IS THE DEVELOPMENT CLASS OF THE STAR
+    0x55e55910ccc0 ---------A   01150 REM B CONTAINS THE BANK ACCOUNTS
+    0x55e55910cd60 ---------A   01160 REM A$ IS THE STANDARD INPUT BUFFER
+    0x55e55910d020 ---------A   01170 DIM A$[6]
+    0x55e55910d0a0 ---------A   01180 REM R9 IS THE SPEED OF A SHIP IN LIGHT-YEARS PER DAY
+    0x55e55910d120 ---------A   01190 REM D9 IS THE MINIMUM  DISTANCE ALLOWED BETWEEN STARS
+    0x55e55910d1c0 ---------A   01200 REM Q IS THE PROBABILITY OF A DELAY
+    0x55e55910d280 ---------A   01210 REM K9 IS THE MAX NUMBER OF BIDDING ROUNDS
+    0x55e55910d340 ---------A   01220 REM W IS THE MAX WEIGHT OF A TRADING SHIP
+    0x55e55910d3c0 ---------A   01230 REM X9 CONTROLS THE PROFIT MARGIN; HIGH X9 LIMITS THE %
+    0x55e55910d440 ---------A   01240 REM G9 IS THE STELLAR DEVELOPMENT INCREMENT 1<=G9<=5
+    0x55e55910d4e0 ---------A   01250 REM R=1 IF THIS IS A RESTART
+    0x55e5591030f0 ---------A   01260 LET R9=2/7
+    0x55e5591031b0 ---------A   01270 LET D9=15
+    0x55e55910db80 ---------A   01280 LET Q=.1
+    0x55e55910dd90 ---------A   01290 LET K9=3
+    0x55e55910dfa0 ---------A   01300 LET W=30
+    0x55e55910e1b0 ---------A   01310 LET X9=36
+    0x55e55910e3c0 ---------A   01320 LET G9=1.25
+    0x55e55910e800 ---------A   01330 LET R=0
+    0x55e55910e890 ---------A   01340 REM D1 IS THE DAY OF THIS YEAR (1<=D1<=360)
+    0x55e55910e910 ---------A   01350 REM Y1 IS THIS YEAR
+    0x55e55910eb30 ---------A   01360 LET D1=1
+    0x55e55910ed50 ---------A   01370 LET Y1=2070
+    0x55e55910edd0 ---------A   01380 REM SET UP ECONOMETRICS MODEL
+    0x55e55910ee30 ---------A   01390 RESTORE 3200
+    0x55e55910f070 ---------A   01400 MAT READ M,C
+    0x55e55910f0e0 ---------A   01410 REM *** BLOCK #1
+    0x55e55910f290 ---------A   01420 PRINT "INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)";
+    0x55e5591006d0 ---------A   01430 INPUT A$
+    0x55e559100670 ---------A   01440 IF A$[1,1]="N" THEN 1690
+    0x55e55910f7e0 ---------A   01450 PRINT 
+    0x55e55910f980 ---------A   01460 PRINT "     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT"
+    0x55e55910fb20 ---------A   01470 PRINT "HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR"
+    0x55e55910fcc0 ---------A   01480 PRINT "SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY"
+    0x55e55910fe40 ---------A   01490 PRINT "FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED."
+    0x55e55910fee0 ---------A   01500 PRINT 
+    0x55e559110080 ---------A   01510 PRINT "     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR"
+    0x55e559110220 ---------A   01520 PRINT "TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO"
+    0x55e5591103c0 ---------A   01530 PRINT "STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU"
+    0x55e559110530 ---------A   01540 PRINT "DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS."
+    0x55e5591105d0 ---------A   01550 PRINT 
+    0x55e559110770 ---------A   01560 PRINT "     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY"
+    0x55e559110910 ---------A   01570 PRINT "GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT"
+    0x55e559110ab0 ---------A   01580 PRINT "HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY"
+    0x55e559110c20 ---------A   01590 PRINT "MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS."
+    0x55e559110cc0 ---------A   01600 PRINT 
+    0x55e559110e60 ---------A   01610 PRINT "     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A"
+    0x55e5591111f0 ---------A   01620 PRINT "WEEK AND CAN CARRY UP TO";W;" TONS OF CARGO.  ONLY"
+    0x55e559111390 ---------A   01630 PRINT "CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM."
+    0x55e559111530 ---------A   01640 PRINT "THEY PAY 5% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE"
+    0x55e559111ac0 ---------A   01650 PRINT "PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL"
+    0x55e559111c10 ---------A   01660 PRINT "BANK."
+    0x55e559111c80 ---------A   01670 PRINT 
+    0x55e559111cf0 ---------A   01680 REM *** BLOCK #2
+    0x55e559111ea0 ---------A T 01690 PRINT "HAVE ALL PLAYERS PLAYED BEFORE";
+    0x55e559111ff0 ---------A   01700 INPUT A$
+    0x55e559112080 ---------A   01710 PRINT 
+    0x55e559112470 ---------A   01720 IF A$[1,1]="Y" THEN 1740
+    0x55e559112510 ---------A   01730 GOTO 1780
+    0x55e559112680 ---------A T 01740 PRINT "DO YOU WANT TO SET UP YOUR OWN GAME";
+    0x55e5591127d0 ---------A   01750 INPUT A$
+    0x55e559112860 ---------A   01760 PRINT 
+    0x55e559112c60 ---------A   01770 IF A$[1,1]="Y" THEN 1890
+    0x55e559112de0 ---------A T 01780 PRINT "HOW MANY PLAYERS";
+    0x55e559112f30 ---------A   01790 INPUT P9
+    0x55e559112fc0 ---------A   01800 PRINT 
+    0x55e559113460 ---------A   01810 GOTO P9-1 OF 1840,1840,1840
+    0x55e5591135b0 ---------A   01820 PRINT "2,3, OR 4 CAN PLAY"
+    0x55e559113620 ---------A   01830 GOTO 1780
+    0x55e559113940 ---------A T 01840 T9=2*P9
+    0x55e559113d70 ---------A   01850 S9=3*P9+1
+    0x55e5591140a0 ---------A   01860 Y9=Y1+5
+    0x55e559114110 ---------A   01870 GOTO 2620
+    0x55e559114170 ---------A   01880 REM *** BLOCK #3
+    0x55e559114300 ---------A T 01890 PRINT "IS THIS A RESTART";
+    0x55e559114450 ---------A   01900 INPUT A$
+    0x55e5591144e0 ---------A   01910 PRINT 
+    0x55e559114900 ---------A   01920 IF A$[1,1]="N" THEN 2140
+    0x55e559114ac0 ---------A   01930 PRINT "LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'"
+    0x55e559114c40 ---------A   01940 PRINT "YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY"
+    0x55e559114cb0 ---------A   01950 PRINT 
+    0x55e559114e10 ---------A   01960 INPUT T$
+    0x55e5591153e0 ---------A   01970 INPUT W,D9,K9,X9,D1,Y1
+    0x55e5591159a0 ---------A   01980 INPUT P9,T9,S9,Y9,T1,S1
+    0x55e559115d60 ---------A   01990 FOR J=1 TO S9
+    0x55e5591161e0 ---------A   02000 FOR I=1 TO 9 STEP 4
+    0x55e559116fe0 ---------A   02010 INPUT S[I,J],S[I+1,J],S[I+2,J],S[I+3,J]
+    0x55e559117120 ---------A   02020 NEXT I
+    0x55e559117260 ---------A   02030 NEXT J
+    0x55e559117560 ---------A   02040 FOR J=1 TO T9
+    0x55e559117920 ---------A   02050 FOR I=1 TO 9 STEP 4
+    0x55e559118720 ---------A   02060 INPUT T[I,J],T[I+1,J],T[I+2,J],T[I+3,J]
+    0x55e559118860 ---------A   02070 NEXT I
+    0x55e5591189a0 ---------A   02080 NEXT J
+    0x55e559118cb0 ---------A   02090 FOR I=1 TO P9
+    0x55e5591194b0 ---------A   02100 INPUT B[1,I],B[2,I],B[3,I]
+    0x55e5591195f0 ---------A   02110 NEXT I
+    0x55e559119810 ---------A   02120 R=1
+    0x55e5591198b0 ---------A   02130 CHAIN "$TRADES"
+    0x55e559119a30 ---------A T 02140 PRINT "HOW MANY PLAYERS";
+    0x55e559119b80 ---------A   02150 INPUT P9
+    0x55e559119c10 ---------A   02160 PRINT 
+    0x55e55911a090 ---------A   02170 IF P9 >= 2 AND P9 <= 12 THEN 2200
+    0x55e55911a200 ---------A   02180 PRINT "2,3,4, ... ,12 CAN PLAY"
+    0x55e55911a280 ---------A   02190 GOTO 2140
+    0x55e55911a3f0 ---------A T 02200 PRINT "HOW MANY SHIPS PER PLAYER";
+    0x55e55911a600 ---------A   02210 INPUT X
+    0x55e55911a680 ---------A   02220 PRINT 
+    0x55e55911a8d0 ---------A   02230 IF X<1 THEN 2200
+    0x55e55911ac40 ---------A   02240 T9=P9*X
+    0x55e55911aeb0 ---------A   02250 IF T9 <= 12 THEN 2290
+    0x55e55911b050 ---------A   02260 PRINT "I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;"
+    0x55e55911b5a0 ---------A   02270 PRINT P9;" PLAYERS TIMES";X;" SHIPS MAKES";T9
+    0x55e55911b620 ---------A   02280 GOTO 2200
+    0x55e55911bf90 ---------A T 02290 PRINT "HOW MANY STAR SYSTEMS";
+    0x55e55911c0e0 ---------A   02300 INPUT S9
+    0x55e55911c170 ---------A   02310 PRINT 
+    0x55e55911c5f0 ---------A   02320 IF S9 >= 4 AND S9 <= 13 THEN 2350
+    0x55e55911c750 ---------A   02330 PRINT "FROM 4 TO 13 STARS"
+    0x55e55911c7e0 ---------A   02340 GOTO 2290
+    0x55e55911c950 ---------A T 02350 PRINT "ENTER THE LENGTH OF GAME IN YEARS";
+    0x55e55911caa0 ---------A T 02360 INPUT X
+    0x55e55911cb30 ---------A   02370 PRINT 
+    0x55e55911d0b0 ---------A   02380 IF X >= 1 AND INT(X)=X THEN 2410
+    0x55e55911d220 ---------A   02390 PRINT "CHOOSE A POSITIVE INTEGER"
+    0x55e55911d290 ---------A   02400 GOTO 2360
+    0x55e55911d5f0 ---------A T 02410 Y9=Y1+X
+    0x55e55911d780 ---------A T 02420 PRINT "WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)";
+    0x55e55911d8d0 ---------A   02430 INPUT W
+    0x55e55911d950 ---------A   02440 PRINT 
+    0x55e55911dbd0 ---------A   02450 IF W<25 THEN 2420
+    0x55e55911dd70 ---------A T 02460 PRINT "WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)";
+    0x55e55911dec0 ---------A   02470 INPUT D9
+    0x55e55911df50 ---------A   02480 PRINT 
+    0x55e55911e3d0 ---------A   02490 IF D9 <= 25 AND D9 >= 10 THEN 2520
+    0x55e55911e540 ---------A   02500 PRINT "MIN SPACING 10, MAX 25"
+    0x55e55911e5d0 ---------A   02510 GOTO 2460
+    0x55e55911e740 ---------A T 02520 PRINT "HOW MANY BIDS OR OFFERS(USUALLY 3)";
+    0x55e55911e890 ---------A   02530 INPUT K9
+    0x55e55911e910 ---------A   02540 PRINT 
+    0x55e55911eb90 ---------A   02550 IF K9<1 THEN 2520
+    0x55e55911ed40 ---------A   02560 PRINT "SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER"
+    0x55e55911eed0 ---------A   02570 PRINT "THE NUMBER, THE LOWER THE PROFIT % ... USUALLY SET TO 2"
+    0x55e55911f040 ---------A   02580 PRINT "...YOUR NUMBER";
+    0x55e55911f1a0 ---------A   02590 INPUT X9
+    0x55e55911f720 ---------A   02600 X9=18*(ABS(X9) MIN 5)
+    0x55e55911f790 ---------A   02610 REM *** BLOCK #4.1
+    0x55e55911fd90 ---------A T 02620 S[11,1]=S[12,1]=0
+    0x55e559120120 ---------A   02630 S[7,1]=15
+    0x55e559120190 ---------A   02640 REM *** BLOCK #4.2
+    0x55e5591203b0 ---------A   02650 H=1
+    0x55e5591205c0 ---------A   02660 S1=2
+    0x55e559120630 ---------A   02670 GOSUB 3270
+    0x55e559120830 ---------A   02680 S1=3
+    0x55e5591208a0 ---------A   02690 GOSUB 3270
+    0x55e559120aa0 ---------A   02700 S1=4
+    0x55e559120b10 ---------A   02710 GOSUB 3370
+    0x55e559120e10 ---------A   02720 FOR S1=5 TO S9
+    0x55e5591216f0 ---------A   02730 GOSUB S1-3*INT((S1-1)/3) OF 3270,3370,3430
+    0x55e559121820 ---------A   02740 NEXT S1
+    0x55e5591218a0 ---------A   02750 REM *** BLOCK #4.3
+    0x55e559121ba0 ---------A   02760 FOR S1=1 TO S9
+    0x55e559121e80 ---------A   02770 FOR J=1 TO 6
+    0x55e559122260 ---------A   02780 S[J,S1]=0
+    0x55e559122390 ---------A   02790 NEXT J
+    0x55e5591225f0 ---------A   02800 IF S1>1 THEN 2830
+    0x55e559122810 ---------A   02810 I=1
+    0x55e559122890 ---------A   02820 GOTO 2870
+    0x55e559122f50 ---------A T 02830 I=4*INT(14*RND(0))+5
+    0x55e559123350 ---------A   02840 FOR J=2 TO S1-1
+    0x55e559123770 ---------A   02850 IF I=S[8,J] THEN 2830
+    0x55e5591238b0 ---------A   02860 NEXT J
+    0x55e559123c90 ---------A T 02870 S[8,S1]=I
+    0x55e559124040 ---------A   02880 S[9,S1]=270
+    0x55e559124510 ---------A   02890 S[10,S1]=Y1-1
+    0x55e559124640 ---------A   02900 NEXT S1
+    0x55e5591246c0 ---------A   02910 REM *** BLOCK #4.4
+    0x55e559124a80 ---------A   02920 T1=L=1
+    0x55e559124af0 ---------A   02930 PRINT 
+    0x55e559124b90 ---------A   02940 PRINT 
+    0x55e559124d10 ---------A   02950 PRINT "CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)"
+    0x55e559125120 ---------A   02960 FOR I=1 TO T9/P9
+    0x55e5591251a0 ---------A   02970 PRINT 
+    0x55e559125560 ---------A   02980 FOR P1=1 TO P9
+    0x55e559125e20 ---------A   02990 T[1,T1]=T[2,T1]=T[6,T1]=0
+    0x55e5591261d0 ---------A   03000 T[3,T1]=15
+    0x55e559126800 ---------A   03010 T[4,T1]=T[5,T1]=10
+    0x55e559126bb0 ---------A   03020 T[7,T1]=25
+    0x55e559126f80 ---------A   03030 T[9,T1]=D1
+    0x55e559127350 ---------A   03040 T[10,T1]=Y1
+    0x55e559127730 ---------A   03050 T[11,T1]=5000
+    0x55e559127bb0 ---------A   03060 PRINT "   CAPTAIN";P1;"WHAT DO YOU CHRISTEN YOUR SHIP #";I;
+    0x55e559127fc0 ---------A   03070 INPUT T$[L,L+5]
+    0x55e559128300 ---------A   03080 T1=T1+1
+    0x55e559128630 ---------A   03090 L=L+6
+    0x55e559128760 ---------A   03100 NEXT P1
+    0x55e5591288a0 ---------A   03110 NEXT I
+    0x55e559128920 ---------A   03120 REM *** BLOCK #4.5
+    0x55e559128ce0 ---------A   03130 FOR B1=1 TO P9
+    0x55e5591290a0 ---------A   03140 B[1,B1]=0
+    0x55e559129470 ---------A   03150 B[2,B1]=D1
+    0x55e559129840 ---------A   03160 B[3,B1]=Y1
+    0x55e559129970 ---------A   03170 NEXT B1
+    0x55e559129a20 ---------A   03180 CHAIN "$TRADES"
+    0x55e5591317b0 ---------A   03190 REM *** DATA FOR ECONOMETRIC MODEL FOLLOWS ***
+    0x55e559131830 ---------A   03200 REM MODEL #1
+    0x55e5591328e0 ---------A   03210 DATA -0.025,-0.05,-0.025,0,-0.025,-0.025,0,.1,.1,-0.025,.1,0,.1,.2,.1,.1,-0.025,0
+    0x55e559133590 ---------A   03220 DATA 1,1.5,.5,.75,.75,.75,-0.25,-0.25,-0.25,0,-0.5,.5,0,-0.5
+    0x55e559133980 ---------A   03230 DATA 0,.5,1.5,0
+    0x55e5591339d0 ---------A   03240 END
+    0x55e559129ab0 ---------B   03250 REM *** GOSUBS FOLLOW ***
+    0x55e559129b40 ---------B   03260 REM <FRONTIER> GOSUB
+    0x55e55912a080 ---------B B 03270 X=(RND(0)-.5)*100
+    0x55e55912a550 ---------B   03280 Y=50*RND(0)
+    0x55e55912aaa0 ---------B   03290 IF (ABS(X)<25) AND (Y<25) THEN 3270
+    0x55e55912ad80 ---------B   03300 F=1
+    0x55e55912adf0 ---------B   03310 GOSUB 3580
+    0x55e55912b030 ---------B   03320 IF F=0 THEN 3270
+    0x55e55912b3f0 ---------B   03330 S[7,S1]=0
+    0x55e55913ad20 ---------B   03340 GOTO 03350
+    0x55e55913ad60 ---------B T 03350 RETURN
+    0x55e55912b4e0 ---------C   03360 REM *** <UNDERDEVELOPED> GOSUB
+    0x55e55912b7c0 ---------C G 03370 E=100
+    0x55e55912b830 ---------C   03380 GOSUB 3490
+    0x55e55912bbd0 ---------C   03390 S[7,S1]=5
+    0x55e55913ada0 ---------C   03400 GOTO 03410
+    0x55e55913ae00 ---------C T 03410 RETURN
+    0x55e55912bcc0 ---------D   03420 REM *** <DEVELOPED> GOSUB
+    0x55e55912bee0 ---------D G 03430 E=50
+    0x55e55912bf50 ---------D   03440 GOSUB 3490
+    0x55e55912c2f0 ---------D   03450 S[7,S1]=10
+    0x55e55913ae60 ---------D   03460 GOTO 03470
+    0x55e55913aec0 ---------D T 03470 RETURN
+    0x55e55912c3e0 ---------E   03480 REM *** <GENERATE CO-ORDS> GOSUB
+    0x55e55912c940 ---------E B 03490 X=(RND(0)-.5)*E
+    0x55e55912ce50 ---------E   03500 Y=RND(0)*E/2
+    0x55e55912d060 ---------E   03510 F=1
+    0x55e55912d0d0 ---------E   03520 GOSUB 3580
+    0x55e55912d310 ---------E   03530 IF F=0 THEN 3490
+    0x55e55913af20 ---------E   03540 GOTO 03550
+    0x55e55913af80 ---------E T 03550 RETURN
+    0x55e55912d410 ---------F   03560 REM *** <TEST STAR CO-ORDS> GOSUB
+    0x55e55912d4d0 ---------F   03570 REM FIRST CONVERT CO-ORDS TO NEXT HALF-BOARD
+    0x55e55912d940 ---------F G 03580 GOTO H OF 3690,3650,3630,3590
+    0x55e55912dc30 ---------F T 03590 Z=X
+    0x55e55912de60 ---------F   03600 X=-Y
+    0x55e55912e090 ---------F   03610 Y=Z
+    0x55e55912e100 ---------F   03620 GOTO 3690
+    0x55e55912e320 ---------F T 03630 Y=-Y
+    0x55e55912e390 ---------F   03640 GOTO 3690
+    0x55e55912e5b0 ---------F T 03650 Z=X
+    0x55e55912e7e0 ---------F   03660 X=Y
+    0x55e55911b850 ---------F   03670 Y=Z
+    0x55e55911b8d0 ---------F   03680 REM SECOND, TEST PROXIMITY
+    0x55e55911bd00 ---------F T 03690 FOR J=1 TO S1-1
+    0x55e559130360 ---------F   03700 IF SQR((X-S[11,J])^2+(Y-S[12,J])^2) >= D9 THEN 3730
+    0x55e559130580 ---------F   03710 F=0
+    0x55e55913a510 ---------F   03720 GOTO 03800
+    0x55e559130710 ---------F T 03730 NEXT J
+    0x55e5591307e0 ---------F   03740 REM FINALLY, ENTER CO-ORDS AND INCREMENT HALF-BOARD CTR
+    0x55e559130ca0 ---------F   03750 S[11,S1]=INT(X)
+    0x55e559131150 ---------F   03760 S[12,S1]=INT(Y)
+    0x55e5591311c0 ---------F   03770 REM H=1+(H <= 3)*H
+    0x55e5591316a0 ---------F   03780 H=MOD(1+H)
+    0x55e55913a570 ---------F   03790 GOTO 03800
+    0x55e55913a5d0 ---------F T 03800 RETURN
+ */
+
 //---------------------------------------------------------------------------
 // $Header$ 
 //
@@ -373,7 +1129,7 @@ int main(int argc,char *argv[])
     }
     // 01410 REM *** BLOCK #1
     // 01420 PRINT "INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)";
-    b2c_printf("Instructions (type 'y' or 'n' please)");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)");fputs(buf,fh); };
     // 01430 INPUT A$
     // Start of Basic INPUT statement 01430
     {
@@ -395,56 +1151,56 @@ int main(int argc,char *argv[])
     // 01440 IF A$[1,1]="N" THEN 1690
     if(A_str_arr[1][1]=='N')goto Lbl_01690;
     // 01450 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01460 PRINT "     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT"
-    b2c_printf("     the date is jan 1, 2070 and interstellar flight\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT");strcat(buf,"\n");fputs(buf,fh); };
     // 01470 PRINT "HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR"
-    b2c_printf("Has existed for 70 years.  There are several star\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR");strcat(buf,"\n");fputs(buf,fh); };
     // 01480 PRINT "SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY"
-    b2c_printf("Systems that have been colonized.  Some are only\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY");strcat(buf,"\n");fputs(buf,fh); };
     // 01490 PRINT "FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED."
-    b2c_printf("Frontier systems, others are older and more developed.\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED.");strcat(buf,"\n");fputs(buf,fh); };
     // 01500 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01510 PRINT "     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR"
-    b2c_printf("     each of you is the captain of two interstellar\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR");strcat(buf,"\n");fputs(buf,fh); };
     // 01520 PRINT "TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO"
-    b2c_printf("Trading ships.  You will travel from star system to\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO");strcat(buf,"\n");fputs(buf,fh); };
     // 01530 PRINT "STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU"
-    b2c_printf("Star system, buying and selling merchandise.  If you\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU");strcat(buf,"\n");fputs(buf,fh); };
     // 01540 PRINT "DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS."
-    b2c_printf("Drive a good bargain you can make large profits.\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS.");strcat(buf,"\n");fputs(buf,fh); };
     // 01550 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01560 PRINT "     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY"
-    b2c_printf("     as time goes on, each star system will slowly\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY");strcat(buf,"\n");fputs(buf,fh); };
     // 01570 PRINT "GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT"
-    b2c_printf("Grow, and its needs will change.  A star system that\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT");strcat(buf,"\n");fputs(buf,fh); };
     // 01580 PRINT "HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY"
-    b2c_printf("How is selling much uranium and raw metals cheaply\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY");strcat(buf,"\n");fputs(buf,fh); };
     // 01590 PRINT "MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS."
-    b2c_printf("May not have enough for export in a few years.\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS.");strcat(buf,"\n");fputs(buf,fh); };
     // 01600 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01610 PRINT "     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A"
-    b2c_printf("     your ships can travel about two lightyears in a\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A");strcat(buf,"\n");fputs(buf,fh); };
     // 01620 PRINT "WEEK AND CAN CARRY UP TO";W;" TONS OF CARGO.  ONLY"
-    b2c_printf("Week and can carry up to %d Week and can carry up to tons of cargo.  Only\n",W_int);
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WEEK AND CAN CARRY UP TO"); b2c_INT(buf,W_int);strcat(buf," TONS OF CARGO.  ONLY");strcat(buf,"\n");fputs(buf,fh); };
     // 01630 PRINT "CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM."
-    b2c_printf("Class i and class ii star systems have banks on them.\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM.");strcat(buf,"\n");fputs(buf,fh); };
     // 01640 PRINT "THEY PAY 5% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE"
-    b2c_printf("They pay 5%% interest and any money you deposit on one\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THEY PAY 5%% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE");strcat(buf,"\n");fputs(buf,fh); };
     // 01650 PRINT "PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL"
-    b2c_printf("Planet is available on another - provided there's a local\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL");strcat(buf,"\n");fputs(buf,fh); };
     // 01660 PRINT "BANK."
-    b2c_printf("Bank.\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"BANK.");strcat(buf,"\n");fputs(buf,fh); };
     // 01670 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01680 REM *** BLOCK #2
 
   Lbl_01690:
     // 01690 PRINT "HAVE ALL PLAYERS PLAYED BEFORE";
-    b2c_printf("Have all players played before");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HAVE ALL PLAYERS PLAYED BEFORE");fputs(buf,fh); };
     // 01700 INPUT A$
     // Start of Basic INPUT statement 01700
     {
@@ -464,7 +1220,7 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 01700
     // 01710 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01720 IF A$[1,1]="Y" THEN 1740
     if(A_str_arr[1][1]=='Y')goto Lbl_01740;
     // 01730 GOTO 1780
@@ -472,7 +1228,7 @@ int main(int argc,char *argv[])
 
   Lbl_01740:
     // 01740 PRINT "DO YOU WANT TO SET UP YOUR OWN GAME";
-    b2c_printf("Do you want to set up your own game");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DO YOU WANT TO SET UP YOUR OWN GAME");fputs(buf,fh); };
     // 01750 INPUT A$
     // Start of Basic INPUT statement 01750
     {
@@ -492,13 +1248,13 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 01750
     // 01760 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01770 IF A$[1,1]="Y" THEN 1890
     if(A_str_arr[1][1]=='Y')goto Lbl_01890;
 
   Lbl_01780:
     // 01780 PRINT "HOW MANY PLAYERS";
-    b2c_printf("How many players");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HOW MANY PLAYERS");fputs(buf,fh); };
     // 01790 INPUT P9
     // Start of Basic INPUT statement 01790
     {
@@ -518,7 +1274,7 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 01790
     // 01800 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01810 GOTO P9-1 OF 1840,1840,1840
     switch((int)(P9_int-1)){
         case 1: goto Lbl_01840;
@@ -527,7 +1283,7 @@ int main(int argc,char *argv[])
         default: break; 
     };
     // 01820 PRINT "2,3, OR 4 CAN PLAY"
-    b2c_printf("2,3, or 4 can play\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"2,3, OR 4 CAN PLAY");strcat(buf,"\n");fputs(buf,fh); };
     // 01830 GOTO 1780
     goto Lbl_01780;
 
@@ -544,7 +1300,7 @@ int main(int argc,char *argv[])
 
   Lbl_01890:
     // 01890 PRINT "IS THIS A RESTART";
-    b2c_printf("Is this a restart");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"IS THIS A RESTART");fputs(buf,fh); };
     // 01900 INPUT A$
     // Start of Basic INPUT statement 01900
     {
@@ -564,15 +1320,15 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 01900
     // 01910 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01920 IF A$[1,1]="N" THEN 2140
     if(A_str_arr[1][1]=='N')goto Lbl_02140;
     // 01930 PRINT "LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'"
-    b2c_printf("Load the tape into the tape reader.  When i type a '?'\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'");strcat(buf,"\n");fputs(buf,fh); };
     // 01940 PRINT "YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY"
-    b2c_printf("You can flip the switch to 'start' whenever you're ready\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY");strcat(buf,"\n");fputs(buf,fh); };
     // 01950 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01960 INPUT T$
     // Start of Basic INPUT statement 01960
     {
@@ -732,7 +1488,7 @@ int main(int argc,char *argv[])
 
   Lbl_02140:
     // 02140 PRINT "HOW MANY PLAYERS";
-    b2c_printf("How many players");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HOW MANY PLAYERS");fputs(buf,fh); };
     // 02150 INPUT P9
     // Start of Basic INPUT statement 02150
     {
@@ -752,17 +1508,17 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 02150
     // 02160 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 02170 IF P9 >= 2 AND P9 <= 12 THEN 2200
     if(P9_int>=2&&P9_int<=12)goto Lbl_02200;
     // 02180 PRINT "2,3,4, ... ,12 CAN PLAY"
-    b2c_printf("2,3,4, ... ,12 Can play\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"2,3,4, ... ,12 CAN PLAY");strcat(buf,"\n");fputs(buf,fh); };
     // 02190 GOTO 2140
     goto Lbl_02140;
 
   Lbl_02200:
     // 02200 PRINT "HOW MANY SHIPS PER PLAYER";
-    b2c_printf("How many ships per player");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HOW MANY SHIPS PER PLAYER");fputs(buf,fh); };
     // 02210 INPUT X
     // Start of Basic INPUT statement 02210
     {
@@ -782,7 +1538,7 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 02210
     // 02220 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 02230 IF X<1 THEN 2200
     if(X_int<1)goto Lbl_02200;
     // 02240 T9=P9*X
@@ -790,15 +1546,15 @@ int main(int argc,char *argv[])
     // 02250 IF T9 <= 12 THEN 2290
     if(T9_int<=12)goto Lbl_02290;
     // 02260 PRINT "I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;"
-    b2c_printf("I can't keep track of more than 12 ships;\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;");strcat(buf,"\n");fputs(buf,fh); };
     // 02270 PRINT P9;" PLAYERS TIMES";X;" SHIPS MAKES";T9
-    b2c_printf(" %d Ia a players times players times %d  players times ships makes ships makes %d \n",P9_int,X_int,T9_int);
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,P9_int);strcat(buf," PLAYERS TIMES"); b2c_INT(buf,X_int);strcat(buf," SHIPS MAKES"); b2c_INT(buf,T9_int);strcat(buf,"\n");fputs(buf,fh); };
     // 02280 GOTO 2200
     goto Lbl_02200;
 
   Lbl_02290:
     // 02290 PRINT "HOW MANY STAR SYSTEMS";
-    b2c_printf("How many star systems");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HOW MANY STAR SYSTEMS");fputs(buf,fh); };
     // 02300 INPUT S9
     // Start of Basic INPUT statement 02300
     {
@@ -818,17 +1574,17 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 02300
     // 02310 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 02320 IF S9 >= 4 AND S9 <= 13 THEN 2350
     if(S9_int>=4&&S9_int<=13)goto Lbl_02350;
     // 02330 PRINT "FROM 4 TO 13 STARS"
-    b2c_printf("From 4 to 13 stars\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"FROM 4 TO 13 STARS");strcat(buf,"\n");fputs(buf,fh); };
     // 02340 GOTO 2290
     goto Lbl_02290;
 
   Lbl_02350:
     // 02350 PRINT "ENTER THE LENGTH OF GAME IN YEARS";
-    b2c_printf("Enter the length of game in years");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"ENTER THE LENGTH OF GAME IN YEARS");fputs(buf,fh); };
 
   Lbl_02360:
     // 02360 INPUT X
@@ -850,11 +1606,11 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 02360
     // 02370 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 02380 IF X >= 1 AND INT(X)=X THEN 2410
     if(X_int>=1&&INT(X_int)==X_int)goto Lbl_02410;
     // 02390 PRINT "CHOOSE A POSITIVE INTEGER"
-    b2c_printf("Choose a positive integer\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"CHOOSE A POSITIVE INTEGER");strcat(buf,"\n");fputs(buf,fh); };
     // 02400 GOTO 2360
     goto Lbl_02360;
 
@@ -864,7 +1620,7 @@ int main(int argc,char *argv[])
 
   Lbl_02420:
     // 02420 PRINT "WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)";
-    b2c_printf("What's the max cargoe tonnage(usually 30)");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)");fputs(buf,fh); };
     // 02430 INPUT W
     // Start of Basic INPUT statement 02430
     {
@@ -884,13 +1640,13 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 02430
     // 02440 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 02450 IF W<25 THEN 2420
     if(W_int<25)goto Lbl_02420;
 
   Lbl_02460:
     // 02460 PRINT "WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)";
-    b2c_printf("What's the minimum distance between stars(usually 15)");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)");fputs(buf,fh); };
     // 02470 INPUT D9
     // Start of Basic INPUT statement 02470
     {
@@ -910,17 +1666,17 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 02470
     // 02480 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 02490 IF D9 <= 25 AND D9 >= 10 THEN 2520
     if(D9_int<=25&&D9_int>=10)goto Lbl_02520;
     // 02500 PRINT "MIN SPACING 10, MAX 25"
-    b2c_printf("Min spacing 10, max 25\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"MIN SPACING 10, MAX 25");strcat(buf,"\n");fputs(buf,fh); };
     // 02510 GOTO 2460
     goto Lbl_02460;
 
   Lbl_02520:
     // 02520 PRINT "HOW MANY BIDS OR OFFERS(USUALLY 3)";
-    b2c_printf("How many bids or offers(usually 3)");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HOW MANY BIDS OR OFFERS(USUALLY 3)");fputs(buf,fh); };
     // 02530 INPUT K9
     // Start of Basic INPUT statement 02530
     {
@@ -940,15 +1696,15 @@ int main(int argc,char *argv[])
         };
     }; // End of Basic INPUT statement 02530
     // 02540 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 02550 IF K9<1 THEN 2520
     if(K9_int<1)goto Lbl_02520;
     // 02560 PRINT "SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER"
-    b2c_printf("Set the profit margin(1,2,3,4 or 5)...The higher\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER");strcat(buf,"\n");fputs(buf,fh); };
     // 02570 PRINT "THE NUMBER, THE LOWER THE PROFIT % ... USUALLY SET TO 2"
-    b2c_printf("The number, the lower the profit %% ... Usually set to 2\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE NUMBER, THE LOWER THE PROFIT %% ... USUALLY SET TO 2");strcat(buf,"\n");fputs(buf,fh); };
     // 02580 PRINT "...YOUR NUMBER";
-    b2c_printf("...Your number");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"...YOUR NUMBER");fputs(buf,fh); };
     // 02590 INPUT X9
     // Start of Basic INPUT statement 02590
     {
@@ -1045,15 +1801,15 @@ int main(int argc,char *argv[])
     // 02920 T1=L=1
     L_int = T1_int = 1;
     // 02930 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 02940 PRINT 
-    b2c_printf("");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 02950 PRINT "CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)"
-    b2c_printf("Captains, name your ships (up to 6 letters/blanks/numbers)\n");
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)");strcat(buf,"\n");fputs(buf,fh); };
     // 02960 FOR I=1 TO T9/P9
     for(I_int=1;I_int<=T9_int/P9_int;I_int++){
         // 02970 PRINT 
-        b2c_printf("");
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
         // 02980 FOR P1=1 TO P9
         for(P1_int=1;P1_int<=P9_int;P1_int++){
             // 02990 T[1,T1]=T[2,T1]=T[6,T1]=0
@@ -1071,7 +1827,7 @@ int main(int argc,char *argv[])
             // 03050 T[11,T1]=5000
             T_int_arr[11][T1_int] = 5000;
             // 03060 PRINT "   CAPTAIN";P1;"WHAT DO YOU CHRISTEN YOUR SHIP #";I;
-            b2c_printf("   captain %d    captainWhat do you christen your ship #What do you christen your ship # %d What do you christen your ship #\n",P1_int,I_int);
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"   CAPTAIN"); b2c_INT(buf,P1_int);strcat(buf,"WHAT DO YOU CHRISTEN YOUR SHIP #"); b2c_INT(buf,I_int);fputs(buf,fh); };
             // 03070 INPUT T$[L,L+5]
             // Start of Basic INPUT statement 03070
             {

@@ -1,3 +1,468 @@
+/*
+ * Title: The annotated BASIC Listing
+ *
+ *  Listing of basic/boxing.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x611ed391cb80 ---------A   00001 PRINT TAB(33);"BOXING"
+    0x611ed391df30 ---------A   00002 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x611ed390c2b0 ---------A   00003 PRINT:PRINT:PRINT
+    0x611ed391ba20 ---------A   00004 PRINT "BOXING OLYMPIC STYLE (3 ROUNDS -- 2 OUT OF 3 WINS)"
+    0x611ed391c080 ---------A   00005 J=0
+    0x611ed391d740 ---------A   00006 L=0
+    0x611ed391c500 ---------A   00008 PRINT
+    0x611ed391e200 ---------A   00010 PRINT "WHAT IS YOUR OPPONENT'S NAME";
+    0x611ed391b6d0 ---------A   00020 INPUT J$
+    0x611ed391be40 ---------A   00030 PRINT "INPUT YOUR MAN'S NAME";
+    0x611ed39239c0 ---------A   00040 INPUT L$
+    0x611ed3923b40 ---------A   00050 PRINT "DIFFERENT PUNCHES ARE: (1) FULL SWING; (2) HOOK; (3) UPPERCUT; (4) JAB."
+    0x611ed3923c50 ---------A   00060 PRINT "WHAT IS YOUR MANS BEST";
+    0x611ed3923e00 ---------A   00064 INPUT B
+    0x611ed3923f20 ---------A   00070 PRINT "WHAT IS HIS VULNERABILITY";
+    0x611ed3924130 ---------A   00080 INPUT D
+    0x611ed39247d0 ---------A T 00090 B1=INT(4*RND(1)+1)
+    0x611ed3924e60 ---------A   00100 D1=INT(4*RND(1)+1)
+    0x611ed3925100 ---------A   00110 IF B1=D1 THEN 90
+    0x611ed3925590 ---------A   00120 PRINT J$;"'S ADVANTAGE IS";B1;"AND VULNERABILITY IS SECRET.":PRINT
+    0x611ed3925920 ---------A   00130 FOR R=1 TO 3
+    0x611ed3925b80 ---------A   00140 IF J>= 2 THEN 1040
+    0x611ed3925de0 ---------A   00150 IF L>=2 THEN 1060
+    0x611ed39260c0 ---------A   00160 X=0
+    0x611ed3926370 ---------A   00170 Y=0
+    0x611ed39266c0 ---------A   00180 PRINT "ROUND";R;"BEGINS..."
+    0x611ed3926a50 ---------A   00185 FOR R1= 1 TO 7
+    0x611ed39270f0 ---------A   00190 I=INT(10*RND(1)+1)
+    0x611ed3927350 ---------A   00200 IF I>5 THEN 600
+    0x611ed39275d0 ---------A   00210 PRINT L$;"'S PUNCH";
+    0x611ed39277e0 ---------A   00220 INPUT P
+    0x611ed3927a60 ---------A   00221 IF P=B THEN 225
+    0x611ed3927ae0 ---------A   00222 GOTO 230
+    0x611ed3928010 ---------A T 00225 X=X+2
+    0x611ed3928260 ---------A T 00230 IF P=1 THEN 340
+    0x611ed39284c0 ---------A   00240 IF P=2 THEN 450
+    0x611ed3928730 ---------A   00250 IF P=3 THEN 520
+    0x611ed3928bb0 ---------A   00270 PRINT L$;" JABS AT ";J$"'S HEAD ";
+    0x611ed3928e00 ---------A   00271 IF D1=4 THEN 290
+    0x611ed39294a0 ---------A   00275 C=INT(8*RND(1)+1)
+    0x611ed39296f0 ---------A   00280 IF C<4 THEN 310
+    0x611ed3929a30 ---------A T 00290 X=X+3
+    0x611ed3929ab0 ---------A T 00300 GOTO 950
+    0x611ed3929bf0 ---------A T 00310 PRINT "IT'S BLOCKED."
+    0x611ed3929c70 ---------A   00330 GOTO 950
+    0x611ed3929ed0 ---------A T 00340 PRINT L$ " SWINGS AND ";
+    0x611ed392a120 ---------A   00341 IF D1=4 THEN 410
+    0x611ed392a7c0 ---------A   00345 X3=INT(30*RND(1)+1)
+    0x611ed392aa10 ---------A   00350 IF X3<10 THEN 410
+    0x611ed392ab90 ---------A   00360 PRINT "HE MISSES ";
+    0x611ed392ac00 ---------A   00370 PRINT
+    0x611ed392ae50 ---------A   00375 IF X=1 THEN 950
+    0x611ed392aed0 ---------A   00380 PRINT
+    0x611ed392af40 ---------A   00390 PRINT
+    0x611ed392afc0 ---------A   00400 GOTO 300
+    0x611ed392b100 ---------A T 00410 PRINT "HE CONNECTS!"
+    0x611ed392b350 ---------A   00420 IF X>35 THEN 980
+    0x611ed392b690 ---------A   00425 X=X+15
+    0x611ed392b710 ---------A   00440 GOTO 300
+    0x611ed392b970 ---------A T 00450 PRINT L$;" GIVES THE HOOK... ";
+    0x611ed392bbc0 ---------A   00455 IF D1=2 THEN 480
+    0x611ed392c260 ---------A   00460 H1=INT(2*RND(1)+1)
+    0x611ed392c4b0 ---------A   00470 IF H1=1 THEN 500
+    0x611ed392c610 ---------A   00475 PRINT "CONNECTS..."
+    0x611ed392c940 ---------A T 00480 X=X+7
+    0x611ed392cde0 ---------A   00490 GOTO 300
+    0x611ed392cf30 ---------A T 00500 PRINT "BUT IT'S BLOCKED!!!!!!!!!!!!!"
+    0x611ed392cfb0 ---------A   00510 GOTO 300
+    0x611ed392d210 ---------A T 00520 PRINT L$ " TRIES AN UPPERCUT ";
+    0x611ed392d470 ---------A   00530 IF D1=3 THEN 570
+    0x611ed392db10 ---------A   00540 D5=INT(100*RND(1)+1)
+    0x611ed392dd80 ---------A   00550 IF D5<51 THEN 570
+    0x611ed392def0 ---------A   00560 PRINT "AND IT'S BLOCKED (LUCKY BLOCK!)"
+    0x611ed392df70 ---------A   00565 GOTO 300
+    0x611ed392e0b0 ---------A T 00570 PRINT "AND HE CONNECTS!"
+    0x611ed392e3e0 ---------A   00580 X=X+4
+    0x611ed392e450 ---------A   00590 GOTO 300
+    0x611ed392ead0 ---------A T 00600 J7=INT(4*RND(1)+1)
+    0x611ed392ed40 ---------A   00601 IF J7 =B1 THEN 605
+    0x611ed392edc0 ---------A   00602 GOTO 610
+    0x611ed392f0e0 ---------A T 00605 Y=Y+2
+    0x611ed392f330 ---------A T 00610 IF J7=1 THEN 720
+    0x611ed392f590 ---------A   00620 IF J7=2 THEN 810
+    0x611ed392f800 ---------A   00630 IF J7 =3 THEN 860
+    0x611ed392fa80 ---------A   00640 PRINT J$;" JABS AND ";
+    0x611ed392fcd0 ---------A   00645 IF D=4 THEN 700
+    0x611ed3930370 ---------A   00650 Z4=INT(7*RND(1)+1)
+    0x611ed39305d0 ---------A   00655 IF Z4>4 THEN 690
+    0x611ed3930730 ---------A   00660 PRINT "IT'S BLOCKED!"
+    0x611ed39307b0 ---------A   00670 GOTO 300
+    0x611ed39308f0 ---------A T 00690 PRINT " BLOOD SPILLS !!!"
+    0x611ed3930c20 ---------A T 00700 Y=Y+5
+    0x611ed3930ca0 ---------A   00710 GOTO 300
+    0x611ed3930f10 ---------A T 00720 PRINT J$" TAKES A FULL SWING AND";
+    0x611ed3931160 ---------A   00730 IF D=1 THEN 770
+    0x611ed3931800 ---------A   00740 R6=INT(60*RND(1)+1)
+    0x611ed3931a60 ---------A   00745 IF R6 <30 THEN 770
+    0x611ed3931bc0 ---------A   00750 PRINT " IT'S BLOCKED!"
+    0x611ed3931c50 ---------A   00760 GOTO 300
+    0x611ed3931db0 ---------A T 00770 PRINT " POW!!!!! HE HITS HIM RIGHT IN THE FACE!"
+    0x611ed3932000 ---------A   00780 IF Y>35 THEN 1010
+    0x611ed3932340 ---------A   00790 Y=Y+15
+    0x611ed39323d0 ---------A   00800 GOTO 300
+    0x611ed3932810 ---------A T 00810 PRINT J$;" GETS ";L$;" IN THE JAW (OUCH!)"
+    0x611ed3932b50 ---------A   00820 Y=Y+7
+    0x611ed3932ca0 ---------A   00830 PRINT "....AND AGAIN!"
+    0x611ed3932fd0 ---------A   00835 Y=Y+5
+    0x611ed3933220 ---------A   00840 IF Y>35 THEN 1010
+    0x611ed39332c0 ---------A   00850 PRINT
+    0x611ed3933530 ---------A T 00860 PRINT L$;" IS ATTACKED BY AN UPPERCUT (OH,OH)..."
+    0x611ed3933790 ---------A   00865 IF D=3 THEN 890
+    0x611ed3933e30 ---------A   00870 Q4=INT(200*RND(1)+1)
+    0x611ed3934090 ---------A   00880 IF Q4>75 THEN 920
+    0x611ed39343f0 ---------A T 00890 PRINT "AND ";J$;" CONNECTS..."
+    0x611ed3934720 ---------A   00900 Y=Y+8
+    0x611ed39347b0 ---------A   00910 GOTO 300
+    0x611ed3934af0 ---------A T 00920 PRINT " BLOCKS AND HITS ";J$;" WITH A HOOK."
+    0x611ed3934e20 ---------A   00930 X=X+5
+    0x611ed3934e90 ---------A   00940 GOTO 300
+    0x611ed3934fb0 ---------A T 00950 NEXT R1
+    0x611ed3935240 ---------A   00951 IF X>Y THEN 955
+    0x611ed39355f0 ---------A   00952 PRINT:PRINT J$" WINS ROUND" R
+    0x611ed3935920 ---------A   00953 J=J+1
+    0x611ed39359a0 ---------A   00954 GOTO 960
+    0x611ed3935d30 ---------A T 00955 PRINT:PRINT L$" WINS ROUND"R
+    0x611ed3936060 ---------A   00956 L=L+1
+    0x611ed3936190 ---------A T 00960 NEXT R
+    0x611ed39363f0 ---------A   00961 IF J>= 2 THEN 1040
+    0x611ed3936680 ---------A   00962 IF L>=2 THEN 1060
+    0x611ed3937320 ---------A T 00980 PRINT J$ " IS KNOCKED COLD AND " L$" IS THE WINNER AND CHAMP!";
+    0x611ed39373c0 ---------A T 01000 GOTO 1080
+    0x611ed3937830 ---------A T 01010 PRINT L$ " IS KNOCKED COLD AND " J$" IS THE WINNER AND CHAMP!";
+    0x611ed39378c0 ---------A   01030 GOTO 1000
+    0x611ed3937d00 ---------A T 01040 PRINT J$ " WINS (NICE GOING," J$;")."
+    0x611ed3937d80 ---------A   01050 GOTO 1000
+    0x611ed3937fc0 ---------A T 01060 PRINT L$ " AMAZINGLY WINS!!"
+    0x611ed3938030 ---------A   01070 GOTO 1000
+    0x611ed3938090 ---------A T 01080 PRINT
+    0x611ed3938120 ---------A   01085 PRINT
+    0x611ed3938290 ---------A   01090 PRINT "AND NOW GOODBYE FROM THE OLYMPIC ARENA."
+    0x611ed3938300 ---------A   01100 PRINT
+    0x611ed3938350 ---------A   01110 END
+ */
+
+/*
+ * Line reference table:
+ *
+
+    Target
+   Line Num.    Referencing line number (Reference is T-GOTO or G-GOSUB).
+   ---------    -------------------------------------------------------------------
+     00090      00110T
+     00225      00221T
+     00230      00222T
+     00290      00271T
+     00300      00400T, 00440T, 00490T, 00510T, 00565T, 00590T, 00670T, 00710T, 
+                00760T, 00800T, 00910T, 00940T
+     00310      00280T
+     00340      00230T
+     00410      00341T, 00350T
+     00450      00240T
+     00480      00455T
+     00500      00470T
+     00520      00250T
+     00570      00530T, 00550T
+     00600      00200T
+     00605      00601T
+     00610      00602T
+     00690      00655T
+     00700      00645T
+     00720      00610T
+     00770      00730T, 00745T
+     00810      00620T
+     00860      00630T
+     00890      00865T
+     00920      00880T
+     00950      00300T, 00330T, 00375T
+     00955      00951T
+     00960      00954T
+     00980      00420T
+     01000      01030T, 01050T, 01070T
+     01010      00780T, 00840T
+     01040      00140T, 00961T
+     01060      00150T, 00962T
+     01080      01000T
+
+ */
+
+/* 
+ * Routine Start, Target, Return and End Program Addresses 
+ * 
+
+  Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
+  --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
+   A) 0x611ed391cb80 (00001)   0x611ed391cb80 (00001)   0x611ed3938350 (01110)   0x611ed3938350 (01110)   
+
+
+ */
+
+
+
+/*
+ * Free line number map.
+ *
+     Start    End    # Lines in Gap
+     -----   -----   ------------------
+     00000 - 00990     100 
+     02420 - 10000    7590 
+
+ */
+
+
+
+/*
+ *  Symbol Table Listing for 'basic/boxing.bas'
+ *
+    ABS             Function Integer         args=1, int    
+    ASC             Function Integer         args=1, char*  
+    ATN             Function Float           args=1, float  
+    B                        Integer     
+    B1                       Integer     
+    C                        Integer     
+    CDBL            Function Float           args=1, int    
+    CHR$            Function String          args=1, int    
+    CINT            Function Integer         args=1, float  
+    COS             Function Float           args=1, float  
+    CSNG            Function Float           args=1, int    
+    CVD             Function Float           args=1, float  
+    CVI             Function Integer         args=1, char*  
+    CVS             Function Float           args=1, char*  
+    D                        Integer     
+    D1                       Integer     
+    D5                       Integer     
+    ENVIRON$        Function String          args=1, int    
+    EOF             Function Integer         args=1, int    
+    EXP             Function Float           args=1, int    
+    EXTERR          Function Integer         args=1, int    
+    FIX             Function Integer         args=1, float  
+    FRE             Function Integer         args=1, char*  
+    H1                       Integer     
+    HEX$            Function String          args=1, int    
+    I                        Integer     
+    INP             Function Integer         args=1, int    
+    INPUT$          Function String          args=2, int    int    
+    INSTR           Function Integer         args=3, int    char*  char*  
+    INT             Function Integer         args=1, float  
+    IOCTL$          Function String          args=1, int    
+    J                        Integer     
+    J$                       String      
+    J7                       Integer     
+    L                        Integer     
+    L$                       String      
+    LEFT$           Function String          args=2, char*  int    
+    LEN             Function Integer         args=1, char*  
+    LOC             Function Integer         args=1, int    
+    LOF             Function Integer         args=1, int    
+    LOG             Function Float           args=1, float  
+    LPOS            Function Integer         args=1, Any    
+    MAX             Function Integer         args=1, int    
+    MID$            Function String          args=2, char*  int    
+    MIN             Function Integer         args=1, int    
+    MKD$            Function String          args=1, int    
+    MKI$            Function String          args=1, float  
+    MKS$            Function String          args=1, float  
+    OCT$            Function String          args=1, float  
+    P                        Integer     
+    PEEK            Function Integer         args=1, int    
+    PEN             Function Integer         args=1, char*  
+    PLAY            Function Integer         args=1, Any    
+    PMAP            Function Integer         args=2, int    int    
+    POINT           Function Integer         args=2, int    int    
+    POS             Function Integer         args=1, Any    
+    Q4                       Integer     
+    R                        Integer     
+    R1                       Integer     
+    R6                       Integer     
+    RIGHT$          Function String          args=2, char*  int    
+    RND             Function Float           args=1, int    
+    SGN             Function Integer         args=1, int    
+    SIN             Function Float           args=1, float  
+    SPACE$          Function String          args=1, int    
+    SPC             Function Unknown (0)    args=1, int    
+    SQR             Function Float           args=1, float  
+    STICK           Function Integer         args=1, int    
+    STR$            Function String          args=1, float  
+    STRING$         Function String          args=2, int    int    
+    TAB             Function Unknown (0)    args=1, int    
+    TAB$            Function String          args=1, int    
+    TAN             Function Float           args=1, int    
+    TIMER           Function Float           args=0, 
+    VAL             Function Integer         args=1, char*  
+    VARPTR          Function Integer         args=1, Any    
+    VARPTR$         Function String          args=1, Any    
+    X                        Integer     
+    X3                       Integer     
+    Y                        Integer     
+    Z4                       Integer     
+
+ */
+
+
+/*
+ * Title: Display of final 'clean' BASIC listing.
+ *
+ *  Listing of basic/boxing.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x611ed391cb80 ---------A   01000 PRINT TAB(33);"BOXING"
+    0x611ed391df30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x611ed390c2b0 ---------A   01020 PRINT:PRINT:PRINT
+    0x611ed391ba20 ---------A   01030 PRINT "BOXING OLYMPIC STYLE (3 ROUNDS -- 2 OUT OF 3 WINS)"
+    0x611ed391c080 ---------A   01040 J=0
+    0x611ed391d740 ---------A   01050 L=0
+    0x611ed391c500 ---------A   01060 PRINT
+    0x611ed391e200 ---------A   01070 PRINT "WHAT IS YOUR OPPONENT'S NAME";
+    0x611ed391b6d0 ---------A   01080 INPUT J$
+    0x611ed391be40 ---------A   01090 PRINT "INPUT YOUR MAN'S NAME";
+    0x611ed39239c0 ---------A   01100 INPUT L$
+    0x611ed3923b40 ---------A   01110 PRINT "DIFFERENT PUNCHES ARE: (1) FULL SWING; (2) HOOK; (3) UPPERCUT; (4) JAB."
+    0x611ed3923c50 ---------A   01120 PRINT "WHAT IS YOUR MANS BEST";
+    0x611ed3923e00 ---------A   01130 INPUT B
+    0x611ed3923f20 ---------A   01140 PRINT "WHAT IS HIS VULNERABILITY";
+    0x611ed3924130 ---------A   01150 INPUT D
+    0x611ed39247d0 ---------A T 01160 B1=INT(4*RND(1)+1)
+    0x611ed3924e60 ---------A   01170 D1=INT(4*RND(1)+1)
+    0x611ed3925100 ---------A   01180 IF B1=D1 THEN 1160
+    0x611ed3925590 ---------A   01190 PRINT J$;"'S ADVANTAGE IS";B1;"AND VULNERABILITY IS SECRET.":PRINT
+    0x611ed3925920 ---------A   01200 FOR R=1 TO 3
+    0x611ed3925b80 ---------A   01210 IF J>= 2 THEN 2330
+    0x611ed3925de0 ---------A   01220 IF L>=2 THEN 2350
+    0x611ed39260c0 ---------A   01230 X=0
+    0x611ed3926370 ---------A   01240 Y=0
+    0x611ed39266c0 ---------A   01250 PRINT "ROUND";R;"BEGINS..."
+    0x611ed3926a50 ---------A   01260 FOR R1= 1 TO 7
+    0x611ed39270f0 ---------A   01270 I=INT(10*RND(1)+1)
+    0x611ed3927350 ---------A   01280 IF I>5 THEN 1770
+    0x611ed39275d0 ---------A   01290 PRINT L$;"'S PUNCH";
+    0x611ed39277e0 ---------A   01300 INPUT P
+    0x611ed3927a60 ---------A   01310 IF P=B THEN 1330
+    0x611ed3927ae0 ---------A   01320 GOTO 1340
+    0x611ed3928010 ---------A T 01330 X=X+2
+    0x611ed3928260 ---------A T 01340 IF P=1 THEN 1450
+    0x611ed39284c0 ---------A   01350 IF P=2 THEN 1590
+    0x611ed3928730 ---------A   01360 IF P=3 THEN 1680
+    0x611ed3928bb0 ---------A   01370 PRINT L$;" JABS AT ";J$"'S HEAD ";
+    0x611ed3928e00 ---------A   01380 IF D1=4 THEN 1410
+    0x611ed39294a0 ---------A   01390 C=INT(8*RND(1)+1)
+    0x611ed39296f0 ---------A   01400 IF C<4 THEN 1430
+    0x611ed3929a30 ---------A T 01410 X=X+3
+    0x611ed3929ab0 ---------A T 01420 GOTO 2190
+    0x611ed3929bf0 ---------A T 01430 PRINT "IT'S BLOCKED."
+    0x611ed3929c70 ---------A   01440 GOTO 2190
+    0x611ed3929ed0 ---------A T 01450 PRINT L$ " SWINGS AND ";
+    0x611ed392a120 ---------A   01460 IF D1=4 THEN 1550
+    0x611ed392a7c0 ---------A   01470 X3=INT(30*RND(1)+1)
+    0x611ed392aa10 ---------A   01480 IF X3<10 THEN 1550
+    0x611ed392ab90 ---------A   01490 PRINT "HE MISSES ";
+    0x611ed392ac00 ---------A   01500 PRINT
+    0x611ed392ae50 ---------A   01510 IF X=1 THEN 2190
+    0x611ed392aed0 ---------A   01520 PRINT
+    0x611ed392af40 ---------A   01530 PRINT
+    0x611ed392afc0 ---------A   01540 GOTO 1420
+    0x611ed392b100 ---------A T 01550 PRINT "HE CONNECTS!"
+    0x611ed392b350 ---------A   01560 IF X>35 THEN 2290
+    0x611ed392b690 ---------A   01570 X=X+15
+    0x611ed392b710 ---------A   01580 GOTO 1420
+    0x611ed392b970 ---------A T 01590 PRINT L$;" GIVES THE HOOK... ";
+    0x611ed392bbc0 ---------A   01600 IF D1=2 THEN 1640
+    0x611ed392c260 ---------A   01610 H1=INT(2*RND(1)+1)
+    0x611ed392c4b0 ---------A   01620 IF H1=1 THEN 1660
+    0x611ed392c610 ---------A   01630 PRINT "CONNECTS..."
+    0x611ed392c940 ---------A T 01640 X=X+7
+    0x611ed392cde0 ---------A   01650 GOTO 1420
+    0x611ed392cf30 ---------A T 01660 PRINT "BUT IT'S BLOCKED!!!!!!!!!!!!!"
+    0x611ed392cfb0 ---------A   01670 GOTO 1420
+    0x611ed392d210 ---------A T 01680 PRINT L$ " TRIES AN UPPERCUT ";
+    0x611ed392d470 ---------A   01690 IF D1=3 THEN 1740
+    0x611ed392db10 ---------A   01700 D5=INT(100*RND(1)+1)
+    0x611ed392dd80 ---------A   01710 IF D5<51 THEN 1740
+    0x611ed392def0 ---------A   01720 PRINT "AND IT'S BLOCKED (LUCKY BLOCK!)"
+    0x611ed392df70 ---------A   01730 GOTO 1420
+    0x611ed392e0b0 ---------A T 01740 PRINT "AND HE CONNECTS!"
+    0x611ed392e3e0 ---------A   01750 X=X+4
+    0x611ed392e450 ---------A   01760 GOTO 1420
+    0x611ed392ead0 ---------A T 01770 J7=INT(4*RND(1)+1)
+    0x611ed392ed40 ---------A   01780 IF J7 =B1 THEN 1800
+    0x611ed392edc0 ---------A   01790 GOTO 1810
+    0x611ed392f0e0 ---------A T 01800 Y=Y+2
+    0x611ed392f330 ---------A T 01810 IF J7=1 THEN 1930
+    0x611ed392f590 ---------A   01820 IF J7=2 THEN 2030
+    0x611ed392f800 ---------A   01830 IF J7 =3 THEN 2090
+    0x611ed392fa80 ---------A   01840 PRINT J$;" JABS AND ";
+    0x611ed392fcd0 ---------A   01850 IF D=4 THEN 1910
+    0x611ed3930370 ---------A   01860 Z4=INT(7*RND(1)+1)
+    0x611ed39305d0 ---------A   01870 IF Z4>4 THEN 1900
+    0x611ed3930730 ---------A   01880 PRINT "IT'S BLOCKED!"
+    0x611ed39307b0 ---------A   01890 GOTO 1420
+    0x611ed39308f0 ---------A T 01900 PRINT " BLOOD SPILLS !!!"
+    0x611ed3930c20 ---------A T 01910 Y=Y+5
+    0x611ed3930ca0 ---------A   01920 GOTO 1420
+    0x611ed3930f10 ---------A T 01930 PRINT J$" TAKES A FULL SWING AND";
+    0x611ed3931160 ---------A   01940 IF D=1 THEN 1990
+    0x611ed3931800 ---------A   01950 R6=INT(60*RND(1)+1)
+    0x611ed3931a60 ---------A   01960 IF R6 <30 THEN 1990
+    0x611ed3931bc0 ---------A   01970 PRINT " IT'S BLOCKED!"
+    0x611ed3931c50 ---------A   01980 GOTO 1420
+    0x611ed3931db0 ---------A T 01990 PRINT " POW!!!!! HE HITS HIM RIGHT IN THE FACE!"
+    0x611ed3932000 ---------A   02000 IF Y>35 THEN 2310
+    0x611ed3932340 ---------A   02010 Y=Y+15
+    0x611ed39323d0 ---------A   02020 GOTO 1420
+    0x611ed3932810 ---------A T 02030 PRINT J$;" GETS ";L$;" IN THE JAW (OUCH!)"
+    0x611ed3932b50 ---------A   02040 Y=Y+7
+    0x611ed3932ca0 ---------A   02050 PRINT "....AND AGAIN!"
+    0x611ed3932fd0 ---------A   02060 Y=Y+5
+    0x611ed3933220 ---------A   02070 IF Y>35 THEN 2310
+    0x611ed39332c0 ---------A   02080 PRINT
+    0x611ed3933530 ---------A T 02090 PRINT L$;" IS ATTACKED BY AN UPPERCUT (OH,OH)..."
+    0x611ed3933790 ---------A   02100 IF D=3 THEN 2130
+    0x611ed3933e30 ---------A   02110 Q4=INT(200*RND(1)+1)
+    0x611ed3934090 ---------A   02120 IF Q4>75 THEN 2160
+    0x611ed39343f0 ---------A T 02130 PRINT "AND ";J$;" CONNECTS..."
+    0x611ed3934720 ---------A   02140 Y=Y+8
+    0x611ed39347b0 ---------A   02150 GOTO 1420
+    0x611ed3934af0 ---------A T 02160 PRINT " BLOCKS AND HITS ";J$;" WITH A HOOK."
+    0x611ed3934e20 ---------A   02170 X=X+5
+    0x611ed3934e90 ---------A   02180 GOTO 1420
+    0x611ed3934fb0 ---------A T 02190 NEXT R1
+    0x611ed3935240 ---------A   02200 IF X>Y THEN 2240
+    0x611ed39355f0 ---------A   02210 PRINT:PRINT J$" WINS ROUND" R
+    0x611ed3935920 ---------A   02220 J=J+1
+    0x611ed39359a0 ---------A   02230 GOTO 2260
+    0x611ed3935d30 ---------A T 02240 PRINT:PRINT L$" WINS ROUND"R
+    0x611ed3936060 ---------A   02250 L=L+1
+    0x611ed3936190 ---------A T 02260 NEXT R
+    0x611ed39363f0 ---------A   02270 IF J>= 2 THEN 2330
+    0x611ed3936680 ---------A   02280 IF L>=2 THEN 2350
+    0x611ed3937320 ---------A T 02290 PRINT J$ " IS KNOCKED COLD AND " L$" IS THE WINNER AND CHAMP!";
+    0x611ed39373c0 ---------A T 02300 GOTO 2370
+    0x611ed3937830 ---------A T 02310 PRINT L$ " IS KNOCKED COLD AND " J$" IS THE WINNER AND CHAMP!";
+    0x611ed39378c0 ---------A   02320 GOTO 2300
+    0x611ed3937d00 ---------A T 02330 PRINT J$ " WINS (NICE GOING," J$;")."
+    0x611ed3937d80 ---------A   02340 GOTO 2300
+    0x611ed3937fc0 ---------A T 02350 PRINT L$ " AMAZINGLY WINS!!"
+    0x611ed3938030 ---------A   02360 GOTO 2300
+    0x611ed3938090 ---------A T 02370 PRINT
+    0x611ed3938120 ---------A   02380 PRINT
+    0x611ed3938290 ---------A   02390 PRINT "AND NOW GOODBYE FROM THE OLYMPIC ARENA."
+    0x611ed3938300 ---------A   02400 PRINT
+    0x611ed3938350 ---------A   02410 END
+ */
+
 //---------------------------------------------------------------------------
 // $Header$ 
 //
@@ -107,440 +572,3 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
-    // 01000 PRINT TAB(33);"BOXING"
-    b2c_printf("Boxing\n");
-    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    b2c_printf("Creative computing  morristown, new jersey\n");
-    // 01020 PRINT:PRINT:PRINT
-    b2c_printf("");
-    // 01030 PRINT "BOXING OLYMPIC STYLE (3 ROUNDS -- 2 OUT OF 3 WINS)"
-    b2c_printf("Boxing olympic style (3 rounds -- 2 out of 3 wins)\n");
-    // 01040 J=0
-    J_int = 0;
-    // 01050 L=0
-    L_int = 0;
-    // 01060 PRINT
-    b2c_printf("");
-    // 01070 PRINT "WHAT IS YOUR OPPONENT'S NAME";
-    b2c_printf("What is your opponent's name");
-    // 01080 INPUT J$
-    // Start of Basic INPUT statement 01080
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtos(&J_str,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01080
-    // 01090 PRINT "INPUT YOUR MAN'S NAME";
-    b2c_printf("Input your man's name");
-    // 01100 INPUT L$
-    // Start of Basic INPUT statement 01100
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtos(&L_str,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01100
-    // 01110 PRINT "DIFFERENT PUNCHES ARE: (1) FULL SWING; (2) HOOK; (3) UPPERCUT; (4) JAB."
-    b2c_printf("Different punches are: (1) full swing; (2) hook; (3) uppercut; (4) jab.\n");
-    // 01120 PRINT "WHAT IS YOUR MANS BEST";
-    b2c_printf("What is your mans best");
-    // 01130 INPUT B
-    // Start of Basic INPUT statement 01130
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&B_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01130
-    // 01140 PRINT "WHAT IS HIS VULNERABILITY";
-    b2c_printf("What is his vulnerability");
-    // 01150 INPUT D
-    // Start of Basic INPUT statement 01150
-    {
-        int numargs=1;
-        char *args[numargs+1];
-        bool echoeol=true;
-        while(true){
-            fprintf(stdout," ? ");
-            int err=input(args,numargs,echoeol);
-            if(err==0x03) break;
-            if(err || 
-                (err += b2c_strtoi(&D_int,args,0)) ){
-                 printf("?Redo from start\n");
-            }else{
-                break;
-            };
-        };
-    }; // End of Basic INPUT statement 01150
-
-  Lbl_01160:
-    // 01160 B1=INT(4*RND(1)+1)
-    B1_int = INT(4*RND(1)+1);
-    // 01170 D1=INT(4*RND(1)+1)
-    D1_int = INT(4*RND(1)+1);
-    // 01180 IF B1=D1 THEN 1160
-    if(B1_int==D1_int)goto Lbl_01160;
-    // 01190 PRINT J$;"'S ADVANTAGE IS";B1;"AND VULNERABILITY IS SECRET.":PRINT
-    b2c_printf("");
-    // 01200 FOR R=1 TO 3
-    for(R_int=1;R_int<=3;R_int++){
-        // 01210 IF J>= 2 THEN 2330
-        if(J_int>=2)goto Lbl_02330;
-        // 01220 IF L>=2 THEN 2350
-        if(L_int>=2)goto Lbl_02350;
-        // 01230 X=0
-        X_int = 0;
-        // 01240 Y=0
-        Y_int = 0;
-        // 01250 PRINT "ROUND";R;"BEGINS..."
-        b2c_printf("Round %d RoundBegins...\n",R_int);
-        // 01260 FOR R1= 1 TO 7
-        for(R1_int=1;R1_int<=7;R1_int++){
-            // 01270 I=INT(10*RND(1)+1)
-            I_int = INT(10*RND(1)+1);
-            // 01280 IF I>5 THEN 1770
-            if(I_int>5)goto Lbl_01770;
-            // 01290 PRINT L$;"'S PUNCH";
-            b2c_printf("%sÖ“†‹V's punch's punch\n",L_str);
-            // 01300 INPUT P
-            // Start of Basic INPUT statement 01300
-            {
-                int numargs=1;
-                char *args[numargs+1];
-                bool echoeol=true;
-                while(true){
-                    fprintf(stdout," ? ");
-                    int err=input(args,numargs,echoeol);
-                    if(err==0x03) break;
-                    if(err || 
-                        (err += b2c_strtoi(&P_int,args,0)) ){
-                         printf("?Redo from start\n");
-                    }else{
-                        break;
-                    };
-                };
-            }; // End of Basic INPUT statement 01300
-            // 01310 IF P=B THEN 1330
-            if(P_int==B_int)goto Lbl_01330;
-            // 01320 GOTO 1340
-            goto Lbl_01340;
-
-  Lbl_01330:
-            // 01330 X=X+2
-            X_int = X_int+2;
-
-  Lbl_01340:
-            // 01340 IF P=1 THEN 1450
-            if(P_int==1)goto Lbl_01450;
-            // 01350 IF P=2 THEN 1590
-            if(P_int==2)goto Lbl_01590;
-            // 01360 IF P=3 THEN 1680
-            if(P_int==3)goto Lbl_01680;
-            // 01370 PRINT L$;" JABS AT ";J$"'S HEAD ";
-            b2c_printf("%sÉ“†‹V jabs at  jabs at %s jabs at 's head 's head \n",L_str,J_str);
-            // 01380 IF D1=4 THEN 1410
-            if(D1_int==4)goto Lbl_01410;
-            // 01390 C=INT(8*RND(1)+1)
-            C_int = INT(8*RND(1)+1);
-            // 01400 IF C<4 THEN 1430
-            if(C_int<4)goto Lbl_01430;
-
-  Lbl_01410:
-            // 01410 X=X+3
-            X_int = X_int+3;
-
-  Lbl_01420:
-            // 01420 GOTO 2190
-            goto Lbl_02190;
-
-  Lbl_01430:
-            // 01430 PRINT "IT'S BLOCKED."
-            b2c_printf("It's blocked.\n");
-            // 01440 GOTO 2190
-            goto Lbl_02190;
-
-  Lbl_01450:
-            // 01450 PRINT L$ " SWINGS AND ";
-            b2c_printf("%srÏùˇ swings and  swings and \n",L_str);
-            // 01460 IF D1=4 THEN 1550
-            if(D1_int==4)goto Lbl_01550;
-            // 01470 X3=INT(30*RND(1)+1)
-            X3_int = INT(30*RND(1)+1);
-            // 01480 IF X3<10 THEN 1550
-            if(X3_int<10)goto Lbl_01550;
-            // 01490 PRINT "HE MISSES ";
-            b2c_printf("He misses ");
-            // 01500 PRINT
-            b2c_printf("");
-            // 01510 IF X=1 THEN 2190
-            if(X_int==1)goto Lbl_02190;
-            // 01520 PRINT
-            b2c_printf("");
-            // 01530 PRINT
-            b2c_printf("");
-            // 01540 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_01550:
-            // 01550 PRINT "HE CONNECTS!"
-            b2c_printf("He connects!\n");
-            // 01560 IF X>35 THEN 2290
-            if(X_int>35)goto Lbl_02290;
-            // 01570 X=X+15
-            X_int = X_int+15;
-            // 01580 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_01590:
-            // 01590 PRINT L$;" GIVES THE HOOK... ";
-            b2c_printf("%srÏùˇ gives the hook...  gives the hook... \n",L_str);
-            // 01600 IF D1=2 THEN 1640
-            if(D1_int==2)goto Lbl_01640;
-            // 01610 H1=INT(2*RND(1)+1)
-            H1_int = INT(2*RND(1)+1);
-            // 01620 IF H1=1 THEN 1660
-            if(H1_int==1)goto Lbl_01660;
-            // 01630 PRINT "CONNECTS..."
-            b2c_printf("Connects...\n");
-
-  Lbl_01640:
-            // 01640 X=X+7
-            X_int = X_int+7;
-            // 01650 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_01660:
-            // 01660 PRINT "BUT IT'S BLOCKED!!!!!!!!!!!!!"
-            b2c_printf("But it's blocked!!!!!!!!!!!!!\n");
-            // 01670 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_01680:
-            // 01680 PRINT L$ " TRIES AN UPPERCUT ";
-            b2c_printf("%srÏùˇ tries an uppercut  tries an uppercut \n",L_str);
-            // 01690 IF D1=3 THEN 1740
-            if(D1_int==3)goto Lbl_01740;
-            // 01700 D5=INT(100*RND(1)+1)
-            D5_int = INT(100*RND(1)+1);
-            // 01710 IF D5<51 THEN 1740
-            if(D5_int<51)goto Lbl_01740;
-            // 01720 PRINT "AND IT'S BLOCKED (LUCKY BLOCK!)"
-            b2c_printf("And it's blocked (lucky block!)\n");
-            // 01730 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_01740:
-            // 01740 PRINT "AND HE CONNECTS!"
-            b2c_printf("And he connects!\n");
-            // 01750 X=X+4
-            X_int = X_int+4;
-            // 01760 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_01770:
-            // 01770 J7=INT(4*RND(1)+1)
-            J7_int = INT(4*RND(1)+1);
-            // 01780 IF J7 =B1 THEN 1800
-            if(J7_int==B1_int)goto Lbl_01800;
-            // 01790 GOTO 1810
-            goto Lbl_01810;
-
-  Lbl_01800:
-            // 01800 Y=Y+2
-            Y_int = Y_int+2;
-
-  Lbl_01810:
-            // 01810 IF J7=1 THEN 1930
-            if(J7_int==1)goto Lbl_01930;
-            // 01820 IF J7=2 THEN 2030
-            if(J7_int==2)goto Lbl_02030;
-            // 01830 IF J7 =3 THEN 2090
-            if(J7_int==3)goto Lbl_02090;
-            // 01840 PRINT J$;" JABS AND ";
-            b2c_printf("%sè“†‹V jabs and  jabs and \n",J_str);
-            // 01850 IF D=4 THEN 1910
-            if(D_int==4)goto Lbl_01910;
-            // 01860 Z4=INT(7*RND(1)+1)
-            Z4_int = INT(7*RND(1)+1);
-            // 01870 IF Z4>4 THEN 1900
-            if(Z4_int>4)goto Lbl_01900;
-            // 01880 PRINT "IT'S BLOCKED!"
-            b2c_printf("It's blocked!\n");
-            // 01890 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_01900:
-            // 01900 PRINT " BLOOD SPILLS !!!"
-            b2c_printf(" blood spills !!!\n");
-
-  Lbl_01910:
-            // 01910 Y=Y+5
-            Y_int = Y_int+5;
-            // 01920 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_01930:
-            // 01930 PRINT J$" TAKES A FULL SWING AND";
-            b2c_printf("%srÏùˇ takes a full swing and takes a full swing and\n",J_str);
-            // 01940 IF D=1 THEN 1990
-            if(D_int==1)goto Lbl_01990;
-            // 01950 R6=INT(60*RND(1)+1)
-            R6_int = INT(60*RND(1)+1);
-            // 01960 IF R6 <30 THEN 1990
-            if(R6_int<30)goto Lbl_01990;
-            // 01970 PRINT " IT'S BLOCKED!"
-            b2c_printf(" it's blocked!\n");
-            // 01980 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_01990:
-            // 01990 PRINT " POW!!!!! HE HITS HIM RIGHT IN THE FACE!"
-            b2c_printf(" pow!!!!! He hits him right in the face!\n");
-            // 02000 IF Y>35 THEN 2310
-            if(Y_int>35)goto Lbl_02310;
-            // 02010 Y=Y+15
-            Y_int = Y_int+15;
-            // 02020 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_02030:
-            // 02030 PRINT J$;" GETS ";L$;" IN THE JAW (OUCH!)"
-            b2c_printf("%srÏùˇ gets  gets %s gets  in the jaw (ouch!)\n",J_str,L_str);
-            // 02040 Y=Y+7
-            Y_int = Y_int+7;
-            // 02050 PRINT "....AND AGAIN!"
-            b2c_printf("....And again!\n");
-            // 02060 Y=Y+5
-            Y_int = Y_int+5;
-            // 02070 IF Y>35 THEN 2310
-            if(Y_int>35)goto Lbl_02310;
-            // 02080 PRINT
-            b2c_printf("");
-
-  Lbl_02090:
-            // 02090 PRINT L$;" IS ATTACKED BY AN UPPERCUT (OH,OH)..."
-            b2c_printf("%srÏùˇ is attacked by an uppercut (oh,oh)...\n",L_str);
-            // 02100 IF D=3 THEN 2130
-            if(D_int==3)goto Lbl_02130;
-            // 02110 Q4=INT(200*RND(1)+1)
-            Q4_int = INT(200*RND(1)+1);
-            // 02120 IF Q4>75 THEN 2160
-            if(Q4_int>75)goto Lbl_02160;
-
-  Lbl_02130:
-            // 02130 PRINT "AND ";J$;" CONNECTS..."
-            b2c_printf("And %sAnd  connects...\n",J_str);
-            // 02140 Y=Y+8
-            Y_int = Y_int+8;
-            // 02150 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_02160:
-            // 02160 PRINT " BLOCKS AND HITS ";J$;" WITH A HOOK."
-            b2c_printf(" blocks and hits %s blocks and hits  with a hook.\n",J_str);
-            // 02170 X=X+5
-            X_int = X_int+5;
-            // 02180 GOTO 1420
-            goto Lbl_01420;
-
-  Lbl_02190:
-            // 02190 NEXT R1
-            int dummy_2190=0; // Ignore this line.
-        }; // End-For(R1_int)
-        // 02200 IF X>Y THEN 2240
-        if(X_int>Y_int)goto Lbl_02240;
-        // 02210 PRINT:PRINT J$" WINS ROUND" R
-        b2c_printf("%sÀ“†‹V wins round wins round %d \n",J_str,R_int);
-        // 02220 J=J+1
-        J_int = J_int+1;
-        // 02230 GOTO 2260
-        goto Lbl_02260;
-
-  Lbl_02240:
-        // 02240 PRINT:PRINT L$" WINS ROUND"R
-        b2c_printf("%srÏùˇ wins round wins round %d \n",L_str,R_int);
-        // 02250 L=L+1
-        L_int = L_int+1;
-
-  Lbl_02260:
-        // 02260 NEXT R
-        int dummy_2260=0; // Ignore this line.
-    }; // End-For(R_int)
-    // 02270 IF J>= 2 THEN 2330
-    if(J_int>=2)goto Lbl_02330;
-    // 02280 IF L>=2 THEN 2350
-    if(L_int>=2)goto Lbl_02350;
-
-  Lbl_02290:
-    // 02290 PRINT J$ " IS KNOCKED COLD AND " L$" IS THE WINNER AND CHAMP!";
-    b2c_printf("%srÏùˇ is knocked cold and  is knocked cold and %s is knocked cold and  is the winner and champ! is the winner and champ!\n",J_str,L_str);
-
-  Lbl_02300:
-    // 02300 GOTO 2370
-    goto Lbl_02370;
-
-  Lbl_02310:
-    // 02310 PRINT L$ " IS KNOCKED COLD AND " J$" IS THE WINNER AND CHAMP!";
-    b2c_printf("%srÏùˇ is knocked cold and  is knocked cold and %s is knocked cold and  is the winner and champ! is the winner and champ!\n",L_str,J_str);
-    // 02320 GOTO 2300
-    goto Lbl_02300;
-
-  Lbl_02330:
-    // 02330 PRINT J$ " WINS (NICE GOING," J$;")."
-    b2c_printf("%srÏùˇ wins (nice going, wins (nice going,%s wins (nice going,).\n",J_str,J_str);
-    // 02340 GOTO 2300
-    goto Lbl_02300;
-
-  Lbl_02350:
-    // 02350 PRINT L$ " AMAZINGLY WINS!!"
-    b2c_printf("%srÏùˇ amazingly wins!!\n",L_str);
-    // 02360 GOTO 2300
-    goto Lbl_02300;
-
-  Lbl_02370:
-    // 02370 PRINT
-    b2c_printf("");
-    // 02380 PRINT
-    b2c_printf("");
-    // 02390 PRINT "AND NOW GOODBYE FROM THE OLYMPIC ARENA."
-    b2c_printf("And now goodbye from the olympic arena.\n");
-    // 02400 PRINT
-    b2c_printf("");
-    // 02410 END
-   return(0);
-};
-
-//---------------------------------------------------------------------------
-// End of $RCSfile$ 
-//---------------------------------------------------------------------------
