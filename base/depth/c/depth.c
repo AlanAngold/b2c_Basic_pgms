@@ -8,72 +8,72 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x58f3057a6d50 ---------A   01000 PRINT "DEPTH CHARGE GAME" 
-    0x58f3057a5b80 ---------A T 01010 PRINT
-    0x58f3057a6ed0 ---------A   01020 PRINT "DIMENSION OF SEARCH AREA"; 
-    0x58f3057a46d0 ---------A   01030 INPUT G
-    0x58f3057a6e10 ---------A   01040 PRINT
-    0x58f3057a7050 ---------A   01050 N=INT(LOG(G)/LOG(2))+1 
-    0x58f3057a4a00 ---------A   01060 RANDOMIZE
-    0x58f3057a50b0 ---------A   01070 PRINT "YOU ARE CAPTAIN OF THE DESTROYER USS DIGITAL AND AN ENEMY SUB HAS"
-    0x58f3057a47f0 ---------A   01080 PRINT "BEEN CAUSING  YOU  TROUBLE,  YOUR MISSION  IS TO DESTROY IT.  YOU"
-    0x58f3057a9190 ---------A   01090 PRINT "HAVE "N" SHOTS.  SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A TRIO "
-    0x58f3057a9310 ---------A   01100 PRINT "OF NUMBERS (DISTANCE NORTH, DISTANCE EAST, DEPTH FROM SURFACE)."
-    0x58f3057a9360 ---------A   01110 PRINT 
-    0x58f3057a94b0 ---------A   01120 PRINT "GOOD LUCK !" 
-    0x58f3057a9520 ---------A   01130 PRINT
-    0x58f3057adb60 ---------A   01140 A=INT(G*RND) 
-    0x58f3057ae030 ---------A   01150 B=INT(G*RND) 
-    0x58f3057ae520 ---------A   01160 C=INT(G*RND)
-    0x58f3057ae8d0 ---------A   01170 FOR D=1 TO N 
-    0x58f3057ae960 ---------A   01180 PRINT 
-    0x58f3057aebd0 ---------A   01190 PRINT "TRIAL NUMBER ";D 
-    0x58f3057aed50 ---------A   01200 PRINT "ENTER COORDINATES (N,E,D) : ";
-    0x58f3057af2c0 ---------A   01210 INPUT Y,X,Z
-    0x58f3057afd60 ---------A   01220 IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1300
-    0x58f3057afde0 ---------A   01230 GOSUB 1390
-    0x58f3057afe40 ---------A   01240 PRINT 
-    0x58f3057aff70 ---------A   01250 NEXT D
-    0x58f3057b0010 ---------A   01260 PRINT 
-    0x58f3057b01a0 ---------A   01270 PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
-    0x58f3057b07f0 ---------A   01280 PRINT "THE SUBMARINE WAS AT ";B,",";A,",";C
-    0x58f3057b0860 ---------A   01290 GOTO 1340
-    0x58f3057b08e0 ---------A T 01300 PRINT 
-    0x58f3057b0c40 ---------A   01310 PRINT "B O O M ! !  YOU FOUND IT IN ";D;"TRIES!"
-    0x58f3057b0cb0 ---------A   01320 PRINT 
-    0x58f3057b0f40 ---------A   01330 PRINT 
-    0x58f3057b10b0 ---------A T 01340 PRINT "ANOTHER GAME (Y OR N)";
-    0x58f3057b12d0 ---------A   01350 INPUT A$
-    0x58f3057b1570 ---------A   01360 IF A$="Y" THEN 1010
-    0x58f3057b16e0 ---------A   01370 PRINT "OK.  HOPE YOU ENJOYED YOURSELF " 
-    0x58f3057b1760 ---------A   01380 GOTO 1650
-    0x58f3057b18d0 ---------B G 01390 PRINT "SONAR REPORTS SHOT WAS ";
-    0x58f3057b1b40 ---------B   01400 IF Y>B THEN 1470
-    0x58f3057b1dc0 ---------B   01410 IF Y<B THEN 1490
-    0x58f3057b2040 ---------B T 01420 IF X>A THEN 1510
-    0x58f3057b22c0 ---------B   01430 IF X<A THEN 1530
-    0x58f3057b2540 ---------B T 01440 IF Y<>B THEN 1550
-    0x58f3057b27c0 ---------B   01450 IF X<>A THEN 1550
-    0x58f3057b2840 ---------B   01460 GOTO 1560
-    0x58f3057b29a0 ---------B T 01470 PRINT "NORTH";
-    0x58f3057b2a10 ---------B   01480 GOTO 1420
-    0x58f3057b2b70 ---------B T 01490 PRINT "SOUTH";
-    0x58f3057b2be0 ---------B   01500 GOTO 1420
-    0x58f3057b2d40 ---------B T 01510 PRINT "EAST";
-    0x58f3057b2db0 ---------B   01520 GOTO 1440
-    0x58f3057b2f10 ---------B T 01530 PRINT "WEST";
-    0x58f3057b2f80 ---------B   01540 GOTO 1440
-    0x58f3057b30e0 ---------B T 01550 PRINT " AND ";
-    0x58f3057b3350 ---------B T 01560 IF Z>C THEN 1590
-    0x58f3057b35d0 ---------B   01570 IF Z<C THEN 1610
-    0x58f3057b3850 ---------B   01580 IF Z=C THEN 1630
-    0x58f3057b39b0 ---------B T 01590 PRINT "TOO LOW"
-    0x58f3057b3a20 ---------B   01600 GOTO 1640
-    0x58f3057b3b60 ---------B T 01610 PRINT "TOO HIGH"
-    0x58f3057b3bd0 ---------B   01620 GOTO 1640
-    0x58f3057b3d10 ---------B T 01630 PRINT "DEPTH OK"
-    0x58f3057b3d60 ---------B T 01640 RETURN
-    0x58f3057b41d0 ---------A T 01650 END
+    0x62804f3cf6d0 ---------A   01000  PRINT "DEPTH CHARGE GAME" 
+    0x62804f3cf670 ---------A T 01010  PRINT
+    0x62804f3d11b0 ---------A   01020  PRINT "DIMENSION OF SEARCH AREA"; 
+    0x62804f3d0fc0 ---------A   01030  INPUT G
+    0x62804f3d38d0 ---------A   01040  PRINT
+    0x62804f3d0b80 ---------A   01050  N=INT(LOG(G)/LOG(2))+1 
+    0x62804f3d1ed0 ---------A   01060  RANDOMIZE
+    0x62804f3d3ed0 ---------A   01070  PRINT "YOU ARE CAPTAIN OF THE DESTROYER USS DIGITAL AND AN ENEMY SUB HAS"
+    0x62804f3d4050 ---------A   01080  PRINT "BEEN CAUSING  YOU  TROUBLE,  YOUR MISSION  IS TO DESTROY IT.  YOU"
+    0x62804f3d43d0 ---------A   01090  PRINT "HAVE "N" SHOTS.  SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A TRIO "
+    0x62804f3d4510 ---------A   01100  PRINT "OF NUMBERS (DISTANCE NORTH, DISTANCE EAST, DEPTH FROM SURFACE)."
+    0x62804f3d4570 ---------A   01110  PRINT 
+    0x62804f3d46d0 ---------A   01120  PRINT "GOOD LUCK !" 
+    0x62804f3d4750 ---------A   01130  PRINT
+    0x62804f3d8c40 ---------A   01140  A=INT(G*RND) 
+    0x62804f3d9130 ---------A   01150  B=INT(G*RND) 
+    0x62804f3d9620 ---------A   01160  C=INT(G*RND)
+    0x62804f3d99d0 ---------A   01170  FOR D=1 TO N 
+    0x62804f3d9a60 ---------A   01180  PRINT 
+    0x62804f3d9ce0 ---------A   01190  PRINT "TRIAL NUMBER ";D 
+    0x62804f3d9e70 ---------A   01200  PRINT "ENTER COORDINATES (N,E,D) : ";
+    0x62804f3da3f0 ---------A   01210  INPUT Y,X,Z
+    0x62804f3dae90 ---------A   01220  IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1300
+    0x62804f3daf10 ---------A   01230  GOSUB 1390
+    0x62804f3daf80 ---------A   01240  PRINT 
+    0x62804f3db0c0 ---------A   01250  NEXT D
+    0x62804f3db170 ---------A   01260  PRINT 
+    0x62804f3db310 ---------A   01270  PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
+    0x62804f3db970 ---------A   01280  PRINT "THE SUBMARINE WAS AT ";B,",";A,",";C
+    0x62804f3db9f0 ---------A   01290  GOTO 1340
+    0x62804f3dba80 ---------A T 01300  PRINT 
+    0x62804f3dbdf0 ---------A   01310  PRINT "B O O M ! !  YOU FOUND IT IN ";D;"TRIES!"
+    0x62804f3dbe70 ---------A   01320  PRINT 
+    0x62804f3dc110 ---------A   01330  PRINT 
+    0x62804f3dc290 ---------A T 01340  PRINT "ANOTHER GAME (Y OR N)";
+    0x62804f3dc4c0 ---------A   01350  INPUT A$
+    0x62804f3dc760 ---------A   01360  IF A$="Y" THEN 1010
+    0x62804f3dc8d0 ---------A   01370  PRINT "OK.  HOPE YOU ENJOYED YOURSELF " 
+    0x62804f3dc960 ---------A   01380  GOTO 1650
+    0x62804f3dcae0 ---------B G 01390  PRINT "SONAR REPORTS SHOT WAS ";
+    0x62804f3dcd60 ---------B   01400  IF Y>B THEN 1470
+    0x62804f3dcfe0 ---------B   01410  IF Y<B THEN 1490
+    0x62804f3dd260 ---------B T 01420  IF X>A THEN 1510
+    0x62804f3dd4e0 ---------B   01430  IF X<A THEN 1530
+    0x62804f3dd760 ---------B T 01440  IF Y<>B THEN 1550
+    0x62804f3dd9e0 ---------B   01450  IF X<>A THEN 1550
+    0x62804f3dda60 ---------B   01460  GOTO 1560
+    0x62804f3ddbd0 ---------B T 01470  PRINT "NORTH";
+    0x62804f3ddc50 ---------B   01480  GOTO 1420
+    0x62804f3dddc0 ---------B T 01490  PRINT "SOUTH";
+    0x62804f3dde40 ---------B   01500  GOTO 1420
+    0x62804f3ddfb0 ---------B T 01510  PRINT "EAST";
+    0x62804f3de030 ---------B   01520  GOTO 1440
+    0x62804f3de1a0 ---------B T 01530  PRINT "WEST";
+    0x62804f3de220 ---------B   01540  GOTO 1440
+    0x62804f3de390 ---------B T 01550  PRINT " AND ";
+    0x62804f3de610 ---------B T 01560  IF Z>C THEN 1590
+    0x62804f3de890 ---------B   01570  IF Z<C THEN 1610
+    0x62804f3deb10 ---------B   01580  IF Z=C THEN 1630
+    0x62804f3dec70 ---------B T 01590  PRINT "TOO LOW"
+    0x62804f3decf0 ---------B   01600  GOTO 1640
+    0x62804f3dee40 ---------B T 01610  PRINT "TOO HIGH"
+    0x62804f3deec0 ---------B   01620  GOTO 1640
+    0x62804f3df010 ---------B T 01630  PRINT "DEPTH OK"
+    0x62804f3df070 ---------B T 01640  RETURN
+    0x62804f3df4e0 ---------A T 01650  END
  */
 
 /*
@@ -109,11 +109,167 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x58f3057a6d50 (01000)   0x58f3057a6d50 (01000)   0x58f3057b41d0 (01650)   0x58f3057b41d0 (01650)   
-   B) 0x58f3057b18d0 (01390)   0x58f3057b18d0 (01390)   0x58f3057b3d60 (01640)   0x58f3057b3d60 (01640)   
+   A) 0x62804f3cf6d0 (01000)   0x62804f3cf6d0 (01000)   0x62804f3df4e0 (01650)   0x62804f3df4e0 (01650)   
+   B) 0x62804f3dcae0 (01390)   0x62804f3dcae0 (01390)   0x62804f3df070 (01640)   0x62804f3df070 (01640)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/depth.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x62804f3cf6d0 ---------A   01000  PRINT "DEPTH CHARGE GAME" 
+    0x62804f3cf670 ---------A T 01010  PRINT
+    0x62804f3d11b0 ---------A   01020  PRINT "DIMENSION OF SEARCH AREA"; 
+    0x62804f3d0fc0 ---------A   01030  INPUT G
+    0x62804f3d38d0 ---------A   01040  PRINT
+    0x62804f3d0b80 ---------A   01050  N=INT(LOG(G)/LOG(2))+1 
+    0x62804f3d1ed0 ---------A   01060  RANDOMIZE
+    0x62804f3d3ed0 ---------A   01070  PRINT "YOU ARE CAPTAIN OF THE DESTROYER USS DIGITAL AND AN ENEMY SUB HAS"
+    0x62804f3d4050 ---------A   01080  PRINT "BEEN CAUSING  YOU  TROUBLE,  YOUR MISSION  IS TO DESTROY IT.  YOU"
+    0x62804f3d43d0 ---------A   01090  PRINT "HAVE "N" SHOTS.  SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A TRIO "
+    0x62804f3d4510 ---------A   01100  PRINT "OF NUMBERS (DISTANCE NORTH, DISTANCE EAST, DEPTH FROM SURFACE)."
+    0x62804f3d4570 ---------A   01110  PRINT 
+    0x62804f3d46d0 ---------A   01120  PRINT "GOOD LUCK !" 
+    0x62804f3d4750 ---------A   01130  PRINT
+    0x62804f3d8c40 ---------A   01140  A=INT(G*RND) 
+    0x62804f3d9130 ---------A   01150  B=INT(G*RND) 
+    0x62804f3d9620 ---------A   01160  C=INT(G*RND)
+    0x62804f3d99d0 ---------A   01170  FOR D=1 TO N 
+    0x62804f3d9a60 ---------A   01180  PRINT 
+    0x62804f3d9ce0 ---------A   01190  PRINT "TRIAL NUMBER ";D 
+    0x62804f3d9e70 ---------A   01200  PRINT "ENTER COORDINATES (N,E,D) : ";
+    0x62804f3da3f0 ---------A   01210  INPUT Y,X,Z
+    0x62804f3dae90 ---------A   01220  IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1300
+    0x62804f3daf10 ---------A   01230  GOSUB 1390
+    0x62804f3daf80 ---------A   01240  PRINT 
+    0x62804f3db0c0 ---------A   01250  NEXT D
+    0x62804f3db170 ---------A   01260  PRINT 
+    0x62804f3db310 ---------A   01270  PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
+    0x62804f3db970 ---------A   01280  PRINT "THE SUBMARINE WAS AT ";B,",";A,",";C
+    0x62804f3db9f0 ---------A   01290  GOTO 1340
+    0x62804f3dba80 ---------A T 01300  PRINT 
+    0x62804f3dbdf0 ---------A   01310  PRINT "B O O M ! !  YOU FOUND IT IN ";D;"TRIES!"
+    0x62804f3dbe70 ---------A   01320  PRINT 
+    0x62804f3dc110 ---------A   01330  PRINT 
+    0x62804f3dc290 ---------A T 01340  PRINT "ANOTHER GAME (Y OR N)";
+    0x62804f3dc4c0 ---------A   01350  INPUT A$
+    0x62804f3dc760 ---------A   01360  IF A$="Y" THEN 1010
+    0x62804f3dc8d0 ---------A   01370  PRINT "OK.  HOPE YOU ENJOYED YOURSELF " 
+    0x62804f3dc960 ---------A   01380  GOTO 1650
+    0x62804f3dcae0 ---------B G 01390  PRINT "SONAR REPORTS SHOT WAS ";
+    0x62804f3dcd60 ---------B   01400  IF Y>B THEN 1470
+    0x62804f3dcfe0 ---------B   01410  IF Y<B THEN 1490
+    0x62804f3dd260 ---------B T 01420  IF X>A THEN 1510
+    0x62804f3dd4e0 ---------B   01430  IF X<A THEN 1530
+    0x62804f3dd760 ---------B T 01440  IF Y<>B THEN 1550
+    0x62804f3dd9e0 ---------B   01450  IF X<>A THEN 1550
+    0x62804f3dda60 ---------B   01460  GOTO 1560
+    0x62804f3ddbd0 ---------B T 01470  PRINT "NORTH";
+    0x62804f3ddc50 ---------B   01480  GOTO 1420
+    0x62804f3dddc0 ---------B T 01490  PRINT "SOUTH";
+    0x62804f3dde40 ---------B   01500  GOTO 1420
+    0x62804f3ddfb0 ---------B T 01510  PRINT "EAST";
+    0x62804f3de030 ---------B   01520  GOTO 1440
+    0x62804f3de1a0 ---------B T 01530  PRINT "WEST";
+    0x62804f3de220 ---------B   01540  GOTO 1440
+    0x62804f3de390 ---------B T 01550  PRINT " AND ";
+    0x62804f3de610 ---------B T 01560  IF Z>C THEN 1590
+    0x62804f3de890 ---------B   01570  IF Z<C THEN 1610
+    0x62804f3deb10 ---------B   01580  IF Z=C THEN 1630
+    0x62804f3dec70 ---------B T 01590  PRINT "TOO LOW"
+    0x62804f3decf0 ---------B   01600  GOTO 1640
+    0x62804f3dee40 ---------B T 01610  PRINT "TOO HIGH"
+    0x62804f3deec0 ---------B   01620  GOTO 1640
+    0x62804f3df010 ---------B T 01630  PRINT "DEPTH OK"
+    0x62804f3df070 ---------B T 01640  RETURN
+    0x62804f3df4e0 ---------A T 01650  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/depth.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x62804f3cf6d0 ---------A   01000  PRINT "DEPTH CHARGE GAME" 
+    0x62804f3cf670 ---------A T 01010  PRINT
+    0x62804f3d11b0 ---------A   01020  PRINT "DIMENSION OF SEARCH AREA"; 
+    0x62804f3d0fc0 ---------A   01030  INPUT G
+    0x62804f3d38d0 ---------A   01040  PRINT
+    0x62804f3d0b80 ---------A   01050  N=INT(LOG(G)/LOG(2))+1 
+    0x62804f3d1ed0 ---------A   01060  RANDOMIZE
+    0x62804f3d3ed0 ---------A   01070  PRINT "YOU ARE CAPTAIN OF THE DESTROYER USS DIGITAL AND AN ENEMY SUB HAS"
+    0x62804f3d4050 ---------A   01080  PRINT "BEEN CAUSING  YOU  TROUBLE,  YOUR MISSION  IS TO DESTROY IT.  YOU"
+    0x62804f3d43d0 ---------A   01090  PRINT "HAVE "N" SHOTS.  SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A TRIO "
+    0x62804f3d4510 ---------A   01100  PRINT "OF NUMBERS (DISTANCE NORTH, DISTANCE EAST, DEPTH FROM SURFACE)."
+    0x62804f3d4570 ---------A   01110  PRINT 
+    0x62804f3d46d0 ---------A   01120  PRINT "GOOD LUCK !" 
+    0x62804f3d4750 ---------A   01130  PRINT
+    0x62804f3d8c40 ---------A   01140  A=INT(G*RND) 
+    0x62804f3d9130 ---------A   01150  B=INT(G*RND) 
+    0x62804f3d9620 ---------A   01160  C=INT(G*RND)
+    0x62804f3d99d0 ---------A   01170  FOR D=1 TO N 
+    0x62804f3d9a60 ---------A   01180  PRINT 
+    0x62804f3d9ce0 ---------A   01190  PRINT "TRIAL NUMBER ";D 
+    0x62804f3d9e70 ---------A   01200  PRINT "ENTER COORDINATES (N,E,D) : ";
+    0x62804f3da3f0 ---------A   01210  INPUT Y,X,Z
+    0x62804f3dae90 ---------A   01220  IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1300
+    0x62804f3daf10 ---------A   01230  GOSUB 1390
+    0x62804f3daf80 ---------A   01240  PRINT 
+    0x62804f3db0c0 ---------A   01250  NEXT D
+    0x62804f3db170 ---------A   01260  PRINT 
+    0x62804f3db310 ---------A   01270  PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
+    0x62804f3db970 ---------A   01280  PRINT "THE SUBMARINE WAS AT ";B,",";A,",";C
+    0x62804f3db9f0 ---------A   01290  GOTO 1340
+    0x62804f3dba80 ---------A T 01300  PRINT 
+    0x62804f3dbdf0 ---------A   01310  PRINT "B O O M ! !  YOU FOUND IT IN ";D;"TRIES!"
+    0x62804f3dbe70 ---------A   01320  PRINT 
+    0x62804f3dc110 ---------A   01330  PRINT 
+    0x62804f3dc290 ---------A T 01340  PRINT "ANOTHER GAME (Y OR N)";
+    0x62804f3dc4c0 ---------A   01350  INPUT A$
+    0x62804f3dc760 ---------A   01360  IF A$="Y" THEN 1010
+    0x62804f3dc8d0 ---------A   01370  PRINT "OK.  HOPE YOU ENJOYED YOURSELF " 
+    0x62804f3dc960 ---------A   01380  GOTO 1650
+    0x62804f3dcae0 ---------B G 01390  PRINT "SONAR REPORTS SHOT WAS ";
+    0x62804f3dcd60 ---------B   01400  IF Y>B THEN 1470
+    0x62804f3dcfe0 ---------B   01410  IF Y<B THEN 1490
+    0x62804f3dd260 ---------B T 01420  IF X>A THEN 1510
+    0x62804f3dd4e0 ---------B   01430  IF X<A THEN 1530
+    0x62804f3dd760 ---------B T 01440  IF Y<>B THEN 1550
+    0x62804f3dd9e0 ---------B   01450  IF X<>A THEN 1550
+    0x62804f3dda60 ---------B   01460  GOTO 1560
+    0x62804f3ddbd0 ---------B T 01470  PRINT "NORTH";
+    0x62804f3ddc50 ---------B   01480  GOTO 1420
+    0x62804f3dddc0 ---------B T 01490  PRINT "SOUTH";
+    0x62804f3dde40 ---------B   01500  GOTO 1420
+    0x62804f3ddfb0 ---------B T 01510  PRINT "EAST";
+    0x62804f3de030 ---------B   01520  GOTO 1440
+    0x62804f3de1a0 ---------B T 01530  PRINT "WEST";
+    0x62804f3de220 ---------B   01540  GOTO 1440
+    0x62804f3de390 ---------B T 01550  PRINT " AND ";
+    0x62804f3de610 ---------B T 01560  IF Z>C THEN 1590
+    0x62804f3de890 ---------B   01570  IF Z<C THEN 1610
+    0x62804f3deb10 ---------B   01580  IF Z=C THEN 1630
+    0x62804f3dec70 ---------B T 01590  PRINT "TOO LOW"
+    0x62804f3decf0 ---------B   01600  GOTO 1640
+    0x62804f3dee40 ---------B T 01610  PRINT "TOO HIGH"
+    0x62804f3deec0 ---------B   01620  GOTO 1640
+    0x62804f3df010 ---------B T 01630  PRINT "DEPTH OK"
+    0x62804f3df070 ---------B T 01640  RETURN
+    0x62804f3df4e0 ---------A T 01650  END
  */
 
 
@@ -216,73 +372,73 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x58f3057a6d50 ---------A   01000 PRINT "DEPTH CHARGE GAME" 
-    0x58f3057a5b80 ---------A T 01010 PRINT
-    0x58f3057a6ed0 ---------A   01020 PRINT "DIMENSION OF SEARCH AREA"; 
-    0x58f3057a46d0 ---------A   01030 INPUT G
-    0x58f3057a6e10 ---------A   01040 PRINT
-    0x58f3057a7050 ---------A   01050 N=INT(LOG(G)/LOG(2))+1 
-    0x58f3057a4a00 ---------A   01060 RANDOMIZE
-    0x58f3057a50b0 ---------A   01070 PRINT "YOU ARE CAPTAIN OF THE DESTROYER USS DIGITAL AND AN ENEMY SUB HAS"
-    0x58f3057a47f0 ---------A   01080 PRINT "BEEN CAUSING  YOU  TROUBLE,  YOUR MISSION  IS TO DESTROY IT.  YOU"
-    0x58f3057a9190 ---------A   01090 PRINT "HAVE "N" SHOTS.  SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A TRIO "
-    0x58f3057a9310 ---------A   01100 PRINT "OF NUMBERS (DISTANCE NORTH, DISTANCE EAST, DEPTH FROM SURFACE)."
-    0x58f3057a9360 ---------A   01110 PRINT 
-    0x58f3057a94b0 ---------A   01120 PRINT "GOOD LUCK !" 
-    0x58f3057a9520 ---------A   01130 PRINT
-    0x58f3057adb60 ---------A   01140 A=INT(G*RND) 
-    0x58f3057ae030 ---------A   01150 B=INT(G*RND) 
-    0x58f3057ae520 ---------A   01160 C=INT(G*RND)
-    0x58f3057ae8d0 ---------A   01170 FOR D=1 TO N 
-    0x58f3057ae960 ---------A   01180 PRINT 
-    0x58f3057aebd0 ---------A   01190 PRINT "TRIAL NUMBER ";D 
-    0x58f3057aed50 ---------A   01200 PRINT "ENTER COORDINATES (N,E,D) : ";
-    0x58f3057af2c0 ---------A   01210 INPUT Y,X,Z
-    0x58f3057afd60 ---------A   01220 IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1300
-    0x58f3057afde0 ---------A   01230 GOSUB 1400
-    0x58f3057afe40 ---------A   01240 PRINT 
-    0x58f3057aff70 ---------A   01250 NEXT D
-    0x58f3057b0010 ---------A   01260 PRINT 
-    0x58f3057b01a0 ---------A   01270 PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
-    0x58f3057b07f0 ---------A   01280 PRINT "THE SUBMARINE WAS AT ";B,",";A,",";C
-    0x58f3057b0860 ---------A   01290 GOTO 1340
-    0x58f3057b08e0 ---------A T 01300 PRINT 
-    0x58f3057b0c40 ---------A   01310 PRINT "B O O M ! !  YOU FOUND IT IN ";D;"TRIES!"
-    0x58f3057b0cb0 ---------A   01320 PRINT 
-    0x58f3057b0f40 ---------A   01330 PRINT 
-    0x58f3057b10b0 ---------A T 01340 PRINT "ANOTHER GAME (Y OR N)";
-    0x58f3057b12d0 ---------A   01350 INPUT A$
-    0x58f3057b1570 ---------A   01360 IF A$="Y" THEN 1010
-    0x58f3057b16e0 ---------A   01370 PRINT "OK.  HOPE YOU ENJOYED YOURSELF " 
-    0x58f3057b1760 ---------A   01380 GOTO 1390
-    0x58f3057b41d0 ---------A T 01390 END
-    0x58f3057b18d0 ---------B G 01400 PRINT "SONAR REPORTS SHOT WAS ";
-    0x58f3057b1b40 ---------B   01410 IF Y>B THEN 1480
-    0x58f3057b1dc0 ---------B   01420 IF Y<B THEN 1500
-    0x58f3057b2040 ---------B T 01430 IF X>A THEN 1520
-    0x58f3057b22c0 ---------B   01440 IF X<A THEN 1540
-    0x58f3057b2540 ---------B T 01450 IF Y<>B THEN 1560
-    0x58f3057b27c0 ---------B   01460 IF X<>A THEN 1560
-    0x58f3057b2840 ---------B   01470 GOTO 1570
-    0x58f3057b29a0 ---------B T 01480 PRINT "NORTH";
-    0x58f3057b2a10 ---------B   01490 GOTO 1430
-    0x58f3057b2b70 ---------B T 01500 PRINT "SOUTH";
-    0x58f3057b2be0 ---------B   01510 GOTO 1430
-    0x58f3057b2d40 ---------B T 01520 PRINT "EAST";
-    0x58f3057b2db0 ---------B   01530 GOTO 1450
-    0x58f3057b2f10 ---------B T 01540 PRINT "WEST";
-    0x58f3057b2f80 ---------B   01550 GOTO 1450
-    0x58f3057b30e0 ---------B T 01560 PRINT " AND ";
-    0x58f3057b3350 ---------B T 01570 IF Z>C THEN 1600
-    0x58f3057b35d0 ---------B   01580 IF Z<C THEN 1620
-    0x58f3057b3850 ---------B   01590 IF Z=C THEN 1640
-    0x58f3057b39b0 ---------B T 01600 PRINT "TOO LOW"
-    0x58f3057b3a20 ---------B   01610 GOTO 1650
-    0x58f3057b3b60 ---------B T 01620 PRINT "TOO HIGH"
-    0x58f3057b3bd0 ---------B   01630 GOTO 1650
-    0x58f3057b3d10 ---------B T 01640 PRINT "DEPTH OK"
-    0x58f3057b6db0 ---------B T 01650 GOTO 01660
-    0x58f3057b6df0 ---------B T 01660 RETURN
+    0x62804f3cf6d0 ---------A   01000  PRINT "DEPTH CHARGE GAME" 
+    0x62804f3cf670 ---------A T 01010  PRINT
+    0x62804f3d11b0 ---------A   01020  PRINT "DIMENSION OF SEARCH AREA"; 
+    0x62804f3d0fc0 ---------A   01030  INPUT G
+    0x62804f3d38d0 ---------A   01040  PRINT
+    0x62804f3d0b80 ---------A   01050  N=INT(LOG(G)/LOG(2))+1 
+    0x62804f3d1ed0 ---------A   01060  RANDOMIZE
+    0x62804f3d3ed0 ---------A   01070  PRINT "YOU ARE CAPTAIN OF THE DESTROYER USS DIGITAL AND AN ENEMY SUB HAS"
+    0x62804f3d4050 ---------A   01080  PRINT "BEEN CAUSING  YOU  TROUBLE,  YOUR MISSION  IS TO DESTROY IT.  YOU"
+    0x62804f3d43d0 ---------A   01090  PRINT "HAVE "N" SHOTS.  SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A TRIO "
+    0x62804f3d4510 ---------A   01100  PRINT "OF NUMBERS (DISTANCE NORTH, DISTANCE EAST, DEPTH FROM SURFACE)."
+    0x62804f3d4570 ---------A   01110  PRINT 
+    0x62804f3d46d0 ---------A   01120  PRINT "GOOD LUCK !" 
+    0x62804f3d4750 ---------A   01130  PRINT
+    0x62804f3d8c40 ---------A   01140  A=INT(G*RND) 
+    0x62804f3d9130 ---------A   01150  B=INT(G*RND) 
+    0x62804f3d9620 ---------A   01160  C=INT(G*RND)
+    0x62804f3d99d0 ---------A   01170  FOR D=1 TO N 
+    0x62804f3d9a60 ---------A   01180  PRINT 
+    0x62804f3d9ce0 ---------A   01190  PRINT "TRIAL NUMBER ";D 
+    0x62804f3d9e70 ---------A   01200  PRINT "ENTER COORDINATES (N,E,D) : ";
+    0x62804f3da3f0 ---------A   01210  INPUT Y,X,Z
+    0x62804f3dae90 ---------A   01220  IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1300
+    0x62804f3daf10 ---------A   01230  GOSUB 1400
+    0x62804f3daf80 ---------A   01240  PRINT 
+    0x62804f3db0c0 ---------A   01250  NEXT D
+    0x62804f3db170 ---------A   01260  PRINT 
+    0x62804f3db310 ---------A   01270  PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
+    0x62804f3db970 ---------A   01280  PRINT "THE SUBMARINE WAS AT ";B,",";A,",";C
+    0x62804f3db9f0 ---------A   01290  GOTO 1340
+    0x62804f3dba80 ---------A T 01300  PRINT 
+    0x62804f3dbdf0 ---------A   01310  PRINT "B O O M ! !  YOU FOUND IT IN ";D;"TRIES!"
+    0x62804f3dbe70 ---------A   01320  PRINT 
+    0x62804f3dc110 ---------A   01330  PRINT 
+    0x62804f3dc290 ---------A T 01340  PRINT "ANOTHER GAME (Y OR N)";
+    0x62804f3dc4c0 ---------A   01350  INPUT A$
+    0x62804f3dc760 ---------A   01360  IF A$="Y" THEN 1010
+    0x62804f3dc8d0 ---------A   01370  PRINT "OK.  HOPE YOU ENJOYED YOURSELF " 
+    0x62804f3dc960 ---------A   01380  GOTO 1390
+    0x62804f3df4e0 ---------A T 01390  END
+    0x62804f3dcae0 ---------B G 01400  PRINT "SONAR REPORTS SHOT WAS ";
+    0x62804f3dcd60 ---------B   01410  IF Y>B THEN 1480
+    0x62804f3dcfe0 ---------B   01420  IF Y<B THEN 1500
+    0x62804f3dd260 ---------B T 01430  IF X>A THEN 1520
+    0x62804f3dd4e0 ---------B   01440  IF X<A THEN 1540
+    0x62804f3dd760 ---------B T 01450  IF Y<>B THEN 1560
+    0x62804f3dd9e0 ---------B   01460  IF X<>A THEN 1560
+    0x62804f3dda60 ---------B   01470  GOTO 1570
+    0x62804f3ddbd0 ---------B T 01480  PRINT "NORTH";
+    0x62804f3ddc50 ---------B   01490  GOTO 1430
+    0x62804f3dddc0 ---------B T 01500  PRINT "SOUTH";
+    0x62804f3dde40 ---------B   01510  GOTO 1430
+    0x62804f3ddfb0 ---------B T 01520  PRINT "EAST";
+    0x62804f3de030 ---------B   01530  GOTO 1450
+    0x62804f3de1a0 ---------B T 01540  PRINT "WEST";
+    0x62804f3de220 ---------B   01550  GOTO 1450
+    0x62804f3de390 ---------B T 01560  PRINT " AND ";
+    0x62804f3de610 ---------B T 01570  IF Z>C THEN 1600
+    0x62804f3de890 ---------B   01580  IF Z<C THEN 1620
+    0x62804f3deb10 ---------B   01590  IF Z=C THEN 1640
+    0x62804f3dec70 ---------B T 01600  PRINT "TOO LOW"
+    0x62804f3decf0 ---------B   01610  GOTO 1650
+    0x62804f3dee40 ---------B T 01620  PRINT "TOO HIGH"
+    0x62804f3deec0 ---------B   01630  GOTO 1650
+    0x62804f3df010 ---------B T 01640  PRINT "DEPTH OK"
+    0x62804f3e0ac0 ---------B T 01650  GOTO 01660
+    0x62804f3e41e0 ---------B T 01660  RETURN
  */
 
 //---------------------------------------------------------------------------

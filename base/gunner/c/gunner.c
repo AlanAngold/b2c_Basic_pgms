@@ -8,63 +8,63 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x560dfcae0db0 ---------A   01000 PRINT "DATALINE SYSTEMS LIMITED  25-JULY-70"
-    0x560dfcadfb80 ---------A   01010 PRINT "B A S I C  USER LIBRARY PROGRAM--GUNNER"
-    0x560dfcae0e70 ---------A   01020 PRINT"THIS TIME-SHARING DEMONSTRATION SIMULATES"
-    0x560dfcae0ff0 ---------A   01030 PRINT"THE RESULTS OF FIRING A FIELD ARTILLERY WEAPON."
-    0x560dfcae0620 ---------A   01040 PRINT
-    0x560dfcae0af0 ---------A   01050 PRINT"YOU ARE THE OFFICER-IN-CHARGE, GIVING ORDERS TO THE GUN"
-    0x560dfcadee40 ---------A   01060 PRINT"CREW, TELLING THEM THE DEGREES OF ELEVATION YOU ESTIMATE"
-    0x560dfcadf500 ---------A   01070 PRINT"WILL PLACE THE PROJECTILE ON TARGET. A HIT WITHIN 100"
-    0x560dfcadebe0 ---------A   01080 PRINT"YARDS OF THE TARGET WILL DESTROY IT."
-    0x560dfcade9e0 ---------A   01090 PRINT
-    0x560dfcadecb0 ---------A   01100 PRINT"MAXIMUM RANGE OF YOUR GUN IS 46500 YARDS."
-    0x560dfcae11c0 ---------A   01110 REM T=DISTANCE TO TARGET
-    0x560dfcae1200 ---------A   01120 REM I=DISTANCE OF SHOT
-    0x560dfcadf670 ---------A   01130 REM E=DISTANCE OVER(NEGATIVE), OR UNDER (POSITIVE) TARGET
-    0x560dfcae6c00 ---------A T 01140 LET T=43000-30000*RND(X)
-    0x560dfcae6e70 ---------A   01150 LET S=0
-    0x560dfcae6f00 ---------A   01160 GOTO 1410
-    0x560dfcae7000 ---------A T 01170 PRINT"MIN. ELEVTION OF GUN IS ONE DEGREE."
-    0x560dfcae7090 ---------A   01180 GOTO 1430
-    0x560dfcae71b0 ---------A T 01190 PRINT"MAX. ELEVATION OF GUN IS 89 DEGREES."
-    0x560dfcae7240 ---------A   01200 GOTO 1430
-    0x560dfcae7720 ---------A T 01210 PRINT"OVER TARGET BY";ABS(E);"YARDS."
-    0x560dfcae77b0 ---------A   01220 GOTO 1430
-    0x560dfcae7bd0 ---------A T 01230 PRINT"SHORT OF TARGET BY";ABS(E);"YARDS."
-    0x560dfcae7c40 ---------A   01240 GOTO 1430
-    0x560dfcae7cd0 ---------A T 01250 GOTO 1260
-    0x560dfcae7ff0 ---------A T 01260 PRINT"***TARGET DESTROYED***  ";S;"ROUNDS EXPENDED"
-    0x560dfcae8060 ---------A   01270 PRINT
-    0x560dfcae80d0 ---------A   01280 PRINT
-    0x560dfcae8140 ---------A   01290 PRINT
-    0x560dfcae81b0 ---------A   01300 PRINT
-    0x560dfcae8220 ---------A   01310 PRINT
-    0x560dfcae8290 ---------A   01320 PRINT
-    0x560dfcae8510 ---------A   01330 PRINT
-    0x560dfcae8580 ---------A   01340 PRINT
-    0x560dfcae85f0 ---------A   01350 PRINT
-    0x560dfcae8660 ---------A   01360 PRINT
-    0x560dfcae86d0 ---------A   01370 PRINT
-    0x560dfcae8770 ---------A   01380 PRINT
-    0x560dfcae88e0 ---------A   01390 PRINT"THE FORWARD OBSERVER HAS SIGHTED MORE ENEMY ACTIVITY."
-    0x560dfcae8970 ---------A   01400 GOTO 1140
-    0x560dfcae8d70 ---------A T 01410 PRINT"   DISTANCE TO THE TARGET IS";INT(T);"YARDS"
-    0x560dfcae8de0 ---------A   01420 PRINT
-    0x560dfcae8e50 ---------A T 01430 PRINT
-    0x560dfcae8fc0 ---------A   01440 PRINT"ELEVATION:";
-    0x560dfcade6d0 ---------A   01450 INPUT B!
-    0x560dfcade670 ---------A   01460 IF B!>89 THEN 1190
-    0x560dfcae95d0 ---------A   01470 IF B!<1 THEN 1170
-    0x560dfcae9910 ---------A   01480 LET S=S+1
-    0x560dfcae9de0 ---------A   01490 LET B2=2*B!/57.3
-    0x560dfcaea2b0 ---------A   01500 LET I=46500*SIN(B2)
-    0x560dfcaea600 ---------A   01510 LET X=T-I
-    0x560dfcaea8f0 ---------A   01520 LET E=INT(X)
-    0x560dfcaeac20 ---------A   01530 IF ABS(E)<100 THEN 1250
-    0x560dfcaeae90 ---------A   01540 IF E>100 THEN 1230
-    0x560dfcaeb0f0 ---------A   01550 IF E<-100 THEN 1210
-    0x560dfcaeb150 ---------A   01560 END
+    0x5dc360a8e6d0 ---------A   01000  PRINT "DATALINE SYSTEMS LIMITED  25-JULY-70"
+    0x5dc360a8e670 ---------A   01010  PRINT "B A S I C  USER LIBRARY PROGRAM--GUNNER"
+    0x5dc360a905e0 ---------A   01020  PRINT"THIS TIME-SHARING DEMONSTRATION SIMULATES"
+    0x5dc360a8e7f0 ---------A   01030  PRINT"THE RESULTS OF FIRING A FIELD ARTILLERY WEAPON."
+    0x5dc360a90aa0 ---------A   01040  PRINT
+    0x5dc360a90b00 ---------A   01050  PRINT"YOU ARE THE OFFICER-IN-CHARGE, GIVING ORDERS TO THE GUN"
+    0x5dc360a8ee40 ---------A   01060  PRINT"CREW, TELLING THEM THE DEGREES OF ELEVATION YOU ESTIMATE"
+    0x5dc360a8f500 ---------A   01070  PRINT"WILL PLACE THE PROJECTILE ON TARGET. A HIT WITHIN 100"
+    0x5dc360a8ebe0 ---------A   01080  PRINT"YARDS OF THE TARGET WILL DESTROY IT."
+    0x5dc360a8ec80 ---------A   01090  PRINT
+    0x5dc360a91200 ---------A   01100  PRINT"MAXIMUM RANGE OF YOUR GUN IS 46500 YARDS."
+    0x5dc360a90f30 ---------A   01110  REM T=DISTANCE TO TARGET
+    0x5dc360a8f620 ---------A   01120  REM I=DISTANCE OF SHOT
+    0x5dc360a8f710 ---------A   01130  REM E=DISTANCE OVER(NEGATIVE), OR UNDER (POSITIVE) TARGET
+    0x5dc360a96cc0 ---------A T 01140  LET T=43000-30000*RND(X)
+    0x5dc360a96f30 ---------A   01150  LET S=0
+    0x5dc360a96fc0 ---------A   01160  GOTO 1410
+    0x5dc360a970d0 ---------A T 01170  PRINT"MIN. ELEVTION OF GUN IS ONE DEGREE."
+    0x5dc360a97170 ---------A   01180  GOTO 1430
+    0x5dc360a97280 ---------A T 01190  PRINT"MAX. ELEVATION OF GUN IS 89 DEGREES."
+    0x5dc360a97320 ---------A   01200  GOTO 1430
+    0x5dc360a97810 ---------A T 01210  PRINT"OVER TARGET BY";ABS(E);"YARDS."
+    0x5dc360a978b0 ---------A   01220  GOTO 1430
+    0x5dc360a97ce0 ---------A T 01230  PRINT"SHORT OF TARGET BY";ABS(E);"YARDS."
+    0x5dc360a97d60 ---------A   01240  GOTO 1430
+    0x5dc360a97e00 ---------A T 01250  GOTO 1260
+    0x5dc360a98130 ---------A T 01260  PRINT"***TARGET DESTROYED***  ";S;"ROUNDS EXPENDED"
+    0x5dc360a981b0 ---------A   01270  PRINT
+    0x5dc360a98230 ---------A   01280  PRINT
+    0x5dc360a982b0 ---------A   01290  PRINT
+    0x5dc360a98330 ---------A   01300  PRINT
+    0x5dc360a983b0 ---------A   01310  PRINT
+    0x5dc360a98430 ---------A   01320  PRINT
+    0x5dc360a986c0 ---------A   01330  PRINT
+    0x5dc360a98740 ---------A   01340  PRINT
+    0x5dc360a987c0 ---------A   01350  PRINT
+    0x5dc360a98840 ---------A   01360  PRINT
+    0x5dc360a988c0 ---------A   01370  PRINT
+    0x5dc360a98970 ---------A   01380  PRINT
+    0x5dc360a98af0 ---------A   01390  PRINT"THE FORWARD OBSERVER HAS SIGHTED MORE ENEMY ACTIVITY."
+    0x5dc360a98b90 ---------A   01400  GOTO 1140
+    0x5dc360a98fa0 ---------A T 01410  PRINT"   DISTANCE TO THE TARGET IS";INT(T);"YARDS"
+    0x5dc360a99020 ---------A   01420  PRINT
+    0x5dc360a990a0 ---------A T 01430  PRINT
+    0x5dc360a99220 ---------A   01440  PRINT"ELEVATION:";
+    0x5dc360a99440 ---------A   01450  INPUT B!
+    0x5dc360a996a0 ---------A   01460  IF B!>89 THEN 1190
+    0x5dc360a99900 ---------A   01470  IF B!<1 THEN 1170
+    0x5dc360a99c40 ---------A   01480  LET S=S+1
+    0x5dc360a9a110 ---------A   01490  LET B2=2*B!/57.3
+    0x5dc360a9a5e0 ---------A   01500  LET I=46500*SIN(B2)
+    0x5dc360a9a930 ---------A   01510  LET X=T-I
+    0x5dc360a9ac20 ---------A   01520  LET E=INT(X)
+    0x5dc360a9af50 ---------A   01530  IF ABS(E)<100 THEN 1250
+    0x5dc360a9b190 ---------A   01540  IF E>100 THEN 1230
+    0x5dc360a9b3f0 ---------A   01550  IF E<-100 THEN 1210
+    0x5dc360a9b450 ---------A   01560  END
  */
 
 /*
@@ -92,9 +92,147 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x560dfcae0db0 (01000)   0x560dfcae0db0 (01000)   0x560dfcaeb150 (01560)   0x560dfcaeb150 (01560)   
+   A) 0x5dc360a8e6d0 (01000)   0x5dc360a8e6d0 (01000)   0x5dc360a9b450 (01560)   0x5dc360a9b450 (01560)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/gunner.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5dc360a8e6d0 ---------A   01000  PRINT "DATALINE SYSTEMS LIMITED  25-JULY-70"
+    0x5dc360a8e670 ---------A   01010  PRINT "B A S I C  USER LIBRARY PROGRAM--GUNNER"
+    0x5dc360a905e0 ---------A   01020  PRINT"THIS TIME-SHARING DEMONSTRATION SIMULATES"
+    0x5dc360a8e7f0 ---------A   01030  PRINT"THE RESULTS OF FIRING A FIELD ARTILLERY WEAPON."
+    0x5dc360a90aa0 ---------A   01040  PRINT
+    0x5dc360a90b00 ---------A   01050  PRINT"YOU ARE THE OFFICER-IN-CHARGE, GIVING ORDERS TO THE GUN"
+    0x5dc360a8ee40 ---------A   01060  PRINT"CREW, TELLING THEM THE DEGREES OF ELEVATION YOU ESTIMATE"
+    0x5dc360a8f500 ---------A   01070  PRINT"WILL PLACE THE PROJECTILE ON TARGET. A HIT WITHIN 100"
+    0x5dc360a8ebe0 ---------A   01080  PRINT"YARDS OF THE TARGET WILL DESTROY IT."
+    0x5dc360a8ec80 ---------A   01090  PRINT
+    0x5dc360a91200 ---------A   01100  PRINT"MAXIMUM RANGE OF YOUR GUN IS 46500 YARDS."
+    0x5dc360a90f30 ---------A   01110  REM T=DISTANCE TO TARGET
+    0x5dc360a8f620 ---------A   01120  REM I=DISTANCE OF SHOT
+    0x5dc360a8f710 ---------A   01130  REM E=DISTANCE OVER(NEGATIVE), OR UNDER (POSITIVE) TARGET
+    0x5dc360a96cc0 ---------A T 01140  LET T=43000-30000*RND(X)
+    0x5dc360a96f30 ---------A   01150  LET S=0
+    0x5dc360a96fc0 ---------A   01160  GOTO 1410
+    0x5dc360a970d0 ---------A T 01170  PRINT"MIN. ELEVTION OF GUN IS ONE DEGREE."
+    0x5dc360a97170 ---------A   01180  GOTO 1430
+    0x5dc360a97280 ---------A T 01190  PRINT"MAX. ELEVATION OF GUN IS 89 DEGREES."
+    0x5dc360a97320 ---------A   01200  GOTO 1430
+    0x5dc360a97810 ---------A T 01210  PRINT"OVER TARGET BY";ABS(E);"YARDS."
+    0x5dc360a978b0 ---------A   01220  GOTO 1430
+    0x5dc360a97ce0 ---------A T 01230  PRINT"SHORT OF TARGET BY";ABS(E);"YARDS."
+    0x5dc360a97d60 ---------A   01240  GOTO 1430
+    0x5dc360a97e00 ---------A T 01250  GOTO 1260
+    0x5dc360a98130 ---------A T 01260  PRINT"***TARGET DESTROYED***  ";S;"ROUNDS EXPENDED"
+    0x5dc360a981b0 ---------A   01270  PRINT
+    0x5dc360a98230 ---------A   01280  PRINT
+    0x5dc360a982b0 ---------A   01290  PRINT
+    0x5dc360a98330 ---------A   01300  PRINT
+    0x5dc360a983b0 ---------A   01310  PRINT
+    0x5dc360a98430 ---------A   01320  PRINT
+    0x5dc360a986c0 ---------A   01330  PRINT
+    0x5dc360a98740 ---------A   01340  PRINT
+    0x5dc360a987c0 ---------A   01350  PRINT
+    0x5dc360a98840 ---------A   01360  PRINT
+    0x5dc360a988c0 ---------A   01370  PRINT
+    0x5dc360a98970 ---------A   01380  PRINT
+    0x5dc360a98af0 ---------A   01390  PRINT"THE FORWARD OBSERVER HAS SIGHTED MORE ENEMY ACTIVITY."
+    0x5dc360a98b90 ---------A   01400  GOTO 1140
+    0x5dc360a98fa0 ---------A T 01410  PRINT"   DISTANCE TO THE TARGET IS";INT(T);"YARDS"
+    0x5dc360a99020 ---------A   01420  PRINT
+    0x5dc360a990a0 ---------A T 01430  PRINT
+    0x5dc360a99220 ---------A   01440  PRINT"ELEVATION:";
+    0x5dc360a99440 ---------A   01450  INPUT B!
+    0x5dc360a996a0 ---------A   01460  IF B!>89 THEN 1190
+    0x5dc360a99900 ---------A   01470  IF B!<1 THEN 1170
+    0x5dc360a99c40 ---------A   01480  LET S=S+1
+    0x5dc360a9a110 ---------A   01490  LET B2=2*B!/57.3
+    0x5dc360a9a5e0 ---------A   01500  LET I=46500*SIN(B2)
+    0x5dc360a9a930 ---------A   01510  LET X=T-I
+    0x5dc360a9ac20 ---------A   01520  LET E=INT(X)
+    0x5dc360a9af50 ---------A   01530  IF ABS(E)<100 THEN 1250
+    0x5dc360a9b190 ---------A   01540  IF E>100 THEN 1230
+    0x5dc360a9b3f0 ---------A   01550  IF E<-100 THEN 1210
+    0x5dc360a9b450 ---------A   01560  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/gunner.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5dc360a8e6d0 ---------A   01000  PRINT "DATALINE SYSTEMS LIMITED  25-JULY-70"
+    0x5dc360a8e670 ---------A   01010  PRINT "B A S I C  USER LIBRARY PROGRAM--GUNNER"
+    0x5dc360a905e0 ---------A   01020  PRINT"THIS TIME-SHARING DEMONSTRATION SIMULATES"
+    0x5dc360a8e7f0 ---------A   01030  PRINT"THE RESULTS OF FIRING A FIELD ARTILLERY WEAPON."
+    0x5dc360a90aa0 ---------A   01040  PRINT
+    0x5dc360a90b00 ---------A   01050  PRINT"YOU ARE THE OFFICER-IN-CHARGE, GIVING ORDERS TO THE GUN"
+    0x5dc360a8ee40 ---------A   01060  PRINT"CREW, TELLING THEM THE DEGREES OF ELEVATION YOU ESTIMATE"
+    0x5dc360a8f500 ---------A   01070  PRINT"WILL PLACE THE PROJECTILE ON TARGET. A HIT WITHIN 100"
+    0x5dc360a8ebe0 ---------A   01080  PRINT"YARDS OF THE TARGET WILL DESTROY IT."
+    0x5dc360a8ec80 ---------A   01090  PRINT
+    0x5dc360a91200 ---------A   01100  PRINT"MAXIMUM RANGE OF YOUR GUN IS 46500 YARDS."
+    0x5dc360a90f30 ---------A   01110  REM T=DISTANCE TO TARGET
+    0x5dc360a8f620 ---------A   01120  REM I=DISTANCE OF SHOT
+    0x5dc360a8f710 ---------A   01130  REM E=DISTANCE OVER(NEGATIVE), OR UNDER (POSITIVE) TARGET
+    0x5dc360a96cc0 ---------A T 01140  LET T=43000-30000*RND(X)
+    0x5dc360a96f30 ---------A   01150  LET S=0
+    0x5dc360a96fc0 ---------A   01160  GOTO 1410
+    0x5dc360a970d0 ---------A T 01170  PRINT"MIN. ELEVTION OF GUN IS ONE DEGREE."
+    0x5dc360a97170 ---------A   01180  GOTO 1430
+    0x5dc360a97280 ---------A T 01190  PRINT"MAX. ELEVATION OF GUN IS 89 DEGREES."
+    0x5dc360a97320 ---------A   01200  GOTO 1430
+    0x5dc360a97810 ---------A T 01210  PRINT"OVER TARGET BY";ABS(E);"YARDS."
+    0x5dc360a978b0 ---------A   01220  GOTO 1430
+    0x5dc360a97ce0 ---------A T 01230  PRINT"SHORT OF TARGET BY";ABS(E);"YARDS."
+    0x5dc360a97d60 ---------A   01240  GOTO 1430
+    0x5dc360a97e00 ---------A T 01250  GOTO 1260
+    0x5dc360a98130 ---------A T 01260  PRINT"***TARGET DESTROYED***  ";S;"ROUNDS EXPENDED"
+    0x5dc360a981b0 ---------A   01270  PRINT
+    0x5dc360a98230 ---------A   01280  PRINT
+    0x5dc360a982b0 ---------A   01290  PRINT
+    0x5dc360a98330 ---------A   01300  PRINT
+    0x5dc360a983b0 ---------A   01310  PRINT
+    0x5dc360a98430 ---------A   01320  PRINT
+    0x5dc360a986c0 ---------A   01330  PRINT
+    0x5dc360a98740 ---------A   01340  PRINT
+    0x5dc360a987c0 ---------A   01350  PRINT
+    0x5dc360a98840 ---------A   01360  PRINT
+    0x5dc360a988c0 ---------A   01370  PRINT
+    0x5dc360a98970 ---------A   01380  PRINT
+    0x5dc360a98af0 ---------A   01390  PRINT"THE FORWARD OBSERVER HAS SIGHTED MORE ENEMY ACTIVITY."
+    0x5dc360a98b90 ---------A   01400  GOTO 1140
+    0x5dc360a98fa0 ---------A T 01410  PRINT"   DISTANCE TO THE TARGET IS";INT(T);"YARDS"
+    0x5dc360a99020 ---------A   01420  PRINT
+    0x5dc360a990a0 ---------A T 01430  PRINT
+    0x5dc360a99220 ---------A   01440  PRINT"ELEVATION:";
+    0x5dc360a99440 ---------A   01450  INPUT B!
+    0x5dc360a996a0 ---------A   01460  IF B!>89 THEN 1190
+    0x5dc360a99900 ---------A   01470  IF B!<1 THEN 1170
+    0x5dc360a99c40 ---------A   01480  LET S=S+1
+    0x5dc360a9a110 ---------A   01490  LET B2=2*B!/57.3
+    0x5dc360a9a5e0 ---------A   01500  LET I=46500*SIN(B2)
+    0x5dc360a9a930 ---------A   01510  LET X=T-I
+    0x5dc360a9ac20 ---------A   01520  LET E=INT(X)
+    0x5dc360a9af50 ---------A   01530  IF ABS(E)<100 THEN 1250
+    0x5dc360a9b190 ---------A   01540  IF E>100 THEN 1230
+    0x5dc360a9b3f0 ---------A   01550  IF E<-100 THEN 1210
+    0x5dc360a9b450 ---------A   01560  END
  */
 
 
@@ -194,63 +332,63 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x560dfcae0db0 ---------A   01000 PRINT "DATALINE SYSTEMS LIMITED  25-JULY-70"
-    0x560dfcadfb80 ---------A   01010 PRINT "B A S I C  USER LIBRARY PROGRAM--GUNNER"
-    0x560dfcae0e70 ---------A   01020 PRINT"THIS TIME-SHARING DEMONSTRATION SIMULATES"
-    0x560dfcae0ff0 ---------A   01030 PRINT"THE RESULTS OF FIRING A FIELD ARTILLERY WEAPON."
-    0x560dfcae0620 ---------A   01040 PRINT
-    0x560dfcae0af0 ---------A   01050 PRINT"YOU ARE THE OFFICER-IN-CHARGE, GIVING ORDERS TO THE GUN"
-    0x560dfcadee40 ---------A   01060 PRINT"CREW, TELLING THEM THE DEGREES OF ELEVATION YOU ESTIMATE"
-    0x560dfcadf500 ---------A   01070 PRINT"WILL PLACE THE PROJECTILE ON TARGET. A HIT WITHIN 100"
-    0x560dfcadebe0 ---------A   01080 PRINT"YARDS OF THE TARGET WILL DESTROY IT."
-    0x560dfcade9e0 ---------A   01090 PRINT
-    0x560dfcadecb0 ---------A   01100 PRINT"MAXIMUM RANGE OF YOUR GUN IS 46500 YARDS."
-    0x560dfcae11c0 ---------A   01110 REM T=DISTANCE TO TARGET
-    0x560dfcae1200 ---------A   01120 REM I=DISTANCE OF SHOT
-    0x560dfcadf670 ---------A   01130 REM E=DISTANCE OVER(NEGATIVE), OR UNDER (POSITIVE) TARGET
-    0x560dfcae6c00 ---------A T 01140 LET T=43000-30000*RND(X)
-    0x560dfcae6e70 ---------A   01150 LET S=0
-    0x560dfcae6f00 ---------A   01160 GOTO 1410
-    0x560dfcae7000 ---------A T 01170 PRINT"MIN. ELEVTION OF GUN IS ONE DEGREE."
-    0x560dfcae7090 ---------A   01180 GOTO 1430
-    0x560dfcae71b0 ---------A T 01190 PRINT"MAX. ELEVATION OF GUN IS 89 DEGREES."
-    0x560dfcae7240 ---------A   01200 GOTO 1430
-    0x560dfcae7720 ---------A T 01210 PRINT"OVER TARGET BY";ABS(E);"YARDS."
-    0x560dfcae77b0 ---------A   01220 GOTO 1430
-    0x560dfcae7bd0 ---------A T 01230 PRINT"SHORT OF TARGET BY";ABS(E);"YARDS."
-    0x560dfcae7c40 ---------A   01240 GOTO 1430
-    0x560dfcae7cd0 ---------A T 01250 GOTO 1260
-    0x560dfcae7ff0 ---------A T 01260 PRINT"***TARGET DESTROYED***  ";S;"ROUNDS EXPENDED"
-    0x560dfcae8060 ---------A   01270 PRINT
-    0x560dfcae80d0 ---------A   01280 PRINT
-    0x560dfcae8140 ---------A   01290 PRINT
-    0x560dfcae81b0 ---------A   01300 PRINT
-    0x560dfcae8220 ---------A   01310 PRINT
-    0x560dfcae8290 ---------A   01320 PRINT
-    0x560dfcae8510 ---------A   01330 PRINT
-    0x560dfcae8580 ---------A   01340 PRINT
-    0x560dfcae85f0 ---------A   01350 PRINT
-    0x560dfcae8660 ---------A   01360 PRINT
-    0x560dfcae86d0 ---------A   01370 PRINT
-    0x560dfcae8770 ---------A   01380 PRINT
-    0x560dfcae88e0 ---------A   01390 PRINT"THE FORWARD OBSERVER HAS SIGHTED MORE ENEMY ACTIVITY."
-    0x560dfcae8970 ---------A   01400 GOTO 1140
-    0x560dfcae8d70 ---------A T 01410 PRINT"   DISTANCE TO THE TARGET IS";INT(T);"YARDS"
-    0x560dfcae8de0 ---------A   01420 PRINT
-    0x560dfcae8e50 ---------A T 01430 PRINT
-    0x560dfcae8fc0 ---------A   01440 PRINT"ELEVATION:";
-    0x560dfcade6d0 ---------A   01450 INPUT B!
-    0x560dfcade670 ---------A   01460 IF B!>89 THEN 1190
-    0x560dfcae95d0 ---------A   01470 IF B!<1 THEN 1170
-    0x560dfcae9910 ---------A   01480 LET S=S+1
-    0x560dfcae9de0 ---------A   01490 LET B2=2*B!/57.3
-    0x560dfcaea2b0 ---------A   01500 LET I=46500*SIN(B2)
-    0x560dfcaea600 ---------A   01510 LET X=T-I
-    0x560dfcaea8f0 ---------A   01520 LET E=INT(X)
-    0x560dfcaeac20 ---------A   01530 IF ABS(E)<100 THEN 1250
-    0x560dfcaeae90 ---------A   01540 IF E>100 THEN 1230
-    0x560dfcaeb0f0 ---------A   01550 IF E<-100 THEN 1210
-    0x560dfcaeb150 ---------A   01560 END
+    0x5dc360a8e6d0 ---------A   01000  PRINT "DATALINE SYSTEMS LIMITED  25-JULY-70"
+    0x5dc360a8e670 ---------A   01010  PRINT "B A S I C  USER LIBRARY PROGRAM--GUNNER"
+    0x5dc360a905e0 ---------A   01020  PRINT"THIS TIME-SHARING DEMONSTRATION SIMULATES"
+    0x5dc360a8e7f0 ---------A   01030  PRINT"THE RESULTS OF FIRING A FIELD ARTILLERY WEAPON."
+    0x5dc360a90aa0 ---------A   01040  PRINT
+    0x5dc360a90b00 ---------A   01050  PRINT"YOU ARE THE OFFICER-IN-CHARGE, GIVING ORDERS TO THE GUN"
+    0x5dc360a8ee40 ---------A   01060  PRINT"CREW, TELLING THEM THE DEGREES OF ELEVATION YOU ESTIMATE"
+    0x5dc360a8f500 ---------A   01070  PRINT"WILL PLACE THE PROJECTILE ON TARGET. A HIT WITHIN 100"
+    0x5dc360a8ebe0 ---------A   01080  PRINT"YARDS OF THE TARGET WILL DESTROY IT."
+    0x5dc360a8ec80 ---------A   01090  PRINT
+    0x5dc360a91200 ---------A   01100  PRINT"MAXIMUM RANGE OF YOUR GUN IS 46500 YARDS."
+    0x5dc360a90f30 ---------A   01110  REM T=DISTANCE TO TARGET
+    0x5dc360a8f620 ---------A   01120  REM I=DISTANCE OF SHOT
+    0x5dc360a8f710 ---------A   01130  REM E=DISTANCE OVER(NEGATIVE), OR UNDER (POSITIVE) TARGET
+    0x5dc360a96cc0 ---------A T 01140  LET T=43000-30000*RND(X)
+    0x5dc360a96f30 ---------A   01150  LET S=0
+    0x5dc360a96fc0 ---------A   01160  GOTO 1410
+    0x5dc360a970d0 ---------A T 01170  PRINT"MIN. ELEVTION OF GUN IS ONE DEGREE."
+    0x5dc360a97170 ---------A   01180  GOTO 1430
+    0x5dc360a97280 ---------A T 01190  PRINT"MAX. ELEVATION OF GUN IS 89 DEGREES."
+    0x5dc360a97320 ---------A   01200  GOTO 1430
+    0x5dc360a97810 ---------A T 01210  PRINT"OVER TARGET BY";ABS(E);"YARDS."
+    0x5dc360a978b0 ---------A   01220  GOTO 1430
+    0x5dc360a97ce0 ---------A T 01230  PRINT"SHORT OF TARGET BY";ABS(E);"YARDS."
+    0x5dc360a97d60 ---------A   01240  GOTO 1430
+    0x5dc360a97e00 ---------A T 01250  GOTO 1260
+    0x5dc360a98130 ---------A T 01260  PRINT"***TARGET DESTROYED***  ";S;"ROUNDS EXPENDED"
+    0x5dc360a981b0 ---------A   01270  PRINT
+    0x5dc360a98230 ---------A   01280  PRINT
+    0x5dc360a982b0 ---------A   01290  PRINT
+    0x5dc360a98330 ---------A   01300  PRINT
+    0x5dc360a983b0 ---------A   01310  PRINT
+    0x5dc360a98430 ---------A   01320  PRINT
+    0x5dc360a986c0 ---------A   01330  PRINT
+    0x5dc360a98740 ---------A   01340  PRINT
+    0x5dc360a987c0 ---------A   01350  PRINT
+    0x5dc360a98840 ---------A   01360  PRINT
+    0x5dc360a988c0 ---------A   01370  PRINT
+    0x5dc360a98970 ---------A   01380  PRINT
+    0x5dc360a98af0 ---------A   01390  PRINT"THE FORWARD OBSERVER HAS SIGHTED MORE ENEMY ACTIVITY."
+    0x5dc360a98b90 ---------A   01400  GOTO 1140
+    0x5dc360a98fa0 ---------A T 01410  PRINT"   DISTANCE TO THE TARGET IS";INT(T);"YARDS"
+    0x5dc360a99020 ---------A   01420  PRINT
+    0x5dc360a990a0 ---------A T 01430  PRINT
+    0x5dc360a99220 ---------A   01440  PRINT"ELEVATION:";
+    0x5dc360a99440 ---------A   01450  INPUT B!
+    0x5dc360a996a0 ---------A   01460  IF B!>89 THEN 1190
+    0x5dc360a99900 ---------A   01470  IF B!<1 THEN 1170
+    0x5dc360a99c40 ---------A   01480  LET S=S+1
+    0x5dc360a9a110 ---------A   01490  LET B2=2*B!/57.3
+    0x5dc360a9a5e0 ---------A   01500  LET I=46500*SIN(B2)
+    0x5dc360a9a930 ---------A   01510  LET X=T-I
+    0x5dc360a9ac20 ---------A   01520  LET E=INT(X)
+    0x5dc360a9af50 ---------A   01530  IF ABS(E)<100 THEN 1250
+    0x5dc360a9b190 ---------A   01540  IF E>100 THEN 1230
+    0x5dc360a9b3f0 ---------A   01550  IF E<-100 THEN 1210
+    0x5dc360a9b450 ---------A   01560  END
  */
 
 //---------------------------------------------------------------------------

@@ -8,31 +8,31 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x55b9f1ffeb80 ---------A   00010 PRINT TAB(26);"BUZZWORD GENERATOR"
-    0x55b9f1ffff30 ---------A   00020 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x55b9f1fee2b0 ---------A   00030 PRINT:PRINT:PRINT
-    0x55b9f1ffd7f0 ---------A   00040 PRINT "THIS PROGRAM PRINTS HIGHLY ACCEPTABLE PHRASES IN"
-    0x55b9f1ffe040 ---------A   00050 PRINT "'EDUCATOR-SPEAK'THAT YOU CAN WORK INTO REPORTS"
-    0x55b9f1ffe4d0 ---------A   00060 PRINT "AND SPEECHES.  WHENEVER A QUESTION MARK IS PRINTED,"
-    0x55b9f1ffdbe0 ---------A   00070 PRINT "TYPE A 'Y' FOR ANOTHER PHRASE OR 'N' TO QUIT."
-    0x55b9f20001c0 ---------A   00080 PRINT:PRINT:PRINT "HERE'S THE FIRST PHRASE:"
-    0x55b9f1ffe7e0 ---------A   00090 DIM A$(40)
-    0x55b9f2005d80 ---------A   00100 FOR I=1 TO 39 : READ A$(I) : NEXT I
-    0x55b9f1ffe090 ---------A T 00110 PRINT A$(INT(13*RND(1)+1));" ";
-    0x55b9f20069c0 ---------A   00120 PRINT A$(INT(13*RND(1)+14));" ";
-    0x55b9f2007020 ---------A   00130 PRINT A$(INT(13*RND(1)+27)) : PRINT
-    0x55b9f20074a0 ---------A   00150 INPUT Y$ : IF Y$="Y" THEN 110 ELSE GOTO 999
-    0x55b9f20078d0 ---------A   00200 DATA "ABILITY","BASAL","BEHAVIORAL","CHILD-CENTERED"
-    0x55b9f2007cf0 ---------A   00210 DATA "DIFFERENTIATED","DISCOVERY","FLEXIBLE","HETEROGENEOUS"
-    0x55b9f2008110 ---------A   00220 DATA "HOMOGENEOUS","MANIPULATIVE","MODULAR","TAVISTOCK"
-    0x55b9f2008530 ---------A   00230 DATA "INDIVIDUALIZED","LEARNING","EVALUATIVE","OBJECTIVE"
-    0x55b9f2008950 ---------A   00240 DATA "COGNITIVE","ENRICHMENT","SCHEDULING","HUMANISTIC"
-    0x55b9f2008d70 ---------A   00250 DATA "INTEGRATED","NON-GRADED","TRAINING","VERTICAL AGE"
-    0x55b9f2009190 ---------A   00260 DATA "MOTIVATIONAL","CREATIVE","GROUPING","MODIFICATION"
-    0x55b9f20095b0 ---------A   00270 DATA "ACCOUNTABILITY","PROCESS","CORE CURRICULUM","ALGORITHM"
-    0x55b9f20099c0 ---------A   00280 DATA "PERFORMANCE","REINFORCEMENT","OPEN CLASSROOM","RESOURCE"
-    0x55b9f2009d00 ---------A   00290 DATA "STRUCTURE","FACILITY","ENVIRONMENT"
-    0x55b9f2009ea0 ---------A   00999 PRINT "COME BACK WHEN YOU NEED HELP WITH ANOTHER REPORT!":END
+    0x6197e8a1b6d0 ---------A   00010  PRINT TAB(26);"BUZZWORD GENERATOR"
+    0x6197e8a1b670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x6197e8a1b7f0 ---------A   00030  PRINT:PRINT:PRINT
+    0x6197e8a1c040 ---------A   00040  PRINT "THIS PROGRAM PRINTS HIGHLY ACCEPTABLE PHRASES IN"
+    0x6197e8a1be40 ---------A   00050  PRINT "'EDUCATOR-SPEAK'THAT YOU CAN WORK INTO REPORTS"
+    0x6197e8a1c4c0 ---------A   00060  PRINT "AND SPEECHES.  WHENEVER A QUESTION MARK IS PRINTED,"
+    0x6197e8a1bc20 ---------A   00070  PRINT "TYPE A 'Y' FOR ANOTHER PHRASE OR 'N' TO QUIT."
+    0x6197e8a1e220 ---------A   00080  PRINT:PRINT:PRINT "HERE'S THE FIRST PHRASE:"
+    0x6197e8a1c840 ---------A   00090  DIM A$(40)
+    0x6197e8a23de0 ---------A   00100  FOR I=1 TO 39 : READ A$(I) : NEXT I
+    0x6197e8a243f0 ---------A T 00110  PRINT A$(INT(13*RND(1)+1));" ";
+    0x6197e8a24a90 ---------A   00120  PRINT A$(INT(13*RND(1)+14));" ";
+    0x6197e8a25110 ---------A   00130  PRINT A$(INT(13*RND(1)+27)) : PRINT
+    0x6197e8a25610 ---------A   00150  INPUT Y$ : IF Y$="Y" THEN 110 ELSE GOTO 999
+    0x6197e8a25a40 ---------A   00200  DATA "ABILITY","BASAL","BEHAVIORAL","CHILD-CENTERED"
+    0x6197e8a25e60 ---------A   00210  DATA "DIFFERENTIATED","DISCOVERY","FLEXIBLE","HETEROGENEOUS"
+    0x6197e8a26280 ---------A   00220  DATA "HOMOGENEOUS","MANIPULATIVE","MODULAR","TAVISTOCK"
+    0x6197e8a266a0 ---------A   00230  DATA "INDIVIDUALIZED","LEARNING","EVALUATIVE","OBJECTIVE"
+    0x6197e8a26ac0 ---------A   00240  DATA "COGNITIVE","ENRICHMENT","SCHEDULING","HUMANISTIC"
+    0x6197e8a26ee0 ---------A   00250  DATA "INTEGRATED","NON-GRADED","TRAINING","VERTICAL AGE"
+    0x6197e8a27300 ---------A   00260  DATA "MOTIVATIONAL","CREATIVE","GROUPING","MODIFICATION"
+    0x6197e8a27720 ---------A   00270  DATA "ACCOUNTABILITY","PROCESS","CORE CURRICULUM","ALGORITHM"
+    0x6197e8a27b30 ---------A   00280  DATA "PERFORMANCE","REINFORCEMENT","OPEN CLASSROOM","RESOURCE"
+    0x6197e8a27e70 ---------A   00290  DATA "STRUCTURE","FACILITY","ENVIRONMENT"
+    0x6197e8a28020 ---------A   00999  PRINT "COME BACK WHEN YOU NEED HELP WITH ANOTHER REPORT!":END
  */
 
 /*
@@ -52,9 +52,101 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x55b9f1ffeb80 (00010)   0x55b9f1ffeb80 (00010)   0x55b9f2009ea0 (00999)   0x55b9f2009ea0 (00999)   
+   A) 0x6197e8a1b6d0 (00010)   0x6197e8a1b6d0 (00010)   0x6197e8a28020 (00999)   0x6197e8a28020 (00999)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/buzzword.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x6197e8a1b6d0 ---------A   00010  PRINT TAB(26);"BUZZWORD GENERATOR"
+    0x6197e8a1b670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x6197e8a0c2b0 ----------   00030  PRINT
+    0x6197e8a1b9e0 ----------        a PRINT
+    0x6197e8a1b7f0 ---------A        b PRINT
+    0x6197e8a1c040 ---------A   00040  PRINT "THIS PROGRAM PRINTS HIGHLY ACCEPTABLE PHRASES IN"
+    0x6197e8a1be40 ---------A   00050  PRINT "'EDUCATOR-SPEAK'THAT YOU CAN WORK INTO REPORTS"
+    0x6197e8a1c4c0 ---------A   00060  PRINT "AND SPEECHES.  WHENEVER A QUESTION MARK IS PRINTED,"
+    0x6197e8a1bc20 ---------A   00070  PRINT "TYPE A 'Y' FOR ANOTHER PHRASE OR 'N' TO QUIT."
+    0x6197e8a1bc80 ----------   00080  PRINT
+    0x6197e8a1e100 ----------        a PRINT
+    0x6197e8a1e220 ---------A        b PRINT "HERE'S THE FIRST PHRASE:"
+    0x6197e8a1c840 ---------A   00090  DIM A$(40)
+    0x6197e8a23b40 ----------   00100  FOR I=1 TO 39 
+    0x6197e8a1dff0 ----------        a READ A$(I) 
+    0x6197e8a23de0 ---------A        b NEXT I
+    0x6197e8a243f0 ---------A T 00110  PRINT A$(INT(13*RND(1)+1));" ";
+    0x6197e8a24a90 ---------A   00120  PRINT A$(INT(13*RND(1)+14));" ";
+    0x6197e8a25070 ----------   00130  PRINT A$(INT(13*RND(1)+27)) 
+    0x6197e8a25110 ---------A        a PRINT
+    0x6197e8a25310 ----------   00150  INPUT Y$ 
+    0x6197e8a25610 ---------A        a IF Y$="Y" THEN 110 ELSE GOTO 999
+    0x6197e8a25a40 ---------A   00200  DATA "ABILITY","BASAL","BEHAVIORAL","CHILD-CENTERED"
+    0x6197e8a25e60 ---------A   00210  DATA "DIFFERENTIATED","DISCOVERY","FLEXIBLE","HETEROGENEOUS"
+    0x6197e8a26280 ---------A   00220  DATA "HOMOGENEOUS","MANIPULATIVE","MODULAR","TAVISTOCK"
+    0x6197e8a266a0 ---------A   00230  DATA "INDIVIDUALIZED","LEARNING","EVALUATIVE","OBJECTIVE"
+    0x6197e8a26ac0 ---------A   00240  DATA "COGNITIVE","ENRICHMENT","SCHEDULING","HUMANISTIC"
+    0x6197e8a26ee0 ---------A   00250  DATA "INTEGRATED","NON-GRADED","TRAINING","VERTICAL AGE"
+    0x6197e8a27300 ---------A   00260  DATA "MOTIVATIONAL","CREATIVE","GROUPING","MODIFICATION"
+    0x6197e8a27720 ---------A   00270  DATA "ACCOUNTABILITY","PROCESS","CORE CURRICULUM","ALGORITHM"
+    0x6197e8a27b30 ---------A   00280  DATA "PERFORMANCE","REINFORCEMENT","OPEN CLASSROOM","RESOURCE"
+    0x6197e8a27e70 ---------A   00290  DATA "STRUCTURE","FACILITY","ENVIRONMENT"
+    0x6197e8a27fc0 ----------   00999  PRINT "COME BACK WHEN YOU NEED HELP WITH ANOTHER REPORT!"
+    0x6197e8a28020 ---------A        a END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/buzzword.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x6197e8a1b6d0 ---------A   01000  PRINT TAB(26);"BUZZWORD GENERATOR"
+    0x6197e8a1b670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x6197e8a0c2b0 ----------   01020  PRINT
+    0x6197e8a1b9e0 ----------   01030  PRINT
+    0x6197e8a1b7f0 ---------A   01040  PRINT
+    0x6197e8a1c040 ---------A   01050  PRINT "THIS PROGRAM PRINTS HIGHLY ACCEPTABLE PHRASES IN"
+    0x6197e8a1be40 ---------A   01060  PRINT "'EDUCATOR-SPEAK'THAT YOU CAN WORK INTO REPORTS"
+    0x6197e8a1c4c0 ---------A   01070  PRINT "AND SPEECHES.  WHENEVER A QUESTION MARK IS PRINTED,"
+    0x6197e8a1bc20 ---------A   01080  PRINT "TYPE A 'Y' FOR ANOTHER PHRASE OR 'N' TO QUIT."
+    0x6197e8a1bc80 ----------   01090  PRINT
+    0x6197e8a1e100 ----------   01100  PRINT
+    0x6197e8a1e220 ---------A   01110  PRINT "HERE'S THE FIRST PHRASE:"
+    0x6197e8a1c840 ---------A   01120  DIM A$(40)
+    0x6197e8a23b40 ----------   01130  FOR I=1 TO 39 
+    0x6197e8a1dff0 ----------   01140  READ A$(I) 
+    0x6197e8a23de0 ---------A   01150  NEXT I
+    0x6197e8a243f0 ---------A   01160  PRINT A$(INT(13*RND(1)+1));" ";
+    0x6197e8a24a90 ---------A   01170  PRINT A$(INT(13*RND(1)+14));" ";
+    0x6197e8a25070 ----------   01180  PRINT A$(INT(13*RND(1)+27)) 
+    0x6197e8a25110 ---------A   01190  PRINT
+    0x6197e8a25310 ----------   01200  INPUT Y$ 
+    0x6197e8a25610 ---------A   01210  IF Y$="Y" THEN 1160 ELSE GOTO 999
+    0x6197e8a25a40 ---------A   01220  DATA "ABILITY","BASAL","BEHAVIORAL","CHILD-CENTERED"
+    0x6197e8a25e60 ---------A   01230  DATA "DIFFERENTIATED","DISCOVERY","FLEXIBLE","HETEROGENEOUS"
+    0x6197e8a26280 ---------A   01240  DATA "HOMOGENEOUS","MANIPULATIVE","MODULAR","TAVISTOCK"
+    0x6197e8a266a0 ---------A   01250  DATA "INDIVIDUALIZED","LEARNING","EVALUATIVE","OBJECTIVE"
+    0x6197e8a26ac0 ---------A   01260  DATA "COGNITIVE","ENRICHMENT","SCHEDULING","HUMANISTIC"
+    0x6197e8a26ee0 ---------A   01270  DATA "INTEGRATED","NON-GRADED","TRAINING","VERTICAL AGE"
+    0x6197e8a27300 ---------A   01280  DATA "MOTIVATIONAL","CREATIVE","GROUPING","MODIFICATION"
+    0x6197e8a27720 ---------A   01290  DATA "ACCOUNTABILITY","PROCESS","CORE CURRICULUM","ALGORITHM"
+    0x6197e8a27b30 ---------A   01300  DATA "PERFORMANCE","REINFORCEMENT","OPEN CLASSROOM","RESOURCE"
+    0x6197e8a27e70 ---------A   01310  DATA "STRUCTURE","FACILITY","ENVIRONMENT"
+    0x6197e8a27fc0 ----------   01320  PRINT "COME BACK WHEN YOU NEED HELP WITH ANOTHER REPORT!"
+    0x6197e8a28020 ---------A   01330  END
  */
 
 
@@ -65,7 +157,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01250 - 10000    8760 
+     01340 - 10000    8670 
 
  */
 
@@ -150,31 +242,40 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x55b9f1ffeb80 ---------A   01000 PRINT TAB(26);"BUZZWORD GENERATOR"
-    0x55b9f1ffff30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x55b9f1fee2b0 ---------A   01020 PRINT:PRINT:PRINT
-    0x55b9f1ffd7f0 ---------A   01030 PRINT "THIS PROGRAM PRINTS HIGHLY ACCEPTABLE PHRASES IN"
-    0x55b9f1ffe040 ---------A   01040 PRINT "'EDUCATOR-SPEAK'THAT YOU CAN WORK INTO REPORTS"
-    0x55b9f1ffe4d0 ---------A   01050 PRINT "AND SPEECHES.  WHENEVER A QUESTION MARK IS PRINTED,"
-    0x55b9f1ffdbe0 ---------A   01060 PRINT "TYPE A 'Y' FOR ANOTHER PHRASE OR 'N' TO QUIT."
-    0x55b9f20001c0 ---------A   01070 PRINT:PRINT:PRINT "HERE'S THE FIRST PHRASE:"
-    0x55b9f1ffe7e0 ---------A   01080 DIM A$(40)
-    0x55b9f2005d80 ---------A   01090 FOR I=1 TO 39 : READ A$(I) : NEXT I
-    0x55b9f1ffe090 ---------A T 01100 PRINT A$(INT(13*RND(1)+1));" ";
-    0x55b9f20069c0 ---------A   01110 PRINT A$(INT(13*RND(1)+14));" ";
-    0x55b9f2007020 ---------A   01120 PRINT A$(INT(13*RND(1)+27)) : PRINT
-    0x55b9f20074a0 ---------A   01130 INPUT Y$ : IF Y$="Y" THEN 1100 ELSE GOTO 999
-    0x55b9f20078d0 ---------A   01140 DATA "ABILITY","BASAL","BEHAVIORAL","CHILD-CENTERED"
-    0x55b9f2007cf0 ---------A   01150 DATA "DIFFERENTIATED","DISCOVERY","FLEXIBLE","HETEROGENEOUS"
-    0x55b9f2008110 ---------A   01160 DATA "HOMOGENEOUS","MANIPULATIVE","MODULAR","TAVISTOCK"
-    0x55b9f2008530 ---------A   01170 DATA "INDIVIDUALIZED","LEARNING","EVALUATIVE","OBJECTIVE"
-    0x55b9f2008950 ---------A   01180 DATA "COGNITIVE","ENRICHMENT","SCHEDULING","HUMANISTIC"
-    0x55b9f2008d70 ---------A   01190 DATA "INTEGRATED","NON-GRADED","TRAINING","VERTICAL AGE"
-    0x55b9f2009190 ---------A   01200 DATA "MOTIVATIONAL","CREATIVE","GROUPING","MODIFICATION"
-    0x55b9f20095b0 ---------A   01210 DATA "ACCOUNTABILITY","PROCESS","CORE CURRICULUM","ALGORITHM"
-    0x55b9f20099c0 ---------A   01220 DATA "PERFORMANCE","REINFORCEMENT","OPEN CLASSROOM","RESOURCE"
-    0x55b9f2009d00 ---------A   01230 DATA "STRUCTURE","FACILITY","ENVIRONMENT"
-    0x55b9f2009ea0 ---------A   01240 PRINT "COME BACK WHEN YOU NEED HELP WITH ANOTHER REPORT!":END
+    0x6197e8a1b6d0 ---------A   01000  PRINT TAB(26);"BUZZWORD GENERATOR"
+    0x6197e8a1b670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x6197e8a0c2b0 ---------A   01020  PRINT
+    0x6197e8a1b9e0 ---------A   01030  PRINT
+    0x6197e8a1b7f0 ---------A   01040  PRINT
+    0x6197e8a1c040 ---------A   01050  PRINT "THIS PROGRAM PRINTS HIGHLY ACCEPTABLE PHRASES IN"
+    0x6197e8a1be40 ---------A   01060  PRINT "'EDUCATOR-SPEAK'THAT YOU CAN WORK INTO REPORTS"
+    0x6197e8a1c4c0 ---------A   01070  PRINT "AND SPEECHES.  WHENEVER A QUESTION MARK IS PRINTED,"
+    0x6197e8a1bc20 ---------A   01080  PRINT "TYPE A 'Y' FOR ANOTHER PHRASE OR 'N' TO QUIT."
+    0x6197e8a1bc80 ---------A   01090  PRINT
+    0x6197e8a1e100 ---------A   01100  PRINT
+    0x6197e8a1e220 ---------A   01110  PRINT "HERE'S THE FIRST PHRASE:"
+    0x6197e8a1c840 ---------A   01120  DIM A$(40)
+    0x6197e8a23b40 ---------A   01130  FOR I=1 TO 39 
+    0x6197e8a1dff0 ---------A   01140  READ A$(I) 
+    0x6197e8a23de0 ---------A   01150  NEXT I
+    0x6197e8a243f0 ---------A T 01160  PRINT A$(INT(13*RND(1)+1));" ";
+    0x6197e8a24a90 ---------A   01170  PRINT A$(INT(13*RND(1)+14));" ";
+    0x6197e8a25070 ---------A   01180  PRINT A$(INT(13*RND(1)+27)) 
+    0x6197e8a25110 ---------A   01190  PRINT
+    0x6197e8a25310 ---------A   01200  INPUT Y$ 
+    0x6197e8a25610 ---------A   01210  IF Y$="Y" THEN 1160 ELSE GOTO 999
+    0x6197e8a25a40 ---------A   01220  DATA "ABILITY","BASAL","BEHAVIORAL","CHILD-CENTERED"
+    0x6197e8a25e60 ---------A   01230  DATA "DIFFERENTIATED","DISCOVERY","FLEXIBLE","HETEROGENEOUS"
+    0x6197e8a26280 ---------A   01240  DATA "HOMOGENEOUS","MANIPULATIVE","MODULAR","TAVISTOCK"
+    0x6197e8a266a0 ---------A   01250  DATA "INDIVIDUALIZED","LEARNING","EVALUATIVE","OBJECTIVE"
+    0x6197e8a26ac0 ---------A   01260  DATA "COGNITIVE","ENRICHMENT","SCHEDULING","HUMANISTIC"
+    0x6197e8a26ee0 ---------A   01270  DATA "INTEGRATED","NON-GRADED","TRAINING","VERTICAL AGE"
+    0x6197e8a27300 ---------A   01280  DATA "MOTIVATIONAL","CREATIVE","GROUPING","MODIFICATION"
+    0x6197e8a27720 ---------A   01290  DATA "ACCOUNTABILITY","PROCESS","CORE CURRICULUM","ALGORITHM"
+    0x6197e8a27b30 ---------A   01300  DATA "PERFORMANCE","REINFORCEMENT","OPEN CLASSROOM","RESOURCE"
+    0x6197e8a27e70 ---------A   01310  DATA "STRUCTURE","FACILITY","ENVIRONMENT"
+    0x6197e8a27fc0 ---------A   01320  PRINT "COME BACK WHEN YOU NEED HELP WITH ANOTHER REPORT!"
+    0x6197e8a28020 ---------A   01330  END
  */
 
 //---------------------------------------------------------------------------
@@ -192,16 +293,16 @@
 //---------------------------------------------------------------------------
 // Global data area.
 //---------------------------------------------------------------------------
-char* data_01140s[]={"ABILITY","BASAL","BEHAVIORAL","CHILD-CENTERED"};
-char* data_01150s[]={"DIFFERENTIATED","DISCOVERY","FLEXIBLE","HETEROGENEOUS"};
-char* data_01160s[]={"HOMOGENEOUS","MANIPULATIVE","MODULAR","TAVISTOCK"};
-char* data_01170s[]={"INDIVIDUALIZED","LEARNING","EVALUATIVE","OBJECTIVE"};
-char* data_01180s[]={"COGNITIVE","ENRICHMENT","SCHEDULING","HUMANISTIC"};
-char* data_01190s[]={"INTEGRATED","NON-GRADED","TRAINING","VERTICAL AGE"};
-char* data_01200s[]={"MOTIVATIONAL","CREATIVE","GROUPING","MODIFICATION"};
-char* data_01210s[]={"ACCOUNTABILITY","PROCESS","CORE CURRICULUM","ALGORITHM"};
-char* data_01220s[]={"PERFORMANCE","REINFORCEMENT","OPEN CLASSROOM","RESOURCE"};
-char* data_01230s[]={"STRUCTURE","FACILITY","ENVIRONMENT"};
+char* data_01220s[]={"ABILITY","BASAL","BEHAVIORAL","CHILD-CENTERED"};
+char* data_01230s[]={"DIFFERENTIATED","DISCOVERY","FLEXIBLE","HETEROGENEOUS"};
+char* data_01240s[]={"HOMOGENEOUS","MANIPULATIVE","MODULAR","TAVISTOCK"};
+char* data_01250s[]={"INDIVIDUALIZED","LEARNING","EVALUATIVE","OBJECTIVE"};
+char* data_01260s[]={"COGNITIVE","ENRICHMENT","SCHEDULING","HUMANISTIC"};
+char* data_01270s[]={"INTEGRATED","NON-GRADED","TRAINING","VERTICAL AGE"};
+char* data_01280s[]={"MOTIVATIONAL","CREATIVE","GROUPING","MODIFICATION"};
+char* data_01290s[]={"ACCOUNTABILITY","PROCESS","CORE CURRICULUM","ALGORITHM"};
+char* data_01300s[]={"PERFORMANCE","REINFORCEMENT","OPEN CLASSROOM","RESOURCE"};
+char* data_01310s[]={"STRUCTURE","FACILITY","ENVIRONMENT"};
 //---------------------------------------------------------------------------
 
 
@@ -214,16 +315,16 @@ typedef struct{
     char** SData;
 }t_data;
 t_data ProgramData[] = {
-    { 1140,  4,data_01140s},
-    { 1150,  4,data_01150s},
-    { 1160,  4,data_01160s},
-    { 1170,  4,data_01170s},
-    { 1180,  4,data_01180s},
-    { 1190,  4,data_01190s},
-    { 1200,  4,data_01200s},
-    { 1210,  4,data_01210s},
     { 1220,  4,data_01220s},
-    { 1230,  3,data_01230s},
+    { 1230,  4,data_01230s},
+    { 1240,  4,data_01240s},
+    { 1250,  4,data_01250s},
+    { 1260,  4,data_01260s},
+    { 1270,  4,data_01270s},
+    { 1280,  4,data_01280s},
+    { 1290,  4,data_01290s},
+    { 1300,  4,data_01300s},
+    { 1310,  3,data_01310s},
     {    0,  0,nullptr       }
 };
 
@@ -287,3 +388,84 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(26);"BUZZWORD GENERATOR"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,26);strcat(buf,"BUZZWORD GENERATOR");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 PRINT "THIS PROGRAM PRINTS HIGHLY ACCEPTABLE PHRASES IN"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THIS PROGRAM PRINTS HIGHLY ACCEPTABLE PHRASES IN");strcat(buf,"\n");fputs(buf,fh); };
+    // 01060 PRINT "'EDUCATOR-SPEAK'THAT YOU CAN WORK INTO REPORTS"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"'EDUCATOR-SPEAK'THAT YOU CAN WORK INTO REPORTS");strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 PRINT "AND SPEECHES.  WHENEVER A QUESTION MARK IS PRINTED,"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"AND SPEECHES.  WHENEVER A QUESTION MARK IS PRINTED,");strcat(buf,"\n");fputs(buf,fh); };
+    // 01080 PRINT "TYPE A 'Y' FOR ANOTHER PHRASE OR 'N' TO QUIT."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TYPE A 'Y' FOR ANOTHER PHRASE OR 'N' TO QUIT.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01090 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 PRINT "HERE'S THE FIRST PHRASE:"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HERE'S THE FIRST PHRASE:");strcat(buf,"\n");fputs(buf,fh); };
+    // 01120 DIM A$(40)
+    // 01130 FOR I=1 TO 39 
+    for(I_int=1;I_int<=39;I_int++){
+        // 01140 READ A$(I) 
+        A_str_arr[I_int] = Get_Data_String();
+        // 01150 NEXT I
+        int dummy_1150=0; // Ignore this line.
+    }; // End-For(I_int)
+
+  Lbl_01160:
+    // 01160 PRINT A$(INT(13*RND(1)+1));" ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,A_str_arr[INT(13*RND(1)+1)]);strcat(buf," ");fputs(buf,fh); };
+    // 01170 PRINT A$(INT(13*RND(1)+14));" ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,A_str_arr[INT(13*RND(1)+14)]);strcat(buf," ");fputs(buf,fh); };
+    // 01180 PRINT A$(INT(13*RND(1)+27)) 
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,A_str_arr[INT(13*RND(1)+27)]);fputs(buf,fh); };
+    // 01190 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01200 INPUT Y$ 
+    // Start of Basic INPUT statement 01200
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&Y_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01200
+    // 01210 IF Y$="Y" THEN 1160 ELSE GOTO 999
+    if(strcmp(Y_str,"Y")==0)goto Lbl_01160;
+    // 01220 DATA "ABILITY","BASAL","BEHAVIORAL","CHILD-CENTERED"
+    // 01230 DATA "DIFFERENTIATED","DISCOVERY","FLEXIBLE","HETEROGENEOUS"
+    // 01240 DATA "HOMOGENEOUS","MANIPULATIVE","MODULAR","TAVISTOCK"
+    // 01250 DATA "INDIVIDUALIZED","LEARNING","EVALUATIVE","OBJECTIVE"
+    // 01260 DATA "COGNITIVE","ENRICHMENT","SCHEDULING","HUMANISTIC"
+    // 01270 DATA "INTEGRATED","NON-GRADED","TRAINING","VERTICAL AGE"
+    // 01280 DATA "MOTIVATIONAL","CREATIVE","GROUPING","MODIFICATION"
+    // 01290 DATA "ACCOUNTABILITY","PROCESS","CORE CURRICULUM","ALGORITHM"
+    // 01300 DATA "PERFORMANCE","REINFORCEMENT","OPEN CLASSROOM","RESOURCE"
+    // 01310 DATA "STRUCTURE","FACILITY","ENVIRONMENT"
+    // 01320 PRINT "COME BACK WHEN YOU NEED HELP WITH ANOTHER REPORT!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"COME BACK WHEN YOU NEED HELP WITH ANOTHER REPORT!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01330 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

@@ -8,85 +8,85 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5ac86daa4b80 ---------A   00002 PRINT TAB(32);"FLIPFLOP"
-    0x5ac86daa5f30 ---------A   00004 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5ac86daa5e70 ---------A   00006 PRINT
-    0x5ac86da942b0 ---------A   00010 REM *** CREATED BY MICHAEL CASS
-    0x5ac86daa3830 ---------A   00015 DIM A$(20)
-    0x5ac86daa60b0 ---------A   00020 PRINT "THE OBJECT OF THIS PUZZLE IS TO CHANGE THIS:"
-    0x5ac86daa3e40 ---------A   00030 PRINT
-    0x5ac86daa3eb0 ---------A   00040 PRINT "X X X X X X X X X X"
-    0x5ac86daa56a0 ---------A   00050 PRINT
-    0x5ac86daa5ff0 ---------A   00060 PRINT "TO THIS:"
-    0x5ac86daa3be0 ---------A   00070 PRINT
-    0x5ac86daa6160 ---------A   00080 PRINT "O O O O O O O O O O"
-    0x5ac86daa6200 ---------A   00090 PRINT
-    0x5ac86daa4740 ---------A   00100 PRINT "BY TYPING THE NUMBER CORRESPONDING TO THE POSITION OF THE"
-    0x5ac86daab8a0 ---------A   00110 PRINT "LETTER ON SOME NUMBERS, ONE POSITION WILL CHANGE, ON"
-    0x5ac86daaba50 ---------A   00120 PRINT "OTHERS, TWO WILL CHANGE.  TO RESET LINE TO ALL X'S, TYPE 0"
-    0x5ac86daabbb0 ---------A   00130 PRINT "(ZERO) AND TO START OVER IN THE MIDDLE OF A GAME, TYPE "
-    0x5ac86daabcc0 ---------A   00140 PRINT "11 (ELEVEN)."
-    0x5ac86daabd10 ---------A   00170 PRINT
-    0x5ac86daabd60 ---------A T 00180 REM
-    0x5ac86daac0e0 ---------A   00190 Q=RND(1)
-    0x5ac86daac210 ---------A   00200 PRINT "HERE IS THE STARTING LINE OF X'S."
-    0x5ac86daac280 ---------A   00210 PRINT
-    0x5ac86daac530 ---------A   00220 C=0
-    0x5ac86daac660 ---------A T 00230 PRINT "1 2 3 4 5 6 7 8 9 10"
-    0x5ac86daac7b0 ---------A   00240 PRINT "X X X X X X X X X X"
-    0x5ac86daac820 ---------A   00250 PRINT
-    0x5ac86daac890 ---------A   00260 REM
-    0x5ac86daa36d0 ---------A   00270 FOR X=1 TO 10
-    0x5ac86daacef0 ---------A   00280 A$(X)="X"
-    0x5ac86daad020 ---------A   00290 NEXT X
-    0x5ac86daad0b0 ---------A   00300 GOTO 320
-    0x5ac86daad210 ---------A T 00310 PRINT "ILLEGAL ENTRY--TRY AGAIN."
-    0x5ac86daad590 ---------A T 00320 PRINT "INPUT THE NUMBER";
-    0x5ac86daa3670 ---------A   00330 INPUT N
-    0x5ac86daadab0 ---------A   00340 IF N<>INT(N) THEN 310
-    0x5ac86daadd10 ---------A   00350 IF N=11 THEN 180
-    0x5ac86daadf70 ---------A   00360 IF N>11 THEN 310
-    0x5ac86daae1d0 ---------A   00370 IF N=0 THEN 230
-    0x5ac86daae510 ---------A   00380 IF M=N THEN 510
-    0x5ac86daae760 ---------A   00390 M=N
-    0x5ac86daaeab0 ---------A   00400 IF A$(N)="O" THEN 480
-    0x5ac86daaedf0 ---------A   00410 A$(N)="O"
-    0x5ac86daafc40 ---------A T 00420 R=TAN(Q+N/Q-N)-SIN(Q/N)+336*SIN(8*N)
-    0x5ac86dab0070 ---------A   00430 N=R-INT(R)
-    0x5ac86dab0490 ---------A   00440 N=INT(10*N)
-    0x5ac86dab07e0 ---------A   00450 IF A$(N)="O" THEN 480
-    0x5ac86dab0b00 ---------A   00460 A$(N)="O"
-    0x5ac86dab0b70 ---------A   00470 GOTO 610
-    0x5ac86dab0e70 ---------A T 00480 A$(N)="X"
-    0x5ac86dab10e0 ---------A   00490 IF M=N THEN 420
-    0x5ac86dab1170 ---------A   00500 GOTO 610
-    0x5ac86dab14b0 ---------A T 00510 IF A$(N)="O" THEN 590
-    0x5ac86dab17f0 ---------A   00520 A$(N)="O"
-    0x5ac86dab25a0 ---------A T 00530 R=.592*(1/TAN(Q/N+Q))/SIN(N*2+Q)-COS(N)
-    0x5ac86dab29d0 ---------A   00540 N=R-INT(R)
-    0x5ac86dab2df0 ---------A   00550 N=INT(10*N)
-    0x5ac86dab3140 ---------A   00560 IF A$(N)="O" THEN 590
-    0x5ac86dab3460 ---------A   00570 A$(N)="O"
-    0x5ac86dab34d0 ---------A   00580 GOTO 610
-    0x5ac86dab37d0 ---------A T 00590 A$(N)="X"
-    0x5ac86dab3a50 ---------A   00600 IF M=N THEN 530
-    0x5ac86dab3bd0 ---------A T 00610 PRINT "1 2 3 4 5 6 7 8 9 10"
-    0x5ac86dab43b0 ---------A   00620 FOR Z=1 TO 10: PRINT A$(Z);" ";: NEXT Z
-    0x5ac86dab46f0 ---------A   00630 C=C+1
-    0x5ac86dab4b70 ---------A   00640 PRINT
-    0x5ac86dab4e50 ---------A   00650 FOR Z=1 TO 10
-    0x5ac86dab51b0 ---------A   00660 IF A$(Z)<>"O" THEN 320
-    0x5ac86dab52f0 ---------A   00670 NEXT Z
-    0x5ac86dab5580 ---------A   00680 IF C>12 THEN 710
-    0x5ac86dab58f0 ---------A   00690 PRINT "VERY GOOD.  YOU GUESSED IT IN ONLY";C;"GUESSES."
-    0x5ac86dab5990 ---------A   00700 GOTO 720
-    0x5ac86dab5d00 ---------A T 00710 PRINT "TRY HARDER NEXT TIME.  IT TOOK YOU";C;"GUESSES."
-    0x5ac86dab5e80 ---------A T 00720 PRINT "DO YOU WANT TO TRY ANOTHER PUZZLE";
-    0x5ac86dab60a0 ---------A   00730 INPUT X$
-    0x5ac86dab64c0 ---------A   00740 IF LEFT$(X$,1)="N" THEN 780
-    0x5ac86dab6540 ---------A   00760 PRINT
-    0x5ac86dab65b0 ---------A   00770 GOTO 180
-    0x5ac86dab65f0 ---------A T 00780 END
+    0x598fecd056d0 ---------A   00002  PRINT TAB(32);"FLIPFLOP"
+    0x598fecd05670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x598feccf62b0 ---------A   00006  PRINT
+    0x598fecd06b80 ---------A   00010  REM *** CREATED BY MICHAEL CASS
+    0x598fecd07f30 ---------A   00015  DIM A$(20)
+    0x598fecd06080 ---------A   00020  PRINT "THE OBJECT OF THIS PUZZLE IS TO CHANGE THIS:"
+    0x598fecd05e40 ---------A   00030  PRINT
+    0x598fecd06500 ---------A   00040  PRINT "X X X X X X X X X X"
+    0x598fecd076a0 ---------A   00050  PRINT
+    0x598fecd07720 ---------A   00060  PRINT "TO THIS:"
+    0x598fecd08100 ---------A   00070  PRINT
+    0x598fecd08220 ---------A   00080  PRINT "O O O O O O O O O O"
+    0x598fecd06620 ---------A   00090  PRINT
+    0x598fecd06740 ---------A   00100  PRINT "BY TYPING THE NUMBER CORRESPONDING TO THE POSITION OF THE"
+    0x598fecd0d8f0 ---------A   00110  PRINT "LETTER ON SOME NUMBERS, ONE POSITION WILL CHANGE, ON"
+    0x598fecd0da70 ---------A   00120  PRINT "OTHERS, TWO WILL CHANGE.  TO RESET LINE TO ALL X'S, TYPE 0"
+    0x598fecd0dbe0 ---------A   00130  PRINT "(ZERO) AND TO START OVER IN THE MIDDLE OF A GAME, TYPE "
+    0x598fecd0dd00 ---------A   00140  PRINT "11 (ELEVEN)."
+    0x598fecd0dd60 ---------A   00170  PRINT
+    0x598fecd0ddc0 ---------A T 00180  REM
+    0x598fecd0e170 ---------A   00190  Q=RND(1)
+    0x598fecd0e2a0 ---------A   00200  PRINT "HERE IS THE STARTING LINE OF X'S."
+    0x598fecd0e320 ---------A   00210  PRINT
+    0x598fecd0e5e0 ---------A   00220  C=0
+    0x598fecd0e710 ---------A T 00230  PRINT "1 2 3 4 5 6 7 8 9 10"
+    0x598fecd0e870 ---------A   00240  PRINT "X X X X X X X X X X"
+    0x598fecd0e8f0 ---------A   00250  PRINT
+    0x598fecd0e970 ---------A   00260  REM
+    0x598fecd0ed20 ---------A   00270  FOR X=1 TO 10
+    0x598fecd0f040 ---------A   00280  A$(X)="X"
+    0x598fecd0f170 ---------A   00290  NEXT X
+    0x598fecd0f210 ---------A   00300  GOTO 320
+    0x598fecd0f380 ---------A T 00310  PRINT "ILLEGAL ENTRY--TRY AGAIN."
+    0x598fecd0f710 ---------A T 00320  PRINT "INPUT THE NUMBER";
+    0x598fecd0f940 ---------A   00330  INPUT N
+    0x598fecd0fca0 ---------A   00340  IF N<>INT(N) THEN 310
+    0x598fecd0ff00 ---------A   00350  IF N=11 THEN 180
+    0x598fecd10160 ---------A   00360  IF N>11 THEN 310
+    0x598fecd103c0 ---------A   00370  IF N=0 THEN 230
+    0x598fecd10700 ---------A   00380  IF M=N THEN 510
+    0x598fecd10950 ---------A   00390  M=N
+    0x598fecd10ca0 ---------A   00400  IF A$(N)="O" THEN 480
+    0x598fecd10fe0 ---------A   00410  A$(N)="O"
+    0x598fecd11e30 ---------A T 00420  R=TAN(Q+N/Q-N)-SIN(Q/N)+336*SIN(8*N)
+    0x598fecd12260 ---------A   00430  N=R-INT(R)
+    0x598fecd12680 ---------A   00440  N=INT(10*N)
+    0x598fecd129d0 ---------A   00450  IF A$(N)="O" THEN 480
+    0x598fecd12cf0 ---------A   00460  A$(N)="O"
+    0x598fecd12d60 ---------A   00470  GOTO 610
+    0x598fecd13070 ---------A T 00480  A$(N)="X"
+    0x598fecd132e0 ---------A   00490  IF M=N THEN 420
+    0x598fecd13370 ---------A   00500  GOTO 610
+    0x598fecd136c0 ---------A T 00510  IF A$(N)="O" THEN 590
+    0x598fecd13a00 ---------A   00520  A$(N)="O"
+    0x598fecd147b0 ---------A T 00530  R=.592*(1/TAN(Q/N+Q))/SIN(N*2+Q)-COS(N)
+    0x598fecd14be0 ---------A   00540  N=R-INT(R)
+    0x598fecd15000 ---------A   00550  N=INT(10*N)
+    0x598fecd15350 ---------A   00560  IF A$(N)="O" THEN 590
+    0x598fecd15670 ---------A   00570  A$(N)="O"
+    0x598fecd156e0 ---------A   00580  GOTO 610
+    0x598fecd159f0 ---------A T 00590  A$(N)="X"
+    0x598fecd15c70 ---------A   00600  IF M=N THEN 530
+    0x598fecd15df0 ---------A T 00610  PRINT "1 2 3 4 5 6 7 8 9 10"
+    0x598fecd165f0 ---------A   00620  FOR Z=1 TO 10: PRINT A$(Z);" ";: NEXT Z
+    0x598fecd16940 ---------A   00630  C=C+1
+    0x598fecd16dc0 ---------A   00640  PRINT
+    0x598fecd170b0 ---------A   00650  FOR Z=1 TO 10
+    0x598fecd17410 ---------A   00660  IF A$(Z)<>"O" THEN 320
+    0x598fecd17550 ---------A   00670  NEXT Z
+    0x598fecd177f0 ---------A   00680  IF C>12 THEN 710
+    0x598fecd17b60 ---------A   00690  PRINT "VERY GOOD.  YOU GUESSED IT IN ONLY";C;"GUESSES."
+    0x598fecd17c10 ---------A   00700  GOTO 720
+    0x598fecd17f90 ---------A T 00710  PRINT "TRY HARDER NEXT TIME.  IT TOOK YOU";C;"GUESSES."
+    0x598fecd18120 ---------A T 00720  PRINT "DO YOU WANT TO TRY ANOTHER PUZZLE";
+    0x598fecd18350 ---------A   00730  INPUT X$
+    0x598fecd18770 ---------A   00740  IF LEFT$(X$,1)="N" THEN 780
+    0x598fecd187f0 ---------A   00760  PRINT
+    0x598fecd18870 ---------A   00770  GOTO 180
+    0x598fecd188c0 ---------A T 00780  END
  */
 
 /*
@@ -118,9 +118,195 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x5ac86daa4b80 (00002)   0x5ac86daa4b80 (00002)   0x5ac86dab65f0 (00780)   0x5ac86dab65f0 (00780)   
+   A) 0x598fecd056d0 (00002)   0x598fecd056d0 (00002)   0x598fecd188c0 (00780)   0x598fecd188c0 (00780)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/flipflop.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x598fecd056d0 ---------A   00002  PRINT TAB(32);"FLIPFLOP"
+    0x598fecd05670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x598feccf62b0 ---------A   00006  PRINT
+    0x598fecd06b80 ---------A   00010  REM *** CREATED BY MICHAEL CASS
+    0x598fecd07f30 ---------A   00015  DIM A$(20)
+    0x598fecd06080 ---------A   00020  PRINT "THE OBJECT OF THIS PUZZLE IS TO CHANGE THIS:"
+    0x598fecd05e40 ---------A   00030  PRINT
+    0x598fecd06500 ---------A   00040  PRINT "X X X X X X X X X X"
+    0x598fecd076a0 ---------A   00050  PRINT
+    0x598fecd07720 ---------A   00060  PRINT "TO THIS:"
+    0x598fecd08100 ---------A   00070  PRINT
+    0x598fecd08220 ---------A   00080  PRINT "O O O O O O O O O O"
+    0x598fecd06620 ---------A   00090  PRINT
+    0x598fecd06740 ---------A   00100  PRINT "BY TYPING THE NUMBER CORRESPONDING TO THE POSITION OF THE"
+    0x598fecd0d8f0 ---------A   00110  PRINT "LETTER ON SOME NUMBERS, ONE POSITION WILL CHANGE, ON"
+    0x598fecd0da70 ---------A   00120  PRINT "OTHERS, TWO WILL CHANGE.  TO RESET LINE TO ALL X'S, TYPE 0"
+    0x598fecd0dbe0 ---------A   00130  PRINT "(ZERO) AND TO START OVER IN THE MIDDLE OF A GAME, TYPE "
+    0x598fecd0dd00 ---------A   00140  PRINT "11 (ELEVEN)."
+    0x598fecd0dd60 ---------A   00170  PRINT
+    0x598fecd0ddc0 ---------A T 00180  REM
+    0x598fecd0e170 ---------A   00190  Q=RND(1)
+    0x598fecd0e2a0 ---------A   00200  PRINT "HERE IS THE STARTING LINE OF X'S."
+    0x598fecd0e320 ---------A   00210  PRINT
+    0x598fecd0e5e0 ---------A   00220  C=0
+    0x598fecd0e710 ---------A T 00230  PRINT "1 2 3 4 5 6 7 8 9 10"
+    0x598fecd0e870 ---------A   00240  PRINT "X X X X X X X X X X"
+    0x598fecd0e8f0 ---------A   00250  PRINT
+    0x598fecd0e970 ---------A   00260  REM
+    0x598fecd0ed20 ---------A   00270  FOR X=1 TO 10
+    0x598fecd0f040 ---------A   00280  A$(X)="X"
+    0x598fecd0f170 ---------A   00290  NEXT X
+    0x598fecd0f210 ---------A   00300  GOTO 320
+    0x598fecd0f380 ---------A T 00310  PRINT "ILLEGAL ENTRY--TRY AGAIN."
+    0x598fecd0f710 ---------A T 00320  PRINT "INPUT THE NUMBER";
+    0x598fecd0f940 ---------A   00330  INPUT N
+    0x598fecd0fca0 ---------A   00340  IF N<>INT(N) THEN 310
+    0x598fecd0ff00 ---------A   00350  IF N=11 THEN 180
+    0x598fecd10160 ---------A   00360  IF N>11 THEN 310
+    0x598fecd103c0 ---------A   00370  IF N=0 THEN 230
+    0x598fecd10700 ---------A   00380  IF M=N THEN 510
+    0x598fecd10950 ---------A   00390  M=N
+    0x598fecd10ca0 ---------A   00400  IF A$(N)="O" THEN 480
+    0x598fecd10fe0 ---------A   00410  A$(N)="O"
+    0x598fecd11e30 ---------A T 00420  R=TAN(Q+N/Q-N)-SIN(Q/N)+336*SIN(8*N)
+    0x598fecd12260 ---------A   00430  N=R-INT(R)
+    0x598fecd12680 ---------A   00440  N=INT(10*N)
+    0x598fecd129d0 ---------A   00450  IF A$(N)="O" THEN 480
+    0x598fecd12cf0 ---------A   00460  A$(N)="O"
+    0x598fecd12d60 ---------A   00470  GOTO 610
+    0x598fecd13070 ---------A T 00480  A$(N)="X"
+    0x598fecd132e0 ---------A   00490  IF M=N THEN 420
+    0x598fecd13370 ---------A   00500  GOTO 610
+    0x598fecd136c0 ---------A T 00510  IF A$(N)="O" THEN 590
+    0x598fecd13a00 ---------A   00520  A$(N)="O"
+    0x598fecd147b0 ---------A T 00530  R=.592*(1/TAN(Q/N+Q))/SIN(N*2+Q)-COS(N)
+    0x598fecd14be0 ---------A   00540  N=R-INT(R)
+    0x598fecd15000 ---------A   00550  N=INT(10*N)
+    0x598fecd15350 ---------A   00560  IF A$(N)="O" THEN 590
+    0x598fecd15670 ---------A   00570  A$(N)="O"
+    0x598fecd156e0 ---------A   00580  GOTO 610
+    0x598fecd159f0 ---------A T 00590  A$(N)="X"
+    0x598fecd15c70 ---------A   00600  IF M=N THEN 530
+    0x598fecd15df0 ---------A T 00610  PRINT "1 2 3 4 5 6 7 8 9 10"
+    0x598fecd16170 ----------   00620  FOR Z=1 TO 10
+    0x598fecd164b0 ----------        a PRINT A$(Z);" ";
+    0x598fecd165f0 ---------A        b NEXT Z
+    0x598fecd16940 ---------A   00630  C=C+1
+    0x598fecd16dc0 ---------A   00640  PRINT
+    0x598fecd170b0 ---------A   00650  FOR Z=1 TO 10
+    0x598fecd17410 ---------A   00660  IF A$(Z)<>"O" THEN 320
+    0x598fecd17550 ---------A   00670  NEXT Z
+    0x598fecd177f0 ---------A   00680  IF C>12 THEN 710
+    0x598fecd17b60 ---------A   00690  PRINT "VERY GOOD.  YOU GUESSED IT IN ONLY";C;"GUESSES."
+    0x598fecd17c10 ---------A   00700  GOTO 720
+    0x598fecd17f90 ---------A T 00710  PRINT "TRY HARDER NEXT TIME.  IT TOOK YOU";C;"GUESSES."
+    0x598fecd18120 ---------A T 00720  PRINT "DO YOU WANT TO TRY ANOTHER PUZZLE";
+    0x598fecd18350 ---------A   00730  INPUT X$
+    0x598fecd18770 ---------A   00740  IF LEFT$(X$,1)="N" THEN 780
+    0x598fecd187f0 ---------A   00760  PRINT
+    0x598fecd18870 ---------A   00770  GOTO 180
+    0x598fecd188c0 ---------A T 00780  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/flipflop.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x598fecd056d0 ---------A   01000  PRINT TAB(32);"FLIPFLOP"
+    0x598fecd05670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x598feccf62b0 ---------A   01020  PRINT
+    0x598fecd06b80 ---------A   01030  REM *** CREATED BY MICHAEL CASS
+    0x598fecd07f30 ---------A   01040  DIM A$(20)
+    0x598fecd06080 ---------A   01050  PRINT "THE OBJECT OF THIS PUZZLE IS TO CHANGE THIS:"
+    0x598fecd05e40 ---------A   01060  PRINT
+    0x598fecd06500 ---------A   01070  PRINT "X X X X X X X X X X"
+    0x598fecd076a0 ---------A   01080  PRINT
+    0x598fecd07720 ---------A   01090  PRINT "TO THIS:"
+    0x598fecd08100 ---------A   01100  PRINT
+    0x598fecd08220 ---------A   01110  PRINT "O O O O O O O O O O"
+    0x598fecd06620 ---------A   01120  PRINT
+    0x598fecd06740 ---------A   01130  PRINT "BY TYPING THE NUMBER CORRESPONDING TO THE POSITION OF THE"
+    0x598fecd0d8f0 ---------A   01140  PRINT "LETTER ON SOME NUMBERS, ONE POSITION WILL CHANGE, ON"
+    0x598fecd0da70 ---------A   01150  PRINT "OTHERS, TWO WILL CHANGE.  TO RESET LINE TO ALL X'S, TYPE 0"
+    0x598fecd0dbe0 ---------A   01160  PRINT "(ZERO) AND TO START OVER IN THE MIDDLE OF A GAME, TYPE "
+    0x598fecd0dd00 ---------A   01170  PRINT "11 (ELEVEN)."
+    0x598fecd0dd60 ---------A   01180  PRINT
+    0x598fecd0ddc0 ---------A   01190  REM
+    0x598fecd0e170 ---------A   01200  Q=RND(1)
+    0x598fecd0e2a0 ---------A   01210  PRINT "HERE IS THE STARTING LINE OF X'S."
+    0x598fecd0e320 ---------A   01220  PRINT
+    0x598fecd0e5e0 ---------A   01230  C=0
+    0x598fecd0e710 ---------A   01240  PRINT "1 2 3 4 5 6 7 8 9 10"
+    0x598fecd0e870 ---------A   01250  PRINT "X X X X X X X X X X"
+    0x598fecd0e8f0 ---------A   01260  PRINT
+    0x598fecd0e970 ---------A   01270  REM
+    0x598fecd0ed20 ---------A   01280  FOR X=1 TO 10
+    0x598fecd0f040 ---------A   01290  A$(X)="X"
+    0x598fecd0f170 ---------A   01300  NEXT X
+    0x598fecd0f210 ---------A   01310  GOTO 1330
+    0x598fecd0f380 ---------A   01320  PRINT "ILLEGAL ENTRY--TRY AGAIN."
+    0x598fecd0f710 ---------A   01330  PRINT "INPUT THE NUMBER";
+    0x598fecd0f940 ---------A   01340  INPUT N
+    0x598fecd0fca0 ---------A   01350  IF N<>INT(N) THEN 1320
+    0x598fecd0ff00 ---------A   01360  IF N=11 THEN 1190
+    0x598fecd10160 ---------A   01370  IF N>11 THEN 1320
+    0x598fecd103c0 ---------A   01380  IF N=0 THEN 1240
+    0x598fecd10700 ---------A   01390  IF M=N THEN 1520
+    0x598fecd10950 ---------A   01400  M=N
+    0x598fecd10ca0 ---------A   01410  IF A$(N)="O" THEN 1490
+    0x598fecd10fe0 ---------A   01420  A$(N)="O"
+    0x598fecd11e30 ---------A   01430  R=TAN(Q+N/Q-N)-SIN(Q/N)+336*SIN(8*N)
+    0x598fecd12260 ---------A   01440  N=R-INT(R)
+    0x598fecd12680 ---------A   01450  N=INT(10*N)
+    0x598fecd129d0 ---------A   01460  IF A$(N)="O" THEN 1490
+    0x598fecd12cf0 ---------A   01470  A$(N)="O"
+    0x598fecd12d60 ---------A   01480  GOTO 1620
+    0x598fecd13070 ---------A   01490  A$(N)="X"
+    0x598fecd132e0 ---------A   01500  IF M=N THEN 1430
+    0x598fecd13370 ---------A   01510  GOTO 1620
+    0x598fecd136c0 ---------A   01520  IF A$(N)="O" THEN 1600
+    0x598fecd13a00 ---------A   01530  A$(N)="O"
+    0x598fecd147b0 ---------A   01540  R=.592*(1/TAN(Q/N+Q))/SIN(N*2+Q)-COS(N)
+    0x598fecd14be0 ---------A   01550  N=R-INT(R)
+    0x598fecd15000 ---------A   01560  N=INT(10*N)
+    0x598fecd15350 ---------A   01570  IF A$(N)="O" THEN 1600
+    0x598fecd15670 ---------A   01580  A$(N)="O"
+    0x598fecd156e0 ---------A   01590  GOTO 1620
+    0x598fecd159f0 ---------A   01600  A$(N)="X"
+    0x598fecd15c70 ---------A   01610  IF M=N THEN 1540
+    0x598fecd15df0 ---------A   01620  PRINT "1 2 3 4 5 6 7 8 9 10"
+    0x598fecd16170 ----------   01630  FOR Z=1 TO 10
+    0x598fecd164b0 ----------   01640  PRINT A$(Z);" ";
+    0x598fecd165f0 ---------A   01650  NEXT Z
+    0x598fecd16940 ---------A   01660  C=C+1
+    0x598fecd16dc0 ---------A   01670  PRINT
+    0x598fecd170b0 ---------A   01680  FOR Z=1 TO 10
+    0x598fecd17410 ---------A   01690  IF A$(Z)<>"O" THEN 1330
+    0x598fecd17550 ---------A   01700  NEXT Z
+    0x598fecd177f0 ---------A   01710  IF C>12 THEN 1740
+    0x598fecd17b60 ---------A   01720  PRINT "VERY GOOD.  YOU GUESSED IT IN ONLY";C;"GUESSES."
+    0x598fecd17c10 ---------A   01730  GOTO 1750
+    0x598fecd17f90 ---------A   01740  PRINT "TRY HARDER NEXT TIME.  IT TOOK YOU";C;"GUESSES."
+    0x598fecd18120 ---------A   01750  PRINT "DO YOU WANT TO TRY ANOTHER PUZZLE";
+    0x598fecd18350 ---------A   01760  INPUT X$
+    0x598fecd18770 ---------A   01770  IF LEFT$(X$,1)="N" THEN 1800
+    0x598fecd187f0 ---------A   01780  PRINT
+    0x598fecd18870 ---------A   01790  GOTO 1190
+    0x598fecd188c0 ---------A   01800  END
  */
 
 
@@ -131,7 +317,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01790 - 10000    8220 
+     01810 - 10000    8200 
 
  */
 
@@ -222,85 +408,87 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5ac86daa4b80 ---------A   01000 PRINT TAB(31000);"FLIPFLOP"
-    0x5ac86daa5f30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5ac86daa5e70 ---------A   01020 PRINT
-    0x5ac86da942b0 ---------A   01030 REM *** CREATED BY MICHAEL CASS
-    0x5ac86daa3830 ---------A   01040 DIM A$(20)
-    0x5ac86daa60b0 ---------A   01050 PRINT "THE OBJECT OF THIS PUZZLE IS TO CHANGE THIS:"
-    0x5ac86daa3e40 ---------A   01060 PRINT
-    0x5ac86daa3eb0 ---------A   01070 PRINT "X X X X X X X X X X"
-    0x5ac86daa56a0 ---------A   01080 PRINT
-    0x5ac86daa5ff0 ---------A   01090 PRINT "TO THIS:"
-    0x5ac86daa3be0 ---------A   01100 PRINT
-    0x5ac86daa6160 ---------A   01110 PRINT "O O O O O O O O O O"
-    0x5ac86daa6200 ---------A   01120 PRINT
-    0x5ac86daa4740 ---------A   01130 PRINT "BY TYPING THE NUMBER CORRESPONDING TO THE POSITION OF THE"
-    0x5ac86daab8a0 ---------A   01140 PRINT "LETTER ON SOME NUMBERS, ONE POSITION WILL CHANGE, ON"
-    0x5ac86daaba50 ---------A   01150 PRINT "OTHERS, TWO WILL CHANGE.  TO RESET LINE TO ALL X'S, TYPE 0"
-    0x5ac86daabbb0 ---------A   01160 PRINT "(ZERO) AND TO START OVER IN THE MIDDLE OF A GAME, TYPE "
-    0x5ac86daabcc0 ---------A   01170 PRINT "11 (ELEVEN)."
-    0x5ac86daabd10 ---------A   01180 PRINT
-    0x5ac86daabd60 ---------A   01190 REM
-    0x5ac86daac0e0 ---------A T 01200 Q=RND(1)
-    0x5ac86daac210 ---------A   01210 PRINT "HERE IS THE STARTING LINE OF X'S."
-    0x5ac86daac280 ---------A   01220 PRINT
-    0x5ac86daac530 ---------A   01230 C=0
-    0x5ac86daac660 ---------A T 01240 PRINT "1 2 3 4 5 6 7 8 9 10"
-    0x5ac86daac7b0 ---------A   01250 PRINT "X X X X X X X X X X"
-    0x5ac86daac820 ---------A   01260 PRINT
-    0x5ac86daac890 ---------A   01270 REM
-    0x5ac86daa36d0 ---------A   01280 FOR X=1 TO 10
-    0x5ac86daacef0 ---------A   01290 A$(X)="X"
-    0x5ac86daad020 ---------A   01300 NEXT X
-    0x5ac86daad0b0 ---------A   01310 GOTO 1330
-    0x5ac86daad210 ---------A T 01320 PRINT "ILLEGAL ENTRY--TRY AGAIN."
-    0x5ac86daad590 ---------A T 01330 PRINT "INPUT THE NUMBER";
-    0x5ac86daa3670 ---------A   01340 INPUT N
-    0x5ac86daadab0 ---------A   01350 IF N<>INT(N) THEN 1320
-    0x5ac86daadd10 ---------A   01360 IF N=11 THEN 1200
-    0x5ac86daadf70 ---------A   01370 IF N>11 THEN 1320
-    0x5ac86daae1d0 ---------A   01380 IF N=0 THEN 1240
-    0x5ac86daae510 ---------A   01390 IF M=N THEN 1520
-    0x5ac86daae760 ---------A   01400 M=N
-    0x5ac86daaeab0 ---------A   01410 IF A$(N)="O" THEN 1490
-    0x5ac86daaedf0 ---------A   01420 A$(N)="O"
-    0x5ac86daafc40 ---------A T 01430 R=TAN(Q+N/Q-N)-SIN(Q/N)+336*SIN(8*N)
-    0x5ac86dab0070 ---------A   01440 N=R-INT(R)
-    0x5ac86dab0490 ---------A   01450 N=INT(10*N)
-    0x5ac86dab07e0 ---------A   01460 IF A$(N)="O" THEN 1490
-    0x5ac86dab0b00 ---------A   01470 A$(N)="O"
-    0x5ac86dab0b70 ---------A   01480 GOTO 1620
-    0x5ac86dab0e70 ---------A T 01490 A$(N)="X"
-    0x5ac86dab10e0 ---------A   01500 IF M=N THEN 1430
-    0x5ac86dab1170 ---------A   01510 GOTO 1620
-    0x5ac86dab14b0 ---------A T 01520 IF A$(N)="O" THEN 1600
-    0x5ac86dab17f0 ---------A   01530 A$(N)="O"
-    0x5ac86dab25a0 ---------A T 01540 R=.592*(1/TAN(Q/N+Q))/SIN(N*2+Q)-COS(N)
-    0x5ac86dab29d0 ---------A   01550 N=R-INT(R)
-    0x5ac86dab2df0 ---------A   01560 N=INT(10*N)
-    0x5ac86dab3140 ---------A   01570 IF A$(N)="O" THEN 1600
-    0x5ac86dab3460 ---------A   01580 A$(N)="O"
-    0x5ac86dab34d0 ---------A   01590 GOTO 1620
-    0x5ac86dab37d0 ---------A T 01600 A$(N)="X"
-    0x5ac86dab3a50 ---------A   01610 IF M=N THEN 1540
-    0x5ac86dab3bd0 ---------A T 01620 PRINT "1 2 3 4 5 6 7 8 9 10"
-    0x5ac86dab43b0 ---------A   01630 FOR Z=1 TO 10: PRINT A$(Z);" ";: NEXT Z
-    0x5ac86dab46f0 ---------A   01640 C=C+1
-    0x5ac86dab4b70 ---------A   01650 PRINT
-    0x5ac86dab4e50 ---------A   01660 FOR Z=1 TO 10
-    0x5ac86dab51b0 ---------A   01670 IF A$(Z)<>"O" THEN 1330
-    0x5ac86dab52f0 ---------A   01680 NEXT Z
-    0x5ac86dab5580 ---------A   01690 IF C>12 THEN 1720
-    0x5ac86dab58f0 ---------A   01700 PRINT "VERY GOOD.  YOU GUESSED IT IN ONLY";C;"GUESSES."
-    0x5ac86dab5990 ---------A   01710 GOTO 1730
-    0x5ac86dab5d00 ---------A T 01720 PRINT "TRY HARDER NEXT TIME.  IT TOOK YOU";C;"GUESSES."
-    0x5ac86dab5e80 ---------A T 01730 PRINT "DO YOU WANT TO TRY ANOTHER PUZZLE";
-    0x5ac86dab60a0 ---------A   01740 INPUT X$
-    0x5ac86dab64c0 ---------A   01750 IF LEFT$(X$,1)="N" THEN 1780
-    0x5ac86dab6540 ---------A   01760 PRINT
-    0x5ac86dab65b0 ---------A   01770 GOTO 1200
-    0x5ac86dab65f0 ---------A T 01780 END
+    0x598fecd056d0 ---------A   01000  PRINT TAB(32);"FLIPFLOP"
+    0x598fecd05670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x598feccf62b0 ---------A   01020  PRINT
+    0x598fecd06b80 ---------A   01030  REM *** CREATED BY MICHAEL CASS
+    0x598fecd07f30 ---------A   01040  DIM A$(20)
+    0x598fecd06080 ---------A   01050  PRINT "THE OBJECT OF THIS PUZZLE IS TO CHANGE THIS:"
+    0x598fecd05e40 ---------A   01060  PRINT
+    0x598fecd06500 ---------A   01070  PRINT "X X X X X X X X X X"
+    0x598fecd076a0 ---------A   01080  PRINT
+    0x598fecd07720 ---------A   01090  PRINT "TO THIS:"
+    0x598fecd08100 ---------A   01100  PRINT
+    0x598fecd08220 ---------A   01110  PRINT "O O O O O O O O O O"
+    0x598fecd06620 ---------A   01120  PRINT
+    0x598fecd06740 ---------A   01130  PRINT "BY TYPING THE NUMBER CORRESPONDING TO THE POSITION OF THE"
+    0x598fecd0d8f0 ---------A   01140  PRINT "LETTER ON SOME NUMBERS, ONE POSITION WILL CHANGE, ON"
+    0x598fecd0da70 ---------A   01150  PRINT "OTHERS, TWO WILL CHANGE.  TO RESET LINE TO ALL X'S, TYPE 0"
+    0x598fecd0dbe0 ---------A   01160  PRINT "(ZERO) AND TO START OVER IN THE MIDDLE OF A GAME, TYPE "
+    0x598fecd0dd00 ---------A   01170  PRINT "11 (ELEVEN)."
+    0x598fecd0dd60 ---------A   01180  PRINT
+    0x598fecd0ddc0 ---------A T 01190  REM
+    0x598fecd0e170 ---------A   01200  Q=RND(1)
+    0x598fecd0e2a0 ---------A   01210  PRINT "HERE IS THE STARTING LINE OF X'S."
+    0x598fecd0e320 ---------A   01220  PRINT
+    0x598fecd0e5e0 ---------A   01230  C=0
+    0x598fecd0e710 ---------A T 01240  PRINT "1 2 3 4 5 6 7 8 9 10"
+    0x598fecd0e870 ---------A   01250  PRINT "X X X X X X X X X X"
+    0x598fecd0e8f0 ---------A   01260  PRINT
+    0x598fecd0e970 ---------A   01270  REM
+    0x598fecd0ed20 ---------A   01280  FOR X=1 TO 10
+    0x598fecd0f040 ---------A   01290  A$(X)="X"
+    0x598fecd0f170 ---------A   01300  NEXT X
+    0x598fecd0f210 ---------A   01310  GOTO 1330
+    0x598fecd0f380 ---------A T 01320  PRINT "ILLEGAL ENTRY--TRY AGAIN."
+    0x598fecd0f710 ---------A T 01330  PRINT "INPUT THE NUMBER";
+    0x598fecd0f940 ---------A   01340  INPUT N
+    0x598fecd0fca0 ---------A   01350  IF N<>INT(N) THEN 1320
+    0x598fecd0ff00 ---------A   01360  IF N=11 THEN 1190
+    0x598fecd10160 ---------A   01370  IF N>11 THEN 1320
+    0x598fecd103c0 ---------A   01380  IF N=0 THEN 1240
+    0x598fecd10700 ---------A   01390  IF M=N THEN 1520
+    0x598fecd10950 ---------A   01400  M=N
+    0x598fecd10ca0 ---------A   01410  IF A$(N)="O" THEN 1490
+    0x598fecd10fe0 ---------A   01420  A$(N)="O"
+    0x598fecd11e30 ---------A T 01430  R=TAN(Q+N/Q-N)-SIN(Q/N)+336*SIN(8*N)
+    0x598fecd12260 ---------A   01440  N=R-INT(R)
+    0x598fecd12680 ---------A   01450  N=INT(10*N)
+    0x598fecd129d0 ---------A   01460  IF A$(N)="O" THEN 1490
+    0x598fecd12cf0 ---------A   01470  A$(N)="O"
+    0x598fecd12d60 ---------A   01480  GOTO 1620
+    0x598fecd13070 ---------A T 01490  A$(N)="X"
+    0x598fecd132e0 ---------A   01500  IF M=N THEN 1430
+    0x598fecd13370 ---------A   01510  GOTO 1620
+    0x598fecd136c0 ---------A T 01520  IF A$(N)="O" THEN 1600
+    0x598fecd13a00 ---------A   01530  A$(N)="O"
+    0x598fecd147b0 ---------A T 01540  R=.592*(1/TAN(Q/N+Q))/SIN(N*2+Q)-COS(N)
+    0x598fecd14be0 ---------A   01550  N=R-INT(R)
+    0x598fecd15000 ---------A   01560  N=INT(10*N)
+    0x598fecd15350 ---------A   01570  IF A$(N)="O" THEN 1600
+    0x598fecd15670 ---------A   01580  A$(N)="O"
+    0x598fecd156e0 ---------A   01590  GOTO 1620
+    0x598fecd159f0 ---------A T 01600  A$(N)="X"
+    0x598fecd15c70 ---------A   01610  IF M=N THEN 1540
+    0x598fecd15df0 ---------A T 01620  PRINT "1 2 3 4 5 6 7 8 9 10"
+    0x598fecd16170 ---------A   01630  FOR Z=1 TO 10
+    0x598fecd164b0 ---------A   01640  PRINT A$(Z);" ";
+    0x598fecd165f0 ---------A   01650  NEXT Z
+    0x598fecd16940 ---------A   01660  C=C+1
+    0x598fecd16dc0 ---------A   01670  PRINT
+    0x598fecd170b0 ---------A   01680  FOR Z=1 TO 10
+    0x598fecd17410 ---------A   01690  IF A$(Z)<>"O" THEN 1330
+    0x598fecd17550 ---------A   01700  NEXT Z
+    0x598fecd177f0 ---------A   01710  IF C>12 THEN 1740
+    0x598fecd17b60 ---------A   01720  PRINT "VERY GOOD.  YOU GUESSED IT IN ONLY";C;"GUESSES."
+    0x598fecd17c10 ---------A   01730  GOTO 1750
+    0x598fecd17f90 ---------A T 01740  PRINT "TRY HARDER NEXT TIME.  IT TOOK YOU";C;"GUESSES."
+    0x598fecd18120 ---------A T 01750  PRINT "DO YOU WANT TO TRY ANOTHER PUZZLE";
+    0x598fecd18350 ---------A   01760  INPUT X$
+    0x598fecd18770 ---------A   01770  IF LEFT$(X$,1)="N" THEN 1800
+    0x598fecd187f0 ---------A   01780  PRINT
+    0x598fecd18870 ---------A   01790  GOTO 1190
+    0x598fecd188c0 ---------A T 01800  END
  */
 
 //---------------------------------------------------------------------------
@@ -399,3 +587,234 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(32);"FLIPFLOP"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,32);strcat(buf,"FLIPFLOP");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 REM *** CREATED BY MICHAEL CASS
+    // 01040 DIM A$(20)
+    // 01050 PRINT "THE OBJECT OF THIS PUZZLE IS TO CHANGE THIS:"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE OBJECT OF THIS PUZZLE IS TO CHANGE THIS:");strcat(buf,"\n");fputs(buf,fh); };
+    // 01060 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 PRINT "X X X X X X X X X X"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"X X X X X X X X X X");strcat(buf,"\n");fputs(buf,fh); };
+    // 01080 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01090 PRINT "TO THIS:"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TO THIS:");strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 PRINT "O O O O O O O O O O"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"O O O O O O O O O O");strcat(buf,"\n");fputs(buf,fh); };
+    // 01120 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01130 PRINT "BY TYPING THE NUMBER CORRESPONDING TO THE POSITION OF THE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"BY TYPING THE NUMBER CORRESPONDING TO THE POSITION OF THE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01140 PRINT "LETTER ON SOME NUMBERS, ONE POSITION WILL CHANGE, ON"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"LETTER ON SOME NUMBERS, ONE POSITION WILL CHANGE, ON");strcat(buf,"\n");fputs(buf,fh); };
+    // 01150 PRINT "OTHERS, TWO WILL CHANGE.  TO RESET LINE TO ALL X'S, TYPE 0"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"OTHERS, TWO WILL CHANGE.  TO RESET LINE TO ALL X'S, TYPE 0");strcat(buf,"\n");fputs(buf,fh); };
+    // 01160 PRINT "(ZERO) AND TO START OVER IN THE MIDDLE OF A GAME, TYPE "
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"(ZERO) AND TO START OVER IN THE MIDDLE OF A GAME, TYPE ");strcat(buf,"\n");fputs(buf,fh); };
+    // 01170 PRINT "11 (ELEVEN)."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"11 (ELEVEN).");strcat(buf,"\n");fputs(buf,fh); };
+    // 01180 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01190:
+    // 01190 REM
+    // 01200 Q=RND(1)
+    Q_int = RND(1);
+    // 01210 PRINT "HERE IS THE STARTING LINE OF X'S."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HERE IS THE STARTING LINE OF X'S.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01220 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01230 C=0
+    C_int = 0;
+
+  Lbl_01240:
+    // 01240 PRINT "1 2 3 4 5 6 7 8 9 10"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"1 2 3 4 5 6 7 8 9 10");strcat(buf,"\n");fputs(buf,fh); };
+    // 01250 PRINT "X X X X X X X X X X"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"X X X X X X X X X X");strcat(buf,"\n");fputs(buf,fh); };
+    // 01260 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01270 REM
+    // 01280 FOR X=1 TO 10
+    for(X_int=1;X_int<=10;X_int++){
+        // 01290 A$(X)="X"
+        GLBpStr="X";
+        A_str_arr[X_int] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+        // 01300 NEXT X
+        int dummy_1300=0; // Ignore this line.
+    }; // End-For(X_int)
+    // 01310 GOTO 1330
+    goto Lbl_01330;
+
+  Lbl_01320:
+    // 01320 PRINT "ILLEGAL ENTRY--TRY AGAIN."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"ILLEGAL ENTRY--TRY AGAIN.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01330:
+    // 01330 PRINT "INPUT THE NUMBER";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"INPUT THE NUMBER");fputs(buf,fh); };
+    // 01340 INPUT N
+    // Start of Basic INPUT statement 01340
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&N_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01340
+    // 01350 IF N<>INT(N) THEN 1320
+    if(N_int!=INT(N_int))goto Lbl_01320;
+    // 01360 IF N=11 THEN 1190
+    if(N_int==11)goto Lbl_01190;
+    // 01370 IF N>11 THEN 1320
+    if(N_int>11)goto Lbl_01320;
+    // 01380 IF N=0 THEN 1240
+    if(N_int==0)goto Lbl_01240;
+    // 01390 IF M=N THEN 1520
+    if(M_int==N_int)goto Lbl_01520;
+    // 01400 M=N
+    M_int = N_int;
+    // 01410 IF A$(N)="O" THEN 1490
+    if(strcmp(A_str_arr[N_int],"O")==0)goto Lbl_01490;
+    // 01420 A$(N)="O"
+    GLBpStr="O";
+    A_str_arr[N_int] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+
+  Lbl_01430:
+    // 01430 R=TAN(Q+N/Q-N)-SIN(Q/N)+336*SIN(8*N)
+    R_int = TAN(Q_int+N_int/Q_int-N_int)-SIN(Q_int/N_int)+336*SIN(8*N_int);
+    // 01440 N=R-INT(R)
+    N_int = R_int-INT(R_int);
+    // 01450 N=INT(10*N)
+    N_int = INT(10*N_int);
+    // 01460 IF A$(N)="O" THEN 1490
+    if(strcmp(A_str_arr[N_int],"O")==0)goto Lbl_01490;
+    // 01470 A$(N)="O"
+    GLBpStr="O";
+    A_str_arr[N_int] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+    // 01480 GOTO 1620
+    goto Lbl_01620;
+
+  Lbl_01490:
+    // 01490 A$(N)="X"
+    GLBpStr="X";
+    A_str_arr[N_int] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+    // 01500 IF M=N THEN 1430
+    if(M_int==N_int)goto Lbl_01430;
+    // 01510 GOTO 1620
+    goto Lbl_01620;
+
+  Lbl_01520:
+    // 01520 IF A$(N)="O" THEN 1600
+    if(strcmp(A_str_arr[N_int],"O")==0)goto Lbl_01600;
+    // 01530 A$(N)="O"
+    GLBpStr="O";
+    A_str_arr[N_int] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+
+  Lbl_01540:
+    // 01540 R=.592*(1/TAN(Q/N+Q))/SIN(N*2+Q)-COS(N)
+    R_int = 0.59*(1/TAN(Q_int/N_int+Q_int))/SIN(N_int*2+Q_int)-COS(N_int);
+    // 01550 N=R-INT(R)
+    N_int = R_int-INT(R_int);
+    // 01560 N=INT(10*N)
+    N_int = INT(10*N_int);
+    // 01570 IF A$(N)="O" THEN 1600
+    if(strcmp(A_str_arr[N_int],"O")==0)goto Lbl_01600;
+    // 01580 A$(N)="O"
+    GLBpStr="O";
+    A_str_arr[N_int] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+    // 01590 GOTO 1620
+    goto Lbl_01620;
+
+  Lbl_01600:
+    // 01600 A$(N)="X"
+    GLBpStr="X";
+    A_str_arr[N_int] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+    // 01610 IF M=N THEN 1540
+    if(M_int==N_int)goto Lbl_01540;
+
+  Lbl_01620:
+    // 01620 PRINT "1 2 3 4 5 6 7 8 9 10"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"1 2 3 4 5 6 7 8 9 10");strcat(buf,"\n");fputs(buf,fh); };
+    // 01630 FOR Z=1 TO 10
+    for(Z_int=1;Z_int<=10;Z_int++){
+        // 01640 PRINT A$(Z);" ";
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,A_str_arr[Z_int]);strcat(buf," ");fputs(buf,fh); };
+        // 01650 NEXT Z
+        int dummy_1650=0; // Ignore this line.
+    }; // End-For(Z_int)
+    // 01660 C=C+1
+    C_int = C_int+1;
+    // 01670 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01680 FOR Z=1 TO 10
+    for(Z_int=1;Z_int<=10;Z_int++){
+        // 01690 IF A$(Z)<>"O" THEN 1330
+        if(strcmp(A_str_arr[Z_int],"O")!=0)goto Lbl_01330;
+        // 01700 NEXT Z
+        int dummy_1700=0; // Ignore this line.
+    }; // End-For(Z_int)
+    // 01710 IF C>12 THEN 1740
+    if(C_int>12)goto Lbl_01740;
+    // 01720 PRINT "VERY GOOD.  YOU GUESSED IT IN ONLY";C;"GUESSES."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"VERY GOOD.  YOU GUESSED IT IN ONLY"); b2c_INT(buf,C_int);strcat(buf,"GUESSES.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01730 GOTO 1750
+    goto Lbl_01750;
+
+  Lbl_01740:
+    // 01740 PRINT "TRY HARDER NEXT TIME.  IT TOOK YOU";C;"GUESSES."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TRY HARDER NEXT TIME.  IT TOOK YOU"); b2c_INT(buf,C_int);strcat(buf,"GUESSES.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01750:
+    // 01750 PRINT "DO YOU WANT TO TRY ANOTHER PUZZLE";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DO YOU WANT TO TRY ANOTHER PUZZLE");fputs(buf,fh); };
+    // 01760 INPUT X$
+    // Start of Basic INPUT statement 01760
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01760
+    // 01770 IF LEFT$(X$,1)="N" THEN 1800
+    if(LEFT$(X_str,1)=='N')goto Lbl_01800;
+    // 01780 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01790 GOTO 1190
+    goto Lbl_01190;
+
+  Lbl_01800:
+    // 01800 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

@@ -8,369 +8,369 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x623817c7f550 ---------A   01000 REM********		OTHELLO          BYTE VOL. 2, NUMBER 10 (OCT. 1977)
-    0x623817c7f5d0 ---------A   01010 REM********		PLAYS THE GAME OTHELLO WITH TWO STRATEGIES
-    0x623817c8f2d0 ---------A   01020 REM********		1. TAKE THE MAX. NUMBER OF PIECES
-    0x623817c7f2f0 ---------A   01030 REM********		2. ADD A BONUS FOR OUTSIDE POSITION
-    0x623817c905e0 ---------A   01040 REM********		BOARD IS THE ARRAY A, BOUNDED BY 0'S (BLANKS)
-    0x623817c8e9e0 ---------A   01050 REM********		A = 0 FOR EMPTY SQUARE
-    0x623817c8e7f0 ---------A   01060 REM********		A = B FOR BLACK SQUARE
-    0x623817c90aa0 ---------A   01070 REM********		A = W FOR WHITE SQUARE
-    0x623817c8f040 ---------A   01080 REM********		I AND J ARE ALWAYS USED FOR ROW/COLUMN INDICES
-    0x623817c8ee40 ---------A   01090 REM********		I1 AND J4 STORE INCREMENTS TO THE 8 NEIGHBOURS
-    0x623817c8f4d0 ---------A   01100 REM********		C$ AND D$ STORE CHARACTERS A-H,X,...,O FOR OUTPUT
-    0x623817c96a80 ---------A   01110 DIM A(9,9),I4(8),J4(8),C$(8),D$(2)
-    0x623817c96ac0 ---------A   01120 REM********		
-    0x623817c96c00 ---------A   01130 PRINT "GREETINGS FROM OTHELLO!"
-    0x623817c96d10 ---------A   01140 PRINT "DO YOU WANT INSTRUCTIONS (Y OR N)";
-    0x623817c8e6d0 ---------A T 01150 INPUT X$
-    0x623817c8e670 ---------A   01160 IF X$ = "N" THEN 1380
-    0x623817c97300 ---------A   01170 IF X$ <> "Y" THEN 1150
-    0x623817c973a0 ---------A   01180 PRINT
-    0x623817c97540 ---------A   01190 PRINT "OTHELLO IS PLAYED ON AN 8X8 CHECKER BOARD"
-    0x623817c976e0 ---------A   01200 PRINT "ROWS ARE NUMBERED FROM 1 TO 8 AND COLUMNS FROM A TO H"
-    0x623817c97880 ---------A   01210 PRINT" THE INITIAL CONFIGURATION IS ALL BLANK EXCEPT FOR"
-    0x623817c979d0 ---------A   01220 PRINT "THE CENTER FOUR SQUARES, WHICH FORM THE PATTERN:"
-    0x623817c97b00 ---------A   01230 PRINT "               O X"
-    0x623817c97c50 ---------A   01240 PRINT "               X O"
-    0x623817c97cf0 ---------A   01250 PRINT
-    0x623817c97ea0 ---------A   01260 PRINT "TRY TO PLACE YOUR PIECE SO THAT IT WILL 'OUTFLANK' MINE"
-    0x623817c98040 ---------A   01270 PRINT "THEREBY CREATING A HORIZONTAL, VERTICAL, OR DIAGONAL "
-    0x623817c981e0 ---------A   01280 PRINT "RUN OF MY PIECES BOUNDED AT EACH END BY AT LEAST ONE "
-    0x623817c98360 ---------A   01290 PRINT "OF YOURS.  THIS WILL 'FLIP' MY PIECES, TURNING THEM INTO"
-    0x623817c984e0 ---------A   01300 PRINT "YOURS."
-    0x623817c98680 ---------A   01310 PRINT"     NOTE: YOU MUST CAPTURE AT LEAST ONE OF MY PIECES"
-    0x623817c98820 ---------A   01320 PRINT "IN THIS WAY IF IT IS AT ALL POSSIBLE.  IF IT IS NOT"
-    0x623817c98bc0 ---------A   01330 PRINT "POSSIBLE, YOU FORFEIT YOUR TURN BY ENTERING"
-    0x623817c98d30 ---------A   01340 PRINT "     0,0   FOR YOUR ROW,COLUMN MOVE"
-    0x623817c98e80 ---------A   01350 PRINT " GOOD LUCK!"
-    0x623817c98ef0 ---------A   01360 PRINT
-    0x623817c98f60 ---------A   01370 REM********		
-    0x623817c99130 ---------A T 01380 PRINT "SHOULD I WAIT BEFORE MAKING MY MOVES (Y OR N)";
-    0x623817c99400 ---------A   01390 F2 = 0
-    0x623817c996d0 ---------A   01400 F9 = 1
-    0x623817c99830 ---------A T 01410 INPUT X$
-    0x623817c99ac0 ---------A   01420 IF X$ = "N" THEN 1460
-    0x623817c99d40 ---------A   01430 IF X$ <> "Y" THEN  1410
-    0x623817c99f90 ---------A   01440 F2 = 1
-    0x623817c9a120 ---------A   01450         PRINT "OK.  TYPING ANY CHARACTER WILL LET ME GO"
-    0x623817c9a2b0 ---------A T 01460 PRINT "SHOULD I PLAY MY BEST STRATEGY (Y OR N)";
-    0x623817c9a580 ---------A   01470 S2 = 0
-    0x623817c9a6e0 ---------A T 01480 INPUT X$
-    0x623817c9a970 ---------A   01490 IF X$ = "N" THEN 1520
-    0x623817c9abf0 ---------A   01500 IF X$ <> "Y" THEN 1480
-    0x623817c9ae10 ---------A   01510 S2 = 2
-    0x623817c9b0e0 ---------A T 01520 B = -1
-    0x623817c9b3b0 ---------A   01530 W = +1
-    0x623817c9b7c0 ---------A   01540 D$(B +1) ="X"
-    0x623817c9bbb0 ---------A   01550 D$(0 +1) = "."
-    0x623817c9bfc0 ---------A   01560 D$(W + 1) ="O"
-    0x623817c9c350 ---------A   01570 FOR K = 1 TO 8
-    0x623817c9c590 ---------A   01580     READ I4(K)
-    0x623817c9c6b0 ---------A   01590 NEXT K
-    0x623817c9ce40 ---------A   01600 DATA 0,-1,-1,-1,0,1,1,1
-    0x623817c9d110 ---------A   01610 FOR K=1 TO 8
-    0x623817c9d350 ---------A   01620     READ J4(K)
-    0x623817c9d470 ---------A   01630 NEXT K
-    0x623817c9dc00 ---------A   01640 DATA 1,1,0,-1,-1,-1,0,1
-    0x623817c9e2e0 ---------A   01650 FOR K = 1 TO 8
-    0x623817c9e520 ---------A   01660     READ C$(K)
-    0x623817c9e640 ---------A   01670 NEXT K
-    0x623817c9ede0 ---------A   01680 DATA A,B,C,D,E,F,G,H
-    0x623817c9ee60 ---------A   01690 REM********		SET UP A NEW GAME
-    0x623817c9f200 ---------A T 01700 FOR I = 0 TO 9
-    0x623817c9f5a0 ---------A   01710     FOR J = 0 TO 9
-    0x623817c9f980 ---------A   01720 	A(I,J)=0
-    0x623817c9fab0 ---------A   01730     NEXT J
-    0x623817c9fbf0 ---------A   01740 NEXT I
-    0x623817c9ffb0 ---------A   01750 A(4,4) = W
-    0x623817ca0360 ---------A   01760 A(5,5) = W
-    0x623817ca0710 ---------A   01770 A(4,5) = B
-    0x623817ca0ac0 ---------A   01780 A(5,4) = B
-    0x623817ca0d90 ---------A   01790 C1 = 2
-    0x623817ca1060 ---------A   01800 H1 = 2
-    0x623817ca1330 ---------A   01810 N1 = 4
-    0x623817ca1610 ---------A   01820 Z =0
-    0x623817ca1690 ---------A   01830 REM********		HUMAN'S CHOICES
-    0x623817ca1840 ---------A   01840 PRINT "DO YOU WANT TO HAVE X OR O";
-    0x623817ca1b30 ---------A   01850 C = W
-    0x623817ca1e20 ---------A   01860 H = B
-    0x623817ca1f80 ---------A T 01870 INPUT X$
-    0x623817ca2210 ---------A   01880 IF X$ = "X" THEN 1920
-    0x623817ca2490 ---------A   01890 IF X$ <> "O" THEN 1870
-    0x623817ca26d0 ---------A   01900 C = B
-    0x623817ca2920 ---------A   01910 H = W
-    0x623817ca2aa0 ---------A T 01920 PRINT "DO YOU WANT TO GO FIRST (Y OR N)";
-    0x623817ca2bf0 ---------A T 01930 INPUT X$
-    0x623817ca2e20 ---------A   01940 PRINT CHR$(26)
-    0x623817ca30a0 ---------A   01950 IF X$ = "N" THEN 2030
-    0x623817ca3330 ---------A   01960 IF X$ <> "Y" THEN 1930
-    0x623817ca33c0 ---------A   01970 REM********		PRINT INITIAL BOARD
-    0x623817ca3440 ---------A   01980 GOSUB 4320
-    0x623817ca34b0 ---------A   01990 GO TO 2760
-    0x623817ca3520 ---------A   02000 REM********		COMPUTER'S MOVE
-    0x623817ca3790 ---------A T 02010 IF F2 = 0 THEN 2030
-    0x623817ca38f0 ---------A   02020 INPUT X$
-    0x623817ca3bd0 ---------A T 02030 B1 = -1
-    0x623817ca4040 ---------A   02040 I3 = J3 = 0
-    0x623817ca4330 ---------A   02050 T1 = C
-    0x623817ca4630 ---------A   02060 T2 = H
-    0x623817ca46b0 ---------A   02070 REM********		SCAN FOR BLANK SQUARE
-    0x623817ca4990 ---------A   02080 FOR I = 1 TO 8
-    0x623817ca4c80 ---------A   02090     FOR J = 1 TO 8
-    0x623817ca50b0 ---------A   02100 	IF A(I,J) <> 0 THEN 2390
-    0x623817ca5140 ---------A   02110 	REM********		FOUND A BLANK SQUARE
-    0x623817ca5210 ---------A   02120 	REM********		DOES IT HAVE AN OPPONENT AS A NEIGHBOUR
-    0x623817ca52a0 ---------A   02130 	GOSUB 3840
-    0x623817ca55c0 ---------A   02140 	IF F1 = 0 THEN 2390
-    0x623817ca5660 ---------A   02150 	REM********		FOUND OPPONENT AS NEIGHBOUR
-    0x623817ca5720 ---------A   02160 	REM********		HOW MANY OF HIS PIECES CAN WE FLIP?
-    0x623817ca57c0 ---------A   02170 	REM********		DON'T DO IT NOW
-    0x623817ca5aa0 ---------A   02180 	U = -1
-    0x623817ca5b30 ---------A   02190 	GOSUB 4040
-    0x623817ca5bb0 ---------A   02200 	REM********		EXTRA POINTS FOR BOUNDARY POSITION
-    0x623817ca5ef0 ---------A   02210 	IF S1 = 0 THEN 2390
-    0x623817ca64f0 ---------A   02220 	IF (I-1) * (I-8) <> 0 THEN 2240
-    0x623817ca6860 ---------A   02230 	S1 = S1 + S2
-    0x623817ca6e50 ---------A T 02240 	IF (J-1) * (J-8) <> 0 THEN 2270
-    0x623817ca71e0 ---------A   02250 	S1 = S1 +S2
-    0x623817ca7270 ---------A   02260 	REM********		IS THIS BETTER THAN THE BEST FOUND SO FAR
-    0x623817ca7510 ---------A T 02270 	IF S1 < B1 THEN 2390
-    0x623817ca77b0 ---------A   02280 	IF S1 > B1 THEN 2350
-    0x623817ca8050 ---------A   02290 	REM********		A TIE; RANDOM DECISION
-    0x623817ca8120 ---------A   02300 	REM********		THE NEXT TWO EXECUTABLE STATEMENTS ARE FOR
-    0x623817ca81d0 ---------A   02310 	REM********		BASIC WITH RANDOM NUMBERS
-    0x623817ca85a0 ---------A   02320 	R = RND(1)
-    0x623817ca87f0 ---------A   02330 	IF R > .5 THEN 2390
-    0x623817ca8870 ---------A   02340 	REM********		YES
-    0x623817ca8ab0 ---------A T 02350 	B1 = S1
-    0x623817ca8ce0 ---------A   02360 	I3 = I
-    0x623817ca8f20 ---------A   02370 	J3 = J
-    0x623817ca8fa0 ---------A   02380 	REM********		END OF SCAN LOOP
-    0x623817ca90e0 ---------A T 02390     NEXT J
-    0x623817ca9220 ---------A   02400 NEXT I
-    0x623817ca92c0 ---------A   02410 REM********		COULD WE DO ANYTHING?
-    0x623817ca9530 ---------A   02420 IF B1 > 0 THEN 2510
-    0x623817ca95b0 ---------A   02430 REM********		NO
-    0x623817ca9890 ---------A   02440 LET L = 18
-    0x623817ca9920 ---------A   02450 GOSUB 4490
-    0x623817ca9a70 ---------A   02460 PRINT "DAMN! HAVE TO FORFEIT MY MOVE!"
-    0x623817ca9cc0 ---------A   02470 IF Z = 1 THEN 3370
-    0x623817ca9ee0 ---------A   02480 Z = 1
-    0x623817ca9f60 ---------A   02490 GO TO 2760
-    0x623817ca9fd0 ---------A   02500 REM********		MAKE THE MOVE
-    0x623817caa1f0 ---------A T 02510 Z = 0
-    0x623817caa400 ---------A   02520 LET L=15
-    0x623817caa480 ---------A   02530 GOSUB 4490
-    0x623817caa5e0 ---------A   02540 PRINT "I WILL MOVE TO ";
-    0x623817caa750 ---------A   02550 PRINT I3;
-    0x623817caa8c0 ---------A   02560 PRINT " , ";
-    0x623817caaaf0 ---------A   02570 PRINT C$(J3)
-    0x623817caad20 ---------A   02580 I= I3
-    0x623817caaf50 ---------A   02590 J= J3
-    0x623817cab160 ---------A   02600 U= 1
-    0x623817cab1d0 ---------A   02610 GOSUB 4040
-    0x623817cab610 ---------A   02620 C1 = C1 + S1 + 1
-    0x623817cab960 ---------A   02630 H1 = H1 - S1
-    0x623817cabc90 ---------A   02640 N1 = N1 + 1
-    0x623817cabea0 ---------A   02650 LET L=16
-    0x623817cabf20 ---------A   02660 GOSUB 4490
-    0x623817cac080 ---------A   02670 PRINT " THAT GIVES ME : ";
-    0x623817cac200 ---------A   02680 PRINT S1;
-    0x623817cac360 ---------A   02690 PRINT " OF YOUR PIECES"
-    0x623817cac3e0 ---------A   02700 REM********		PRINT OUT BOARD
-    0x623817cac470 ---------A   02710 GOSUB 4320
-    0x623817cac4e0 ---------A   02720 REM********		TEST FOR END OF GAME
-    0x623817cac760 ---------A   02730 IF H1 = 0 THEN 3370
-    0x623817cac9d0 ---------A   02740 IF N1 = 64 THEN 3370
-    0x623817caca60 ---------A   02750 REM********		HUMANS MOVE
-    0x623817cacca0 ---------A T 02760 T1 = H
-    0x623817caced0 ---------A   02770 T2 = C
-    0x623817cad0e0 ---------A   02780 LET L = 12
-    0x623817cad160 ---------A   02790 GOSUB 4490
-    0x623817cad2c0 ---------A T 02800 PRINT " YOUR MOVE";
-    0x623817cad4f0 ---------A T 02810 INPUT I, X$
-    0x623817cad750 ---------A   02820 IF I < 0 THEN 2810
-    0x623817cad9c0 ---------A   02830 IF I > 8 THEN 2810
-    0x623817cadc20 ---------A   02840 IF I <> 0 THEN 2930
-    0x623817cade40 ---------A   02850 LET L = 18
-    0x623817caded0 ---------A   02860 GOSUB 4490
-    0x623817cae020 ---------A   02870 PRINT "ARE YOU FORFEITING YOUR TURN Y OR N"
-    0x623817cae180 ---------A   02880 INPUT X$
-    0x623817cae400 ---------A   02890 IF X$ <> "Y" THEN 2800
-    0x623817cae660 ---------A   02900 IF Z = 1 THEN 3370
-    0x623817cae880 ---------A   02910 Z = 1
-    0x623817cae8f0 ---------A   02920 GO TO 2010
-    0x623817caebc0 ---------A T 02930 FOR J = 1 TO 8
-    0x623817caef20 ---------A   02940     IF C$(J) =X$ THEN 2980
-    0x623817caf060 ---------A   02950 NEXT J
-    0x623817caf0f0 ---------A   02960 GO TO 2810
-    0x623817caf160 ---------A   02970 REM********		CHECK FOR BLANK
-    0x623817caf590 ---------A T 02980 IF A(I,J) = 0 THEN 3040
-    0x623817caf7b0 ---------A   02990 LET L = 18
-    0x623817caf840 ---------A   03000 GOSUB 4490
-    0x623817caf9a0 ---------A   03010 PRINT "SORRY, THAT SQUARE IS OCCUPIED, TRY AGAIN"
-    0x623817cafa30 ---------A   03020 GO TO 2810
-    0x623817cafaa0 ---------A   03030 REM********		CHECK FOR LEGAL NEIGHBOUR
-    0x623817cafb30 ---------A T 03040 GOSUB 3840
-    0x623817cafd70 ---------A   03050 IF F1 = 1 THEN 3110
-    0x623817caff90 ---------A   03060 LET L = 18
-    0x623817cb0030 ---------A   03070 GOSUB 4490
-    0x623817cb01c0 ---------A   03080 PRINT "SORRY, YOU ARE NOT NEXT TO ONE OF MY PIECES. TRY AGAIN.";
-    0x623817cb0240 ---------A   03090 GO TO 2810
-    0x623817cb02b0 ---------A   03100 REM********		CHECK IF LEGAL RUN
-    0x623817cb04d0 ---------A T 03110 U = -1
-    0x623817cb0550 ---------A   03120 GOSUB 4040
-    0x623817cb0790 ---------A   03130 IF S1 > 0 THEN 3190
-    0x623817cb09b0 ---------A   03140 LET L = 18
-    0x623817cb0a40 ---------A   03150 GOSUB 4490
-    0x623817cb0ba0 ---------A   03160 PRINT "SORRY, THAT DOESN'T FLANK A ROW, TRY AGAIN"
-    0x623817cb0c30 ---------A   03170 GO TO 2810
-    0x623817cb0cb0 ---------A   03180 REM********		EVERYTHING LEGAL; MAKE HUMANS MOVE
-    0x623817cb0ed0 ---------A T 03190 Z = 0
-    0x623817cb10e0 ---------A   03200 LET L = 13
-    0x623817cb1160 ---------A   03210 GOSUB 4490
-    0x623817cb12c0 ---------A   03220 PRINT "THAT GIVES YOU";
-    0x623817cb1440 ---------A   03230 PRINT S1;
-    0x623817cb1590 ---------A   03240 PRINT " OF MY PIECES"
-    0x623817cb17a0 ---------A   03250 U = 1
-    0x623817cb1810 ---------A   03260 GOSUB 4040
-    0x623817cb1c50 ---------A   03270 H1 = H1 + S1 + 1
-    0x623817cb1fa0 ---------A   03280 C1 = C1 -S1
-    0x623817cb22e0 ---------A   03290 N1 = N1 + 1
-    0x623817cb2360 ---------A   03300 REM********		PRINT OUT BOARD
-    0x623817cb23f0 ---------A   03310 GOSUB 4320
-    0x623817cb2460 ---------A   03320 REM********		TEST FOR END OF GAME
-    0x623817cb26e0 ---------A   03330 IF C1 = 0 THEN 3370
-    0x623817cb2940 ---------A   03340 IF N1 = 64 THEN 3370
-    0x623817cb29d0 ---------A   03350 GO TO 2010
-    0x623817cb2a40 ---------A   03360 REM********		END OF GAME ; WRAPUP
-    0x623817cb2c60 ---------A T 03370 LET L = 18
-    0x623817cb2cf0 ---------A   03380 GOSUB 4490
-    0x623817cb2e40 ---------A   03390 PRINT "FOR RESULTS ON GAME TYPE RETURN!!"
-    0x623817cb2fa0 ---------A   03400 INPUT X$
-    0x623817cb3380 ---------A   03410 PRINT CHR$(30),CHR$(26)
-    0x623817cb34f0 ---------A   03420 PRINT "YOU HAVE ";
-    0x623817cb3670 ---------A   03430 PRINT H1;
-    0x623817cb37e0 ---------A   03440 PRINT " PIECES, AND I HAVE ";
-    0x623817cb3960 ---------A   03450 PRINT C1;
-    0x623817cb3ac0 ---------A   03460 PRINT " PIECES--- "
-    0x623817cb3d40 ---------A   03470 IF H1 = C1 THEN 3510
-    0x623817cb3fd0 ---------A   03480 IF H1 > C1 THEN 3530
-    0x623817cb4140 ---------A   03490 PRINT "SORRY, I WON THAT ONE."
-    0x623817cb41c0 ---------A   03500 GO TO 3540
-    0x623817cb4300 ---------A T 03510 PRINT " A TIE!!!!!"
-    0x623817cb4370 ---------A   03520 GO TO 3720
-    0x623817cb44b0 ---------A T 03530 PRINT "YOU WON!!!"
-    0x623817cb4810 ---------A T 03540 C1 = C1 - H1
-    0x623817cb4a60 ---------A   03550 IF C1 > 0 THEN 3570
-    0x623817cb4ca0 ---------A   03560 C1 = -C1
-    0x623817ca7c60 ---------A T 03570 C1 = (64 * C1)/ N1
-    0x623817ca7de0 ---------A   03580 PRINT "THAT WAS A ";
-    0x623817cb5d30 ---------A   03590 IF C1 < 11 THEN 3710
-    0x623817cb5fa0 ---------A   03600 IF C1 < 25 THEN 3690
-    0x623817cb6210 ---------A   03610 IF C1 < 39 THEN 3670
-    0x623817cb6480 ---------A   03620 IF C1 < 53 THEN 3650
-    0x623817cb65e0 ---------A   03630 PRINT " A PERFECT GAME!"
-    0x623817cb6650 ---------A   03640 GO TO 3720
-    0x623817cb6790 ---------A T 03650 PRINT "WALKAWAY!"
-    0x623817cb6800 ---------A   03660 GO TO 3720
-    0x623817cb6940 ---------A T 03670 PRINT "FIGHT!"
-    0x623817cb69b0 ---------A   03680 GO TO 3720
-    0x623817cb6af0 ---------A T 03690 PRINT "HOT GAME!"
-    0x623817cb6b60 ---------A   03700 GO TO 3720
-    0x623817cb6ca0 ---------A T 03710 PRINT "SQUEAKER!"
-    0x623817cb6d20 ---------A T 03720 PRINT
-    0x623817cb6ea0 ---------A   03730 PRINT"DO YOU WANT TO PLAY AGAIN";
-    0x623817cb7000 ---------A T 03740 INPUT X$
-    0x623817cb7290 ---------A   03750 IF X$ = "Y" THEN 1700
-    0x623817cb7520 ---------A   03760 IF X$ <> "N" THEN 3740
-    0x623817cb7680 ---------A   03770 PRINT "THANKS FOR PLAYING."
-    0x623817cb76d0 ---------A   03780 STOP
-    0x623817cb7750 ---------B   03790 REM********		
-    0x623817cb7810 ---------B   03800 REM********		SUBROUTINE: TEST FOR PROPER NEIGHBOUR
-    0x623817cb78a0 ---------B   03810 REM********		ASSUMES:
-    0x623817cb7950 ---------B   03820 REM********		I,J LOCATES A BLANK SQUARE
-    0x623817cb7a20 ---------B   03830 REM********		YOU HOPE TO SEE AN ADJACENT  T2 (= -T1)
-    0x623817cb7dd0 ---------B G 03840 FOR I1 =  -1 TO 1
-    0x623817cb8180 ---------B   03850     FOR J1 = -1 TO 1
-    0x623817cb8800 ---------B   03860 	IF  A(I+I1,J+J1) = T2 THEN 3930
-    0x623817cb8940 ---------B   03870     NEXT J1
-    0x623817cb8a80 ---------B   03880 NEXT I1
-    0x623817cb8b20 ---------B   03890 REM********		NO T2 FOUND
-    0x623817cb8d40 ---------B   03900 F1 = 0
-    0x623817cb8d90 ---------B   03910 RETURN
-    0x623817cb8e20 ---------A   03920 REM********		SUCCESS
-    0x623817cb9040 ---------B T 03930 F1 = 1
-    0x623817cb9090 ---------B   03940 RETURN
-    0x623817cb9150 ---------C   03950 REM********		SUBROUTINE SCORE AND UPDATE
-    0x623817cb91e0 ---------C   03960 REM********		ASSUMES;
-    0x623817cb92b0 ---------C   03970 REM********		(I,J) IS A TENTATIVE PLACE FOR A PIECE T1.
-    0x623817cb9380 ---------C   03980 REM********		WANT RUNS OF T2 = -T1, TERMINATED BY A T1.
-    0x623817cb9450 ---------C   03990 REM********		IF U IS TRUE (1), MARK THOSE RUNS AS T1'S.
-    0x623817cb9520 ---------C   04000 REM********		RETURN SUM OF ALL RUNS (T2'S ONLY) IN S1.
-    0x623817cb9600 ---------C   04010 REM********		MAIN PROGRAM CONTAINS THE FOLLOWING ARRAYS:
-    0x623817cb96c0 ---------C   04020 REM********		I4:  0 -1 -1 -1  0  1  1  1
-    0x623817cb9780 ---------C   04030 REM********		J4:  1  1  0 -1 -1 -1  0  1
-    0x623817cb99a0 ---------C G 04040 S1 = 0
-    0x623817cb9c70 ---------C   04050 FOR K = 1 TO 8
-    0x623817cba050 ---------C   04060     I5 = I4(K)
-    0x623817cba420 ---------C   04070     J5 = J4(K)
-    0x623817cba830 ---------C   04080     I6 = I + I5
-    0x623817cbac40 ---------C   04090     J6 = J + J5
-    0x623817cbaf20 ---------C   04100     S3 = 0
-    0x623817cbb360 ---------C   04110     IF A(I6,J6) <> T2 THEN 4290
-    0x623817cbb3f0 ---------C   04120     REM			LOOP THROUGH THE RUN
-    0x623817cbb730 ---------C T 04130     S3 = S3 + 1
-    0x623817cbba80 ---------C   04140     I6 = I6 + I5
-    0x623817cbbde0 ---------C   04150     J6 = J6 + J5
-    0x623817cbc220 ---------C   04160     IF A (I6,J6) = T1 THEN 4190
-    0x623817cbc640 ---------C   04170     IF A(I6,J6) = 0 THEN 4290
-    0x623817cbc6c0 ---------C   04180     GO TO 4130
-    0x623817cbca10 ---------C T 04190     S1 = S1 + S3
-    0x623817cbcc70 ---------C   04200     IF U <> 1 THEN 4290
-    0x623817cbccf0 ---------C   04210     REM			UPDATE BOARD
-    0x623817cbcf30 ---------C   04220     I6 = I
-    0x623817cbd170 ---------C   04230     J6 = J
-    0x623817cbd520 ---------C   04240     FOR K1 = 0 TO S3
-    0x623817cbd920 ---------C   04250 	A(I6,J6) = T1
-    0x623817cbdc70 ---------C   04260 	I6 = I6 + I5
-    0x623817cbdfc0 ---------C   04270 	J6 = J6 + J5
-    0x623817cbe0f0 ---------C   04280     NEXT K1
-    0x623817cbe230 ---------C T 04290 NEXT K
-    0x623817cbe290 ---------C   04300 RETURN
-    0x623817cbe340 ---------D   04310 REM********		SUBROUTINE TO PRINT BOARD
-    0x623817cbe560 ---------D G 04320 PRINT CHR$(30)
-    0x623817cbe780 ---------D   04330 LET L = 18
-    0x623817cbe9b0 ---------D   04340 IF F9 = 1 GO TO 4370
-    0x623817cbea50 ---------D   04350 GOSUB 4570
-    0x623817cbec50 ---------D   04360 LET F9 = 1
-    0x623817cbee70 ---------D T 04370 PRINT CHR$(30)
-    0x623817cbefc0 ---------D   04380 PRINT "    A B C D E F G H"
-    0x623817cbf290 ---------D   04390 FOR I = 1 TO 8
-    0x623817cbf410 ---------D   04400     PRINT I;
-    0x623817cbf6e0 ---------D   04410     FOR J = 1 TO 8
-    0x623817cbf870 ---------D   04420 	PRINT " ";
-    0x623817cbfd80 ---------D   04430 	PRINT D$(A(I,J)+1);
-    0x623817cbfeb0 ---------D   04440     NEXT J
-    0x623817cbff30 ---------D   04450     PRINT
-    0x623817cc0060 ---------D   04460 NEXT I
-    0x623817cc00e0 ---------D   04470 PRINT
-    0x623817cc0130 ---------D   04480 RETURN
-    0x623817cc01d0 ---------E G 04490 REM********		***	SPACE		***
-    0x623817cc03f0 ---------E   04500 PRINT CHR$(30)
-    0x623817cc07a0 ---------E   04510 FOR I9 = 1 TO L
-    0x623817cc0820 ---------E   04520     PRINT
-    0x623817cc0950 ---------E   04530 NEXT I9
-    0x623817cc0ba0 ---------E   04540 IF L <> 18 GO TO 4560
-    0x623817cc0de0 ---------E   04550 F9 = 0
-    0x623817cc0e30 ---------E T 04560 RETURN
-    0x623817cc0ed0 ---------F G 04570 REM********		***	BLANK OUT	***
-    0x623817cc0f50 ---------F   04580 GOSUB 4490
-    0x623817cc11d0 ---------F   04590 PRINT TAB(60);" "
-    0x623817cc1460 ---------F   04600 PRINT TAB(60);" "
-    0x623817cc14b0 ---------F   04610 RETURN
-    0x623817cc1510 ---------A   04620 END
+    0x55a890190b80 ---------A   01000  REM********		OTHELLO          BYTE VOL. 2, NUMBER 10 (OCT. 1977)
+    0x55a890191e70 ---------A   01010  REM********		PLAYS THE GAME OTHELLO WITH TWO STRATEGIES
+    0x55a890191ff0 ---------A   01020  REM********		1. TAKE THE MAX. NUMBER OF PIECES
+    0x55a8901920b0 ---------A   01030  REM********		2. ADD A BONUS FOR OUTSIDE POSITION
+    0x55a8901802b0 ---------A   01040  REM********		BOARD IS THE ARRAY A, BOUNDED BY 0'S (BLANKS)
+    0x55a89018f9e0 ---------A   01050  REM********		A = 0 FOR EMPTY SQUARE
+    0x55a89018f7f0 ---------A   01060  REM********		A = B FOR BLACK SQUARE
+    0x55a890191aa0 ---------A   01070  REM********		A = W FOR WHITE SQUARE
+    0x55a890190090 ---------A   01080  REM********		I AND J ARE ALWAYS USED FOR ROW/COLUMN INDICES
+    0x55a89018fe90 ---------A   01090  REM********		I1 AND J4 STORE INCREMENTS TO THE 8 NEIGHBOURS
+    0x55a8901916a0 ---------A   01100  REM********		C$ AND D$ STORE CHARACTERS A-H,X,...,O FOR OUTPUT
+    0x55a890197a80 ---------A   01110  DIM A(9,9),I4(8),J4(8),C$(8),D$(2)
+    0x55a890197ad0 ---------A   01120  REM********		
+    0x55a89018f6d0 ---------A   01130  PRINT "GREETINGS FROM OTHELLO!"
+    0x55a89018f670 ---------A   01140  PRINT "DO YOU WANT INSTRUCTIONS (Y OR N)";
+    0x55a890197e60 ---------A T 01150  INPUT X$
+    0x55a8901980c0 ---------A   01160  IF X$ = "N" THEN 1380
+    0x55a890198340 ---------A   01170  IF X$ <> "Y" THEN 1150
+    0x55a8901983e0 ---------A   01180  PRINT
+    0x55a890198590 ---------A   01190  PRINT "OTHELLO IS PLAYED ON AN 8X8 CHECKER BOARD"
+    0x55a890198740 ---------A   01200  PRINT "ROWS ARE NUMBERED FROM 1 TO 8 AND COLUMNS FROM A TO H"
+    0x55a8901988f0 ---------A   01210  PRINT" THE INITIAL CONFIGURATION IS ALL BLANK EXCEPT FOR"
+    0x55a890198a50 ---------A   01220  PRINT "THE CENTER FOUR SQUARES, WHICH FORM THE PATTERN:"
+    0x55a890198b90 ---------A   01230  PRINT "               O X"
+    0x55a890198cf0 ---------A   01240  PRINT "               X O"
+    0x55a890198da0 ---------A   01250  PRINT
+    0x55a890198f60 ---------A   01260  PRINT "TRY TO PLACE YOUR PIECE SO THAT IT WILL 'OUTFLANK' MINE"
+    0x55a890199110 ---------A   01270  PRINT "THEREBY CREATING A HORIZONTAL, VERTICAL, OR DIAGONAL "
+    0x55a8901992c0 ---------A   01280  PRINT "RUN OF MY PIECES BOUNDED AT EACH END BY AT LEAST ONE "
+    0x55a890199450 ---------A   01290  PRINT "OF YOURS.  THIS WILL 'FLIP' MY PIECES, TURNING THEM INTO"
+    0x55a8901995e0 ---------A   01300  PRINT "YOURS."
+    0x55a890199790 ---------A   01310  PRINT"     NOTE: YOU MUST CAPTURE AT LEAST ONE OF MY PIECES"
+    0x55a890199940 ---------A   01320  PRINT "IN THIS WAY IF IT IS AT ALL POSSIBLE.  IF IT IS NOT"
+    0x55a890199cf0 ---------A   01330  PRINT "POSSIBLE, YOU FORFEIT YOUR TURN BY ENTERING"
+    0x55a890199e70 ---------A   01340  PRINT "     0,0   FOR YOUR ROW,COLUMN MOVE"
+    0x55a890199fd0 ---------A   01350  PRINT " GOOD LUCK!"
+    0x55a89019a050 ---------A   01360  PRINT
+    0x55a89019a0d0 ---------A   01370  REM********		
+    0x55a89019a2b0 ---------A T 01380  PRINT "SHOULD I WAIT BEFORE MAKING MY MOVES (Y OR N)";
+    0x55a89019a590 ---------A   01390  F2 = 0
+    0x55a89019a860 ---------A   01400  F9 = 1
+    0x55a89019a9c0 ---------A T 01410  INPUT X$
+    0x55a89019ac50 ---------A   01420  IF X$ = "N" THEN 1460
+    0x55a89019aed0 ---------A   01430  IF X$ <> "Y" THEN  1410
+    0x55a89019b120 ---------A   01440  F2 = 1
+    0x55a89019b2b0 ---------A   01450          PRINT "OK.  TYPING ANY CHARACTER WILL LET ME GO"
+    0x55a89019b450 ---------A T 01460  PRINT "SHOULD I PLAY MY BEST STRATEGY (Y OR N)";
+    0x55a89019b730 ---------A   01470  S2 = 0
+    0x55a89019b890 ---------A T 01480  INPUT X$
+    0x55a89019bb20 ---------A   01490  IF X$ = "N" THEN 1520
+    0x55a89019bda0 ---------A   01500  IF X$ <> "Y" THEN 1480
+    0x55a89019bfc0 ---------A   01510  S2 = 2
+    0x55a89019c290 ---------A T 01520  B = -1
+    0x55a89019c560 ---------A   01530  W = +1
+    0x55a89019c970 ---------A   01540  D$(B +1) ="X"
+    0x55a89019cd60 ---------A   01550  D$(0 +1) = "."
+    0x55a89019d170 ---------A   01560  D$(W + 1) ="O"
+    0x55a89019d500 ---------A   01570  FOR K = 1 TO 8
+    0x55a89019d740 ---------A   01580      READ I4(K)
+    0x55a89019d870 ---------A   01590  NEXT K
+    0x55a89019e010 ---------A   01600  DATA 0,-1,-1,-1,0,1,1,1
+    0x55a89019e2e0 ---------A   01610  FOR K=1 TO 8
+    0x55a89019e520 ---------A   01620      READ J4(K)
+    0x55a89019e650 ---------A   01630  NEXT K
+    0x55a89019edf0 ---------A   01640  DATA 1,1,0,-1,-1,-1,0,1
+    0x55a89019f4d0 ---------A   01650  FOR K = 1 TO 8
+    0x55a89019f710 ---------A   01660      READ C$(K)
+    0x55a89019f840 ---------A   01670  NEXT K
+    0x55a89019fff0 ---------A   01680  DATA A,B,C,D,E,F,G,H
+    0x55a8901a0070 ---------A   01690  REM********		SET UP A NEW GAME
+    0x55a8901a0420 ---------A T 01700  FOR I = 0 TO 9
+    0x55a8901a07c0 ---------A   01710      FOR J = 0 TO 9
+    0x55a8901a0ba0 ---------A   01720  	A(I,J)=0
+    0x55a8901a0cd0 ---------A   01730      NEXT J
+    0x55a8901a0e20 ---------A   01740  NEXT I
+    0x55a8901a11f0 ---------A   01750  A(4,4) = W
+    0x55a8901a15a0 ---------A   01760  A(5,5) = W
+    0x55a8901a1950 ---------A   01770  A(4,5) = B
+    0x55a8901a1d00 ---------A   01780  A(5,4) = B
+    0x55a8901a1fd0 ---------A   01790  C1 = 2
+    0x55a8901a22a0 ---------A   01800  H1 = 2
+    0x55a8901a2570 ---------A   01810  N1 = 4
+    0x55a8901a2850 ---------A   01820  Z =0
+    0x55a8901a28d0 ---------A   01830  REM********		HUMAN'S CHOICES
+    0x55a8901a2a90 ---------A   01840  PRINT "DO YOU WANT TO HAVE X OR O";
+    0x55a8901a2d90 ---------A   01850  C = W
+    0x55a8901a3080 ---------A   01860  H = B
+    0x55a8901a31e0 ---------A T 01870  INPUT X$
+    0x55a8901a3470 ---------A   01880  IF X$ = "X" THEN 1920
+    0x55a8901a36f0 ---------A   01890  IF X$ <> "O" THEN 1870
+    0x55a8901a3930 ---------A   01900  C = B
+    0x55a8901a3b80 ---------A   01910  H = W
+    0x55a8901a3d00 ---------A T 01920  PRINT "DO YOU WANT TO GO FIRST (Y OR N)";
+    0x55a8901a3e60 ---------A T 01930  INPUT X$
+    0x55a8901a4090 ---------A   01940  PRINT CHR$(26)
+    0x55a8901a4320 ---------A   01950  IF X$ = "N" THEN 2030
+    0x55a8901a45b0 ---------A   01960  IF X$ <> "Y" THEN 1930
+    0x55a8901a4640 ---------A   01970  REM********		PRINT INITIAL BOARD
+    0x55a8901a46d0 ---------A   01980  GOSUB 4320
+    0x55a8901a4750 ---------A   01990  GO TO 2760
+    0x55a8901a47d0 ---------A   02000  REM********		COMPUTER'S MOVE
+    0x55a8901a4a50 ---------A T 02010  IF F2 = 0 THEN 2030
+    0x55a8901a4bb0 ---------A   02020  INPUT X$
+    0x55a8901a4e90 ---------A T 02030  B1 = -1
+    0x55a8901a5300 ---------A   02040  I3 = J3 = 0
+    0x55a8901a55f0 ---------A   02050  T1 = C
+    0x55a8901a58f0 ---------A   02060  T2 = H
+    0x55a8901a5970 ---------A   02070  REM********		SCAN FOR BLANK SQUARE
+    0x55a8901a5c60 ---------A   02080  FOR I = 1 TO 8
+    0x55a8901a5f50 ---------A   02090      FOR J = 1 TO 8
+    0x55a8901a6380 ---------A   02100  	IF A(I,J) <> 0 THEN 2390
+    0x55a8901a6410 ---------A   02110  	REM********		FOUND A BLANK SQUARE
+    0x55a8901a64f0 ---------A   02120  	REM********		DOES IT HAVE AN OPPONENT AS A NEIGHBOUR
+    0x55a8901a6590 ---------A   02130  	GOSUB 3840
+    0x55a8901a68c0 ---------A   02140  	IF F1 = 0 THEN 2390
+    0x55a8901a6960 ---------A   02150  	REM********		FOUND OPPONENT AS NEIGHBOUR
+    0x55a8901a6a30 ---------A   02160  	REM********		HOW MANY OF HIS PIECES CAN WE FLIP?
+    0x55a8901a6ae0 ---------A   02170  	REM********		DON'T DO IT NOW
+    0x55a8901a6dd0 ---------A   02180  	U = -1
+    0x55a8901a6e60 ---------A   02190  	GOSUB 4040
+    0x55a8901a6ef0 ---------A   02200  	REM********		EXTRA POINTS FOR BOUNDARY POSITION
+    0x55a8901a7240 ---------A   02210  	IF S1 = 0 THEN 2390
+    0x55a8901a7840 ---------A   02220  	IF (I-1) * (I-8) <> 0 THEN 2240
+    0x55a8901a7bb0 ---------A   02230  	S1 = S1 + S2
+    0x55a8901a81a0 ---------A T 02240  	IF (J-1) * (J-8) <> 0 THEN 2270
+    0x55a8901a8530 ---------A   02250  	S1 = S1 +S2
+    0x55a8901a85c0 ---------A   02260  	REM********		IS THIS BETTER THAN THE BEST FOUND SO FAR
+    0x55a8901a8870 ---------A T 02270  	IF S1 < B1 THEN 2390
+    0x55a8901a8b10 ---------A   02280  	IF S1 > B1 THEN 2350
+    0x55a8901a93b0 ---------A   02290  	REM********		A TIE; RANDOM DECISION
+    0x55a8901a9490 ---------A   02300  	REM********		THE NEXT TWO EXECUTABLE STATEMENTS ARE FOR
+    0x55a8901a9550 ---------A   02310  	REM********		BASIC WITH RANDOM NUMBERS
+    0x55a8901a9930 ---------A   02320  	R = RND(1)
+    0x55a8901a9b80 ---------A   02330  	IF R > .5 THEN 2390
+    0x55a8901a9c00 ---------A   02340  	REM********		YES
+    0x55a8901a9e50 ---------A T 02350  	B1 = S1
+    0x55a8901aa080 ---------A   02360  	I3 = I
+    0x55a8901aa2c0 ---------A   02370  	J3 = J
+    0x55a8901aa340 ---------A   02380  	REM********		END OF SCAN LOOP
+    0x55a8901aa490 ---------A T 02390      NEXT J
+    0x55a8901aa5e0 ---------A   02400  NEXT I
+    0x55a8901aa690 ---------A   02410  REM********		COULD WE DO ANYTHING?
+    0x55a8901aa910 ---------A   02420  IF B1 > 0 THEN 2510
+    0x55a8901aa990 ---------A   02430  REM********		NO
+    0x55a8901aac80 ---------A   02440  LET L = 18
+    0x55a8901aad10 ---------A   02450  GOSUB 4490
+    0x55a8901aae70 ---------A   02460  PRINT "DAMN! HAVE TO FORFEIT MY MOVE!"
+    0x55a8901ab0d0 ---------A   02470  IF Z = 1 THEN 3370
+    0x55a8901ab2f0 ---------A   02480  Z = 1
+    0x55a8901ab370 ---------A   02490  GO TO 2760
+    0x55a8901ab3f0 ---------A   02500  REM********		MAKE THE MOVE
+    0x55a8901ab620 ---------A T 02510  Z = 0
+    0x55a8901ab830 ---------A   02520  LET L=15
+    0x55a8901ab8b0 ---------A   02530  GOSUB 4490
+    0x55a8901aba20 ---------A   02540  PRINT "I WILL MOVE TO ";
+    0x55a8901abba0 ---------A   02550  PRINT I3;
+    0x55a8901abd20 ---------A   02560  PRINT " , ";
+    0x55a8901abf60 ---------A   02570  PRINT C$(J3)
+    0x55a8901ac1a0 ---------A   02580  I= I3
+    0x55a8901ac3d0 ---------A   02590  J= J3
+    0x55a8901ac5e0 ---------A   02600  U= 1
+    0x55a8901ac650 ---------A   02610  GOSUB 4040
+    0x55a8901acaa0 ---------A   02620  C1 = C1 + S1 + 1
+    0x55a8901acdf0 ---------A   02630  H1 = H1 - S1
+    0x55a8901ad120 ---------A   02640  N1 = N1 + 1
+    0x55a8901ad330 ---------A   02650  LET L=16
+    0x55a8901ad3b0 ---------A   02660  GOSUB 4490
+    0x55a8901ad520 ---------A   02670  PRINT " THAT GIVES ME : ";
+    0x55a8901ad6b0 ---------A   02680  PRINT S1;
+    0x55a8901ad820 ---------A   02690  PRINT " OF YOUR PIECES"
+    0x55a8901ad8b0 ---------A   02700  REM********		PRINT OUT BOARD
+    0x55a8901ad950 ---------A   02710  GOSUB 4320
+    0x55a8901ad9d0 ---------A   02720  REM********		TEST FOR END OF GAME
+    0x55a8901adc60 ---------A   02730  IF H1 = 0 THEN 3370
+    0x55a8901aded0 ---------A   02740  IF N1 = 64 THEN 3370
+    0x55a8901adf60 ---------A   02750  REM********		HUMANS MOVE
+    0x55a8901ae1b0 ---------A T 02760  T1 = H
+    0x55a8901ae3e0 ---------A   02770  T2 = C
+    0x55a8901ae5f0 ---------A   02780  LET L = 12
+    0x55a8901ae670 ---------A   02790  GOSUB 4490
+    0x55a8901ae7e0 ---------A T 02800  PRINT " YOUR MOVE";
+    0x55a8901aea20 ---------A T 02810  INPUT I, X$
+    0x55a8901aec80 ---------A   02820  IF I < 0 THEN 2810
+    0x55a8901aeef0 ---------A   02830  IF I > 8 THEN 2810
+    0x55a8901af150 ---------A   02840  IF I <> 0 THEN 2930
+    0x55a8901af370 ---------A   02850  LET L = 18
+    0x55a8901af400 ---------A   02860  GOSUB 4490
+    0x55a8901af560 ---------A   02870  PRINT "ARE YOU FORFEITING YOUR TURN Y OR N"
+    0x55a8901af6d0 ---------A   02880  INPUT X$
+    0x55a8901af950 ---------A   02890  IF X$ <> "Y" THEN 2800
+    0x55a8901afbb0 ---------A   02900  IF Z = 1 THEN 3370
+    0x55a8901afdd0 ---------A   02910  Z = 1
+    0x55a8901afe40 ---------A   02920  GO TO 2010
+    0x55a8901b0120 ---------A T 02930  FOR J = 1 TO 8
+    0x55a8901b0480 ---------A   02940      IF C$(J) =X$ THEN 2980
+    0x55a8901b05c0 ---------A   02950  NEXT J
+    0x55a8901b0660 ---------A   02960  GO TO 2810
+    0x55a8901b06e0 ---------A   02970  REM********		CHECK FOR BLANK
+    0x55a8901b0b20 ---------A T 02980  IF A(I,J) = 0 THEN 3040
+    0x55a8901b0d40 ---------A   02990  LET L = 18
+    0x55a8901b0dd0 ---------A   03000  GOSUB 4490
+    0x55a8901b0f40 ---------A   03010  PRINT "SORRY, THAT SQUARE IS OCCUPIED, TRY AGAIN"
+    0x55a8901b0fe0 ---------A   03020  GO TO 2810
+    0x55a8901b1060 ---------A   03030  REM********		CHECK FOR LEGAL NEIGHBOUR
+    0x55a8901b1100 ---------A T 03040  GOSUB 3840
+    0x55a8901b1350 ---------A   03050  IF F1 = 1 THEN 3110
+    0x55a8901b1570 ---------A   03060  LET L = 18
+    0x55a8901b1610 ---------A   03070  GOSUB 4490
+    0x55a8901b17b0 ---------A   03080  PRINT "SORRY, YOU ARE NOT NEXT TO ONE OF MY PIECES. TRY AGAIN.";
+    0x55a8901b1840 ---------A   03090  GO TO 2810
+    0x55a8901b18c0 ---------A   03100  REM********		CHECK IF LEGAL RUN
+    0x55a8901b1af0 ---------A T 03110  U = -1
+    0x55a8901b1b70 ---------A   03120  GOSUB 4040
+    0x55a8901b1dc0 ---------A   03130  IF S1 > 0 THEN 3190
+    0x55a8901b1fe0 ---------A   03140  LET L = 18
+    0x55a8901b2070 ---------A   03150  GOSUB 4490
+    0x55a8901b21e0 ---------A   03160  PRINT "SORRY, THAT DOESN'T FLANK A ROW, TRY AGAIN"
+    0x55a8901b2280 ---------A   03170  GO TO 2810
+    0x55a8901b2310 ---------A   03180  REM********		EVERYTHING LEGAL; MAKE HUMANS MOVE
+    0x55a8901b2540 ---------A T 03190  Z = 0
+    0x55a8901b2750 ---------A   03200  LET L = 13
+    0x55a8901b27d0 ---------A   03210  GOSUB 4490
+    0x55a8901b2940 ---------A   03220  PRINT "THAT GIVES YOU";
+    0x55a8901b2ad0 ---------A   03230  PRINT S1;
+    0x55a8901b2c30 ---------A   03240  PRINT " OF MY PIECES"
+    0x55a8901b2e50 ---------A   03250  U = 1
+    0x55a8901b2ec0 ---------A   03260  GOSUB 4040
+    0x55a8901b3310 ---------A   03270  H1 = H1 + S1 + 1
+    0x55a8901b3660 ---------A   03280  C1 = C1 -S1
+    0x55a8901b39a0 ---------A   03290  N1 = N1 + 1
+    0x55a8901b3a20 ---------A   03300  REM********		PRINT OUT BOARD
+    0x55a8901b3ac0 ---------A   03310  GOSUB 4320
+    0x55a8901b3b40 ---------A   03320  REM********		TEST FOR END OF GAME
+    0x55a8901b3dd0 ---------A   03330  IF C1 = 0 THEN 3370
+    0x55a8901b4030 ---------A   03340  IF N1 = 64 THEN 3370
+    0x55a8901b40c0 ---------A   03350  GO TO 2010
+    0x55a8901b4140 ---------A   03360  REM********		END OF GAME ; WRAPUP
+    0x55a8901b4370 ---------A T 03370  LET L = 18
+    0x55a8901b4400 ---------A   03380  GOSUB 4490
+    0x55a8901b4560 ---------A   03390  PRINT "FOR RESULTS ON GAME TYPE RETURN!!"
+    0x55a8901b46d0 ---------A   03400  INPUT X$
+    0x55a8901b4ab0 ---------A   03410  PRINT CHR$(30),CHR$(26)
+    0x55a8901b4c30 ---------A   03420  PRINT "YOU HAVE ";
+    0x55a8901b4dc0 ---------A   03430  PRINT H1;
+    0x55a8901b4f40 ---------A   03440  PRINT " PIECES, AND I HAVE ";
+    0x55a8901b50d0 ---------A   03450  PRINT C1;
+    0x55a8901b5240 ---------A   03460  PRINT " PIECES--- "
+    0x55a8901b54d0 ---------A   03470  IF H1 = C1 THEN 3510
+    0x55a8901b5760 ---------A   03480  IF H1 > C1 THEN 3530
+    0x55a8901b58d0 ---------A   03490  PRINT "SORRY, I WON THAT ONE."
+    0x55a8901b5960 ---------A   03500  GO TO 3540
+    0x55a8901b5ab0 ---------A T 03510  PRINT " A TIE!!!!!"
+    0x55a8901b5b30 ---------A   03520  GO TO 3720
+    0x55a8901b5c80 ---------A T 03530  PRINT "YOU WON!!!"
+    0x55a8901b5ff0 ---------A T 03540  C1 = C1 - H1
+    0x55a8901b6240 ---------A   03550  IF C1 > 0 THEN 3570
+    0x55a8901b6480 ---------A   03560  C1 = -C1
+    0x55a8901a8fc0 ---------A T 03570  C1 = (64 * C1)/ N1
+    0x55a8901a9140 ---------A   03580  PRINT "THAT WAS A ";
+    0x55a8901b7510 ---------A   03590  IF C1 < 11 THEN 3710
+    0x55a8901b7780 ---------A   03600  IF C1 < 25 THEN 3690
+    0x55a8901b79f0 ---------A   03610  IF C1 < 39 THEN 3670
+    0x55a8901b7c60 ---------A   03620  IF C1 < 53 THEN 3650
+    0x55a8901b7dc0 ---------A   03630  PRINT " A PERFECT GAME!"
+    0x55a8901b7e40 ---------A   03640  GO TO 3720
+    0x55a8901b7f90 ---------A T 03650  PRINT "WALKAWAY!"
+    0x55a8901b8010 ---------A   03660  GO TO 3720
+    0x55a8901b8160 ---------A T 03670  PRINT "FIGHT!"
+    0x55a8901b81e0 ---------A   03680  GO TO 3720
+    0x55a8901b8330 ---------A T 03690  PRINT "HOT GAME!"
+    0x55a8901b83b0 ---------A   03700  GO TO 3720
+    0x55a8901b8500 ---------A T 03710  PRINT "SQUEAKER!"
+    0x55a8901b8590 ---------A T 03720  PRINT
+    0x55a8901b8720 ---------A   03730  PRINT"DO YOU WANT TO PLAY AGAIN";
+    0x55a8901b8890 ---------A T 03740  INPUT X$
+    0x55a8901b8b20 ---------A   03750  IF X$ = "Y" THEN 1700
+    0x55a8901b8db0 ---------A   03760  IF X$ <> "N" THEN 3740
+    0x55a8901b8f10 ---------A   03770  PRINT "THANKS FOR PLAYING."
+    0x55a8901b8f70 ---------A   03780  STOP
+    0x55a8901b8ff0 ---------B   03790  REM********		
+    0x55a8901b90c0 ---------B   03800  REM********		SUBROUTINE: TEST FOR PROPER NEIGHBOUR
+    0x55a8901b9160 ---------B   03810  REM********		ASSUMES:
+    0x55a8901b9220 ---------B   03820  REM********		I,J LOCATES A BLANK SQUARE
+    0x55a8901b9300 ---------B   03830  REM********		YOU HOPE TO SEE AN ADJACENT  T2 (= -T1)
+    0x55a8901b96c0 ---------B G 03840  FOR I1 =  -1 TO 1
+    0x55a8901b9a70 ---------B   03850      FOR J1 = -1 TO 1
+    0x55a8901ba0f0 ---------B   03860  	IF  A(I+I1,J+J1) = T2 THEN 3930
+    0x55a8901ba230 ---------B   03870      NEXT J1
+    0x55a8901ba380 ---------B   03880  NEXT I1
+    0x55a8901ba430 ---------B   03890  REM********		NO T2 FOUND
+    0x55a8901ba660 ---------B   03900  F1 = 0
+    0x55a8901ba6b0 ---------B   03910  RETURN
+    0x55a8901ba740 ---------A   03920  REM********		SUCCESS
+    0x55a8901ba970 ---------B T 03930  F1 = 1
+    0x55a8901ba9c0 ---------B   03940  RETURN
+    0x55a8901baa80 ---------C   03950  REM********		SUBROUTINE SCORE AND UPDATE
+    0x55a8901bab20 ---------C   03960  REM********		ASSUMES;
+    0x55a8901bac00 ---------C   03970  REM********		(I,J) IS A TENTATIVE PLACE FOR A PIECE T1.
+    0x55a8901bace0 ---------C   03980  REM********		WANT RUNS OF T2 = -T1, TERMINATED BY A T1.
+    0x55a8901badc0 ---------C   03990  REM********		IF U IS TRUE (1), MARK THOSE RUNS AS T1'S.
+    0x55a8901baea0 ---------C   04000  REM********		RETURN SUM OF ALL RUNS (T2'S ONLY) IN S1.
+    0x55a8901baf90 ---------C   04010  REM********		MAIN PROGRAM CONTAINS THE FOLLOWING ARRAYS:
+    0x55a8901bb060 ---------C   04020  REM********		I4:  0 -1 -1 -1  0  1  1  1
+    0x55a8901bb130 ---------C   04030  REM********		J4:  1  1  0 -1 -1 -1  0  1
+    0x55a8901bb360 ---------C G 04040  S1 = 0
+    0x55a8901bb630 ---------C   04050  FOR K = 1 TO 8
+    0x55a8901bba10 ---------C   04060      I5 = I4(K)
+    0x55a8901bbde0 ---------C   04070      J5 = J4(K)
+    0x55a8901bc1f0 ---------C   04080      I6 = I + I5
+    0x55a8901bc600 ---------C   04090      J6 = J + J5
+    0x55a8901bc8e0 ---------C   04100      S3 = 0
+    0x55a8901bcd20 ---------C   04110      IF A(I6,J6) <> T2 THEN 4290
+    0x55a8901bcdb0 ---------C   04120      REM			LOOP THROUGH THE RUN
+    0x55a8901bd100 ---------C T 04130      S3 = S3 + 1
+    0x55a8901bd450 ---------C   04140      I6 = I6 + I5
+    0x55a8901bd7b0 ---------C   04150      J6 = J6 + J5
+    0x55a8901bdbf0 ---------C   04160      IF A (I6,J6) = T1 THEN 4190
+    0x55a8901be010 ---------C   04170      IF A(I6,J6) = 0 THEN 4290
+    0x55a8901be090 ---------C   04180      GO TO 4130
+    0x55a8901be3f0 ---------C T 04190      S1 = S1 + S3
+    0x55a8901be650 ---------C   04200      IF U <> 1 THEN 4290
+    0x55a8901be6d0 ---------C   04210      REM			UPDATE BOARD
+    0x55a8901be920 ---------C   04220      I6 = I
+    0x55a8901beb60 ---------C   04230      J6 = J
+    0x55a8901bef10 ---------C   04240      FOR K1 = 0 TO S3
+    0x55a8901bf310 ---------C   04250  	A(I6,J6) = T1
+    0x55a8901bf660 ---------C   04260  	I6 = I6 + I5
+    0x55a8901bf9b0 ---------C   04270  	J6 = J6 + J5
+    0x55a8901bfae0 ---------C   04280      NEXT K1
+    0x55a8901bfc30 ---------C T 04290  NEXT K
+    0x55a8901bfca0 ---------C   04300  RETURN
+    0x55a8901bfd50 ---------D   04310  REM********		SUBROUTINE TO PRINT BOARD
+    0x55a8901bff80 ---------D G 04320  PRINT CHR$(30)
+    0x55a8901c01b0 ---------D   04330  LET L = 18
+    0x55a8901c03e0 ---------D   04340  IF F9 = 1 GO TO 4370
+    0x55a8901c0480 ---------D   04350  GOSUB 4570
+    0x55a8901c0690 ---------D   04360  LET F9 = 1
+    0x55a8901c08b0 ---------D T 04370  PRINT CHR$(30)
+    0x55a8901c0a10 ---------D   04380  PRINT "    A B C D E F G H"
+    0x55a8901c0cf0 ---------D   04390  FOR I = 1 TO 8
+    0x55a8901c0e70 ---------D   04400      PRINT I;
+    0x55a8901c1150 ---------D   04410      FOR J = 1 TO 8
+    0x55a8901c12e0 ---------D   04420  	PRINT " ";
+    0x55a8901c1800 ---------D   04430  	PRINT D$(A(I,J)+1);
+    0x55a8901c1940 ---------D   04440      NEXT J
+    0x55a8901c19d0 ---------D   04450      PRINT
+    0x55a8901c1b10 ---------D   04460  NEXT I
+    0x55a8901c1ba0 ---------D   04470  PRINT
+    0x55a8901c1c00 ---------D   04480  RETURN
+    0x55a8901c1ca0 ---------E G 04490  REM********		***	SPACE		***
+    0x55a8901c1ed0 ---------E   04500  PRINT CHR$(30)
+    0x55a8901c2290 ---------E   04510  FOR I9 = 1 TO L
+    0x55a8901c2310 ---------E   04520      PRINT
+    0x55a8901c2450 ---------E   04530  NEXT I9
+    0x55a8901c26b0 ---------E   04540  IF L <> 18 GO TO 4560
+    0x55a8901c28f0 ---------E   04550  F9 = 0
+    0x55a8901c2940 ---------E T 04560  RETURN
+    0x55a8901c29e0 ---------F G 04570  REM********		***	BLANK OUT	***
+    0x55a8901c2a70 ---------F   04580  GOSUB 4490
+    0x55a8901c2d00 ---------F   04590  PRINT TAB(60);" "
+    0x55a8901c2fa0 ---------F   04600  PRINT TAB(60);" "
+    0x55a8901c3000 ---------F   04610  RETURN
+    0x55a8901c3060 ---------A   04620  END
  */
 
 /*
@@ -437,12 +437,12 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x623817c7f550 (01000)   0x623817c7f550 (01000)   0x623817cc1510 (04620)   0x623817cc1510 (04620)   
-   B) 0x623817cb7750 (03790)   0x623817cb7dd0 (03840)   0x623817cb8d90 (03910)   0x623817cb9090 (03940)   
-   C) 0x623817cb9150 (03950)   0x623817cb99a0 (04040)   0x623817cbe290 (04300)   0x623817cbe290 (04300)   
-   D) 0x623817cbe340 (04310)   0x623817cbe560 (04320)   0x623817cc0130 (04480)   0x623817cc0130 (04480)   
-   E) 0x623817cc01d0 (04490)   0x623817cc01d0 (04490)   0x623817cc0e30 (04560)   0x623817cc0e30 (04560)   
-   F) 0x623817cc0ed0 (04570)   0x623817cc0ed0 (04570)   0x623817cc14b0 (04610)   0x623817cc14b0 (04610)   
+   A) 0x55a890190b80 (01000)   0x55a890190b80 (01000)   0x55a8901c3060 (04620)   0x55a8901c3060 (04620)   
+   B) 0x55a8901b8ff0 (03790)   0x55a8901b96c0 (03840)   0x55a8901ba6b0 (03910)   0x55a8901ba9c0 (03940)   
+   C) 0x55a8901baa80 (03950)   0x55a8901bb360 (04040)   0x55a8901bfca0 (04300)   0x55a8901bfca0 (04300)   
+   D) 0x55a8901bfd50 (04310)   0x55a8901bff80 (04320)   0x55a8901c1c00 (04480)   0x55a8901c1c00 (04480)   
+   E) 0x55a8901c1ca0 (04490)   0x55a8901c1ca0 (04490)   0x55a8901c2940 (04560)   0x55a8901c2940 (04560)   
+   F) 0x55a8901c29e0 (04570)   0x55a8901c29e0 (04570)   0x55a8901c3000 (04610)   0x55a8901c3000 (04610)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
     NOTE: Routine C overlaps, or is tangled with, routine A!
@@ -450,6 +450,756 @@
     NOTE: Routine E overlaps, or is tangled with, routine A!
     NOTE: Routine F overlaps, or is tangled with, routine A!
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/othelo.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x55a890190b80 ---------A   01000  REM********		OTHELLO          BYTE VOL. 2, NUMBER 10 (OCT. 1977)
+    0x55a890191e70 ---------A   01010  REM********		PLAYS THE GAME OTHELLO WITH TWO STRATEGIES
+    0x55a890191ff0 ---------A   01020  REM********		1. TAKE THE MAX. NUMBER OF PIECES
+    0x55a8901920b0 ---------A   01030  REM********		2. ADD A BONUS FOR OUTSIDE POSITION
+    0x55a8901802b0 ---------A   01040  REM********		BOARD IS THE ARRAY A, BOUNDED BY 0'S (BLANKS)
+    0x55a89018f9e0 ---------A   01050  REM********		A = 0 FOR EMPTY SQUARE
+    0x55a89018f7f0 ---------A   01060  REM********		A = B FOR BLACK SQUARE
+    0x55a890191aa0 ---------A   01070  REM********		A = W FOR WHITE SQUARE
+    0x55a890190090 ---------A   01080  REM********		I AND J ARE ALWAYS USED FOR ROW/COLUMN INDICES
+    0x55a89018fe90 ---------A   01090  REM********		I1 AND J4 STORE INCREMENTS TO THE 8 NEIGHBOURS
+    0x55a8901916a0 ---------A   01100  REM********		C$ AND D$ STORE CHARACTERS A-H,X,...,O FOR OUTPUT
+    0x55a890197a80 ---------A   01110  DIM A(9,9),I4(8),J4(8),C$(8),D$(2)
+    0x55a890197ad0 ---------A   01120  REM********		
+    0x55a89018f6d0 ---------A   01130  PRINT "GREETINGS FROM OTHELLO!"
+    0x55a89018f670 ---------A   01140  PRINT "DO YOU WANT INSTRUCTIONS (Y OR N)";
+    0x55a890197e60 ---------A T 01150  INPUT X$
+    0x55a8901980c0 ---------A   01160  IF X$ = "N" THEN 1380
+    0x55a890198340 ---------A   01170  IF X$ <> "Y" THEN 1150
+    0x55a8901983e0 ---------A   01180  PRINT
+    0x55a890198590 ---------A   01190  PRINT "OTHELLO IS PLAYED ON AN 8X8 CHECKER BOARD"
+    0x55a890198740 ---------A   01200  PRINT "ROWS ARE NUMBERED FROM 1 TO 8 AND COLUMNS FROM A TO H"
+    0x55a8901988f0 ---------A   01210  PRINT" THE INITIAL CONFIGURATION IS ALL BLANK EXCEPT FOR"
+    0x55a890198a50 ---------A   01220  PRINT "THE CENTER FOUR SQUARES, WHICH FORM THE PATTERN:"
+    0x55a890198b90 ---------A   01230  PRINT "               O X"
+    0x55a890198cf0 ---------A   01240  PRINT "               X O"
+    0x55a890198da0 ---------A   01250  PRINT
+    0x55a890198f60 ---------A   01260  PRINT "TRY TO PLACE YOUR PIECE SO THAT IT WILL 'OUTFLANK' MINE"
+    0x55a890199110 ---------A   01270  PRINT "THEREBY CREATING A HORIZONTAL, VERTICAL, OR DIAGONAL "
+    0x55a8901992c0 ---------A   01280  PRINT "RUN OF MY PIECES BOUNDED AT EACH END BY AT LEAST ONE "
+    0x55a890199450 ---------A   01290  PRINT "OF YOURS.  THIS WILL 'FLIP' MY PIECES, TURNING THEM INTO"
+    0x55a8901995e0 ---------A   01300  PRINT "YOURS."
+    0x55a890199790 ---------A   01310  PRINT"     NOTE: YOU MUST CAPTURE AT LEAST ONE OF MY PIECES"
+    0x55a890199940 ---------A   01320  PRINT "IN THIS WAY IF IT IS AT ALL POSSIBLE.  IF IT IS NOT"
+    0x55a890199cf0 ---------A   01330  PRINT "POSSIBLE, YOU FORFEIT YOUR TURN BY ENTERING"
+    0x55a890199e70 ---------A   01340  PRINT "     0,0   FOR YOUR ROW,COLUMN MOVE"
+    0x55a890199fd0 ---------A   01350  PRINT " GOOD LUCK!"
+    0x55a89019a050 ---------A   01360  PRINT
+    0x55a89019a0d0 ---------A   01370  REM********		
+    0x55a89019a2b0 ---------A T 01380  PRINT "SHOULD I WAIT BEFORE MAKING MY MOVES (Y OR N)";
+    0x55a89019a590 ---------A   01390  F2 = 0
+    0x55a89019a860 ---------A   01400  F9 = 1
+    0x55a89019a9c0 ---------A T 01410  INPUT X$
+    0x55a89019ac50 ---------A   01420  IF X$ = "N" THEN 1460
+    0x55a89019aed0 ---------A   01430  IF X$ <> "Y" THEN  1410
+    0x55a89019b120 ---------A   01440  F2 = 1
+    0x55a89019b2b0 ---------A   01450  PRINT "OK.  TYPING ANY CHARACTER WILL LET ME GO"
+    0x55a89019b450 ---------A T 01460  PRINT "SHOULD I PLAY MY BEST STRATEGY (Y OR N)";
+    0x55a89019b730 ---------A   01470  S2 = 0
+    0x55a89019b890 ---------A T 01480  INPUT X$
+    0x55a89019bb20 ---------A   01490  IF X$ = "N" THEN 1520
+    0x55a89019bda0 ---------A   01500  IF X$ <> "Y" THEN 1480
+    0x55a89019bfc0 ---------A   01510  S2 = 2
+    0x55a89019c290 ---------A T 01520  B = -1
+    0x55a89019c560 ---------A   01530  W = +1
+    0x55a89019c970 ---------A   01540  D$(B +1) ="X"
+    0x55a89019cd60 ---------A   01550  D$(0 +1) = "."
+    0x55a89019d170 ---------A   01560  D$(W + 1) ="O"
+    0x55a89019d500 ---------A   01570  FOR K = 1 TO 8
+    0x55a89019d740 ---------A   01580  READ I4(K)
+    0x55a89019d870 ---------A   01590  NEXT K
+    0x55a89019e010 ---------A   01600  DATA 0,-1,-1,-1,0,1,1,1
+    0x55a89019e2e0 ---------A   01610  FOR K=1 TO 8
+    0x55a89019e520 ---------A   01620  READ J4(K)
+    0x55a89019e650 ---------A   01630  NEXT K
+    0x55a89019edf0 ---------A   01640  DATA 1,1,0,-1,-1,-1,0,1
+    0x55a89019f4d0 ---------A   01650  FOR K = 1 TO 8
+    0x55a89019f710 ---------A   01660  READ C$(K)
+    0x55a89019f840 ---------A   01670  NEXT K
+    0x55a89019fff0 ---------A   01680  DATA A,B,C,D,E,F,G,H
+    0x55a8901a0070 ---------A   01690  REM********		SET UP A NEW GAME
+    0x55a8901a0420 ---------A T 01700  FOR I = 0 TO 9
+    0x55a8901a07c0 ---------A   01710  FOR J = 0 TO 9
+    0x55a8901a0ba0 ---------A   01720  A(I,J)=0
+    0x55a8901a0cd0 ---------A   01730  NEXT J
+    0x55a8901a0e20 ---------A   01740  NEXT I
+    0x55a8901a11f0 ---------A   01750  A(4,4) = W
+    0x55a8901a15a0 ---------A   01760  A(5,5) = W
+    0x55a8901a1950 ---------A   01770  A(4,5) = B
+    0x55a8901a1d00 ---------A   01780  A(5,4) = B
+    0x55a8901a1fd0 ---------A   01790  C1 = 2
+    0x55a8901a22a0 ---------A   01800  H1 = 2
+    0x55a8901a2570 ---------A   01810  N1 = 4
+    0x55a8901a2850 ---------A   01820  Z =0
+    0x55a8901a28d0 ---------A   01830  REM********		HUMAN'S CHOICES
+    0x55a8901a2a90 ---------A   01840  PRINT "DO YOU WANT TO HAVE X OR O";
+    0x55a8901a2d90 ---------A   01850  C = W
+    0x55a8901a3080 ---------A   01860  H = B
+    0x55a8901a31e0 ---------A T 01870  INPUT X$
+    0x55a8901a3470 ---------A   01880  IF X$ = "X" THEN 1920
+    0x55a8901a36f0 ---------A   01890  IF X$ <> "O" THEN 1870
+    0x55a8901a3930 ---------A   01900  C = B
+    0x55a8901a3b80 ---------A   01910  H = W
+    0x55a8901a3d00 ---------A T 01920  PRINT "DO YOU WANT TO GO FIRST (Y OR N)";
+    0x55a8901a3e60 ---------A T 01930  INPUT X$
+    0x55a8901a4090 ---------A   01940  PRINT CHR$(26)
+    0x55a8901a4320 ---------A   01950  IF X$ = "N" THEN 2030
+    0x55a8901a45b0 ---------A   01960  IF X$ <> "Y" THEN 1930
+    0x55a8901a4640 ---------A   01970  REM********		PRINT INITIAL BOARD
+    0x55a8901a46d0 ---------A   01980  GOSUB 4320
+    0x55a8901a4750 ---------A   01990  GO TO 2760
+    0x55a8901a47d0 ---------A   02000  REM********		COMPUTER'S MOVE
+    0x55a8901a4a50 ---------A T 02010  IF F2 = 0 THEN 2030
+    0x55a8901a4bb0 ---------A   02020  INPUT X$
+    0x55a8901a4e90 ---------A T 02030  B1 = -1
+    0x55a8901a5300 ---------A   02040  I3 = J3 = 0
+    0x55a8901a55f0 ---------A   02050  T1 = C
+    0x55a8901a58f0 ---------A   02060  T2 = H
+    0x55a8901a5970 ---------A   02070  REM********		SCAN FOR BLANK SQUARE
+    0x55a8901a5c60 ---------A   02080  FOR I = 1 TO 8
+    0x55a8901a5f50 ---------A   02090  FOR J = 1 TO 8
+    0x55a8901a6380 ---------A   02100  IF A(I,J) <> 0 THEN 2390
+    0x55a8901a6410 ---------A   02110  REM********		FOUND A BLANK SQUARE
+    0x55a8901a64f0 ---------A   02120  REM********		DOES IT HAVE AN OPPONENT AS A NEIGHBOUR
+    0x55a8901a6590 ---------A   02130  GOSUB 3840
+    0x55a8901a68c0 ---------A   02140  IF F1 = 0 THEN 2390
+    0x55a8901a6960 ---------A   02150  REM********		FOUND OPPONENT AS NEIGHBOUR
+    0x55a8901a6a30 ---------A   02160  REM********		HOW MANY OF HIS PIECES CAN WE FLIP?
+    0x55a8901a6ae0 ---------A   02170  REM********		DON'T DO IT NOW
+    0x55a8901a6dd0 ---------A   02180  U = -1
+    0x55a8901a6e60 ---------A   02190  GOSUB 4040
+    0x55a8901a6ef0 ---------A   02200  REM********		EXTRA POINTS FOR BOUNDARY POSITION
+    0x55a8901a7240 ---------A   02210  IF S1 = 0 THEN 2390
+    0x55a8901a7840 ---------A   02220  IF (I-1) * (I-8) <> 0 THEN 2240
+    0x55a8901a7bb0 ---------A   02230  S1 = S1 + S2
+    0x55a8901a81a0 ---------A T 02240  IF (J-1) * (J-8) <> 0 THEN 2270
+    0x55a8901a8530 ---------A   02250  S1 = S1 +S2
+    0x55a8901a85c0 ---------A   02260  REM********		IS THIS BETTER THAN THE BEST FOUND SO FAR
+    0x55a8901a8870 ---------A T 02270  IF S1 < B1 THEN 2390
+    0x55a8901a8b10 ---------A   02280  IF S1 > B1 THEN 2350
+    0x55a8901a93b0 ---------A   02290  REM********		A TIE; RANDOM DECISION
+    0x55a8901a9490 ---------A   02300  REM********		THE NEXT TWO EXECUTABLE STATEMENTS ARE FOR
+    0x55a8901a9550 ---------A   02310  REM********		BASIC WITH RANDOM NUMBERS
+    0x55a8901a9930 ---------A   02320  R = RND(1)
+    0x55a8901a9b80 ---------A   02330  IF R > .5 THEN 2390
+    0x55a8901a9c00 ---------A   02340  REM********		YES
+    0x55a8901a9e50 ---------A T 02350  B1 = S1
+    0x55a8901aa080 ---------A   02360  I3 = I
+    0x55a8901aa2c0 ---------A   02370  J3 = J
+    0x55a8901aa340 ---------A   02380  REM********		END OF SCAN LOOP
+    0x55a8901aa490 ---------A T 02390  NEXT J
+    0x55a8901aa5e0 ---------A   02400  NEXT I
+    0x55a8901aa690 ---------A   02410  REM********		COULD WE DO ANYTHING?
+    0x55a8901aa910 ---------A   02420  IF B1 > 0 THEN 2510
+    0x55a8901aa990 ---------A   02430  REM********		NO
+    0x55a8901aac80 ---------A   02440  LET L = 18
+    0x55a8901aad10 ---------A   02450  GOSUB 4490
+    0x55a8901aae70 ---------A   02460  PRINT "DAMN! HAVE TO FORFEIT MY MOVE!"
+    0x55a8901ab0d0 ---------A   02470  IF Z = 1 THEN 3370
+    0x55a8901ab2f0 ---------A   02480  Z = 1
+    0x55a8901ab370 ---------A   02490  GO TO 2760
+    0x55a8901ab3f0 ---------A   02500  REM********		MAKE THE MOVE
+    0x55a8901ab620 ---------A T 02510  Z = 0
+    0x55a8901ab830 ---------A   02520  LET L=15
+    0x55a8901ab8b0 ---------A   02530  GOSUB 4490
+    0x55a8901aba20 ---------A   02540  PRINT "I WILL MOVE TO ";
+    0x55a8901abba0 ---------A   02550  PRINT I3;
+    0x55a8901abd20 ---------A   02560  PRINT " , ";
+    0x55a8901abf60 ---------A   02570  PRINT C$(J3)
+    0x55a8901ac1a0 ---------A   02580  I= I3
+    0x55a8901ac3d0 ---------A   02590  J= J3
+    0x55a8901ac5e0 ---------A   02600  U= 1
+    0x55a8901ac650 ---------A   02610  GOSUB 4040
+    0x55a8901acaa0 ---------A   02620  C1 = C1 + S1 + 1
+    0x55a8901acdf0 ---------A   02630  H1 = H1 - S1
+    0x55a8901ad120 ---------A   02640  N1 = N1 + 1
+    0x55a8901ad330 ---------A   02650  LET L=16
+    0x55a8901ad3b0 ---------A   02660  GOSUB 4490
+    0x55a8901ad520 ---------A   02670  PRINT " THAT GIVES ME : ";
+    0x55a8901ad6b0 ---------A   02680  PRINT S1;
+    0x55a8901ad820 ---------A   02690  PRINT " OF YOUR PIECES"
+    0x55a8901ad8b0 ---------A   02700  REM********		PRINT OUT BOARD
+    0x55a8901ad950 ---------A   02710  GOSUB 4320
+    0x55a8901ad9d0 ---------A   02720  REM********		TEST FOR END OF GAME
+    0x55a8901adc60 ---------A   02730  IF H1 = 0 THEN 3370
+    0x55a8901aded0 ---------A   02740  IF N1 = 64 THEN 3370
+    0x55a8901adf60 ---------A   02750  REM********		HUMANS MOVE
+    0x55a8901ae1b0 ---------A T 02760  T1 = H
+    0x55a8901ae3e0 ---------A   02770  T2 = C
+    0x55a8901ae5f0 ---------A   02780  LET L = 12
+    0x55a8901ae670 ---------A   02790  GOSUB 4490
+    0x55a8901ae7e0 ---------A T 02800  PRINT " YOUR MOVE";
+    0x55a8901aea20 ---------A T 02810  INPUT I, X$
+    0x55a8901aec80 ---------A   02820  IF I < 0 THEN 2810
+    0x55a8901aeef0 ---------A   02830  IF I > 8 THEN 2810
+    0x55a8901af150 ---------A   02840  IF I <> 0 THEN 2930
+    0x55a8901af370 ---------A   02850  LET L = 18
+    0x55a8901af400 ---------A   02860  GOSUB 4490
+    0x55a8901af560 ---------A   02870  PRINT "ARE YOU FORFEITING YOUR TURN Y OR N"
+    0x55a8901af6d0 ---------A   02880  INPUT X$
+    0x55a8901af950 ---------A   02890  IF X$ <> "Y" THEN 2800
+    0x55a8901afbb0 ---------A   02900  IF Z = 1 THEN 3370
+    0x55a8901afdd0 ---------A   02910  Z = 1
+    0x55a8901afe40 ---------A   02920  GO TO 2010
+    0x55a8901b0120 ---------A T 02930  FOR J = 1 TO 8
+    0x55a8901b0480 ---------A   02940  IF C$(J) =X$ THEN 2980
+    0x55a8901b05c0 ---------A   02950  NEXT J
+    0x55a8901b0660 ---------A   02960  GO TO 2810
+    0x55a8901b06e0 ---------A   02970  REM********		CHECK FOR BLANK
+    0x55a8901b0b20 ---------A T 02980  IF A(I,J) = 0 THEN 3040
+    0x55a8901b0d40 ---------A   02990  LET L = 18
+    0x55a8901b0dd0 ---------A   03000  GOSUB 4490
+    0x55a8901b0f40 ---------A   03010  PRINT "SORRY, THAT SQUARE IS OCCUPIED, TRY AGAIN"
+    0x55a8901b0fe0 ---------A   03020  GO TO 2810
+    0x55a8901b1060 ---------A   03030  REM********		CHECK FOR LEGAL NEIGHBOUR
+    0x55a8901b1100 ---------A T 03040  GOSUB 3840
+    0x55a8901b1350 ---------A   03050  IF F1 = 1 THEN 3110
+    0x55a8901b1570 ---------A   03060  LET L = 18
+    0x55a8901b1610 ---------A   03070  GOSUB 4490
+    0x55a8901b17b0 ---------A   03080  PRINT "SORRY, YOU ARE NOT NEXT TO ONE OF MY PIECES. TRY AGAIN.";
+    0x55a8901b1840 ---------A   03090  GO TO 2810
+    0x55a8901b18c0 ---------A   03100  REM********		CHECK IF LEGAL RUN
+    0x55a8901b1af0 ---------A T 03110  U = -1
+    0x55a8901b1b70 ---------A   03120  GOSUB 4040
+    0x55a8901b1dc0 ---------A   03130  IF S1 > 0 THEN 3190
+    0x55a8901b1fe0 ---------A   03140  LET L = 18
+    0x55a8901b2070 ---------A   03150  GOSUB 4490
+    0x55a8901b21e0 ---------A   03160  PRINT "SORRY, THAT DOESN'T FLANK A ROW, TRY AGAIN"
+    0x55a8901b2280 ---------A   03170  GO TO 2810
+    0x55a8901b2310 ---------A   03180  REM********		EVERYTHING LEGAL; MAKE HUMANS MOVE
+    0x55a8901b2540 ---------A T 03190  Z = 0
+    0x55a8901b2750 ---------A   03200  LET L = 13
+    0x55a8901b27d0 ---------A   03210  GOSUB 4490
+    0x55a8901b2940 ---------A   03220  PRINT "THAT GIVES YOU";
+    0x55a8901b2ad0 ---------A   03230  PRINT S1;
+    0x55a8901b2c30 ---------A   03240  PRINT " OF MY PIECES"
+    0x55a8901b2e50 ---------A   03250  U = 1
+    0x55a8901b2ec0 ---------A   03260  GOSUB 4040
+    0x55a8901b3310 ---------A   03270  H1 = H1 + S1 + 1
+    0x55a8901b3660 ---------A   03280  C1 = C1 -S1
+    0x55a8901b39a0 ---------A   03290  N1 = N1 + 1
+    0x55a8901b3a20 ---------A   03300  REM********		PRINT OUT BOARD
+    0x55a8901b3ac0 ---------A   03310  GOSUB 4320
+    0x55a8901b3b40 ---------A   03320  REM********		TEST FOR END OF GAME
+    0x55a8901b3dd0 ---------A   03330  IF C1 = 0 THEN 3370
+    0x55a8901b4030 ---------A   03340  IF N1 = 64 THEN 3370
+    0x55a8901b40c0 ---------A   03350  GO TO 2010
+    0x55a8901b4140 ---------A   03360  REM********		END OF GAME ; WRAPUP
+    0x55a8901b4370 ---------A T 03370  LET L = 18
+    0x55a8901b4400 ---------A   03380  GOSUB 4490
+    0x55a8901b4560 ---------A   03390  PRINT "FOR RESULTS ON GAME TYPE RETURN!!"
+    0x55a8901b46d0 ---------A   03400  INPUT X$
+    0x55a8901b4ab0 ---------A   03410  PRINT CHR$(30),CHR$(26)
+    0x55a8901b4c30 ---------A   03420  PRINT "YOU HAVE ";
+    0x55a8901b4dc0 ---------A   03430  PRINT H1;
+    0x55a8901b4f40 ---------A   03440  PRINT " PIECES, AND I HAVE ";
+    0x55a8901b50d0 ---------A   03450  PRINT C1;
+    0x55a8901b5240 ---------A   03460  PRINT " PIECES--- "
+    0x55a8901b54d0 ---------A   03470  IF H1 = C1 THEN 3510
+    0x55a8901b5760 ---------A   03480  IF H1 > C1 THEN 3530
+    0x55a8901b58d0 ---------A   03490  PRINT "SORRY, I WON THAT ONE."
+    0x55a8901b5960 ---------A   03500  GO TO 3540
+    0x55a8901b5ab0 ---------A T 03510  PRINT " A TIE!!!!!"
+    0x55a8901b5b30 ---------A   03520  GO TO 3720
+    0x55a8901b5c80 ---------A T 03530  PRINT "YOU WON!!!"
+    0x55a8901b5ff0 ---------A T 03540  C1 = C1 - H1
+    0x55a8901b6240 ---------A   03550  IF C1 > 0 THEN 3570
+    0x55a8901b6480 ---------A   03560  C1 = -C1
+    0x55a8901a8fc0 ---------A T 03570  C1 = (64 * C1)/ N1
+    0x55a8901a9140 ---------A   03580  PRINT "THAT WAS A ";
+    0x55a8901b7510 ---------A   03590  IF C1 < 11 THEN 3710
+    0x55a8901b7780 ---------A   03600  IF C1 < 25 THEN 3690
+    0x55a8901b79f0 ---------A   03610  IF C1 < 39 THEN 3670
+    0x55a8901b7c60 ---------A   03620  IF C1 < 53 THEN 3650
+    0x55a8901b7dc0 ---------A   03630  PRINT " A PERFECT GAME!"
+    0x55a8901b7e40 ---------A   03640  GO TO 3720
+    0x55a8901b7f90 ---------A T 03650  PRINT "WALKAWAY!"
+    0x55a8901b8010 ---------A   03660  GO TO 3720
+    0x55a8901b8160 ---------A T 03670  PRINT "FIGHT!"
+    0x55a8901b81e0 ---------A   03680  GO TO 3720
+    0x55a8901b8330 ---------A T 03690  PRINT "HOT GAME!"
+    0x55a8901b83b0 ---------A   03700  GO TO 3720
+    0x55a8901b8500 ---------A T 03710  PRINT "SQUEAKER!"
+    0x55a8901b8590 ---------A T 03720  PRINT
+    0x55a8901b8720 ---------A   03730  PRINT"DO YOU WANT TO PLAY AGAIN";
+    0x55a8901b8890 ---------A T 03740  INPUT X$
+    0x55a8901b8b20 ---------A   03750  IF X$ = "Y" THEN 1700
+    0x55a8901b8db0 ---------A   03760  IF X$ <> "N" THEN 3740
+    0x55a8901b8f10 ---------A   03770  PRINT "THANKS FOR PLAYING."
+    0x55a8901b8f70 ---------A   03780  STOP
+    0x55a8901b8ff0 ---------B   03790  REM********		
+    0x55a8901b90c0 ---------B   03800  REM********		SUBROUTINE
+    0x55a8901b9160 ---------B   03810  REM********		ASSUMES
+    0x55a8901b9220 ---------B   03820  REM********		I,J LOCATES A BLANK SQUARE
+    0x55a8901b9300 ---------B   03830  REM********		YOU HOPE TO SEE AN ADJACENT  T2 (= -T1)
+    0x55a8901b96c0 ---------B G 03840  FOR I1 =  -1 TO 1
+    0x55a8901b9a70 ---------B   03850  FOR J1 = -1 TO 1
+    0x55a8901ba0f0 ---------B   03860  IF  A(I+I1,J+J1) = T2 THEN 3930
+    0x55a8901ba230 ---------B   03870  NEXT J1
+    0x55a8901ba380 ---------B   03880  NEXT I1
+    0x55a8901ba430 ---------B   03890  REM********		NO T2 FOUND
+    0x55a8901ba660 ---------B   03900  F1 = 0
+    0x55a8901ba6b0 ---------B   03910  RETURN
+    0x55a8901ba740 ---------A   03920  REM********		SUCCESS
+    0x55a8901ba970 ---------B T 03930  F1 = 1
+    0x55a8901ba9c0 ---------B   03940  RETURN
+    0x55a8901baa80 ---------C   03950  REM********		SUBROUTINE SCORE AND UPDATE
+    0x55a8901bab20 ---------C   03960  REM********		ASSUMES;
+    0x55a8901bac00 ---------C   03970  REM********		(I,J) IS A TENTATIVE PLACE FOR A PIECE T1.
+    0x55a8901bace0 ---------C   03980  REM********		WANT RUNS OF T2 = -T1, TERMINATED BY A T1.
+    0x55a8901badc0 ---------C   03990  REM********		IF U IS TRUE (1), MARK THOSE RUNS AS T1'S.
+    0x55a8901baea0 ---------C   04000  REM********		RETURN SUM OF ALL RUNS (T2'S ONLY) IN S1.
+    0x55a8901baf90 ---------C   04010  REM********		MAIN PROGRAM CONTAINS THE FOLLOWING ARRAYS
+    0x55a8901bb060 ---------C   04020  REM********		I4
+    0x55a8901bb130 ---------C   04030  REM********		J4
+    0x55a8901bb360 ---------C G 04040  S1 = 0
+    0x55a8901bb630 ---------C   04050  FOR K = 1 TO 8
+    0x55a8901bba10 ---------C   04060  I5 = I4(K)
+    0x55a8901bbde0 ---------C   04070  J5 = J4(K)
+    0x55a8901bc1f0 ---------C   04080  I6 = I + I5
+    0x55a8901bc600 ---------C   04090  J6 = J + J5
+    0x55a8901bc8e0 ---------C   04100  S3 = 0
+    0x55a8901bcd20 ---------C   04110  IF A(I6,J6) <> T2 THEN 4290
+    0x55a8901bcdb0 ---------C   04120  REM			LOOP THROUGH THE RUN
+    0x55a8901bd100 ---------C T 04130  S3 = S3 + 1
+    0x55a8901bd450 ---------C   04140  I6 = I6 + I5
+    0x55a8901bd7b0 ---------C   04150  J6 = J6 + J5
+    0x55a8901bdbf0 ---------C   04160  IF A (I6,J6) = T1 THEN 4190
+    0x55a8901be010 ---------C   04170  IF A(I6,J6) = 0 THEN 4290
+    0x55a8901be090 ---------C   04180  GO TO 4130
+    0x55a8901be3f0 ---------C T 04190  S1 = S1 + S3
+    0x55a8901be650 ---------C   04200  IF U <> 1 THEN 4290
+    0x55a8901be6d0 ---------C   04210  REM			UPDATE BOARD
+    0x55a8901be920 ---------C   04220  I6 = I
+    0x55a8901beb60 ---------C   04230  J6 = J
+    0x55a8901bef10 ---------C   04240  FOR K1 = 0 TO S3
+    0x55a8901bf310 ---------C   04250  A(I6,J6) = T1
+    0x55a8901bf660 ---------C   04260  I6 = I6 + I5
+    0x55a8901bf9b0 ---------C   04270  J6 = J6 + J5
+    0x55a8901bfae0 ---------C   04280  NEXT K1
+    0x55a8901bfc30 ---------C T 04290  NEXT K
+    0x55a8901bfca0 ---------C   04300  RETURN
+    0x55a8901bfd50 ---------D   04310  REM********		SUBROUTINE TO PRINT BOARD
+    0x55a8901bff80 ---------D G 04320  PRINT CHR$(30)
+    0x55a8901c01b0 ---------D   04330  LET L = 18
+    0x55a8901c03e0 ---------D   04340  IF F9 = 1 GO TO 4370
+    0x55a8901c0480 ---------D   04350  GOSUB 4570
+    0x55a8901c0690 ---------D   04360  LET F9 = 1
+    0x55a8901c08b0 ---------D T 04370  PRINT CHR$(30)
+    0x55a8901c0a10 ---------D   04380  PRINT "    A B C D E F G H"
+    0x55a8901c0cf0 ---------D   04390  FOR I = 1 TO 8
+    0x55a8901c0e70 ---------D   04400  PRINT I;
+    0x55a8901c1150 ---------D   04410  FOR J = 1 TO 8
+    0x55a8901c12e0 ---------D   04420  PRINT " ";
+    0x55a8901c1800 ---------D   04430  PRINT D$(A(I,J)+1);
+    0x55a8901c1940 ---------D   04440  NEXT J
+    0x55a8901c19d0 ---------D   04450  PRINT
+    0x55a8901c1b10 ---------D   04460  NEXT I
+    0x55a8901c1ba0 ---------D   04470  PRINT
+    0x55a8901c1c00 ---------D   04480  RETURN
+    0x55a8901c1ca0 ---------E G 04490  REM********		***	SPACE		***
+    0x55a8901c1ed0 ---------E   04500  PRINT CHR$(30)
+    0x55a8901c2290 ---------E   04510  FOR I9 = 1 TO L
+    0x55a8901c2310 ---------E   04520  PRINT
+    0x55a8901c2450 ---------E   04530  NEXT I9
+    0x55a8901c26b0 ---------E   04540  IF L <> 18 GO TO 4560
+    0x55a8901c28f0 ---------E   04550  F9 = 0
+    0x55a8901c2940 ---------E T 04560  RETURN
+    0x55a8901c29e0 ---------F G 04570  REM********		***	BLANK OUT	***
+    0x55a8901c2a70 ---------F   04580  GOSUB 4490
+    0x55a8901c2d00 ---------F   04590  PRINT TAB(60);" "
+    0x55a8901c2fa0 ---------F   04600  PRINT TAB(60);" "
+    0x55a8901c3000 ---------F   04610  RETURN
+    0x55a8901c3060 ---------A   04620  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/othelo.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x55a890190b80 ---------A   01000  REM********		OTHELLO          BYTE VOL. 2, NUMBER 10 (OCT. 1977)
+    0x55a890191e70 ---------A   01010  REM********		PLAYS THE GAME OTHELLO WITH TWO STRATEGIES
+    0x55a890191ff0 ---------A   01020  REM********		1. TAKE THE MAX. NUMBER OF PIECES
+    0x55a8901920b0 ---------A   01030  REM********		2. ADD A BONUS FOR OUTSIDE POSITION
+    0x55a8901802b0 ---------A   01040  REM********		BOARD IS THE ARRAY A, BOUNDED BY 0'S (BLANKS)
+    0x55a89018f9e0 ---------A   01050  REM********		A = 0 FOR EMPTY SQUARE
+    0x55a89018f7f0 ---------A   01060  REM********		A = B FOR BLACK SQUARE
+    0x55a890191aa0 ---------A   01070  REM********		A = W FOR WHITE SQUARE
+    0x55a890190090 ---------A   01080  REM********		I AND J ARE ALWAYS USED FOR ROW/COLUMN INDICES
+    0x55a89018fe90 ---------A   01090  REM********		I1 AND J4 STORE INCREMENTS TO THE 8 NEIGHBOURS
+    0x55a8901916a0 ---------A   01100  REM********		C$ AND D$ STORE CHARACTERS A-H,X,...,O FOR OUTPUT
+    0x55a890197a80 ---------A   01110  DIM A(9,9),I4(8),J4(8),C$(8),D$(2)
+    0x55a890197ad0 ---------A   01120  REM********		
+    0x55a89018f6d0 ---------A   01130  PRINT "GREETINGS FROM OTHELLO!"
+    0x55a89018f670 ---------A   01140  PRINT "DO YOU WANT INSTRUCTIONS (Y OR N)";
+    0x55a890197e60 ---------A T 01150  INPUT X$
+    0x55a8901980c0 ---------A   01160  IF X$ = "N" THEN 1380
+    0x55a890198340 ---------A   01170  IF X$ <> "Y" THEN 1150
+    0x55a8901983e0 ---------A   01180  PRINT
+    0x55a890198590 ---------A   01190  PRINT "OTHELLO IS PLAYED ON AN 8X8 CHECKER BOARD"
+    0x55a890198740 ---------A   01200  PRINT "ROWS ARE NUMBERED FROM 1 TO 8 AND COLUMNS FROM A TO H"
+    0x55a8901988f0 ---------A   01210  PRINT" THE INITIAL CONFIGURATION IS ALL BLANK EXCEPT FOR"
+    0x55a890198a50 ---------A   01220  PRINT "THE CENTER FOUR SQUARES, WHICH FORM THE PATTERN:"
+    0x55a890198b90 ---------A   01230  PRINT "               O X"
+    0x55a890198cf0 ---------A   01240  PRINT "               X O"
+    0x55a890198da0 ---------A   01250  PRINT
+    0x55a890198f60 ---------A   01260  PRINT "TRY TO PLACE YOUR PIECE SO THAT IT WILL 'OUTFLANK' MINE"
+    0x55a890199110 ---------A   01270  PRINT "THEREBY CREATING A HORIZONTAL, VERTICAL, OR DIAGONAL "
+    0x55a8901992c0 ---------A   01280  PRINT "RUN OF MY PIECES BOUNDED AT EACH END BY AT LEAST ONE "
+    0x55a890199450 ---------A   01290  PRINT "OF YOURS.  THIS WILL 'FLIP' MY PIECES, TURNING THEM INTO"
+    0x55a8901995e0 ---------A   01300  PRINT "YOURS."
+    0x55a890199790 ---------A   01310  PRINT"     NOTE: YOU MUST CAPTURE AT LEAST ONE OF MY PIECES"
+    0x55a890199940 ---------A   01320  PRINT "IN THIS WAY IF IT IS AT ALL POSSIBLE.  IF IT IS NOT"
+    0x55a890199cf0 ---------A   01330  PRINT "POSSIBLE, YOU FORFEIT YOUR TURN BY ENTERING"
+    0x55a890199e70 ---------A   01340  PRINT "     0,0   FOR YOUR ROW,COLUMN MOVE"
+    0x55a890199fd0 ---------A   01350  PRINT " GOOD LUCK!"
+    0x55a89019a050 ---------A   01360  PRINT
+    0x55a89019a0d0 ---------A   01370  REM********		
+    0x55a89019a2b0 ---------A T 01380  PRINT "SHOULD I WAIT BEFORE MAKING MY MOVES (Y OR N)";
+    0x55a89019a590 ---------A   01390  F2 = 0
+    0x55a89019a860 ---------A   01400  F9 = 1
+    0x55a89019a9c0 ---------A T 01410  INPUT X$
+    0x55a89019ac50 ---------A   01420  IF X$ = "N" THEN 1460
+    0x55a89019aed0 ---------A   01430  IF X$ <> "Y" THEN  1410
+    0x55a89019b120 ---------A   01440  F2 = 1
+    0x55a89019b2b0 ---------A   01450  PRINT "OK.  TYPING ANY CHARACTER WILL LET ME GO"
+    0x55a89019b450 ---------A T 01460  PRINT "SHOULD I PLAY MY BEST STRATEGY (Y OR N)";
+    0x55a89019b730 ---------A   01470  S2 = 0
+    0x55a89019b890 ---------A T 01480  INPUT X$
+    0x55a89019bb20 ---------A   01490  IF X$ = "N" THEN 1520
+    0x55a89019bda0 ---------A   01500  IF X$ <> "Y" THEN 1480
+    0x55a89019bfc0 ---------A   01510  S2 = 2
+    0x55a89019c290 ---------A T 01520  B = -1
+    0x55a89019c560 ---------A   01530  W = +1
+    0x55a89019c970 ---------A   01540  D$(B +1) ="X"
+    0x55a89019cd60 ---------A   01550  D$(0 +1) = "."
+    0x55a89019d170 ---------A   01560  D$(W + 1) ="O"
+    0x55a89019d500 ---------A   01570  FOR K = 1 TO 8
+    0x55a89019d740 ---------A   01580  READ I4(K)
+    0x55a89019d870 ---------A   01590  NEXT K
+    0x55a89019e010 ---------A   01600  DATA 0,-1,-1,-1,0,1,1,1
+    0x55a89019e2e0 ---------A   01610  FOR K=1 TO 8
+    0x55a89019e520 ---------A   01620  READ J4(K)
+    0x55a89019e650 ---------A   01630  NEXT K
+    0x55a89019edf0 ---------A   01640  DATA 1,1,0,-1,-1,-1,0,1
+    0x55a89019f4d0 ---------A   01650  FOR K = 1 TO 8
+    0x55a89019f710 ---------A   01660  READ C$(K)
+    0x55a89019f840 ---------A   01670  NEXT K
+    0x55a89019fff0 ---------A   01680  DATA A,B,C,D,E,F,G,H
+    0x55a8901a0070 ---------A   01690  REM********		SET UP A NEW GAME
+    0x55a8901a0420 ---------A T 01700  FOR I = 0 TO 9
+    0x55a8901a07c0 ---------A   01710  FOR J = 0 TO 9
+    0x55a8901a0ba0 ---------A   01720  A(I,J)=0
+    0x55a8901a0cd0 ---------A   01730  NEXT J
+    0x55a8901a0e20 ---------A   01740  NEXT I
+    0x55a8901a11f0 ---------A   01750  A(4,4) = W
+    0x55a8901a15a0 ---------A   01760  A(5,5) = W
+    0x55a8901a1950 ---------A   01770  A(4,5) = B
+    0x55a8901a1d00 ---------A   01780  A(5,4) = B
+    0x55a8901a1fd0 ---------A   01790  C1 = 2
+    0x55a8901a22a0 ---------A   01800  H1 = 2
+    0x55a8901a2570 ---------A   01810  N1 = 4
+    0x55a8901a2850 ---------A   01820  Z =0
+    0x55a8901a28d0 ---------A   01830  REM********		HUMAN'S CHOICES
+    0x55a8901a2a90 ---------A   01840  PRINT "DO YOU WANT TO HAVE X OR O";
+    0x55a8901a2d90 ---------A   01850  C = W
+    0x55a8901a3080 ---------A   01860  H = B
+    0x55a8901a31e0 ---------A T 01870  INPUT X$
+    0x55a8901a3470 ---------A   01880  IF X$ = "X" THEN 1920
+    0x55a8901a36f0 ---------A   01890  IF X$ <> "O" THEN 1870
+    0x55a8901a3930 ---------A   01900  C = B
+    0x55a8901a3b80 ---------A   01910  H = W
+    0x55a8901a3d00 ---------A T 01920  PRINT "DO YOU WANT TO GO FIRST (Y OR N)";
+    0x55a8901a3e60 ---------A T 01930  INPUT X$
+    0x55a8901a4090 ---------A   01940  PRINT CHR$(26)
+    0x55a8901a4320 ---------A   01950  IF X$ = "N" THEN 2030
+    0x55a8901a45b0 ---------A   01960  IF X$ <> "Y" THEN 1930
+    0x55a8901a4640 ---------A   01970  REM********		PRINT INITIAL BOARD
+    0x55a8901a46d0 ---------A   01980  GOSUB 4320
+    0x55a8901a4750 ---------A   01990  GO TO 2760
+    0x55a8901a47d0 ---------A   02000  REM********		COMPUTER'S MOVE
+    0x55a8901a4a50 ---------A T 02010  IF F2 = 0 THEN 2030
+    0x55a8901a4bb0 ---------A   02020  INPUT X$
+    0x55a8901a4e90 ---------A T 02030  B1 = -1
+    0x55a8901a5300 ---------A   02040  I3 = J3 = 0
+    0x55a8901a55f0 ---------A   02050  T1 = C
+    0x55a8901a58f0 ---------A   02060  T2 = H
+    0x55a8901a5970 ---------A   02070  REM********		SCAN FOR BLANK SQUARE
+    0x55a8901a5c60 ---------A   02080  FOR I = 1 TO 8
+    0x55a8901a5f50 ---------A   02090  FOR J = 1 TO 8
+    0x55a8901a6380 ---------A   02100  IF A(I,J) <> 0 THEN 2390
+    0x55a8901a6410 ---------A   02110  REM********		FOUND A BLANK SQUARE
+    0x55a8901a64f0 ---------A   02120  REM********		DOES IT HAVE AN OPPONENT AS A NEIGHBOUR
+    0x55a8901a6590 ---------A   02130  GOSUB 3840
+    0x55a8901a68c0 ---------A   02140  IF F1 = 0 THEN 2390
+    0x55a8901a6960 ---------A   02150  REM********		FOUND OPPONENT AS NEIGHBOUR
+    0x55a8901a6a30 ---------A   02160  REM********		HOW MANY OF HIS PIECES CAN WE FLIP?
+    0x55a8901a6ae0 ---------A   02170  REM********		DON'T DO IT NOW
+    0x55a8901a6dd0 ---------A   02180  U = -1
+    0x55a8901a6e60 ---------A   02190  GOSUB 4040
+    0x55a8901a6ef0 ---------A   02200  REM********		EXTRA POINTS FOR BOUNDARY POSITION
+    0x55a8901a7240 ---------A   02210  IF S1 = 0 THEN 2390
+    0x55a8901a7840 ---------A   02220  IF (I-1) * (I-8) <> 0 THEN 2240
+    0x55a8901a7bb0 ---------A   02230  S1 = S1 + S2
+    0x55a8901a81a0 ---------A T 02240  IF (J-1) * (J-8) <> 0 THEN 2270
+    0x55a8901a8530 ---------A   02250  S1 = S1 +S2
+    0x55a8901a85c0 ---------A   02260  REM********		IS THIS BETTER THAN THE BEST FOUND SO FAR
+    0x55a8901a8870 ---------A T 02270  IF S1 < B1 THEN 2390
+    0x55a8901a8b10 ---------A   02280  IF S1 > B1 THEN 2350
+    0x55a8901a93b0 ---------A   02290  REM********		A TIE; RANDOM DECISION
+    0x55a8901a9490 ---------A   02300  REM********		THE NEXT TWO EXECUTABLE STATEMENTS ARE FOR
+    0x55a8901a9550 ---------A   02310  REM********		BASIC WITH RANDOM NUMBERS
+    0x55a8901a9930 ---------A   02320  R = RND(1)
+    0x55a8901a9b80 ---------A   02330  IF R > .5 THEN 2390
+    0x55a8901a9c00 ---------A   02340  REM********		YES
+    0x55a8901a9e50 ---------A T 02350  B1 = S1
+    0x55a8901aa080 ---------A   02360  I3 = I
+    0x55a8901aa2c0 ---------A   02370  J3 = J
+    0x55a8901aa340 ---------A   02380  REM********		END OF SCAN LOOP
+    0x55a8901aa490 ---------A T 02390  NEXT J
+    0x55a8901aa5e0 ---------A   02400  NEXT I
+    0x55a8901aa690 ---------A   02410  REM********		COULD WE DO ANYTHING?
+    0x55a8901aa910 ---------A   02420  IF B1 > 0 THEN 2510
+    0x55a8901aa990 ---------A   02430  REM********		NO
+    0x55a8901aac80 ---------A   02440  LET L = 18
+    0x55a8901aad10 ---------A   02450  GOSUB 4490
+    0x55a8901aae70 ---------A   02460  PRINT "DAMN! HAVE TO FORFEIT MY MOVE!"
+    0x55a8901ab0d0 ---------A   02470  IF Z = 1 THEN 3370
+    0x55a8901ab2f0 ---------A   02480  Z = 1
+    0x55a8901ab370 ---------A   02490  GO TO 2760
+    0x55a8901ab3f0 ---------A   02500  REM********		MAKE THE MOVE
+    0x55a8901ab620 ---------A T 02510  Z = 0
+    0x55a8901ab830 ---------A   02520  LET L=15
+    0x55a8901ab8b0 ---------A   02530  GOSUB 4490
+    0x55a8901aba20 ---------A   02540  PRINT "I WILL MOVE TO ";
+    0x55a8901abba0 ---------A   02550  PRINT I3;
+    0x55a8901abd20 ---------A   02560  PRINT " , ";
+    0x55a8901abf60 ---------A   02570  PRINT C$(J3)
+    0x55a8901ac1a0 ---------A   02580  I= I3
+    0x55a8901ac3d0 ---------A   02590  J= J3
+    0x55a8901ac5e0 ---------A   02600  U= 1
+    0x55a8901ac650 ---------A   02610  GOSUB 4040
+    0x55a8901acaa0 ---------A   02620  C1 = C1 + S1 + 1
+    0x55a8901acdf0 ---------A   02630  H1 = H1 - S1
+    0x55a8901ad120 ---------A   02640  N1 = N1 + 1
+    0x55a8901ad330 ---------A   02650  LET L=16
+    0x55a8901ad3b0 ---------A   02660  GOSUB 4490
+    0x55a8901ad520 ---------A   02670  PRINT " THAT GIVES ME : ";
+    0x55a8901ad6b0 ---------A   02680  PRINT S1;
+    0x55a8901ad820 ---------A   02690  PRINT " OF YOUR PIECES"
+    0x55a8901ad8b0 ---------A   02700  REM********		PRINT OUT BOARD
+    0x55a8901ad950 ---------A   02710  GOSUB 4320
+    0x55a8901ad9d0 ---------A   02720  REM********		TEST FOR END OF GAME
+    0x55a8901adc60 ---------A   02730  IF H1 = 0 THEN 3370
+    0x55a8901aded0 ---------A   02740  IF N1 = 64 THEN 3370
+    0x55a8901adf60 ---------A   02750  REM********		HUMANS MOVE
+    0x55a8901ae1b0 ---------A T 02760  T1 = H
+    0x55a8901ae3e0 ---------A   02770  T2 = C
+    0x55a8901ae5f0 ---------A   02780  LET L = 12
+    0x55a8901ae670 ---------A   02790  GOSUB 4490
+    0x55a8901ae7e0 ---------A T 02800  PRINT " YOUR MOVE";
+    0x55a8901aea20 ---------A T 02810  INPUT I, X$
+    0x55a8901aec80 ---------A   02820  IF I < 0 THEN 2810
+    0x55a8901aeef0 ---------A   02830  IF I > 8 THEN 2810
+    0x55a8901af150 ---------A   02840  IF I <> 0 THEN 2930
+    0x55a8901af370 ---------A   02850  LET L = 18
+    0x55a8901af400 ---------A   02860  GOSUB 4490
+    0x55a8901af560 ---------A   02870  PRINT "ARE YOU FORFEITING YOUR TURN Y OR N"
+    0x55a8901af6d0 ---------A   02880  INPUT X$
+    0x55a8901af950 ---------A   02890  IF X$ <> "Y" THEN 2800
+    0x55a8901afbb0 ---------A   02900  IF Z = 1 THEN 3370
+    0x55a8901afdd0 ---------A   02910  Z = 1
+    0x55a8901afe40 ---------A   02920  GO TO 2010
+    0x55a8901b0120 ---------A T 02930  FOR J = 1 TO 8
+    0x55a8901b0480 ---------A   02940  IF C$(J) =X$ THEN 2980
+    0x55a8901b05c0 ---------A   02950  NEXT J
+    0x55a8901b0660 ---------A   02960  GO TO 2810
+    0x55a8901b06e0 ---------A   02970  REM********		CHECK FOR BLANK
+    0x55a8901b0b20 ---------A T 02980  IF A(I,J) = 0 THEN 3040
+    0x55a8901b0d40 ---------A   02990  LET L = 18
+    0x55a8901b0dd0 ---------A   03000  GOSUB 4490
+    0x55a8901b0f40 ---------A   03010  PRINT "SORRY, THAT SQUARE IS OCCUPIED, TRY AGAIN"
+    0x55a8901b0fe0 ---------A   03020  GO TO 2810
+    0x55a8901b1060 ---------A   03030  REM********		CHECK FOR LEGAL NEIGHBOUR
+    0x55a8901b1100 ---------A T 03040  GOSUB 3840
+    0x55a8901b1350 ---------A   03050  IF F1 = 1 THEN 3110
+    0x55a8901b1570 ---------A   03060  LET L = 18
+    0x55a8901b1610 ---------A   03070  GOSUB 4490
+    0x55a8901b17b0 ---------A   03080  PRINT "SORRY, YOU ARE NOT NEXT TO ONE OF MY PIECES. TRY AGAIN.";
+    0x55a8901b1840 ---------A   03090  GO TO 2810
+    0x55a8901b18c0 ---------A   03100  REM********		CHECK IF LEGAL RUN
+    0x55a8901b1af0 ---------A T 03110  U = -1
+    0x55a8901b1b70 ---------A   03120  GOSUB 4040
+    0x55a8901b1dc0 ---------A   03130  IF S1 > 0 THEN 3190
+    0x55a8901b1fe0 ---------A   03140  LET L = 18
+    0x55a8901b2070 ---------A   03150  GOSUB 4490
+    0x55a8901b21e0 ---------A   03160  PRINT "SORRY, THAT DOESN'T FLANK A ROW, TRY AGAIN"
+    0x55a8901b2280 ---------A   03170  GO TO 2810
+    0x55a8901b2310 ---------A   03180  REM********		EVERYTHING LEGAL; MAKE HUMANS MOVE
+    0x55a8901b2540 ---------A T 03190  Z = 0
+    0x55a8901b2750 ---------A   03200  LET L = 13
+    0x55a8901b27d0 ---------A   03210  GOSUB 4490
+    0x55a8901b2940 ---------A   03220  PRINT "THAT GIVES YOU";
+    0x55a8901b2ad0 ---------A   03230  PRINT S1;
+    0x55a8901b2c30 ---------A   03240  PRINT " OF MY PIECES"
+    0x55a8901b2e50 ---------A   03250  U = 1
+    0x55a8901b2ec0 ---------A   03260  GOSUB 4040
+    0x55a8901b3310 ---------A   03270  H1 = H1 + S1 + 1
+    0x55a8901b3660 ---------A   03280  C1 = C1 -S1
+    0x55a8901b39a0 ---------A   03290  N1 = N1 + 1
+    0x55a8901b3a20 ---------A   03300  REM********		PRINT OUT BOARD
+    0x55a8901b3ac0 ---------A   03310  GOSUB 4320
+    0x55a8901b3b40 ---------A   03320  REM********		TEST FOR END OF GAME
+    0x55a8901b3dd0 ---------A   03330  IF C1 = 0 THEN 3370
+    0x55a8901b4030 ---------A   03340  IF N1 = 64 THEN 3370
+    0x55a8901b40c0 ---------A   03350  GO TO 2010
+    0x55a8901b4140 ---------A   03360  REM********		END OF GAME ; WRAPUP
+    0x55a8901b4370 ---------A T 03370  LET L = 18
+    0x55a8901b4400 ---------A   03380  GOSUB 4490
+    0x55a8901b4560 ---------A   03390  PRINT "FOR RESULTS ON GAME TYPE RETURN!!"
+    0x55a8901b46d0 ---------A   03400  INPUT X$
+    0x55a8901b4ab0 ---------A   03410  PRINT CHR$(30),CHR$(26)
+    0x55a8901b4c30 ---------A   03420  PRINT "YOU HAVE ";
+    0x55a8901b4dc0 ---------A   03430  PRINT H1;
+    0x55a8901b4f40 ---------A   03440  PRINT " PIECES, AND I HAVE ";
+    0x55a8901b50d0 ---------A   03450  PRINT C1;
+    0x55a8901b5240 ---------A   03460  PRINT " PIECES--- "
+    0x55a8901b54d0 ---------A   03470  IF H1 = C1 THEN 3510
+    0x55a8901b5760 ---------A   03480  IF H1 > C1 THEN 3530
+    0x55a8901b58d0 ---------A   03490  PRINT "SORRY, I WON THAT ONE."
+    0x55a8901b5960 ---------A   03500  GO TO 3540
+    0x55a8901b5ab0 ---------A T 03510  PRINT " A TIE!!!!!"
+    0x55a8901b5b30 ---------A   03520  GO TO 3720
+    0x55a8901b5c80 ---------A T 03530  PRINT "YOU WON!!!"
+    0x55a8901b5ff0 ---------A T 03540  C1 = C1 - H1
+    0x55a8901b6240 ---------A   03550  IF C1 > 0 THEN 3570
+    0x55a8901b6480 ---------A   03560  C1 = -C1
+    0x55a8901a8fc0 ---------A T 03570  C1 = (64 * C1)/ N1
+    0x55a8901a9140 ---------A   03580  PRINT "THAT WAS A ";
+    0x55a8901b7510 ---------A   03590  IF C1 < 11 THEN 3710
+    0x55a8901b7780 ---------A   03600  IF C1 < 25 THEN 3690
+    0x55a8901b79f0 ---------A   03610  IF C1 < 39 THEN 3670
+    0x55a8901b7c60 ---------A   03620  IF C1 < 53 THEN 3650
+    0x55a8901b7dc0 ---------A   03630  PRINT " A PERFECT GAME!"
+    0x55a8901b7e40 ---------A   03640  GO TO 3720
+    0x55a8901b7f90 ---------A T 03650  PRINT "WALKAWAY!"
+    0x55a8901b8010 ---------A   03660  GO TO 3720
+    0x55a8901b8160 ---------A T 03670  PRINT "FIGHT!"
+    0x55a8901b81e0 ---------A   03680  GO TO 3720
+    0x55a8901b8330 ---------A T 03690  PRINT "HOT GAME!"
+    0x55a8901b83b0 ---------A   03700  GO TO 3720
+    0x55a8901b8500 ---------A T 03710  PRINT "SQUEAKER!"
+    0x55a8901b8590 ---------A T 03720  PRINT
+    0x55a8901b8720 ---------A   03730  PRINT"DO YOU WANT TO PLAY AGAIN";
+    0x55a8901b8890 ---------A T 03740  INPUT X$
+    0x55a8901b8b20 ---------A   03750  IF X$ = "Y" THEN 1700
+    0x55a8901b8db0 ---------A   03760  IF X$ <> "N" THEN 3740
+    0x55a8901b8f10 ---------A   03770  PRINT "THANKS FOR PLAYING."
+    0x55a8901b8f70 ---------A   03780  STOP
+    0x55a8901b8ff0 ---------B   03790  REM********		
+    0x55a8901b90c0 ---------B   03800  REM********		SUBROUTINE
+    0x55a8901b9160 ---------B   03810  REM********		ASSUMES
+    0x55a8901b9220 ---------B   03820  REM********		I,J LOCATES A BLANK SQUARE
+    0x55a8901b9300 ---------B   03830  REM********		YOU HOPE TO SEE AN ADJACENT  T2 (= -T1)
+    0x55a8901b96c0 ---------B G 03840  FOR I1 =  -1 TO 1
+    0x55a8901b9a70 ---------B   03850  FOR J1 = -1 TO 1
+    0x55a8901ba0f0 ---------B   03860  IF  A(I+I1,J+J1) = T2 THEN 3930
+    0x55a8901ba230 ---------B   03870  NEXT J1
+    0x55a8901ba380 ---------B   03880  NEXT I1
+    0x55a8901ba430 ---------B   03890  REM********		NO T2 FOUND
+    0x55a8901ba660 ---------B   03900  F1 = 0
+    0x55a8901ba6b0 ---------B   03910  RETURN
+    0x55a8901ba740 ---------A   03920  REM********		SUCCESS
+    0x55a8901ba970 ---------B T 03930  F1 = 1
+    0x55a8901ba9c0 ---------B   03940  RETURN
+    0x55a8901baa80 ---------C   03950  REM********		SUBROUTINE SCORE AND UPDATE
+    0x55a8901bab20 ---------C   03960  REM********		ASSUMES;
+    0x55a8901bac00 ---------C   03970  REM********		(I,J) IS A TENTATIVE PLACE FOR A PIECE T1.
+    0x55a8901bace0 ---------C   03980  REM********		WANT RUNS OF T2 = -T1, TERMINATED BY A T1.
+    0x55a8901badc0 ---------C   03990  REM********		IF U IS TRUE (1), MARK THOSE RUNS AS T1'S.
+    0x55a8901baea0 ---------C   04000  REM********		RETURN SUM OF ALL RUNS (T2'S ONLY) IN S1.
+    0x55a8901baf90 ---------C   04010  REM********		MAIN PROGRAM CONTAINS THE FOLLOWING ARRAYS
+    0x55a8901bb060 ---------C   04020  REM********		I4
+    0x55a8901bb130 ---------C   04030  REM********		J4
+    0x55a8901bb360 ---------C G 04040  S1 = 0
+    0x55a8901bb630 ---------C   04050  FOR K = 1 TO 8
+    0x55a8901bba10 ---------C   04060  I5 = I4(K)
+    0x55a8901bbde0 ---------C   04070  J5 = J4(K)
+    0x55a8901bc1f0 ---------C   04080  I6 = I + I5
+    0x55a8901bc600 ---------C   04090  J6 = J + J5
+    0x55a8901bc8e0 ---------C   04100  S3 = 0
+    0x55a8901bcd20 ---------C   04110  IF A(I6,J6) <> T2 THEN 4290
+    0x55a8901bcdb0 ---------C   04120  REM			LOOP THROUGH THE RUN
+    0x55a8901bd100 ---------C T 04130  S3 = S3 + 1
+    0x55a8901bd450 ---------C   04140  I6 = I6 + I5
+    0x55a8901bd7b0 ---------C   04150  J6 = J6 + J5
+    0x55a8901bdbf0 ---------C   04160  IF A (I6,J6) = T1 THEN 4190
+    0x55a8901be010 ---------C   04170  IF A(I6,J6) = 0 THEN 4290
+    0x55a8901be090 ---------C   04180  GO TO 4130
+    0x55a8901be3f0 ---------C T 04190  S1 = S1 + S3
+    0x55a8901be650 ---------C   04200  IF U <> 1 THEN 4290
+    0x55a8901be6d0 ---------C   04210  REM			UPDATE BOARD
+    0x55a8901be920 ---------C   04220  I6 = I
+    0x55a8901beb60 ---------C   04230  J6 = J
+    0x55a8901bef10 ---------C   04240  FOR K1 = 0 TO S3
+    0x55a8901bf310 ---------C   04250  A(I6,J6) = T1
+    0x55a8901bf660 ---------C   04260  I6 = I6 + I5
+    0x55a8901bf9b0 ---------C   04270  J6 = J6 + J5
+    0x55a8901bfae0 ---------C   04280  NEXT K1
+    0x55a8901bfc30 ---------C T 04290  NEXT K
+    0x55a8901bfca0 ---------C   04300  RETURN
+    0x55a8901bfd50 ---------D   04310  REM********		SUBROUTINE TO PRINT BOARD
+    0x55a8901bff80 ---------D G 04320  PRINT CHR$(30)
+    0x55a8901c01b0 ---------D   04330  LET L = 18
+    0x55a8901c03e0 ---------D   04340  IF F9 = 1 GO TO 4370
+    0x55a8901c0480 ---------D   04350  GOSUB 4570
+    0x55a8901c0690 ---------D   04360  LET F9 = 1
+    0x55a8901c08b0 ---------D T 04370  PRINT CHR$(30)
+    0x55a8901c0a10 ---------D   04380  PRINT "    A B C D E F G H"
+    0x55a8901c0cf0 ---------D   04390  FOR I = 1 TO 8
+    0x55a8901c0e70 ---------D   04400  PRINT I;
+    0x55a8901c1150 ---------D   04410  FOR J = 1 TO 8
+    0x55a8901c12e0 ---------D   04420  PRINT " ";
+    0x55a8901c1800 ---------D   04430  PRINT D$(A(I,J)+1);
+    0x55a8901c1940 ---------D   04440  NEXT J
+    0x55a8901c19d0 ---------D   04450  PRINT
+    0x55a8901c1b10 ---------D   04460  NEXT I
+    0x55a8901c1ba0 ---------D   04470  PRINT
+    0x55a8901c1c00 ---------D   04480  RETURN
+    0x55a8901c1ca0 ---------E G 04490  REM********		***	SPACE		***
+    0x55a8901c1ed0 ---------E   04500  PRINT CHR$(30)
+    0x55a8901c2290 ---------E   04510  FOR I9 = 1 TO L
+    0x55a8901c2310 ---------E   04520  PRINT
+    0x55a8901c2450 ---------E   04530  NEXT I9
+    0x55a8901c26b0 ---------E   04540  IF L <> 18 GO TO 4560
+    0x55a8901c28f0 ---------E   04550  F9 = 0
+    0x55a8901c2940 ---------E T 04560  RETURN
+    0x55a8901c29e0 ---------F G 04570  REM********		***	BLANK OUT	***
+    0x55a8901c2a70 ---------F   04580  GOSUB 4490
+    0x55a8901c2d00 ---------F   04590  PRINT TAB(60);" "
+    0x55a8901c2fa0 ---------F   04600  PRINT TAB(60);" "
+    0x55a8901c3000 ---------F   04610  RETURN
+    0x55a8901c3060 ---------A   04620  END
  */
 
 
@@ -581,374 +1331,374 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x623817c7f550 ---------A   01000 REM********		OTHELLO          BYTE VOL. 2, NUMBER 10 (OCT. 1977)
-    0x623817c7f5d0 ---------A   01010 REM********		PLAYS THE GAME OTHELLO WITH TWO STRATEGIES
-    0x623817c8f2d0 ---------A   01020 REM********		1. TAKE THE MAX. NUMBER OF PIECES
-    0x623817c7f2f0 ---------A   01030 REM********		2. ADD A BONUS FOR OUTSIDE POSITION
-    0x623817c905e0 ---------A   01040 REM********		BOARD IS THE ARRAY A, BOUNDED BY 0'S (BLANKS)
-    0x623817c8e9e0 ---------A   01050 REM********		A = 0 FOR EMPTY SQUARE
-    0x623817c8e7f0 ---------A   01060 REM********		A = B FOR BLACK SQUARE
-    0x623817c90aa0 ---------A   01070 REM********		A = W FOR WHITE SQUARE
-    0x623817c8f040 ---------A   01080 REM********		I AND J ARE ALWAYS USED FOR ROW/COLUMN INDICES
-    0x623817c8ee40 ---------A   01090 REM********		I1 AND J4 STORE INCREMENTS TO THE 8 NEIGHBOURS
-    0x623817c8f4d0 ---------A   01100 REM********		C$ AND D$ STORE CHARACTERS A-H,X,...,O FOR OUTPUT
-    0x623817c96a80 ---------A   01110 DIM A(9,9),I4(8),J4(8),C$(8),D$(2)
-    0x623817c96ac0 ---------A   01120 REM********		
-    0x623817c96c00 ---------A   01130 PRINT "GREETINGS FROM OTHELLO!"
-    0x623817c96d10 ---------A   01140 PRINT "DO YOU WANT INSTRUCTIONS (Y OR N)";
-    0x623817c8e6d0 ---------A T 01150 INPUT X$
-    0x623817c8e670 ---------A   01160 IF X$ = "N" THEN 1380
-    0x623817c97300 ---------A   01170 IF X$ <> "Y" THEN 1150
-    0x623817c973a0 ---------A   01180 PRINT
-    0x623817c97540 ---------A   01190 PRINT "OTHELLO IS PLAYED ON AN 8X8 CHECKER BOARD"
-    0x623817c976e0 ---------A   01200 PRINT "ROWS ARE NUMBERED FROM 1 TO 8 AND COLUMNS FROM A TO H"
-    0x623817c97880 ---------A   01210 PRINT" THE INITIAL CONFIGURATION IS ALL BLANK EXCEPT FOR"
-    0x623817c979d0 ---------A   01220 PRINT "THE CENTER FOUR SQUARES, WHICH FORM THE PATTERN:"
-    0x623817c97b00 ---------A   01230 PRINT "               O X"
-    0x623817c97c50 ---------A   01240 PRINT "               X O"
-    0x623817c97cf0 ---------A   01250 PRINT
-    0x623817c97ea0 ---------A   01260 PRINT "TRY TO PLACE YOUR PIECE SO THAT IT WILL 'OUTFLANK' MINE"
-    0x623817c98040 ---------A   01270 PRINT "THEREBY CREATING A HORIZONTAL, VERTICAL, OR DIAGONAL "
-    0x623817c981e0 ---------A   01280 PRINT "RUN OF MY PIECES BOUNDED AT EACH END BY AT LEAST ONE "
-    0x623817c98360 ---------A   01290 PRINT "OF YOURS.  THIS WILL 'FLIP' MY PIECES, TURNING THEM INTO"
-    0x623817c984e0 ---------A   01300 PRINT "YOURS."
-    0x623817c98680 ---------A   01310 PRINT"     NOTE: YOU MUST CAPTURE AT LEAST ONE OF MY PIECES"
-    0x623817c98820 ---------A   01320 PRINT "IN THIS WAY IF IT IS AT ALL POSSIBLE.  IF IT IS NOT"
-    0x623817c98bc0 ---------A   01330 PRINT "POSSIBLE, YOU FORFEIT YOUR TURN BY ENTERING"
-    0x623817c98d30 ---------A   01340 PRINT "     0,0   FOR YOUR ROW,COLUMN MOVE"
-    0x623817c98e80 ---------A   01350 PRINT " GOOD LUCK!"
-    0x623817c98ef0 ---------A   01360 PRINT
-    0x623817c98f60 ---------A   01370 REM********		
-    0x623817c99130 ---------A T 01380 PRINT "SHOULD I WAIT BEFORE MAKING MY MOVES (Y OR N)";
-    0x623817c99400 ---------A   01390 F2 = 0
-    0x623817c996d0 ---------A   01400 F9 = 1
-    0x623817c99830 ---------A T 01410 INPUT X$
-    0x623817c99ac0 ---------A   01420 IF X$ = "N" THEN 1460
-    0x623817c99d40 ---------A   01430 IF X$ <> "Y" THEN  1410
-    0x623817c99f90 ---------A   01440 F2 = 1
-    0x623817c9a120 ---------A   01450         PRINT "OK.  TYPING ANY CHARACTER WILL LET ME GO"
-    0x623817c9a2b0 ---------A T 01460 PRINT "SHOULD I PLAY MY BEST STRATEGY (Y OR N)";
-    0x623817c9a580 ---------A   01470 S2 = 0
-    0x623817c9a6e0 ---------A T 01480 INPUT X$
-    0x623817c9a970 ---------A   01490 IF X$ = "N" THEN 1520
-    0x623817c9abf0 ---------A   01500 IF X$ <> "Y" THEN 1480
-    0x623817c9ae10 ---------A   01510 S2 = 2
-    0x623817c9b0e0 ---------A T 01520 B = -1
-    0x623817c9b3b0 ---------A   01530 W = +1
-    0x623817c9b7c0 ---------A   01540 D$(B +1) ="X"
-    0x623817c9bbb0 ---------A   01550 D$(0 +1) = "."
-    0x623817c9bfc0 ---------A   01560 D$(W + 1) ="O"
-    0x623817c9c350 ---------A   01570 FOR K = 1 TO 8
-    0x623817c9c590 ---------A   01580     READ I4(K)
-    0x623817c9c6b0 ---------A   01590 NEXT K
-    0x623817c9ce40 ---------A   01600 DATA 0,-1,-1,-1,0,1,1,1
-    0x623817c9d110 ---------A   01610 FOR K=1 TO 8
-    0x623817c9d350 ---------A   01620     READ J4(K)
-    0x623817c9d470 ---------A   01630 NEXT K
-    0x623817c9dc00 ---------A   01640 DATA 1,1,0,-1,-1,-1,0,1
-    0x623817c9e2e0 ---------A   01650 FOR K = 1 TO 8
-    0x623817c9e520 ---------A   01660     READ C$(K)
-    0x623817c9e640 ---------A   01670 NEXT K
-    0x623817c9ede0 ---------A   01680 DATA A,B,C,D,E,F,G,H
-    0x623817c9ee60 ---------A   01690 REM********		SET UP A NEW GAME
-    0x623817c9f200 ---------A T 01700 FOR I = 0 TO 9
-    0x623817c9f5a0 ---------A   01710     FOR J = 0 TO 9
-    0x623817c9f980 ---------A   01720 	A(I,J)=0
-    0x623817c9fab0 ---------A   01730     NEXT J
-    0x623817c9fbf0 ---------A   01740 NEXT I
-    0x623817c9ffb0 ---------A   01750 A(4,4) = W
-    0x623817ca0360 ---------A   01760 A(5,5) = W
-    0x623817ca0710 ---------A   01770 A(4,5) = B
-    0x623817ca0ac0 ---------A   01780 A(5,4) = B
-    0x623817ca0d90 ---------A   01790 C1 = 2
-    0x623817ca1060 ---------A   01800 H1 = 2
-    0x623817ca1330 ---------A   01810 N1 = 4
-    0x623817ca1610 ---------A   01820 Z =0
-    0x623817ca1690 ---------A   01830 REM********		HUMAN'S CHOICES
-    0x623817ca1840 ---------A   01840 PRINT "DO YOU WANT TO HAVE X OR O";
-    0x623817ca1b30 ---------A   01850 C = W
-    0x623817ca1e20 ---------A   01860 H = B
-    0x623817ca1f80 ---------A T 01870 INPUT X$
-    0x623817ca2210 ---------A   01880 IF X$ = "X" THEN 1920
-    0x623817ca2490 ---------A   01890 IF X$ <> "O" THEN 1870
-    0x623817ca26d0 ---------A   01900 C = B
-    0x623817ca2920 ---------A   01910 H = W
-    0x623817ca2aa0 ---------A T 01920 PRINT "DO YOU WANT TO GO FIRST (Y OR N)";
-    0x623817ca2bf0 ---------A T 01930 INPUT X$
-    0x623817ca2e20 ---------A   01940 PRINT CHR$(26)
-    0x623817ca30a0 ---------A   01950 IF X$ = "N" THEN 2030
-    0x623817ca3330 ---------A   01960 IF X$ <> "Y" THEN 1930
-    0x623817ca33c0 ---------A   01970 REM********		PRINT INITIAL BOARD
-    0x623817ca3440 ---------A   01980 GOSUB 4350
-    0x623817ca34b0 ---------A   01990 GO TO 2760
-    0x623817ca3520 ---------A   02000 REM********		COMPUTER'S MOVE
-    0x623817ca3790 ---------A T 02010 IF F2 = 0 THEN 2030
-    0x623817ca38f0 ---------A   02020 INPUT X$
-    0x623817ca3bd0 ---------A T 02030 B1 = -1
-    0x623817ca4040 ---------A   02040 I3 = J3 = 0
-    0x623817ca4330 ---------A   02050 T1 = C
-    0x623817ca4630 ---------A   02060 T2 = H
-    0x623817ca46b0 ---------A   02070 REM********		SCAN FOR BLANK SQUARE
-    0x623817ca4990 ---------A   02080 FOR I = 1 TO 8
-    0x623817ca4c80 ---------A   02090     FOR J = 1 TO 8
-    0x623817ca50b0 ---------A   02100 	IF A(I,J) <> 0 THEN 2390
-    0x623817ca5140 ---------A   02110 	REM********		FOUND A BLANK SQUARE
-    0x623817ca5210 ---------A   02120 	REM********		DOES IT HAVE AN OPPONENT AS A NEIGHBOUR
-    0x623817ca52a0 ---------A   02130 	GOSUB 3860
-    0x623817ca55c0 ---------A   02140 	IF F1 = 0 THEN 2390
-    0x623817ca5660 ---------A   02150 	REM********		FOUND OPPONENT AS NEIGHBOUR
-    0x623817ca5720 ---------A   02160 	REM********		HOW MANY OF HIS PIECES CAN WE FLIP?
-    0x623817ca57c0 ---------A   02170 	REM********		DON'T DO IT NOW
-    0x623817ca5aa0 ---------A   02180 	U = -1
-    0x623817ca5b30 ---------A   02190 	GOSUB 4060
-    0x623817ca5bb0 ---------A   02200 	REM********		EXTRA POINTS FOR BOUNDARY POSITION
-    0x623817ca5ef0 ---------A   02210 	IF S1 = 0 THEN 2390
-    0x623817ca64f0 ---------A   02220 	IF (I-1) * (I-8) <> 0 THEN 2240
-    0x623817ca6860 ---------A   02230 	S1 = S1 + S2
-    0x623817ca6e50 ---------A T 02240 	IF (J-1) * (J-8) <> 0 THEN 2270
-    0x623817ca71e0 ---------A   02250 	S1 = S1 +S2
-    0x623817ca7270 ---------A   02260 	REM********		IS THIS BETTER THAN THE BEST FOUND SO FAR
-    0x623817ca7510 ---------A T 02270 	IF S1 < B1 THEN 2390
-    0x623817ca77b0 ---------A   02280 	IF S1 > B1 THEN 2350
-    0x623817ca8050 ---------A   02290 	REM********		A TIE; RANDOM DECISION
-    0x623817ca8120 ---------A   02300 	REM********		THE NEXT TWO EXECUTABLE STATEMENTS ARE FOR
-    0x623817ca81d0 ---------A   02310 	REM********		BASIC WITH RANDOM NUMBERS
-    0x623817ca85a0 ---------A   02320 	R = RND(1)
-    0x623817ca87f0 ---------A   02330 	IF R > .5 THEN 2390
-    0x623817ca8870 ---------A   02340 	REM********		YES
-    0x623817ca8ab0 ---------A T 02350 	B1 = S1
-    0x623817ca8ce0 ---------A   02360 	I3 = I
-    0x623817ca8f20 ---------A   02370 	J3 = J
-    0x623817ca8fa0 ---------A   02380 	REM********		END OF SCAN LOOP
-    0x623817ca90e0 ---------A T 02390     NEXT J
-    0x623817ca9220 ---------A   02400 NEXT I
-    0x623817ca92c0 ---------A   02410 REM********		COULD WE DO ANYTHING?
-    0x623817ca9530 ---------A   02420 IF B1 > 0 THEN 2510
-    0x623817ca95b0 ---------A   02430 REM********		NO
-    0x623817ca9890 ---------A   02440 LET L = 18
-    0x623817ca9920 ---------A   02450 GOSUB 4540
-    0x623817ca9a70 ---------A   02460 PRINT "DAMN! HAVE TO FORFEIT MY MOVE!"
-    0x623817ca9cc0 ---------A   02470 IF Z = 1 THEN 3370
-    0x623817ca9ee0 ---------A   02480 Z = 1
-    0x623817ca9f60 ---------A   02490 GO TO 2760
-    0x623817ca9fd0 ---------A   02500 REM********		MAKE THE MOVE
-    0x623817caa1f0 ---------A T 02510 Z = 0
-    0x623817caa400 ---------A   02520 LET L=15
-    0x623817caa480 ---------A   02530 GOSUB 4540
-    0x623817caa5e0 ---------A   02540 PRINT "I WILL MOVE TO ";
-    0x623817caa750 ---------A   02550 PRINT I3;
-    0x623817caa8c0 ---------A   02560 PRINT " , ";
-    0x623817caaaf0 ---------A   02570 PRINT C$(J3)
-    0x623817caad20 ---------A   02580 I= I3
-    0x623817caaf50 ---------A   02590 J= J3
-    0x623817cab160 ---------A   02600 U= 1
-    0x623817cab1d0 ---------A   02610 GOSUB 4060
-    0x623817cab610 ---------A   02620 C1 = C1 + S1 + 1
-    0x623817cab960 ---------A   02630 H1 = H1 - S1
-    0x623817cabc90 ---------A   02640 N1 = N1 + 1
-    0x623817cabea0 ---------A   02650 LET L=16
-    0x623817cabf20 ---------A   02660 GOSUB 4540
-    0x623817cac080 ---------A   02670 PRINT " THAT GIVES ME : ";
-    0x623817cac200 ---------A   02680 PRINT S1;
-    0x623817cac360 ---------A   02690 PRINT " OF YOUR PIECES"
-    0x623817cac3e0 ---------A   02700 REM********		PRINT OUT BOARD
-    0x623817cac470 ---------A   02710 GOSUB 4350
-    0x623817cac4e0 ---------A   02720 REM********		TEST FOR END OF GAME
-    0x623817cac760 ---------A   02730 IF H1 = 0 THEN 3370
-    0x623817cac9d0 ---------A   02740 IF N1 = 64 THEN 3370
-    0x623817caca60 ---------A   02750 REM********		HUMANS MOVE
-    0x623817cacca0 ---------A T 02760 T1 = H
-    0x623817caced0 ---------A   02770 T2 = C
-    0x623817cad0e0 ---------A   02780 LET L = 12
-    0x623817cad160 ---------A   02790 GOSUB 4540
-    0x623817cad2c0 ---------A T 02800 PRINT " YOUR MOVE";
-    0x623817cad4f0 ---------A T 02810 INPUT I, X$
-    0x623817cad750 ---------A   02820 IF I < 0 THEN 2810
-    0x623817cad9c0 ---------A   02830 IF I > 8 THEN 2810
-    0x623817cadc20 ---------A   02840 IF I <> 0 THEN 2930
-    0x623817cade40 ---------A   02850 LET L = 18
-    0x623817caded0 ---------A   02860 GOSUB 4540
-    0x623817cae020 ---------A   02870 PRINT "ARE YOU FORFEITING YOUR TURN Y OR N"
-    0x623817cae180 ---------A   02880 INPUT X$
-    0x623817cae400 ---------A   02890 IF X$ <> "Y" THEN 2800
-    0x623817cae660 ---------A   02900 IF Z = 1 THEN 3370
-    0x623817cae880 ---------A   02910 Z = 1
-    0x623817cae8f0 ---------A   02920 GO TO 2010
-    0x623817caebc0 ---------A T 02930 FOR J = 1 TO 8
-    0x623817caef20 ---------A   02940     IF C$(J) =X$ THEN 2980
-    0x623817caf060 ---------A   02950 NEXT J
-    0x623817caf0f0 ---------A   02960 GO TO 2810
-    0x623817caf160 ---------A   02970 REM********		CHECK FOR BLANK
-    0x623817caf590 ---------A T 02980 IF A(I,J) = 0 THEN 3040
-    0x623817caf7b0 ---------A   02990 LET L = 18
-    0x623817caf840 ---------A   03000 GOSUB 4540
-    0x623817caf9a0 ---------A   03010 PRINT "SORRY, THAT SQUARE IS OCCUPIED, TRY AGAIN"
-    0x623817cafa30 ---------A   03020 GO TO 2810
-    0x623817cafaa0 ---------A   03030 REM********		CHECK FOR LEGAL NEIGHBOUR
-    0x623817cafb30 ---------A T 03040 GOSUB 3860
-    0x623817cafd70 ---------A   03050 IF F1 = 1 THEN 3110
-    0x623817caff90 ---------A   03060 LET L = 18
-    0x623817cb0030 ---------A   03070 GOSUB 4540
-    0x623817cb01c0 ---------A   03080 PRINT "SORRY, YOU ARE NOT NEXT TO ONE OF MY PIECES. TRY AGAIN.";
-    0x623817cb0240 ---------A   03090 GO TO 2810
-    0x623817cb02b0 ---------A   03100 REM********		CHECK IF LEGAL RUN
-    0x623817cb04d0 ---------A T 03110 U = -1
-    0x623817cb0550 ---------A   03120 GOSUB 4060
-    0x623817cb0790 ---------A   03130 IF S1 > 0 THEN 3190
-    0x623817cb09b0 ---------A   03140 LET L = 18
-    0x623817cb0a40 ---------A   03150 GOSUB 4540
-    0x623817cb0ba0 ---------A   03160 PRINT "SORRY, THAT DOESN'T FLANK A ROW, TRY AGAIN"
-    0x623817cb0c30 ---------A   03170 GO TO 2810
-    0x623817cb0cb0 ---------A   03180 REM********		EVERYTHING LEGAL; MAKE HUMANS MOVE
-    0x623817cb0ed0 ---------A T 03190 Z = 0
-    0x623817cb10e0 ---------A   03200 LET L = 13
-    0x623817cb1160 ---------A   03210 GOSUB 4540
-    0x623817cb12c0 ---------A   03220 PRINT "THAT GIVES YOU";
-    0x623817cb1440 ---------A   03230 PRINT S1;
-    0x623817cb1590 ---------A   03240 PRINT " OF MY PIECES"
-    0x623817cb17a0 ---------A   03250 U = 1
-    0x623817cb1810 ---------A   03260 GOSUB 4060
-    0x623817cb1c50 ---------A   03270 H1 = H1 + S1 + 1
-    0x623817cb1fa0 ---------A   03280 C1 = C1 -S1
-    0x623817cb22e0 ---------A   03290 N1 = N1 + 1
-    0x623817cb2360 ---------A   03300 REM********		PRINT OUT BOARD
-    0x623817cb23f0 ---------A   03310 GOSUB 4350
-    0x623817cb2460 ---------A   03320 REM********		TEST FOR END OF GAME
-    0x623817cb26e0 ---------A   03330 IF C1 = 0 THEN 3370
-    0x623817cb2940 ---------A   03340 IF N1 = 64 THEN 3370
-    0x623817cb29d0 ---------A   03350 GO TO 2010
-    0x623817cb2a40 ---------A   03360 REM********		END OF GAME ; WRAPUP
-    0x623817cb2c60 ---------A T 03370 LET L = 18
-    0x623817cb2cf0 ---------A   03380 GOSUB 4540
-    0x623817cb2e40 ---------A   03390 PRINT "FOR RESULTS ON GAME TYPE RETURN!!"
-    0x623817cb2fa0 ---------A   03400 INPUT X$
-    0x623817cb3380 ---------A   03410 PRINT CHR$(30),CHR$(26)
-    0x623817cb34f0 ---------A   03420 PRINT "YOU HAVE ";
-    0x623817cb3670 ---------A   03430 PRINT H1;
-    0x623817cb37e0 ---------A   03440 PRINT " PIECES, AND I HAVE ";
-    0x623817cb3960 ---------A   03450 PRINT C1;
-    0x623817cb3ac0 ---------A   03460 PRINT " PIECES--- "
-    0x623817cb3d40 ---------A   03470 IF H1 = C1 THEN 3510
-    0x623817cb3fd0 ---------A   03480 IF H1 > C1 THEN 3530
-    0x623817cb4140 ---------A   03490 PRINT "SORRY, I WON THAT ONE."
-    0x623817cb41c0 ---------A   03500 GO TO 3540
-    0x623817cb4300 ---------A T 03510 PRINT " A TIE!!!!!"
-    0x623817cb4370 ---------A   03520 GO TO 3720
-    0x623817cb44b0 ---------A T 03530 PRINT "YOU WON!!!"
-    0x623817cb4810 ---------A T 03540 C1 = C1 - H1
-    0x623817cb4a60 ---------A   03550 IF C1 > 0 THEN 3570
-    0x623817cb4ca0 ---------A   03560 C1 = -C1
-    0x623817ca7c60 ---------A T 03570 C1 = (64 * C1)/ N1
-    0x623817ca7de0 ---------A   03580 PRINT "THAT WAS A ";
-    0x623817cb5d30 ---------A   03590 IF C1 < 11 THEN 3710
-    0x623817cb5fa0 ---------A   03600 IF C1 < 25 THEN 3690
-    0x623817cb6210 ---------A   03610 IF C1 < 39 THEN 3670
-    0x623817cb6480 ---------A   03620 IF C1 < 53 THEN 3650
-    0x623817cb65e0 ---------A   03630 PRINT " A PERFECT GAME!"
-    0x623817cb6650 ---------A   03640 GO TO 3720
-    0x623817cb6790 ---------A T 03650 PRINT "WALKAWAY!"
-    0x623817cb6800 ---------A   03660 GO TO 3720
-    0x623817cb6940 ---------A T 03670 PRINT "FIGHT!"
-    0x623817cb69b0 ---------A   03680 GO TO 3720
-    0x623817cb6af0 ---------A T 03690 PRINT "HOT GAME!"
-    0x623817cb6b60 ---------A   03700 GO TO 3720
-    0x623817cb6ca0 ---------A T 03710 PRINT "SQUEAKER!"
-    0x623817cb6d20 ---------A T 03720 PRINT
-    0x623817cb6ea0 ---------A   03730 PRINT"DO YOU WANT TO PLAY AGAIN";
-    0x623817cb7000 ---------A T 03740 INPUT X$
-    0x623817cb7290 ---------A   03750 IF X$ = "Y" THEN 1700
-    0x623817cb7520 ---------A   03760 IF X$ <> "N" THEN 3740
-    0x623817cb7680 ---------A   03770 PRINT "THANKS FOR PLAYING."
-    0x623817cb76d0 ---------A   03780 STOP
-    0x623817cb8e20 ---------A   03790 REM********		SUCCESS
-    0x623817cc1510 ---------A   03800 END
-    0x623817cb7750 ---------B   03810 REM********		
-    0x623817cb7810 ---------B   03820 REM********		SUBROUTINE: TEST FOR PROPER NEIGHBOUR
-    0x623817cb78a0 ---------B   03830 REM********		ASSUMES:
-    0x623817cb7950 ---------B   03840 REM********		I,J LOCATES A BLANK SQUARE
-    0x623817cb7a20 ---------B   03850 REM********		YOU HOPE TO SEE AN ADJACENT  T2 (= -T1)
-    0x623817cb7dd0 ---------B G 03860 FOR I1 =  -1 TO 1
-    0x623817cb8180 ---------B   03870     FOR J1 = -1 TO 1
-    0x623817cb8800 ---------B   03880 	IF  A(I+I1,J+J1) = T2 THEN 3940
-    0x623817cb8940 ---------B   03890     NEXT J1
-    0x623817cb8a80 ---------B   03900 NEXT I1
-    0x623817cb8b20 ---------B   03910 REM********		NO T2 FOUND
-    0x623817cb8d40 ---------B   03920 F1 = 0
-    0x623817cc9ed0 ---------B   03930 GOTO 03960
-    0x623817cb9040 ---------B T 03940 F1 = 1
-    0x623817cc9f10 ---------B   03950 GOTO 03960
-    0x623817cc9f50 ---------B T 03960 RETURN
-    0x623817cb9150 ---------C   03970 REM********		SUBROUTINE SCORE AND UPDATE
-    0x623817cb91e0 ---------C   03980 REM********		ASSUMES;
-    0x623817cb92b0 ---------C   03990 REM********		(I,J) IS A TENTATIVE PLACE FOR A PIECE T1.
-    0x623817cb9380 ---------C   04000 REM********		WANT RUNS OF T2 = -T1, TERMINATED BY A T1.
-    0x623817cb9450 ---------C   04010 REM********		IF U IS TRUE (1), MARK THOSE RUNS AS T1'S.
-    0x623817cb9520 ---------C   04020 REM********		RETURN SUM OF ALL RUNS (T2'S ONLY) IN S1.
-    0x623817cb9600 ---------C   04030 REM********		MAIN PROGRAM CONTAINS THE FOLLOWING ARRAYS:
-    0x623817cb96c0 ---------C   04040 REM********		I4:  0 -1 -1 -1  0  1  1  1
-    0x623817cb9780 ---------C   04050 REM********		J4:  1  1  0 -1 -1 -1  0  1
-    0x623817cb99a0 ---------C G 04060 S1 = 0
-    0x623817cb9c70 ---------C   04070 FOR K = 1 TO 8
-    0x623817cba050 ---------C   04080     I5 = I4(K)
-    0x623817cba420 ---------C   04090     J5 = J4(K)
-    0x623817cba830 ---------C   04100     I6 = I + I5
-    0x623817cbac40 ---------C   04110     J6 = J + J5
-    0x623817cbaf20 ---------C   04120     S3 = 0
-    0x623817cbb360 ---------C   04130     IF A(I6,J6) <> T2 THEN 4310
-    0x623817cbb3f0 ---------C   04140     REM			LOOP THROUGH THE RUN
-    0x623817cbb730 ---------C T 04150     S3 = S3 + 1
-    0x623817cbba80 ---------C   04160     I6 = I6 + I5
-    0x623817cbbde0 ---------C   04170     J6 = J6 + J5
-    0x623817cbc220 ---------C   04180     IF A (I6,J6) = T1 THEN 4210
-    0x623817cbc640 ---------C   04190     IF A(I6,J6) = 0 THEN 4310
-    0x623817cbc6c0 ---------C   04200     GO TO 4150
-    0x623817cbca10 ---------C T 04210     S1 = S1 + S3
-    0x623817cbcc70 ---------C   04220     IF U <> 1 THEN 4310
-    0x623817cbccf0 ---------C   04230     REM			UPDATE BOARD
-    0x623817cbcf30 ---------C   04240     I6 = I
-    0x623817cbd170 ---------C   04250     J6 = J
-    0x623817cbd520 ---------C   04260     FOR K1 = 0 TO S3
-    0x623817cbd920 ---------C   04270 	A(I6,J6) = T1
-    0x623817cbdc70 ---------C   04280 	I6 = I6 + I5
-    0x623817cbdfc0 ---------C   04290 	J6 = J6 + J5
-    0x623817cbe0f0 ---------C   04300     NEXT K1
-    0x623817cbe230 ---------C T 04310 NEXT K
-    0x623817cc9fb0 ---------C   04320 GOTO 04330
-    0x623817cca010 ---------C T 04330 RETURN
-    0x623817cbe340 ---------D   04340 REM********		SUBROUTINE TO PRINT BOARD
-    0x623817cbe560 ---------D G 04350 PRINT CHR$(30)
-    0x623817cbe780 ---------D   04360 LET L = 18
-    0x623817cbe9b0 ---------D   04370 IF F9 = 1 GO TO 4400
-    0x623817cbea50 ---------D   04380 GOSUB 4630
-    0x623817cbec50 ---------D   04390 LET F9 = 1
-    0x623817cbee70 ---------D T 04400 PRINT CHR$(30)
-    0x623817cbefc0 ---------D   04410 PRINT "    A B C D E F G H"
-    0x623817cbf290 ---------D   04420 FOR I = 1 TO 8
-    0x623817cbf410 ---------D   04430     PRINT I;
-    0x623817cbf6e0 ---------D   04440     FOR J = 1 TO 8
-    0x623817cbf870 ---------D   04450 	PRINT " ";
-    0x623817cbfd80 ---------D   04460 	PRINT D$(A(I,J)+1);
-    0x623817cbfeb0 ---------D   04470     NEXT J
-    0x623817cbff30 ---------D   04480     PRINT
-    0x623817cc0060 ---------D   04490 NEXT I
-    0x623817cc00e0 ---------D   04500 PRINT
-    0x623817cca070 ---------D   04510 GOTO 04520
-    0x623817cca0d0 ---------D T 04520 RETURN
-    0x623817cc01d0 ---------E   04530 REM********		***	SPACE		***
-    0x623817cc03f0 ---------E G 04540 PRINT CHR$(30)
-    0x623817cc07a0 ---------E   04550 FOR I9 = 1 TO L
-    0x623817cc0820 ---------E   04560     PRINT
-    0x623817cc0950 ---------E   04570 NEXT I9
-    0x623817cc0ba0 ---------E   04580 IF L <> 18 GO TO 4600
-    0x623817cc0de0 ---------E   04590 F9 = 0
-    0x623817cca130 ---------E T 04600 GOTO 04610
-    0x623817cca190 ---------E T 04610 RETURN
-    0x623817cc0ed0 ---------F   04620 REM********		***	BLANK OUT	***
-    0x623817cc0f50 ---------F G 04630 GOSUB 4540
-    0x623817cc11d0 ---------F   04640 PRINT TAB(60);" "
-    0x623817cc1460 ---------F   04650 PRINT TAB(60);" "
-    0x623817cca1f0 ---------F   04660 GOTO 04670
-    0x623817cca250 ---------F T 04670 RETURN
+    0x55a890190b80 ---------A   01000  REM********		OTHELLO          BYTE VOL. 2, NUMBER 10 (OCT. 1977)
+    0x55a890191e70 ---------A   01010  REM********		PLAYS THE GAME OTHELLO WITH TWO STRATEGIES
+    0x55a890191ff0 ---------A   01020  REM********		1. TAKE THE MAX. NUMBER OF PIECES
+    0x55a8901920b0 ---------A   01030  REM********		2. ADD A BONUS FOR OUTSIDE POSITION
+    0x55a8901802b0 ---------A   01040  REM********		BOARD IS THE ARRAY A, BOUNDED BY 0'S (BLANKS)
+    0x55a89018f9e0 ---------A   01050  REM********		A = 0 FOR EMPTY SQUARE
+    0x55a89018f7f0 ---------A   01060  REM********		A = B FOR BLACK SQUARE
+    0x55a890191aa0 ---------A   01070  REM********		A = W FOR WHITE SQUARE
+    0x55a890190090 ---------A   01080  REM********		I AND J ARE ALWAYS USED FOR ROW/COLUMN INDICES
+    0x55a89018fe90 ---------A   01090  REM********		I1 AND J4 STORE INCREMENTS TO THE 8 NEIGHBOURS
+    0x55a8901916a0 ---------A   01100  REM********		C$ AND D$ STORE CHARACTERS A-H,X,...,O FOR OUTPUT
+    0x55a890197a80 ---------A   01110  DIM A(9,9),I4(8),J4(8),C$(8),D$(2)
+    0x55a890197ad0 ---------A   01120  REM********		
+    0x55a89018f6d0 ---------A   01130  PRINT "GREETINGS FROM OTHELLO!"
+    0x55a89018f670 ---------A   01140  PRINT "DO YOU WANT INSTRUCTIONS (Y OR N)";
+    0x55a890197e60 ---------A T 01150  INPUT X$
+    0x55a8901980c0 ---------A   01160  IF X$ = "N" THEN 1380
+    0x55a890198340 ---------A   01170  IF X$ <> "Y" THEN 1150
+    0x55a8901983e0 ---------A   01180  PRINT
+    0x55a890198590 ---------A   01190  PRINT "OTHELLO IS PLAYED ON AN 8X8 CHECKER BOARD"
+    0x55a890198740 ---------A   01200  PRINT "ROWS ARE NUMBERED FROM 1 TO 8 AND COLUMNS FROM A TO H"
+    0x55a8901988f0 ---------A   01210  PRINT" THE INITIAL CONFIGURATION IS ALL BLANK EXCEPT FOR"
+    0x55a890198a50 ---------A   01220  PRINT "THE CENTER FOUR SQUARES, WHICH FORM THE PATTERN:"
+    0x55a890198b90 ---------A   01230  PRINT "               O X"
+    0x55a890198cf0 ---------A   01240  PRINT "               X O"
+    0x55a890198da0 ---------A   01250  PRINT
+    0x55a890198f60 ---------A   01260  PRINT "TRY TO PLACE YOUR PIECE SO THAT IT WILL 'OUTFLANK' MINE"
+    0x55a890199110 ---------A   01270  PRINT "THEREBY CREATING A HORIZONTAL, VERTICAL, OR DIAGONAL "
+    0x55a8901992c0 ---------A   01280  PRINT "RUN OF MY PIECES BOUNDED AT EACH END BY AT LEAST ONE "
+    0x55a890199450 ---------A   01290  PRINT "OF YOURS.  THIS WILL 'FLIP' MY PIECES, TURNING THEM INTO"
+    0x55a8901995e0 ---------A   01300  PRINT "YOURS."
+    0x55a890199790 ---------A   01310  PRINT"     NOTE: YOU MUST CAPTURE AT LEAST ONE OF MY PIECES"
+    0x55a890199940 ---------A   01320  PRINT "IN THIS WAY IF IT IS AT ALL POSSIBLE.  IF IT IS NOT"
+    0x55a890199cf0 ---------A   01330  PRINT "POSSIBLE, YOU FORFEIT YOUR TURN BY ENTERING"
+    0x55a890199e70 ---------A   01340  PRINT "     0,0   FOR YOUR ROW,COLUMN MOVE"
+    0x55a890199fd0 ---------A   01350  PRINT " GOOD LUCK!"
+    0x55a89019a050 ---------A   01360  PRINT
+    0x55a89019a0d0 ---------A   01370  REM********		
+    0x55a89019a2b0 ---------A T 01380  PRINT "SHOULD I WAIT BEFORE MAKING MY MOVES (Y OR N)";
+    0x55a89019a590 ---------A   01390  F2 = 0
+    0x55a89019a860 ---------A   01400  F9 = 1
+    0x55a89019a9c0 ---------A T 01410  INPUT X$
+    0x55a89019ac50 ---------A   01420  IF X$ = "N" THEN 1460
+    0x55a89019aed0 ---------A   01430  IF X$ <> "Y" THEN  1410
+    0x55a89019b120 ---------A   01440  F2 = 1
+    0x55a89019b2b0 ---------A   01450  PRINT "OK.  TYPING ANY CHARACTER WILL LET ME GO"
+    0x55a89019b450 ---------A T 01460  PRINT "SHOULD I PLAY MY BEST STRATEGY (Y OR N)";
+    0x55a89019b730 ---------A   01470  S2 = 0
+    0x55a89019b890 ---------A T 01480  INPUT X$
+    0x55a89019bb20 ---------A   01490  IF X$ = "N" THEN 1520
+    0x55a89019bda0 ---------A   01500  IF X$ <> "Y" THEN 1480
+    0x55a89019bfc0 ---------A   01510  S2 = 2
+    0x55a89019c290 ---------A T 01520  B = -1
+    0x55a89019c560 ---------A   01530  W = +1
+    0x55a89019c970 ---------A   01540  D$(B +1) ="X"
+    0x55a89019cd60 ---------A   01550  D$(0 +1) = "."
+    0x55a89019d170 ---------A   01560  D$(W + 1) ="O"
+    0x55a89019d500 ---------A   01570  FOR K = 1 TO 8
+    0x55a89019d740 ---------A   01580  READ I4(K)
+    0x55a89019d870 ---------A   01590  NEXT K
+    0x55a89019e010 ---------A   01600  DATA 0,-1,-1,-1,0,1,1,1
+    0x55a89019e2e0 ---------A   01610  FOR K=1 TO 8
+    0x55a89019e520 ---------A   01620  READ J4(K)
+    0x55a89019e650 ---------A   01630  NEXT K
+    0x55a89019edf0 ---------A   01640  DATA 1,1,0,-1,-1,-1,0,1
+    0x55a89019f4d0 ---------A   01650  FOR K = 1 TO 8
+    0x55a89019f710 ---------A   01660  READ C$(K)
+    0x55a89019f840 ---------A   01670  NEXT K
+    0x55a89019fff0 ---------A   01680  DATA A,B,C,D,E,F,G,H
+    0x55a8901a0070 ---------A   01690  REM********		SET UP A NEW GAME
+    0x55a8901a0420 ---------A T 01700  FOR I = 0 TO 9
+    0x55a8901a07c0 ---------A   01710  FOR J = 0 TO 9
+    0x55a8901a0ba0 ---------A   01720  A(I,J)=0
+    0x55a8901a0cd0 ---------A   01730  NEXT J
+    0x55a8901a0e20 ---------A   01740  NEXT I
+    0x55a8901a11f0 ---------A   01750  A(4,4) = W
+    0x55a8901a15a0 ---------A   01760  A(5,5) = W
+    0x55a8901a1950 ---------A   01770  A(4,5) = B
+    0x55a8901a1d00 ---------A   01780  A(5,4) = B
+    0x55a8901a1fd0 ---------A   01790  C1 = 2
+    0x55a8901a22a0 ---------A   01800  H1 = 2
+    0x55a8901a2570 ---------A   01810  N1 = 4
+    0x55a8901a2850 ---------A   01820  Z =0
+    0x55a8901a28d0 ---------A   01830  REM********		HUMAN'S CHOICES
+    0x55a8901a2a90 ---------A   01840  PRINT "DO YOU WANT TO HAVE X OR O";
+    0x55a8901a2d90 ---------A   01850  C = W
+    0x55a8901a3080 ---------A   01860  H = B
+    0x55a8901a31e0 ---------A T 01870  INPUT X$
+    0x55a8901a3470 ---------A   01880  IF X$ = "X" THEN 1920
+    0x55a8901a36f0 ---------A   01890  IF X$ <> "O" THEN 1870
+    0x55a8901a3930 ---------A   01900  C = B
+    0x55a8901a3b80 ---------A   01910  H = W
+    0x55a8901a3d00 ---------A T 01920  PRINT "DO YOU WANT TO GO FIRST (Y OR N)";
+    0x55a8901a3e60 ---------A T 01930  INPUT X$
+    0x55a8901a4090 ---------A   01940  PRINT CHR$(26)
+    0x55a8901a4320 ---------A   01950  IF X$ = "N" THEN 2030
+    0x55a8901a45b0 ---------A   01960  IF X$ <> "Y" THEN 1930
+    0x55a8901a4640 ---------A   01970  REM********		PRINT INITIAL BOARD
+    0x55a8901a46d0 ---------A   01980  GOSUB 4350
+    0x55a8901a4750 ---------A   01990  GO TO 2760
+    0x55a8901a47d0 ---------A   02000  REM********		COMPUTER'S MOVE
+    0x55a8901a4a50 ---------A T 02010  IF F2 = 0 THEN 2030
+    0x55a8901a4bb0 ---------A   02020  INPUT X$
+    0x55a8901a4e90 ---------A T 02030  B1 = -1
+    0x55a8901a5300 ---------A   02040  I3 = J3 = 0
+    0x55a8901a55f0 ---------A   02050  T1 = C
+    0x55a8901a58f0 ---------A   02060  T2 = H
+    0x55a8901a5970 ---------A   02070  REM********		SCAN FOR BLANK SQUARE
+    0x55a8901a5c60 ---------A   02080  FOR I = 1 TO 8
+    0x55a8901a5f50 ---------A   02090  FOR J = 1 TO 8
+    0x55a8901a6380 ---------A   02100  IF A(I,J) <> 0 THEN 2390
+    0x55a8901a6410 ---------A   02110  REM********		FOUND A BLANK SQUARE
+    0x55a8901a64f0 ---------A   02120  REM********		DOES IT HAVE AN OPPONENT AS A NEIGHBOUR
+    0x55a8901a6590 ---------A   02130  GOSUB 3860
+    0x55a8901a68c0 ---------A   02140  IF F1 = 0 THEN 2390
+    0x55a8901a6960 ---------A   02150  REM********		FOUND OPPONENT AS NEIGHBOUR
+    0x55a8901a6a30 ---------A   02160  REM********		HOW MANY OF HIS PIECES CAN WE FLIP?
+    0x55a8901a6ae0 ---------A   02170  REM********		DON'T DO IT NOW
+    0x55a8901a6dd0 ---------A   02180  U = -1
+    0x55a8901a6e60 ---------A   02190  GOSUB 4060
+    0x55a8901a6ef0 ---------A   02200  REM********		EXTRA POINTS FOR BOUNDARY POSITION
+    0x55a8901a7240 ---------A   02210  IF S1 = 0 THEN 2390
+    0x55a8901a7840 ---------A   02220  IF (I-1) * (I-8) <> 0 THEN 2240
+    0x55a8901a7bb0 ---------A   02230  S1 = S1 + S2
+    0x55a8901a81a0 ---------A T 02240  IF (J-1) * (J-8) <> 0 THEN 2270
+    0x55a8901a8530 ---------A   02250  S1 = S1 +S2
+    0x55a8901a85c0 ---------A   02260  REM********		IS THIS BETTER THAN THE BEST FOUND SO FAR
+    0x55a8901a8870 ---------A T 02270  IF S1 < B1 THEN 2390
+    0x55a8901a8b10 ---------A   02280  IF S1 > B1 THEN 2350
+    0x55a8901a93b0 ---------A   02290  REM********		A TIE; RANDOM DECISION
+    0x55a8901a9490 ---------A   02300  REM********		THE NEXT TWO EXECUTABLE STATEMENTS ARE FOR
+    0x55a8901a9550 ---------A   02310  REM********		BASIC WITH RANDOM NUMBERS
+    0x55a8901a9930 ---------A   02320  R = RND(1)
+    0x55a8901a9b80 ---------A   02330  IF R > .5 THEN 2390
+    0x55a8901a9c00 ---------A   02340  REM********		YES
+    0x55a8901a9e50 ---------A T 02350  B1 = S1
+    0x55a8901aa080 ---------A   02360  I3 = I
+    0x55a8901aa2c0 ---------A   02370  J3 = J
+    0x55a8901aa340 ---------A   02380  REM********		END OF SCAN LOOP
+    0x55a8901aa490 ---------A T 02390  NEXT J
+    0x55a8901aa5e0 ---------A   02400  NEXT I
+    0x55a8901aa690 ---------A   02410  REM********		COULD WE DO ANYTHING?
+    0x55a8901aa910 ---------A   02420  IF B1 > 0 THEN 2510
+    0x55a8901aa990 ---------A   02430  REM********		NO
+    0x55a8901aac80 ---------A   02440  LET L = 18
+    0x55a8901aad10 ---------A   02450  GOSUB 4540
+    0x55a8901aae70 ---------A   02460  PRINT "DAMN! HAVE TO FORFEIT MY MOVE!"
+    0x55a8901ab0d0 ---------A   02470  IF Z = 1 THEN 3370
+    0x55a8901ab2f0 ---------A   02480  Z = 1
+    0x55a8901ab370 ---------A   02490  GO TO 2760
+    0x55a8901ab3f0 ---------A   02500  REM********		MAKE THE MOVE
+    0x55a8901ab620 ---------A T 02510  Z = 0
+    0x55a8901ab830 ---------A   02520  LET L=15
+    0x55a8901ab8b0 ---------A   02530  GOSUB 4540
+    0x55a8901aba20 ---------A   02540  PRINT "I WILL MOVE TO ";
+    0x55a8901abba0 ---------A   02550  PRINT I3;
+    0x55a8901abd20 ---------A   02560  PRINT " , ";
+    0x55a8901abf60 ---------A   02570  PRINT C$(J3)
+    0x55a8901ac1a0 ---------A   02580  I= I3
+    0x55a8901ac3d0 ---------A   02590  J= J3
+    0x55a8901ac5e0 ---------A   02600  U= 1
+    0x55a8901ac650 ---------A   02610  GOSUB 4060
+    0x55a8901acaa0 ---------A   02620  C1 = C1 + S1 + 1
+    0x55a8901acdf0 ---------A   02630  H1 = H1 - S1
+    0x55a8901ad120 ---------A   02640  N1 = N1 + 1
+    0x55a8901ad330 ---------A   02650  LET L=16
+    0x55a8901ad3b0 ---------A   02660  GOSUB 4540
+    0x55a8901ad520 ---------A   02670  PRINT " THAT GIVES ME : ";
+    0x55a8901ad6b0 ---------A   02680  PRINT S1;
+    0x55a8901ad820 ---------A   02690  PRINT " OF YOUR PIECES"
+    0x55a8901ad8b0 ---------A   02700  REM********		PRINT OUT BOARD
+    0x55a8901ad950 ---------A   02710  GOSUB 4350
+    0x55a8901ad9d0 ---------A   02720  REM********		TEST FOR END OF GAME
+    0x55a8901adc60 ---------A   02730  IF H1 = 0 THEN 3370
+    0x55a8901aded0 ---------A   02740  IF N1 = 64 THEN 3370
+    0x55a8901adf60 ---------A   02750  REM********		HUMANS MOVE
+    0x55a8901ae1b0 ---------A T 02760  T1 = H
+    0x55a8901ae3e0 ---------A   02770  T2 = C
+    0x55a8901ae5f0 ---------A   02780  LET L = 12
+    0x55a8901ae670 ---------A   02790  GOSUB 4540
+    0x55a8901ae7e0 ---------A T 02800  PRINT " YOUR MOVE";
+    0x55a8901aea20 ---------A T 02810  INPUT I, X$
+    0x55a8901aec80 ---------A   02820  IF I < 0 THEN 2810
+    0x55a8901aeef0 ---------A   02830  IF I > 8 THEN 2810
+    0x55a8901af150 ---------A   02840  IF I <> 0 THEN 2930
+    0x55a8901af370 ---------A   02850  LET L = 18
+    0x55a8901af400 ---------A   02860  GOSUB 4540
+    0x55a8901af560 ---------A   02870  PRINT "ARE YOU FORFEITING YOUR TURN Y OR N"
+    0x55a8901af6d0 ---------A   02880  INPUT X$
+    0x55a8901af950 ---------A   02890  IF X$ <> "Y" THEN 2800
+    0x55a8901afbb0 ---------A   02900  IF Z = 1 THEN 3370
+    0x55a8901afdd0 ---------A   02910  Z = 1
+    0x55a8901afe40 ---------A   02920  GO TO 2010
+    0x55a8901b0120 ---------A T 02930  FOR J = 1 TO 8
+    0x55a8901b0480 ---------A   02940  IF C$(J) =X$ THEN 2980
+    0x55a8901b05c0 ---------A   02950  NEXT J
+    0x55a8901b0660 ---------A   02960  GO TO 2810
+    0x55a8901b06e0 ---------A   02970  REM********		CHECK FOR BLANK
+    0x55a8901b0b20 ---------A T 02980  IF A(I,J) = 0 THEN 3040
+    0x55a8901b0d40 ---------A   02990  LET L = 18
+    0x55a8901b0dd0 ---------A   03000  GOSUB 4540
+    0x55a8901b0f40 ---------A   03010  PRINT "SORRY, THAT SQUARE IS OCCUPIED, TRY AGAIN"
+    0x55a8901b0fe0 ---------A   03020  GO TO 2810
+    0x55a8901b1060 ---------A   03030  REM********		CHECK FOR LEGAL NEIGHBOUR
+    0x55a8901b1100 ---------A T 03040  GOSUB 3860
+    0x55a8901b1350 ---------A   03050  IF F1 = 1 THEN 3110
+    0x55a8901b1570 ---------A   03060  LET L = 18
+    0x55a8901b1610 ---------A   03070  GOSUB 4540
+    0x55a8901b17b0 ---------A   03080  PRINT "SORRY, YOU ARE NOT NEXT TO ONE OF MY PIECES. TRY AGAIN.";
+    0x55a8901b1840 ---------A   03090  GO TO 2810
+    0x55a8901b18c0 ---------A   03100  REM********		CHECK IF LEGAL RUN
+    0x55a8901b1af0 ---------A T 03110  U = -1
+    0x55a8901b1b70 ---------A   03120  GOSUB 4060
+    0x55a8901b1dc0 ---------A   03130  IF S1 > 0 THEN 3190
+    0x55a8901b1fe0 ---------A   03140  LET L = 18
+    0x55a8901b2070 ---------A   03150  GOSUB 4540
+    0x55a8901b21e0 ---------A   03160  PRINT "SORRY, THAT DOESN'T FLANK A ROW, TRY AGAIN"
+    0x55a8901b2280 ---------A   03170  GO TO 2810
+    0x55a8901b2310 ---------A   03180  REM********		EVERYTHING LEGAL; MAKE HUMANS MOVE
+    0x55a8901b2540 ---------A T 03190  Z = 0
+    0x55a8901b2750 ---------A   03200  LET L = 13
+    0x55a8901b27d0 ---------A   03210  GOSUB 4540
+    0x55a8901b2940 ---------A   03220  PRINT "THAT GIVES YOU";
+    0x55a8901b2ad0 ---------A   03230  PRINT S1;
+    0x55a8901b2c30 ---------A   03240  PRINT " OF MY PIECES"
+    0x55a8901b2e50 ---------A   03250  U = 1
+    0x55a8901b2ec0 ---------A   03260  GOSUB 4060
+    0x55a8901b3310 ---------A   03270  H1 = H1 + S1 + 1
+    0x55a8901b3660 ---------A   03280  C1 = C1 -S1
+    0x55a8901b39a0 ---------A   03290  N1 = N1 + 1
+    0x55a8901b3a20 ---------A   03300  REM********		PRINT OUT BOARD
+    0x55a8901b3ac0 ---------A   03310  GOSUB 4350
+    0x55a8901b3b40 ---------A   03320  REM********		TEST FOR END OF GAME
+    0x55a8901b3dd0 ---------A   03330  IF C1 = 0 THEN 3370
+    0x55a8901b4030 ---------A   03340  IF N1 = 64 THEN 3370
+    0x55a8901b40c0 ---------A   03350  GO TO 2010
+    0x55a8901b4140 ---------A   03360  REM********		END OF GAME ; WRAPUP
+    0x55a8901b4370 ---------A T 03370  LET L = 18
+    0x55a8901b4400 ---------A   03380  GOSUB 4540
+    0x55a8901b4560 ---------A   03390  PRINT "FOR RESULTS ON GAME TYPE RETURN!!"
+    0x55a8901b46d0 ---------A   03400  INPUT X$
+    0x55a8901b4ab0 ---------A   03410  PRINT CHR$(30),CHR$(26)
+    0x55a8901b4c30 ---------A   03420  PRINT "YOU HAVE ";
+    0x55a8901b4dc0 ---------A   03430  PRINT H1;
+    0x55a8901b4f40 ---------A   03440  PRINT " PIECES, AND I HAVE ";
+    0x55a8901b50d0 ---------A   03450  PRINT C1;
+    0x55a8901b5240 ---------A   03460  PRINT " PIECES--- "
+    0x55a8901b54d0 ---------A   03470  IF H1 = C1 THEN 3510
+    0x55a8901b5760 ---------A   03480  IF H1 > C1 THEN 3530
+    0x55a8901b58d0 ---------A   03490  PRINT "SORRY, I WON THAT ONE."
+    0x55a8901b5960 ---------A   03500  GO TO 3540
+    0x55a8901b5ab0 ---------A T 03510  PRINT " A TIE!!!!!"
+    0x55a8901b5b30 ---------A   03520  GO TO 3720
+    0x55a8901b5c80 ---------A T 03530  PRINT "YOU WON!!!"
+    0x55a8901b5ff0 ---------A T 03540  C1 = C1 - H1
+    0x55a8901b6240 ---------A   03550  IF C1 > 0 THEN 3570
+    0x55a8901b6480 ---------A   03560  C1 = -C1
+    0x55a8901a8fc0 ---------A T 03570  C1 = (64 * C1)/ N1
+    0x55a8901a9140 ---------A   03580  PRINT "THAT WAS A ";
+    0x55a8901b7510 ---------A   03590  IF C1 < 11 THEN 3710
+    0x55a8901b7780 ---------A   03600  IF C1 < 25 THEN 3690
+    0x55a8901b79f0 ---------A   03610  IF C1 < 39 THEN 3670
+    0x55a8901b7c60 ---------A   03620  IF C1 < 53 THEN 3650
+    0x55a8901b7dc0 ---------A   03630  PRINT " A PERFECT GAME!"
+    0x55a8901b7e40 ---------A   03640  GO TO 3720
+    0x55a8901b7f90 ---------A T 03650  PRINT "WALKAWAY!"
+    0x55a8901b8010 ---------A   03660  GO TO 3720
+    0x55a8901b8160 ---------A T 03670  PRINT "FIGHT!"
+    0x55a8901b81e0 ---------A   03680  GO TO 3720
+    0x55a8901b8330 ---------A T 03690  PRINT "HOT GAME!"
+    0x55a8901b83b0 ---------A   03700  GO TO 3720
+    0x55a8901b8500 ---------A T 03710  PRINT "SQUEAKER!"
+    0x55a8901b8590 ---------A T 03720  PRINT
+    0x55a8901b8720 ---------A   03730  PRINT"DO YOU WANT TO PLAY AGAIN";
+    0x55a8901b8890 ---------A T 03740  INPUT X$
+    0x55a8901b8b20 ---------A   03750  IF X$ = "Y" THEN 1700
+    0x55a8901b8db0 ---------A   03760  IF X$ <> "N" THEN 3740
+    0x55a8901b8f10 ---------A   03770  PRINT "THANKS FOR PLAYING."
+    0x55a8901b8f70 ---------A   03780  STOP
+    0x55a8901ba740 ---------A   03790  REM********		SUCCESS
+    0x55a8901c3060 ---------A   03800  END
+    0x55a8901b8ff0 ---------B   03810  REM********		
+    0x55a8901b90c0 ---------B   03820  REM********		SUBROUTINE
+    0x55a8901b9160 ---------B   03830  REM********		ASSUMES
+    0x55a8901b9220 ---------B   03840  REM********		I,J LOCATES A BLANK SQUARE
+    0x55a8901b9300 ---------B   03850  REM********		YOU HOPE TO SEE AN ADJACENT  T2 (= -T1)
+    0x55a8901b96c0 ---------B G 03860  FOR I1 =  -1 TO 1
+    0x55a8901b9a70 ---------B   03870  FOR J1 = -1 TO 1
+    0x55a8901ba0f0 ---------B   03880  IF  A(I+I1,J+J1) = T2 THEN 3940
+    0x55a8901ba230 ---------B   03890  NEXT J1
+    0x55a8901ba380 ---------B   03900  NEXT I1
+    0x55a8901ba430 ---------B   03910  REM********		NO T2 FOUND
+    0x55a8901ba660 ---------B   03920  F1 = 0
+    0x55a8901d86a0 ---------B   03930  GOTO 03960
+    0x55a8901ba970 ---------B T 03940  F1 = 1
+    0x55a8901d8710 ---------B   03950  GOTO 03960
+    0x55a8901d8780 ---------B T 03960  RETURN
+    0x55a8901baa80 ---------C   03970  REM********		SUBROUTINE SCORE AND UPDATE
+    0x55a8901bab20 ---------C   03980  REM********		ASSUMES;
+    0x55a8901bac00 ---------C   03990  REM********		(I,J) IS A TENTATIVE PLACE FOR A PIECE T1.
+    0x55a8901bace0 ---------C   04000  REM********		WANT RUNS OF T2 = -T1, TERMINATED BY A T1.
+    0x55a8901badc0 ---------C   04010  REM********		IF U IS TRUE (1), MARK THOSE RUNS AS T1'S.
+    0x55a8901baea0 ---------C   04020  REM********		RETURN SUM OF ALL RUNS (T2'S ONLY) IN S1.
+    0x55a8901baf90 ---------C   04030  REM********		MAIN PROGRAM CONTAINS THE FOLLOWING ARRAYS
+    0x55a8901bb060 ---------C   04040  REM********		I4
+    0x55a8901bb130 ---------C   04050  REM********		J4
+    0x55a8901bb360 ---------C G 04060  S1 = 0
+    0x55a8901bb630 ---------C   04070  FOR K = 1 TO 8
+    0x55a8901bba10 ---------C   04080  I5 = I4(K)
+    0x55a8901bbde0 ---------C   04090  J5 = J4(K)
+    0x55a8901bc1f0 ---------C   04100  I6 = I + I5
+    0x55a8901bc600 ---------C   04110  J6 = J + J5
+    0x55a8901bc8e0 ---------C   04120  S3 = 0
+    0x55a8901bcd20 ---------C   04130  IF A(I6,J6) <> T2 THEN 4310
+    0x55a8901bcdb0 ---------C   04140  REM			LOOP THROUGH THE RUN
+    0x55a8901bd100 ---------C T 04150  S3 = S3 + 1
+    0x55a8901bd450 ---------C   04160  I6 = I6 + I5
+    0x55a8901bd7b0 ---------C   04170  J6 = J6 + J5
+    0x55a8901bdbf0 ---------C   04180  IF A (I6,J6) = T1 THEN 4210
+    0x55a8901be010 ---------C   04190  IF A(I6,J6) = 0 THEN 4310
+    0x55a8901be090 ---------C   04200  GO TO 4150
+    0x55a8901be3f0 ---------C T 04210  S1 = S1 + S3
+    0x55a8901be650 ---------C   04220  IF U <> 1 THEN 4310
+    0x55a8901be6d0 ---------C   04230  REM			UPDATE BOARD
+    0x55a8901be920 ---------C   04240  I6 = I
+    0x55a8901beb60 ---------C   04250  J6 = J
+    0x55a8901bef10 ---------C   04260  FOR K1 = 0 TO S3
+    0x55a8901bf310 ---------C   04270  A(I6,J6) = T1
+    0x55a8901bf660 ---------C   04280  I6 = I6 + I5
+    0x55a8901bf9b0 ---------C   04290  J6 = J6 + J5
+    0x55a8901bfae0 ---------C   04300  NEXT K1
+    0x55a8901bfc30 ---------C T 04310  NEXT K
+    0x55a8901d87e0 ---------C   04320  GOTO 04330
+    0x55a8901d8850 ---------C T 04330  RETURN
+    0x55a8901bfd50 ---------D   04340  REM********		SUBROUTINE TO PRINT BOARD
+    0x55a8901bff80 ---------D G 04350  PRINT CHR$(30)
+    0x55a8901c01b0 ---------D   04360  LET L = 18
+    0x55a8901c03e0 ---------D   04370  IF F9 = 1 GO TO 4400
+    0x55a8901c0480 ---------D   04380  GOSUB 4630
+    0x55a8901c0690 ---------D   04390  LET F9 = 1
+    0x55a8901c08b0 ---------D T 04400  PRINT CHR$(30)
+    0x55a8901c0a10 ---------D   04410  PRINT "    A B C D E F G H"
+    0x55a8901c0cf0 ---------D   04420  FOR I = 1 TO 8
+    0x55a8901c0e70 ---------D   04430  PRINT I;
+    0x55a8901c1150 ---------D   04440  FOR J = 1 TO 8
+    0x55a8901c12e0 ---------D   04450  PRINT " ";
+    0x55a8901c1800 ---------D   04460  PRINT D$(A(I,J)+1);
+    0x55a8901c1940 ---------D   04470  NEXT J
+    0x55a8901c19d0 ---------D   04480  PRINT
+    0x55a8901c1b10 ---------D   04490  NEXT I
+    0x55a8901c1ba0 ---------D   04500  PRINT
+    0x55a8901d88b0 ---------D   04510  GOTO 04520
+    0x55a8901d8920 ---------D T 04520  RETURN
+    0x55a8901c1ca0 ---------E   04530  REM********		***	SPACE		***
+    0x55a8901c1ed0 ---------E G 04540  PRINT CHR$(30)
+    0x55a8901c2290 ---------E   04550  FOR I9 = 1 TO L
+    0x55a8901c2310 ---------E   04560  PRINT
+    0x55a8901c2450 ---------E   04570  NEXT I9
+    0x55a8901c26b0 ---------E   04580  IF L <> 18 GO TO 4600
+    0x55a8901c28f0 ---------E   04590  F9 = 0
+    0x55a8901d8980 ---------E T 04600  GOTO 04610
+    0x55a8901d89f0 ---------E T 04610  RETURN
+    0x55a8901c29e0 ---------F   04620  REM********		***	BLANK OUT	***
+    0x55a8901c2a70 ---------F G 04630  GOSUB 4540
+    0x55a8901c2d00 ---------F   04640  PRINT TAB(60);" "
+    0x55a8901c2fa0 ---------F   04650  PRINT TAB(60);" "
+    0x55a8901d8a50 ---------F   04660  GOTO 04670
+    0x55a8901d8ac0 ---------F T 04670  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -1087,19 +1837,19 @@ void Routine_04630();
 // Routine B
 //---------------------------------------------------------------------------
     // 03810 REM********		
-    // 03820 REM********		SUBROUTINE: TEST FOR PROPER NEIGHBOUR
-    // 03830 REM********		ASSUMES:
+    // 03820 REM********		SUBROUTINE
+    // 03830 REM********		ASSUMES
     // 03840 REM********		I,J LOCATES A BLANK SQUARE
     // 03850 REM********		YOU HOPE TO SEE AN ADJACENT  T2 (= -T1)
 
 void Routine_03860(){
     // 03860 FOR I1 =  -1 TO 1
     for(I1_int=-1;I1_int<=1;I1_int++){
-        // 03870     FOR J1 = -1 TO 1
+        // 03870 FOR J1 = -1 TO 1
         for(J1_int=-1;J1_int<=1;J1_int++){
-            // 03880 	IF  A(I+I1,J+J1) = T2 THEN 3940
+            // 03880 IF  A(I+I1,J+J1) = T2 THEN 3940
             if(A_int_arr[I_int+I1_int][J_int+J1_int]==T2_int)goto Lbl_03940;
-            // 03890     NEXT J1
+            // 03890 NEXT J1
             int dummy_3890=0; // Ignore this line.
         }; // End-For(J1_int)
         // 03900 NEXT I1
@@ -1132,62 +1882,62 @@ void Routine_03860(){
     // 04000 REM********		WANT RUNS OF T2 = -T1, TERMINATED BY A T1.
     // 04010 REM********		IF U IS TRUE (1), MARK THOSE RUNS AS T1'S.
     // 04020 REM********		RETURN SUM OF ALL RUNS (T2'S ONLY) IN S1.
-    // 04030 REM********		MAIN PROGRAM CONTAINS THE FOLLOWING ARRAYS:
-    // 04040 REM********		I4:  0 -1 -1 -1  0  1  1  1
-    // 04050 REM********		J4:  1  1  0 -1 -1 -1  0  1
+    // 04030 REM********		MAIN PROGRAM CONTAINS THE FOLLOWING ARRAYS
+    // 04040 REM********		I4
+    // 04050 REM********		J4
 
 void Routine_04060(){
     // 04060 S1 = 0
     S1_int = 0;
     // 04070 FOR K = 1 TO 8
     for(K_int=1;K_int<=8;K_int++){
-        // 04080     I5 = I4(K)
+        // 04080 I5 = I4(K)
         I5_int = I4_int_arr[K_int];
-        // 04090     J5 = J4(K)
+        // 04090 J5 = J4(K)
         J5_int = J4_int_arr[K_int];
-        // 04100     I6 = I + I5
+        // 04100 I6 = I + I5
         I6_int = I_int+I5_int;
-        // 04110     J6 = J + J5
+        // 04110 J6 = J + J5
         J6_int = J_int+J5_int;
-        // 04120     S3 = 0
+        // 04120 S3 = 0
         S3_int = 0;
-        // 04130     IF A(I6,J6) <> T2 THEN 4310
+        // 04130 IF A(I6,J6) <> T2 THEN 4310
         if(A_int_arr[I6_int][J6_int]!=T2_int)goto Lbl_04310;
-        // 04140     REM			LOOP THROUGH THE RUN
+        // 04140 REM			LOOP THROUGH THE RUN
 
   Lbl_04150:
-        // 04150     S3 = S3 + 1
+        // 04150 S3 = S3 + 1
         S3_int = S3_int+1;
-        // 04160     I6 = I6 + I5
+        // 04160 I6 = I6 + I5
         I6_int = I6_int+I5_int;
-        // 04170     J6 = J6 + J5
+        // 04170 J6 = J6 + J5
         J6_int = J6_int+J5_int;
-        // 04180     IF A (I6,J6) = T1 THEN 4210
+        // 04180 IF A (I6,J6) = T1 THEN 4210
         if(A_int_arr[I6_int][J6_int]==T1_int)goto Lbl_04210;
-        // 04190     IF A(I6,J6) = 0 THEN 4310
+        // 04190 IF A(I6,J6) = 0 THEN 4310
         if(A_int_arr[I6_int][J6_int]==0)goto Lbl_04310;
-        // 04200     GO TO 4150
+        // 04200 GO TO 4150
         goto Lbl_04150;
 
   Lbl_04210:
-        // 04210     S1 = S1 + S3
+        // 04210 S1 = S1 + S3
         S1_int = S1_int+S3_int;
-        // 04220     IF U <> 1 THEN 4310
+        // 04220 IF U <> 1 THEN 4310
         if(U_int!=1)goto Lbl_04310;
-        // 04230     REM			UPDATE BOARD
-        // 04240     I6 = I
+        // 04230 REM			UPDATE BOARD
+        // 04240 I6 = I
         I6_int = I_int;
-        // 04250     J6 = J
+        // 04250 J6 = J
         J6_int = J_int;
-        // 04260     FOR K1 = 0 TO S3
+        // 04260 FOR K1 = 0 TO S3
         for(K1_int=0;K1_int<=S3_int;K1_int++){
-            // 04270 	A(I6,J6) = T1
+            // 04270 A(I6,J6) = T1
             A_int_arr[I6_int][J6_int] = T1_int;
-            // 04280 	I6 = I6 + I5
+            // 04280 I6 = I6 + I5
             I6_int = I6_int+I5_int;
-            // 04290 	J6 = J6 + J5
+            // 04290 J6 = J6 + J5
             J6_int = J6_int+J5_int;
-            // 04300     NEXT K1
+            // 04300 NEXT K1
             int dummy_4300=0; // Ignore this line.
         }; // End-For(K1_int)
 
@@ -1211,3 +1961,866 @@ void Routine_04060(){
 
 void Routine_04350(){
     // 04350 PRINT CHR$(30)
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcpy(buf,CHR$(30));strcat(buf,"\n");fputs(buf,fh); };
+    // 04360 LET L = 18
+    L_int = 18;
+    // 04370 IF F9 = 1 GO TO 4400
+    if(F9_int==1)goto Lbl_04400;
+    // 04380 GOSUB 4630
+    Routine_04630();
+    // 04390 LET F9 = 1
+    F9_int = 1;
+
+  Lbl_04400:
+    // 04400 PRINT CHR$(30)
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcpy(buf,CHR$(30));strcat(buf,"\n");fputs(buf,fh); };
+    // 04410 PRINT "    A B C D E F G H"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"    A B C D E F G H");strcat(buf,"\n");fputs(buf,fh); };
+    // 04420 FOR I = 1 TO 8
+    for(I_int=1;I_int<=8;I_int++){
+        // 04430 PRINT I;
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,I_int);fputs(buf,fh); };
+        // 04440 FOR J = 1 TO 8
+        for(J_int=1;J_int<=8;J_int++){
+            // 04450 PRINT " ";
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," ");fputs(buf,fh); };
+            // 04460 PRINT D$(A(I,J)+1);
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,D_str_arr[A_int_arr[I_int][J_int]+1]);fputs(buf,fh); };
+            // 04470 NEXT J
+            int dummy_4470=0; // Ignore this line.
+        }; // End-For(J_int)
+        // 04480 PRINT
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 04490 NEXT I
+        int dummy_4490=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 04500 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 04510 GOTO 04520
+    goto Lbl_04520;
+
+  Lbl_04520:
+    // 04520 RETURN
+    return;
+};
+
+
+//---------------------------------------------------------------------------
+// Routine E
+//---------------------------------------------------------------------------
+    // 04530 REM********		***	SPACE		***
+
+void Routine_04540(){
+    // 04540 PRINT CHR$(30)
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcpy(buf,CHR$(30));strcat(buf,"\n");fputs(buf,fh); };
+    // 04550 FOR I9 = 1 TO L
+    for(I9_int=1;I9_int<=L_int;I9_int++){
+        // 04560 PRINT
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 04570 NEXT I9
+        int dummy_4570=0; // Ignore this line.
+    }; // End-For(I9_int)
+    // 04580 IF L <> 18 GO TO 4600
+    if(L_int!=18)goto Lbl_04600;
+    // 04590 F9 = 0
+    F9_int = 0;
+
+  Lbl_04600:
+    // 04600 GOTO 04610
+    goto Lbl_04610;
+
+  Lbl_04610:
+    // 04610 RETURN
+    return;
+};
+
+
+//---------------------------------------------------------------------------
+// Routine F
+//---------------------------------------------------------------------------
+    // 04620 REM********		***	BLANK OUT	***
+
+void Routine_04630(){
+    // 04630 GOSUB 4540
+    Routine_04540();
+    // 04640 PRINT TAB(60);" "
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,60);strcat(buf," ");strcat(buf,"\n");fputs(buf,fh); };
+    // 04650 PRINT TAB(60);" "
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,60);strcat(buf," ");strcat(buf,"\n");fputs(buf,fh); };
+    // 04660 GOTO 04670
+    goto Lbl_04670;
+
+  Lbl_04670:
+    // 04670 RETURN
+    return;
+};
+
+//---------------------------------------------------------------------------
+// Main Program.
+//---------------------------------------------------------------------------
+#pragma argsused
+int main(int argc,char *argv[])
+{
+    // 01000 REM********		OTHELLO          BYTE VOL. 2, NUMBER 10 (OCT. 1977)
+    // 01010 REM********		PLAYS THE GAME OTHELLO WITH TWO STRATEGIES
+    // 01020 REM********		1. TAKE THE MAX. NUMBER OF PIECES
+    // 01030 REM********		2. ADD A BONUS FOR OUTSIDE POSITION
+    // 01040 REM********		BOARD IS THE ARRAY A, BOUNDED BY 0'S (BLANKS)
+    // 01050 REM********		A = 0 FOR EMPTY SQUARE
+    // 01060 REM********		A = B FOR BLACK SQUARE
+    // 01070 REM********		A = W FOR WHITE SQUARE
+    // 01080 REM********		I AND J ARE ALWAYS USED FOR ROW/COLUMN INDICES
+    // 01090 REM********		I1 AND J4 STORE INCREMENTS TO THE 8 NEIGHBOURS
+    // 01100 REM********		C$ AND D$ STORE CHARACTERS A-H,X,...,O FOR OUTPUT
+    // 01110 DIM A(9,9),I4(8),J4(8),C$(8),D$(2)
+    // 01120 REM********		
+    // 01130 PRINT "GREETINGS FROM OTHELLO!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"GREETINGS FROM OTHELLO!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01140 PRINT "DO YOU WANT INSTRUCTIONS (Y OR N)";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DO YOU WANT INSTRUCTIONS (Y OR N)");fputs(buf,fh); };
+
+  Lbl_01150:
+    // 01150 INPUT X$
+    // Start of Basic INPUT statement 01150
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01150
+    // 01160 IF X$ = "N" THEN 1380
+    if(strcmp(X_str,"N")==0)goto Lbl_01380;
+    // 01170 IF X$ <> "Y" THEN 1150
+    if(strcmp(X_str,"Y")!=0)goto Lbl_01150;
+    // 01180 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01190 PRINT "OTHELLO IS PLAYED ON AN 8X8 CHECKER BOARD"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"OTHELLO IS PLAYED ON AN 8X8 CHECKER BOARD");strcat(buf,"\n");fputs(buf,fh); };
+    // 01200 PRINT "ROWS ARE NUMBERED FROM 1 TO 8 AND COLUMNS FROM A TO H"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"ROWS ARE NUMBERED FROM 1 TO 8 AND COLUMNS FROM A TO H");strcat(buf,"\n");fputs(buf,fh); };
+    // 01210 PRINT" THE INITIAL CONFIGURATION IS ALL BLANK EXCEPT FOR"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," THE INITIAL CONFIGURATION IS ALL BLANK EXCEPT FOR");strcat(buf,"\n");fputs(buf,fh); };
+    // 01220 PRINT "THE CENTER FOUR SQUARES, WHICH FORM THE PATTERN:"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE CENTER FOUR SQUARES, WHICH FORM THE PATTERN:");strcat(buf,"\n");fputs(buf,fh); };
+    // 01230 PRINT "               O X"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"               O X");strcat(buf,"\n");fputs(buf,fh); };
+    // 01240 PRINT "               X O"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"               X O");strcat(buf,"\n");fputs(buf,fh); };
+    // 01250 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01260 PRINT "TRY TO PLACE YOUR PIECE SO THAT IT WILL 'OUTFLANK' MINE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TRY TO PLACE YOUR PIECE SO THAT IT WILL 'OUTFLANK' MINE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01270 PRINT "THEREBY CREATING A HORIZONTAL, VERTICAL, OR DIAGONAL "
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THEREBY CREATING A HORIZONTAL, VERTICAL, OR DIAGONAL ");strcat(buf,"\n");fputs(buf,fh); };
+    // 01280 PRINT "RUN OF MY PIECES BOUNDED AT EACH END BY AT LEAST ONE "
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"RUN OF MY PIECES BOUNDED AT EACH END BY AT LEAST ONE ");strcat(buf,"\n");fputs(buf,fh); };
+    // 01290 PRINT "OF YOURS.  THIS WILL 'FLIP' MY PIECES, TURNING THEM INTO"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"OF YOURS.  THIS WILL 'FLIP' MY PIECES, TURNING THEM INTO");strcat(buf,"\n");fputs(buf,fh); };
+    // 01300 PRINT "YOURS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOURS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01310 PRINT"     NOTE: YOU MUST CAPTURE AT LEAST ONE OF MY PIECES"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"     NOTE: YOU MUST CAPTURE AT LEAST ONE OF MY PIECES");strcat(buf,"\n");fputs(buf,fh); };
+    // 01320 PRINT "IN THIS WAY IF IT IS AT ALL POSSIBLE.  IF IT IS NOT"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"IN THIS WAY IF IT IS AT ALL POSSIBLE.  IF IT IS NOT");strcat(buf,"\n");fputs(buf,fh); };
+    // 01330 PRINT "POSSIBLE, YOU FORFEIT YOUR TURN BY ENTERING"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"POSSIBLE, YOU FORFEIT YOUR TURN BY ENTERING");strcat(buf,"\n");fputs(buf,fh); };
+    // 01340 PRINT "     0,0   FOR YOUR ROW,COLUMN MOVE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"     0,0   FOR YOUR ROW,COLUMN MOVE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01350 PRINT " GOOD LUCK!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," GOOD LUCK!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01360 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01370 REM********		
+
+  Lbl_01380:
+    // 01380 PRINT "SHOULD I WAIT BEFORE MAKING MY MOVES (Y OR N)";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SHOULD I WAIT BEFORE MAKING MY MOVES (Y OR N)");fputs(buf,fh); };
+    // 01390 F2 = 0
+    F2_int = 0;
+    // 01400 F9 = 1
+    F9_int = 1;
+
+  Lbl_01410:
+    // 01410 INPUT X$
+    // Start of Basic INPUT statement 01410
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01410
+    // 01420 IF X$ = "N" THEN 1460
+    if(strcmp(X_str,"N")==0)goto Lbl_01460;
+    // 01430 IF X$ <> "Y" THEN  1410
+    if(strcmp(X_str,"Y")!=0)goto Lbl_01410;
+    // 01440 F2 = 1
+    F2_int = 1;
+    // 01450 PRINT "OK.  TYPING ANY CHARACTER WILL LET ME GO"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"OK.  TYPING ANY CHARACTER WILL LET ME GO");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01460:
+    // 01460 PRINT "SHOULD I PLAY MY BEST STRATEGY (Y OR N)";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SHOULD I PLAY MY BEST STRATEGY (Y OR N)");fputs(buf,fh); };
+    // 01470 S2 = 0
+    S2_int = 0;
+
+  Lbl_01480:
+    // 01480 INPUT X$
+    // Start of Basic INPUT statement 01480
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01480
+    // 01490 IF X$ = "N" THEN 1520
+    if(strcmp(X_str,"N")==0)goto Lbl_01520;
+    // 01500 IF X$ <> "Y" THEN 1480
+    if(strcmp(X_str,"Y")!=0)goto Lbl_01480;
+    // 01510 S2 = 2
+    S2_int = 2;
+
+  Lbl_01520:
+    // 01520 B = -1
+    B_int = -1;
+    // 01530 W = +1
+    W_int = 1;
+    // 01540 D$(B +1) ="X"
+    GLBpStr="X";
+    D_str_arr[B_int+1] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+    // 01550 D$(0 +1) = "."
+    GLBpStr=".";
+    D_str_arr[0+1] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+    // 01560 D$(W + 1) ="O"
+    GLBpStr="O";
+    D_str_arr[W_int+1] = (GLBpStr==GLB_StrCatBuf)?strdup(GLBpStr):GLBpStr;
+    // 01570 FOR K = 1 TO 8
+    for(K_int=1;K_int<=8;K_int++){
+        // 01580 READ I4(K)
+        I4_int_arr[K_int] = Get_Data_Int();
+        // 01590 NEXT K
+        int dummy_1590=0; // Ignore this line.
+    }; // End-For(K_int)
+    // 01600 DATA 0,-1,-1,-1,0,1,1,1
+    // 01610 FOR K=1 TO 8
+    for(K_int=1;K_int<=8;K_int++){
+        // 01620 READ J4(K)
+        J4_int_arr[K_int] = Get_Data_Int();
+        // 01630 NEXT K
+        int dummy_1630=0; // Ignore this line.
+    }; // End-For(K_int)
+    // 01640 DATA 1,1,0,-1,-1,-1,0,1
+    // 01650 FOR K = 1 TO 8
+    for(K_int=1;K_int<=8;K_int++){
+        // 01660 READ C$(K)
+        C_str_arr[K_int] = Get_Data_String();
+        // 01670 NEXT K
+        int dummy_1670=0; // Ignore this line.
+    }; // End-For(K_int)
+    // 01680 DATA A,B,C,D,E,F,G,H
+    // 01690 REM********		SET UP A NEW GAME
+
+  Lbl_01700:
+    // 01700 FOR I = 0 TO 9
+    for(I_int=0;I_int<=9;I_int++){
+        // 01710 FOR J = 0 TO 9
+        for(J_int=0;J_int<=9;J_int++){
+            // 01720 A(I,J)=0
+            A_int_arr[I_int][J_int] = 0;
+            // 01730 NEXT J
+            int dummy_1730=0; // Ignore this line.
+        }; // End-For(J_int)
+        // 01740 NEXT I
+        int dummy_1740=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 01750 A(4,4) = W
+    A_int_arr[4][4] = W_int;
+    // 01760 A(5,5) = W
+    A_int_arr[5][5] = W_int;
+    // 01770 A(4,5) = B
+    A_int_arr[4][5] = B_int;
+    // 01780 A(5,4) = B
+    A_int_arr[5][4] = B_int;
+    // 01790 C1 = 2
+    C1_int = 2;
+    // 01800 H1 = 2
+    H1_int = 2;
+    // 01810 N1 = 4
+    N1_int = 4;
+    // 01820 Z =0
+    Z_int = 0;
+    // 01830 REM********		HUMAN'S CHOICES
+    // 01840 PRINT "DO YOU WANT TO HAVE X OR O";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DO YOU WANT TO HAVE X OR O");fputs(buf,fh); };
+    // 01850 C = W
+    C_int = W_int;
+    // 01860 H = B
+    H_int = B_int;
+
+  Lbl_01870:
+    // 01870 INPUT X$
+    // Start of Basic INPUT statement 01870
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01870
+    // 01880 IF X$ = "X" THEN 1920
+    if(strcmp(X_str,"X")==0)goto Lbl_01920;
+    // 01890 IF X$ <> "O" THEN 1870
+    if(strcmp(X_str,"O")!=0)goto Lbl_01870;
+    // 01900 C = B
+    C_int = B_int;
+    // 01910 H = W
+    H_int = W_int;
+
+  Lbl_01920:
+    // 01920 PRINT "DO YOU WANT TO GO FIRST (Y OR N)";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DO YOU WANT TO GO FIRST (Y OR N)");fputs(buf,fh); };
+
+  Lbl_01930:
+    // 01930 INPUT X$
+    // Start of Basic INPUT statement 01930
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01930
+    // 01940 PRINT CHR$(26)
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcpy(buf,CHR$(26));strcat(buf,"\n");fputs(buf,fh); };
+    // 01950 IF X$ = "N" THEN 2030
+    if(strcmp(X_str,"N")==0)goto Lbl_02030;
+    // 01960 IF X$ <> "Y" THEN 1930
+    if(strcmp(X_str,"Y")!=0)goto Lbl_01930;
+    // 01970 REM********		PRINT INITIAL BOARD
+    // 01980 GOSUB 4350
+    Routine_04350();
+    // 01990 GO TO 2760
+    goto Lbl_02760;
+    // 02000 REM********		COMPUTER'S MOVE
+
+  Lbl_02010:
+    // 02010 IF F2 = 0 THEN 2030
+    if(F2_int==0)goto Lbl_02030;
+    // 02020 INPUT X$
+    // Start of Basic INPUT statement 02020
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 02020
+
+  Lbl_02030:
+    // 02030 B1 = -1
+    B1_int = -1;
+    // 02040 I3 = J3 = 0
+    J3_int = I3_int = 0;
+    // 02050 T1 = C
+    T1_int = C_int;
+    // 02060 T2 = H
+    T2_int = H_int;
+    // 02070 REM********		SCAN FOR BLANK SQUARE
+    // 02080 FOR I = 1 TO 8
+    for(I_int=1;I_int<=8;I_int++){
+        // 02090 FOR J = 1 TO 8
+        for(J_int=1;J_int<=8;J_int++){
+            // 02100 IF A(I,J) <> 0 THEN 2390
+            if(A_int_arr[I_int][J_int]!=0)goto Lbl_02390;
+            // 02110 REM********		FOUND A BLANK SQUARE
+            // 02120 REM********		DOES IT HAVE AN OPPONENT AS A NEIGHBOUR
+            // 02130 GOSUB 3860
+            Routine_03860();
+            // 02140 IF F1 = 0 THEN 2390
+            if(F1_int==0)goto Lbl_02390;
+            // 02150 REM********		FOUND OPPONENT AS NEIGHBOUR
+            // 02160 REM********		HOW MANY OF HIS PIECES CAN WE FLIP?
+            // 02170 REM********		DON'T DO IT NOW
+            // 02180 U = -1
+            U_int = -1;
+            // 02190 GOSUB 4060
+            Routine_04060();
+            // 02200 REM********		EXTRA POINTS FOR BOUNDARY POSITION
+            // 02210 IF S1 = 0 THEN 2390
+            if(S1_int==0)goto Lbl_02390;
+            // 02220 IF (I-1) * (I-8) <> 0 THEN 2240
+            if((I_int-1)*(I_int-8)!=0)goto Lbl_02240;
+            // 02230 S1 = S1 + S2
+            S1_int = S1_int+S2_int;
+
+  Lbl_02240:
+            // 02240 IF (J-1) * (J-8) <> 0 THEN 2270
+            if((J_int-1)*(J_int-8)!=0)goto Lbl_02270;
+            // 02250 S1 = S1 +S2
+            S1_int = S1_int+S2_int;
+            // 02260 REM********		IS THIS BETTER THAN THE BEST FOUND SO FAR
+
+  Lbl_02270:
+            // 02270 IF S1 < B1 THEN 2390
+            if(S1_int<B1_int)goto Lbl_02390;
+            // 02280 IF S1 > B1 THEN 2350
+            if(S1_int>B1_int)goto Lbl_02350;
+            // 02290 REM********		A TIE; RANDOM DECISION
+            // 02300 REM********		THE NEXT TWO EXECUTABLE STATEMENTS ARE FOR
+            // 02310 REM********		BASIC WITH RANDOM NUMBERS
+            // 02320 R = RND(1)
+            R_int = RND(1);
+            // 02330 IF R > .5 THEN 2390
+            if(R_int>0.5)goto Lbl_02390;
+            // 02340 REM********		YES
+
+  Lbl_02350:
+            // 02350 B1 = S1
+            B1_int = S1_int;
+            // 02360 I3 = I
+            I3_int = I_int;
+            // 02370 J3 = J
+            J3_int = J_int;
+            // 02380 REM********		END OF SCAN LOOP
+
+  Lbl_02390:
+            // 02390 NEXT J
+            int dummy_2390=0; // Ignore this line.
+        }; // End-For(J_int)
+        // 02400 NEXT I
+        int dummy_2400=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 02410 REM********		COULD WE DO ANYTHING?
+    // 02420 IF B1 > 0 THEN 2510
+    if(B1_int>0)goto Lbl_02510;
+    // 02430 REM********		NO
+    // 02440 LET L = 18
+    L_int = 18;
+    // 02450 GOSUB 4540
+    Routine_04540();
+    // 02460 PRINT "DAMN! HAVE TO FORFEIT MY MOVE!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DAMN! HAVE TO FORFEIT MY MOVE!");strcat(buf,"\n");fputs(buf,fh); };
+    // 02470 IF Z = 1 THEN 3370
+    if(Z_int==1)goto Lbl_03370;
+    // 02480 Z = 1
+    Z_int = 1;
+    // 02490 GO TO 2760
+    goto Lbl_02760;
+    // 02500 REM********		MAKE THE MOVE
+
+  Lbl_02510:
+    // 02510 Z = 0
+    Z_int = 0;
+    // 02520 LET L=15
+    L_int = 15;
+    // 02530 GOSUB 4540
+    Routine_04540();
+    // 02540 PRINT "I WILL MOVE TO ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I WILL MOVE TO ");fputs(buf,fh); };
+    // 02550 PRINT I3;
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,I3_int);fputs(buf,fh); };
+    // 02560 PRINT " , ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," , ");fputs(buf,fh); };
+    // 02570 PRINT C$(J3)
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,C_str_arr[J3_int]);strcat(buf,"\n");fputs(buf,fh); };
+    // 02580 I= I3
+    I_int = I3_int;
+    // 02590 J= J3
+    J_int = J3_int;
+    // 02600 U= 1
+    U_int = 1;
+    // 02610 GOSUB 4060
+    Routine_04060();
+    // 02620 C1 = C1 + S1 + 1
+    C1_int = C1_int+S1_int+1;
+    // 02630 H1 = H1 - S1
+    H1_int = H1_int-S1_int;
+    // 02640 N1 = N1 + 1
+    N1_int = N1_int+1;
+    // 02650 LET L=16
+    L_int = 16;
+    // 02660 GOSUB 4540
+    Routine_04540();
+    // 02670 PRINT " THAT GIVES ME : ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," THAT GIVES ME : ");fputs(buf,fh); };
+    // 02680 PRINT S1;
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,S1_int);fputs(buf,fh); };
+    // 02690 PRINT " OF YOUR PIECES"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," OF YOUR PIECES");strcat(buf,"\n");fputs(buf,fh); };
+    // 02700 REM********		PRINT OUT BOARD
+    // 02710 GOSUB 4350
+    Routine_04350();
+    // 02720 REM********		TEST FOR END OF GAME
+    // 02730 IF H1 = 0 THEN 3370
+    if(H1_int==0)goto Lbl_03370;
+    // 02740 IF N1 = 64 THEN 3370
+    if(N1_int==64)goto Lbl_03370;
+    // 02750 REM********		HUMANS MOVE
+
+  Lbl_02760:
+    // 02760 T1 = H
+    T1_int = H_int;
+    // 02770 T2 = C
+    T2_int = C_int;
+    // 02780 LET L = 12
+    L_int = 12;
+    // 02790 GOSUB 4540
+    Routine_04540();
+
+  Lbl_02800:
+    // 02800 PRINT " YOUR MOVE";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," YOUR MOVE");fputs(buf,fh); };
+
+  Lbl_02810:
+    // 02810 INPUT I, X$
+    // Start of Basic INPUT statement 02810
+    {
+        int numargs=2;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&I_int,args,0)) ||
+                (err += b2c_strtos(&X_str,args,1)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 02810
+    // 02820 IF I < 0 THEN 2810
+    if(I_int<0)goto Lbl_02810;
+    // 02830 IF I > 8 THEN 2810
+    if(I_int>8)goto Lbl_02810;
+    // 02840 IF I <> 0 THEN 2930
+    if(I_int!=0)goto Lbl_02930;
+    // 02850 LET L = 18
+    L_int = 18;
+    // 02860 GOSUB 4540
+    Routine_04540();
+    // 02870 PRINT "ARE YOU FORFEITING YOUR TURN Y OR N"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"ARE YOU FORFEITING YOUR TURN Y OR N");strcat(buf,"\n");fputs(buf,fh); };
+    // 02880 INPUT X$
+    // Start of Basic INPUT statement 02880
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 02880
+    // 02890 IF X$ <> "Y" THEN 2800
+    if(strcmp(X_str,"Y")!=0)goto Lbl_02800;
+    // 02900 IF Z = 1 THEN 3370
+    if(Z_int==1)goto Lbl_03370;
+    // 02910 Z = 1
+    Z_int = 1;
+    // 02920 GO TO 2010
+    goto Lbl_02010;
+
+  Lbl_02930:
+    // 02930 FOR J = 1 TO 8
+    for(J_int=1;J_int<=8;J_int++){
+        // 02940 IF C$(J) =X$ THEN 2980
+        if(strcmp(C_str_arr[J_int],X_str)==0)goto Lbl_02980;
+        // 02950 NEXT J
+        int dummy_2950=0; // Ignore this line.
+    }; // End-For(J_int)
+    // 02960 GO TO 2810
+    goto Lbl_02810;
+    // 02970 REM********		CHECK FOR BLANK
+
+  Lbl_02980:
+    // 02980 IF A(I,J) = 0 THEN 3040
+    if(A_int_arr[I_int][J_int]==0)goto Lbl_03040;
+    // 02990 LET L = 18
+    L_int = 18;
+    // 03000 GOSUB 4540
+    Routine_04540();
+    // 03010 PRINT "SORRY, THAT SQUARE IS OCCUPIED, TRY AGAIN"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SORRY, THAT SQUARE IS OCCUPIED, TRY AGAIN");strcat(buf,"\n");fputs(buf,fh); };
+    // 03020 GO TO 2810
+    goto Lbl_02810;
+    // 03030 REM********		CHECK FOR LEGAL NEIGHBOUR
+
+  Lbl_03040:
+    // 03040 GOSUB 3860
+    Routine_03860();
+    // 03050 IF F1 = 1 THEN 3110
+    if(F1_int==1)goto Lbl_03110;
+    // 03060 LET L = 18
+    L_int = 18;
+    // 03070 GOSUB 4540
+    Routine_04540();
+    // 03080 PRINT "SORRY, YOU ARE NOT NEXT TO ONE OF MY PIECES. TRY AGAIN.";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SORRY, YOU ARE NOT NEXT TO ONE OF MY PIECES. TRY AGAIN.");fputs(buf,fh); };
+    // 03090 GO TO 2810
+    goto Lbl_02810;
+    // 03100 REM********		CHECK IF LEGAL RUN
+
+  Lbl_03110:
+    // 03110 U = -1
+    U_int = -1;
+    // 03120 GOSUB 4060
+    Routine_04060();
+    // 03130 IF S1 > 0 THEN 3190
+    if(S1_int>0)goto Lbl_03190;
+    // 03140 LET L = 18
+    L_int = 18;
+    // 03150 GOSUB 4540
+    Routine_04540();
+    // 03160 PRINT "SORRY, THAT DOESN'T FLANK A ROW, TRY AGAIN"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SORRY, THAT DOESN'T FLANK A ROW, TRY AGAIN");strcat(buf,"\n");fputs(buf,fh); };
+    // 03170 GO TO 2810
+    goto Lbl_02810;
+    // 03180 REM********		EVERYTHING LEGAL; MAKE HUMANS MOVE
+
+  Lbl_03190:
+    // 03190 Z = 0
+    Z_int = 0;
+    // 03200 LET L = 13
+    L_int = 13;
+    // 03210 GOSUB 4540
+    Routine_04540();
+    // 03220 PRINT "THAT GIVES YOU";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THAT GIVES YOU");fputs(buf,fh); };
+    // 03230 PRINT S1;
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,S1_int);fputs(buf,fh); };
+    // 03240 PRINT " OF MY PIECES"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," OF MY PIECES");strcat(buf,"\n");fputs(buf,fh); };
+    // 03250 U = 1
+    U_int = 1;
+    // 03260 GOSUB 4060
+    Routine_04060();
+    // 03270 H1 = H1 + S1 + 1
+    H1_int = H1_int+S1_int+1;
+    // 03280 C1 = C1 -S1
+    C1_int = C1_int-S1_int;
+    // 03290 N1 = N1 + 1
+    N1_int = N1_int+1;
+    // 03300 REM********		PRINT OUT BOARD
+    // 03310 GOSUB 4350
+    Routine_04350();
+    // 03320 REM********		TEST FOR END OF GAME
+    // 03330 IF C1 = 0 THEN 3370
+    if(C1_int==0)goto Lbl_03370;
+    // 03340 IF N1 = 64 THEN 3370
+    if(N1_int==64)goto Lbl_03370;
+    // 03350 GO TO 2010
+    goto Lbl_02010;
+    // 03360 REM********		END OF GAME ; WRAPUP
+
+  Lbl_03370:
+    // 03370 LET L = 18
+    L_int = 18;
+    // 03380 GOSUB 4540
+    Routine_04540();
+    // 03390 PRINT "FOR RESULTS ON GAME TYPE RETURN!!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"FOR RESULTS ON GAME TYPE RETURN!!");strcat(buf,"\n");fputs(buf,fh); };
+    // 03400 INPUT X$
+    // Start of Basic INPUT statement 03400
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 03400
+    // 03410 PRINT CHR$(30),CHR$(26)
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcpy(buf,CHR$(30));strcpy(buf,CHR$(26));strcat(buf,"\n");fputs(buf,fh); };
+    // 03420 PRINT "YOU HAVE ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE ");fputs(buf,fh); };
+    // 03430 PRINT H1;
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,H1_int);fputs(buf,fh); };
+    // 03440 PRINT " PIECES, AND I HAVE ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," PIECES, AND I HAVE ");fputs(buf,fh); };
+    // 03450 PRINT C1;
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,C1_int);fputs(buf,fh); };
+    // 03460 PRINT " PIECES--- "
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," PIECES--- ");strcat(buf,"\n");fputs(buf,fh); };
+    // 03470 IF H1 = C1 THEN 3510
+    if(H1_int==C1_int)goto Lbl_03510;
+    // 03480 IF H1 > C1 THEN 3530
+    if(H1_int>C1_int)goto Lbl_03530;
+    // 03490 PRINT "SORRY, I WON THAT ONE."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SORRY, I WON THAT ONE.");strcat(buf,"\n");fputs(buf,fh); };
+    // 03500 GO TO 3540
+    goto Lbl_03540;
+
+  Lbl_03510:
+    // 03510 PRINT " A TIE!!!!!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," A TIE!!!!!");strcat(buf,"\n");fputs(buf,fh); };
+    // 03520 GO TO 3720
+    goto Lbl_03720;
+
+  Lbl_03530:
+    // 03530 PRINT "YOU WON!!!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU WON!!!");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_03540:
+    // 03540 C1 = C1 - H1
+    C1_int = C1_int-H1_int;
+    // 03550 IF C1 > 0 THEN 3570
+    if(C1_int>0)goto Lbl_03570;
+    // 03560 C1 = -C1
+    C1_int = C1_int;
+
+  Lbl_03570:
+    // 03570 C1 = (64 * C1)/ N1
+    C1_int = (64*C1_int)/N1_int;
+    // 03580 PRINT "THAT WAS A ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THAT WAS A ");fputs(buf,fh); };
+    // 03590 IF C1 < 11 THEN 3710
+    if(C1_int<11)goto Lbl_03710;
+    // 03600 IF C1 < 25 THEN 3690
+    if(C1_int<25)goto Lbl_03690;
+    // 03610 IF C1 < 39 THEN 3670
+    if(C1_int<39)goto Lbl_03670;
+    // 03620 IF C1 < 53 THEN 3650
+    if(C1_int<53)goto Lbl_03650;
+    // 03630 PRINT " A PERFECT GAME!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," A PERFECT GAME!");strcat(buf,"\n");fputs(buf,fh); };
+    // 03640 GO TO 3720
+    goto Lbl_03720;
+
+  Lbl_03650:
+    // 03650 PRINT "WALKAWAY!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WALKAWAY!");strcat(buf,"\n");fputs(buf,fh); };
+    // 03660 GO TO 3720
+    goto Lbl_03720;
+
+  Lbl_03670:
+    // 03670 PRINT "FIGHT!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"FIGHT!");strcat(buf,"\n");fputs(buf,fh); };
+    // 03680 GO TO 3720
+    goto Lbl_03720;
+
+  Lbl_03690:
+    // 03690 PRINT "HOT GAME!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HOT GAME!");strcat(buf,"\n");fputs(buf,fh); };
+    // 03700 GO TO 3720
+    goto Lbl_03720;
+
+  Lbl_03710:
+    // 03710 PRINT "SQUEAKER!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SQUEAKER!");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_03720:
+    // 03720 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 03730 PRINT"DO YOU WANT TO PLAY AGAIN";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DO YOU WANT TO PLAY AGAIN");fputs(buf,fh); };
+
+  Lbl_03740:
+    // 03740 INPUT X$
+    // Start of Basic INPUT statement 03740
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&X_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 03740
+    // 03750 IF X$ = "Y" THEN 1700
+    if(strcmp(X_str,"Y")==0)goto Lbl_01700;
+    // 03760 IF X$ <> "N" THEN 3740
+    if(strcmp(X_str,"N")!=0)goto Lbl_03740;
+    // 03770 PRINT "THANKS FOR PLAYING."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THANKS FOR PLAYING.");strcat(buf,"\n");fputs(buf,fh); };
+    // 03780 STOP
+    exit(1);
+    // 03790 REM********		SUCCESS
+    // 03800 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

@@ -8,38 +8,38 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x618709232590 ---------A   01000 REM THE COMPUTER CHOOSES A NUMBER FROM
-    0x618709242fc0 ---------A   01010 REM 1 TO 10,000 AT RANDOM, THE OBJECT OF
-    0x618709242910 ---------A   01020 REM THE GAME IS TO GUESS THE CHOSEN
-    0x6187092435e0 ---------A   01030 REM NUMBER IN AS FEW GUESSES AS POSSIBLE
-    0x618709243db0 ---------A T 01040 LET R=1+INT(10000*RND)
-    0x618709243f30 ---------A   01050 LET Y=0
-    0x618709243e70 ---------A   01060 PRINT"A RANDOM NUMBER HAS BEEN PICKED"
-    0x618709243ff0 ---------A   01070 PRINT"TRY GUESSING IT, HINT THE NUMBER"
-    0x6187092440b0 ---------A   01080 PRINT" IS FROM 1 TO 10,000"
-    0x618709242b80 ---------A   01090 PRINT"GOOD LUCK!!!!!!!"
-    0x618709241ca0 ---------A   01100 PRINT
-    0x618709242740 ---------A T 01110 PRINT"YOUR GUESS IS = ";
-    0x6187092416d0 ---------A   01120 INPUT X
-    0x618709249c00 ---------A   01130 LET Y=Y+1
-    0x618709241670 ---------A   01140 IF X=R THEN 1170
-    0x61870924a090 ---------A   01150 IF X>R THEN 1270
-    0x61870924a0f0 ---------A   01160 GOTO 1290
-    0x61870924a230 ---------A T 01170 PRINT"NOT BAD!!!!-YOU GOT IT!!!!"
-    0x61870924a460 ---------A   01180 PRINT"YOUR NUMBER OF TRIES WERE ";Y
-    0x61870924a4f0 ---------A   01190 PRINT
-    0x61870924a600 ---------A   01200 PRINT"IF YOU WANT TO TRY AGAIN, TYPE '1'"
-    0x61870924a750 ---------A   01210 PRINT"IF NOT TYPE '0'"
-    0x61870924a960 ---------A   01220 INPUT L
-    0x61870924abc0 ---------A   01230 IF L=1 THEN 1250
-    0x61870924ac20 ---------A   01240 STOP
-    0x61870924aca0 ---------A T 01250 PRINT
-    0x61870924acf0 ---------A   01260 GOTO 1040
-    0x61870924ae30 ---------A T 01270 PRINT"TOO HIGH, TRY AGAIN"
-    0x61870924ae80 ---------A   01280 GOTO 1110
-    0x61870924afc0 ---------A T 01290 PRINT"TOO LOW, TRY AGAIN"
-    0x61870924b030 ---------A   01300 GOTO 1110
-    0x61870924b070 ---------A   01310 END
+    0x578d28f9edb0 ---------A   01000  REM THE COMPUTER CHOOSES A NUMBER FROM
+    0x578d28f9db80 ---------A   01010  REM 1 TO 10,000 AT RANDOM, THE OBJECT OF
+    0x578d28f9ef30 ---------A   01020  REM THE GAME IS TO GUESS THE CHOSEN
+    0x578d28f9ee70 ---------A   01030  REM NUMBER IN AS FEW GUESSES AS POSSIBLE
+    0x578d28f9eff0 ---------A T 01040  LET R=1+INT(10000*RND)
+    0x578d28f9ce80 ---------A   01050  LET Y=0
+    0x578d28f9c6d0 ---------A   01060  PRINT"A RANDOM NUMBER HAS BEEN PICKED"
+    0x578d28f9c670 ---------A   01070  PRINT"TRY GUESSING IT, HINT THE NUMBER"
+    0x578d28f9f100 ---------A   01080  PRINT" IS FROM 1 TO 10,000"
+    0x578d28f9f220 ---------A   01090  PRINT"GOOD LUCK!!!!!!!"
+    0x578d28f9d620 ---------A   01100  PRINT
+    0x578d28f9d780 ---------A T 01110  PRINT"YOUR GUESS IS = ";
+    0x578d28fa4940 ---------A   01120  INPUT X
+    0x578d28f9f0b0 ---------A   01130  LET Y=Y+1
+    0x578d28fa4ea0 ---------A   01140  IF X=R THEN 1170
+    0x578d28fa5120 ---------A   01150  IF X>R THEN 1270
+    0x578d28fa5180 ---------A   01160  GOTO 1290
+    0x578d28fa52d0 ---------A T 01170  PRINT"NOT BAD!!!!-YOU GOT IT!!!!"
+    0x578d28fa5510 ---------A   01180  PRINT"YOUR NUMBER OF TRIES WERE ";Y
+    0x578d28fa55b0 ---------A   01190  PRINT
+    0x578d28fa56d0 ---------A   01200  PRINT"IF YOU WANT TO TRY AGAIN, TYPE '1'"
+    0x578d28fa5830 ---------A   01210  PRINT"IF NOT TYPE '0'"
+    0x578d28fa5a50 ---------A   01220  INPUT L
+    0x578d28fa5cb0 ---------A   01230  IF L=1 THEN 1250
+    0x578d28fa5d10 ---------A   01240  STOP
+    0x578d28fa5d90 ---------A T 01250  PRINT
+    0x578d28fa5df0 ---------A   01260  GOTO 1040
+    0x578d28fa5f40 ---------A T 01270  PRINT"TOO HIGH, TRY AGAIN"
+    0x578d28fa5fa0 ---------A   01280  GOTO 1110
+    0x578d28fa60f0 ---------A T 01290  PRINT"TOO LOW, TRY AGAIN"
+    0x578d28fa6170 ---------A   01300  GOTO 1110
+    0x578d28fa61c0 ---------A   01310  END
  */
 
 /*
@@ -64,9 +64,97 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x618709232590 (01000)   0x618709232590 (01000)   0x61870924b070 (01310)   0x61870924b070 (01310)   
+   A) 0x578d28f9edb0 (01000)   0x578d28f9edb0 (01000)   0x578d28fa61c0 (01310)   0x578d28fa61c0 (01310)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/number.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x578d28f9edb0 ---------A   01000  REM THE COMPUTER CHOOSES A NUMBER FROM
+    0x578d28f9db80 ---------A   01010  REM 1 TO 10,000 AT RANDOM, THE OBJECT OF
+    0x578d28f9ef30 ---------A   01020  REM THE GAME IS TO GUESS THE CHOSEN
+    0x578d28f9ee70 ---------A   01030  REM NUMBER IN AS FEW GUESSES AS POSSIBLE
+    0x578d28f9eff0 ---------A T 01040  LET R=1+INT(10000*RND)
+    0x578d28f9ce80 ---------A   01050  LET Y=0
+    0x578d28f9c6d0 ---------A   01060  PRINT"A RANDOM NUMBER HAS BEEN PICKED"
+    0x578d28f9c670 ---------A   01070  PRINT"TRY GUESSING IT, HINT THE NUMBER"
+    0x578d28f9f100 ---------A   01080  PRINT" IS FROM 1 TO 10,000"
+    0x578d28f9f220 ---------A   01090  PRINT"GOOD LUCK!!!!!!!"
+    0x578d28f9d620 ---------A   01100  PRINT
+    0x578d28f9d780 ---------A T 01110  PRINT"YOUR GUESS IS = ";
+    0x578d28fa4940 ---------A   01120  INPUT X
+    0x578d28f9f0b0 ---------A   01130  LET Y=Y+1
+    0x578d28fa4ea0 ---------A   01140  IF X=R THEN 1170
+    0x578d28fa5120 ---------A   01150  IF X>R THEN 1270
+    0x578d28fa5180 ---------A   01160  GOTO 1290
+    0x578d28fa52d0 ---------A T 01170  PRINT"NOT BAD!!!!-YOU GOT IT!!!!"
+    0x578d28fa5510 ---------A   01180  PRINT"YOUR NUMBER OF TRIES WERE ";Y
+    0x578d28fa55b0 ---------A   01190  PRINT
+    0x578d28fa56d0 ---------A   01200  PRINT"IF YOU WANT TO TRY AGAIN, TYPE '1'"
+    0x578d28fa5830 ---------A   01210  PRINT"IF NOT TYPE '0'"
+    0x578d28fa5a50 ---------A   01220  INPUT L
+    0x578d28fa5cb0 ---------A   01230  IF L=1 THEN 1250
+    0x578d28fa5d10 ---------A   01240  STOP
+    0x578d28fa5d90 ---------A T 01250  PRINT
+    0x578d28fa5df0 ---------A   01260  GOTO 1040
+    0x578d28fa5f40 ---------A T 01270  PRINT"TOO HIGH, TRY AGAIN"
+    0x578d28fa5fa0 ---------A   01280  GOTO 1110
+    0x578d28fa60f0 ---------A T 01290  PRINT"TOO LOW, TRY AGAIN"
+    0x578d28fa6170 ---------A   01300  GOTO 1110
+    0x578d28fa61c0 ---------A   01310  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/number.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x578d28f9edb0 ---------A   01000  REM THE COMPUTER CHOOSES A NUMBER FROM
+    0x578d28f9db80 ---------A   01010  REM 1 TO 10,000 AT RANDOM, THE OBJECT OF
+    0x578d28f9ef30 ---------A   01020  REM THE GAME IS TO GUESS THE CHOSEN
+    0x578d28f9ee70 ---------A   01030  REM NUMBER IN AS FEW GUESSES AS POSSIBLE
+    0x578d28f9eff0 ---------A T 01040  LET R=1+INT(10000*RND)
+    0x578d28f9ce80 ---------A   01050  LET Y=0
+    0x578d28f9c6d0 ---------A   01060  PRINT"A RANDOM NUMBER HAS BEEN PICKED"
+    0x578d28f9c670 ---------A   01070  PRINT"TRY GUESSING IT, HINT THE NUMBER"
+    0x578d28f9f100 ---------A   01080  PRINT" IS FROM 1 TO 10,000"
+    0x578d28f9f220 ---------A   01090  PRINT"GOOD LUCK!!!!!!!"
+    0x578d28f9d620 ---------A   01100  PRINT
+    0x578d28f9d780 ---------A T 01110  PRINT"YOUR GUESS IS = ";
+    0x578d28fa4940 ---------A   01120  INPUT X
+    0x578d28f9f0b0 ---------A   01130  LET Y=Y+1
+    0x578d28fa4ea0 ---------A   01140  IF X=R THEN 1170
+    0x578d28fa5120 ---------A   01150  IF X>R THEN 1270
+    0x578d28fa5180 ---------A   01160  GOTO 1290
+    0x578d28fa52d0 ---------A T 01170  PRINT"NOT BAD!!!!-YOU GOT IT!!!!"
+    0x578d28fa5510 ---------A   01180  PRINT"YOUR NUMBER OF TRIES WERE ";Y
+    0x578d28fa55b0 ---------A   01190  PRINT
+    0x578d28fa56d0 ---------A   01200  PRINT"IF YOU WANT TO TRY AGAIN, TYPE '1'"
+    0x578d28fa5830 ---------A   01210  PRINT"IF NOT TYPE '0'"
+    0x578d28fa5a50 ---------A   01220  INPUT L
+    0x578d28fa5cb0 ---------A   01230  IF L=1 THEN 1250
+    0x578d28fa5d10 ---------A   01240  STOP
+    0x578d28fa5d90 ---------A T 01250  PRINT
+    0x578d28fa5df0 ---------A   01260  GOTO 1040
+    0x578d28fa5f40 ---------A T 01270  PRINT"TOO HIGH, TRY AGAIN"
+    0x578d28fa5fa0 ---------A   01280  GOTO 1110
+    0x578d28fa60f0 ---------A T 01290  PRINT"TOO LOW, TRY AGAIN"
+    0x578d28fa6170 ---------A   01300  GOTO 1110
+    0x578d28fa61c0 ---------A   01310  END
  */
 
 
@@ -163,38 +251,38 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x618709232590 ---------A   01000 REM THE COMPUTER CHOOSES A NUMBER FROM
-    0x618709242fc0 ---------A   01010 REM 1 TO 10,000 AT RANDOM, THE OBJECT OF
-    0x618709242910 ---------A   01020 REM THE GAME IS TO GUESS THE CHOSEN
-    0x6187092435e0 ---------A   01030 REM NUMBER IN AS FEW GUESSES AS POSSIBLE
-    0x618709243db0 ---------A T 01040 LET R=1+INT(10000*RND)
-    0x618709243f30 ---------A   01050 LET Y=0
-    0x618709243e70 ---------A   01060 PRINT"A RANDOM NUMBER HAS BEEN PICKED"
-    0x618709243ff0 ---------A   01070 PRINT"TRY GUESSING IT, HINT THE NUMBER"
-    0x6187092440b0 ---------A   01080 PRINT" IS FROM 1 TO 10,000"
-    0x618709242b80 ---------A   01090 PRINT"GOOD LUCK!!!!!!!"
-    0x618709241ca0 ---------A   01100 PRINT
-    0x618709242740 ---------A T 01110 PRINT"YOUR GUESS IS = ";
-    0x6187092416d0 ---------A   01120 INPUT X
-    0x618709249c00 ---------A   01130 LET Y=Y+1
-    0x618709241670 ---------A   01140 IF X=R THEN 1170
-    0x61870924a090 ---------A   01150 IF X>R THEN 1270
-    0x61870924a0f0 ---------A   01160 GOTO 1290
-    0x61870924a230 ---------A T 01170 PRINT"NOT BAD!!!!-YOU GOT IT!!!!"
-    0x61870924a460 ---------A   01180 PRINT"YOUR NUMBER OF TRIES WERE ";Y
-    0x61870924a4f0 ---------A   01190 PRINT
-    0x61870924a600 ---------A   01200 PRINT"IF YOU WANT TO TRY AGAIN, TYPE '1'"
-    0x61870924a750 ---------A   01210 PRINT"IF NOT TYPE '0'"
-    0x61870924a960 ---------A   01220 INPUT L
-    0x61870924abc0 ---------A   01230 IF L=1 THEN 1250
-    0x61870924ac20 ---------A   01240 STOP
-    0x61870924aca0 ---------A T 01250 PRINT
-    0x61870924acf0 ---------A   01260 GOTO 1040
-    0x61870924ae30 ---------A T 01270 PRINT"TOO HIGH, TRY AGAIN"
-    0x61870924ae80 ---------A   01280 GOTO 1110
-    0x61870924afc0 ---------A T 01290 PRINT"TOO LOW, TRY AGAIN"
-    0x61870924b030 ---------A   01300 GOTO 1110
-    0x61870924b070 ---------A   01310 END
+    0x578d28f9edb0 ---------A   01000  REM THE COMPUTER CHOOSES A NUMBER FROM
+    0x578d28f9db80 ---------A   01010  REM 1 TO 10,000 AT RANDOM, THE OBJECT OF
+    0x578d28f9ef30 ---------A   01020  REM THE GAME IS TO GUESS THE CHOSEN
+    0x578d28f9ee70 ---------A   01030  REM NUMBER IN AS FEW GUESSES AS POSSIBLE
+    0x578d28f9eff0 ---------A T 01040  LET R=1+INT(10000*RND)
+    0x578d28f9ce80 ---------A   01050  LET Y=0
+    0x578d28f9c6d0 ---------A   01060  PRINT"A RANDOM NUMBER HAS BEEN PICKED"
+    0x578d28f9c670 ---------A   01070  PRINT"TRY GUESSING IT, HINT THE NUMBER"
+    0x578d28f9f100 ---------A   01080  PRINT" IS FROM 1 TO 10,000"
+    0x578d28f9f220 ---------A   01090  PRINT"GOOD LUCK!!!!!!!"
+    0x578d28f9d620 ---------A   01100  PRINT
+    0x578d28f9d780 ---------A T 01110  PRINT"YOUR GUESS IS = ";
+    0x578d28fa4940 ---------A   01120  INPUT X
+    0x578d28f9f0b0 ---------A   01130  LET Y=Y+1
+    0x578d28fa4ea0 ---------A   01140  IF X=R THEN 1170
+    0x578d28fa5120 ---------A   01150  IF X>R THEN 1270
+    0x578d28fa5180 ---------A   01160  GOTO 1290
+    0x578d28fa52d0 ---------A T 01170  PRINT"NOT BAD!!!!-YOU GOT IT!!!!"
+    0x578d28fa5510 ---------A   01180  PRINT"YOUR NUMBER OF TRIES WERE ";Y
+    0x578d28fa55b0 ---------A   01190  PRINT
+    0x578d28fa56d0 ---------A   01200  PRINT"IF YOU WANT TO TRY AGAIN, TYPE '1'"
+    0x578d28fa5830 ---------A   01210  PRINT"IF NOT TYPE '0'"
+    0x578d28fa5a50 ---------A   01220  INPUT L
+    0x578d28fa5cb0 ---------A   01230  IF L=1 THEN 1250
+    0x578d28fa5d10 ---------A   01240  STOP
+    0x578d28fa5d90 ---------A T 01250  PRINT
+    0x578d28fa5df0 ---------A   01260  GOTO 1040
+    0x578d28fa5f40 ---------A T 01270  PRINT"TOO HIGH, TRY AGAIN"
+    0x578d28fa5fa0 ---------A   01280  GOTO 1110
+    0x578d28fa60f0 ---------A T 01290  PRINT"TOO LOW, TRY AGAIN"
+    0x578d28fa6170 ---------A   01300  GOTO 1110
+    0x578d28fa61c0 ---------A   01310  END
  */
 
 //---------------------------------------------------------------------------

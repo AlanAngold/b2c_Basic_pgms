@@ -8,75 +8,75 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5623ad402b80 ---------A   00010 PRINT TAB(30);"TIC TAC TOE"
-    0x5623ad403f30 ---------A   00020 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5623ad4040b0 ---------A   00030 PRINT:PRINT:PRINT
-    0x5623ad3f22b0 ---------A   00050 REM
-    0x5623ad4019e0 ---------A   00100 REM   THIS PROGRAM PLAYS TIC TAC TOE
-    0x5623ad4017f0 ---------A   00110 REM   THE MACHINE GOES FIRST
-    0x5623ad402080 ---------A   00120 PRINT "THE GAME BOARD IS NUMBERED:": PRINT
-    0x5623ad401be0 ---------A   00130 PRINT "1  2  3": PRINT "8  9  4": PRINT "7  6  5"
-    0x5623ad401c50 ---------A   00140 PRINT
-    0x5623ad401cc0 ---------A   00150 REM
-    0x5623ad404100 ---------A   00160 REM
-    0x5623ad404180 ---------A   00170 REM
-    0x5623ad401a20 ---------A   00180 DEF FNM(X)=X-8*INT((X-1)/8)
-    0x5623ad409e20 ---------A   00190 REM
-    0x5623ad409e60 ---------A   00200 REM  MAIN PROGRAM
-    0x5623ad409ee0 ---------A T 00210 PRINT
-    0x5623ad409f50 ---------A   00220 PRINT
-    0x5623ad40a220 ---------A   00230 A=9
-    0x5623ad40a510 ---------A   00240 M=A
-    0x5623ad40a580 ---------A   00250 GOSUB 650
-    0x5623ad40a860 ---------A   00260 P=M
-    0x5623ad40ad30 ---------A   00270 B=FNM(P+1)
-    0x5623ad40af60 ---------A   00280 M=B
-    0x5623ad40afd0 ---------A   00290 GOSUB 650
-    0x5623ad40b290 ---------A   00300 Q=M
-    0x5623ad4016d0 ---------A   00310 IF Q=FNM(B+4) THEN 360
-    0x5623ad40bb60 ---------A   00320 C=FNM(B+4)
-    0x5623ad40bd90 ---------A   00330 M=C
-    0x5623ad40be00 ---------A   00340 GOSUB 700
-    0x5623ad40be60 ---------A   00350 GOTO 730
-    0x5623ad40c260 ---------A T 00360 C=FNM(B+2)
-    0x5623ad40c490 ---------A   00370 M=C
-    0x5623ad40c500 ---------A   00380 GOSUB 650
-    0x5623ad40c9d0 ---------A   00390 R=M
-    0x5623ad401670 ---------A   00400 IF R=FNM(C+4) THEN 450
-    0x5623ad40d2a0 ---------A   00410 D=FNM(C+4)
-    0x5623ad40d4d0 ---------A   00420 M=D
-    0x5623ad40d540 ---------A   00430 GOSUB 700
-    0x5623ad40d580 ---------A   00440 GOTO 730
-    0x5623ad40dac0 ---------A T 00450 IF P/2<>INT(P/2) THEN 500
-    0x5623ad40dee0 ---------A   00460 D=FNM(C+7)
-    0x5623ad40e110 ---------A   00470 M=D
-    0x5623ad40e180 ---------A   00480 GOSUB 700
-    0x5623ad40e1e0 ---------A   00490 GOTO 730
-    0x5623ad40e5e0 ---------A T 00500 D=FNM(C+3)
-    0x5623ad40e810 ---------A   00510 M=D
-    0x5623ad40e880 ---------A   00520 GOSUB 650
-    0x5623ad40eb70 ---------A   00530 S=M
-    0x5623ad40efc0 ---------A   00540 IF S=FNM(D+4) THEN 590
-    0x5623ad40f4a0 ---------A   00550 E=FNM(D+4)
-    0x5623ad40f6d0 ---------A   00560 M=E
-    0x5623ad40f740 ---------A   00570 GOSUB 700
-    0x5623ad40f7a0 ---------A   00580 REM
-    0x5623ad40fbc0 ---------A T 00590 E=FNM(D+6)
-    0x5623ad40fdf0 ---------A   00600 M=E
-    0x5623ad40fe70 ---------A   00610 GOSUB 700
-    0x5623ad40ffb0 ---------A   00620 PRINT "THE GAME IS A DRAW."
-    0x5623ad410020 ---------A   00630 GOTO 210
-    0x5623ad410080 ---------B   00640 REM
-    0x5623ad410100 ---------B G 00650 GOSUB 700
-    0x5623ad410260 ---------B   00660 PRINT "YOUR MOVE";
-    0x5623ad4103b0 ---------B   00670 INPUT M
-    0x5623ad410410 ---------B   00680 RETURN
-    0x5623ad410680 ---------C G 00700 PRINT "COMPUTER MOVES";M
-    0x5623ad4106d0 ---------C   00710 RETURN
-    0x5623ad410b60 ---------A   00720 REM
-    0x5623ad410cd0 ---------A T 00730 PRINT "AND WINS ********"
-    0x5623ad410d40 ---------A   00740 GOTO 210
-    0x5623ad410d80 ---------A   00750 END
+    0x6302324236d0 ---------A   00010  PRINT TAB(30);"TIC TAC TOE"
+    0x630232423670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x6302324237f0 ---------A   00030  PRINT:PRINT:PRINT
+    0x630232424b80 ---------A   00050  REM
+    0x630232425f30 ---------A   00100  REM   THIS PROGRAM PLAYS TIC TAC TOE
+    0x630232425ff0 ---------A   00110  REM   THE MACHINE GOES FIRST
+    0x630232423e40 ---------A   00120  PRINT "THE GAME BOARD IS NUMBERED:": PRINT
+    0x630232425720 ---------A   00130  PRINT "1  2  3": PRINT "8  9  4": PRINT "7  6  5"
+    0x630232423c80 ---------A   00140  PRINT
+    0x630232425e70 ---------A   00150  REM
+    0x6302324260b0 ---------A   00160  REM
+    0x630232426100 ---------A   00170  REM
+    0x63023242bda0 ---------A   00180  DEF FNM(X)=X-8*INT((X-1)/8)
+    0x63023242bdf0 ---------A   00190  REM
+    0x63023242be80 ---------A   00200  REM  MAIN PROGRAM
+    0x63023242bf10 ---------A T 00210  PRINT
+    0x63023242bf90 ---------A   00220  PRINT
+    0x63023242c270 ---------A   00230  A=9
+    0x63023242c560 ---------A   00240  M=A
+    0x63023242c5d0 ---------A   00250  GOSUB 650
+    0x63023242c8c0 ---------A   00260  P=M
+    0x63023242cd90 ---------A   00270  B=FNM(P+1)
+    0x63023242cfc0 ---------A   00280  M=B
+    0x63023242d030 ---------A   00290  GOSUB 650
+    0x63023242d300 ---------A   00300  Q=M
+    0x63023242d750 ---------A   00310  IF Q=FNM(B+4) THEN 360
+    0x63023242dc30 ---------A   00320  C=FNM(B+4)
+    0x63023242de60 ---------A   00330  M=C
+    0x63023242ded0 ---------A   00340  GOSUB 700
+    0x63023242df40 ---------A   00350  GOTO 730
+    0x63023242e350 ---------A T 00360  C=FNM(B+2)
+    0x63023242e580 ---------A   00370  M=C
+    0x63023242e5f0 ---------A   00380  GOSUB 650
+    0x63023242ead0 ---------A   00390  R=M
+    0x63023242ef20 ---------A   00400  IF R=FNM(C+4) THEN 450
+    0x63023242f400 ---------A   00410  D=FNM(C+4)
+    0x63023242f630 ---------A   00420  M=D
+    0x63023242f6a0 ---------A   00430  GOSUB 700
+    0x63023242f6f0 ---------A   00440  GOTO 730
+    0x63023242fc40 ---------A T 00450  IF P/2<>INT(P/2) THEN 500
+    0x630232430060 ---------A   00460  D=FNM(C+7)
+    0x630232430290 ---------A   00470  M=D
+    0x630232430300 ---------A   00480  GOSUB 700
+    0x630232430370 ---------A   00490  GOTO 730
+    0x630232430780 ---------A T 00500  D=FNM(C+3)
+    0x6302324309b0 ---------A   00510  M=D
+    0x630232430a20 ---------A   00520  GOSUB 650
+    0x630232430d20 ---------A   00530  S=M
+    0x630232431170 ---------A   00540  IF S=FNM(D+4) THEN 590
+    0x630232431650 ---------A   00550  E=FNM(D+4)
+    0x630232431880 ---------A   00560  M=E
+    0x6302324318f0 ---------A   00570  GOSUB 700
+    0x630232431960 ---------A   00580  REM
+    0x630232431d90 ---------A T 00590  E=FNM(D+6)
+    0x630232431fc0 ---------A   00600  M=E
+    0x630232432040 ---------A   00610  GOSUB 700
+    0x630232432190 ---------A   00620  PRINT "THE GAME IS A DRAW."
+    0x630232432210 ---------A   00630  GOTO 210
+    0x630232432280 ---------B   00640  REM
+    0x630232432310 ---------B G 00650  GOSUB 700
+    0x630232432480 ---------B   00660  PRINT "YOUR MOVE";
+    0x6302324325e0 ---------B   00670  INPUT M
+    0x630232432640 ---------B   00680  RETURN
+    0x6302324328b0 ---------C G 00700  PRINT "COMPUTER MOVES";M
+    0x630232432910 ---------C   00710  RETURN
+    0x630232432da0 ---------A   00720  REM
+    0x630232432f20 ---------A T 00730  PRINT "AND WINS ********"
+    0x630232432fa0 ---------A   00740  GOTO 210
+    0x630232432ff0 ---------A   00750  END
  */
 
 /*
@@ -103,13 +103,185 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x5623ad402b80 (00010)   0x5623ad402b80 (00010)   0x5623ad410d80 (00750)   0x5623ad410d80 (00750)   
-   B) 0x5623ad410080 (00640)   0x5623ad410100 (00650)   0x5623ad410410 (00680)   0x5623ad410410 (00680)   
-   C) 0x5623ad410680 (00700)   0x5623ad410680 (00700)   0x5623ad4106d0 (00710)   0x5623ad4106d0 (00710)   
+   A) 0x6302324236d0 (00010)   0x6302324236d0 (00010)   0x630232432ff0 (00750)   0x630232432ff0 (00750)   
+   B) 0x630232432280 (00640)   0x630232432310 (00650)   0x630232432640 (00680)   0x630232432640 (00680)   
+   C) 0x6302324328b0 (00700)   0x6302324328b0 (00700)   0x630232432910 (00710)   0x630232432910 (00710)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
     NOTE: Routine C overlaps, or is tangled with, routine A!
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/tictac1.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x6302324236d0 ---------A   00010  PRINT TAB(30);"TIC TAC TOE"
+    0x630232423670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x6302324142b0 ----------   00030  PRINT
+    0x6302324239e0 ----------        a PRINT
+    0x6302324237f0 ---------A        b PRINT
+    0x630232424b80 ---------A   00050  REM
+    0x630232425f30 ---------A   00100  REM   THIS PROGRAM PLAYS TIC TAC TOE
+    0x630232425ff0 ---------A   00110  REM   THE MACHINE GOES FIRST
+    0x630232424040 ----------   00120  PRINT "THE GAME BOARD IS NUMBERED:"
+    0x630232423e40 ---------A        a PRINT
+    0x630232424480 ----------   00130  PRINT "1  2  3"
+    0x6302324256a0 ----------        a PRINT "8  9  4"
+    0x630232425720 ---------A        b PRINT "7  6  5"
+    0x630232423c80 ---------A   00140  PRINT
+    0x630232425e70 ---------A   00150  REM
+    0x6302324260b0 ---------A   00160  REM
+    0x630232426100 ---------A   00170  REM
+    0x63023242bda0 ---------A   00180  DEF FNM(X)=X-8*INT((X-1)/8)
+    0x63023242bdf0 ---------A   00190  REM
+    0x63023242be80 ---------A   00200  REM  MAIN PROGRAM
+    0x63023242bf10 ---------A T 00210  PRINT
+    0x63023242bf90 ---------A   00220  PRINT
+    0x63023242c270 ---------A   00230  A=9
+    0x63023242c560 ---------A   00240  M=A
+    0x63023242c5d0 ---------A   00250  GOSUB 650
+    0x63023242c8c0 ---------A   00260  P=M
+    0x63023242cd90 ---------A   00270  B=FNM(P+1)
+    0x63023242cfc0 ---------A   00280  M=B
+    0x63023242d030 ---------A   00290  GOSUB 650
+    0x63023242d300 ---------A   00300  Q=M
+    0x63023242d750 ---------A   00310  IF Q=FNM(B+4) THEN 360
+    0x63023242dc30 ---------A   00320  C=FNM(B+4)
+    0x63023242de60 ---------A   00330  M=C
+    0x63023242ded0 ---------A   00340  GOSUB 700
+    0x63023242df40 ---------A   00350  GOTO 730
+    0x63023242e350 ---------A T 00360  C=FNM(B+2)
+    0x63023242e580 ---------A   00370  M=C
+    0x63023242e5f0 ---------A   00380  GOSUB 650
+    0x63023242ead0 ---------A   00390  R=M
+    0x63023242ef20 ---------A   00400  IF R=FNM(C+4) THEN 450
+    0x63023242f400 ---------A   00410  D=FNM(C+4)
+    0x63023242f630 ---------A   00420  M=D
+    0x63023242f6a0 ---------A   00430  GOSUB 700
+    0x63023242f6f0 ---------A   00440  GOTO 730
+    0x63023242fc40 ---------A T 00450  IF P/2<>INT(P/2) THEN 500
+    0x630232430060 ---------A   00460  D=FNM(C+7)
+    0x630232430290 ---------A   00470  M=D
+    0x630232430300 ---------A   00480  GOSUB 700
+    0x630232430370 ---------A   00490  GOTO 730
+    0x630232430780 ---------A T 00500  D=FNM(C+3)
+    0x6302324309b0 ---------A   00510  M=D
+    0x630232430a20 ---------A   00520  GOSUB 650
+    0x630232430d20 ---------A   00530  S=M
+    0x630232431170 ---------A   00540  IF S=FNM(D+4) THEN 590
+    0x630232431650 ---------A   00550  E=FNM(D+4)
+    0x630232431880 ---------A   00560  M=E
+    0x6302324318f0 ---------A   00570  GOSUB 700
+    0x630232431960 ---------A   00580  REM
+    0x630232431d90 ---------A T 00590  E=FNM(D+6)
+    0x630232431fc0 ---------A   00600  M=E
+    0x630232432040 ---------A   00610  GOSUB 700
+    0x630232432190 ---------A   00620  PRINT "THE GAME IS A DRAW."
+    0x630232432210 ---------A   00630  GOTO 210
+    0x630232432280 ---------B   00640  REM
+    0x630232432310 ---------B G 00650  GOSUB 700
+    0x630232432480 ---------B   00660  PRINT "YOUR MOVE";
+    0x6302324325e0 ---------B   00670  INPUT M
+    0x630232432640 ---------B   00680  RETURN
+    0x6302324328b0 ---------C G 00700  PRINT "COMPUTER MOVES";M
+    0x630232432910 ---------C   00710  RETURN
+    0x630232432da0 ---------A   00720  REM
+    0x630232432f20 ---------A T 00730  PRINT "AND WINS ********"
+    0x630232432fa0 ---------A   00740  GOTO 210
+    0x630232432ff0 ---------A   00750  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/tictac1.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x6302324236d0 ---------A   01000  PRINT TAB(30);"TIC TAC TOE"
+    0x630232423670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x6302324142b0 ----------   01020  PRINT
+    0x6302324239e0 ----------   01030  PRINT
+    0x6302324237f0 ---------A   01040  PRINT
+    0x630232424b80 ---------A   01050  REM
+    0x630232425f30 ---------A   01060  REM   THIS PROGRAM PLAYS TIC TAC TOE
+    0x630232425ff0 ---------A   01070  REM   THE MACHINE GOES FIRST
+    0x630232424040 ----------   01080  PRINT "THE GAME BOARD IS NUMBERED:"
+    0x630232423e40 ---------A   01090  PRINT
+    0x630232424480 ----------   01100  PRINT "1  2  3"
+    0x6302324256a0 ----------   01110  PRINT "8  9  4"
+    0x630232425720 ---------A   01120  PRINT "7  6  5"
+    0x630232423c80 ---------A   01130  PRINT
+    0x630232425e70 ---------A   01140  REM
+    0x6302324260b0 ---------A   01150  REM
+    0x630232426100 ---------A   01160  REM
+    0x63023242bda0 ---------A   01170  DEF FNM(X)=X-8*INT((X-1)/8)
+    0x63023242bdf0 ---------A   01180  REM
+    0x63023242be80 ---------A   01190  REM  MAIN PROGRAM
+    0x63023242bf10 ---------A   01200  PRINT
+    0x63023242bf90 ---------A   01210  PRINT
+    0x63023242c270 ---------A   01220  A=9
+    0x63023242c560 ---------A   01230  M=A
+    0x63023242c5d0 ---------A   01240  GOSUB 1640
+    0x63023242c8c0 ---------A   01250  P=M
+    0x63023242cd90 ---------A   01260  B=FNM(P+1)
+    0x63023242cfc0 ---------A   01270  M=B
+    0x63023242d030 ---------A   01280  GOSUB 1640
+    0x63023242d300 ---------A   01290  Q=M
+    0x63023242d750 ---------A   01300  IF Q=FNM(B+4) THEN 1350
+    0x63023242dc30 ---------A   01310  C=FNM(B+4)
+    0x63023242de60 ---------A   01320  M=C
+    0x63023242ded0 ---------A   01330  GOSUB 1680
+    0x63023242df40 ---------A   01340  GOTO 1710
+    0x63023242e350 ---------A   01350  C=FNM(B+2)
+    0x63023242e580 ---------A   01360  M=C
+    0x63023242e5f0 ---------A   01370  GOSUB 1640
+    0x63023242ead0 ---------A   01380  R=M
+    0x63023242ef20 ---------A   01390  IF R=FNM(C+4) THEN 1440
+    0x63023242f400 ---------A   01400  D=FNM(C+4)
+    0x63023242f630 ---------A   01410  M=D
+    0x63023242f6a0 ---------A   01420  GOSUB 1680
+    0x63023242f6f0 ---------A   01430  GOTO 1710
+    0x63023242fc40 ---------A   01440  IF P/2<>INT(P/2) THEN 1490
+    0x630232430060 ---------A   01450  D=FNM(C+7)
+    0x630232430290 ---------A   01460  M=D
+    0x630232430300 ---------A   01470  GOSUB 1680
+    0x630232430370 ---------A   01480  GOTO 1710
+    0x630232430780 ---------A   01490  D=FNM(C+3)
+    0x6302324309b0 ---------A   01500  M=D
+    0x630232430a20 ---------A   01510  GOSUB 1640
+    0x630232430d20 ---------A   01520  S=M
+    0x630232431170 ---------A   01530  IF S=FNM(D+4) THEN 1580
+    0x630232431650 ---------A   01540  E=FNM(D+4)
+    0x630232431880 ---------A   01550  M=E
+    0x6302324318f0 ---------A   01560  GOSUB 1680
+    0x630232431960 ---------A   01570  REM
+    0x630232431d90 ---------A   01580  E=FNM(D+6)
+    0x630232431fc0 ---------A   01590  M=E
+    0x630232432040 ---------A   01600  GOSUB 1680
+    0x630232432190 ---------A   01610  PRINT "THE GAME IS A DRAW."
+    0x630232432210 ---------A   01620  GOTO 1200
+    0x630232432280 ---------B   01630  REM
+    0x630232432310 ---------B   01640  GOSUB 1680
+    0x630232432480 ---------B   01650  PRINT "YOUR MOVE";
+    0x6302324325e0 ---------B   01660  INPUT M
+    0x630232432640 ---------B   01670  RETURN
+    0x6302324328b0 ---------C   01680  PRINT "COMPUTER MOVES";M
+    0x630232432910 ---------C   01690  RETURN
+    0x630232432da0 ---------A   01700  REM
+    0x630232432f20 ---------A   01710  PRINT "AND WINS ********"
+    0x630232432fa0 ---------A   01720  GOTO 1200
+    0x630232432ff0 ---------A   01730  END
  */
 
 
@@ -120,7 +292,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01710 - 10000    8300 
+     01760 - 10000    8250 
 
  */
 
@@ -214,77 +386,82 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5623ad402b80 ---------A   01000 PRINT TAB(30);"TIC TAC TOE"
-    0x5623ad403f30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5623ad4040b0 ---------A   01020 PRINT:PRINT:PRINT
-    0x5623ad3f22b0 ---------A   01030 REM
-    0x5623ad4019e0 ---------A   01040 REM   THIS PROGRAM PLAYS TIC TAC TOE
-    0x5623ad4017f0 ---------A   01050 REM   THE MACHINE GOES FIRST
-    0x5623ad402080 ---------A   01060 PRINT "THE GAME BOARD IS NUMBERED:": PRINT
-    0x5623ad401be0 ---------A   01070 PRINT "1  2  3": PRINT "8  9  4": PRINT "7  6  5"
-    0x5623ad401c50 ---------A   01080 PRINT
-    0x5623ad401cc0 ---------A   01090 REM
-    0x5623ad404100 ---------A   01100 REM
-    0x5623ad404180 ---------A   01110 REM
-    0x5623ad401a20 ---------A   01120 DEF FNM(X)=X-8*INT((X-1)/8)
-    0x5623ad409e20 ---------A   01130 REM
-    0x5623ad409e60 ---------A   01140 REM  MAIN PROGRAM
-    0x5623ad409ee0 ---------A T 01150 PRINT
-    0x5623ad409f50 ---------A   01160 PRINT
-    0x5623ad40a220 ---------A   01170 A=9
-    0x5623ad40a510 ---------A   01180 M=A
-    0x5623ad40a580 ---------A   01190 GOSUB 1630
-    0x5623ad40a860 ---------A   01200 P=M
-    0x5623ad40ad30 ---------A   01210 B=FNM(P+1)
-    0x5623ad40af60 ---------A   01220 M=B
-    0x5623ad40afd0 ---------A   01230 GOSUB 1630
-    0x5623ad40b290 ---------A   01240 Q=M
-    0x5623ad4016d0 ---------A   01250 IF Q=FNM(B+4) THEN 1300
-    0x5623ad40bb60 ---------A   01260 C=FNM(B+4)
-    0x5623ad40bd90 ---------A   01270 M=C
-    0x5623ad40be00 ---------A   01280 GOSUB 1680
-    0x5623ad40be60 ---------A   01290 GOTO 1590
-    0x5623ad40c260 ---------A T 01300 C=FNM(B+2)
-    0x5623ad40c490 ---------A   01310 M=C
-    0x5623ad40c500 ---------A   01320 GOSUB 1630
-    0x5623ad40c9d0 ---------A   01330 R=M
-    0x5623ad401670 ---------A   01340 IF R=FNM(C+4) THEN 1390
-    0x5623ad40d2a0 ---------A   01350 D=FNM(C+4)
-    0x5623ad40d4d0 ---------A   01360 M=D
-    0x5623ad40d540 ---------A   01370 GOSUB 1680
-    0x5623ad40d580 ---------A   01380 GOTO 1590
-    0x5623ad40dac0 ---------A T 01390 IF P/2<>INT(P/2) THEN 1440
-    0x5623ad40dee0 ---------A   01400 D=FNM(C+7)
-    0x5623ad40e110 ---------A   01410 M=D
-    0x5623ad40e180 ---------A   01420 GOSUB 1680
-    0x5623ad40e1e0 ---------A   01430 GOTO 1590
-    0x5623ad40e5e0 ---------A T 01440 D=FNM(C+3)
-    0x5623ad40e810 ---------A   01450 M=D
-    0x5623ad40e880 ---------A   01460 GOSUB 1630
-    0x5623ad40eb70 ---------A   01470 S=M
-    0x5623ad40efc0 ---------A   01480 IF S=FNM(D+4) THEN 1530
-    0x5623ad40f4a0 ---------A   01490 E=FNM(D+4)
-    0x5623ad40f6d0 ---------A   01500 M=E
-    0x5623ad40f740 ---------A   01510 GOSUB 1680
-    0x5623ad40f7a0 ---------A   01520 REM
-    0x5623ad40fbc0 ---------A T 01530 E=FNM(D+6)
-    0x5623ad40fdf0 ---------A   01540 M=E
-    0x5623ad40fe70 ---------A   01550 GOSUB 1680
-    0x5623ad40ffb0 ---------A   01560 PRINT "THE GAME IS A DRAW."
-    0x5623ad410020 ---------A   01570 GOTO 1150
-    0x5623ad410b60 ---------A   01580 REM
-    0x5623ad410cd0 ---------A T 01590 PRINT "AND WINS ********"
-    0x5623ad410d40 ---------A   01600 GOTO 1150
-    0x5623ad410d80 ---------A   01610 END
-    0x5623ad410080 ---------B   01620 REM
-    0x5623ad410100 ---------B G 01630 GOSUB 1680
-    0x5623ad410260 ---------B   01640 PRINT "YOUR MOVE";
-    0x5623ad4103b0 ---------B   01650 INPUT M
-    0x5623ad413980 ---------B   01660 GOTO 01670
-    0x5623ad4139c0 ---------B T 01670 RETURN
-    0x5623ad410680 ---------C G 01680 PRINT "COMPUTER MOVES";M
-    0x5623ad413a00 ---------C   01690 GOTO 01700
-    0x5623ad413a60 ---------C T 01700 RETURN
+    0x6302324236d0 ---------A   01000  PRINT TAB(30);"TIC TAC TOE"
+    0x630232423670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x6302324142b0 ---------A   01020  PRINT
+    0x6302324239e0 ---------A   01030  PRINT
+    0x6302324237f0 ---------A   01040  PRINT
+    0x630232424b80 ---------A   01050  REM
+    0x630232425f30 ---------A   01060  REM   THIS PROGRAM PLAYS TIC TAC TOE
+    0x630232425ff0 ---------A   01070  REM   THE MACHINE GOES FIRST
+    0x630232424040 ---------A   01080  PRINT "THE GAME BOARD IS NUMBERED:"
+    0x630232423e40 ---------A   01090  PRINT
+    0x630232424480 ---------A   01100  PRINT "1  2  3"
+    0x6302324256a0 ---------A   01110  PRINT "8  9  4"
+    0x630232425720 ---------A   01120  PRINT "7  6  5"
+    0x630232423c80 ---------A   01130  PRINT
+    0x630232425e70 ---------A   01140  REM
+    0x6302324260b0 ---------A   01150  REM
+    0x630232426100 ---------A   01160  REM
+    0x63023242bda0 ---------A   01170  DEF FNM(X)=X-8*INT((X-1)/8)
+    0x63023242bdf0 ---------A   01180  REM
+    0x63023242be80 ---------A   01190  REM  MAIN PROGRAM
+    0x63023242bf10 ---------A T 01200  PRINT
+    0x63023242bf90 ---------A   01210  PRINT
+    0x63023242c270 ---------A   01220  A=9
+    0x63023242c560 ---------A   01230  M=A
+    0x63023242c5d0 ---------A   01240  GOSUB 1680
+    0x63023242c8c0 ---------A   01250  P=M
+    0x63023242cd90 ---------A   01260  B=FNM(P+1)
+    0x63023242cfc0 ---------A   01270  M=B
+    0x63023242d030 ---------A   01280  GOSUB 1680
+    0x63023242d300 ---------A   01290  Q=M
+    0x63023242d750 ---------A   01300  IF Q=FNM(B+4) THEN 1350
+    0x63023242dc30 ---------A   01310  C=FNM(B+4)
+    0x63023242de60 ---------A   01320  M=C
+    0x63023242ded0 ---------A   01330  GOSUB 1730
+    0x63023242df40 ---------A   01340  GOTO 1640
+    0x63023242e350 ---------A T 01350  C=FNM(B+2)
+    0x63023242e580 ---------A   01360  M=C
+    0x63023242e5f0 ---------A   01370  GOSUB 1680
+    0x63023242ead0 ---------A   01380  R=M
+    0x63023242ef20 ---------A   01390  IF R=FNM(C+4) THEN 1440
+    0x63023242f400 ---------A   01400  D=FNM(C+4)
+    0x63023242f630 ---------A   01410  M=D
+    0x63023242f6a0 ---------A   01420  GOSUB 1730
+    0x63023242f6f0 ---------A   01430  GOTO 1640
+    0x63023242fc40 ---------A T 01440  IF P/2<>INT(P/2) THEN 1490
+    0x630232430060 ---------A   01450  D=FNM(C+7)
+    0x630232430290 ---------A   01460  M=D
+    0x630232430300 ---------A   01470  GOSUB 1730
+    0x630232430370 ---------A   01480  GOTO 1640
+    0x630232430780 ---------A T 01490  D=FNM(C+3)
+    0x6302324309b0 ---------A   01500  M=D
+    0x630232430a20 ---------A   01510  GOSUB 1680
+    0x630232430d20 ---------A   01520  S=M
+    0x630232431170 ---------A   01530  IF S=FNM(D+4) THEN 1580
+    0x630232431650 ---------A   01540  E=FNM(D+4)
+    0x630232431880 ---------A   01550  M=E
+    0x6302324318f0 ---------A   01560  GOSUB 1730
+    0x630232431960 ---------A   01570  REM
+    0x630232431d90 ---------A T 01580  E=FNM(D+6)
+    0x630232431fc0 ---------A   01590  M=E
+    0x630232432040 ---------A   01600  GOSUB 1730
+    0x630232432190 ---------A   01610  PRINT "THE GAME IS A DRAW."
+    0x630232432210 ---------A   01620  GOTO 1200
+    0x630232432da0 ---------A   01630  REM
+    0x630232432f20 ---------A T 01640  PRINT "AND WINS ********"
+    0x630232432fa0 ---------A   01650  GOTO 1200
+    0x630232432ff0 ---------A   01660  END
+    0x630232432280 ---------B   01670  REM
+    0x630232432310 ---------B G 01680  GOSUB 1730
+    0x630232432480 ---------B   01690  PRINT "YOUR MOVE";
+    0x6302324325e0 ---------B   01700  INPUT M
+    0x6302324346c0 ---------B   01710  GOTO 01720
+    0x630232439390 ---------B T 01720  RETURN
+    0x6302324328b0 ---------C G 01730  PRINT "COMPUTER MOVES";M
+    0x630232433050 ---------C   01740  GOTO 01750
+    0x630232439410 ---------C T 01750  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -346,8 +523,8 @@ char* GLBpStr=nullptr;
 //---------------------------------------------------------------------------
 // Subroutine Prototypes.
 //---------------------------------------------------------------------------
-void Routine_01630();
 void Routine_01680();
+void Routine_01730();
 
 //---------------------------------------------------------------------------
 // Program Functions.
@@ -392,15 +569,15 @@ int FNM(int X){
 //---------------------------------------------------------------------------
 // Routine B
 //---------------------------------------------------------------------------
-    // 01620 REM
+    // 01670 REM
 
-void Routine_01630(){
-    // 01630 GOSUB 1680
-    Routine_01680();
-    // 01640 PRINT "YOUR MOVE";
+void Routine_01680(){
+    // 01680 GOSUB 1730
+    Routine_01730();
+    // 01690 PRINT "YOUR MOVE";
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR MOVE");fputs(buf,fh); };
-    // 01650 INPUT M
-    // Start of Basic INPUT statement 01650
+    // 01700 INPUT M
+    // Start of Basic INPUT statement 01700
     {
         int numargs=1;
         char *args[numargs+1];
@@ -416,12 +593,12 @@ void Routine_01630(){
                 break;
             };
         };
-    }; // End of Basic INPUT statement 01650
-    // 01660 GOTO 01670
-    goto Lbl_01670;
+    }; // End of Basic INPUT statement 01700
+    // 01710 GOTO 01720
+    goto Lbl_01720;
 
-  Lbl_01670:
-    // 01670 RETURN
+  Lbl_01720:
+    // 01720 RETURN
     return;
 };
 
@@ -430,14 +607,14 @@ void Routine_01630(){
 // Routine C
 //---------------------------------------------------------------------------
 
-void Routine_01680(){
-    // 01680 PRINT "COMPUTER MOVES";M
+void Routine_01730(){
+    // 01730 PRINT "COMPUTER MOVES";M
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"COMPUTER MOVES"); b2c_INT(buf,M_int);strcat(buf,"\n");fputs(buf,fh); };
-    // 01690 GOTO 01700
-    goto Lbl_01700;
+    // 01740 GOTO 01750
+    goto Lbl_01750;
 
-  Lbl_01700:
-    // 01700 RETURN
+  Lbl_01750:
+    // 01750 RETURN
     return;
 };
 
@@ -447,3 +624,143 @@ void Routine_01680(){
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(30);"TIC TAC TOE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,30);strcat(buf,"TIC TAC TOE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 REM
+    // 01060 REM   THIS PROGRAM PLAYS TIC TAC TOE
+    // 01070 REM   THE MACHINE GOES FIRST
+    // 01080 PRINT "THE GAME BOARD IS NUMBERED:"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE GAME BOARD IS NUMBERED:");strcat(buf,"\n");fputs(buf,fh); };
+    // 01090 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT "1  2  3"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"1  2  3");strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 PRINT "8  9  4"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"8  9  4");strcat(buf,"\n");fputs(buf,fh); };
+    // 01120 PRINT "7  6  5"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"7  6  5");strcat(buf,"\n");fputs(buf,fh); };
+    // 01130 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01140 REM
+    // 01150 REM
+    // 01160 REM
+    // 01170 DEF FNM(X)=X-8*INT((X-1)/8)
+    // 01180 REM
+    // 01190 REM  MAIN PROGRAM
+
+  Lbl_01200:
+    // 01200 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01210 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01220 A=9
+    A_int = 9;
+    // 01230 M=A
+    M_int = A_int;
+    // 01240 GOSUB 1680
+    Routine_01680();
+    // 01250 P=M
+    P_int = M_int;
+    // 01260 B=FNM(P+1)
+    B_int = FNM_int_arr[P_int+1];
+    // 01270 M=B
+    M_int = B_int;
+    // 01280 GOSUB 1680
+    Routine_01680();
+    // 01290 Q=M
+    Q_int = M_int;
+    // 01300 IF Q=FNM(B+4) THEN 1350
+    if(Q_int==FNM_int_arr[B_int+4])goto Lbl_01350;
+    // 01310 C=FNM(B+4)
+    C_int = FNM_int_arr[B_int+4];
+    // 01320 M=C
+    M_int = C_int;
+    // 01330 GOSUB 1730
+    Routine_01730();
+    // 01340 GOTO 1640
+    goto Lbl_01640;
+
+  Lbl_01350:
+    // 01350 C=FNM(B+2)
+    C_int = FNM_int_arr[B_int+2];
+    // 01360 M=C
+    M_int = C_int;
+    // 01370 GOSUB 1680
+    Routine_01680();
+    // 01380 R=M
+    R_int = M_int;
+    // 01390 IF R=FNM(C+4) THEN 1440
+    if(R_int==FNM_int_arr[C_int+4])goto Lbl_01440;
+    // 01400 D=FNM(C+4)
+    D_int = FNM_int_arr[C_int+4];
+    // 01410 M=D
+    M_int = D_int;
+    // 01420 GOSUB 1730
+    Routine_01730();
+    // 01430 GOTO 1640
+    goto Lbl_01640;
+
+  Lbl_01440:
+    // 01440 IF P/2<>INT(P/2) THEN 1490
+    if(P_int/2!=INT(P_int/2))goto Lbl_01490;
+    // 01450 D=FNM(C+7)
+    D_int = FNM_int_arr[C_int+7];
+    // 01460 M=D
+    M_int = D_int;
+    // 01470 GOSUB 1730
+    Routine_01730();
+    // 01480 GOTO 1640
+    goto Lbl_01640;
+
+  Lbl_01490:
+    // 01490 D=FNM(C+3)
+    D_int = FNM_int_arr[C_int+3];
+    // 01500 M=D
+    M_int = D_int;
+    // 01510 GOSUB 1680
+    Routine_01680();
+    // 01520 S=M
+    S_int = M_int;
+    // 01530 IF S=FNM(D+4) THEN 1580
+    if(S_int==FNM_int_arr[D_int+4])goto Lbl_01580;
+    // 01540 E=FNM(D+4)
+    E_int = FNM_int_arr[D_int+4];
+    // 01550 M=E
+    M_int = E_int;
+    // 01560 GOSUB 1730
+    Routine_01730();
+    // 01570 REM
+
+  Lbl_01580:
+    // 01580 E=FNM(D+6)
+    E_int = FNM_int_arr[D_int+6];
+    // 01590 M=E
+    M_int = E_int;
+    // 01600 GOSUB 1730
+    Routine_01730();
+    // 01610 PRINT "THE GAME IS A DRAW."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE GAME IS A DRAW.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01620 GOTO 1200
+    goto Lbl_01200;
+    // 01630 REM
+
+  Lbl_01640:
+    // 01640 PRINT "AND WINS ********"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"AND WINS ********");strcat(buf,"\n");fputs(buf,fh); };
+    // 01650 GOTO 1200
+    goto Lbl_01200;
+    // 01660 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

@@ -8,282 +8,282 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x55e5590f1550 ---------A   00001  REM Written in HP Basic
-    0x55e5590f1610 ---------A   00002  REM From: http://www.langesite.com/startrader/
-    0x55e559105030 ---------A   00010 COM S[12,15],T[12,12],T$[72],B[3,12]
-    0x55e559100820 ---------A   00020 COM W,D9,K9,X9,D1,X1,P9,T9,S9,Y9,H
-    0x55e55910c190 ---------A   00030 COM Y1,R9,G9,Q,M[6,3],C[6,3]
-    0x55e55910c6b0 ---------A   00035 COM S1,T1,R
-    0x55e55910c6f0 ---------A   00040 REM *** STAR TRADERS ***
-    0x55e55910c730 ---------A   00050 REM <<<GAME SET-UP MODULE>>>
-    0x55e55910c7d0 ---------A   00060 REM S IS THE STAR SYSTEM INFO ARRAY
-    0x55e55910c870 ---------A   00070 REM T IS THE TRADING SHIP INFO ARRAY
-    0x55e55910c920 ---------A   00080 REM T$ IS THE TRADING SHIP NAME STRING
-    0x55e55910c9e0 ---------A   00090 REM M AND C DETERMINE A STAR'S PRODUCTIVITY/MONTH
-    0x55e55910caa0 ---------A   00092 REM   PROD/MO. = S(7,J) * M(I,R1)  +  C(I,R1)
-    0x55e55910cb60 ---------A   00094 REM   WHERE J IS THE STAR ID #,I THE MERCHANDISE #,
-    0x55e55910cc20 ---------A   00096 REM   AND R1 IS THE DEVELOPMENT CLASS OF THE STAR
-    0x55e55910ccc0 ---------A   00100 REM B CONTAINS THE BANK ACCOUNTS
-    0x55e55910cd60 ---------A   00110 REM A$ IS THE STANDARD INPUT BUFFER
-    0x55e55910d020 ---------A   00120 DIM A$[6]
-    0x55e55910d0a0 ---------A   00130 REM R9 IS THE SPEED OF A SHIP IN LIGHT-YEARS PER DAY
-    0x55e55910d120 ---------A   00140 REM D9 IS THE MINIMUM  DISTANCE ALLOWED BETWEEN STARS
-    0x55e55910d1c0 ---------A   00150 REM Q IS THE PROBABILITY OF A DELAY
-    0x55e55910d280 ---------A   00160 REM K9 IS THE MAX NUMBER OF BIDDING ROUNDS
-    0x55e55910d340 ---------A   00170 REM W IS THE MAX WEIGHT OF A TRADING SHIP
-    0x55e55910d3c0 ---------A   00180 REM X9 CONTROLS THE PROFIT MARGIN; HIGH X9 LIMITS THE %
-    0x55e55910d440 ---------A   00190 REM G9 IS THE STELLAR DEVELOPMENT INCREMENT 1<=G9<=5
-    0x55e55910d4e0 ---------A   00195 REM R=1 IF THIS IS A RESTART
-    0x55e5591030f0 ---------A   00200 LET R9=2/7
-    0x55e5591031b0 ---------A   00210 LET D9=15
-    0x55e55910db80 ---------A   00220 LET Q=.1
-    0x55e55910dd90 ---------A   00230 LET K9=3
-    0x55e55910dfa0 ---------A   00240 LET W=30
-    0x55e55910e1b0 ---------A   00250 LET X9=36
-    0x55e55910e3c0 ---------A   00260 LET G9=1.25
-    0x55e55910e800 ---------A   00265 LET R=0
-    0x55e55910e890 ---------A   00270 REM D1 IS THE DAY OF THIS YEAR (1<=D1<=360)
-    0x55e55910e910 ---------A   00280 REM Y1 IS THIS YEAR
-    0x55e55910eb30 ---------A   00290 LET D1=1
-    0x55e55910ed50 ---------A   00300 LET Y1=2070
-    0x55e55910edd0 ---------A   00302 REM SET UP ECONOMETRICS MODEL
-    0x55e55910ee30 ---------A   00304 RESTORE 2410
-    0x55e55910f070 ---------A   00306 MAT READ M,C
-    0x55e55910f0e0 ---------A   00310 REM *** BLOCK #1
-    0x55e55910f290 ---------A   00320 PRINT "INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)";
-    0x55e5591006d0 ---------A   00330 INPUT A$
-    0x55e559100670 ---------A   00340 IF A$[1,1]="N" THEN 590
-    0x55e55910f7e0 ---------A   00350 PRINT 
-    0x55e55910f980 ---------A   00360 PRINT "     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT"
-    0x55e55910fb20 ---------A   00370 PRINT "HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR"
-    0x55e55910fcc0 ---------A   00380 PRINT "SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY"
-    0x55e55910fe40 ---------A   00390 PRINT "FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED."
-    0x55e55910fee0 ---------A   00400 PRINT 
-    0x55e559110080 ---------A   00410 PRINT "     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR"
-    0x55e559110220 ---------A   00420 PRINT "TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO"
-    0x55e5591103c0 ---------A   00430 PRINT "STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU"
-    0x55e559110530 ---------A   00440 PRINT "DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS."
-    0x55e5591105d0 ---------A   00450 PRINT 
-    0x55e559110770 ---------A   00460 PRINT "     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY"
-    0x55e559110910 ---------A   00470 PRINT "GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT"
-    0x55e559110ab0 ---------A   00480 PRINT "HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY"
-    0x55e559110c20 ---------A   00490 PRINT "MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS."
-    0x55e559110cc0 ---------A   00500 PRINT 
-    0x55e559110e60 ---------A   00510 PRINT "     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A"
-    0x55e5591111f0 ---------A   00520 PRINT "WEEK AND CAN CARRY UP TO";W;" TONS OF CARGO.  ONLY"
-    0x55e559111390 ---------A   00530 PRINT "CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM."
-    0x55e559111530 ---------A   00540 PRINT "THEY PAY 5% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE"
-    0x55e559111ac0 ---------A   00550 PRINT "PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL"
-    0x55e559111c10 ---------A   00560 PRINT "BANK."
-    0x55e559111c80 ---------A   00570 PRINT 
-    0x55e559111cf0 ---------A   00580 REM *** BLOCK #2
-    0x55e559111ea0 ---------A T 00590 PRINT "HAVE ALL PLAYERS PLAYED BEFORE";
-    0x55e559111ff0 ---------A   00600 INPUT A$
-    0x55e559112080 ---------A   00605 PRINT 
-    0x55e559112470 ---------A   00610 IF A$[1,1]="Y" THEN 630
-    0x55e559112510 ---------A   00620 GOTO 660
-    0x55e559112680 ---------A T 00630 PRINT "DO YOU WANT TO SET UP YOUR OWN GAME";
-    0x55e5591127d0 ---------A   00640 INPUT A$
-    0x55e559112860 ---------A   00645 PRINT 
-    0x55e559112c60 ---------A   00650 IF A$[1,1]="Y" THEN 760
-    0x55e559112de0 ---------A T 00660 PRINT "HOW MANY PLAYERS";
-    0x55e559112f30 ---------A   00670 INPUT P9
-    0x55e559112fc0 ---------A   00675 PRINT 
-    0x55e559113460 ---------A   00680 GOTO P9-1 OF 710,710,710
-    0x55e5591135b0 ---------A   00690 PRINT "2,3, OR 4 CAN PLAY"
-    0x55e559113620 ---------A   00700 GOTO 660
-    0x55e559113940 ---------A T 00710 T9=2*P9
-    0x55e559113d70 ---------A   00720 S9=3*P9+1
-    0x55e5591140a0 ---------A   00730 Y9=Y1+5
-    0x55e559114110 ---------A   00740 GOTO 1350
-    0x55e559114170 ---------A   00750 REM *** BLOCK #3
-    0x55e559114300 ---------A T 00760 PRINT "IS THIS A RESTART";
-    0x55e559114450 ---------A   00770 INPUT A$
-    0x55e5591144e0 ---------A   00775 PRINT 
-    0x55e559114900 ---------A   00780 IF A$[1,1]="N" THEN 940
-    0x55e559114ac0 ---------A   00790 PRINT "LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'"
-    0x55e559114c40 ---------A   00800 PRINT "YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY"
-    0x55e559114cb0 ---------A   00810 PRINT 
-    0x55e559114e10 ---------A   00820 INPUT T$
-    0x55e5591153e0 ---------A   00830 INPUT W,D9,K9,X9,D1,Y1
-    0x55e5591159a0 ---------A   00835 INPUT P9,T9,S9,Y9,T1,S1
-    0x55e559115d60 ---------A   00840 FOR J=1 TO S9
-    0x55e5591161e0 ---------A   00845 FOR I=1 TO 9 STEP 4
-    0x55e559116fe0 ---------A   00850 INPUT S[I,J],S[I+1,J],S[I+2,J],S[I+3,J]
-    0x55e559117120 ---------A   00855 NEXT I
-    0x55e559117260 ---------A   00860 NEXT J
-    0x55e559117560 ---------A   00870 FOR J=1 TO T9
-    0x55e559117920 ---------A   00875 FOR I=1 TO 9 STEP 4
-    0x55e559118720 ---------A   00880 INPUT T[I,J],T[I+1,J],T[I+2,J],T[I+3,J]
-    0x55e559118860 ---------A   00885 NEXT I
-    0x55e5591189a0 ---------A   00890 NEXT J
-    0x55e559118cb0 ---------A   00900 FOR I=1 TO P9
-    0x55e5591194b0 ---------A   00910 INPUT B[1,I],B[2,I],B[3,I]
-    0x55e5591195f0 ---------A   00920 NEXT I
-    0x55e559119810 ---------A   00925 R=1
-    0x55e5591198b0 ---------A   00930 CHAIN "$TRADES"
-    0x55e559119a30 ---------A T 00940 PRINT "HOW MANY PLAYERS";
-    0x55e559119b80 ---------A   00950 INPUT P9
-    0x55e559119c10 ---------A   00955 PRINT 
-    0x55e55911a090 ---------A   00960 IF P9 >= 2 AND P9 <= 12 THEN 990
-    0x55e55911a200 ---------A   00970 PRINT "2,3,4, ... ,12 CAN PLAY"
-    0x55e55911a280 ---------A   00980 GOTO 940
-    0x55e55911a3f0 ---------A T 00990 PRINT "HOW MANY SHIPS PER PLAYER";
-    0x55e55911a600 ---------A   01000 INPUT X
-    0x55e55911a680 ---------A   01005 PRINT 
-    0x55e55911a8d0 ---------A   01010 IF X<1 THEN 990
-    0x55e55911ac40 ---------A   01020 T9=P9*X
-    0x55e55911aeb0 ---------A   01030 IF T9 <= 12 THEN 1070
-    0x55e55911b050 ---------A   01040 PRINT "I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;"
-    0x55e55911b5a0 ---------A   01050 PRINT P9;" PLAYERS TIMES";X;" SHIPS MAKES";T9
-    0x55e55911b620 ---------A   01060 GOTO 990
-    0x55e55911bf90 ---------A T 01070 PRINT "HOW MANY STAR SYSTEMS";
-    0x55e55911c0e0 ---------A   01080 INPUT S9
-    0x55e55911c170 ---------A   01085 PRINT 
-    0x55e55911c5f0 ---------A   01090 IF S9 >= 4 AND S9 <= 13 THEN 1120
-    0x55e55911c750 ---------A   01100 PRINT "FROM 4 TO 13 STARS"
-    0x55e55911c7e0 ---------A   01110 GOTO 1070
-    0x55e55911c950 ---------A T 01120 PRINT "ENTER THE LENGTH OF GAME IN YEARS";
-    0x55e55911caa0 ---------A T 01130 INPUT X
-    0x55e55911cb30 ---------A   01135 PRINT 
-    0x55e55911d0b0 ---------A   01140 IF X >= 1 AND INT(X)=X THEN 1170
-    0x55e55911d220 ---------A   01150 PRINT "CHOOSE A POSITIVE INTEGER"
-    0x55e55911d290 ---------A   01160 GOTO 1130
-    0x55e55911d5f0 ---------A T 01170 Y9=Y1+X
-    0x55e55911d780 ---------A T 01180 PRINT "WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)";
-    0x55e55911d8d0 ---------A   01190 INPUT W
-    0x55e55911d950 ---------A   01195 PRINT 
-    0x55e55911dbd0 ---------A   01200 IF W<25 THEN 1180
-    0x55e55911dd70 ---------A T 01210 PRINT "WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)";
-    0x55e55911dec0 ---------A   01220 INPUT D9
-    0x55e55911df50 ---------A   01225 PRINT 
-    0x55e55911e3d0 ---------A   01230 IF D9 <= 25 AND D9 >= 10 THEN 1260
-    0x55e55911e540 ---------A   01240 PRINT "MIN SPACING 10, MAX 25"
-    0x55e55911e5d0 ---------A   01250 GOTO 1210
-    0x55e55911e740 ---------A T 01260 PRINT "HOW MANY BIDS OR OFFERS(USUALLY 3)";
-    0x55e55911e890 ---------A   01270 INPUT K9
-    0x55e55911e910 ---------A   01275 PRINT 
-    0x55e55911eb90 ---------A   01280 IF K9<1 THEN 1260
-    0x55e55911ed40 ---------A   01290 PRINT "SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER"
-    0x55e55911eed0 ---------A   01300 PRINT "THE NUMBER, THE LOWER THE PROFIT % ... USUALLY SET TO 2"
-    0x55e55911f040 ---------A   01310 PRINT "...YOUR NUMBER";
-    0x55e55911f1a0 ---------A   01320 INPUT X9
-    0x55e55911f720 ---------A   01330 X9=18*(ABS(X9) MIN 5)
-    0x55e55911f790 ---------A   01340 REM *** BLOCK #4.1
-    0x55e55911fd90 ---------A T 01350 S[11,1]=S[12,1]=0
-    0x55e559120120 ---------A   01360 S[7,1]=15
-    0x55e559120190 ---------A   01370 REM *** BLOCK #4.2
-    0x55e5591203b0 ---------A   01380 H=1
-    0x55e5591205c0 ---------A   01390 S1=2
-    0x55e559120630 ---------A   01400 GOSUB 1920
-    0x55e559120830 ---------A   01410 S1=3
-    0x55e5591208a0 ---------A   01420 GOSUB 1920
-    0x55e559120aa0 ---------A   01430 S1=4
-    0x55e559120b10 ---------A   01440 GOSUB 2010
-    0x55e559120e10 ---------A   01450 FOR S1=5 TO S9
-    0x55e5591216f0 ---------A   01460 GOSUB S1-3*INT((S1-1)/3) OF 1920,2010,2060
-    0x55e559121820 ---------A   01470 NEXT S1
-    0x55e5591218a0 ---------A   01480 REM *** BLOCK #4.3
-    0x55e559121ba0 ---------A   01490 FOR S1=1 TO S9
-    0x55e559121e80 ---------A   01500 FOR J=1 TO 6
-    0x55e559122260 ---------A   01510 S[J,S1]=0
-    0x55e559122390 ---------A   01520 NEXT J
-    0x55e5591225f0 ---------A   01530 IF S1>1 THEN 1560
-    0x55e559122810 ---------A   01540 I=1
-    0x55e559122890 ---------A   01550 GOTO 1600
-    0x55e559122f50 ---------A T 01560 I=4*INT(14*RND(0))+5
-    0x55e559123350 ---------A   01570 FOR J=2 TO S1-1
-    0x55e559123770 ---------A   01580 IF I=S[8,J] THEN 1560
-    0x55e5591238b0 ---------A   01590 NEXT J
-    0x55e559123c90 ---------A T 01600 S[8,S1]=I
-    0x55e559124040 ---------A   01610 S[9,S1]=270
-    0x55e559124510 ---------A   01620 S[10,S1]=Y1-1
-    0x55e559124640 ---------A   01630 NEXT S1
-    0x55e5591246c0 ---------A   01640 REM *** BLOCK #4.4
-    0x55e559124a80 ---------A   01650 T1=L=1
-    0x55e559124af0 ---------A   01655 PRINT 
-    0x55e559124b90 ---------A   01657 PRINT 
-    0x55e559124d10 ---------A   01660 PRINT "CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)"
-    0x55e559125120 ---------A   01670 FOR I=1 TO T9/P9
-    0x55e5591251a0 ---------A   01680 PRINT 
-    0x55e559125560 ---------A   01690 FOR P1=1 TO P9
-    0x55e559125e20 ---------A   01700 T[1,T1]=T[2,T1]=T[6,T1]=0
-    0x55e5591261d0 ---------A   01710 T[3,T1]=15
-    0x55e559126800 ---------A   01720 T[4,T1]=T[5,T1]=10
-    0x55e559126bb0 ---------A   01730 T[7,T1]=25
-    0x55e559126f80 ---------A   01740 T[9,T1]=D1
-    0x55e559127350 ---------A   01750 T[10,T1]=Y1
-    0x55e559127730 ---------A   01760 T[11,T1]=5000
-    0x55e559127bb0 ---------A   01770 PRINT "   CAPTAIN";P1;"WHAT DO YOU CHRISTEN YOUR SHIP #";I;
-    0x55e559127fc0 ---------A   01780 INPUT T$[L,L+5]
-    0x55e559128300 ---------A   01790 T1=T1+1
-    0x55e559128630 ---------A   01800 L=L+6
-    0x55e559128760 ---------A   01810 NEXT P1
-    0x55e5591288a0 ---------A   01820 NEXT I
-    0x55e559128920 ---------A   01830 REM *** BLOCK #4.5
-    0x55e559128ce0 ---------A   01840 FOR B1=1 TO P9
-    0x55e5591290a0 ---------A   01850 B[1,B1]=0
-    0x55e559129470 ---------A   01860 B[2,B1]=D1
-    0x55e559129840 ---------A   01870 B[3,B1]=Y1
-    0x55e559129970 ---------A   01880 NEXT B1
-    0x55e559129a20 ---------A   01890 CHAIN "$TRADES"
-    0x55e559129ab0 ---------B   01900 REM *** GOSUBS FOLLOW ***
-    0x55e559129b40 ---------B   01910 REM <FRONTIER> GOSUB
-    0x55e55912a080 ---------B B 01920 X=(RND(0)-.5)*100
-    0x55e55912a550 ---------B   01930 Y=50*RND(0)
-    0x55e55912aaa0 ---------B   01940 IF (ABS(X)<25) AND (Y<25) THEN 1920
-    0x55e55912ad80 ---------B   01950 F=1
-    0x55e55912adf0 ---------B   01960 GOSUB 2190
-    0x55e55912b030 ---------B   01970 IF F=0 THEN 1920
-    0x55e55912b3f0 ---------B   01980 S[7,S1]=0
-    0x55e55912b440 ---------B   01990 RETURN
-    0x55e55912b4e0 ---------C   02000 REM *** <UNDERDEVELOPED> GOSUB
-    0x55e55912b7c0 ---------C G 02010 E=100
-    0x55e55912b830 ---------C   02020 GOSUB 2110
-    0x55e55912bbd0 ---------C   02030 S[7,S1]=5
-    0x55e55912bc20 ---------C   02040 RETURN
-    0x55e55912bcc0 ---------D   02050 REM *** <DEVELOPED> GOSUB
-    0x55e55912bee0 ---------D G 02060 E=50
-    0x55e55912bf50 ---------D   02070 GOSUB 2110
-    0x55e55912c2f0 ---------D   02080 S[7,S1]=10
-    0x55e55912c340 ---------D   02090 RETURN
-    0x55e55912c3e0 ---------E   02100 REM *** <GENERATE CO-ORDS> GOSUB
-    0x55e55912c940 ---------E B 02110 X=(RND(0)-.5)*E
-    0x55e55912ce50 ---------E   02120 Y=RND(0)*E/2
-    0x55e55912d060 ---------E   02130 F=1
-    0x55e55912d0d0 ---------E   02140 GOSUB 2190
-    0x55e55912d310 ---------E   02150 IF F=0 THEN 2110
-    0x55e55912d370 ---------E   02160 RETURN
-    0x55e55912d410 ---------F   02170 REM *** <TEST STAR CO-ORDS> GOSUB
-    0x55e55912d4d0 ---------F   02180 REM FIRST CONVERT CO-ORDS TO NEXT HALF-BOARD
-    0x55e55912d940 ---------F G 02190 GOTO H OF 2300,2260,2240,2200
-    0x55e55912dc30 ---------F T 02200 Z=X
-    0x55e55912de60 ---------F   02210 X=-Y
-    0x55e55912e090 ---------F   02220 Y=Z
-    0x55e55912e100 ---------F   02230 GOTO 2300
-    0x55e55912e320 ---------F T 02240 Y=-Y
-    0x55e55912e390 ---------F   02250 GOTO 2300
-    0x55e55912e5b0 ---------F T 02260 Z=X
-    0x55e55912e7e0 ---------F   02270 X=Y
-    0x55e55911b850 ---------F   02280 Y=Z
-    0x55e55911b8d0 ---------F   02290 REM SECOND, TEST PROXIMITY
-    0x55e55911bd00 ---------F T 02300 FOR J=1 TO S1-1
-    0x55e559130360 ---------F   02310 IF SQR((X-S[11,J])^2+(Y-S[12,J])^2) >= D9 THEN 2340
-    0x55e559130580 ---------F   02320 F=0
-    0x55e5591305d0 ---------F   02330 RETURN
-    0x55e559130710 ---------F T 02340 NEXT J
-    0x55e5591307e0 ---------F   02350 REM FINALLY, ENTER CO-ORDS AND INCREMENT HALF-BOARD CTR
-    0x55e559130ca0 ---------F   02360 S[11,S1]=INT(X)
-    0x55e559131150 ---------F   02370 S[12,S1]=INT(Y)
-    0x55e5591311c0 ---------F   02380 REM H=1+(H <= 3)*H
-    0x55e5591316a0 ---------F   02381 H=MOD(1+H)
-    0x55e5591316f0 ---------F   02390 RETURN
-    0x55e5591317b0 ---------A   02400 REM *** DATA FOR ECONOMETRIC MODEL FOLLOWS ***
-    0x55e559131830 ---------A   02410 REM MODEL #1
-    0x55e5591328e0 ---------A   02420 DATA -0.025,-0.05,-0.025,0,-0.025,-0.025,0,.1,.1,-0.025,.1,0,.1,.2,.1,.1,-0.025,0
-    0x55e559133590 ---------A   02430 DATA 1,1.5,.5,.75,.75,.75,-0.25,-0.25,-0.25,0,-0.5,.5,0,-0.5
-    0x55e559133980 ---------A   02440 DATA 0,.5,1.5,0
-    0x55e5591339d0 ---------A   02450 END
+    0x5fca6ad95eb0 ---------A   00001   REM Written in HP Basic
+    0x5fca6ad94bd0 ---------A   00002   REM From: http://www.langesite.com/startrader/
+    0x5fca6ad96030 ---------A   00010  COM S[12,15],T[12,12],T$[72],B[3,12]
+    0x5fca6ad95f70 ---------A   00020  COM W,D9,K9,X9,D1,X1,P9,T9,S9,Y9,H
+    0x5fca6ad960f0 ---------A   00030  COM Y1,R9,G9,Q,M[6,3],C[6,3]
+    0x5fca6ad9f570 ---------A   00035  COM S1,T1,R
+    0x5fca6ad9f5c0 ---------A   00040  REM *** STAR TRADERS ***
+    0x5fca6ad9f610 ---------A   00050  REM <<<GAME SET-UP MODULE>>>
+    0x5fca6ad9f6c0 ---------A   00060  REM S IS THE STAR SYSTEM INFO ARRAY
+    0x5fca6ad961b0 ---------A   00070  REM T IS THE TRADING SHIP INFO ARRAY
+    0x5fca6ad9f7e0 ---------A   00080  REM T$ IS THE TRADING SHIP NAME STRING
+    0x5fca6ad9f8b0 ---------A   00090  REM M AND C DETERMINE A STAR'S PRODUCTIVITY/MONTH
+    0x5fca6ad9f980 ---------A   00092  REM   PROD/MO. = S(7,J) * M(I,R1)  +  C(I,R1)
+    0x5fca6ad9fa50 ---------A   00094  REM   WHERE J IS THE STAR ID #,I THE MERCHANDISE #,
+    0x5fca6ad9fb20 ---------A   00096  REM   AND R1 IS THE DEVELOPMENT CLASS OF THE STAR
+    0x5fca6ad9fbd0 ---------A   00100  REM B CONTAINS THE BANK ACCOUNTS
+    0x5fca6ad9fc80 ---------A   00110  REM A$ IS THE STANDARD INPUT BUFFER
+    0x5fca6ad9ffa0 ---------A   00120  DIM A$[6]
+    0x5fca6ada0030 ---------A   00130  REM R9 IS THE SPEED OF A SHIP IN LIGHT-YEARS PER DAY
+    0x5fca6ada0110 ---------A   00140  REM D9 IS THE MINIMUM  DISTANCE ALLOWED BETWEEN STARS
+    0x5fca6ada01c0 ---------A   00150  REM Q IS THE PROBABILITY OF A DELAY
+    0x5fca6ada0290 ---------A   00160  REM K9 IS THE MAX NUMBER OF BIDDING ROUNDS
+    0x5fca6ada0360 ---------A   00170  REM W IS THE MAX WEIGHT OF A TRADING SHIP
+    0x5fca6ada0440 ---------A   00180  REM X9 CONTROLS THE PROFIT MARGIN; HIGH X9 LIMITS THE %
+    0x5fca6ada0520 ---------A   00190  REM G9 IS THE STELLAR DEVELOPMENT INCREMENT 1<=G9<=5
+    0x5fca6ada05d0 ---------A   00195  REM R=1 IF THIS IS A RESTART
+    0x5fca6ada0900 ---------A   00200  LET R9=2/7
+    0x5fca6ada0b10 ---------A   00210  LET D9=15
+    0x5fca6ada0d20 ---------A   00220  LET Q=.1
+    0x5fca6ada0f30 ---------A   00230  LET K9=3
+    0x5fca6ada1140 ---------A   00240  LET W=30
+    0x5fca6ada1350 ---------A   00250  LET X9=36
+    0x5fca6ada1560 ---------A   00260  LET G9=1.25
+    0x5fca6ada19a0 ---------A   00265  LET R=0
+    0x5fca6ada1a30 ---------A   00270  REM D1 IS THE DAY OF THIS YEAR (1<=D1<=360)
+    0x5fca6ada1ac0 ---------A   00280  REM Y1 IS THIS YEAR
+    0x5fca6ada1cf0 ---------A   00290  LET D1=1
+    0x5fca6ada1f10 ---------A   00300  LET Y1=2070
+    0x5fca6ada1f90 ---------A   00302  REM SET UP ECONOMETRICS MODEL
+    0x5fca6ada2000 ---------A   00304  RESTORE 2410
+    0x5fca6ad936d0 ---------A   00306  MAT READ M,C
+    0x5fca6ada2270 ---------A   00310  REM *** BLOCK #1
+    0x5fca6ad93670 ---------A   00320  PRINT "INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)";
+    0x5fca6ada2540 ---------A   00330  INPUT A$
+    0x5fca6ada2940 ---------A   00340  IF A$[1,1]="N" THEN 590
+    0x5fca6ada29f0 ---------A   00350  PRINT 
+    0x5fca6ada2ba0 ---------A   00360  PRINT "     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT"
+    0x5fca6ada2d50 ---------A   00370  PRINT "HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR"
+    0x5fca6ada2f00 ---------A   00380  PRINT "SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY"
+    0x5fca6ada3090 ---------A   00390  PRINT "FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED."
+    0x5fca6ada3140 ---------A   00400  PRINT 
+    0x5fca6ada32f0 ---------A   00410  PRINT "     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR"
+    0x5fca6ada34a0 ---------A   00420  PRINT "TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO"
+    0x5fca6ada3650 ---------A   00430  PRINT "STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU"
+    0x5fca6ada37d0 ---------A   00440  PRINT "DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS."
+    0x5fca6ada3880 ---------A   00450  PRINT 
+    0x5fca6ada3a30 ---------A   00460  PRINT "     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY"
+    0x5fca6ada3be0 ---------A   00470  PRINT "GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT"
+    0x5fca6ada3d90 ---------A   00480  PRINT "HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY"
+    0x5fca6ada3f10 ---------A   00490  PRINT "MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS."
+    0x5fca6ada3fc0 ---------A   00500  PRINT 
+    0x5fca6ada4170 ---------A   00510  PRINT "     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A"
+    0x5fca6ada4510 ---------A   00520  PRINT "WEEK AND CAN CARRY UP TO";W;" TONS OF CARGO.  ONLY"
+    0x5fca6ada46c0 ---------A   00530  PRINT "CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM."
+    0x5fca6ada4870 ---------A   00540  PRINT "THEY PAY 5% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE"
+    0x5fca6ada4e10 ---------A   00550  PRINT "PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL"
+    0x5fca6ada4f70 ---------A   00560  PRINT "BANK."
+    0x5fca6ada4ff0 ---------A   00570  PRINT 
+    0x5fca6ada5070 ---------A   00580  REM *** BLOCK #2
+    0x5fca6ada5230 ---------A T 00590  PRINT "HAVE ALL PLAYERS PLAYED BEFORE";
+    0x5fca6ada5390 ---------A   00600  INPUT A$
+    0x5fca6ada5420 ---------A   00605  PRINT 
+    0x5fca6ada5820 ---------A   00610  IF A$[1,1]="Y" THEN 630
+    0x5fca6ada58c0 ---------A   00620  GOTO 660
+    0x5fca6ada5a40 ---------A T 00630  PRINT "DO YOU WANT TO SET UP YOUR OWN GAME";
+    0x5fca6ada5ba0 ---------A   00640  INPUT A$
+    0x5fca6ada5c30 ---------A   00645  PRINT 
+    0x5fca6ada6040 ---------A   00650  IF A$[1,1]="Y" THEN 760
+    0x5fca6ada61c0 ---------A T 00660  PRINT "HOW MANY PLAYERS";
+    0x5fca6ada6320 ---------A   00670  INPUT P9
+    0x5fca6ada63b0 ---------A   00675  PRINT 
+    0x5fca6ada6860 ---------A   00680  GOTO P9-1 OF 710,710,710
+    0x5fca6ada69c0 ---------A   00690  PRINT "2,3, OR 4 CAN PLAY"
+    0x5fca6ada6a40 ---------A   00700  GOTO 660
+    0x5fca6ada6d70 ---------A T 00710  T9=2*P9
+    0x5fca6ada71a0 ---------A   00720  S9=3*P9+1
+    0x5fca6ada74d0 ---------A   00730  Y9=Y1+5
+    0x5fca6ada7540 ---------A   00740  GOTO 1350
+    0x5fca6ada75b0 ---------A   00750  REM *** BLOCK #3
+    0x5fca6ada7750 ---------A T 00760  PRINT "IS THIS A RESTART";
+    0x5fca6ada78b0 ---------A   00770  INPUT A$
+    0x5fca6ada7940 ---------A   00775  PRINT 
+    0x5fca6ada7d70 ---------A   00780  IF A$[1,1]="N" THEN 940
+    0x5fca6ada7f30 ---------A   00790  PRINT "LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'"
+    0x5fca6ada80c0 ---------A   00800  PRINT "YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY"
+    0x5fca6ada8140 ---------A   00810  PRINT 
+    0x5fca6ada82b0 ---------A   00820  INPUT T$
+    0x5fca6ada8880 ---------A   00830  INPUT W,D9,K9,X9,D1,Y1
+    0x5fca6ada8e40 ---------A   00835  INPUT P9,T9,S9,Y9,T1,S1
+    0x5fca6ada9200 ---------A   00840  FOR J=1 TO S9
+    0x5fca6ada9680 ---------A   00845  FOR I=1 TO 9 STEP 4
+    0x5fca6adaa480 ---------A   00850  INPUT S[I,J],S[I+1,J],S[I+2,J],S[I+3,J]
+    0x5fca6adaa5c0 ---------A   00855  NEXT I
+    0x5fca6adaa710 ---------A   00860  NEXT J
+    0x5fca6adaaa20 ---------A   00870  FOR J=1 TO T9
+    0x5fca6adaade0 ---------A   00875  FOR I=1 TO 9 STEP 4
+    0x5fca6adabbe0 ---------A   00880  INPUT T[I,J],T[I+1,J],T[I+2,J],T[I+3,J]
+    0x5fca6adabd20 ---------A   00885  NEXT I
+    0x5fca6adabe70 ---------A   00890  NEXT J
+    0x5fca6adac190 ---------A   00900  FOR I=1 TO P9
+    0x5fca6adac990 ---------A   00910  INPUT B[1,I],B[2,I],B[3,I]
+    0x5fca6adacad0 ---------A   00920  NEXT I
+    0x5fca6adacd00 ---------A   00925  R=1
+    0x5fca6adacda0 ---------A   00930  CHAIN "$TRADES"
+    0x5fca6adacf20 ---------A T 00940  PRINT "HOW MANY PLAYERS";
+    0x5fca6adad080 ---------A   00950  INPUT P9
+    0x5fca6adad110 ---------A   00955  PRINT 
+    0x5fca6adad5a0 ---------A   00960  IF P9 >= 2 AND P9 <= 12 THEN 990
+    0x5fca6adad710 ---------A   00970  PRINT "2,3,4, ... ,12 CAN PLAY"
+    0x5fca6adad7a0 ---------A   00980  GOTO 940
+    0x5fca6adad920 ---------A T 00990  PRINT "HOW MANY SHIPS PER PLAYER";
+    0x5fca6adadb40 ---------A   01000  INPUT X
+    0x5fca6adadbc0 ---------A   01005  PRINT 
+    0x5fca6adade20 ---------A   01010  IF X<1 THEN 990
+    0x5fca6adae190 ---------A   01020  T9=P9*X
+    0x5fca6adae400 ---------A   01030  IF T9 <= 12 THEN 1070
+    0x5fca6adae5a0 ---------A   01040  PRINT "I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;"
+    0x5fca6adaeb00 ---------A   01050  PRINT P9;" PLAYERS TIMES";X;" SHIPS MAKES";T9
+    0x5fca6adaeb90 ---------A   01060  GOTO 990
+    0x5fca6adaf510 ---------A T 01070  PRINT "HOW MANY STAR SYSTEMS";
+    0x5fca6adaf670 ---------A   01080  INPUT S9
+    0x5fca6adaf700 ---------A   01085  PRINT 
+    0x5fca6adafb90 ---------A   01090  IF S9 >= 4 AND S9 <= 13 THEN 1120
+    0x5fca6adafcf0 ---------A   01100  PRINT "FROM 4 TO 13 STARS"
+    0x5fca6adafd90 ---------A   01110  GOTO 1070
+    0x5fca6adaff10 ---------A T 01120  PRINT "ENTER THE LENGTH OF GAME IN YEARS";
+    0x5fca6adb0070 ---------A T 01130  INPUT X
+    0x5fca6adb0100 ---------A   01135  PRINT 
+    0x5fca6adb0690 ---------A   01140  IF X >= 1 AND INT(X)=X THEN 1170
+    0x5fca6adb0800 ---------A   01150  PRINT "CHOOSE A POSITIVE INTEGER"
+    0x5fca6adb0880 ---------A   01160  GOTO 1130
+    0x5fca6adb0bf0 ---------A T 01170  Y9=Y1+X
+    0x5fca6adb0d80 ---------A T 01180  PRINT "WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)";
+    0x5fca6adb0ee0 ---------A   01190  INPUT W
+    0x5fca6adb0f60 ---------A   01195  PRINT 
+    0x5fca6adb11f0 ---------A   01200  IF W<25 THEN 1180
+    0x5fca6adb1390 ---------A T 01210  PRINT "WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)";
+    0x5fca6adb14f0 ---------A   01220  INPUT D9
+    0x5fca6adb1580 ---------A   01225  PRINT 
+    0x5fca6adb1a10 ---------A   01230  IF D9 <= 25 AND D9 >= 10 THEN 1260
+    0x5fca6adb1b80 ---------A   01240  PRINT "MIN SPACING 10, MAX 25"
+    0x5fca6adb1c20 ---------A   01250  GOTO 1210
+    0x5fca6adb1da0 ---------A T 01260  PRINT "HOW MANY BIDS OR OFFERS(USUALLY 3)";
+    0x5fca6adb1f00 ---------A   01270  INPUT K9
+    0x5fca6adb1f80 ---------A   01275  PRINT 
+    0x5fca6adb2210 ---------A   01280  IF K9<1 THEN 1260
+    0x5fca6adb23c0 ---------A   01290  PRINT "SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER"
+    0x5fca6adb2560 ---------A   01300  PRINT "THE NUMBER, THE LOWER THE PROFIT % ... USUALLY SET TO 2"
+    0x5fca6adb26e0 ---------A   01310  PRINT "...YOUR NUMBER";
+    0x5fca6adb2850 ---------A   01320  INPUT X9
+    0x5fca6adb2dd0 ---------A   01330  X9=18*(ABS(X9) MIN 5)
+    0x5fca6adb2e40 ---------A   01340  REM *** BLOCK #4.1
+    0x5fca6adb3450 ---------A T 01350  S[11,1]=S[12,1]=0
+    0x5fca6adb37e0 ---------A   01360  S[7,1]=15
+    0x5fca6adb3850 ---------A   01370  REM *** BLOCK #4.2
+    0x5fca6adb3a80 ---------A   01380  H=1
+    0x5fca6adb3c90 ---------A   01390  S1=2
+    0x5fca6adb3d00 ---------A   01400  GOSUB 1920
+    0x5fca6adb3f10 ---------A   01410  S1=3
+    0x5fca6adb3f80 ---------A   01420  GOSUB 1920
+    0x5fca6adb4190 ---------A   01430  S1=4
+    0x5fca6adb4200 ---------A   01440  GOSUB 2010
+    0x5fca6adb4510 ---------A   01450  FOR S1=5 TO S9
+    0x5fca6adb4df0 ---------A   01460  GOSUB S1-3*INT((S1-1)/3) OF 1920,2010,2060
+    0x5fca6adb4f30 ---------A   01470  NEXT S1
+    0x5fca6adb4fc0 ---------A   01480  REM *** BLOCK #4.3
+    0x5fca6adb52d0 ---------A   01490  FOR S1=1 TO S9
+    0x5fca6adb55b0 ---------A   01500  FOR J=1 TO 6
+    0x5fca6adb5990 ---------A   01510  S[J,S1]=0
+    0x5fca6adb5ac0 ---------A   01520  NEXT J
+    0x5fca6adb5d30 ---------A   01530  IF S1>1 THEN 1560
+    0x5fca6adb5f50 ---------A   01540  I=1
+    0x5fca6adb5fd0 ---------A   01550  GOTO 1600
+    0x5fca6adb66a0 ---------A T 01560  I=4*INT(14*RND(0))+5
+    0x5fca6adb6aa0 ---------A   01570  FOR J=2 TO S1-1
+    0x5fca6adb6ec0 ---------A   01580  IF I=S[8,J] THEN 1560
+    0x5fca6adb7000 ---------A   01590  NEXT J
+    0x5fca6adb73f0 ---------A T 01600  S[8,S1]=I
+    0x5fca6adb77a0 ---------A   01610  S[9,S1]=270
+    0x5fca6adb7c70 ---------A   01620  S[10,S1]=Y1-1
+    0x5fca6adb7da0 ---------A   01630  NEXT S1
+    0x5fca6adb7e30 ---------A   01640  REM *** BLOCK #4.4
+    0x5fca6adb8200 ---------A   01650  T1=L=1
+    0x5fca6adb8270 ---------A   01655  PRINT 
+    0x5fca6adb8320 ---------A   01657  PRINT 
+    0x5fca6adb84b0 ---------A   01660  PRINT "CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)"
+    0x5fca6adb88d0 ---------A   01670  FOR I=1 TO T9/P9
+    0x5fca6adb8950 ---------A   01680  PRINT 
+    0x5fca6adb8d20 ---------A   01690  FOR P1=1 TO P9
+    0x5fca6adb95e0 ---------A   01700  T[1,T1]=T[2,T1]=T[6,T1]=0
+    0x5fca6adb9990 ---------A   01710  T[3,T1]=15
+    0x5fca6adb9fc0 ---------A   01720  T[4,T1]=T[5,T1]=10
+    0x5fca6adba370 ---------A   01730  T[7,T1]=25
+    0x5fca6adba740 ---------A   01740  T[9,T1]=D1
+    0x5fca6adbab10 ---------A   01750  T[10,T1]=Y1
+    0x5fca6adbaef0 ---------A   01760  T[11,T1]=5000
+    0x5fca6adbb370 ---------A   01770  PRINT "   CAPTAIN";P1;"WHAT DO YOU CHRISTEN YOUR SHIP #";I;
+    0x5fca6adbb790 ---------A   01780  INPUT T$[L,L+5]
+    0x5fca6adbbad0 ---------A   01790  T1=T1+1
+    0x5fca6adbbe00 ---------A   01800  L=L+6
+    0x5fca6adbbf30 ---------A   01810  NEXT P1
+    0x5fca6adbc080 ---------A   01820  NEXT I
+    0x5fca6adbc110 ---------A   01830  REM *** BLOCK #4.5
+    0x5fca6adbc4e0 ---------A   01840  FOR B1=1 TO P9
+    0x5fca6adbc8a0 ---------A   01850  B[1,B1]=0
+    0x5fca6adbcc70 ---------A   01860  B[2,B1]=D1
+    0x5fca6adbd040 ---------A   01870  B[3,B1]=Y1
+    0x5fca6adbd170 ---------A   01880  NEXT B1
+    0x5fca6adbd230 ---------A   01890  CHAIN "$TRADES"
+    0x5fca6adbd2c0 ---------B   01900  REM *** GOSUBS FOLLOW ***
+    0x5fca6adbd360 ---------B   01910  REM <FRONTIER> GOSUB
+    0x5fca6adbd8b0 ---------B B 01920  X=(RND(0)-.5)*100
+    0x5fca6adbdd80 ---------B   01930  Y=50*RND(0)
+    0x5fca6adbe2d0 ---------B   01940  IF (ABS(X)<25) AND (Y<25) THEN 1920
+    0x5fca6adbe5b0 ---------B   01950  F=1
+    0x5fca6adbe620 ---------B   01960  GOSUB 2190
+    0x5fca6adbe870 ---------B   01970  IF F=0 THEN 1920
+    0x5fca6adbec30 ---------B   01980  S[7,S1]=0
+    0x5fca6adbec80 ---------B   01990  RETURN
+    0x5fca6adbed20 ---------C   02000  REM *** <UNDERDEVELOPED> GOSUB
+    0x5fca6adbf010 ---------C G 02010  E=100
+    0x5fca6adbf080 ---------C   02020  GOSUB 2110
+    0x5fca6adbf430 ---------C   02030  S[7,S1]=5
+    0x5fca6adbf480 ---------C   02040  RETURN
+    0x5fca6adbf520 ---------D   02050  REM *** <DEVELOPED> GOSUB
+    0x5fca6adbf750 ---------D G 02060  E=50
+    0x5fca6adbf7c0 ---------D   02070  GOSUB 2110
+    0x5fca6adbfb70 ---------D   02080  S[7,S1]=10
+    0x5fca6adbfbc0 ---------D   02090  RETURN
+    0x5fca6adbfc60 ---------E   02100  REM *** <GENERATE CO-ORDS> GOSUB
+    0x5fca6adc01d0 ---------E B 02110  X=(RND(0)-.5)*E
+    0x5fca6adc06e0 ---------E   02120  Y=RND(0)*E/2
+    0x5fca6adc08f0 ---------E   02130  F=1
+    0x5fca6adc0960 ---------E   02140  GOSUB 2190
+    0x5fca6adc0bb0 ---------E   02150  IF F=0 THEN 2110
+    0x5fca6adc0c10 ---------E   02160  RETURN
+    0x5fca6adc0cb0 ---------F   02170  REM *** <TEST STAR CO-ORDS> GOSUB
+    0x5fca6adc0d80 ---------F   02180  REM FIRST CONVERT CO-ORDS TO NEXT HALF-BOARD
+    0x5fca6adc1200 ---------F G 02190  GOTO H OF 2300,2260,2240,2200
+    0x5fca6adc1500 ---------F T 02200  Z=X
+    0x5fca6adc1730 ---------F   02210  X=-Y
+    0x5fca6adc1960 ---------F   02220  Y=Z
+    0x5fca6adc19d0 ---------F   02230  GOTO 2300
+    0x5fca6adc1c00 ---------F T 02240  Y=-Y
+    0x5fca6adc1c70 ---------F   02250  GOTO 2300
+    0x5fca6adc1ea0 ---------F T 02260  Z=X
+    0x5fca6adc20d0 ---------F   02270  X=Y
+    0x5fca6adaedd0 ---------F   02280  Y=Z
+    0x5fca6adaee50 ---------F   02290  REM SECOND, TEST PROXIMITY
+    0x5fca6adaf290 ---------F T 02300  FOR J=1 TO S1-1
+    0x5fca6adc3c50 ---------F   02310  IF SQR((X-S[11,J])^2+(Y-S[12,J])^2) >= D9 THEN 2340
+    0x5fca6adc3e70 ---------F   02320  F=0
+    0x5fca6adc3ec0 ---------F   02330  RETURN
+    0x5fca6adc4000 ---------F T 02340  NEXT J
+    0x5fca6adc40e0 ---------F   02350  REM FINALLY, ENTER CO-ORDS AND INCREMENT HALF-BOARD CTR
+    0x5fca6adc45b0 ---------F   02360  S[11,S1]=INT(X)
+    0x5fca6adc4a60 ---------F   02370  S[12,S1]=INT(Y)
+    0x5fca6adc4ad0 ---------F   02380  REM H=1+(H <= 3)*H
+    0x5fca6adc4fc0 ---------F   02381  H=MOD(1+H)
+    0x5fca6adc5010 ---------F   02390  RETURN
+    0x5fca6adc50d0 ---------A   02400  REM *** DATA FOR ECONOMETRIC MODEL FOLLOWS ***
+    0x5fca6adc5160 ---------A   02410  REM MODEL #1
+    0x5fca6adc6220 ---------A   02420  DATA -0.025,-0.05,-0.025,0,-0.025,-0.025,0,.1,.1,-0.025,.1,0,.1,.2,.1,.1,-0.025,0
+    0x5fca6adc6ed0 ---------A   02430  DATA 1,1.5,.5,.75,.75,.75,-0.25,-0.25,-0.25,0,-0.5,.5,0,-0.5
+    0x5fca6adc72c0 ---------A   02440  DATA 0,.5,1.5,0
+    0x5fca6adc7310 ---------A   02450  END
  */
 
 /*
@@ -330,12 +330,12 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x55e5590f1550 (00001)   0x55e5590f1550 (00001)   0x55e5591339d0 (02450)   0x55e5591339d0 (02450)   
-   B) 0x55e559129ab0 (01900)   0x55e55912a080 (01920)   0x55e55912b440 (01990)   0x55e55912b440 (01990)   
-   C) 0x55e55912b4e0 (02000)   0x55e55912b7c0 (02010)   0x55e55912bc20 (02040)   0x55e55912bc20 (02040)   
-   D) 0x55e55912bcc0 (02050)   0x55e55912bee0 (02060)   0x55e55912c340 (02090)   0x55e55912c340 (02090)   
-   E) 0x55e55912c3e0 (02100)   0x55e55912c940 (02110)   0x55e55912d370 (02160)   0x55e55912d370 (02160)   
-   F) 0x55e55912d410 (02170)   0x55e55912d940 (02190)   0x55e5591305d0 (02330)   0x55e5591316f0 (02390)   
+   A) 0x5fca6ad95eb0 (00001)   0x5fca6ad95eb0 (00001)   0x5fca6adc7310 (02450)   0x5fca6adc7310 (02450)   
+   B) 0x5fca6adbd2c0 (01900)   0x5fca6adbd8b0 (01920)   0x5fca6adbec80 (01990)   0x5fca6adbec80 (01990)   
+   C) 0x5fca6adbed20 (02000)   0x5fca6adbf010 (02010)   0x5fca6adbf480 (02040)   0x5fca6adbf480 (02040)   
+   D) 0x5fca6adbf520 (02050)   0x5fca6adbf750 (02060)   0x5fca6adbfbc0 (02090)   0x5fca6adbfbc0 (02090)   
+   E) 0x5fca6adbfc60 (02100)   0x5fca6adc01d0 (02110)   0x5fca6adc0c10 (02160)   0x5fca6adc0c10 (02160)   
+   F) 0x5fca6adc0cb0 (02170)   0x5fca6adc1200 (02190)   0x5fca6adc3ec0 (02330)   0x5fca6adc5010 (02390)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
     NOTE: Routine C overlaps, or is tangled with, routine A!
@@ -343,6 +343,582 @@
     NOTE: Routine E overlaps, or is tangled with, routine A!
     NOTE: Routine F overlaps, or is tangled with, routine A!
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/StarTrader_setup.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5fca6ad95eb0 ---------A   00001  REM Written in HP Basic
+    0x5fca6ad94bd0 ---------A   00002  REM From
+    0x5fca6ad96030 ---------A   00010  COM S[12,15],T[12,12],T$[72],B[3,12]
+    0x5fca6ad95f70 ---------A   00020  COM W,D9,K9,X9,D1,X1,P9,T9,S9,Y9,H
+    0x5fca6ad960f0 ---------A   00030  COM Y1,R9,G9,Q,M[6,3],C[6,3]
+    0x5fca6ad9f570 ---------A   00035  COM S1,T1,R
+    0x5fca6ad9f5c0 ---------A   00040  REM *** STAR TRADERS ***
+    0x5fca6ad9f610 ---------A   00050  REM <<<GAME SET-UP MODULE>>>
+    0x5fca6ad9f6c0 ---------A   00060  REM S IS THE STAR SYSTEM INFO ARRAY
+    0x5fca6ad961b0 ---------A   00070  REM T IS THE TRADING SHIP INFO ARRAY
+    0x5fca6ad9f7e0 ---------A   00080  REM T$ IS THE TRADING SHIP NAME STRING
+    0x5fca6ad9f8b0 ---------A   00090  REM M AND C DETERMINE A STAR'S PRODUCTIVITY/MONTH
+    0x5fca6ad9f980 ---------A   00092  REM   PROD/MO. = S(7,J) * M(I,R1)  +  C(I,R1)
+    0x5fca6ad9fa50 ---------A   00094  REM   WHERE J IS THE STAR ID #,I THE MERCHANDISE #,
+    0x5fca6ad9fb20 ---------A   00096  REM   AND R1 IS THE DEVELOPMENT CLASS OF THE STAR
+    0x5fca6ad9fbd0 ---------A   00100  REM B CONTAINS THE BANK ACCOUNTS
+    0x5fca6ad9fc80 ---------A   00110  REM A$ IS THE STANDARD INPUT BUFFER
+    0x5fca6ad9ffa0 ---------A   00120  DIM A$[6]
+    0x5fca6ada0030 ---------A   00130  REM R9 IS THE SPEED OF A SHIP IN LIGHT-YEARS PER DAY
+    0x5fca6ada0110 ---------A   00140  REM D9 IS THE MINIMUM  DISTANCE ALLOWED BETWEEN STARS
+    0x5fca6ada01c0 ---------A   00150  REM Q IS THE PROBABILITY OF A DELAY
+    0x5fca6ada0290 ---------A   00160  REM K9 IS THE MAX NUMBER OF BIDDING ROUNDS
+    0x5fca6ada0360 ---------A   00170  REM W IS THE MAX WEIGHT OF A TRADING SHIP
+    0x5fca6ada0440 ---------A   00180  REM X9 CONTROLS THE PROFIT MARGIN; HIGH X9 LIMITS THE %
+    0x5fca6ada0520 ---------A   00190  REM G9 IS THE STELLAR DEVELOPMENT INCREMENT 1<=G9<=5
+    0x5fca6ada05d0 ---------A   00195  REM R=1 IF THIS IS A RESTART
+    0x5fca6ada0900 ---------A   00200  LET R9=2/7
+    0x5fca6ada0b10 ---------A   00210  LET D9=15
+    0x5fca6ada0d20 ---------A   00220  LET Q=.1
+    0x5fca6ada0f30 ---------A   00230  LET K9=3
+    0x5fca6ada1140 ---------A   00240  LET W=30
+    0x5fca6ada1350 ---------A   00250  LET X9=36
+    0x5fca6ada1560 ---------A   00260  LET G9=1.25
+    0x5fca6ada19a0 ---------A   00265  LET R=0
+    0x5fca6ada1a30 ---------A   00270  REM D1 IS THE DAY OF THIS YEAR (1<=D1<=360)
+    0x5fca6ada1ac0 ---------A   00280  REM Y1 IS THIS YEAR
+    0x5fca6ada1cf0 ---------A   00290  LET D1=1
+    0x5fca6ada1f10 ---------A   00300  LET Y1=2070
+    0x5fca6ada1f90 ---------A   00302  REM SET UP ECONOMETRICS MODEL
+    0x5fca6ada2000 ---------A   00304  RESTORE 2410
+    0x5fca6ad936d0 ---------A   00306  MAT READ M,C
+    0x5fca6ada2270 ---------A   00310  REM *** BLOCK #1
+    0x5fca6ad93670 ---------A   00320  PRINT "INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)";
+    0x5fca6ada2540 ---------A   00330  INPUT A$
+    0x5fca6ada2940 ---------A   00340  IF A$[1,1]="N" THEN 590
+    0x5fca6ada29f0 ---------A   00350  PRINT 
+    0x5fca6ada2ba0 ---------A   00360  PRINT "     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT"
+    0x5fca6ada2d50 ---------A   00370  PRINT "HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR"
+    0x5fca6ada2f00 ---------A   00380  PRINT "SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY"
+    0x5fca6ada3090 ---------A   00390  PRINT "FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED."
+    0x5fca6ada3140 ---------A   00400  PRINT 
+    0x5fca6ada32f0 ---------A   00410  PRINT "     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR"
+    0x5fca6ada34a0 ---------A   00420  PRINT "TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO"
+    0x5fca6ada3650 ---------A   00430  PRINT "STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU"
+    0x5fca6ada37d0 ---------A   00440  PRINT "DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS."
+    0x5fca6ada3880 ---------A   00450  PRINT 
+    0x5fca6ada3a30 ---------A   00460  PRINT "     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY"
+    0x5fca6ada3be0 ---------A   00470  PRINT "GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT"
+    0x5fca6ada3d90 ---------A   00480  PRINT "HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY"
+    0x5fca6ada3f10 ---------A   00490  PRINT "MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS."
+    0x5fca6ada3fc0 ---------A   00500  PRINT 
+    0x5fca6ada4170 ---------A   00510  PRINT "     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A"
+    0x5fca6ada4510 ---------A   00520  PRINT "WEEK AND CAN CARRY UP TO";W;" TONS OF CARGO.  ONLY"
+    0x5fca6ada46c0 ---------A   00530  PRINT "CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM."
+    0x5fca6ada4870 ---------A   00540  PRINT "THEY PAY 5% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE"
+    0x5fca6ada4e10 ---------A   00550  PRINT "PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL"
+    0x5fca6ada4f70 ---------A   00560  PRINT "BANK."
+    0x5fca6ada4ff0 ---------A   00570  PRINT 
+    0x5fca6ada5070 ---------A   00580  REM *** BLOCK #2
+    0x5fca6ada5230 ---------A T 00590  PRINT "HAVE ALL PLAYERS PLAYED BEFORE";
+    0x5fca6ada5390 ---------A   00600  INPUT A$
+    0x5fca6ada5420 ---------A   00605  PRINT 
+    0x5fca6ada5820 ---------A   00610  IF A$[1,1]="Y" THEN 630
+    0x5fca6ada58c0 ---------A   00620  GOTO 660
+    0x5fca6ada5a40 ---------A T 00630  PRINT "DO YOU WANT TO SET UP YOUR OWN GAME";
+    0x5fca6ada5ba0 ---------A   00640  INPUT A$
+    0x5fca6ada5c30 ---------A   00645  PRINT 
+    0x5fca6ada6040 ---------A   00650  IF A$[1,1]="Y" THEN 760
+    0x5fca6ada61c0 ---------A T 00660  PRINT "HOW MANY PLAYERS";
+    0x5fca6ada6320 ---------A   00670  INPUT P9
+    0x5fca6ada63b0 ---------A   00675  PRINT 
+    0x5fca6ada6860 ---------A   00680  GOTO P9-1 OF 710,710,710
+    0x5fca6ada69c0 ---------A   00690  PRINT "2,3, OR 4 CAN PLAY"
+    0x5fca6ada6a40 ---------A   00700  GOTO 660
+    0x5fca6ada6d70 ---------A T 00710  T9=2*P9
+    0x5fca6ada71a0 ---------A   00720  S9=3*P9+1
+    0x5fca6ada74d0 ---------A   00730  Y9=Y1+5
+    0x5fca6ada7540 ---------A   00740  GOTO 1350
+    0x5fca6ada75b0 ---------A   00750  REM *** BLOCK #3
+    0x5fca6ada7750 ---------A T 00760  PRINT "IS THIS A RESTART";
+    0x5fca6ada78b0 ---------A   00770  INPUT A$
+    0x5fca6ada7940 ---------A   00775  PRINT 
+    0x5fca6ada7d70 ---------A   00780  IF A$[1,1]="N" THEN 940
+    0x5fca6ada7f30 ---------A   00790  PRINT "LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'"
+    0x5fca6ada80c0 ---------A   00800  PRINT "YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY"
+    0x5fca6ada8140 ---------A   00810  PRINT 
+    0x5fca6ada82b0 ---------A   00820  INPUT T$
+    0x5fca6ada8880 ---------A   00830  INPUT W,D9,K9,X9,D1,Y1
+    0x5fca6ada8e40 ---------A   00835  INPUT P9,T9,S9,Y9,T1,S1
+    0x5fca6ada9200 ---------A   00840  FOR J=1 TO S9
+    0x5fca6ada9680 ---------A   00845  FOR I=1 TO 9 STEP 4
+    0x5fca6adaa480 ---------A   00850  INPUT S[I,J],S[I+1,J],S[I+2,J],S[I+3,J]
+    0x5fca6adaa5c0 ---------A   00855  NEXT I
+    0x5fca6adaa710 ---------A   00860  NEXT J
+    0x5fca6adaaa20 ---------A   00870  FOR J=1 TO T9
+    0x5fca6adaade0 ---------A   00875  FOR I=1 TO 9 STEP 4
+    0x5fca6adabbe0 ---------A   00880  INPUT T[I,J],T[I+1,J],T[I+2,J],T[I+3,J]
+    0x5fca6adabd20 ---------A   00885  NEXT I
+    0x5fca6adabe70 ---------A   00890  NEXT J
+    0x5fca6adac190 ---------A   00900  FOR I=1 TO P9
+    0x5fca6adac990 ---------A   00910  INPUT B[1,I],B[2,I],B[3,I]
+    0x5fca6adacad0 ---------A   00920  NEXT I
+    0x5fca6adacd00 ---------A   00925  R=1
+    0x5fca6adacda0 ---------A   00930  CHAIN "$TRADES"
+    0x5fca6adacf20 ---------A T 00940  PRINT "HOW MANY PLAYERS";
+    0x5fca6adad080 ---------A   00950  INPUT P9
+    0x5fca6adad110 ---------A   00955  PRINT 
+    0x5fca6adad5a0 ---------A   00960  IF P9 >= 2 AND P9 <= 12 THEN 990
+    0x5fca6adad710 ---------A   00970  PRINT "2,3,4, ... ,12 CAN PLAY"
+    0x5fca6adad7a0 ---------A   00980  GOTO 940
+    0x5fca6adad920 ---------A T 00990  PRINT "HOW MANY SHIPS PER PLAYER";
+    0x5fca6adadb40 ---------A   01000  INPUT X
+    0x5fca6adadbc0 ---------A   01005  PRINT 
+    0x5fca6adade20 ---------A   01010  IF X<1 THEN 990
+    0x5fca6adae190 ---------A   01020  T9=P9*X
+    0x5fca6adae400 ---------A   01030  IF T9 <= 12 THEN 1070
+    0x5fca6adae5a0 ---------A   01040  PRINT "I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;"
+    0x5fca6adaeb00 ---------A   01050  PRINT P9;" PLAYERS TIMES";X;" SHIPS MAKES";T9
+    0x5fca6adaeb90 ---------A   01060  GOTO 990
+    0x5fca6adaf510 ---------A T 01070  PRINT "HOW MANY STAR SYSTEMS";
+    0x5fca6adaf670 ---------A   01080  INPUT S9
+    0x5fca6adaf700 ---------A   01085  PRINT 
+    0x5fca6adafb90 ---------A   01090  IF S9 >= 4 AND S9 <= 13 THEN 1120
+    0x5fca6adafcf0 ---------A   01100  PRINT "FROM 4 TO 13 STARS"
+    0x5fca6adafd90 ---------A   01110  GOTO 1070
+    0x5fca6adaff10 ---------A T 01120  PRINT "ENTER THE LENGTH OF GAME IN YEARS";
+    0x5fca6adb0070 ---------A T 01130  INPUT X
+    0x5fca6adb0100 ---------A   01135  PRINT 
+    0x5fca6adb0690 ---------A   01140  IF X >= 1 AND INT(X)=X THEN 1170
+    0x5fca6adb0800 ---------A   01150  PRINT "CHOOSE A POSITIVE INTEGER"
+    0x5fca6adb0880 ---------A   01160  GOTO 1130
+    0x5fca6adb0bf0 ---------A T 01170  Y9=Y1+X
+    0x5fca6adb0d80 ---------A T 01180  PRINT "WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)";
+    0x5fca6adb0ee0 ---------A   01190  INPUT W
+    0x5fca6adb0f60 ---------A   01195  PRINT 
+    0x5fca6adb11f0 ---------A   01200  IF W<25 THEN 1180
+    0x5fca6adb1390 ---------A T 01210  PRINT "WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)";
+    0x5fca6adb14f0 ---------A   01220  INPUT D9
+    0x5fca6adb1580 ---------A   01225  PRINT 
+    0x5fca6adb1a10 ---------A   01230  IF D9 <= 25 AND D9 >= 10 THEN 1260
+    0x5fca6adb1b80 ---------A   01240  PRINT "MIN SPACING 10, MAX 25"
+    0x5fca6adb1c20 ---------A   01250  GOTO 1210
+    0x5fca6adb1da0 ---------A T 01260  PRINT "HOW MANY BIDS OR OFFERS(USUALLY 3)";
+    0x5fca6adb1f00 ---------A   01270  INPUT K9
+    0x5fca6adb1f80 ---------A   01275  PRINT 
+    0x5fca6adb2210 ---------A   01280  IF K9<1 THEN 1260
+    0x5fca6adb23c0 ---------A   01290  PRINT "SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER"
+    0x5fca6adb2560 ---------A   01300  PRINT "THE NUMBER, THE LOWER THE PROFIT % ... USUALLY SET TO 2"
+    0x5fca6adb26e0 ---------A   01310  PRINT "...YOUR NUMBER";
+    0x5fca6adb2850 ---------A   01320  INPUT X9
+    0x5fca6adb2dd0 ---------A   01330  X9=18*(ABS(X9) MIN 5)
+    0x5fca6adb2e40 ---------A   01340  REM *** BLOCK #4.1
+    0x5fca6adb3450 ---------A T 01350  S[11,1]=S[12,1]=0
+    0x5fca6adb37e0 ---------A   01360  S[7,1]=15
+    0x5fca6adb3850 ---------A   01370  REM *** BLOCK #4.2
+    0x5fca6adb3a80 ---------A   01380  H=1
+    0x5fca6adb3c90 ---------A   01390  S1=2
+    0x5fca6adb3d00 ---------A   01400  GOSUB 1920
+    0x5fca6adb3f10 ---------A   01410  S1=3
+    0x5fca6adb3f80 ---------A   01420  GOSUB 1920
+    0x5fca6adb4190 ---------A   01430  S1=4
+    0x5fca6adb4200 ---------A   01440  GOSUB 2010
+    0x5fca6adb4510 ---------A   01450  FOR S1=5 TO S9
+    0x5fca6adb4df0 ---------A   01460  GOSUB S1-3*INT((S1-1)/3) OF 1920,2010,2060
+    0x5fca6adb4f30 ---------A   01470  NEXT S1
+    0x5fca6adb4fc0 ---------A   01480  REM *** BLOCK #4.3
+    0x5fca6adb52d0 ---------A   01490  FOR S1=1 TO S9
+    0x5fca6adb55b0 ---------A   01500  FOR J=1 TO 6
+    0x5fca6adb5990 ---------A   01510  S[J,S1]=0
+    0x5fca6adb5ac0 ---------A   01520  NEXT J
+    0x5fca6adb5d30 ---------A   01530  IF S1>1 THEN 1560
+    0x5fca6adb5f50 ---------A   01540  I=1
+    0x5fca6adb5fd0 ---------A   01550  GOTO 1600
+    0x5fca6adb66a0 ---------A T 01560  I=4*INT(14*RND(0))+5
+    0x5fca6adb6aa0 ---------A   01570  FOR J=2 TO S1-1
+    0x5fca6adb6ec0 ---------A   01580  IF I=S[8,J] THEN 1560
+    0x5fca6adb7000 ---------A   01590  NEXT J
+    0x5fca6adb73f0 ---------A T 01600  S[8,S1]=I
+    0x5fca6adb77a0 ---------A   01610  S[9,S1]=270
+    0x5fca6adb7c70 ---------A   01620  S[10,S1]=Y1-1
+    0x5fca6adb7da0 ---------A   01630  NEXT S1
+    0x5fca6adb7e30 ---------A   01640  REM *** BLOCK #4.4
+    0x5fca6adb8200 ---------A   01650  T1=L=1
+    0x5fca6adb8270 ---------A   01655  PRINT 
+    0x5fca6adb8320 ---------A   01657  PRINT 
+    0x5fca6adb84b0 ---------A   01660  PRINT "CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)"
+    0x5fca6adb88d0 ---------A   01670  FOR I=1 TO T9/P9
+    0x5fca6adb8950 ---------A   01680  PRINT 
+    0x5fca6adb8d20 ---------A   01690  FOR P1=1 TO P9
+    0x5fca6adb95e0 ---------A   01700  T[1,T1]=T[2,T1]=T[6,T1]=0
+    0x5fca6adb9990 ---------A   01710  T[3,T1]=15
+    0x5fca6adb9fc0 ---------A   01720  T[4,T1]=T[5,T1]=10
+    0x5fca6adba370 ---------A   01730  T[7,T1]=25
+    0x5fca6adba740 ---------A   01740  T[9,T1]=D1
+    0x5fca6adbab10 ---------A   01750  T[10,T1]=Y1
+    0x5fca6adbaef0 ---------A   01760  T[11,T1]=5000
+    0x5fca6adbb370 ---------A   01770  PRINT "   CAPTAIN";P1;"WHAT DO YOU CHRISTEN YOUR SHIP #";I;
+    0x5fca6adbb790 ---------A   01780  INPUT T$[L,L+5]
+    0x5fca6adbbad0 ---------A   01790  T1=T1+1
+    0x5fca6adbbe00 ---------A   01800  L=L+6
+    0x5fca6adbbf30 ---------A   01810  NEXT P1
+    0x5fca6adbc080 ---------A   01820  NEXT I
+    0x5fca6adbc110 ---------A   01830  REM *** BLOCK #4.5
+    0x5fca6adbc4e0 ---------A   01840  FOR B1=1 TO P9
+    0x5fca6adbc8a0 ---------A   01850  B[1,B1]=0
+    0x5fca6adbcc70 ---------A   01860  B[2,B1]=D1
+    0x5fca6adbd040 ---------A   01870  B[3,B1]=Y1
+    0x5fca6adbd170 ---------A   01880  NEXT B1
+    0x5fca6adbd230 ---------A   01890  CHAIN "$TRADES"
+    0x5fca6adbd2c0 ---------B   01900  REM *** GOSUBS FOLLOW ***
+    0x5fca6adbd360 ---------B   01910  REM <FRONTIER> GOSUB
+    0x5fca6adbd8b0 ---------B B 01920  X=(RND(0)-.5)*100
+    0x5fca6adbdd80 ---------B   01930  Y=50*RND(0)
+    0x5fca6adbe2d0 ---------B   01940  IF (ABS(X)<25) AND (Y<25) THEN 1920
+    0x5fca6adbe5b0 ---------B   01950  F=1
+    0x5fca6adbe620 ---------B   01960  GOSUB 2190
+    0x5fca6adbe870 ---------B   01970  IF F=0 THEN 1920
+    0x5fca6adbec30 ---------B   01980  S[7,S1]=0
+    0x5fca6adbec80 ---------B   01990  RETURN
+    0x5fca6adbed20 ---------C   02000  REM *** <UNDERDEVELOPED> GOSUB
+    0x5fca6adbf010 ---------C G 02010  E=100
+    0x5fca6adbf080 ---------C   02020  GOSUB 2110
+    0x5fca6adbf430 ---------C   02030  S[7,S1]=5
+    0x5fca6adbf480 ---------C   02040  RETURN
+    0x5fca6adbf520 ---------D   02050  REM *** <DEVELOPED> GOSUB
+    0x5fca6adbf750 ---------D G 02060  E=50
+    0x5fca6adbf7c0 ---------D   02070  GOSUB 2110
+    0x5fca6adbfb70 ---------D   02080  S[7,S1]=10
+    0x5fca6adbfbc0 ---------D   02090  RETURN
+    0x5fca6adbfc60 ---------E   02100  REM *** <GENERATE CO-ORDS> GOSUB
+    0x5fca6adc01d0 ---------E B 02110  X=(RND(0)-.5)*E
+    0x5fca6adc06e0 ---------E   02120  Y=RND(0)*E/2
+    0x5fca6adc08f0 ---------E   02130  F=1
+    0x5fca6adc0960 ---------E   02140  GOSUB 2190
+    0x5fca6adc0bb0 ---------E   02150  IF F=0 THEN 2110
+    0x5fca6adc0c10 ---------E   02160  RETURN
+    0x5fca6adc0cb0 ---------F   02170  REM *** <TEST STAR CO-ORDS> GOSUB
+    0x5fca6adc0d80 ---------F   02180  REM FIRST CONVERT CO-ORDS TO NEXT HALF-BOARD
+    0x5fca6adc1200 ---------F G 02190  GOTO H OF 2300,2260,2240,2200
+    0x5fca6adc1500 ---------F T 02200  Z=X
+    0x5fca6adc1730 ---------F   02210  X=-Y
+    0x5fca6adc1960 ---------F   02220  Y=Z
+    0x5fca6adc19d0 ---------F   02230  GOTO 2300
+    0x5fca6adc1c00 ---------F T 02240  Y=-Y
+    0x5fca6adc1c70 ---------F   02250  GOTO 2300
+    0x5fca6adc1ea0 ---------F T 02260  Z=X
+    0x5fca6adc20d0 ---------F   02270  X=Y
+    0x5fca6adaedd0 ---------F   02280  Y=Z
+    0x5fca6adaee50 ---------F   02290  REM SECOND, TEST PROXIMITY
+    0x5fca6adaf290 ---------F T 02300  FOR J=1 TO S1-1
+    0x5fca6adc3c50 ---------F   02310  IF SQR((X-S[11,J])^2+(Y-S[12,J])^2) >= D9 THEN 2340
+    0x5fca6adc3e70 ---------F   02320  F=0
+    0x5fca6adc3ec0 ---------F   02330  RETURN
+    0x5fca6adc4000 ---------F T 02340  NEXT J
+    0x5fca6adc40e0 ---------F   02350  REM FINALLY, ENTER CO-ORDS AND INCREMENT HALF-BOARD CTR
+    0x5fca6adc45b0 ---------F   02360  S[11,S1]=INT(X)
+    0x5fca6adc4a60 ---------F   02370  S[12,S1]=INT(Y)
+    0x5fca6adc4ad0 ---------F   02380  REM H=1+(H <= 3)*H
+    0x5fca6adc4fc0 ---------F   02381  H=MOD(1+H)
+    0x5fca6adc5010 ---------F   02390  RETURN
+    0x5fca6adc50d0 ---------A   02400  REM *** DATA FOR ECONOMETRIC MODEL FOLLOWS ***
+    0x5fca6adc5160 ---------A   02410  REM MODEL #1
+    0x5fca6adc6220 ---------A   02420  DATA -0.025,-0.05,-0.025,0,-0.025,-0.025,0,.1,.1,-0.025,.1,0,.1,.2,.1,.1,-0.025,0
+    0x5fca6adc6ed0 ---------A   02430  DATA 1,1.5,.5,.75,.75,.75,-0.25,-0.25,-0.25,0,-0.5,.5,0,-0.5
+    0x5fca6adc72c0 ---------A   02440  DATA 0,.5,1.5,0
+    0x5fca6adc7310 ---------A   02450  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/StarTrader_setup.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5fca6ad95eb0 ---------A   01000  REM Written in HP Basic
+    0x5fca6ad94bd0 ---------A   01010  REM From
+    0x5fca6ad96030 ---------A   01020  COM S[12,15],T[12,12],T$[72],B[3,12]
+    0x5fca6ad95f70 ---------A   01030  COM W,D9,K9,X9,D1,X1,P9,T9,S9,Y9,H
+    0x5fca6ad960f0 ---------A   01040  COM Y1,R9,G9,Q,M[6,3],C[6,3]
+    0x5fca6ad9f570 ---------A   01050  COM S1,T1,R
+    0x5fca6ad9f5c0 ---------A   01060  REM *** STAR TRADERS ***
+    0x5fca6ad9f610 ---------A T 01070  REM <<<GAME SET-UP MODULE>>>
+    0x5fca6ad9f6c0 ---------A   01080  REM S IS THE STAR SYSTEM INFO ARRAY
+    0x5fca6ad961b0 ---------A   01090  REM T IS THE TRADING SHIP INFO ARRAY
+    0x5fca6ad9f7e0 ---------A   01100  REM T$ IS THE TRADING SHIP NAME STRING
+    0x5fca6ad9f8b0 ---------A   01110  REM M AND C DETERMINE A STAR'S PRODUCTIVITY/MONTH
+    0x5fca6ad9f980 ---------A T 01120  REM   PROD/MO. = S(7,J) * M(I,R1)  +  C(I,R1)
+    0x5fca6ad9fa50 ---------A T 01130  REM   WHERE J IS THE STAR ID #,I THE MERCHANDISE #,
+    0x5fca6ad9fb20 ---------A   01140  REM   AND R1 IS THE DEVELOPMENT CLASS OF THE STAR
+    0x5fca6ad9fbd0 ---------A   01150  REM B CONTAINS THE BANK ACCOUNTS
+    0x5fca6ad9fc80 ---------A   01160  REM A$ IS THE STANDARD INPUT BUFFER
+    0x5fca6ad9ffa0 ---------A T 01170  DIM A$[6]
+    0x5fca6ada0030 ---------A T 01180  REM R9 IS THE SPEED OF A SHIP IN LIGHT-YEARS PER DAY
+    0x5fca6ada0110 ---------A   01190  REM D9 IS THE MINIMUM  DISTANCE ALLOWED BETWEEN STARS
+    0x5fca6ada01c0 ---------A   01200  REM Q IS THE PROBABILITY OF A DELAY
+    0x5fca6ada0290 ---------A T 01210  REM K9 IS THE MAX NUMBER OF BIDDING ROUNDS
+    0x5fca6ada0360 ---------A   01220  REM W IS THE MAX WEIGHT OF A TRADING SHIP
+    0x5fca6ada0440 ---------A   01230  REM X9 CONTROLS THE PROFIT MARGIN; HIGH X9 LIMITS THE %
+    0x5fca6ada0520 ---------A   01240  REM G9 IS THE STELLAR DEVELOPMENT INCREMENT 1<=G9<=5
+    0x5fca6ada05d0 ---------A   01250  REM R=1 IF THIS IS A RESTART
+    0x5fca6ada0900 ---------A T 01260  LET R9=2/7
+    0x5fca6ada0b10 ---------A   01270  LET D9=15
+    0x5fca6ada0d20 ---------A   01280  LET Q=.1
+    0x5fca6ada0f30 ---------A   01290  LET K9=3
+    0x5fca6ada1140 ---------A   01300  LET W=30
+    0x5fca6ada1350 ---------A   01310  LET X9=36
+    0x5fca6ada1560 ---------A   01320  LET G9=1.25
+    0x5fca6ada19a0 ---------A   01330  LET R=0
+    0x5fca6ada1a30 ---------A   01340  REM D1 IS THE DAY OF THIS YEAR (1<=D1<=360)
+    0x5fca6ada1ac0 ---------A T 01350  REM Y1 IS THIS YEAR
+    0x5fca6ada1cf0 ---------A   01360  LET D1=1
+    0x5fca6ada1f10 ---------A   01370  LET Y1=2070
+    0x5fca6ada1f90 ---------A   01380  REM SET UP ECONOMETRICS MODEL
+    0x5fca6ada2000 ---------A   01390  RESTORE 3710
+    0x5fca6ad936d0 ---------A   01400  MAT READ M,C
+    0x5fca6ada2270 ---------A   01410  REM *** BLOCK #1
+    0x5fca6ad93670 ---------A   01420  PRINT "INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)";
+    0x5fca6ada2540 ---------A   01430  INPUT A$
+    0x5fca6ada2940 ---------A   01440  IF A$[1,1]="N" THEN 1690
+    0x5fca6ada29f0 ---------A   01450  PRINT 
+    0x5fca6ada2ba0 ---------A   01460  PRINT "     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT"
+    0x5fca6ada2d50 ---------A   01470  PRINT "HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR"
+    0x5fca6ada2f00 ---------A   01480  PRINT "SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY"
+    0x5fca6ada3090 ---------A   01490  PRINT "FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED."
+    0x5fca6ada3140 ---------A   01500  PRINT 
+    0x5fca6ada32f0 ---------A   01510  PRINT "     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR"
+    0x5fca6ada34a0 ---------A   01520  PRINT "TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO"
+    0x5fca6ada3650 ---------A   01530  PRINT "STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU"
+    0x5fca6ada37d0 ---------A   01540  PRINT "DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS."
+    0x5fca6ada3880 ---------A   01550  PRINT 
+    0x5fca6ada3a30 ---------A T 01560  PRINT "     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY"
+    0x5fca6ada3be0 ---------A   01570  PRINT "GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT"
+    0x5fca6ada3d90 ---------A   01580  PRINT "HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY"
+    0x5fca6ada3f10 ---------A   01590  PRINT "MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS."
+    0x5fca6ada3fc0 ---------A T 01600  PRINT 
+    0x5fca6ada4170 ---------A   01610  PRINT "     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A"
+    0x5fca6ada4510 ---------A   01620  PRINT "WEEK AND CAN CARRY UP TO";W;" TONS OF CARGO.  ONLY"
+    0x5fca6ada46c0 ---------A   01630  PRINT "CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM."
+    0x5fca6ada4870 ---------A   01640  PRINT "THEY PAY 5% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE"
+    0x5fca6ada4e10 ---------A   01650  PRINT "PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL"
+    0x5fca6ada4f70 ---------A   01660  PRINT "BANK."
+    0x5fca6ada4ff0 ---------A   01670  PRINT 
+    0x5fca6ada5070 ---------A   01680  REM *** BLOCK #2
+    0x5fca6ada5230 ---------A   01690  PRINT "HAVE ALL PLAYERS PLAYED BEFORE";
+    0x5fca6ada5390 ---------A   01700  INPUT A$
+    0x5fca6ada5420 ---------A   01710  PRINT 
+    0x5fca6ada5820 ---------A   01720  IF A$[1,1]="Y" THEN 1740
+    0x5fca6ada58c0 ---------A   01730  GOTO 1780
+    0x5fca6ada5a40 ---------A   01740  PRINT "DO YOU WANT TO SET UP YOUR OWN GAME";
+    0x5fca6ada5ba0 ---------A   01750  INPUT A$
+    0x5fca6ada5c30 ---------A   01760  PRINT 
+    0x5fca6ada6040 ---------A   01770  IF A$[1,1]="Y" THEN 1890
+    0x5fca6ada61c0 ---------A   01780  PRINT "HOW MANY PLAYERS";
+    0x5fca6ada6320 ---------A   01790  INPUT P9
+    0x5fca6ada63b0 ---------A   01800  PRINT 
+    0x5fca6ada6860 ---------A   01810  GOTO P9-1 OF 1840,1840,1840
+    0x5fca6ada69c0 ---------A   01820  PRINT "2,3, OR 4 CAN PLAY"
+    0x5fca6ada6a40 ---------A   01830  GOTO 1780
+    0x5fca6ada6d70 ---------A   01840  T9=2*P9
+    0x5fca6ada71a0 ---------A   01850  S9=3*P9+1
+    0x5fca6ada74d0 ---------A   01860  Y9=Y1+5
+    0x5fca6ada7540 ---------A   01870  GOTO 2620
+    0x5fca6ada75b0 ---------A   01880  REM *** BLOCK #3
+    0x5fca6ada7750 ---------A   01890  PRINT "IS THIS A RESTART";
+    0x5fca6ada78b0 ---------A   01900  INPUT A$
+    0x5fca6ada7940 ---------A   01910  PRINT 
+    0x5fca6ada7d70 ---------A B 01920  IF A$[1,1]="N" THEN 2140
+    0x5fca6ada7f30 ---------A   01930  PRINT "LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'"
+    0x5fca6ada80c0 ---------A   01940  PRINT "YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY"
+    0x5fca6ada8140 ---------A   01950  PRINT 
+    0x5fca6ada82b0 ---------A   01960  INPUT T$
+    0x5fca6ada8880 ---------A   01970  INPUT W,D9,K9,X9,D1,Y1
+    0x5fca6ada8e40 ---------A   01980  INPUT P9,T9,S9,Y9,T1,S1
+    0x5fca6ada9200 ---------A   01990  FOR J=1 TO S9
+    0x5fca6ada9680 ---------A   02000  FOR I=1 TO 9 STEP 4
+    0x5fca6adaa480 ---------A G 02010  INPUT S[I,J],S[I+1,J],S[I+2,J],S[I+3,J]
+    0x5fca6adaa5c0 ---------A   02020  NEXT I
+    0x5fca6adaa710 ---------A   02030  NEXT J
+    0x5fca6adaaa20 ---------A   02040  FOR J=1 TO T9
+    0x5fca6adaade0 ---------A   02050  FOR I=1 TO 9 STEP 4
+    0x5fca6adabbe0 ---------A G 02060  INPUT T[I,J],T[I+1,J],T[I+2,J],T[I+3,J]
+    0x5fca6adabd20 ---------A   02070  NEXT I
+    0x5fca6adabe70 ---------A   02080  NEXT J
+    0x5fca6adac190 ---------A   02090  FOR I=1 TO P9
+    0x5fca6adac990 ---------A   02100  INPUT B[1,I],B[2,I],B[3,I]
+    0x5fca6adacad0 ---------A B 02110  NEXT I
+    0x5fca6adacd00 ---------A   02120  R=1
+    0x5fca6adacda0 ---------A   02130  CHAIN "$TRADES"
+    0x5fca6adacf20 ---------A   02140  PRINT "HOW MANY PLAYERS";
+    0x5fca6adad080 ---------A   02150  INPUT P9
+    0x5fca6adad110 ---------A   02160  PRINT 
+    0x5fca6adad5a0 ---------A   02170  IF P9 >= 2 AND P9 <= 12 THEN 2200
+    0x5fca6adad710 ---------A   02180  PRINT "2,3,4, ... ,12 CAN PLAY"
+    0x5fca6adad7a0 ---------A G 02190  GOTO 2140
+    0x5fca6adad920 ---------A T 02200  PRINT "HOW MANY SHIPS PER PLAYER";
+    0x5fca6adadb40 ---------A   02210  INPUT X
+    0x5fca6adadbc0 ---------A   02220  PRINT 
+    0x5fca6adade20 ---------A   02230  IF X<1 THEN 2200
+    0x5fca6adae190 ---------A T 02240  T9=P9*X
+    0x5fca6adae400 ---------A   02250  IF T9 <= 12 THEN 2290
+    0x5fca6adae5a0 ---------A T 02260  PRINT "I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;"
+    0x5fca6adaeb00 ---------A   02270  PRINT P9;" PLAYERS TIMES";X;" SHIPS MAKES";T9
+    0x5fca6adaeb90 ---------A   02280  GOTO 2200
+    0x5fca6adaf510 ---------A   02290  PRINT "HOW MANY STAR SYSTEMS";
+    0x5fca6adaf670 ---------A T 02300  INPUT S9
+    0x5fca6adaf700 ---------A   02310  PRINT 
+    0x5fca6adafb90 ---------A   02320  IF S9 >= 4 AND S9 <= 13 THEN 2350
+    0x5fca6adafcf0 ---------A   02330  PRINT "FROM 4 TO 13 STARS"
+    0x5fca6adafd90 ---------A T 02340  GOTO 2290
+    0x5fca6adaff10 ---------A   02350  PRINT "ENTER THE LENGTH OF GAME IN YEARS";
+    0x5fca6adb0070 ---------A   02360  INPUT X
+    0x5fca6adb0100 ---------A   02370  PRINT 
+    0x5fca6adb0690 ---------A   02380  IF X >= 1 AND INT(X)=X THEN 2410
+    0x5fca6adb0800 ---------A   02390  PRINT "CHOOSE A POSITIVE INTEGER"
+    0x5fca6adb0880 ---------A   02400  GOTO 2360
+    0x5fca6adb0bf0 ---------A   02410  Y9=Y1+X
+    0x5fca6adb0d80 ---------A   02420  PRINT "WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)";
+    0x5fca6adb0ee0 ---------A   02430  INPUT W
+    0x5fca6adb0f60 ---------A   02440  PRINT 
+    0x5fca6adb11f0 ---------A   02450  IF W<25 THEN 2420
+    0x5fca6adb1390 ---------A   02460  PRINT "WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)";
+    0x5fca6adb14f0 ---------A   02470  INPUT D9
+    0x5fca6adb1580 ---------A   02480  PRINT 
+    0x5fca6adb1a10 ---------A   02490  IF D9 <= 25 AND D9 >= 10 THEN 2520
+    0x5fca6adb1b80 ---------A   02500  PRINT "MIN SPACING 10, MAX 25"
+    0x5fca6adb1c20 ---------A   02510  GOTO 2460
+    0x5fca6adb1da0 ---------A   02520  PRINT "HOW MANY BIDS OR OFFERS(USUALLY 3)";
+    0x5fca6adb1f00 ---------A   02530  INPUT K9
+    0x5fca6adb1f80 ---------A   02540  PRINT 
+    0x5fca6adb2210 ---------A   02550  IF K9<1 THEN 2520
+    0x5fca6adb23c0 ---------A   02560  PRINT "SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER"
+    0x5fca6adb2560 ---------A   02570  PRINT "THE NUMBER, THE LOWER THE PROFIT % ... USUALLY SET TO 2"
+    0x5fca6adb26e0 ---------A   02580  PRINT "...YOUR NUMBER";
+    0x5fca6adb2850 ---------A   02590  INPUT X9
+    0x5fca6adb2dd0 ---------A   02600  X9=18*(ABS(X9) MIN 5)
+    0x5fca6adb2e40 ---------A   02610  REM *** BLOCK #4.1
+    0x5fca6adb3450 ---------A   02620  S[11,1]=S[12,1]=0
+    0x5fca6adb37e0 ---------A   02630  S[7,1]=15
+    0x5fca6adb3850 ---------A   02640  REM *** BLOCK #4.2
+    0x5fca6adb3a80 ---------A   02650  H=1
+    0x5fca6adb3c90 ---------A   02660  S1=2
+    0x5fca6adb3d00 ---------A   02670  GOSUB 3210
+    0x5fca6adb3f10 ---------A   02680  S1=3
+    0x5fca6adb3f80 ---------A   02690  GOSUB 3210
+    0x5fca6adb4190 ---------A   02700  S1=4
+    0x5fca6adb4200 ---------A   02710  GOSUB 3300
+    0x5fca6adb4510 ---------A   02720  FOR S1=5 TO S9
+    0x5fca6adb4df0 ---------A   02730  GOSUB S1-3*INT((S1-1)/3) OF 3210,3300,3350
+    0x5fca6adb4f30 ---------A   02740  NEXT S1
+    0x5fca6adb4fc0 ---------A   02750  REM *** BLOCK #4.3
+    0x5fca6adb52d0 ---------A   02760  FOR S1=1 TO S9
+    0x5fca6adb55b0 ---------A   02770  FOR J=1 TO 6
+    0x5fca6adb5990 ---------A   02780  S[J,S1]=0
+    0x5fca6adb5ac0 ---------A   02790  NEXT J
+    0x5fca6adb5d30 ---------A   02800  IF S1>1 THEN 2830
+    0x5fca6adb5f50 ---------A   02810  I=1
+    0x5fca6adb5fd0 ---------A   02820  GOTO 2870
+    0x5fca6adb66a0 ---------A   02830  I=4*INT(14*RND(0))+5
+    0x5fca6adb6aa0 ---------A   02840  FOR J=2 TO S1-1
+    0x5fca6adb6ec0 ---------A   02850  IF I=S[8,J] THEN 2830
+    0x5fca6adb7000 ---------A   02860  NEXT J
+    0x5fca6adb73f0 ---------A   02870  S[8,S1]=I
+    0x5fca6adb77a0 ---------A   02880  S[9,S1]=270
+    0x5fca6adb7c70 ---------A   02890  S[10,S1]=Y1-1
+    0x5fca6adb7da0 ---------A   02900  NEXT S1
+    0x5fca6adb7e30 ---------A   02910  REM *** BLOCK #4.4
+    0x5fca6adb8200 ---------A   02920  T1=L=1
+    0x5fca6adb8270 ---------A   02930  PRINT 
+    0x5fca6adb8320 ---------A   02940  PRINT 
+    0x5fca6adb84b0 ---------A   02950  PRINT "CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)"
+    0x5fca6adb88d0 ---------A   02960  FOR I=1 TO T9/P9
+    0x5fca6adb8950 ---------A   02970  PRINT 
+    0x5fca6adb8d20 ---------A   02980  FOR P1=1 TO P9
+    0x5fca6adb95e0 ---------A   02990  T[1,T1]=T[2,T1]=T[6,T1]=0
+    0x5fca6adb9990 ---------A   03000  T[3,T1]=15
+    0x5fca6adb9fc0 ---------A   03010  T[4,T1]=T[5,T1]=10
+    0x5fca6adba370 ---------A   03020  T[7,T1]=25
+    0x5fca6adba740 ---------A   03030  T[9,T1]=D1
+    0x5fca6adbab10 ---------A   03040  T[10,T1]=Y1
+    0x5fca6adbaef0 ---------A   03050  T[11,T1]=5000
+    0x5fca6adbb370 ---------A   03060  PRINT "   CAPTAIN";P1;"WHAT DO YOU CHRISTEN YOUR SHIP #";I;
+    0x5fca6adbb790 ---------A   03070  INPUT T$[L,L+5]
+    0x5fca6adbbad0 ---------A   03080  T1=T1+1
+    0x5fca6adbbe00 ---------A   03090  L=L+6
+    0x5fca6adbbf30 ---------A   03100  NEXT P1
+    0x5fca6adbc080 ---------A   03110  NEXT I
+    0x5fca6adbc110 ---------A   03120  REM *** BLOCK #4.5
+    0x5fca6adbc4e0 ---------A   03130  FOR B1=1 TO P9
+    0x5fca6adbc8a0 ---------A   03140  B[1,B1]=0
+    0x5fca6adbcc70 ---------A   03150  B[2,B1]=D1
+    0x5fca6adbd040 ---------A   03160  B[3,B1]=Y1
+    0x5fca6adbd170 ---------A   03170  NEXT B1
+    0x5fca6adbd230 ---------A   03180  CHAIN "$TRADES"
+    0x5fca6adbd2c0 ---------B   03190  REM *** GOSUBS FOLLOW ***
+    0x5fca6adbd360 ---------B   03200  REM <FRONTIER> GOSUB
+    0x5fca6adbd8b0 ---------B   03210  X=(RND(0)-.5)*100
+    0x5fca6adbdd80 ---------B   03220  Y=50*RND(0)
+    0x5fca6adbe2d0 ---------B   03230  IF (ABS(X)<25) AND (Y<25) THEN 3210
+    0x5fca6adbe5b0 ---------B   03240  F=1
+    0x5fca6adbe620 ---------B   03250  GOSUB 3480
+    0x5fca6adbe870 ---------B   03260  IF F=0 THEN 3210
+    0x5fca6adbec30 ---------B   03270  S[7,S1]=0
+    0x5fca6adbec80 ---------B   03280  RETURN
+    0x5fca6adbed20 ---------C   03290  REM *** <UNDERDEVELOPED> GOSUB
+    0x5fca6adbf010 ---------C   03300  E=100
+    0x5fca6adbf080 ---------C   03310  GOSUB 3400
+    0x5fca6adbf430 ---------C   03320  S[7,S1]=5
+    0x5fca6adbf480 ---------C   03330  RETURN
+    0x5fca6adbf520 ---------D   03340  REM *** <DEVELOPED> GOSUB
+    0x5fca6adbf750 ---------D   03350  E=50
+    0x5fca6adbf7c0 ---------D   03360  GOSUB 3400
+    0x5fca6adbfb70 ---------D   03370  S[7,S1]=10
+    0x5fca6adbfbc0 ---------D   03380  RETURN
+    0x5fca6adbfc60 ---------E   03390  REM *** <GENERATE CO-ORDS> GOSUB
+    0x5fca6adc01d0 ---------E   03400  X=(RND(0)-.5)*E
+    0x5fca6adc06e0 ---------E   03410  Y=RND(0)*E/2
+    0x5fca6adc08f0 ---------E   03420  F=1
+    0x5fca6adc0960 ---------E   03430  GOSUB 3480
+    0x5fca6adc0bb0 ---------E   03440  IF F=0 THEN 3400
+    0x5fca6adc0c10 ---------E   03450  RETURN
+    0x5fca6adc0cb0 ---------F   03460  REM *** <TEST STAR CO-ORDS> GOSUB
+    0x5fca6adc0d80 ---------F   03470  REM FIRST CONVERT CO-ORDS TO NEXT HALF-BOARD
+    0x5fca6adc1200 ---------F   03480  GOTO H OF 3590,3550,3530,3490
+    0x5fca6adc1500 ---------F   03490  Z=X
+    0x5fca6adc1730 ---------F   03500  X=-Y
+    0x5fca6adc1960 ---------F   03510  Y=Z
+    0x5fca6adc19d0 ---------F   03520  GOTO 3590
+    0x5fca6adc1c00 ---------F   03530  Y=-Y
+    0x5fca6adc1c70 ---------F   03540  GOTO 3590
+    0x5fca6adc1ea0 ---------F   03550  Z=X
+    0x5fca6adc20d0 ---------F   03560  X=Y
+    0x5fca6adaedd0 ---------F   03570  Y=Z
+    0x5fca6adaee50 ---------F   03580  REM SECOND, TEST PROXIMITY
+    0x5fca6adaf290 ---------F   03590  FOR J=1 TO S1-1
+    0x5fca6adc3c50 ---------F   03600  IF SQR((X-S[11,J])^2+(Y-S[12,J])^2) >= D9 THEN 3630
+    0x5fca6adc3e70 ---------F   03610  F=0
+    0x5fca6adc3ec0 ---------F   03620  RETURN
+    0x5fca6adc4000 ---------F   03630  NEXT J
+    0x5fca6adc40e0 ---------F   03640  REM FINALLY, ENTER CO-ORDS AND INCREMENT HALF-BOARD CTR
+    0x5fca6adc45b0 ---------F   03650  S[11,S1]=INT(X)
+    0x5fca6adc4a60 ---------F   03660  S[12,S1]=INT(Y)
+    0x5fca6adc4ad0 ---------F   03670  REM H=1+(H <= 3)*H
+    0x5fca6adc4fc0 ---------F   03680  H=MOD(1+H)
+    0x5fca6adc5010 ---------F   03690  RETURN
+    0x5fca6adc50d0 ---------A   03700  REM *** DATA FOR ECONOMETRIC MODEL FOLLOWS ***
+    0x5fca6adc5160 ---------A   03710  REM MODEL #1
+    0x5fca6adc6220 ---------A   03720  DATA -0.025,-0.05,-0.025,0,-0.025,-0.025,0,.1,.1,-0.025,.1,0,.1,.2,.1,.1,-0.025,0
+    0x5fca6adc6ed0 ---------A   03730  DATA 1,1.5,.5,.75,.75,.75,-0.25,-0.25,-0.25,0,-0.5,.5,0,-0.5
+    0x5fca6adc72c0 ---------A   03740  DATA 0,.5,1.5,0
+    0x5fca6adc7310 ---------A   03750  END
  */
 
 
@@ -471,287 +1047,287 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x55e5590f1550 ---------A   01000  REM Written in HP Basic
-    0x55e5590f1610 ---------A   01010  REM From: http://www.langesite.com/startrader/
-    0x55e559105030 ---------A   01020 COM S[12,15],T[12,12],T$[72],B[3,12]
-    0x55e559100820 ---------A   01030 COM W,D9,K9,X9,D1,X1,P9,T9,S9,Y9,H
-    0x55e55910c190 ---------A   01040 COM Y1,R9,G9,Q,M[6,3],C[6,3]
-    0x55e55910c6b0 ---------A   01050 COM S1,T1,R
-    0x55e55910c6f0 ---------A   01060 REM *** STAR TRADERS ***
-    0x55e55910c730 ---------A   01070 REM <<<GAME SET-UP MODULE>>>
-    0x55e55910c7d0 ---------A   01080 REM S IS THE STAR SYSTEM INFO ARRAY
-    0x55e55910c870 ---------A   01090 REM T IS THE TRADING SHIP INFO ARRAY
-    0x55e55910c920 ---------A   01100 REM T$ IS THE TRADING SHIP NAME STRING
-    0x55e55910c9e0 ---------A   01110 REM M AND C DETERMINE A STAR'S PRODUCTIVITY/MONTH
-    0x55e55910caa0 ---------A   01120 REM   PROD/MO. = S(7,J) * M(I,R1)  +  C(I,R1)
-    0x55e55910cb60 ---------A   01130 REM   WHERE J IS THE STAR ID #,I THE MERCHANDISE #,
-    0x55e55910cc20 ---------A   01140 REM   AND R1 IS THE DEVELOPMENT CLASS OF THE STAR
-    0x55e55910ccc0 ---------A   01150 REM B CONTAINS THE BANK ACCOUNTS
-    0x55e55910cd60 ---------A   01160 REM A$ IS THE STANDARD INPUT BUFFER
-    0x55e55910d020 ---------A   01170 DIM A$[6]
-    0x55e55910d0a0 ---------A   01180 REM R9 IS THE SPEED OF A SHIP IN LIGHT-YEARS PER DAY
-    0x55e55910d120 ---------A   01190 REM D9 IS THE MINIMUM  DISTANCE ALLOWED BETWEEN STARS
-    0x55e55910d1c0 ---------A   01200 REM Q IS THE PROBABILITY OF A DELAY
-    0x55e55910d280 ---------A   01210 REM K9 IS THE MAX NUMBER OF BIDDING ROUNDS
-    0x55e55910d340 ---------A   01220 REM W IS THE MAX WEIGHT OF A TRADING SHIP
-    0x55e55910d3c0 ---------A   01230 REM X9 CONTROLS THE PROFIT MARGIN; HIGH X9 LIMITS THE %
-    0x55e55910d440 ---------A   01240 REM G9 IS THE STELLAR DEVELOPMENT INCREMENT 1<=G9<=5
-    0x55e55910d4e0 ---------A   01250 REM R=1 IF THIS IS A RESTART
-    0x55e5591030f0 ---------A   01260 LET R9=2/7
-    0x55e5591031b0 ---------A   01270 LET D9=15
-    0x55e55910db80 ---------A   01280 LET Q=.1
-    0x55e55910dd90 ---------A   01290 LET K9=3
-    0x55e55910dfa0 ---------A   01300 LET W=30
-    0x55e55910e1b0 ---------A   01310 LET X9=36
-    0x55e55910e3c0 ---------A   01320 LET G9=1.25
-    0x55e55910e800 ---------A   01330 LET R=0
-    0x55e55910e890 ---------A   01340 REM D1 IS THE DAY OF THIS YEAR (1<=D1<=360)
-    0x55e55910e910 ---------A   01350 REM Y1 IS THIS YEAR
-    0x55e55910eb30 ---------A   01360 LET D1=1
-    0x55e55910ed50 ---------A   01370 LET Y1=2070
-    0x55e55910edd0 ---------A   01380 REM SET UP ECONOMETRICS MODEL
-    0x55e55910ee30 ---------A   01390 RESTORE 3200
-    0x55e55910f070 ---------A   01400 MAT READ M,C
-    0x55e55910f0e0 ---------A   01410 REM *** BLOCK #1
-    0x55e55910f290 ---------A   01420 PRINT "INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)";
-    0x55e5591006d0 ---------A   01430 INPUT A$
-    0x55e559100670 ---------A   01440 IF A$[1,1]="N" THEN 1690
-    0x55e55910f7e0 ---------A   01450 PRINT 
-    0x55e55910f980 ---------A   01460 PRINT "     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT"
-    0x55e55910fb20 ---------A   01470 PRINT "HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR"
-    0x55e55910fcc0 ---------A   01480 PRINT "SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY"
-    0x55e55910fe40 ---------A   01490 PRINT "FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED."
-    0x55e55910fee0 ---------A   01500 PRINT 
-    0x55e559110080 ---------A   01510 PRINT "     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR"
-    0x55e559110220 ---------A   01520 PRINT "TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO"
-    0x55e5591103c0 ---------A   01530 PRINT "STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU"
-    0x55e559110530 ---------A   01540 PRINT "DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS."
-    0x55e5591105d0 ---------A   01550 PRINT 
-    0x55e559110770 ---------A   01560 PRINT "     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY"
-    0x55e559110910 ---------A   01570 PRINT "GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT"
-    0x55e559110ab0 ---------A   01580 PRINT "HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY"
-    0x55e559110c20 ---------A   01590 PRINT "MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS."
-    0x55e559110cc0 ---------A   01600 PRINT 
-    0x55e559110e60 ---------A   01610 PRINT "     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A"
-    0x55e5591111f0 ---------A   01620 PRINT "WEEK AND CAN CARRY UP TO";W;" TONS OF CARGO.  ONLY"
-    0x55e559111390 ---------A   01630 PRINT "CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM."
-    0x55e559111530 ---------A   01640 PRINT "THEY PAY 5% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE"
-    0x55e559111ac0 ---------A   01650 PRINT "PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL"
-    0x55e559111c10 ---------A   01660 PRINT "BANK."
-    0x55e559111c80 ---------A   01670 PRINT 
-    0x55e559111cf0 ---------A   01680 REM *** BLOCK #2
-    0x55e559111ea0 ---------A T 01690 PRINT "HAVE ALL PLAYERS PLAYED BEFORE";
-    0x55e559111ff0 ---------A   01700 INPUT A$
-    0x55e559112080 ---------A   01710 PRINT 
-    0x55e559112470 ---------A   01720 IF A$[1,1]="Y" THEN 1740
-    0x55e559112510 ---------A   01730 GOTO 1780
-    0x55e559112680 ---------A T 01740 PRINT "DO YOU WANT TO SET UP YOUR OWN GAME";
-    0x55e5591127d0 ---------A   01750 INPUT A$
-    0x55e559112860 ---------A   01760 PRINT 
-    0x55e559112c60 ---------A   01770 IF A$[1,1]="Y" THEN 1890
-    0x55e559112de0 ---------A T 01780 PRINT "HOW MANY PLAYERS";
-    0x55e559112f30 ---------A   01790 INPUT P9
-    0x55e559112fc0 ---------A   01800 PRINT 
-    0x55e559113460 ---------A   01810 GOTO P9-1 OF 1840,1840,1840
-    0x55e5591135b0 ---------A   01820 PRINT "2,3, OR 4 CAN PLAY"
-    0x55e559113620 ---------A   01830 GOTO 1780
-    0x55e559113940 ---------A T 01840 T9=2*P9
-    0x55e559113d70 ---------A   01850 S9=3*P9+1
-    0x55e5591140a0 ---------A   01860 Y9=Y1+5
-    0x55e559114110 ---------A   01870 GOTO 2620
-    0x55e559114170 ---------A   01880 REM *** BLOCK #3
-    0x55e559114300 ---------A T 01890 PRINT "IS THIS A RESTART";
-    0x55e559114450 ---------A   01900 INPUT A$
-    0x55e5591144e0 ---------A   01910 PRINT 
-    0x55e559114900 ---------A   01920 IF A$[1,1]="N" THEN 2140
-    0x55e559114ac0 ---------A   01930 PRINT "LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'"
-    0x55e559114c40 ---------A   01940 PRINT "YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY"
-    0x55e559114cb0 ---------A   01950 PRINT 
-    0x55e559114e10 ---------A   01960 INPUT T$
-    0x55e5591153e0 ---------A   01970 INPUT W,D9,K9,X9,D1,Y1
-    0x55e5591159a0 ---------A   01980 INPUT P9,T9,S9,Y9,T1,S1
-    0x55e559115d60 ---------A   01990 FOR J=1 TO S9
-    0x55e5591161e0 ---------A   02000 FOR I=1 TO 9 STEP 4
-    0x55e559116fe0 ---------A   02010 INPUT S[I,J],S[I+1,J],S[I+2,J],S[I+3,J]
-    0x55e559117120 ---------A   02020 NEXT I
-    0x55e559117260 ---------A   02030 NEXT J
-    0x55e559117560 ---------A   02040 FOR J=1 TO T9
-    0x55e559117920 ---------A   02050 FOR I=1 TO 9 STEP 4
-    0x55e559118720 ---------A   02060 INPUT T[I,J],T[I+1,J],T[I+2,J],T[I+3,J]
-    0x55e559118860 ---------A   02070 NEXT I
-    0x55e5591189a0 ---------A   02080 NEXT J
-    0x55e559118cb0 ---------A   02090 FOR I=1 TO P9
-    0x55e5591194b0 ---------A   02100 INPUT B[1,I],B[2,I],B[3,I]
-    0x55e5591195f0 ---------A   02110 NEXT I
-    0x55e559119810 ---------A   02120 R=1
-    0x55e5591198b0 ---------A   02130 CHAIN "$TRADES"
-    0x55e559119a30 ---------A T 02140 PRINT "HOW MANY PLAYERS";
-    0x55e559119b80 ---------A   02150 INPUT P9
-    0x55e559119c10 ---------A   02160 PRINT 
-    0x55e55911a090 ---------A   02170 IF P9 >= 2 AND P9 <= 12 THEN 2200
-    0x55e55911a200 ---------A   02180 PRINT "2,3,4, ... ,12 CAN PLAY"
-    0x55e55911a280 ---------A   02190 GOTO 2140
-    0x55e55911a3f0 ---------A T 02200 PRINT "HOW MANY SHIPS PER PLAYER";
-    0x55e55911a600 ---------A   02210 INPUT X
-    0x55e55911a680 ---------A   02220 PRINT 
-    0x55e55911a8d0 ---------A   02230 IF X<1 THEN 2200
-    0x55e55911ac40 ---------A   02240 T9=P9*X
-    0x55e55911aeb0 ---------A   02250 IF T9 <= 12 THEN 2290
-    0x55e55911b050 ---------A   02260 PRINT "I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;"
-    0x55e55911b5a0 ---------A   02270 PRINT P9;" PLAYERS TIMES";X;" SHIPS MAKES";T9
-    0x55e55911b620 ---------A   02280 GOTO 2200
-    0x55e55911bf90 ---------A T 02290 PRINT "HOW MANY STAR SYSTEMS";
-    0x55e55911c0e0 ---------A   02300 INPUT S9
-    0x55e55911c170 ---------A   02310 PRINT 
-    0x55e55911c5f0 ---------A   02320 IF S9 >= 4 AND S9 <= 13 THEN 2350
-    0x55e55911c750 ---------A   02330 PRINT "FROM 4 TO 13 STARS"
-    0x55e55911c7e0 ---------A   02340 GOTO 2290
-    0x55e55911c950 ---------A T 02350 PRINT "ENTER THE LENGTH OF GAME IN YEARS";
-    0x55e55911caa0 ---------A T 02360 INPUT X
-    0x55e55911cb30 ---------A   02370 PRINT 
-    0x55e55911d0b0 ---------A   02380 IF X >= 1 AND INT(X)=X THEN 2410
-    0x55e55911d220 ---------A   02390 PRINT "CHOOSE A POSITIVE INTEGER"
-    0x55e55911d290 ---------A   02400 GOTO 2360
-    0x55e55911d5f0 ---------A T 02410 Y9=Y1+X
-    0x55e55911d780 ---------A T 02420 PRINT "WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)";
-    0x55e55911d8d0 ---------A   02430 INPUT W
-    0x55e55911d950 ---------A   02440 PRINT 
-    0x55e55911dbd0 ---------A   02450 IF W<25 THEN 2420
-    0x55e55911dd70 ---------A T 02460 PRINT "WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)";
-    0x55e55911dec0 ---------A   02470 INPUT D9
-    0x55e55911df50 ---------A   02480 PRINT 
-    0x55e55911e3d0 ---------A   02490 IF D9 <= 25 AND D9 >= 10 THEN 2520
-    0x55e55911e540 ---------A   02500 PRINT "MIN SPACING 10, MAX 25"
-    0x55e55911e5d0 ---------A   02510 GOTO 2460
-    0x55e55911e740 ---------A T 02520 PRINT "HOW MANY BIDS OR OFFERS(USUALLY 3)";
-    0x55e55911e890 ---------A   02530 INPUT K9
-    0x55e55911e910 ---------A   02540 PRINT 
-    0x55e55911eb90 ---------A   02550 IF K9<1 THEN 2520
-    0x55e55911ed40 ---------A   02560 PRINT "SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER"
-    0x55e55911eed0 ---------A   02570 PRINT "THE NUMBER, THE LOWER THE PROFIT % ... USUALLY SET TO 2"
-    0x55e55911f040 ---------A   02580 PRINT "...YOUR NUMBER";
-    0x55e55911f1a0 ---------A   02590 INPUT X9
-    0x55e55911f720 ---------A   02600 X9=18*(ABS(X9) MIN 5)
-    0x55e55911f790 ---------A   02610 REM *** BLOCK #4.1
-    0x55e55911fd90 ---------A T 02620 S[11,1]=S[12,1]=0
-    0x55e559120120 ---------A   02630 S[7,1]=15
-    0x55e559120190 ---------A   02640 REM *** BLOCK #4.2
-    0x55e5591203b0 ---------A   02650 H=1
-    0x55e5591205c0 ---------A   02660 S1=2
-    0x55e559120630 ---------A   02670 GOSUB 3270
-    0x55e559120830 ---------A   02680 S1=3
-    0x55e5591208a0 ---------A   02690 GOSUB 3270
-    0x55e559120aa0 ---------A   02700 S1=4
-    0x55e559120b10 ---------A   02710 GOSUB 3370
-    0x55e559120e10 ---------A   02720 FOR S1=5 TO S9
-    0x55e5591216f0 ---------A   02730 GOSUB S1-3*INT((S1-1)/3) OF 3270,3370,3430
-    0x55e559121820 ---------A   02740 NEXT S1
-    0x55e5591218a0 ---------A   02750 REM *** BLOCK #4.3
-    0x55e559121ba0 ---------A   02760 FOR S1=1 TO S9
-    0x55e559121e80 ---------A   02770 FOR J=1 TO 6
-    0x55e559122260 ---------A   02780 S[J,S1]=0
-    0x55e559122390 ---------A   02790 NEXT J
-    0x55e5591225f0 ---------A   02800 IF S1>1 THEN 2830
-    0x55e559122810 ---------A   02810 I=1
-    0x55e559122890 ---------A   02820 GOTO 2870
-    0x55e559122f50 ---------A T 02830 I=4*INT(14*RND(0))+5
-    0x55e559123350 ---------A   02840 FOR J=2 TO S1-1
-    0x55e559123770 ---------A   02850 IF I=S[8,J] THEN 2830
-    0x55e5591238b0 ---------A   02860 NEXT J
-    0x55e559123c90 ---------A T 02870 S[8,S1]=I
-    0x55e559124040 ---------A   02880 S[9,S1]=270
-    0x55e559124510 ---------A   02890 S[10,S1]=Y1-1
-    0x55e559124640 ---------A   02900 NEXT S1
-    0x55e5591246c0 ---------A   02910 REM *** BLOCK #4.4
-    0x55e559124a80 ---------A   02920 T1=L=1
-    0x55e559124af0 ---------A   02930 PRINT 
-    0x55e559124b90 ---------A   02940 PRINT 
-    0x55e559124d10 ---------A   02950 PRINT "CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)"
-    0x55e559125120 ---------A   02960 FOR I=1 TO T9/P9
-    0x55e5591251a0 ---------A   02970 PRINT 
-    0x55e559125560 ---------A   02980 FOR P1=1 TO P9
-    0x55e559125e20 ---------A   02990 T[1,T1]=T[2,T1]=T[6,T1]=0
-    0x55e5591261d0 ---------A   03000 T[3,T1]=15
-    0x55e559126800 ---------A   03010 T[4,T1]=T[5,T1]=10
-    0x55e559126bb0 ---------A   03020 T[7,T1]=25
-    0x55e559126f80 ---------A   03030 T[9,T1]=D1
-    0x55e559127350 ---------A   03040 T[10,T1]=Y1
-    0x55e559127730 ---------A   03050 T[11,T1]=5000
-    0x55e559127bb0 ---------A   03060 PRINT "   CAPTAIN";P1;"WHAT DO YOU CHRISTEN YOUR SHIP #";I;
-    0x55e559127fc0 ---------A   03070 INPUT T$[L,L+5]
-    0x55e559128300 ---------A   03080 T1=T1+1
-    0x55e559128630 ---------A   03090 L=L+6
-    0x55e559128760 ---------A   03100 NEXT P1
-    0x55e5591288a0 ---------A   03110 NEXT I
-    0x55e559128920 ---------A   03120 REM *** BLOCK #4.5
-    0x55e559128ce0 ---------A   03130 FOR B1=1 TO P9
-    0x55e5591290a0 ---------A   03140 B[1,B1]=0
-    0x55e559129470 ---------A   03150 B[2,B1]=D1
-    0x55e559129840 ---------A   03160 B[3,B1]=Y1
-    0x55e559129970 ---------A   03170 NEXT B1
-    0x55e559129a20 ---------A   03180 CHAIN "$TRADES"
-    0x55e5591317b0 ---------A   03190 REM *** DATA FOR ECONOMETRIC MODEL FOLLOWS ***
-    0x55e559131830 ---------A   03200 REM MODEL #1
-    0x55e5591328e0 ---------A   03210 DATA -0.025,-0.05,-0.025,0,-0.025,-0.025,0,.1,.1,-0.025,.1,0,.1,.2,.1,.1,-0.025,0
-    0x55e559133590 ---------A   03220 DATA 1,1.5,.5,.75,.75,.75,-0.25,-0.25,-0.25,0,-0.5,.5,0,-0.5
-    0x55e559133980 ---------A   03230 DATA 0,.5,1.5,0
-    0x55e5591339d0 ---------A   03240 END
-    0x55e559129ab0 ---------B   03250 REM *** GOSUBS FOLLOW ***
-    0x55e559129b40 ---------B   03260 REM <FRONTIER> GOSUB
-    0x55e55912a080 ---------B B 03270 X=(RND(0)-.5)*100
-    0x55e55912a550 ---------B   03280 Y=50*RND(0)
-    0x55e55912aaa0 ---------B   03290 IF (ABS(X)<25) AND (Y<25) THEN 3270
-    0x55e55912ad80 ---------B   03300 F=1
-    0x55e55912adf0 ---------B   03310 GOSUB 3580
-    0x55e55912b030 ---------B   03320 IF F=0 THEN 3270
-    0x55e55912b3f0 ---------B   03330 S[7,S1]=0
-    0x55e55913ad20 ---------B   03340 GOTO 03350
-    0x55e55913ad60 ---------B T 03350 RETURN
-    0x55e55912b4e0 ---------C   03360 REM *** <UNDERDEVELOPED> GOSUB
-    0x55e55912b7c0 ---------C G 03370 E=100
-    0x55e55912b830 ---------C   03380 GOSUB 3490
-    0x55e55912bbd0 ---------C   03390 S[7,S1]=5
-    0x55e55913ada0 ---------C   03400 GOTO 03410
-    0x55e55913ae00 ---------C T 03410 RETURN
-    0x55e55912bcc0 ---------D   03420 REM *** <DEVELOPED> GOSUB
-    0x55e55912bee0 ---------D G 03430 E=50
-    0x55e55912bf50 ---------D   03440 GOSUB 3490
-    0x55e55912c2f0 ---------D   03450 S[7,S1]=10
-    0x55e55913ae60 ---------D   03460 GOTO 03470
-    0x55e55913aec0 ---------D T 03470 RETURN
-    0x55e55912c3e0 ---------E   03480 REM *** <GENERATE CO-ORDS> GOSUB
-    0x55e55912c940 ---------E B 03490 X=(RND(0)-.5)*E
-    0x55e55912ce50 ---------E   03500 Y=RND(0)*E/2
-    0x55e55912d060 ---------E   03510 F=1
-    0x55e55912d0d0 ---------E   03520 GOSUB 3580
-    0x55e55912d310 ---------E   03530 IF F=0 THEN 3490
-    0x55e55913af20 ---------E   03540 GOTO 03550
-    0x55e55913af80 ---------E T 03550 RETURN
-    0x55e55912d410 ---------F   03560 REM *** <TEST STAR CO-ORDS> GOSUB
-    0x55e55912d4d0 ---------F   03570 REM FIRST CONVERT CO-ORDS TO NEXT HALF-BOARD
-    0x55e55912d940 ---------F G 03580 GOTO H OF 3690,3650,3630,3590
-    0x55e55912dc30 ---------F T 03590 Z=X
-    0x55e55912de60 ---------F   03600 X=-Y
-    0x55e55912e090 ---------F   03610 Y=Z
-    0x55e55912e100 ---------F   03620 GOTO 3690
-    0x55e55912e320 ---------F T 03630 Y=-Y
-    0x55e55912e390 ---------F   03640 GOTO 3690
-    0x55e55912e5b0 ---------F T 03650 Z=X
-    0x55e55912e7e0 ---------F   03660 X=Y
-    0x55e55911b850 ---------F   03670 Y=Z
-    0x55e55911b8d0 ---------F   03680 REM SECOND, TEST PROXIMITY
-    0x55e55911bd00 ---------F T 03690 FOR J=1 TO S1-1
-    0x55e559130360 ---------F   03700 IF SQR((X-S[11,J])^2+(Y-S[12,J])^2) >= D9 THEN 3730
-    0x55e559130580 ---------F   03710 F=0
-    0x55e55913a510 ---------F   03720 GOTO 03800
-    0x55e559130710 ---------F T 03730 NEXT J
-    0x55e5591307e0 ---------F   03740 REM FINALLY, ENTER CO-ORDS AND INCREMENT HALF-BOARD CTR
-    0x55e559130ca0 ---------F   03750 S[11,S1]=INT(X)
-    0x55e559131150 ---------F   03760 S[12,S1]=INT(Y)
-    0x55e5591311c0 ---------F   03770 REM H=1+(H <= 3)*H
-    0x55e5591316a0 ---------F   03780 H=MOD(1+H)
-    0x55e55913a570 ---------F   03790 GOTO 03800
-    0x55e55913a5d0 ---------F T 03800 RETURN
+    0x5fca6ad95eb0 ---------A   01000  REM Written in HP Basic
+    0x5fca6ad94bd0 ---------A   01010  REM From
+    0x5fca6ad96030 ---------A   01020  COM S[12,15],T[12,12],T$[72],B[3,12]
+    0x5fca6ad95f70 ---------A   01030  COM W,D9,K9,X9,D1,X1,P9,T9,S9,Y9,H
+    0x5fca6ad960f0 ---------A   01040  COM Y1,R9,G9,Q,M[6,3],C[6,3]
+    0x5fca6ad9f570 ---------A   01050  COM S1,T1,R
+    0x5fca6ad9f5c0 ---------A   01060  REM *** STAR TRADERS ***
+    0x5fca6ad9f610 ---------A   01070  REM <<<GAME SET-UP MODULE>>>
+    0x5fca6ad9f6c0 ---------A   01080  REM S IS THE STAR SYSTEM INFO ARRAY
+    0x5fca6ad961b0 ---------A   01090  REM T IS THE TRADING SHIP INFO ARRAY
+    0x5fca6ad9f7e0 ---------A   01100  REM T$ IS THE TRADING SHIP NAME STRING
+    0x5fca6ad9f8b0 ---------A   01110  REM M AND C DETERMINE A STAR'S PRODUCTIVITY/MONTH
+    0x5fca6ad9f980 ---------A   01120  REM   PROD/MO. = S(7,J) * M(I,R1)  +  C(I,R1)
+    0x5fca6ad9fa50 ---------A   01130  REM   WHERE J IS THE STAR ID #,I THE MERCHANDISE #,
+    0x5fca6ad9fb20 ---------A   01140  REM   AND R1 IS THE DEVELOPMENT CLASS OF THE STAR
+    0x5fca6ad9fbd0 ---------A   01150  REM B CONTAINS THE BANK ACCOUNTS
+    0x5fca6ad9fc80 ---------A   01160  REM A$ IS THE STANDARD INPUT BUFFER
+    0x5fca6ad9ffa0 ---------A   01170  DIM A$[6]
+    0x5fca6ada0030 ---------A   01180  REM R9 IS THE SPEED OF A SHIP IN LIGHT-YEARS PER DAY
+    0x5fca6ada0110 ---------A   01190  REM D9 IS THE MINIMUM  DISTANCE ALLOWED BETWEEN STARS
+    0x5fca6ada01c0 ---------A   01200  REM Q IS THE PROBABILITY OF A DELAY
+    0x5fca6ada0290 ---------A   01210  REM K9 IS THE MAX NUMBER OF BIDDING ROUNDS
+    0x5fca6ada0360 ---------A   01220  REM W IS THE MAX WEIGHT OF A TRADING SHIP
+    0x5fca6ada0440 ---------A   01230  REM X9 CONTROLS THE PROFIT MARGIN; HIGH X9 LIMITS THE %
+    0x5fca6ada0520 ---------A   01240  REM G9 IS THE STELLAR DEVELOPMENT INCREMENT 1<=G9<=5
+    0x5fca6ada05d0 ---------A   01250  REM R=1 IF THIS IS A RESTART
+    0x5fca6ada0900 ---------A   01260  LET R9=2/7
+    0x5fca6ada0b10 ---------A   01270  LET D9=15
+    0x5fca6ada0d20 ---------A   01280  LET Q=.1
+    0x5fca6ada0f30 ---------A   01290  LET K9=3
+    0x5fca6ada1140 ---------A   01300  LET W=30
+    0x5fca6ada1350 ---------A   01310  LET X9=36
+    0x5fca6ada1560 ---------A   01320  LET G9=1.25
+    0x5fca6ada19a0 ---------A   01330  LET R=0
+    0x5fca6ada1a30 ---------A   01340  REM D1 IS THE DAY OF THIS YEAR (1<=D1<=360)
+    0x5fca6ada1ac0 ---------A   01350  REM Y1 IS THIS YEAR
+    0x5fca6ada1cf0 ---------A   01360  LET D1=1
+    0x5fca6ada1f10 ---------A   01370  LET Y1=2070
+    0x5fca6ada1f90 ---------A   01380  REM SET UP ECONOMETRICS MODEL
+    0x5fca6ada2000 ---------A   01390  RESTORE 3200
+    0x5fca6ad936d0 ---------A   01400  MAT READ M,C
+    0x5fca6ada2270 ---------A   01410  REM *** BLOCK #1
+    0x5fca6ad93670 ---------A   01420  PRINT "INSTRUCTIONS (TYPE 'Y' OR 'N' PLEASE)";
+    0x5fca6ada2540 ---------A   01430  INPUT A$
+    0x5fca6ada2940 ---------A   01440  IF A$[1,1]="N" THEN 1690
+    0x5fca6ada29f0 ---------A   01450  PRINT 
+    0x5fca6ada2ba0 ---------A   01460  PRINT "     THE DATE IS JAN 1, 2070 AND INTERSTELLAR FLIGHT"
+    0x5fca6ada2d50 ---------A   01470  PRINT "HAS EXISTED FOR 70 YEARS.  THERE ARE SEVERAL STAR"
+    0x5fca6ada2f00 ---------A   01480  PRINT "SYSTEMS THAT HAVE BEEN COLONIZED.  SOME ARE ONLY"
+    0x5fca6ada3090 ---------A   01490  PRINT "FRONTIER SYSTEMS, OTHERS ARE OLDER AND MORE DEVELOPED."
+    0x5fca6ada3140 ---------A   01500  PRINT 
+    0x5fca6ada32f0 ---------A   01510  PRINT "     EACH OF YOU IS THE CAPTAIN OF TWO INTERSTELLAR"
+    0x5fca6ada34a0 ---------A   01520  PRINT "TRADING SHIPS.  YOU WILL TRAVEL FROM STAR SYSTEM TO"
+    0x5fca6ada3650 ---------A   01530  PRINT "STAR SYSTEM, BUYING AND SELLING MERCHANDISE.  IF YOU"
+    0x5fca6ada37d0 ---------A   01540  PRINT "DRIVE A GOOD BARGAIN YOU CAN MAKE LARGE PROFITS."
+    0x5fca6ada3880 ---------A   01550  PRINT 
+    0x5fca6ada3a30 ---------A   01560  PRINT "     AS TIME GOES ON, EACH STAR SYSTEM WILL SLOWLY"
+    0x5fca6ada3be0 ---------A   01570  PRINT "GROW, AND ITS NEEDS WILL CHANGE.  A STAR SYSTEM THAT"
+    0x5fca6ada3d90 ---------A   01580  PRINT "HOW IS SELLING MUCH URANIUM AND RAW METALS CHEAPLY"
+    0x5fca6ada3f10 ---------A   01590  PRINT "MAY NOT HAVE ENOUGH FOR EXPORT IN A FEW YEARS."
+    0x5fca6ada3fc0 ---------A   01600  PRINT 
+    0x5fca6ada4170 ---------A   01610  PRINT "     YOUR SHIPS CAN TRAVEL ABOUT TWO LIGHTYEARS IN A"
+    0x5fca6ada4510 ---------A   01620  PRINT "WEEK AND CAN CARRY UP TO";W;" TONS OF CARGO.  ONLY"
+    0x5fca6ada46c0 ---------A   01630  PRINT "CLASS I AND CLASS II STAR SYSTEMS HAVE BANKS ON THEM."
+    0x5fca6ada4870 ---------A   01640  PRINT "THEY PAY 5% INTEREST AND ANY MONEY YOU DEPOSIT ON ONE"
+    0x5fca6ada4e10 ---------A   01650  PRINT "PLANET IS AVAILABLE ON ANOTHER - PROVIDED THERE'S A LOCAL"
+    0x5fca6ada4f70 ---------A   01660  PRINT "BANK."
+    0x5fca6ada4ff0 ---------A   01670  PRINT 
+    0x5fca6ada5070 ---------A   01680  REM *** BLOCK #2
+    0x5fca6ada5230 ---------A T 01690  PRINT "HAVE ALL PLAYERS PLAYED BEFORE";
+    0x5fca6ada5390 ---------A   01700  INPUT A$
+    0x5fca6ada5420 ---------A   01710  PRINT 
+    0x5fca6ada5820 ---------A   01720  IF A$[1,1]="Y" THEN 1740
+    0x5fca6ada58c0 ---------A   01730  GOTO 1780
+    0x5fca6ada5a40 ---------A T 01740  PRINT "DO YOU WANT TO SET UP YOUR OWN GAME";
+    0x5fca6ada5ba0 ---------A   01750  INPUT A$
+    0x5fca6ada5c30 ---------A   01760  PRINT 
+    0x5fca6ada6040 ---------A   01770  IF A$[1,1]="Y" THEN 1890
+    0x5fca6ada61c0 ---------A T 01780  PRINT "HOW MANY PLAYERS";
+    0x5fca6ada6320 ---------A   01790  INPUT P9
+    0x5fca6ada63b0 ---------A   01800  PRINT 
+    0x5fca6ada6860 ---------A   01810  GOTO P9-1 OF 1840,1840,1840
+    0x5fca6ada69c0 ---------A   01820  PRINT "2,3, OR 4 CAN PLAY"
+    0x5fca6ada6a40 ---------A   01830  GOTO 1780
+    0x5fca6ada6d70 ---------A T 01840  T9=2*P9
+    0x5fca6ada71a0 ---------A   01850  S9=3*P9+1
+    0x5fca6ada74d0 ---------A   01860  Y9=Y1+5
+    0x5fca6ada7540 ---------A   01870  GOTO 2620
+    0x5fca6ada75b0 ---------A   01880  REM *** BLOCK #3
+    0x5fca6ada7750 ---------A T 01890  PRINT "IS THIS A RESTART";
+    0x5fca6ada78b0 ---------A   01900  INPUT A$
+    0x5fca6ada7940 ---------A   01910  PRINT 
+    0x5fca6ada7d70 ---------A   01920  IF A$[1,1]="N" THEN 2140
+    0x5fca6ada7f30 ---------A   01930  PRINT "LOAD THE TAPE INTO THE TAPE READER.  WHEN I TYPE A '?'"
+    0x5fca6ada80c0 ---------A   01940  PRINT "YOU CAN FLIP THE SWITCH TO 'START' WHENEVER YOU'RE READY"
+    0x5fca6ada8140 ---------A   01950  PRINT 
+    0x5fca6ada82b0 ---------A   01960  INPUT T$
+    0x5fca6ada8880 ---------A   01970  INPUT W,D9,K9,X9,D1,Y1
+    0x5fca6ada8e40 ---------A   01980  INPUT P9,T9,S9,Y9,T1,S1
+    0x5fca6ada9200 ---------A   01990  FOR J=1 TO S9
+    0x5fca6ada9680 ---------A   02000  FOR I=1 TO 9 STEP 4
+    0x5fca6adaa480 ---------A   02010  INPUT S[I,J],S[I+1,J],S[I+2,J],S[I+3,J]
+    0x5fca6adaa5c0 ---------A   02020  NEXT I
+    0x5fca6adaa710 ---------A   02030  NEXT J
+    0x5fca6adaaa20 ---------A   02040  FOR J=1 TO T9
+    0x5fca6adaade0 ---------A   02050  FOR I=1 TO 9 STEP 4
+    0x5fca6adabbe0 ---------A   02060  INPUT T[I,J],T[I+1,J],T[I+2,J],T[I+3,J]
+    0x5fca6adabd20 ---------A   02070  NEXT I
+    0x5fca6adabe70 ---------A   02080  NEXT J
+    0x5fca6adac190 ---------A   02090  FOR I=1 TO P9
+    0x5fca6adac990 ---------A   02100  INPUT B[1,I],B[2,I],B[3,I]
+    0x5fca6adacad0 ---------A   02110  NEXT I
+    0x5fca6adacd00 ---------A   02120  R=1
+    0x5fca6adacda0 ---------A   02130  CHAIN "$TRADES"
+    0x5fca6adacf20 ---------A T 02140  PRINT "HOW MANY PLAYERS";
+    0x5fca6adad080 ---------A   02150  INPUT P9
+    0x5fca6adad110 ---------A   02160  PRINT 
+    0x5fca6adad5a0 ---------A   02170  IF P9 >= 2 AND P9 <= 12 THEN 2200
+    0x5fca6adad710 ---------A   02180  PRINT "2,3,4, ... ,12 CAN PLAY"
+    0x5fca6adad7a0 ---------A   02190  GOTO 2140
+    0x5fca6adad920 ---------A T 02200  PRINT "HOW MANY SHIPS PER PLAYER";
+    0x5fca6adadb40 ---------A   02210  INPUT X
+    0x5fca6adadbc0 ---------A   02220  PRINT 
+    0x5fca6adade20 ---------A   02230  IF X<1 THEN 2200
+    0x5fca6adae190 ---------A   02240  T9=P9*X
+    0x5fca6adae400 ---------A   02250  IF T9 <= 12 THEN 2290
+    0x5fca6adae5a0 ---------A   02260  PRINT "I CAN'T KEEP TRACK OF MORE THAN 12 SHIPS;"
+    0x5fca6adaeb00 ---------A   02270  PRINT P9;" PLAYERS TIMES";X;" SHIPS MAKES";T9
+    0x5fca6adaeb90 ---------A   02280  GOTO 2200
+    0x5fca6adaf510 ---------A T 02290  PRINT "HOW MANY STAR SYSTEMS";
+    0x5fca6adaf670 ---------A   02300  INPUT S9
+    0x5fca6adaf700 ---------A   02310  PRINT 
+    0x5fca6adafb90 ---------A   02320  IF S9 >= 4 AND S9 <= 13 THEN 2350
+    0x5fca6adafcf0 ---------A   02330  PRINT "FROM 4 TO 13 STARS"
+    0x5fca6adafd90 ---------A   02340  GOTO 2290
+    0x5fca6adaff10 ---------A T 02350  PRINT "ENTER THE LENGTH OF GAME IN YEARS";
+    0x5fca6adb0070 ---------A T 02360  INPUT X
+    0x5fca6adb0100 ---------A   02370  PRINT 
+    0x5fca6adb0690 ---------A   02380  IF X >= 1 AND INT(X)=X THEN 2410
+    0x5fca6adb0800 ---------A   02390  PRINT "CHOOSE A POSITIVE INTEGER"
+    0x5fca6adb0880 ---------A   02400  GOTO 2360
+    0x5fca6adb0bf0 ---------A T 02410  Y9=Y1+X
+    0x5fca6adb0d80 ---------A T 02420  PRINT "WHAT'S THE MAX CARGOE TONNAGE(USUALLY 30)";
+    0x5fca6adb0ee0 ---------A   02430  INPUT W
+    0x5fca6adb0f60 ---------A   02440  PRINT 
+    0x5fca6adb11f0 ---------A   02450  IF W<25 THEN 2420
+    0x5fca6adb1390 ---------A T 02460  PRINT "WHAT'S THE MINIMUM DISTANCE BETWEEN STARS(USUALLY 15)";
+    0x5fca6adb14f0 ---------A   02470  INPUT D9
+    0x5fca6adb1580 ---------A   02480  PRINT 
+    0x5fca6adb1a10 ---------A   02490  IF D9 <= 25 AND D9 >= 10 THEN 2520
+    0x5fca6adb1b80 ---------A   02500  PRINT "MIN SPACING 10, MAX 25"
+    0x5fca6adb1c20 ---------A   02510  GOTO 2460
+    0x5fca6adb1da0 ---------A T 02520  PRINT "HOW MANY BIDS OR OFFERS(USUALLY 3)";
+    0x5fca6adb1f00 ---------A   02530  INPUT K9
+    0x5fca6adb1f80 ---------A   02540  PRINT 
+    0x5fca6adb2210 ---------A   02550  IF K9<1 THEN 2520
+    0x5fca6adb23c0 ---------A   02560  PRINT "SET THE PROFIT MARGIN(1,2,3,4 OR 5)...THE HIGHER"
+    0x5fca6adb2560 ---------A   02570  PRINT "THE NUMBER, THE LOWER THE PROFIT % ... USUALLY SET TO 2"
+    0x5fca6adb26e0 ---------A   02580  PRINT "...YOUR NUMBER";
+    0x5fca6adb2850 ---------A   02590  INPUT X9
+    0x5fca6adb2dd0 ---------A   02600  X9=18*(ABS(X9) MIN 5)
+    0x5fca6adb2e40 ---------A   02610  REM *** BLOCK #4.1
+    0x5fca6adb3450 ---------A T 02620  S[11,1]=S[12,1]=0
+    0x5fca6adb37e0 ---------A   02630  S[7,1]=15
+    0x5fca6adb3850 ---------A   02640  REM *** BLOCK #4.2
+    0x5fca6adb3a80 ---------A   02650  H=1
+    0x5fca6adb3c90 ---------A   02660  S1=2
+    0x5fca6adb3d00 ---------A   02670  GOSUB 3270
+    0x5fca6adb3f10 ---------A   02680  S1=3
+    0x5fca6adb3f80 ---------A   02690  GOSUB 3270
+    0x5fca6adb4190 ---------A   02700  S1=4
+    0x5fca6adb4200 ---------A   02710  GOSUB 3370
+    0x5fca6adb4510 ---------A   02720  FOR S1=5 TO S9
+    0x5fca6adb4df0 ---------A   02730  GOSUB S1-3*INT((S1-1)/3) OF 3270,3370,3430
+    0x5fca6adb4f30 ---------A   02740  NEXT S1
+    0x5fca6adb4fc0 ---------A   02750  REM *** BLOCK #4.3
+    0x5fca6adb52d0 ---------A   02760  FOR S1=1 TO S9
+    0x5fca6adb55b0 ---------A   02770  FOR J=1 TO 6
+    0x5fca6adb5990 ---------A   02780  S[J,S1]=0
+    0x5fca6adb5ac0 ---------A   02790  NEXT J
+    0x5fca6adb5d30 ---------A   02800  IF S1>1 THEN 2830
+    0x5fca6adb5f50 ---------A   02810  I=1
+    0x5fca6adb5fd0 ---------A   02820  GOTO 2870
+    0x5fca6adb66a0 ---------A T 02830  I=4*INT(14*RND(0))+5
+    0x5fca6adb6aa0 ---------A   02840  FOR J=2 TO S1-1
+    0x5fca6adb6ec0 ---------A   02850  IF I=S[8,J] THEN 2830
+    0x5fca6adb7000 ---------A   02860  NEXT J
+    0x5fca6adb73f0 ---------A T 02870  S[8,S1]=I
+    0x5fca6adb77a0 ---------A   02880  S[9,S1]=270
+    0x5fca6adb7c70 ---------A   02890  S[10,S1]=Y1-1
+    0x5fca6adb7da0 ---------A   02900  NEXT S1
+    0x5fca6adb7e30 ---------A   02910  REM *** BLOCK #4.4
+    0x5fca6adb8200 ---------A   02920  T1=L=1
+    0x5fca6adb8270 ---------A   02930  PRINT 
+    0x5fca6adb8320 ---------A   02940  PRINT 
+    0x5fca6adb84b0 ---------A   02950  PRINT "CAPTAINS, NAME YOUR SHIPS (UP TO 6 LETTERS/BLANKS/NUMBERS)"
+    0x5fca6adb88d0 ---------A   02960  FOR I=1 TO T9/P9
+    0x5fca6adb8950 ---------A   02970  PRINT 
+    0x5fca6adb8d20 ---------A   02980  FOR P1=1 TO P9
+    0x5fca6adb95e0 ---------A   02990  T[1,T1]=T[2,T1]=T[6,T1]=0
+    0x5fca6adb9990 ---------A   03000  T[3,T1]=15
+    0x5fca6adb9fc0 ---------A   03010  T[4,T1]=T[5,T1]=10
+    0x5fca6adba370 ---------A   03020  T[7,T1]=25
+    0x5fca6adba740 ---------A   03030  T[9,T1]=D1
+    0x5fca6adbab10 ---------A   03040  T[10,T1]=Y1
+    0x5fca6adbaef0 ---------A   03050  T[11,T1]=5000
+    0x5fca6adbb370 ---------A   03060  PRINT "   CAPTAIN";P1;"WHAT DO YOU CHRISTEN YOUR SHIP #";I;
+    0x5fca6adbb790 ---------A   03070  INPUT T$[L,L+5]
+    0x5fca6adbbad0 ---------A   03080  T1=T1+1
+    0x5fca6adbbe00 ---------A   03090  L=L+6
+    0x5fca6adbbf30 ---------A   03100  NEXT P1
+    0x5fca6adbc080 ---------A   03110  NEXT I
+    0x5fca6adbc110 ---------A   03120  REM *** BLOCK #4.5
+    0x5fca6adbc4e0 ---------A   03130  FOR B1=1 TO P9
+    0x5fca6adbc8a0 ---------A   03140  B[1,B1]=0
+    0x5fca6adbcc70 ---------A   03150  B[2,B1]=D1
+    0x5fca6adbd040 ---------A   03160  B[3,B1]=Y1
+    0x5fca6adbd170 ---------A   03170  NEXT B1
+    0x5fca6adbd230 ---------A   03180  CHAIN "$TRADES"
+    0x5fca6adc50d0 ---------A   03190  REM *** DATA FOR ECONOMETRIC MODEL FOLLOWS ***
+    0x5fca6adc5160 ---------A   03200  REM MODEL #1
+    0x5fca6adc6220 ---------A   03210  DATA -0.025,-0.05,-0.025,0,-0.025,-0.025,0,.1,.1,-0.025,.1,0,.1,.2,.1,.1,-0.025,0
+    0x5fca6adc6ed0 ---------A   03220  DATA 1,1.5,.5,.75,.75,.75,-0.25,-0.25,-0.25,0,-0.5,.5,0,-0.5
+    0x5fca6adc72c0 ---------A   03230  DATA 0,.5,1.5,0
+    0x5fca6adc7310 ---------A   03240  END
+    0x5fca6adbd2c0 ---------B   03250  REM *** GOSUBS FOLLOW ***
+    0x5fca6adbd360 ---------B   03260  REM <FRONTIER> GOSUB
+    0x5fca6adbd8b0 ---------B B 03270  X=(RND(0)-.5)*100
+    0x5fca6adbdd80 ---------B   03280  Y=50*RND(0)
+    0x5fca6adbe2d0 ---------B   03290  IF (ABS(X)<25) AND (Y<25) THEN 3270
+    0x5fca6adbe5b0 ---------B   03300  F=1
+    0x5fca6adbe620 ---------B   03310  GOSUB 3580
+    0x5fca6adbe870 ---------B   03320  IF F=0 THEN 3270
+    0x5fca6adbec30 ---------B   03330  S[7,S1]=0
+    0x5fca6adcca80 ---------B   03340  GOTO 03350
+    0x5fca6adda850 ---------B T 03350  RETURN
+    0x5fca6adbed20 ---------C   03360  REM *** <UNDERDEVELOPED> GOSUB
+    0x5fca6adbf010 ---------C G 03370  E=100
+    0x5fca6adbf080 ---------C   03380  GOSUB 3490
+    0x5fca6adbf430 ---------C   03390  S[7,S1]=5
+    0x5fca6adcca30 ---------C   03400  GOTO 03410
+    0x5fca6adda8d0 ---------C T 03410  RETURN
+    0x5fca6adbf520 ---------D   03420  REM *** <DEVELOPED> GOSUB
+    0x5fca6adbf750 ---------D G 03430  E=50
+    0x5fca6adbf7c0 ---------D   03440  GOSUB 3490
+    0x5fca6adbfb70 ---------D   03450  S[7,S1]=10
+    0x5fca6adc7cd0 ---------D   03460  GOTO 03470
+    0x5fca6adda950 ---------D T 03470  RETURN
+    0x5fca6adbfc60 ---------E   03480  REM *** <GENERATE CO-ORDS> GOSUB
+    0x5fca6adc01d0 ---------E B 03490  X=(RND(0)-.5)*E
+    0x5fca6adc06e0 ---------E   03500  Y=RND(0)*E/2
+    0x5fca6adc08f0 ---------E   03510  F=1
+    0x5fca6adc0960 ---------E   03520  GOSUB 3580
+    0x5fca6adc0bb0 ---------E   03530  IF F=0 THEN 3490
+    0x5fca6add8050 ---------E   03540  GOTO 03550
+    0x5fca6adda9d0 ---------E T 03550  RETURN
+    0x5fca6adc0cb0 ---------F   03560  REM *** <TEST STAR CO-ORDS> GOSUB
+    0x5fca6adc0d80 ---------F   03570  REM FIRST CONVERT CO-ORDS TO NEXT HALF-BOARD
+    0x5fca6adc1200 ---------F G 03580  GOTO H OF 3690,3650,3630,3590
+    0x5fca6adc1500 ---------F T 03590  Z=X
+    0x5fca6adc1730 ---------F   03600  X=-Y
+    0x5fca6adc1960 ---------F   03610  Y=Z
+    0x5fca6adc19d0 ---------F   03620  GOTO 3690
+    0x5fca6adc1c00 ---------F T 03630  Y=-Y
+    0x5fca6adc1c70 ---------F   03640  GOTO 3690
+    0x5fca6adc1ea0 ---------F T 03650  Z=X
+    0x5fca6adc20d0 ---------F   03660  X=Y
+    0x5fca6adaedd0 ---------F   03670  Y=Z
+    0x5fca6adaee50 ---------F   03680  REM SECOND, TEST PROXIMITY
+    0x5fca6adaf290 ---------F T 03690  FOR J=1 TO S1-1
+    0x5fca6adc3c50 ---------F   03700  IF SQR((X-S[11,J])^2+(Y-S[12,J])^2) >= D9 THEN 3730
+    0x5fca6adc3e70 ---------F   03710  F=0
+    0x5fca6add8000 ---------F   03720  GOTO 03800
+    0x5fca6adc4000 ---------F T 03730  NEXT J
+    0x5fca6adc40e0 ---------F   03740  REM FINALLY, ENTER CO-ORDS AND INCREMENT HALF-BOARD CTR
+    0x5fca6adc45b0 ---------F   03750  S[11,S1]=INT(X)
+    0x5fca6adc4a60 ---------F   03760  S[12,S1]=INT(Y)
+    0x5fca6adc4ad0 ---------F   03770  REM H=1+(H <= 3)*H
+    0x5fca6adc4fc0 ---------F   03780  H=MOD(1+H)
+    0x5fca6add7fb0 ---------F   03790  GOTO 03800
+    0x5fca6addaa70 ---------F T 03800  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -1064,8 +1640,8 @@ void ConvCoords(){
 int main(int argc,char *argv[])
 {
     LoadCommonAreas("basic/StarTrader_setup_cmn.json");
-    // 01000  REM Written in HP Basic
-    // 01010  REM From: http://www.langesite.com/startrader/
+    // 01000 REM Written in HP Basic
+    // 01010 REM From
     // 01020 COM S[12,15],T[12,12],T$[72],B[3,12]
     // 01030 COM W,D9,K9,X9,D1,X1,P9,T9,S9,Y9,H
     // 01040 COM Y1,R9,G9,Q,M[6,3],C[6,3]

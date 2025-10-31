@@ -8,92 +8,92 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x626f9297eb80 ---------A   00002 PRINT TAB(30);"ONE CHECK"
-    0x626f9297ff30 ---------A   00004 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x626f929800b0 ---------A   00006 PRINT: PRINT: PRINT
-    0x626f9297da20 ---------A   00008 DIM A(64)
-    0x626f9297d830 ---------A   00010 PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
-    0x626f9297de40 ---------A   00015 PRINT
-    0x626f9297f6f0 ---------A   00020 PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
-    0x626f92980100 ---------A   00025 PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
-    0x626f9297e670 ---------A   00030 PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
-    0x626f9297e780 ---------A   00035 PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
-    0x626f929858f0 ---------A   00040 PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
-    0x626f92985a90 ---------A   00045 PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
-    0x626f92985c30 ---------A   00050 PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
-    0x626f92985d80 ---------A   00055 PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
-    0x626f92985e90 ---------A   00060 PRINT "QUESTION 'JUMP FROM ?'"
-    0x626f92985ee0 ---------A   00062 PRINT
-    0x626f92985ff0 ---------A   00063 PRINT "HERE IS THE NUMERICAL BOARD:"
-    0x626f92986040 ---------A   00066 PRINT
-    0x626f9297d6d0 ---------A T 00070 FOR J=1 TO 57 STEP 8
-    0x626f92987540 ---------A   00074 PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
-    0x626f92987c10 ---------A   00075 PRINT TAB(24);J+6;TAB(28);J+7
-    0x626f92987d40 ---------A   00076 NEXT J
-    0x626f92987df0 ---------A   00077 PRINT
-    0x626f92987f60 ---------A   00078 PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
-    0x626f92987fd0 ---------A   00079 PRINT
-    0x626f9297d670 ---------A   00080 FOR J=1 TO 64
-    0x626f92988540 ---------A   00082 A(J)=1
-    0x626f92988670 ---------A   00084 NEXT J
-    0x626f929889f0 ---------A   00086 FOR J=19 TO 43 STEP 8
-    0x626f92988ed0 ---------A   00088 FOR I=J TO J+3
-    0x626f929891d0 ---------A   00090 A(I)=0
-    0x626f92989300 ---------A   00092 NEXT I
-    0x626f92989440 ---------A   00094 NEXT J
-    0x626f92989930 ---------A   00096 M=0
-    0x626f929899a0 ---------A   00098 GOTO 340
-    0x626f92989bc0 ---------A T 00100 INPUT "JUMP FROM";F
-    0x626f92989e20 ---------A   00105 IF F=0 THEN 500
-    0x626f9298a060 ---------A   00110 INPUT "TO";T
-    0x626f9298a0c0 ---------A   00112 PRINT
-    0x626f9298a140 ---------A   00118 REM *** CHECK LEGALITY OF MOVE
-    0x626f9298a760 ---------A   00120 F1=INT((F-1)/8)
-    0x626f9298ac70 ---------A   00130 F2=F-8*F1
-    0x626f9298b280 ---------A   00140 T1=INT((T-1)/8)
-    0x626f9298b790 ---------A   00150 T2=T-8*T1
-    0x626f9298b9e0 ---------A   00160 IF F1>7 THEN 230
-    0x626f9298bc40 ---------A   00170 IF T1>7 THEN 230
-    0x626f9298bea0 ---------A   00180 IF F2>8 THEN 230
-    0x626f9298c110 ---------A   00190 IF T2>8 THEN 230
-    0x626f9298c580 ---------A   00200 IF ABS(F1-T1)<>2 THEN 230
-    0x626f9298c9f0 ---------A   00210 IF ABS(F2-T2)<>2 THEN 230
-    0x626f9298cf90 ---------A   00212 IF A((T+F)/2)=0 THEN 230
-    0x626f9298d2d0 ---------A   00215 IF A(F)=0 THEN 230
-    0x626f9298d610 ---------A   00220 IF A(T)=1 THEN 230
-    0x626f9298d6a0 ---------A   00225 GOTO 250
-    0x626f9298d7f0 ---------A T 00230 PRINT "ILLEGAL MOVE.  TRY AGAIN..."
-    0x626f9298d870 ---------A   00240 GOTO 100
-    0x626f9298d8d0 ---------A   00245 REM *** UPDATE BOARD
-    0x626f9298dbd0 ---------A T 00250 A(T)=1
-    0x626f9298dec0 ---------A   00260 A(F)=0
-    0x626f9298e410 ---------A   00270 A((T+F)/2)=0
-    0x626f9298e740 ---------A   00290 M=M+1
-    0x626f9298e7b0 ---------A   00310 REM *** PRINT BOARD
-    0x626f9298eb60 ---------A T 00340 FOR J=1 TO 57 STEP 8
-    0x626f9298ef80 ---------A   00350 FOR I=J TO J+7
-    0x626f9298f1e0 ---------A   00360 PRINT A(I);
-    0x626f9298f720 ---------A   00370 NEXT I
-    0x626f9298f7a0 ---------A   00380 PRINT
-    0x626f9298f8d0 ---------A   00390 NEXT J
-    0x626f9298f950 ---------A   00400 PRINT
-    0x626f9298f9d0 ---------A   00410 GOTO 100
-    0x626f9298fa40 ---------A   00490 REM *** END GAME SUMMARY
-    0x626f9298fd20 ---------A T 00500 S=0
-    0x626f9298fff0 ---------A   00510 FOR I=1 TO 64
-    0x626f92990430 ---------A   00520 S=S+A(I)
-    0x626f92990560 ---------A   00530 NEXT I
-    0x626f92990b40 ---------A   00540 PRINT:PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
-    0x626f92990ca0 ---------A   00550 PRINT "REMAINING ON THE BOARD."
-    0x626f92990d20 ---------A   00560 PRINT
-    0x626f92990f50 ---------A T 00562 INPUT "TRY AGAIN";A$
-    0x626f929911d0 ---------A   00570 IF A$="YES" THEN 70
-    0x626f92991470 ---------A   00575 IF A$="NO" THEN 600
-    0x626f929915e0 ---------A   00580 PRINT "PLEASE ANSWER 'YES' OR 'NO'."
-    0x626f92991650 ---------A   00590 GOTO 562
-    0x626f929916c0 ---------A T 00600 PRINT
-    0x626f92991820 ---------A   00610 PRINT "O.K.  HOPE YOU HAD FUN!!"
-    0x626f92991870 ---------A   00999 END
+    0x55d1df3b96d0 ---------A   00002  PRINT TAB(30);"ONE CHECK"
+    0x55d1df3b9670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x55d1df3b97f0 ---------A   00006  PRINT: PRINT: PRINT
+    0x55d1df3bab80 ---------A   00008  DIM A(64)
+    0x55d1df3b9e80 ---------A   00010  PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
+    0x55d1df3ba480 ---------A   00015  PRINT
+    0x55d1df3bb720 ---------A   00020  PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
+    0x55d1df3bc100 ---------A   00025  PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
+    0x55d1df3ba670 ---------A   00030  PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
+    0x55d1df3ba7d0 ---------A   00035  PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
+    0x55d1df3c1970 ---------A   00040  PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
+    0x55d1df3c1b20 ---------A   00045  PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
+    0x55d1df3c1cd0 ---------A   00050  PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
+    0x55d1df3c1e30 ---------A   00055  PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
+    0x55d1df3c1f50 ---------A   00060  PRINT "QUESTION 'JUMP FROM ?'"
+    0x55d1df3c1fb0 ---------A   00062  PRINT
+    0x55d1df3c20d0 ---------A   00063  PRINT "HERE IS THE NUMERICAL BOARD:"
+    0x55d1df3c2130 ---------A   00066  PRINT
+    0x55d1df3c2580 ---------A T 00070  FOR J=1 TO 57 STEP 8
+    0x55d1df3c3620 ---------A   00074  PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
+    0x55d1df3c3d00 ---------A   00075  PRINT TAB(24);J+6;TAB(28);J+7
+    0x55d1df3c3e40 ---------A   00076  NEXT J
+    0x55d1df3c3f00 ---------A   00077  PRINT
+    0x55d1df3c4080 ---------A   00078  PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
+    0x55d1df3c4100 ---------A   00079  PRINT
+    0x55d1df3c43e0 ---------A   00080  FOR J=1 TO 64
+    0x55d1df3c46e0 ---------A   00082  A(J)=1
+    0x55d1df3c4810 ---------A   00084  NEXT J
+    0x55d1df3c4ba0 ---------A   00086  FOR J=19 TO 43 STEP 8
+    0x55d1df3c5080 ---------A   00088  FOR I=J TO J+3
+    0x55d1df3c5380 ---------A   00090  A(I)=0
+    0x55d1df3c54b0 ---------A   00092  NEXT I
+    0x55d1df3c5600 ---------A   00094  NEXT J
+    0x55d1df3c5b00 ---------A   00096  M=0
+    0x55d1df3c5b70 ---------A   00098  GOTO 340
+    0x55d1df3c5da0 ---------A T 00100  INPUT "JUMP FROM";F
+    0x55d1df3c6000 ---------A   00105  IF F=0 THEN 500
+    0x55d1df3c6240 ---------A   00110  INPUT "TO";T
+    0x55d1df3c62a0 ---------A   00112  PRINT
+    0x55d1df3c6330 ---------A   00118  REM *** CHECK LEGALITY OF MOVE
+    0x55d1df3c6960 ---------A   00120  F1=INT((F-1)/8)
+    0x55d1df3c6e70 ---------A   00130  F2=F-8*F1
+    0x55d1df3c7480 ---------A   00140  T1=INT((T-1)/8)
+    0x55d1df3c7990 ---------A   00150  T2=T-8*T1
+    0x55d1df3c7be0 ---------A   00160  IF F1>7 THEN 230
+    0x55d1df3c7e40 ---------A   00170  IF T1>7 THEN 230
+    0x55d1df3c80a0 ---------A   00180  IF F2>8 THEN 230
+    0x55d1df3c8310 ---------A   00190  IF T2>8 THEN 230
+    0x55d1df3c8780 ---------A   00200  IF ABS(F1-T1)<>2 THEN 230
+    0x55d1df3c8bf0 ---------A   00210  IF ABS(F2-T2)<>2 THEN 230
+    0x55d1df3c9190 ---------A   00212  IF A((T+F)/2)=0 THEN 230
+    0x55d1df3c94d0 ---------A   00215  IF A(F)=0 THEN 230
+    0x55d1df3c9810 ---------A   00220  IF A(T)=1 THEN 230
+    0x55d1df3c98a0 ---------A   00225  GOTO 250
+    0x55d1df3c9a00 ---------A T 00230  PRINT "ILLEGAL MOVE.  TRY AGAIN..."
+    0x55d1df3c9a90 ---------A   00240  GOTO 100
+    0x55d1df3c9b00 ---------A   00245  REM *** UPDATE BOARD
+    0x55d1df3c9e10 ---------A T 00250  A(T)=1
+    0x55d1df3ca100 ---------A   00260  A(F)=0
+    0x55d1df3ca650 ---------A   00270  A((T+F)/2)=0
+    0x55d1df3ca980 ---------A   00290  M=M+1
+    0x55d1df3ca9f0 ---------A   00310  REM *** PRINT BOARD
+    0x55d1df3cadb0 ---------A T 00340  FOR J=1 TO 57 STEP 8
+    0x55d1df3cb1d0 ---------A   00350  FOR I=J TO J+7
+    0x55d1df3cb430 ---------A   00360  PRINT A(I);
+    0x55d1df3cb980 ---------A   00370  NEXT I
+    0x55d1df3cba10 ---------A   00380  PRINT
+    0x55d1df3cbb50 ---------A   00390  NEXT J
+    0x55d1df3cbbe0 ---------A   00400  PRINT
+    0x55d1df3cbc70 ---------A   00410  GOTO 100
+    0x55d1df3cbcf0 ---------A   00490  REM *** END GAME SUMMARY
+    0x55d1df3cbfe0 ---------A T 00500  S=0
+    0x55d1df3cc2b0 ---------A   00510  FOR I=1 TO 64
+    0x55d1df3cc6f0 ---------A   00520  S=S+A(I)
+    0x55d1df3cc820 ---------A   00530  NEXT I
+    0x55d1df3cce20 ---------A   00540  PRINT:PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
+    0x55d1df3ccf90 ---------A   00550  PRINT "REMAINING ON THE BOARD."
+    0x55d1df3cd020 ---------A   00560  PRINT
+    0x55d1df3cd260 ---------A T 00562  INPUT "TRY AGAIN";A$
+    0x55d1df3cd4e0 ---------A   00570  IF A$="YES" THEN 70
+    0x55d1df3cd780 ---------A   00575  IF A$="NO" THEN 600
+    0x55d1df3cd8f0 ---------A   00580  PRINT "PLEASE ANSWER 'YES' OR 'NO'."
+    0x55d1df3cd970 ---------A   00590  GOTO 562
+    0x55d1df3cd9f0 ---------A T 00600  PRINT
+    0x55d1df3cdb60 ---------A   00610  PRINT "O.K.  HOPE YOU HAD FUN!!"
+    0x55d1df3cdbc0 ---------A   00999  END
  */
 
 /*
@@ -121,9 +121,211 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x626f9297eb80 (00002)   0x626f9297eb80 (00002)   0x626f92991870 (00999)   0x626f92991870 (00999)   
+   A) 0x55d1df3b96d0 (00002)   0x55d1df3b96d0 (00002)   0x55d1df3cdbc0 (00999)   0x55d1df3cdbc0 (00999)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/onecheck.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x55d1df3b96d0 ---------A   00002  PRINT TAB(30);"ONE CHECK"
+    0x55d1df3b9670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x55d1df3aa2b0 ----------   00006  PRINT
+    0x55d1df3b99e0 ----------        a PRINT
+    0x55d1df3b97f0 ---------A        b PRINT
+    0x55d1df3bab80 ---------A   00008  DIM A(64)
+    0x55d1df3b9e80 ---------A   00010  PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
+    0x55d1df3ba480 ---------A   00015  PRINT
+    0x55d1df3bb720 ---------A   00020  PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
+    0x55d1df3bc100 ---------A   00025  PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
+    0x55d1df3ba670 ---------A   00030  PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
+    0x55d1df3ba7d0 ---------A   00035  PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
+    0x55d1df3c1970 ---------A   00040  PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
+    0x55d1df3c1b20 ---------A   00045  PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
+    0x55d1df3c1cd0 ---------A   00050  PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
+    0x55d1df3c1e30 ---------A   00055  PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
+    0x55d1df3c1f50 ---------A   00060  PRINT "QUESTION 'JUMP FROM ?'"
+    0x55d1df3c1fb0 ---------A   00062  PRINT
+    0x55d1df3c20d0 ---------A   00063  PRINT "HERE IS THE NUMERICAL BOARD:"
+    0x55d1df3c2130 ---------A   00066  PRINT
+    0x55d1df3c2580 ---------A T 00070  FOR J=1 TO 57 STEP 8
+    0x55d1df3c3620 ---------A   00074  PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
+    0x55d1df3c3d00 ---------A   00075  PRINT TAB(24);J+6;TAB(28);J+7
+    0x55d1df3c3e40 ---------A   00076  NEXT J
+    0x55d1df3c3f00 ---------A   00077  PRINT
+    0x55d1df3c4080 ---------A   00078  PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
+    0x55d1df3c4100 ---------A   00079  PRINT
+    0x55d1df3c43e0 ---------A   00080  FOR J=1 TO 64
+    0x55d1df3c46e0 ---------A   00082  A(J)=1
+    0x55d1df3c4810 ---------A   00084  NEXT J
+    0x55d1df3c4ba0 ---------A   00086  FOR J=19 TO 43 STEP 8
+    0x55d1df3c5080 ---------A   00088  FOR I=J TO J+3
+    0x55d1df3c5380 ---------A   00090  A(I)=0
+    0x55d1df3c54b0 ---------A   00092  NEXT I
+    0x55d1df3c5600 ---------A   00094  NEXT J
+    0x55d1df3c5b00 ---------A   00096  M=0
+    0x55d1df3c5b70 ---------A   00098  GOTO 340
+    0x55d1df3c5da0 ---------A T 00100  INPUT "JUMP FROM";F
+    0x55d1df3c6000 ---------A   00105  IF F=0 THEN 500
+    0x55d1df3c6240 ---------A   00110  INPUT "TO";T
+    0x55d1df3c62a0 ---------A   00112  PRINT
+    0x55d1df3c6330 ---------A   00118  REM *** CHECK LEGALITY OF MOVE
+    0x55d1df3c6960 ---------A   00120  F1=INT((F-1)/8)
+    0x55d1df3c6e70 ---------A   00130  F2=F-8*F1
+    0x55d1df3c7480 ---------A   00140  T1=INT((T-1)/8)
+    0x55d1df3c7990 ---------A   00150  T2=T-8*T1
+    0x55d1df3c7be0 ---------A   00160  IF F1>7 THEN 230
+    0x55d1df3c7e40 ---------A   00170  IF T1>7 THEN 230
+    0x55d1df3c80a0 ---------A   00180  IF F2>8 THEN 230
+    0x55d1df3c8310 ---------A   00190  IF T2>8 THEN 230
+    0x55d1df3c8780 ---------A   00200  IF ABS(F1-T1)<>2 THEN 230
+    0x55d1df3c8bf0 ---------A   00210  IF ABS(F2-T2)<>2 THEN 230
+    0x55d1df3c9190 ---------A   00212  IF A((T+F)/2)=0 THEN 230
+    0x55d1df3c94d0 ---------A   00215  IF A(F)=0 THEN 230
+    0x55d1df3c9810 ---------A   00220  IF A(T)=1 THEN 230
+    0x55d1df3c98a0 ---------A   00225  GOTO 250
+    0x55d1df3c9a00 ---------A T 00230  PRINT "ILLEGAL MOVE.  TRY AGAIN..."
+    0x55d1df3c9a90 ---------A   00240  GOTO 100
+    0x55d1df3c9b00 ---------A   00245  REM *** UPDATE BOARD
+    0x55d1df3c9e10 ---------A T 00250  A(T)=1
+    0x55d1df3ca100 ---------A   00260  A(F)=0
+    0x55d1df3ca650 ---------A   00270  A((T+F)/2)=0
+    0x55d1df3ca980 ---------A   00290  M=M+1
+    0x55d1df3ca9f0 ---------A   00310  REM *** PRINT BOARD
+    0x55d1df3cadb0 ---------A T 00340  FOR J=1 TO 57 STEP 8
+    0x55d1df3cb1d0 ---------A   00350  FOR I=J TO J+7
+    0x55d1df3cb430 ---------A   00360  PRINT A(I);
+    0x55d1df3cb980 ---------A   00370  NEXT I
+    0x55d1df3cba10 ---------A   00380  PRINT
+    0x55d1df3cbb50 ---------A   00390  NEXT J
+    0x55d1df3cbbe0 ---------A   00400  PRINT
+    0x55d1df3cbc70 ---------A   00410  GOTO 100
+    0x55d1df3cbcf0 ---------A   00490  REM *** END GAME SUMMARY
+    0x55d1df3cbfe0 ---------A T 00500  S=0
+    0x55d1df3cc2b0 ---------A   00510  FOR I=1 TO 64
+    0x55d1df3cc6f0 ---------A   00520  S=S+A(I)
+    0x55d1df3cc820 ---------A   00530  NEXT I
+    0x55d1df3cc8b0 ----------   00540  PRINT
+    0x55d1df3cce20 ---------A        a PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
+    0x55d1df3ccf90 ---------A   00550  PRINT "REMAINING ON THE BOARD."
+    0x55d1df3cd020 ---------A   00560  PRINT
+    0x55d1df3cd260 ---------A T 00562  INPUT "TRY AGAIN";A$
+    0x55d1df3cd4e0 ---------A   00570  IF A$="YES" THEN 70
+    0x55d1df3cd780 ---------A   00575  IF A$="NO" THEN 600
+    0x55d1df3cd8f0 ---------A   00580  PRINT "PLEASE ANSWER 'YES' OR 'NO'."
+    0x55d1df3cd970 ---------A   00590  GOTO 562
+    0x55d1df3cd9f0 ---------A T 00600  PRINT
+    0x55d1df3cdb60 ---------A   00610  PRINT "O.K.  HOPE YOU HAD FUN!!"
+    0x55d1df3cdbc0 ---------A   00999  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/onecheck.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x55d1df3b96d0 ---------A   01000  PRINT TAB(30);"ONE CHECK"
+    0x55d1df3b9670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x55d1df3aa2b0 ----------   01020  PRINT
+    0x55d1df3b99e0 ----------   01030  PRINT
+    0x55d1df3b97f0 ---------A   01040  PRINT
+    0x55d1df3bab80 ---------A   01050  DIM A(64)
+    0x55d1df3b9e80 ---------A   01060  PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
+    0x55d1df3ba480 ---------A   01070  PRINT
+    0x55d1df3bb720 ---------A   01080  PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
+    0x55d1df3bc100 ---------A   01090  PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
+    0x55d1df3ba670 ---------A   01100  PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
+    0x55d1df3ba7d0 ---------A   01110  PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
+    0x55d1df3c1970 ---------A   01120  PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
+    0x55d1df3c1b20 ---------A   01130  PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
+    0x55d1df3c1cd0 ---------A   01140  PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
+    0x55d1df3c1e30 ---------A   01150  PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
+    0x55d1df3c1f50 ---------A   01160  PRINT "QUESTION 'JUMP FROM ?'"
+    0x55d1df3c1fb0 ---------A   01170  PRINT
+    0x55d1df3c20d0 ---------A   01180  PRINT "HERE IS THE NUMERICAL BOARD:"
+    0x55d1df3c2130 ---------A   01190  PRINT
+    0x55d1df3c2580 ---------A   01200  FOR J=1 TO 57 STEP 8
+    0x55d1df3c3620 ---------A   01210  PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
+    0x55d1df3c3d00 ---------A   01220  PRINT TAB(24);J+6;TAB(28);J+7
+    0x55d1df3c3e40 ---------A   01230  NEXT J
+    0x55d1df3c3f00 ---------A   01240  PRINT
+    0x55d1df3c4080 ---------A   01250  PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
+    0x55d1df3c4100 ---------A   01260  PRINT
+    0x55d1df3c43e0 ---------A   01270  FOR J=1 TO 64
+    0x55d1df3c46e0 ---------A   01280  A(J)=1
+    0x55d1df3c4810 ---------A   01290  NEXT J
+    0x55d1df3c4ba0 ---------A   01300  FOR J=19 TO 43 STEP 8
+    0x55d1df3c5080 ---------A   01310  FOR I=J TO J+3
+    0x55d1df3c5380 ---------A   01320  A(I)=0
+    0x55d1df3c54b0 ---------A   01330  NEXT I
+    0x55d1df3c5600 ---------A   01340  NEXT J
+    0x55d1df3c5b00 ---------A   01350  M=0
+    0x55d1df3c5b70 ---------A   01360  GOTO 1640
+    0x55d1df3c5da0 ---------A   01370  INPUT "JUMP FROM";F
+    0x55d1df3c6000 ---------A   01380  IF F=0 THEN 1730
+    0x55d1df3c6240 ---------A   01390  INPUT "TO";T
+    0x55d1df3c62a0 ---------A   01400  PRINT
+    0x55d1df3c6330 ---------A   01410  REM *** CHECK LEGALITY OF MOVE
+    0x55d1df3c6960 ---------A   01420  F1=INT((F-1)/8)
+    0x55d1df3c6e70 ---------A   01430  F2=F-8*F1
+    0x55d1df3c7480 ---------A   01440  T1=INT((T-1)/8)
+    0x55d1df3c7990 ---------A   01450  T2=T-8*T1
+    0x55d1df3c7be0 ---------A   01460  IF F1>7 THEN 1560
+    0x55d1df3c7e40 ---------A   01470  IF T1>7 THEN 1560
+    0x55d1df3c80a0 ---------A   01480  IF F2>8 THEN 1560
+    0x55d1df3c8310 ---------A   01490  IF T2>8 THEN 1560
+    0x55d1df3c8780 ---------A   01500  IF ABS(F1-T1)<>2 THEN 1560
+    0x55d1df3c8bf0 ---------A   01510  IF ABS(F2-T2)<>2 THEN 1560
+    0x55d1df3c9190 ---------A   01520  IF A((T+F)/2)=0 THEN 1560
+    0x55d1df3c94d0 ---------A   01530  IF A(F)=0 THEN 1560
+    0x55d1df3c9810 ---------A   01540  IF A(T)=1 THEN 1560
+    0x55d1df3c98a0 ---------A   01550  GOTO 1590
+    0x55d1df3c9a00 ---------A   01560  PRINT "ILLEGAL MOVE.  TRY AGAIN..."
+    0x55d1df3c9a90 ---------A   01570  GOTO 1370
+    0x55d1df3c9b00 ---------A   01580  REM *** UPDATE BOARD
+    0x55d1df3c9e10 ---------A   01590  A(T)=1
+    0x55d1df3ca100 ---------A   01600  A(F)=0
+    0x55d1df3ca650 ---------A   01610  A((T+F)/2)=0
+    0x55d1df3ca980 ---------A   01620  M=M+1
+    0x55d1df3ca9f0 ---------A   01630  REM *** PRINT BOARD
+    0x55d1df3cadb0 ---------A   01640  FOR J=1 TO 57 STEP 8
+    0x55d1df3cb1d0 ---------A   01650  FOR I=J TO J+7
+    0x55d1df3cb430 ---------A   01660  PRINT A(I);
+    0x55d1df3cb980 ---------A   01670  NEXT I
+    0x55d1df3cba10 ---------A   01680  PRINT
+    0x55d1df3cbb50 ---------A   01690  NEXT J
+    0x55d1df3cbbe0 ---------A   01700  PRINT
+    0x55d1df3cbc70 ---------A   01710  GOTO 1370
+    0x55d1df3cbcf0 ---------A   01720  REM *** END GAME SUMMARY
+    0x55d1df3cbfe0 ---------A   01730  S=0
+    0x55d1df3cc2b0 ---------A   01740  FOR I=1 TO 64
+    0x55d1df3cc6f0 ---------A   01750  S=S+A(I)
+    0x55d1df3cc820 ---------A   01760  NEXT I
+    0x55d1df3cc8b0 ----------   01770  PRINT
+    0x55d1df3cce20 ---------A   01780  PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
+    0x55d1df3ccf90 ---------A   01790  PRINT "REMAINING ON THE BOARD."
+    0x55d1df3cd020 ---------A   01800  PRINT
+    0x55d1df3cd260 ---------A   01810  INPUT "TRY AGAIN";A$
+    0x55d1df3cd4e0 ---------A   01820  IF A$="YES" THEN 1200
+    0x55d1df3cd780 ---------A   01830  IF A$="NO" THEN 1860
+    0x55d1df3cd8f0 ---------A   01840  PRINT "PLEASE ANSWER 'YES' OR 'NO'."
+    0x55d1df3cd970 ---------A   01850  GOTO 1810
+    0x55d1df3cd9f0 ---------A   01860  PRINT
+    0x55d1df3cdb60 ---------A   01870  PRINT "O.K.  HOPE YOU HAD FUN!!"
+    0x55d1df3cdbc0 ---------A   01880  END
  */
 
 
@@ -134,7 +336,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01860 - 10000    8150 
+     01890 - 10000    8120 
 
  */
 
@@ -228,92 +430,95 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x626f9297eb80 ---------A   01000 PRINT TAB(30);"ONE CHECK"
-    0x626f9297ff30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x626f929800b0 ---------A   01020 PRINT: PRINT: PRINT
-    0x626f9297da20 ---------A   01030 DIM A(64)
-    0x626f9297d830 ---------A   01040 PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
-    0x626f9297de40 ---------A   01050 PRINT
-    0x626f9297f6f0 ---------A   01060 PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
-    0x626f92980100 ---------A   01070 PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
-    0x626f9297e670 ---------A   01080 PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
-    0x626f9297e780 ---------A   01090 PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
-    0x626f929858f0 ---------A   01100 PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
-    0x626f92985a90 ---------A   01110 PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
-    0x626f92985c30 ---------A   01120 PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
-    0x626f92985d80 ---------A   01130 PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
-    0x626f92985e90 ---------A   01140 PRINT "QUESTION 'JUMP FROM ?'"
-    0x626f92985ee0 ---------A   01150 PRINT
-    0x626f92985ff0 ---------A   01160 PRINT "HERE IS THE NUMERICAL BOARD:"
-    0x626f92986040 ---------A   01170 PRINT
-    0x626f9297d6d0 ---------A T 01180 FOR J=1 TO 57 STEP 8
-    0x626f92987540 ---------A   01190 PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
-    0x626f92987c10 ---------A   01200 PRINT TAB(24);J+6;TAB(28);J+7
-    0x626f92987d40 ---------A   01210 NEXT J
-    0x626f92987df0 ---------A   01220 PRINT
-    0x626f92987f60 ---------A   01230 PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
-    0x626f92987fd0 ---------A   01240 PRINT
-    0x626f9297d670 ---------A   01250 FOR J=1 TO 64
-    0x626f92988540 ---------A   01260 A(J)=1
-    0x626f92988670 ---------A   01270 NEXT J
-    0x626f929889f0 ---------A   01280 FOR J=19 TO 43 STEP 8
-    0x626f92988ed0 ---------A   01290 FOR I=J TO J+3
-    0x626f929891d0 ---------A   01300 A(I)=0
-    0x626f92989300 ---------A   01310 NEXT I
-    0x626f92989440 ---------A   01320 NEXT J
-    0x626f92989930 ---------A   01330 M=0
-    0x626f929899a0 ---------A   01340 GOTO 1620
-    0x626f92989bc0 ---------A T 01350 INPUT "JUMP FROM";F
-    0x626f92989e20 ---------A   01360 IF F=0 THEN 1710
-    0x626f9298a060 ---------A   01370 INPUT "TO";T
-    0x626f9298a0c0 ---------A   01380 PRINT
-    0x626f9298a140 ---------A   01390 REM *** CHECK LEGALITY OF MOVE
-    0x626f9298a760 ---------A   01400 F1=INT((F-1)/8)
-    0x626f9298ac70 ---------A   01410 F2=F-8*F1
-    0x626f9298b280 ---------A   01420 T1=INT((T-1)/8)
-    0x626f9298b790 ---------A   01430 T2=T-8*T1
-    0x626f9298b9e0 ---------A   01440 IF F1>7 THEN 1540
-    0x626f9298bc40 ---------A   01450 IF T1>7 THEN 1540
-    0x626f9298bea0 ---------A   01460 IF F2>8 THEN 1540
-    0x626f9298c110 ---------A   01470 IF T2>8 THEN 1540
-    0x626f9298c580 ---------A   01480 IF ABS(F1-T1)<>2 THEN 1540
-    0x626f9298c9f0 ---------A   01490 IF ABS(F2-T2)<>2 THEN 1540
-    0x626f9298cf90 ---------A   01500 IF A((T+F)/2)=0 THEN 1540
-    0x626f9298d2d0 ---------A   01510 IF A(F)=0 THEN 1540
-    0x626f9298d610 ---------A   01520 IF A(T)=1 THEN 1540
-    0x626f9298d6a0 ---------A   01530 GOTO 1570
-    0x626f9298d7f0 ---------A T 01540 PRINT "ILLEGAL MOVE.  TRY AGAIN..."
-    0x626f9298d870 ---------A   01550 GOTO 1350
-    0x626f9298d8d0 ---------A   01560 REM *** UPDATE BOARD
-    0x626f9298dbd0 ---------A T 01570 A(T)=1
-    0x626f9298dec0 ---------A   01580 A(F)=0
-    0x626f9298e410 ---------A   01590 A((T+F)/2)=0
-    0x626f9298e740 ---------A   01600 M=M+1
-    0x626f9298e7b0 ---------A   01610 REM *** PRINT BOARD
-    0x626f9298eb60 ---------A T 01620 FOR J=1 TO 57 STEP 8
-    0x626f9298ef80 ---------A   01630 FOR I=J TO J+7
-    0x626f9298f1e0 ---------A   01640 PRINT A(I);
-    0x626f9298f720 ---------A   01650 NEXT I
-    0x626f9298f7a0 ---------A   01660 PRINT
-    0x626f9298f8d0 ---------A   01670 NEXT J
-    0x626f9298f950 ---------A   01680 PRINT
-    0x626f9298f9d0 ---------A   01690 GOTO 1350
-    0x626f9298fa40 ---------A   01700 REM *** END GAME SUMMARY
-    0x626f9298fd20 ---------A T 01710 S=0
-    0x626f9298fff0 ---------A   01720 FOR I=1 TO 64
-    0x626f92990430 ---------A   01730 S=S+A(I)
-    0x626f92990560 ---------A   01740 NEXT I
-    0x626f92990b40 ---------A   01750 PRINT:PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
-    0x626f92990ca0 ---------A   01760 PRINT "REMAINING ON THE BOARD."
-    0x626f92990d20 ---------A   01770 PRINT
-    0x626f92990f50 ---------A T 01780 INPUT "TRY AGAIN";A$
-    0x626f929911d0 ---------A   01790 IF A$="YES" THEN 1180
-    0x626f92991470 ---------A   01800 IF A$="NO" THEN 1830
-    0x626f929915e0 ---------A   01810 PRINT "PLEASE ANSWER 'YES' OR 'NO'."
-    0x626f92991650 ---------A   01820 GOTO 1780
-    0x626f929916c0 ---------A T 01830 PRINT
-    0x626f92991820 ---------A   01840 PRINT "O.K.  HOPE YOU HAD FUN!!"
-    0x626f92991870 ---------A   01850 END
+    0x55d1df3b96d0 ---------A   01000  PRINT TAB(30);"ONE CHECK"
+    0x55d1df3b9670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x55d1df3aa2b0 ---------A   01020  PRINT
+    0x55d1df3b99e0 ---------A   01030  PRINT
+    0x55d1df3b97f0 ---------A   01040  PRINT
+    0x55d1df3bab80 ---------A   01050  DIM A(64)
+    0x55d1df3b9e80 ---------A   01060  PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
+    0x55d1df3ba480 ---------A   01070  PRINT
+    0x55d1df3bb720 ---------A   01080  PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
+    0x55d1df3bc100 ---------A   01090  PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
+    0x55d1df3ba670 ---------A   01100  PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
+    0x55d1df3ba7d0 ---------A   01110  PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
+    0x55d1df3c1970 ---------A   01120  PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
+    0x55d1df3c1b20 ---------A   01130  PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
+    0x55d1df3c1cd0 ---------A   01140  PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
+    0x55d1df3c1e30 ---------A   01150  PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
+    0x55d1df3c1f50 ---------A   01160  PRINT "QUESTION 'JUMP FROM ?'"
+    0x55d1df3c1fb0 ---------A   01170  PRINT
+    0x55d1df3c20d0 ---------A   01180  PRINT "HERE IS THE NUMERICAL BOARD:"
+    0x55d1df3c2130 ---------A   01190  PRINT
+    0x55d1df3c2580 ---------A T 01200  FOR J=1 TO 57 STEP 8
+    0x55d1df3c3620 ---------A   01210  PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
+    0x55d1df3c3d00 ---------A   01220  PRINT TAB(24);J+6;TAB(28);J+7
+    0x55d1df3c3e40 ---------A   01230  NEXT J
+    0x55d1df3c3f00 ---------A   01240  PRINT
+    0x55d1df3c4080 ---------A   01250  PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
+    0x55d1df3c4100 ---------A   01260  PRINT
+    0x55d1df3c43e0 ---------A   01270  FOR J=1 TO 64
+    0x55d1df3c46e0 ---------A   01280  A(J)=1
+    0x55d1df3c4810 ---------A   01290  NEXT J
+    0x55d1df3c4ba0 ---------A   01300  FOR J=19 TO 43 STEP 8
+    0x55d1df3c5080 ---------A   01310  FOR I=J TO J+3
+    0x55d1df3c5380 ---------A   01320  A(I)=0
+    0x55d1df3c54b0 ---------A   01330  NEXT I
+    0x55d1df3c5600 ---------A   01340  NEXT J
+    0x55d1df3c5b00 ---------A   01350  M=0
+    0x55d1df3c5b70 ---------A   01360  GOTO 1640
+    0x55d1df3c5da0 ---------A T 01370  INPUT "JUMP FROM";F
+    0x55d1df3c6000 ---------A   01380  IF F=0 THEN 1730
+    0x55d1df3c6240 ---------A   01390  INPUT "TO";T
+    0x55d1df3c62a0 ---------A   01400  PRINT
+    0x55d1df3c6330 ---------A   01410  REM *** CHECK LEGALITY OF MOVE
+    0x55d1df3c6960 ---------A   01420  F1=INT((F-1)/8)
+    0x55d1df3c6e70 ---------A   01430  F2=F-8*F1
+    0x55d1df3c7480 ---------A   01440  T1=INT((T-1)/8)
+    0x55d1df3c7990 ---------A   01450  T2=T-8*T1
+    0x55d1df3c7be0 ---------A   01460  IF F1>7 THEN 1560
+    0x55d1df3c7e40 ---------A   01470  IF T1>7 THEN 1560
+    0x55d1df3c80a0 ---------A   01480  IF F2>8 THEN 1560
+    0x55d1df3c8310 ---------A   01490  IF T2>8 THEN 1560
+    0x55d1df3c8780 ---------A   01500  IF ABS(F1-T1)<>2 THEN 1560
+    0x55d1df3c8bf0 ---------A   01510  IF ABS(F2-T2)<>2 THEN 1560
+    0x55d1df3c9190 ---------A   01520  IF A((T+F)/2)=0 THEN 1560
+    0x55d1df3c94d0 ---------A   01530  IF A(F)=0 THEN 1560
+    0x55d1df3c9810 ---------A   01540  IF A(T)=1 THEN 1560
+    0x55d1df3c98a0 ---------A   01550  GOTO 1590
+    0x55d1df3c9a00 ---------A T 01560  PRINT "ILLEGAL MOVE.  TRY AGAIN..."
+    0x55d1df3c9a90 ---------A   01570  GOTO 1370
+    0x55d1df3c9b00 ---------A   01580  REM *** UPDATE BOARD
+    0x55d1df3c9e10 ---------A T 01590  A(T)=1
+    0x55d1df3ca100 ---------A   01600  A(F)=0
+    0x55d1df3ca650 ---------A   01610  A((T+F)/2)=0
+    0x55d1df3ca980 ---------A   01620  M=M+1
+    0x55d1df3ca9f0 ---------A   01630  REM *** PRINT BOARD
+    0x55d1df3cadb0 ---------A T 01640  FOR J=1 TO 57 STEP 8
+    0x55d1df3cb1d0 ---------A   01650  FOR I=J TO J+7
+    0x55d1df3cb430 ---------A   01660  PRINT A(I);
+    0x55d1df3cb980 ---------A   01670  NEXT I
+    0x55d1df3cba10 ---------A   01680  PRINT
+    0x55d1df3cbb50 ---------A   01690  NEXT J
+    0x55d1df3cbbe0 ---------A   01700  PRINT
+    0x55d1df3cbc70 ---------A   01710  GOTO 1370
+    0x55d1df3cbcf0 ---------A   01720  REM *** END GAME SUMMARY
+    0x55d1df3cbfe0 ---------A T 01730  S=0
+    0x55d1df3cc2b0 ---------A   01740  FOR I=1 TO 64
+    0x55d1df3cc6f0 ---------A   01750  S=S+A(I)
+    0x55d1df3cc820 ---------A   01760  NEXT I
+    0x55d1df3cc8b0 ---------A   01770  PRINT
+    0x55d1df3cce20 ---------A   01780  PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
+    0x55d1df3ccf90 ---------A   01790  PRINT "REMAINING ON THE BOARD."
+    0x55d1df3cd020 ---------A   01800  PRINT
+    0x55d1df3cd260 ---------A T 01810  INPUT "TRY AGAIN";A$
+    0x55d1df3cd4e0 ---------A   01820  IF A$="YES" THEN 1200
+    0x55d1df3cd780 ---------A   01830  IF A$="NO" THEN 1860
+    0x55d1df3cd8f0 ---------A   01840  PRINT "PLEASE ANSWER 'YES' OR 'NO'."
+    0x55d1df3cd970 ---------A   01850  GOTO 1810
+    0x55d1df3cd9f0 ---------A T 01860  PRINT
+    0x55d1df3cdb60 ---------A   01870  PRINT "O.K.  HOPE YOU HAD FUN!!"
+    0x55d1df3cdbc0 ---------A   01880  END
  */
 
 //---------------------------------------------------------------------------
@@ -415,3 +620,252 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(30);"ONE CHECK"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,30);strcat(buf,"ONE CHECK");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 DIM A(64)
+    // 01060 PRINT "SOLITAIRE CHECKER PUZZLE BY DAVID AHL"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SOLITAIRE CHECKER PUZZLE BY DAVID AHL");strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01080 PRINT "48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"48 CHECKERS ARE PLACED ON THE 2 OUTSIDE SPACES OF A");strcat(buf,"\n");fputs(buf,fh); };
+    // 01090 PRINT "STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"STANDARD 64-SQUARE CHECKERBOARD.  THE OBJECT IS TO");strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT "REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"REMOVE AS MANY CHECKERS AS POSSIBLE BY DIAGONAL JUMPS");strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 PRINT "(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"(AS IN STANDARD CHECKERS).  USE THE NUMBERED BOARD TO");strcat(buf,"\n");fputs(buf,fh); };
+    // 01120 PRINT "INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"INDICATE THE SQUARE YOU WISH TO JUMP FROM AND TO.  ON");strcat(buf,"\n");fputs(buf,fh); };
+    // 01130 PRINT "THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE BOARD PRINTED OUT ON EACH TURN '1' INDICATES A");strcat(buf,"\n");fputs(buf,fh); };
+    // 01140 PRINT "CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"CHECKER AND '0' AN EMPTY SQUARE.  WHEN YOU HAVE NO");strcat(buf,"\n");fputs(buf,fh); };
+    // 01150 PRINT "POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"POSSIBLE JUMPS REMAINING, INPUT A '0' IN RESPONSE TO");strcat(buf,"\n");fputs(buf,fh); };
+    // 01160 PRINT "QUESTION 'JUMP FROM ?'"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"QUESTION 'JUMP FROM ?'");strcat(buf,"\n");fputs(buf,fh); };
+    // 01170 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01180 PRINT "HERE IS THE NUMERICAL BOARD:"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HERE IS THE NUMERICAL BOARD:");strcat(buf,"\n");fputs(buf,fh); };
+    // 01190 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01200:
+    // 01200 FOR J=1 TO 57 STEP 8
+    for(J_int=1;J_int<=57;J_int+=8){
+        // 01210 PRINT J;TAB(4);J+1;TAB(8);J+2;TAB(12);J+3;TAB(16);J+4;TAB(20);J+5;
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,J_int);b2c_TAB(buf,4); b2c_INT(buf,J_int+1);b2c_TAB(buf,8); b2c_INT(buf,J_int+2);b2c_TAB(buf,12); b2c_INT(buf,J_int+3);b2c_TAB(buf,16); b2c_INT(buf,J_int+4);b2c_TAB(buf,20); b2c_INT(buf,J_int+5);fputs(buf,fh); };
+        // 01220 PRINT TAB(24);J+6;TAB(28);J+7
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,24); b2c_INT(buf,J_int+6);b2c_TAB(buf,28); b2c_INT(buf,J_int+7);strcat(buf,"\n");fputs(buf,fh); };
+        // 01230 NEXT J
+        int dummy_1230=0; // Ignore this line.
+    }; // End-For(J_int)
+    // 01240 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01250 PRINT "AND HERE IS THE OPENING POSITION OF THE CHECKERS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"AND HERE IS THE OPENING POSITION OF THE CHECKERS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01260 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01270 FOR J=1 TO 64
+    for(J_int=1;J_int<=64;J_int++){
+        // 01280 A(J)=1
+        A_int_arr[J_int] = 1;
+        // 01290 NEXT J
+        int dummy_1290=0; // Ignore this line.
+    }; // End-For(J_int)
+    // 01300 FOR J=19 TO 43 STEP 8
+    for(J_int=19;J_int<=43;J_int+=8){
+        // 01310 FOR I=J TO J+3
+        for(I_int=J_int;I_int<=J_int+3;I_int++){
+            // 01320 A(I)=0
+            A_int_arr[I_int] = 0;
+            // 01330 NEXT I
+            int dummy_1330=0; // Ignore this line.
+        }; // End-For(I_int)
+        // 01340 NEXT J
+        int dummy_1340=0; // Ignore this line.
+    }; // End-For(J_int)
+    // 01350 M=0
+    M_int = 0;
+    // 01360 GOTO 1640
+    goto Lbl_01640;
+
+  Lbl_01370:
+    // 01370 INPUT "JUMP FROM";F
+    // Start of Basic INPUT statement 01370
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout,"JUMP FROM");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&F_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01370
+    // 01380 IF F=0 THEN 1730
+    if(F_int==0)goto Lbl_01730;
+    // 01390 INPUT "TO";T
+    // Start of Basic INPUT statement 01390
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout,"TO");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&T_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01390
+    // 01400 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01410 REM *** CHECK LEGALITY OF MOVE
+    // 01420 F1=INT((F-1)/8)
+    F1_int = INT((F_int-1)/8);
+    // 01430 F2=F-8*F1
+    F2_int = F_int-8*F1_int;
+    // 01440 T1=INT((T-1)/8)
+    T1_int = INT((T_int-1)/8);
+    // 01450 T2=T-8*T1
+    T2_int = T_int-8*T1_int;
+    // 01460 IF F1>7 THEN 1560
+    if(F1_int>7)goto Lbl_01560;
+    // 01470 IF T1>7 THEN 1560
+    if(T1_int>7)goto Lbl_01560;
+    // 01480 IF F2>8 THEN 1560
+    if(F2_int>8)goto Lbl_01560;
+    // 01490 IF T2>8 THEN 1560
+    if(T2_int>8)goto Lbl_01560;
+    // 01500 IF ABS(F1-T1)<>2 THEN 1560
+    if(ABS(F1_int-T1_int)!=2)goto Lbl_01560;
+    // 01510 IF ABS(F2-T2)<>2 THEN 1560
+    if(ABS(F2_int-T2_int)!=2)goto Lbl_01560;
+    // 01520 IF A((T+F)/2)=0 THEN 1560
+    if(A_int_arr[(T_int+F_int)/2]==0)goto Lbl_01560;
+    // 01530 IF A(F)=0 THEN 1560
+    if(A_int_arr[F_int]==0)goto Lbl_01560;
+    // 01540 IF A(T)=1 THEN 1560
+    if(A_int_arr[T_int]==1)goto Lbl_01560;
+    // 01550 GOTO 1590
+    goto Lbl_01590;
+
+  Lbl_01560:
+    // 01560 PRINT "ILLEGAL MOVE.  TRY AGAIN..."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"ILLEGAL MOVE.  TRY AGAIN...");strcat(buf,"\n");fputs(buf,fh); };
+    // 01570 GOTO 1370
+    goto Lbl_01370;
+    // 01580 REM *** UPDATE BOARD
+
+  Lbl_01590:
+    // 01590 A(T)=1
+    A_int_arr[T_int] = 1;
+    // 01600 A(F)=0
+    A_int_arr[F_int] = 0;
+    // 01610 A((T+F)/2)=0
+    A_int_arr[(T_int+F_int)/2] = 0;
+    // 01620 M=M+1
+    M_int = M_int+1;
+    // 01630 REM *** PRINT BOARD
+
+  Lbl_01640:
+    // 01640 FOR J=1 TO 57 STEP 8
+    for(J_int=1;J_int<=57;J_int+=8){
+        // 01650 FOR I=J TO J+7
+        for(I_int=J_int;I_int<=J_int+7;I_int++){
+            // 01660 PRINT A(I);
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,A_int_arr[I_int]);fputs(buf,fh); };
+            // 01670 NEXT I
+            int dummy_1670=0; // Ignore this line.
+        }; // End-For(I_int)
+        // 01680 PRINT
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 01690 NEXT J
+        int dummy_1690=0; // Ignore this line.
+    }; // End-For(J_int)
+    // 01700 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01710 GOTO 1370
+    goto Lbl_01370;
+    // 01720 REM *** END GAME SUMMARY
+
+  Lbl_01730:
+    // 01730 S=0
+    S_int = 0;
+    // 01740 FOR I=1 TO 64
+    for(I_int=1;I_int<=64;I_int++){
+        // 01750 S=S+A(I)
+        S_int = S_int+A_int_arr[I_int];
+        // 01760 NEXT I
+        int dummy_1760=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 01770 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01780 PRINT "YOU MADE";M;"JUMPS AND HAD";S;"PIECES"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU MADE"); b2c_INT(buf,M_int);strcat(buf,"JUMPS AND HAD"); b2c_INT(buf,S_int);strcat(buf,"PIECES");strcat(buf,"\n");fputs(buf,fh); };
+    // 01790 PRINT "REMAINING ON THE BOARD."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"REMAINING ON THE BOARD.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01800 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01810:
+    // 01810 INPUT "TRY AGAIN";A$
+    // Start of Basic INPUT statement 01810
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout,"TRY AGAIN");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&A_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01810
+    // 01820 IF A$="YES" THEN 1200
+    if(strcmp(A_str,"YES")==0)goto Lbl_01200;
+    // 01830 IF A$="NO" THEN 1860
+    if(strcmp(A_str,"NO")==0)goto Lbl_01860;
+    // 01840 PRINT "PLEASE ANSWER 'YES' OR 'NO'."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"PLEASE ANSWER 'YES' OR 'NO'.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01850 GOTO 1810
+    goto Lbl_01810;
+
+  Lbl_01860:
+    // 01860 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01870 PRINT "O.K.  HOPE YOU HAD FUN!!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"O.K.  HOPE YOU HAD FUN!!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01880 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

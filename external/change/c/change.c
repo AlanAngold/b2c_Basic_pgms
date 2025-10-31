@@ -8,57 +8,57 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x58ad41c2ab80 ---------A   00002 PRINT TAB(33);"CHANGE"
-    0x58ad41c2bf30 ---------A   00004 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x58ad41c1a2b0 ---------A   00005 PRINT:PRINT:PRINT
-    0x58ad41c297f0 ---------A   00006 PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
-    0x58ad41c2bae0 ---------A   00008 PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
-    0x58ad41c29e90 ---------A   00009 PRINT:PRINT
-    0x58ad41c29670 ---------A T 00010 PRINT "COST OF ITEM";:INPUT A:PRINT "AMOUNT OF PAYMENT";:INPUT P
-    0x58ad41c31ec0 ---------A   00020 C=P-A:M=C:IF C<>0 THEN 90
-    0x58ad41c31fe0 ---------A   00025 PRINT "CORRECT AMOUNT, THANK YOU."
-    0x58ad41c32030 ---------A   00030 GOTO 400
-    0x58ad41c32270 ---------A T 00090 IF C>0 THEN 120
-    0x58ad41c2a040 ---------A   00095 PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
-    0x58ad41c32590 ---------A   00100 GOTO 10
-    0x58ad41c327d0 ---------A T 00120 PRINT "YOUR CHANGE, $";C
-    0x58ad41c32ca0 ---------A   00130 D=INT(C/10)
-    0x58ad41c32ed0 ---------A   00140 IF D=0 THEN 155
-    0x58ad41c33130 ---------A   00150 PRINT D;"TEN DOLLAR BILL(S)"
-    0x58ad41c335c0 ---------A T 00155 C=M-(D*10)
-    0x58ad41c33a90 ---------A   00160 E=INT(C/5)
-    0x58ad41c33cc0 ---------A   00170 IF E=0 THEN 185
-    0x58ad41c33f20 ---------A   00180 PRINT E;"FIVE DOLLARS BILL(S)"
-    0x58ad41c345d0 ---------A T 00185 C=M-(D*10+E*5)
-    0x58ad41c349a0 ---------A   00190 F=INT(C)
-    0x58ad41c34bd0 ---------A   00200 IF F=0 THEN 215
-    0x58ad41c34e30 ---------A   00210 PRINT F;"ONE DOLLAR BILL(S)"
-    0x58ad41c35600 ---------A T 00215 C=M-(D*10+E*5+F)
-    0x58ad41c35930 ---------A   00220 C=C*100
-    0x58ad41c35c20 ---------A   00225 N=C
-    0x58ad41c360f0 ---------A   00230 G=INT(C/50)
-    0x58ad41c36350 ---------A   00240 IF G=0 THEN 255
-    0x58ad41c365b0 ---------A   00250 PRINT G;"ONE HALF DOLLAR(S)"
-    0x58ad41c36a40 ---------A T 00255 C=N-(G*50)
-    0x58ad41c36f10 ---------A   00260 H=INT(C/25)
-    0x58ad41c37380 ---------A   00270 IF H=0 THEN 285
-    0x58ad41c375e0 ---------A   00280 PRINT H;"QUARTER(S)"
-    0x58ad41c37c90 ---------A T 00285 C=N-(G*50+H*25)
-    0x58ad41c38160 ---------A   00290 I=INT(C/10)
-    0x58ad41c383b0 ---------A   00300 IF I=0 THEN 315
-    0x58ad41c38620 ---------A   00310 PRINT I;"DIME(S)"
-    0x58ad41c38ef0 ---------A T 00315 C=N-(G*50+H*25+I*10)
-    0x58ad41c393c0 ---------A   00320 J=INT(C/5)
-    0x58ad41c39610 ---------A   00330 IF J=0 THEN 345
-    0x58ad41c39880 ---------A   00340 PRINT J;"NICKEL(S)"
-    0x58ad41c3a370 ---------A T 00345 C=N-(G*50+H*25+I*10+J*5)
-    0x58ad41c3a840 ---------A   00350 K=INT(C+.5)
-    0x58ad41c3aa90 ---------A   00360 IF K=0 THEN 380
-    0x58ad41c3ad00 ---------A   00370 PRINT K;"PENNY(S)"
-    0x58ad41c3ae60 ---------A T 00380 PRINT "THANK YOU, COME AGAIN."
-    0x58ad41c3af20 ---------A   00390 PRINT:PRINT
-    0x58ad41c3af90 ---------A T 00400 GOTO 10
-    0x58ad41c3afd0 ---------A   00410 END
+    0x60546b6b16d0 ---------A   00002  PRINT TAB(33);"CHANGE"
+    0x60546b6b1670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x60546b6b17f0 ---------A   00005  PRINT:PRINT:PRINT
+    0x60546b6b2040 ---------A   00006  PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
+    0x60546b6b1e40 ---------A   00008  PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
+    0x60546b6b2480 ---------A   00009  PRINT:PRINT
+    0x60546b6b27a0 ---------A T 00010  PRINT "COST OF ITEM";:INPUT A:PRINT "AMOUNT OF PAYMENT";:INPUT P
+    0x60546b6b9f30 ---------A   00020  C=P-A:M=C:IF C<>0 THEN 90
+    0x60546b6ba050 ---------A   00025  PRINT "CORRECT AMOUNT, THANK YOU."
+    0x60546b6b3e70 ---------A   00030  GOTO 400
+    0x60546b6ba2d0 ---------A T 00090  IF C>0 THEN 120
+    0x60546b6ba630 ---------A   00095  PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
+    0x60546b6ba690 ---------A   00100  GOTO 10
+    0x60546b6ba8e0 ---------A T 00120  PRINT "YOUR CHANGE, $";C
+    0x60546b6badc0 ---------A   00130  D=INT(C/10)
+    0x60546b6baff0 ---------A   00140  IF D=0 THEN 155
+    0x60546b6bb250 ---------A   00150  PRINT D;"TEN DOLLAR BILL(S)"
+    0x60546b6bb6f0 ---------A T 00155  C=M-(D*10)
+    0x60546b6bbbc0 ---------A   00160  E=INT(C/5)
+    0x60546b6bbdf0 ---------A   00170  IF E=0 THEN 185
+    0x60546b6bc050 ---------A   00180  PRINT E;"FIVE DOLLARS BILL(S)"
+    0x60546b6bc710 ---------A T 00185  C=M-(D*10+E*5)
+    0x60546b6bcae0 ---------A   00190  F=INT(C)
+    0x60546b6bcd10 ---------A   00200  IF F=0 THEN 215
+    0x60546b6bcf70 ---------A   00210  PRINT F;"ONE DOLLAR BILL(S)"
+    0x60546b6bd750 ---------A T 00215  C=M-(D*10+E*5+F)
+    0x60546b6bda80 ---------A   00220  C=C*100
+    0x60546b6bdd70 ---------A   00225  N=C
+    0x60546b6be240 ---------A   00230  G=INT(C/50)
+    0x60546b6be4a0 ---------A   00240  IF G=0 THEN 255
+    0x60546b6be700 ---------A   00250  PRINT G;"ONE HALF DOLLAR(S)"
+    0x60546b6beba0 ---------A T 00255  C=N-(G*50)
+    0x60546b6bf070 ---------A   00260  H=INT(C/25)
+    0x60546b6bf4e0 ---------A   00270  IF H=0 THEN 285
+    0x60546b6bf740 ---------A   00280  PRINT H;"QUARTER(S)"
+    0x60546b6bfe00 ---------A T 00285  C=N-(G*50+H*25)
+    0x60546b6c02d0 ---------A   00290  I=INT(C/10)
+    0x60546b6c0520 ---------A   00300  IF I=0 THEN 315
+    0x60546b6c0790 ---------A   00310  PRINT I;"DIME(S)"
+    0x60546b6c1070 ---------A T 00315  C=N-(G*50+H*25+I*10)
+    0x60546b6c1540 ---------A   00320  J=INT(C/5)
+    0x60546b6c1790 ---------A   00330  IF J=0 THEN 345
+    0x60546b6c1a00 ---------A   00340  PRINT J;"NICKEL(S)"
+    0x60546b6c2500 ---------A T 00345  C=N-(G*50+H*25+I*10+J*5)
+    0x60546b6c29d0 ---------A   00350  K=INT(C+.5)
+    0x60546b6c2c20 ---------A   00360  IF K=0 THEN 380
+    0x60546b6c2e90 ---------A   00370  PRINT K;"PENNY(S)"
+    0x60546b6c3000 ---------A T 00380  PRINT "THANK YOU, COME AGAIN."
+    0x60546b6c30e0 ---------A   00390  PRINT:PRINT
+    0x60546b6c3160 ---------A T 00400  GOTO 10
+    0x60546b6c31b0 ---------A   00410  END
  */
 
 /*
@@ -89,9 +89,153 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x58ad41c2ab80 (00002)   0x58ad41c2ab80 (00002)   0x58ad41c3afd0 (00410)   0x58ad41c3afd0 (00410)   
+   A) 0x60546b6b16d0 (00002)   0x60546b6b16d0 (00002)   0x60546b6c31b0 (00410)   0x60546b6c31b0 (00410)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/change.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x60546b6b16d0 ---------A   00002  PRINT TAB(33);"CHANGE"
+    0x60546b6b1670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x60546b6a22b0 ----------   00005  PRINT
+    0x60546b6b19e0 ----------        a PRINT
+    0x60546b6b17f0 ---------A        b PRINT
+    0x60546b6b2040 ---------A   00006  PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
+    0x60546b6b1e40 ---------A   00008  PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
+    0x60546b6b1ea0 ----------   00009  PRINT
+    0x60546b6b2480 ---------A        a PRINT
+    0x60546b6b36a0 ---------- T 00010  PRINT "COST OF ITEM";
+    0x60546b6b41a0 ---------- T      a INPUT A
+    0x60546b6b3720 ---------- T      b PRINT "AMOUNT OF PAYMENT";
+    0x60546b6b27a0 ---------A T      c INPUT P
+    0x60546b6b40b0 ----------   00020  C=P-A
+    0x60546b6b9d20 ----------        a M=C
+    0x60546b6b9f30 ---------A        b IF C<>0 THEN 90
+    0x60546b6ba050 ---------A   00025  PRINT "CORRECT AMOUNT, THANK YOU."
+    0x60546b6b3e70 ---------A   00030  GOTO 400
+    0x60546b6ba2d0 ---------A T 00090  IF C>0 THEN 120
+    0x60546b6ba630 ---------A   00095  PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
+    0x60546b6ba690 ---------A   00100  GOTO 10
+    0x60546b6ba8e0 ---------A T 00120  PRINT "YOUR CHANGE, $";C
+    0x60546b6badc0 ---------A   00130  D=INT(C/10)
+    0x60546b6baff0 ---------A   00140  IF D=0 THEN 155
+    0x60546b6bb250 ---------A   00150  PRINT D;"TEN DOLLAR BILL(S)"
+    0x60546b6bb6f0 ---------A T 00155  C=M-(D*10)
+    0x60546b6bbbc0 ---------A   00160  E=INT(C/5)
+    0x60546b6bbdf0 ---------A   00170  IF E=0 THEN 185
+    0x60546b6bc050 ---------A   00180  PRINT E;"FIVE DOLLARS BILL(S)"
+    0x60546b6bc710 ---------A T 00185  C=M-(D*10+E*5)
+    0x60546b6bcae0 ---------A   00190  F=INT(C)
+    0x60546b6bcd10 ---------A   00200  IF F=0 THEN 215
+    0x60546b6bcf70 ---------A   00210  PRINT F;"ONE DOLLAR BILL(S)"
+    0x60546b6bd750 ---------A T 00215  C=M-(D*10+E*5+F)
+    0x60546b6bda80 ---------A   00220  C=C*100
+    0x60546b6bdd70 ---------A   00225  N=C
+    0x60546b6be240 ---------A   00230  G=INT(C/50)
+    0x60546b6be4a0 ---------A   00240  IF G=0 THEN 255
+    0x60546b6be700 ---------A   00250  PRINT G;"ONE HALF DOLLAR(S)"
+    0x60546b6beba0 ---------A T 00255  C=N-(G*50)
+    0x60546b6bf070 ---------A   00260  H=INT(C/25)
+    0x60546b6bf4e0 ---------A   00270  IF H=0 THEN 285
+    0x60546b6bf740 ---------A   00280  PRINT H;"QUARTER(S)"
+    0x60546b6bfe00 ---------A T 00285  C=N-(G*50+H*25)
+    0x60546b6c02d0 ---------A   00290  I=INT(C/10)
+    0x60546b6c0520 ---------A   00300  IF I=0 THEN 315
+    0x60546b6c0790 ---------A   00310  PRINT I;"DIME(S)"
+    0x60546b6c1070 ---------A T 00315  C=N-(G*50+H*25+I*10)
+    0x60546b6c1540 ---------A   00320  J=INT(C/5)
+    0x60546b6c1790 ---------A   00330  IF J=0 THEN 345
+    0x60546b6c1a00 ---------A   00340  PRINT J;"NICKEL(S)"
+    0x60546b6c2500 ---------A T 00345  C=N-(G*50+H*25+I*10+J*5)
+    0x60546b6c29d0 ---------A   00350  K=INT(C+.5)
+    0x60546b6c2c20 ---------A   00360  IF K=0 THEN 380
+    0x60546b6c2e90 ---------A   00370  PRINT K;"PENNY(S)"
+    0x60546b6c3000 ---------A T 00380  PRINT "THANK YOU, COME AGAIN."
+    0x60546b6c3060 ----------   00390  PRINT
+    0x60546b6c30e0 ---------A        a PRINT
+    0x60546b6c3160 ---------A T 00400  GOTO 10
+    0x60546b6c31b0 ---------A   00410  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/change.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x60546b6b16d0 ---------A   01000  PRINT TAB(33);"CHANGE"
+    0x60546b6b1670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x60546b6a22b0 ----------   01020  PRINT
+    0x60546b6b19e0 ----------   01030  PRINT
+    0x60546b6b17f0 ---------A   01040  PRINT
+    0x60546b6b2040 ---------A   01050  PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
+    0x60546b6b1e40 ---------A   01060  PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
+    0x60546b6b1ea0 ----------   01070  PRINT
+    0x60546b6b2480 ---------A   01080  PRINT
+    0x60546b6b36a0 ----------   01090  PRINT "COST OF ITEM";
+    0x60546b6b41a0 ----------   01100  INPUT A
+    0x60546b6b3720 ----------   01110  PRINT "AMOUNT OF PAYMENT";
+    0x60546b6b27a0 ---------A   01120  INPUT P
+    0x60546b6b40b0 ----------   01130  C=P-A
+    0x60546b6b9d20 ----------   01140  M=C
+    0x60546b6b9f30 ---------A   01150  IF C<>0 THEN 1180
+    0x60546b6ba050 ---------A   01160  PRINT "CORRECT AMOUNT, THANK YOU."
+    0x60546b6b3e70 ---------A   01170  GOTO 1580
+    0x60546b6ba2d0 ---------A   01180  IF C>0 THEN 1210
+    0x60546b6ba630 ---------A   01190  PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
+    0x60546b6ba690 ---------A   01200  GOTO 1120
+    0x60546b6ba8e0 ---------A   01210  PRINT "YOUR CHANGE, $";C
+    0x60546b6badc0 ---------A   01220  D=INT(C/10)
+    0x60546b6baff0 ---------A   01230  IF D=0 THEN 1250
+    0x60546b6bb250 ---------A   01240  PRINT D;"TEN DOLLAR BILL(S)"
+    0x60546b6bb6f0 ---------A   01250  C=M-(D*10)
+    0x60546b6bbbc0 ---------A   01260  E=INT(C/5)
+    0x60546b6bbdf0 ---------A   01270  IF E=0 THEN 1290
+    0x60546b6bc050 ---------A   01280  PRINT E;"FIVE DOLLARS BILL(S)"
+    0x60546b6bc710 ---------A   01290  C=M-(D*10+E*5)
+    0x60546b6bcae0 ---------A   01300  F=INT(C)
+    0x60546b6bcd10 ---------A   01310  IF F=0 THEN 1330
+    0x60546b6bcf70 ---------A   01320  PRINT F;"ONE DOLLAR BILL(S)"
+    0x60546b6bd750 ---------A   01330  C=M-(D*10+E*5+F)
+    0x60546b6bda80 ---------A   01340  C=C*100
+    0x60546b6bdd70 ---------A   01350  N=C
+    0x60546b6be240 ---------A   01360  G=INT(C/50)
+    0x60546b6be4a0 ---------A   01370  IF G=0 THEN 1390
+    0x60546b6be700 ---------A   01380  PRINT G;"ONE HALF DOLLAR(S)"
+    0x60546b6beba0 ---------A   01390  C=N-(G*50)
+    0x60546b6bf070 ---------A   01400  H=INT(C/25)
+    0x60546b6bf4e0 ---------A   01410  IF H=0 THEN 1430
+    0x60546b6bf740 ---------A   01420  PRINT H;"QUARTER(S)"
+    0x60546b6bfe00 ---------A   01430  C=N-(G*50+H*25)
+    0x60546b6c02d0 ---------A   01440  I=INT(C/10)
+    0x60546b6c0520 ---------A   01450  IF I=0 THEN 1470
+    0x60546b6c0790 ---------A   01460  PRINT I;"DIME(S)"
+    0x60546b6c1070 ---------A   01470  C=N-(G*50+H*25+I*10)
+    0x60546b6c1540 ---------A   01480  J=INT(C/5)
+    0x60546b6c1790 ---------A   01490  IF J=0 THEN 1510
+    0x60546b6c1a00 ---------A   01500  PRINT J;"NICKEL(S)"
+    0x60546b6c2500 ---------A   01510  C=N-(G*50+H*25+I*10+J*5)
+    0x60546b6c29d0 ---------A   01520  K=INT(C+.5)
+    0x60546b6c2c20 ---------A   01530  IF K=0 THEN 1550
+    0x60546b6c2e90 ---------A   01540  PRINT K;"PENNY(S)"
+    0x60546b6c3000 ---------A   01550  PRINT "THANK YOU, COME AGAIN."
+    0x60546b6c3060 ----------   01560  PRINT
+    0x60546b6c30e0 ---------A   01570  PRINT
+    0x60546b6c3160 ---------A   01580  GOTO 1120
+    0x60546b6c31b0 ---------A   01590  END
  */
 
 
@@ -102,7 +246,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01510 - 10000    8500 
+     01600 - 10000    8410 
 
  */
 
@@ -197,57 +341,66 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x58ad41c2ab80 ---------A   01000 PRINT TAB(33);"CHANGE"
-    0x58ad41c2bf30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x58ad41c1a2b0 ---------A   01020 PRINT:PRINT:PRINT
-    0x58ad41c297f0 ---------A   01030 PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
-    0x58ad41c2bae0 ---------A   01040 PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
-    0x58ad41c29e90 ---------A   01050 PRINT:PRINT
-    0x58ad41c29670 ---------A T 01060 PRINT "COST OF ITEM";:INPUT A:PRINT "AMOUNT OF PAYMENT";:INPUT P
-    0x58ad41c31ec0 ---------A   01070 C=P-A:M=C:IF C<>0 THEN 1100
-    0x58ad41c31fe0 ---------A   01080 PRINT "CORRECT AMOUNT, THANK YOU."
-    0x58ad41c32030 ---------A   01090 GOTO 1490
-    0x58ad41c32270 ---------A T 01100 IF C>0 THEN 1130
-    0x58ad41c2a040 ---------A   01110 PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
-    0x58ad41c32590 ---------A   01120 GOTO 1060
-    0x58ad41c327d0 ---------A T 01130 PRINT "YOUR CHANGE, $";C
-    0x58ad41c32ca0 ---------A   01140 D=INT(C/10)
-    0x58ad41c32ed0 ---------A   01150 IF D=0 THEN 1170
-    0x58ad41c33130 ---------A   01160 PRINT D;"TEN DOLLAR BILL(S)"
-    0x58ad41c335c0 ---------A T 01170 C=M-(D*10)
-    0x58ad41c33a90 ---------A   01180 E=INT(C/5)
-    0x58ad41c33cc0 ---------A   01190 IF E=0 THEN 1210
-    0x58ad41c33f20 ---------A   01200 PRINT E;"FIVE DOLLARS BILL(S)"
-    0x58ad41c345d0 ---------A T 01210 C=M-(D*10+E*5)
-    0x58ad41c349a0 ---------A   01220 F=INT(C)
-    0x58ad41c34bd0 ---------A   01230 IF F=0 THEN 1250
-    0x58ad41c34e30 ---------A   01240 PRINT F;"ONE DOLLAR BILL(S)"
-    0x58ad41c35600 ---------A T 01250 C=M-(D*10+E*5+F)
-    0x58ad41c35930 ---------A   01260 C=C*100
-    0x58ad41c35c20 ---------A   01270 N=C
-    0x58ad41c360f0 ---------A   01280 G=INT(C/50)
-    0x58ad41c36350 ---------A   01290 IF G=0 THEN 1310
-    0x58ad41c365b0 ---------A   01300 PRINT G;"ONE HALF DOLLAR(S)"
-    0x58ad41c36a40 ---------A T 01310 C=N-(G*50)
-    0x58ad41c36f10 ---------A   01320 H=INT(C/25)
-    0x58ad41c37380 ---------A   01330 IF H=0 THEN 1350
-    0x58ad41c375e0 ---------A   01340 PRINT H;"QUARTER(S)"
-    0x58ad41c37c90 ---------A T 01350 C=N-(G*50+H*25)
-    0x58ad41c38160 ---------A   01360 I=INT(C/10)
-    0x58ad41c383b0 ---------A   01370 IF I=0 THEN 1390
-    0x58ad41c38620 ---------A   01380 PRINT I;"DIME(S)"
-    0x58ad41c38ef0 ---------A T 01390 C=N-(G*50+H*25+I*10)
-    0x58ad41c393c0 ---------A   01400 J=INT(C/5)
-    0x58ad41c39610 ---------A   01410 IF J=0 THEN 1430
-    0x58ad41c39880 ---------A   01420 PRINT J;"NICKEL(S)"
-    0x58ad41c3a370 ---------A T 01430 C=N-(G*50+H*25+I*10+J*5)
-    0x58ad41c3a840 ---------A   01440 K=INT(C+.5)
-    0x58ad41c3aa90 ---------A   01450 IF K=0 THEN 1470
-    0x58ad41c3ad00 ---------A   01460 PRINT K;"PENNY(S)"
-    0x58ad41c3ae60 ---------A T 01470 PRINT "THANK YOU, COME AGAIN."
-    0x58ad41c3af20 ---------A   01480 PRINT:PRINT
-    0x58ad41c3af90 ---------A T 01490 GOTO 1060
-    0x58ad41c3afd0 ---------A   01500 END
+    0x60546b6b16d0 ---------A   01000  PRINT TAB(33);"CHANGE"
+    0x60546b6b1670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x60546b6a22b0 ---------A   01020  PRINT
+    0x60546b6b19e0 ---------A   01030  PRINT
+    0x60546b6b17f0 ---------A   01040  PRINT
+    0x60546b6b2040 ---------A   01050  PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
+    0x60546b6b1e40 ---------A   01060  PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
+    0x60546b6b1ea0 ---------A   01070  PRINT
+    0x60546b6b2480 ---------A   01080  PRINT
+    0x60546b6b36a0 ---------A   01090  PRINT "COST OF ITEM";
+    0x60546b6b41a0 ---------A   01100  INPUT A
+    0x60546b6b3720 ---------A   01110  PRINT "AMOUNT OF PAYMENT";
+    0x60546b6b27a0 ---------A T 01120  INPUT P
+    0x60546b6b40b0 ---------A   01130  C=P-A
+    0x60546b6b9d20 ---------A   01140  M=C
+    0x60546b6b9f30 ---------A   01150  IF C<>0 THEN 1180
+    0x60546b6ba050 ---------A   01160  PRINT "CORRECT AMOUNT, THANK YOU."
+    0x60546b6b3e70 ---------A   01170  GOTO 1580
+    0x60546b6ba2d0 ---------A T 01180  IF C>0 THEN 1210
+    0x60546b6ba630 ---------A   01190  PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
+    0x60546b6ba690 ---------A   01200  GOTO 1120
+    0x60546b6ba8e0 ---------A T 01210  PRINT "YOUR CHANGE, $";C
+    0x60546b6badc0 ---------A   01220  D=INT(C/10)
+    0x60546b6baff0 ---------A   01230  IF D=0 THEN 1250
+    0x60546b6bb250 ---------A   01240  PRINT D;"TEN DOLLAR BILL(S)"
+    0x60546b6bb6f0 ---------A T 01250  C=M-(D*10)
+    0x60546b6bbbc0 ---------A   01260  E=INT(C/5)
+    0x60546b6bbdf0 ---------A   01270  IF E=0 THEN 1290
+    0x60546b6bc050 ---------A   01280  PRINT E;"FIVE DOLLARS BILL(S)"
+    0x60546b6bc710 ---------A T 01290  C=M-(D*10+E*5)
+    0x60546b6bcae0 ---------A   01300  F=INT(C)
+    0x60546b6bcd10 ---------A   01310  IF F=0 THEN 1330
+    0x60546b6bcf70 ---------A   01320  PRINT F;"ONE DOLLAR BILL(S)"
+    0x60546b6bd750 ---------A T 01330  C=M-(D*10+E*5+F)
+    0x60546b6bda80 ---------A   01340  C=C*100
+    0x60546b6bdd70 ---------A   01350  N=C
+    0x60546b6be240 ---------A   01360  G=INT(C/50)
+    0x60546b6be4a0 ---------A   01370  IF G=0 THEN 1390
+    0x60546b6be700 ---------A   01380  PRINT G;"ONE HALF DOLLAR(S)"
+    0x60546b6beba0 ---------A T 01390  C=N-(G*50)
+    0x60546b6bf070 ---------A   01400  H=INT(C/25)
+    0x60546b6bf4e0 ---------A   01410  IF H=0 THEN 1430
+    0x60546b6bf740 ---------A   01420  PRINT H;"QUARTER(S)"
+    0x60546b6bfe00 ---------A T 01430  C=N-(G*50+H*25)
+    0x60546b6c02d0 ---------A   01440  I=INT(C/10)
+    0x60546b6c0520 ---------A   01450  IF I=0 THEN 1470
+    0x60546b6c0790 ---------A   01460  PRINT I;"DIME(S)"
+    0x60546b6c1070 ---------A T 01470  C=N-(G*50+H*25+I*10)
+    0x60546b6c1540 ---------A   01480  J=INT(C/5)
+    0x60546b6c1790 ---------A   01490  IF J=0 THEN 1510
+    0x60546b6c1a00 ---------A   01500  PRINT J;"NICKEL(S)"
+    0x60546b6c2500 ---------A T 01510  C=N-(G*50+H*25+I*10+J*5)
+    0x60546b6c29d0 ---------A   01520  K=INT(C+.5)
+    0x60546b6c2c20 ---------A   01530  IF K=0 THEN 1550
+    0x60546b6c2e90 ---------A   01540  PRINT K;"PENNY(S)"
+    0x60546b6c3000 ---------A T 01550  PRINT "THANK YOU, COME AGAIN."
+    0x60546b6c3060 ---------A   01560  PRINT
+    0x60546b6c30e0 ---------A   01570  PRINT
+    0x60546b6c3160 ---------A T 01580  GOTO 1120
+    0x60546b6c31b0 ---------A   01590  END
  */
 
 //---------------------------------------------------------------------------
@@ -350,3 +503,184 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(33);"CHANGE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,33);strcat(buf,"CHANGE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 PRINT "I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I, YOUR FRIENDLY MICROCOMPUTER, WILL DETERMINE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01060 PRINT "THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE CORRECT CHANGE FOR ITEMS COSTING UP TO $100.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01080 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01090 PRINT "COST OF ITEM";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"COST OF ITEM");fputs(buf,fh); };
+    // 01100 INPUT A
+    // Start of Basic INPUT statement 01100
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&A_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01100
+    // 01110 PRINT "AMOUNT OF PAYMENT";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"AMOUNT OF PAYMENT");fputs(buf,fh); };
+
+  Lbl_01120:
+    // 01120 INPUT P
+    // Start of Basic INPUT statement 01120
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&P_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01120
+    // 01130 C=P-A
+    C_int = P_int-A_int;
+    // 01140 M=C
+    M_int = C_int;
+    // 01150 IF C<>0 THEN 1180
+    if(C_int!=0)goto Lbl_01180;
+    // 01160 PRINT "CORRECT AMOUNT, THANK YOU."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"CORRECT AMOUNT, THANK YOU.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01170 GOTO 1580
+    goto Lbl_01580;
+
+  Lbl_01180:
+    // 01180 IF C>0 THEN 1210
+    if(C_int>0)goto Lbl_01210;
+    // 01190 PRINT "SORRY, YOU HAVE SHORT-CHANGED ME $";A-P
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SORRY, YOU HAVE SHORT-CHANGED ME $"); b2c_INT(buf,A_int-P_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 01200 GOTO 1120
+    goto Lbl_01120;
+
+  Lbl_01210:
+    // 01210 PRINT "YOUR CHANGE, $";C
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR CHANGE, $"); b2c_INT(buf,C_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 01220 D=INT(C/10)
+    D_int = INT(C_int/10);
+    // 01230 IF D=0 THEN 1250
+    if(D_int==0)goto Lbl_01250;
+    // 01240 PRINT D;"TEN DOLLAR BILL(S)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,D_int);strcat(buf,"TEN DOLLAR BILL(S)");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01250:
+    // 01250 C=M-(D*10)
+    C_int = M_int-(D_int*10);
+    // 01260 E=INT(C/5)
+    E_int = INT(C_int/5);
+    // 01270 IF E=0 THEN 1290
+    if(E_int==0)goto Lbl_01290;
+    // 01280 PRINT E;"FIVE DOLLARS BILL(S)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,E_int);strcat(buf,"FIVE DOLLARS BILL(S)");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01290:
+    // 01290 C=M-(D*10+E*5)
+    C_int = M_int-(D_int*10+E_int*5);
+    // 01300 F=INT(C)
+    F_int = INT(C_int);
+    // 01310 IF F=0 THEN 1330
+    if(F_int==0)goto Lbl_01330;
+    // 01320 PRINT F;"ONE DOLLAR BILL(S)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,F_int);strcat(buf,"ONE DOLLAR BILL(S)");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01330:
+    // 01330 C=M-(D*10+E*5+F)
+    C_int = M_int-(D_int*10+E_int*5+F_int);
+    // 01340 C=C*100
+    C_int = C_int*100;
+    // 01350 N=C
+    N_int = C_int;
+    // 01360 G=INT(C/50)
+    G_int = INT(C_int/50);
+    // 01370 IF G=0 THEN 1390
+    if(G_int==0)goto Lbl_01390;
+    // 01380 PRINT G;"ONE HALF DOLLAR(S)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,G_int);strcat(buf,"ONE HALF DOLLAR(S)");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01390:
+    // 01390 C=N-(G*50)
+    C_int = N_int-(G_int*50);
+    // 01400 H=INT(C/25)
+    H_int = INT(C_int/25);
+    // 01410 IF H=0 THEN 1430
+    if(H_int==0)goto Lbl_01430;
+    // 01420 PRINT H;"QUARTER(S)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,H_int);strcat(buf,"QUARTER(S)");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01430:
+    // 01430 C=N-(G*50+H*25)
+    C_int = N_int-(G_int*50+H_int*25);
+    // 01440 I=INT(C/10)
+    I_int = INT(C_int/10);
+    // 01450 IF I=0 THEN 1470
+    if(I_int==0)goto Lbl_01470;
+    // 01460 PRINT I;"DIME(S)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,I_int);strcat(buf,"DIME(S)");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01470:
+    // 01470 C=N-(G*50+H*25+I*10)
+    C_int = N_int-(G_int*50+H_int*25+I_int*10);
+    // 01480 J=INT(C/5)
+    J_int = INT(C_int/5);
+    // 01490 IF J=0 THEN 1510
+    if(J_int==0)goto Lbl_01510;
+    // 01500 PRINT J;"NICKEL(S)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,J_int);strcat(buf,"NICKEL(S)");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01510:
+    // 01510 C=N-(G*50+H*25+I*10+J*5)
+    C_int = N_int-(G_int*50+H_int*25+I_int*10+J_int*5);
+    // 01520 K=INT(C+.5)
+    K_int = INT(C_int+0.5);
+    // 01530 IF K=0 THEN 1550
+    if(K_int==0)goto Lbl_01550;
+    // 01540 PRINT K;"PENNY(S)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,K_int);strcat(buf,"PENNY(S)");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01550:
+    // 01550 PRINT "THANK YOU, COME AGAIN."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THANK YOU, COME AGAIN.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01560 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01570 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01580:
+    // 01580 GOTO 1120
+    goto Lbl_01120;
+    // 01590 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

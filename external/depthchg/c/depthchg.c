@@ -8,39 +8,39 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5cc26aa5db80 ---------A   00002 PRINT TAB(30);"DEPTH CHARGE"
-    0x5cc26aa5ef30 ---------A   00004 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5cc26aa5f0b0 ---------A   00006 PRINT: PRINT: PRINT
-    0x5cc26aa5c9e0 ---------A   00020 INPUT "DIMENSION OF SEARCH AREA";G: PRINT
-    0x5cc26aa5cca0 ---------A   00030 N=INT(LOG(G)/LOG(2))+1
-    0x5cc26aa5d780 ---------A   00040 PRINT "YOU ARE THE CAPTAIN OF THE DESTROYER USS COMPUTER"
-    0x5cc26aa648f0 ---------A   00050 PRINT "AN ENEMY SUB HAS BEEN CAUSING YOU TROUBLE.  YOUR"
-    0x5cc26aa64bc0 ---------A   00060 PRINT "MISSION IS TO DESTROY IT.  YOU HAVE";N;"SHOTS."
-    0x5cc26aa64d50 ---------A   00070 PRINT "SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A"
-    0x5cc26aa5d620 ---------A   00080 PRINT "TRIO OF NUMBERS -- THE FIRST TWO ARE THE"
-    0x5cc26aa64fe0 ---------A   00090 PRINT "SURFACE COORDINATES; THE THIRD IS THE DEPTH."
-    0x5cc26aa651d0 ---------A T 00100 PRINT : PRINT "GOOD LUCK !": PRINT
-    0x5cc26aa662d0 ---------A   00110 A=INT(G*RND(1)) : B=INT(G*RND(1)) : C=INT(G*RND(1))
-    0x5cc26aa66e20 ---------A   00120 FOR D=1 TO N : PRINT : PRINT "TRIAL #";D; : INPUT X,Y,Z
-    0x5cc26aa678a0 ---------A   00130 IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 300
-    0x5cc26aa67a70 ---------A   00140 GOSUB 500 : PRINT : NEXT D
-    0x5cc26aa67ca0 ---------A   00200 PRINT : PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
-    0x5cc26aa68390 ---------A   00210 PRINT "THE SUBMARINE WAS AT";A;",";B;",";C : GOTO 400
-    0x5cc26aa68720 ---------A T 00300 PRINT : PRINT "B O O M ! ! YOU FOUND IT IN";D;"TRIES!"
-    0x5cc26aa689f0 ---------A T 00400 PRINT : PRINT: INPUT "ANOTHER GAME (Y OR N)";A$
-    0x5cc26aa68c90 ---------A   00410 IF A$="Y" THEN 100
-    0x5cc26aa68e20 ---------A   00420 PRINT "OK.  HOPE YOU ENJOYED YOURSELF." : GOTO 600
-    0x5cc26aa68fa0 ----------   00500 PRINT "SONAR REPORTS SHOT WAS ";
-    0x5cc26aa69370 ----------   00510 IF Y>B THEN PRINT "NORTH";
-    0x5cc26aa69750 ----------   00520 IF Y<B THEN PRINT "SOUTH";
-    0x5cc26aa69b30 ----------   00530 IF X>A THEN PRINT "EAST";
-    0x5cc26aa69f10 ----------   00540 IF X<A THEN PRINT "WEST";
-    0x5cc26aa6a530 ----------   00550 IF Y<>B OR X<>A THEN PRINT " AND";
-    0x5cc26aa6a8f0 ----------   00560 IF Z>C THEN PRINT " TOO LOW."
-    0x5cc26aa6acb0 ----------   00570 IF Z<C THEN PRINT " TOO HIGH."
-    0x5cc26aa6b060 ----------   00580 IF Z=C THEN PRINT " DEPTH OK."
-    0x5cc26aa6b0c0 ----------   00590 RETURN
-    0x5cc26aa6b120 ---------A T 00600 END
+    0x57558ab336d0 ---------A   00002  PRINT TAB(30);"DEPTH CHARGE"
+    0x57558ab33670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x57558ab35aa0 ---------A   00006  PRINT: PRINT: PRINT
+    0x57558ab33e40 ---------A   00020  INPUT "DIMENSION OF SEARCH AREA";G: PRINT
+    0x57558ab35f30 ---------A   00030  N=INT(LOG(G)/LOG(2))+1
+    0x57558ab34820 ---------A   00040  PRINT "YOU ARE THE CAPTAIN OF THE DESTROYER USS COMPUTER"
+    0x57558ab3b960 ---------A   00050  PRINT "AN ENEMY SUB HAS BEEN CAUSING YOU TROUBLE.  YOUR"
+    0x57558ab3bc40 ---------A   00060  PRINT "MISSION IS TO DESTROY IT.  YOU HAVE";N;"SHOTS."
+    0x57558ab3bde0 ---------A   00070  PRINT "SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A"
+    0x57558ab3bf80 ---------A   00080  PRINT "TRIO OF NUMBERS -- THE FIRST TWO ARE THE"
+    0x57558ab3c0e0 ---------A   00090  PRINT "SURFACE COORDINATES; THE THIRD IS THE DEPTH."
+    0x57558ab3c300 ---------A T 00100  PRINT : PRINT "GOOD LUCK !": PRINT
+    0x57558ab3d360 ---------A   00110  A=INT(G*RND(1)) : B=INT(G*RND(1)) : C=INT(G*RND(1))
+    0x57558ab3df30 ---------A   00120  FOR D=1 TO N : PRINT : PRINT "TRIAL #";D; : INPUT X,Y,Z
+    0x57558ab3e9b0 ---------A   00130  IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 300
+    0x57558ab3eba0 ---------A   00140  GOSUB 500 : PRINT : NEXT D
+    0x57558ab3edf0 ---------A   00200  PRINT : PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
+    0x57558ab3f500 ---------A   00210  PRINT "THE SUBMARINE WAS AT";A;",";B;",";C : GOTO 400
+    0x57558ab3f8b0 ---------A T 00300  PRINT : PRINT "B O O M ! ! YOU FOUND IT IN";D;"TRIES!"
+    0x57558ab3fbb0 ---------A T 00400  PRINT : PRINT: INPUT "ANOTHER GAME (Y OR N)";A$
+    0x57558ab3fe50 ---------A   00410  IF A$="Y" THEN 100
+    0x57558ab3fff0 ---------A   00420  PRINT "OK.  HOPE YOU ENJOYED YOURSELF." : GOTO 600
+    0x57558ab40180 ----------   00500  PRINT "SONAR REPORTS SHOT WAS ";
+    0x57558ab40570 ----------   00510  IF Y>B THEN PRINT "NORTH";
+    0x57558ab40960 ----------   00520  IF Y<B THEN PRINT "SOUTH";
+    0x57558ab40d50 ----------   00530  IF X>A THEN PRINT "EAST";
+    0x57558ab41140 ----------   00540  IF X<A THEN PRINT "WEST";
+    0x57558ab41770 ----------   00550  IF Y<>B OR X<>A THEN PRINT " AND";
+    0x57558ab41b40 ----------   00560  IF Z>C THEN PRINT " TOO LOW."
+    0x57558ab41f10 ----------   00570  IF Z<C THEN PRINT " TOO HIGH."
+    0x57558ab422d0 ----------   00580  IF Z=C THEN PRINT " DEPTH OK."
+    0x57558ab42330 ----------   00590  RETURN
+    0x57558ab42390 ---------A T 00600  END
  */
 
 /*
@@ -63,9 +63,135 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x5cc26aa5db80 (00002)   0x5cc26aa5db80 (00002)   0x5cc26aa6b120 (00600)   0x5cc26aa6b120 (00600)   
+   A) 0x57558ab336d0 (00002)   0x57558ab336d0 (00002)   0x57558ab42390 (00600)   0x57558ab42390 (00600)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/depthchg.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x57558ab336d0 ---------A   00002  PRINT TAB(30);"DEPTH CHARGE"
+    0x57558ab33670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x57558ab242b0 ----------   00006  PRINT
+    0x57558ab339e0 ----------        a PRINT
+    0x57558ab35aa0 ---------A        b PRINT
+    0x57558ab35b00 ----------   00020  INPUT "DIMENSION OF SEARCH AREA";G
+    0x57558ab33e40 ---------A        a PRINT
+    0x57558ab35f30 ---------A   00030  N=INT(LOG(G)/LOG(2))+1
+    0x57558ab34820 ---------A   00040  PRINT "YOU ARE THE CAPTAIN OF THE DESTROYER USS COMPUTER"
+    0x57558ab3b960 ---------A   00050  PRINT "AN ENEMY SUB HAS BEEN CAUSING YOU TROUBLE.  YOUR"
+    0x57558ab3bc40 ---------A   00060  PRINT "MISSION IS TO DESTROY IT.  YOU HAVE";N;"SHOTS."
+    0x57558ab3bde0 ---------A   00070  PRINT "SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A"
+    0x57558ab3bf80 ---------A   00080  PRINT "TRIO OF NUMBERS -- THE FIRST TWO ARE THE"
+    0x57558ab3c0e0 ---------A   00090  PRINT "SURFACE COORDINATES; THE THIRD IS THE DEPTH."
+    0x57558ab3c140 ---------- T 00100  PRINT 
+    0x57558ab3c260 ---------- T      a PRINT "GOOD LUCK !"
+    0x57558ab3c300 ---------A T      b PRINT
+    0x57558ab35e70 ----------   00110  A=INT(G*RND(1)) 
+    0x57558ab3cd80 ----------        a B=INT(G*RND(1)) 
+    0x57558ab3d360 ---------A        b C=INT(G*RND(1))
+    0x57558ab3d6f0 ----------   00120  FOR D=1 TO N 
+    0x57558ab3d750 ----------        a PRINT 
+    0x57558ab3d9b0 ----------        b PRINT "TRIAL #";D; 
+    0x57558ab3df30 ---------A        c INPUT X,Y,Z
+    0x57558ab3e9b0 ---------A   00130  IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 300
+    0x57558ab3ea10 ----------   00140  GOSUB 500 
+    0x57558ab3ea60 ----------        a PRINT 
+    0x57558ab3eba0 ---------A        b NEXT D
+    0x57558ab3ec40 ----------   00200  PRINT 
+    0x57558ab3edf0 ---------A        a PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
+    0x57558ab3f450 ----------   00210  PRINT "THE SUBMARINE WAS AT";A;",";B;",";C 
+    0x57558ab3f500 ---------A        a GOTO 400
+    0x57558ab3f550 ---------- T 00300  PRINT 
+    0x57558ab3f8b0 ---------A T      a PRINT "B O O M ! ! YOU FOUND IT IN";D;"TRIES!"
+    0x57558ab3f910 ---------- T 00400  PRINT 
+    0x57558ab3f970 ---------- T      a PRINT
+    0x57558ab3fbb0 ---------A T      b INPUT "ANOTHER GAME (Y OR N)";A$
+    0x57558ab3fe50 ---------A   00410  IF A$="Y" THEN 100
+    0x57558ab3ff90 ----------   00420  PRINT "OK.  HOPE YOU ENJOYED YOURSELF." 
+    0x57558ab3fff0 ---------A        a GOTO 600
+    0x57558ab40180 ----------   00500  PRINT "SONAR REPORTS SHOT WAS ";
+    0x57558ab40570 ----------   00510  IF Y>B THEN PRINT "NORTH";
+    0x57558ab40960 ----------   00520  IF Y<B THEN PRINT "SOUTH";
+    0x57558ab40d50 ----------   00530  IF X>A THEN PRINT "EAST";
+    0x57558ab41140 ----------   00540  IF X<A THEN PRINT "WEST";
+    0x57558ab41770 ----------   00550  IF Y<>B OR X<>A THEN PRINT " AND";
+    0x57558ab41b40 ----------   00560  IF Z>C THEN PRINT " TOO LOW."
+    0x57558ab41f10 ----------   00570  IF Z<C THEN PRINT " TOO HIGH."
+    0x57558ab422d0 ----------   00580  IF Z=C THEN PRINT " DEPTH OK."
+    0x57558ab42330 ----------   00590  RETURN
+    0x57558ab42390 ---------A T 00600  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/depthchg.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x57558ab336d0 ---------A   01000  PRINT TAB(30);"DEPTH CHARGE"
+    0x57558ab33670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x57558ab242b0 ----------   01020  PRINT
+    0x57558ab339e0 ----------   01030  PRINT
+    0x57558ab35aa0 ---------A   01040  PRINT
+    0x57558ab35b00 ----------   01050  INPUT "DIMENSION OF SEARCH AREA";G
+    0x57558ab33e40 ---------A   01060  PRINT
+    0x57558ab35f30 ---------A   01070  N=INT(LOG(G)/LOG(2))+1
+    0x57558ab34820 ---------A   01080  PRINT "YOU ARE THE CAPTAIN OF THE DESTROYER USS COMPUTER"
+    0x57558ab3b960 ---------A   01090  PRINT "AN ENEMY SUB HAS BEEN CAUSING YOU TROUBLE.  YOUR"
+    0x57558ab3bc40 ---------A   01100  PRINT "MISSION IS TO DESTROY IT.  YOU HAVE";N;"SHOTS."
+    0x57558ab3bde0 ---------A   01110  PRINT "SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A"
+    0x57558ab3bf80 ---------A   01120  PRINT "TRIO OF NUMBERS -- THE FIRST TWO ARE THE"
+    0x57558ab3c0e0 ---------A   01130  PRINT "SURFACE COORDINATES; THE THIRD IS THE DEPTH."
+    0x57558ab3c140 ----------   01140  PRINT 
+    0x57558ab3c260 ----------   01150  PRINT "GOOD LUCK !"
+    0x57558ab3c300 ---------A   01160  PRINT
+    0x57558ab35e70 ----------   01170  A=INT(G*RND(1)) 
+    0x57558ab3cd80 ----------   01180  B=INT(G*RND(1)) 
+    0x57558ab3d360 ---------A   01190  C=INT(G*RND(1))
+    0x57558ab3d6f0 ----------   01200  FOR D=1 TO N 
+    0x57558ab3d750 ----------   01210  PRINT 
+    0x57558ab3d9b0 ----------   01220  PRINT "TRIAL #";D; 
+    0x57558ab3df30 ---------A   01230  INPUT X,Y,Z
+    0x57558ab3e9b0 ---------A   01240  IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1330
+    0x57558ab3ea10 ----------   01250  GOSUB 1400 
+    0x57558ab3ea60 ----------   01260  PRINT 
+    0x57558ab3eba0 ---------A   01270  NEXT D
+    0x57558ab3ec40 ----------   01280  PRINT 
+    0x57558ab3edf0 ---------A   01290  PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
+    0x57558ab3f450 ----------   01300  PRINT "THE SUBMARINE WAS AT";A;",";B;",";C 
+    0x57558ab3f500 ---------A   01310  GOTO 1360
+    0x57558ab3f550 ----------   01320  PRINT 
+    0x57558ab3f8b0 ---------A   01330  PRINT "B O O M ! ! YOU FOUND IT IN";D;"TRIES!"
+    0x57558ab3f910 ----------   01340  PRINT 
+    0x57558ab3f970 ----------   01350  PRINT
+    0x57558ab3fbb0 ---------A   01360  INPUT "ANOTHER GAME (Y OR N)";A$
+    0x57558ab3fe50 ---------A   01370  IF A$="Y" THEN 1160
+    0x57558ab3ff90 ----------   01380  PRINT "OK.  HOPE YOU ENJOYED YOURSELF." 
+    0x57558ab3fff0 ---------A   01390  GOTO 1500
+    0x57558ab40180 ----------   01400  PRINT "SONAR REPORTS SHOT WAS ";
+    0x57558ab40570 ----------   01410  IF Y>B THEN PRINT "NORTH";
+    0x57558ab40960 ----------   01420  IF Y<B THEN PRINT "SOUTH";
+    0x57558ab40d50 ----------   01430  IF X>A THEN PRINT "EAST";
+    0x57558ab41140 ----------   01440  IF X<A THEN PRINT "WEST";
+    0x57558ab41770 ----------   01450  IF Y<>B OR X<>A THEN PRINT " AND";
+    0x57558ab41b40 ----------   01460  IF Z>C THEN PRINT " TOO LOW."
+    0x57558ab41f10 ----------   01470  IF Z<C THEN PRINT " TOO HIGH."
+    0x57558ab422d0 ----------   01480  IF Z=C THEN PRINT " DEPTH OK."
+    0x57558ab42330 ----------   01490  RETURN
+    0x57558ab42390 ---------A   01500  END
  */
 
 
@@ -76,7 +202,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01230 - 10000    8780 
+     01510 - 10000    8500 
 
  */
 
@@ -168,29 +294,57 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5cc26aa5db80 ---------A   01000 PRINT TAB(30);"DEPTH CHARGE"
-    0x5cc26aa5ef30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5cc26aa5f0b0 ---------A   01020 PRINT: PRINT: PRINT
-    0x5cc26aa5c9e0 ---------A   01030 INPUT "DIMENSION OF SEARCH AREA";G: PRINT
-    0x5cc26aa5cca0 ---------A   01040 N=INT(LOG(G)/LOG(2))+1
-    0x5cc26aa5d780 ---------A   01050 PRINT "YOU ARE THE CAPTAIN OF THE DESTROYER USS COMPUTER"
-    0x5cc26aa648f0 ---------A   01060 PRINT "AN ENEMY SUB HAS BEEN CAUSING YOU TROUBLE.  YOUR"
-    0x5cc26aa64bc0 ---------A   01070 PRINT "MISSION IS TO DESTROY IT.  YOU HAVE";N;"SHOTS."
-    0x5cc26aa64d50 ---------A   01080 PRINT "SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A"
-    0x5cc26aa5d620 ---------A   01090 PRINT "TRIO OF NUMBERS -- THE FIRST TWO ARE THE"
-    0x5cc26aa64fe0 ---------A   01100 PRINT "SURFACE COORDINATES; THE THIRD IS THE DEPTH."
-    0x5cc26aa651d0 ---------A T 01110 PRINT : PRINT "GOOD LUCK !": PRINT
-    0x5cc26aa662d0 ---------A   01120 A=INT(G*RND(1)) : B=INT(G*RND(1)) : C=INT(G*RND(1))
-    0x5cc26aa66e20 ---------A   01130 FOR D=1 TO N : PRINT : PRINT "TRIAL #";D; : INPUT X,Y,Z
-    0x5cc26aa678a0 ---------A   01140 IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1180
-    0x5cc26aa67a70 ---------A   01150 GOSUB 500 : PRINT : NEXT D
-    0x5cc26aa67ca0 ---------A   01160 PRINT : PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
-    0x5cc26aa68390 ---------A   01170 PRINT "THE SUBMARINE WAS AT";A;",";B;",";C : GOTO 1190
-    0x5cc26aa68720 ---------A T 01180 PRINT : PRINT "B O O M ! ! YOU FOUND IT IN";D;"TRIES!"
-    0x5cc26aa689f0 ---------A T 01190 PRINT : PRINT: INPUT "ANOTHER GAME (Y OR N)";A$
-    0x5cc26aa68c90 ---------A   01200 IF A$="Y" THEN 1110
-    0x5cc26aa68e20 ---------A   01210 PRINT "OK.  HOPE YOU ENJOYED YOURSELF." : GOTO 1220
-    0x5cc26aa6b120 ---------A T 01220 END
+    0x57558ab336d0 ---------A   01000  PRINT TAB(30);"DEPTH CHARGE"
+    0x57558ab33670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x57558ab242b0 ---------A   01020  PRINT
+    0x57558ab339e0 ---------A   01030  PRINT
+    0x57558ab35aa0 ---------A   01040  PRINT
+    0x57558ab35b00 ---------A   01050  INPUT "DIMENSION OF SEARCH AREA";G
+    0x57558ab33e40 ---------A   01060  PRINT
+    0x57558ab35f30 ---------A   01070  N=INT(LOG(G)/LOG(2))+1
+    0x57558ab34820 ---------A   01080  PRINT "YOU ARE THE CAPTAIN OF THE DESTROYER USS COMPUTER"
+    0x57558ab3b960 ---------A   01090  PRINT "AN ENEMY SUB HAS BEEN CAUSING YOU TROUBLE.  YOUR"
+    0x57558ab3bc40 ---------A   01100  PRINT "MISSION IS TO DESTROY IT.  YOU HAVE";N;"SHOTS."
+    0x57558ab3bde0 ---------A   01110  PRINT "SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A"
+    0x57558ab3bf80 ---------A   01120  PRINT "TRIO OF NUMBERS -- THE FIRST TWO ARE THE"
+    0x57558ab3c0e0 ---------A   01130  PRINT "SURFACE COORDINATES; THE THIRD IS THE DEPTH."
+    0x57558ab3c140 ---------A   01140  PRINT 
+    0x57558ab3c260 ---------A   01150  PRINT "GOOD LUCK !"
+    0x57558ab3c300 ---------A T 01160  PRINT
+    0x57558ab35e70 ---------A   01170  A=INT(G*RND(1)) 
+    0x57558ab3cd80 ---------A   01180  B=INT(G*RND(1)) 
+    0x57558ab3d360 ---------A   01190  C=INT(G*RND(1))
+    0x57558ab3d6f0 ---------A   01200  FOR D=1 TO N 
+    0x57558ab3d750 ---------A   01210  PRINT 
+    0x57558ab3d9b0 ---------A   01220  PRINT "TRIAL #";D; 
+    0x57558ab3df30 ---------A   01230  INPUT X,Y,Z
+    0x57558ab3e9b0 ---------A   01240  IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1320
+    0x57558ab3ea10 ---------A   01250  GOSUB 1400 
+    0x57558ab3ea60 ---------A   01260  PRINT 
+    0x57558ab3eba0 ---------A   01270  NEXT D
+    0x57558ab3ec40 ---------A   01280  PRINT 
+    0x57558ab3edf0 ---------A   01290  PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
+    0x57558ab3f450 ---------A   01300  PRINT "THE SUBMARINE WAS AT";A;",";B;",";C 
+    0x57558ab3f500 ---------A   01310  GOTO 1350
+    0x57558ab3f8b0 ---------A T 01320  PRINT "B O O M ! ! YOU FOUND IT IN";D;"TRIES!"
+    0x57558ab3f910 ---------A   01330  PRINT 
+    0x57558ab3f970 ---------A   01340  PRINT
+    0x57558ab3fbb0 ---------A T 01350  INPUT "ANOTHER GAME (Y OR N)";A$
+    0x57558ab3fe50 ---------A   01360  IF A$="Y" THEN 1160
+    0x57558ab3ff90 ---------A   01370  PRINT "OK.  HOPE YOU ENJOYED YOURSELF." 
+    0x57558ab3fff0 ---------A   01380  GOTO 1390
+    0x57558ab42390 ---------A T 01390  END
+    0x57558ab40180 ---------B G 01400  PRINT "SONAR REPORTS SHOT WAS ";
+    0x57558ab40570 ---------B   01410  IF Y>B THEN PRINT "NORTH";
+    0x57558ab40960 ---------B   01420  IF Y<B THEN PRINT "SOUTH";
+    0x57558ab40d50 ---------B   01430  IF X>A THEN PRINT "EAST";
+    0x57558ab41140 ---------B   01440  IF X<A THEN PRINT "WEST";
+    0x57558ab41770 ---------B   01450  IF Y<>B OR X<>A THEN PRINT " AND";
+    0x57558ab41b40 ---------B   01460  IF Z>C THEN PRINT " TOO LOW."
+    0x57558ab41f10 ---------B   01470  IF Z<C THEN PRINT " TOO HIGH."
+    0x57558ab422d0 ---------B   01480  IF Z=C THEN PRINT " DEPTH OK."
+    0x57558ab45d70 ---------B   01490  GOTO 01500
+    0x57558ab46a30 ---------B T 01500  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -250,6 +404,7 @@ char* GLBpStr=nullptr;
 //---------------------------------------------------------------------------
 // Subroutine Prototypes.
 //---------------------------------------------------------------------------
+void Routine_01400();
 
 //---------------------------------------------------------------------------
 // Program Functions.
@@ -284,9 +439,193 @@ char* GLBpStr=nullptr;
 // Program Subroutines.
 //---------------------------------------------------------------------------
 
+
+//---------------------------------------------------------------------------
+// Routine B
+//---------------------------------------------------------------------------
+
+void Routine_01400(){
+    // 01400 PRINT "SONAR REPORTS SHOT WAS ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SONAR REPORTS SHOT WAS ");fputs(buf,fh); };
+    // 01410 IF Y>B THEN PRINT "NORTH";
+    if(Y_int>B_int) {
+    }
+    // 01420 IF Y<B THEN PRINT "SOUTH";
+    if(Y_int<B_int) {
+    }
+    // 01430 IF X>A THEN PRINT "EAST";
+    if(X_int>A_int) {
+    }
+    // 01440 IF X<A THEN PRINT "WEST";
+    if(X_int<A_int) {
+    }
+    // 01450 IF Y<>B OR X<>A THEN PRINT " AND";
+    if(Y_int!=B_int||X_int!=A_int) {
+    }
+    // 01460 IF Z>C THEN PRINT " TOO LOW."
+    if(Z_int>C_int) {
+    }
+    // 01470 IF Z<C THEN PRINT " TOO HIGH."
+    if(Z_int<C_int) {
+    }
+    // 01480 IF Z=C THEN PRINT " DEPTH OK."
+    if(Z_int==C_int) {
+    }
+    // 01490 GOTO 01500
+    goto Lbl_01500;
+
+  Lbl_01500:
+    // 01500 RETURN
+    return;
+};
+
 //---------------------------------------------------------------------------
 // Main Program.
 //---------------------------------------------------------------------------
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(30);"DEPTH CHARGE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,30);strcat(buf,"DEPTH CHARGE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 INPUT "DIMENSION OF SEARCH AREA";G
+    // Start of Basic INPUT statement 01050
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout,"DIMENSION OF SEARCH AREA");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&G_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01050
+    // 01060 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 N=INT(LOG(G)/LOG(2))+1
+    N_int = INT(LOG(G_int)/LOG(2))+1;
+    // 01080 PRINT "YOU ARE THE CAPTAIN OF THE DESTROYER USS COMPUTER"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU ARE THE CAPTAIN OF THE DESTROYER USS COMPUTER");strcat(buf,"\n");fputs(buf,fh); };
+    // 01090 PRINT "AN ENEMY SUB HAS BEEN CAUSING YOU TROUBLE.  YOUR"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"AN ENEMY SUB HAS BEEN CAUSING YOU TROUBLE.  YOUR");strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT "MISSION IS TO DESTROY IT.  YOU HAVE";N;"SHOTS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"MISSION IS TO DESTROY IT.  YOU HAVE"); b2c_INT(buf,N_int);strcat(buf,"SHOTS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 PRINT "SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SPECIFY DEPTH CHARGE EXPLOSION POINT WITH A");strcat(buf,"\n");fputs(buf,fh); };
+    // 01120 PRINT "TRIO OF NUMBERS -- THE FIRST TWO ARE THE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TRIO OF NUMBERS -- THE FIRST TWO ARE THE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01130 PRINT "SURFACE COORDINATES; THE THIRD IS THE DEPTH."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SURFACE COORDINATES; THE THIRD IS THE DEPTH.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01140 PRINT 
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01150 PRINT "GOOD LUCK !"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"GOOD LUCK !");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01160:
+    // 01160 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01170 A=INT(G*RND(1)) 
+    A_int = INT(G_int*RND(1));
+    // 01180 B=INT(G*RND(1)) 
+    B_int = INT(G_int*RND(1));
+    // 01190 C=INT(G*RND(1))
+    C_int = INT(G_int*RND(1));
+    // 01200 FOR D=1 TO N 
+    for(D_int=1;D_int<=N_int;D_int++){
+        // 01210 PRINT 
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 01220 PRINT "TRIAL #";D; 
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TRIAL #"); b2c_INT(buf,D_int);fputs(buf,fh); };
+        // 01230 INPUT X,Y,Z
+        // Start of Basic INPUT statement 01230
+        {
+            int numargs=3;
+            char *args[numargs+1];
+            bool echoeol=true;
+            while(true){
+                fprintf(stdout," ? ");
+                int err=input(args,numargs,echoeol);
+                if(err==0x03) break;
+                if(err || 
+                    (err += b2c_strtoi(&X_int,args,0)) ||
+                    (err += b2c_strtoi(&Y_int,args,1)) ||
+                    (err += b2c_strtoi(&Z_int,args,2)) ){
+                     printf("?Redo from start\n");
+                }else{
+                    break;
+                };
+            };
+        }; // End of Basic INPUT statement 01230
+        // 01240 IF ABS(X-A)+ABS(Y-B)+ABS(Z-C)=0 THEN 1320
+        if(ABS(X_int-A_int)+ABS(Y_int-B_int)+ABS(Z_int-C_int)==0)goto Lbl_01320;
+        // 01250 GOSUB 1400 
+        Routine_01400();
+        // 01260 PRINT 
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 01270 NEXT D
+        int dummy_1270=0; // Ignore this line.
+    }; // End-For(D_int)
+    // 01280 PRINT 
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01290 PRINT "YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE BEEN TORPEDOED!  ABANDON SHIP!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01300 PRINT "THE SUBMARINE WAS AT";A;",";B;",";C 
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE SUBMARINE WAS AT"); b2c_INT(buf,A_int);strcat(buf,","); b2c_INT(buf,B_int);strcat(buf,","); b2c_INT(buf,C_int);fputs(buf,fh); };
+    // 01310 GOTO 1350
+    goto Lbl_01350;
+
+  Lbl_01320:
+    // 01320 PRINT "B O O M ! ! YOU FOUND IT IN";D;"TRIES!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"B O O M ! ! YOU FOUND IT IN"); b2c_INT(buf,D_int);strcat(buf,"TRIES!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01330 PRINT 
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01340 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01350:
+    // 01350 INPUT "ANOTHER GAME (Y OR N)";A$
+    // Start of Basic INPUT statement 01350
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout,"ANOTHER GAME (Y OR N)");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&A_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01350
+    // 01360 IF A$="Y" THEN 1160
+    if(strcmp(A_str,"Y")==0)goto Lbl_01160;
+    // 01370 PRINT "OK.  HOPE YOU ENJOYED YOURSELF." 
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"OK.  HOPE YOU ENJOYED YOURSELF.");fputs(buf,fh); };
+    // 01380 GOTO 1390
+    goto Lbl_01390;
+
+  Lbl_01390:
+    // 01390 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

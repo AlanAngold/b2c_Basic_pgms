@@ -8,238 +8,238 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x59fae12d2b80 ---------A   00002 PRINT TAB(30);"MASTERMIND"
-    0x59fae12d3f30 ---------A   00004 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x59fae12d40b0 ---------A   00006 PRINT: PRINT: PRINT
-    0x59fae12c22b0 ---------A   00010 REM
-    0x59fae12d19e0 ---------A   00020 REM     MASTERMIND II
-    0x59fae12d1840 ---------A   00030 REM     STEVE NORTH
-    0x59fae12d3aa0 ---------A   00040 REM     CREATIVE COMPUTING
-    0x59fae12d2040 ---------A   00050 REM     PO BOX 789-M MORRISTOWN NEW JERSEY 07960
-    0x59fae12d20c0 ---------A   00060 REM
-    0x59fae12d1e40 ---------A   00070 REM
-    0x59fae12d16d0 ---------A T 00080 INPUT "NUMBER OF COLORS";C9
-    0x59fae12d4100 ---------A   00090 IF C9>8 THEN PRINT "NO MORE THAN 8, PLEASE!":GOTO 80
-    0x59fae12d26c0 ----------   00100 INPUT "NUMBER OF POSITIONS";P9
-    0x59fae12d2860 ----------   00110 INPUT "NUMBER OF ROUNDS";R9
-    0x59fae12d9c20 ----------   00120 P=C9^P9
-    0x59fae12d9df0 ----------   00130 PRINT "TOTAL POSSIBILITIES =";P
-    0x59fae12da390 ----------   00140 H=0:C=0
-    0x59fae12db600 ----------   00150 DIM Q(P9),S(10,2),S$(10),A$(P9),G$(P9),I(P),H$(P9)
-    0x59fae12db8e0 ----------   00160 L$="BWRGOYPT"
-    0x59fae12db950 ----------   00170 PRINT
-    0x59fae12db9d0 ----------   00180 PRINT
-    0x59fae12dbb30 ----------   00190 PRINT "COLOR     LETTER"
-    0x59fae12dbc80 ----------   00200 PRINT "=====     ======"
-    0x59fae12dc030 ----------   00210 FOR X=1 TO C9
-    0x59fae12dc260 ----------   00220 READ X$
-    0x59fae12dc860 ----------   00230 PRINT X$;TAB(13);MID$(L$,X,1)
-    0x59fae12dc990 ----------   00240 NEXT X
-    0x59fae12dca10 ----------   00250 PRINT
-    0x59fae12dcdc0 ----------   00260 FOR R=1 TO R9
-    0x59fae12dce50 ----------   00270 PRINT 
-    0x59fae12dd1a0 ----------   00280 PRINT "ROUND NUMBER";R;"----"
-    0x59fae12dd220 ----------   00290 PRINT
-    0x59fae12dd3d0 ----------   00300 PRINT "GUESS MY COMBINATION.":PRINT
-    0x59fae12dd660 ---------A   00310 REM     GET A COMBINATION
-    0x59fae12ddd20 ----------   00320 A=INT(P*RND(1)+1)
-    0x59fae12ddd90 ----------   00330 GOSUB 3000
-    0x59fae12de070 ----------   00340 FOR X=1 TO A
-    0x59fae12de0f0 ----------   00350 GOSUB 3500
-    0x59fae12de210 ----------   00360 NEXT X
-    0x59fae12de5d0 ----------   00370 FOR M=1 TO 10
-    0x59fae12dea90 ---------- T 00380 PRINT "MOVE # ";M;" GUESS ";:INPUT X$
-    0x59fae12ded20 ----------   00390 IF X$="BOARD" THEN 2000
-    0x59fae12defd0 ----------   00400 IF X$="QUIT" THEN 2500
-    0x59fae12df4e0 ----------   00410 IF LEN(X$)<>P9 THEN PRINT "BAD NUMBER OF POSITIONS.":GOTO 380
-    0x59fae12df550 ---------A   00420 REM     UNPACK X$ INTO G$(1-P9)
-    0x59fae12df850 ----------   00430 FOR X=1 TO P9
-    0x59fae12dfc30 ----------   00440 FOR Y=1 TO C9
-    0x59fae12e03b0 ----------   00450 IF MID$(X$,X,1)=MID$(L$,Y,1) THEN 480
-    0x59fae12e04f0 ----------   00460 NEXT Y
-    0x59fae12e0b50 ----------   00470 PRINT "'"; MID$(X$,X,1); "' IS UNRECOGNIZED.":GOTO 380
-    0x59fae12e10d0 ---------- T 00480 G$(X)=MID$(X$,X,1)
-    0x59fae12e1200 ----------   00490 NEXT X
-    0x59fae12e12e0 ---------A   00500 REM     NOW WE CONVERT Q(1-P9) INTO A$(1-P9) [ACTUAL GUESS]
-    0x59fae12e1380 ----------   00510 GOSUB 4000
-    0x59fae12e1400 ---------A   00520 REM     AND GET NUMBER OF BLACKS AND WHITES
-    0x59fae12e1480 ----------   00530 GOSUB 4500
-    0x59fae12e17b0 ----------   00540 IF B=P9 THEN 630
-    0x59fae12e1840 ---------A   00550 REM     TELL HUMAN RESULTS
-    0x59fae12e1eb0 ----------   00560 PRINT "YOU HAVE ";B;" BLACKS AND ";W;" WHITES."
-    0x59fae12e1f40 ---------A   00570 REM     SAVE ALL THIS STUFF FOR BOARD PRINTOUT LATER
-    0x59fae12e2260 ----------   00580 S$(M)=X$
-    0x59fae12e2630 ----------   00590 S(M,1)=B
-    0x59fae12e2a00 ----------   00600 S(M,2)=W
-    0x59fae12e2b30 ----------   00610 NEXT M
-    0x59fae12e2d30 ----------   00620 PRINT "YOU RAN OUT OF MOVES!  THAT'S ALL YOU GET!":GOTO 640
-    0x59fae12e31c0 ----------   00622 GOSUB 4000
-    0x59fae12e3330 ----------   00623 PRINT "THE ACTUAL COMBINATION WAS: ";
-    0x59fae12e3620 ----------   00624 FOR X=1 TO P9
-    0x59fae12e3880 ----------   00625 PRINT A$(X);
-    0x59fae12e39b0 ----------   00626 NEXT X
-    0x59fae12e3a50 ----------   00627 PRINT
-    0x59fae12e3da0 ---------- T 00630 PRINT "YOU GUESSED IT IN ";M;" MOVES!"
-    0x59fae12e40f0 ---------- T 00640 H=H+M
-    0x59fae12e4160 ----------   00650 GOSUB 5000
-    0x59fae12e41c0 ---------A T 00660 REM
-    0x59fae12e4260 ---------A   00670 REM     NOW COMPUTER GUESSES
-    0x59fae12e42e0 ---------A   00680 REM
-    0x59fae12e45e0 ----------   00690 FOR X=1 TO P
-    0x59fae12e48e0 ----------   00700 I(X)=1
-    0x59fae12e4a10 ----------   00710 NEXT X
-    0x59fae12e4bb0 ----------   00720 PRINT "NOW I GUESS.  THINK OF A COMBINATION."
-    0x59fae12e4d30 ----------   00730 INPUT "HIT RETURN WHEN READY:";X$
-    0x59fae12e5010 ----------   00740 FOR M=1 TO 10
-    0x59fae12e50a0 ----------   00750 GOSUB 3000
-    0x59fae12e5100 ---------A   00760 REM     FIND A GUESS
-    0x59fae12e57c0 ----------   00770 G=INT(P*RND(1)+1)
-    0x59fae12e5af0 ----------   00780 IF I(G)=1 THEN 890
-    0x59fae12e5e10 ----------   00790 FOR X=G TO P
-    0x59fae12e6150 ----------   00800 IF I(X)=1 THEN 880
-    0x59fae12e6290 ----------   00810 NEXT X
-    0x59fae12e6590 ----------   00820 FOR X=1 TO G
-    0x59fae12e68d0 ----------   00830 IF I(X)=1 THEN 880
-    0x59fae12e6a10 ----------   00840 NEXT X
-    0x59fae12e6be0 ----------   00850 PRINT "YOU HAVE GIVEN ME INCONSISTENT INFORMATION."
-    0x59fae12e6d50 ----------   00860 PRINT "TRY AGAIN, AND THIS TIME PLEASE BE MORE CAREFUL."
-    0x59fae12e6dc0 ----------   00870 GOTO 660
-    0x59fae12e7000 ---------- T 00880 G=X
-    0x59fae12e7080 ---------A T 00890 REM     NOW WE CONVERT GUESS #G INTO G$
-    0x59fae12e7380 ----------   00900 FOR X=1 TO G
-    0x59fae12e7400 ----------   00910 GOSUB 3500
-    0x59fae12e7520 ----------   00920 NEXT X
-    0x59fae12e75b0 ----------   00930 GOSUB 6000
-    0x59fae12e7710 ----------   00940 PRINT "MY GUESS IS: ";
-    0x59fae12e7a00 ----------   00950 FOR X=1 TO P9
-    0x59fae12e7c60 ----------   00960 PRINT H$(X);
-    0x59fae12e7d90 ----------   00970 NEXT X
-    0x59fae12e8180 ----------   00980 INPUT "  BLACKS, WHITES ";B1,W1
-    0x59fae12e8400 ----------   00990 IF B1=P9 THEN 1120
-    0x59fae12e8480 ----------   01000 GOSUB 3000
-    0x59fae12e8760 ----------   01010 FOR X=1 TO P
-    0x59fae12e87f0 ----------   01020 GOSUB 3500
-    0x59fae12e8b10 ----------   01030 IF I(X)=0 THEN 1070
-    0x59fae12e8b90 ----------   01035 GOSUB 6500
-    0x59fae12e8bf0 ----------   01040 GOSUB 4000
-    0x59fae12e8c60 ----------   01050 GOSUB 4500
-    0x59fae12e93d0 ----------   01060 IF B1<>B OR W1<>W THEN I(X)=0
-    0x59fae12e9510 ---------- T 01070 NEXT X
-    0x59fae12e9650 ----------   01080 NEXT M
-    0x59fae12e97f0 ----------   01090 PRINT "I USED UP ALL MY MOVES!"
-    0x59fae12e9960 ----------   01100 PRINT "I GUESS MY CPU IS JUST HAVING AN OFF DAY."
-    0x59fae12e99e0 ----------   01110 GOTO 1130
-    0x59fae12e9d20 ---------- T 01120 PRINT "I GOT IT IN ";M;" MOVES!"
-    0x59fae12ea070 ---------- T 01130 C=C+M
-    0x59fae12ea0e0 ----------   01140 GOSUB 5000
-    0x59fae12ea200 ----------   01150 NEXT R
-    0x59fae12ea370 ----------   01160 PRINT "GAME OVER"
-    0x59fae12ea4c0 ----------   01170 PRINT "FINAL SCORE:"
-    0x59fae12ea530 ----------   01180 GOSUB 5040
-    0x59fae12ea570 ----------   01190 STOP
-    0x59fae12eae00 ---------A T 02000 REM
-    0x59fae12eaea0 ---------A   02010 REM     BOARD PRINTOUT ROUTINE
-    0x59fae12eaf20 ---------A   02020 REM
-    0x59fae12eafa0 ----------   02025 PRINT
-    0x59fae12eb110 ----------   02030 PRINT "BOARD"
-    0x59fae12eb280 ----------   02040 PRINT "MOVE     GUESS          BLACK     WHITE"
-    0x59fae12eb750 ----------   02050 FOR Z=1 TO M-1
-    0x59fae12ec390 ----------   02060 PRINT Z;TAB(9);S$(Z);TAB(25);S(Z,1);TAB(35);S(Z,2)
-    0x59fae12ec4c0 ----------   02070 NEXT Z
-    0x59fae12ec540 ----------   02075 PRINT
-    0x59fae12ec5b0 ----------   02080 GOTO 380
-    0x59fae12ec610 ---------A T 02500 REM
-    0x59fae12ec6a0 ---------A   02510 REM     QUIT ROUTINE
-    0x59fae12ec720 ---------A   02520 REM
-    0x59fae12ec8d0 ----------   02530 PRINT "QUITTER!  MY COMBINATION WAS: ";
-    0x59fae12ec940 ----------   02535 GOSUB 4000
-    0x59fae12ecc20 ----------   02540 FOR X=1 TO P9
-    0x59fae12ece80 ----------   02550 PRINT A$(X);
-    0x59fae12ecfb0 ----------   02560 NEXT X
-    0x59fae12ed030 ----------   02565 PRINT
-    0x59fae12ed180 ----------   02570 PRINT "GOOD BYE"
-    0x59fae12ed1d0 ----------   02580 STOP
-    0x59fae12ed250 ---------B G 03000 REM
-    0x59fae12ed300 ---------B   03010 REM     INITIALIZE Q(1-P9) TO ZEROS
-    0x59fae12ed380 ---------B   03020 REM
-    0x59fae12ed680 ---------B   03030 FOR S=1 TO P9
-    0x59fae12ed980 ---------B   03040 Q(S)=0
-    0x59fae12edab0 ---------B   03050 NEXT S
-    0x59fae12edb10 ---------B   03060 RETURN
-    0x59fae12edb90 ---------C G 03500 REM
-    0x59fae12edc30 ---------C   03510 REM     INCREMENT Q(1-P9)
-    0x59fae12edcb0 ---------C   03520 REM
-    0x59fae12ee010 ---------C   03522 IF Q(1)>0 THEN 3530
-    0x59fae12ee0c0 ---------C   03524 REM  IF ZERO, THIS IS OUR FIRST INCREMENT: MAKE ALL ONES
-    0x59fae12ee3c0 ---------C   03526 FOR S=1 TO P9
-    0x59fae12ee6c0 ---------C   03527 Q(S)=1
-    0x59fae12ee7f0 ---------C   03528 NEXT S
-    0x59fae12ee850 ---------C   03529 RETURN
-    0x59fae12eea70 ---------C T 03530 Q=1
-    0x59fae12eef70 ---------C T 03540 Q(Q)=Q(Q)+1
-    0x59fae12ef300 ---------C   03550 IF Q(Q)<=C9 THEN RETURN
-    0x59fae12ef600 ---------C   03560 Q(Q)=1
-    0x59fae12ef930 ---------C   03570 Q=Q+1
-    0x59fae12ef9a0 ---------C   03580 GOTO 3540
-    0x59fae12efa00 ---------D G 04000 REM
-    0x59fae12efab0 ---------D   04010 REM     CONVERT Q(1-P9) TO A$(1-P9)
-    0x59fae12efb30 ---------D   04020 REM
-    0x59fae12efe40 ---------D   04030 FOR S=1 TO P9
-    0x59fae12f04c0 ---------D   04040 A$(S)=MID$(L$,Q(S),1)
-    0x59fae12f05f0 ---------D   04050 NEXT S
-    0x59fae12f0650 ---------D   04060 RETURN
-    0x59fae12f06d0 ---------E G 04500 REM
-    0x59fae12f0790 ---------E   04510 REM     GET NUMBER OF BLACKS (B) AND WHITES (W)
-    0x59fae12f0840 ---------E   04520 REM     MASHES G$ AND A$ IN THE PROCESS
-    0x59fae12f08c0 ---------E   04530 REM
-    0x59fae12f0f80 ---------E   04540 B=0:W=0:F=0
-    0x59fae12f1280 ---------E   04550 FOR S=1 TO P9
-    0x59fae12f16c0 ---------E   04560 IF G$(S)<>A$(S) THEN 4620
-    0x59fae12f1a00 ---------E   04570 B=B+1
-    0x59fae12f1df0 ---------E   04580 G$(S)=CHR$(F)
-    0x59fae12f22e0 ---------E   04590 A$(S)=CHR$(F+1)
-    0x59fae12f2610 ---------E   04600 F=F+2
-    0x59fae12f2680 ---------E   04610 GOTO 4660
-    0x59fae12f2a30 ---------E T 04620 FOR T=1 TO P9
-    0x59fae12f2e80 ---------E   04630 IF G$(S)<>A$(T) THEN 4650
-    0x59fae12f32f0 ---------E   04640 IF G$(T)=A$(T) THEN 4650
-    0x59fae12f4230 ---------E   04645 W=W+1:A$(T)=CHR$(F):G$(S)=CHR$(F+1):F=F+2:GOTO 4660
-    0x59fae12f4350 ---------E T 04650 NEXT T
-    0x59fae12f4490 ---------E T 04660 NEXT S
-    0x59fae12f44f0 ---------E   04670 RETURN
-    0x59fae12f4570 ---------F G 05000 REM
-    0x59fae12f4600 ---------F   05010 REM     PRINT SCORE
-    0x59fae12f4680 ---------F   05020 REM
-    0x59fae12f47f0 ---------F   05030 PRINT "SCORE:"
-    0x59fae12f4a50 ---------F G 05040 PRINT "     COMPUTER ";C
-    0x59fae12f4ca0 ---------F   05050 PRINT "     HUMAN    ";H
-    0x59fae12f4d10 ---------F   05060 PRINT
-    0x59fae12f4d60 ---------F   05070 RETURN
-    0x59fae12f4de0 ---------A   05500 REM
-    0x59fae12f4e90 ---------A   05510 REM     CONVERT Q(1-P9) INTO G$(1-P9)
-    0x59fae12f4f10 ---------A   05520 REM
-    0x59fae12f5220 ----------   05530 FOR S=1 TO P9
-    0x59fae12f58a0 ----------   05540 G$(S)=MID$(L$,Q(S),1)
-    0x59fae12f59d0 ----------   05550 NEXT S
-    0x59fae12f5a30 ----------   05560 RETURN
-    0x59fae12f5ab0 ---------G G 06000 REM
-    0x59fae12f5b60 ---------G   06010 REM     CONVERT Q(1-P9) TO H$(1-P9)
-    0x59fae12f5be0 ---------G   06020 REM
-    0x59fae12f5ef0 ---------G   06030 FOR S=1 TO P9
-    0x59fae12f6570 ---------G   06040 H$(S)=MID$(L$,Q(S),1)
-    0x59fae12f66a0 ---------G   06050 NEXT S
-    0x59fae12f6700 ---------G   06060 RETURN
-    0x59fae12f6780 ---------H G 06500 REM
-    0x59fae12f6810 ---------H   06510 REM     COPY H$ INTO G$
-    0x59fae12f6890 ---------H   06520 REM
-    0x59fae12f6b90 ---------H   06530 FOR S=1 TO P9
-    0x59fae12f6f90 ---------H   06540 G$(S)=H$(S)
-    0x59fae12f70c0 ---------H   06550 NEXT S
-    0x59fae12f7120 ---------H   06560 RETURN
-    0x59fae12f71d0 ---------A   08000 REM     PROGRAM DATA FOR COLOR NAMES
-    0x59fae12f79a0 ---------A   08010 DATA BLACK,WHITE,RED,GREEN,ORANGE,YELLOW,PURPLE,TAN
-    0x59fae12f7a30 ---------A   09998 REM   ...WE'RE SORRY BUT IT'S TIME TO GO...
-    0x59fae12f7a90 ---------A   09999 END
+    0x620647b706d0 ---------A   00002  PRINT TAB(30);"MASTERMIND"
+    0x620647b70670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x620647b707f0 ---------A   00006  PRINT: PRINT: PRINT
+    0x620647b71b80 ---------A   00010  REM
+    0x620647b72f30 ---------A   00020  REM     MASTERMIND II
+    0x620647b72ff0 ---------A   00030  REM     STEVE NORTH
+    0x620647b730b0 ---------A   00040  REM     CREATIVE COMPUTING
+    0x620647b71040 ---------A   00050  REM     PO BOX 789-M MORRISTOWN NEW JERSEY 07960
+    0x620647b70e40 ---------A   00060  REM
+    0x620647b72e70 ---------A   00070  REM
+    0x620647b714e0 ---------A T 00080  INPUT "NUMBER OF COLORS";C9
+    0x620647b73200 ---------A   00090  IF C9>8 THEN PRINT "NO MORE THAN 8, PLEASE!":GOTO 80
+    0x620647b71760 ----------   00100  INPUT "NUMBER OF POSITIONS";P9
+    0x620647b78940 ----------   00110  INPUT "NUMBER OF ROUNDS";R9
+    0x620647b78cc0 ----------   00120  P=C9^P9
+    0x620647b78ef0 ----------   00130  PRINT "TOTAL POSSIBILITIES =";P
+    0x620647b794a0 ----------   00140  H=0:C=0
+    0x620647b7a710 ----------   00150  DIM Q(P9),S(10,2),S$(10),A$(P9),G$(P9),I(P),H$(P9)
+    0x620647b7aa00 ----------   00160  L$="BWRGOYPT"
+    0x620647b7aa70 ----------   00170  PRINT
+    0x620647b7ab00 ----------   00180  PRINT
+    0x620647b7ac70 ----------   00190  PRINT "COLOR     LETTER"
+    0x620647b7add0 ----------   00200  PRINT "=====     ======"
+    0x620647b7b190 ----------   00210  FOR X=1 TO C9
+    0x620647b7b3c0 ----------   00220  READ X$
+    0x620647b7b9d0 ----------   00230  PRINT X$;TAB(13);MID$(L$,X,1)
+    0x620647b7bb10 ----------   00240  NEXT X
+    0x620647b7bba0 ----------   00250  PRINT
+    0x620647b7bf60 ----------   00260  FOR R=1 TO R9
+    0x620647b7bff0 ----------   00270  PRINT 
+    0x620647b7c350 ----------   00280  PRINT "ROUND NUMBER";R;"----"
+    0x620647b7c3e0 ----------   00290  PRINT
+    0x620647b7c5b0 ----------   00300  PRINT "GUESS MY COMBINATION.":PRINT
+    0x620647b7c850 ---------A   00310  REM     GET A COMBINATION
+    0x620647b7cf20 ----------   00320  A=INT(P*RND(1)+1)
+    0x620647b7cf90 ----------   00330  GOSUB 3000
+    0x620647b7d280 ----------   00340  FOR X=1 TO A
+    0x620647b7d300 ----------   00350  GOSUB 3500
+    0x620647b7d430 ----------   00360  NEXT X
+    0x620647b7d800 ----------   00370  FOR M=1 TO 10
+    0x620647b7dcd0 ---------- T 00380  PRINT "MOVE # ";M;" GUESS ";:INPUT X$
+    0x620647b7df60 ----------   00390  IF X$="BOARD" THEN 2000
+    0x620647b7e210 ----------   00400  IF X$="QUIT" THEN 2500
+    0x620647b7e730 ----------   00410  IF LEN(X$)<>P9 THEN PRINT "BAD NUMBER OF POSITIONS.":GOTO 380
+    0x620647b7e7b0 ---------A   00420  REM     UNPACK X$ INTO G$(1-P9)
+    0x620647b7eac0 ----------   00430  FOR X=1 TO P9
+    0x620647b7eea0 ----------   00440  FOR Y=1 TO C9
+    0x620647b7f620 ----------   00450  IF MID$(X$,X,1)=MID$(L$,Y,1) THEN 480
+    0x620647b7f760 ----------   00460  NEXT Y
+    0x620647b7fde0 ----------   00470  PRINT "'"; MID$(X$,X,1); "' IS UNRECOGNIZED.":GOTO 380
+    0x620647b80370 ---------- T 00480  G$(X)=MID$(X$,X,1)
+    0x620647b804a0 ----------   00490  NEXT X
+    0x620647b80590 ---------A   00500  REM     NOW WE CONVERT Q(1-P9) INTO A$(1-P9) [ACTUAL GUESS]
+    0x620647b80640 ----------   00510  GOSUB 4000
+    0x620647b806d0 ---------A   00520  REM     AND GET NUMBER OF BLACKS AND WHITES
+    0x620647b80760 ----------   00530  GOSUB 4500
+    0x620647b80aa0 ----------   00540  IF B=P9 THEN 630
+    0x620647b80b30 ---------A   00550  REM     TELL HUMAN RESULTS
+    0x620647b811b0 ----------   00560  PRINT "YOU HAVE ";B;" BLACKS AND ";W;" WHITES."
+    0x620647b81250 ---------A   00570  REM     SAVE ALL THIS STUFF FOR BOARD PRINTOUT LATER
+    0x620647b81580 ----------   00580  S$(M)=X$
+    0x620647b81950 ----------   00590  S(M,1)=B
+    0x620647b81d20 ----------   00600  S(M,2)=W
+    0x620647b81e50 ----------   00610  NEXT M
+    0x620647b82070 ----------   00620  PRINT "YOU RAN OUT OF MOVES!  THAT'S ALL YOU GET!":GOTO 640
+    0x620647b82510 ----------   00622  GOSUB 4000
+    0x620647b82690 ----------   00623  PRINT "THE ACTUAL COMBINATION WAS: ";
+    0x620647b82990 ----------   00624  FOR X=1 TO P9
+    0x620647b82bf0 ----------   00625  PRINT A$(X);
+    0x620647b82d30 ----------   00626  NEXT X
+    0x620647b82de0 ----------   00627  PRINT
+    0x620647b83140 ---------- T 00630  PRINT "YOU GUESSED IT IN ";M;" MOVES!"
+    0x620647b834a0 ---------- T 00640  H=H+M
+    0x620647b83510 ----------   00650  GOSUB 5000
+    0x620647b83580 ---------A T 00660  REM
+    0x620647b83630 ---------A   00670  REM     NOW COMPUTER GUESSES
+    0x620647b836c0 ---------A   00680  REM
+    0x620647b839d0 ----------   00690  FOR X=1 TO P
+    0x620647b83cd0 ----------   00700  I(X)=1
+    0x620647b83e00 ----------   00710  NEXT X
+    0x620647b83fb0 ----------   00720  PRINT "NOW I GUESS.  THINK OF A COMBINATION."
+    0x620647b84140 ----------   00730  INPUT "HIT RETURN WHEN READY:";X$
+    0x620647b84420 ----------   00740  FOR M=1 TO 10
+    0x620647b844b0 ----------   00750  GOSUB 3000
+    0x620647b84520 ---------A   00760  REM     FIND A GUESS
+    0x620647b84bf0 ----------   00770  G=INT(P*RND(1)+1)
+    0x620647b84f20 ----------   00780  IF I(G)=1 THEN 890
+    0x620647b85240 ----------   00790  FOR X=G TO P
+    0x620647b85580 ----------   00800  IF I(X)=1 THEN 880
+    0x620647b856c0 ----------   00810  NEXT X
+    0x620647b859d0 ----------   00820  FOR X=1 TO G
+    0x620647b85d10 ----------   00830  IF I(X)=1 THEN 880
+    0x620647b85e50 ----------   00840  NEXT X
+    0x620647b86030 ----------   00850  PRINT "YOU HAVE GIVEN ME INCONSISTENT INFORMATION."
+    0x620647b861b0 ----------   00860  PRINT "TRY AGAIN, AND THIS TIME PLEASE BE MORE CAREFUL."
+    0x620647b86230 ----------   00870  GOTO 660
+    0x620647b86480 ---------- T 00880  G=X
+    0x620647b86500 ---------A T 00890  REM     NOW WE CONVERT GUESS #G INTO G$
+    0x620647b86810 ----------   00900  FOR X=1 TO G
+    0x620647b86890 ----------   00910  GOSUB 3500
+    0x620647b869c0 ----------   00920  NEXT X
+    0x620647b86a60 ----------   00930  GOSUB 6000
+    0x620647b86bd0 ----------   00940  PRINT "MY GUESS IS: ";
+    0x620647b86ed0 ----------   00950  FOR X=1 TO P9
+    0x620647b87130 ----------   00960  PRINT H$(X);
+    0x620647b87270 ----------   00970  NEXT X
+    0x620647b87670 ----------   00980  INPUT "  BLACKS, WHITES ";B1,W1
+    0x620647b878f0 ----------   00990  IF B1=P9 THEN 1120
+    0x620647b87970 ----------   01000  GOSUB 3000
+    0x620647b87c60 ----------   01010  FOR X=1 TO P
+    0x620647b87cf0 ----------   01020  GOSUB 3500
+    0x620647b88020 ----------   01030  IF I(X)=0 THEN 1070
+    0x620647b880a0 ----------   01035  GOSUB 6500
+    0x620647b88110 ----------   01040  GOSUB 4000
+    0x620647b88190 ----------   01050  GOSUB 4500
+    0x620647b88910 ----------   01060  IF B1<>B OR W1<>W THEN I(X)=0
+    0x620647b88a50 ---------- T 01070  NEXT X
+    0x620647b88ba0 ----------   01080  NEXT M
+    0x620647b88d50 ----------   01090  PRINT "I USED UP ALL MY MOVES!"
+    0x620647b88ed0 ----------   01100  PRINT "I GUESS MY CPU IS JUST HAVING AN OFF DAY."
+    0x620647b88f60 ----------   01110  GOTO 1130
+    0x620647b892b0 ---------- T 01120  PRINT "I GOT IT IN ";M;" MOVES!"
+    0x620647b89610 ---------- T 01130  C=C+M
+    0x620647b89680 ----------   01140  GOSUB 5000
+    0x620647b897b0 ----------   01150  NEXT R
+    0x620647b89930 ----------   01160  PRINT "GAME OVER"
+    0x620647b89a90 ----------   01170  PRINT "FINAL SCORE:"
+    0x620647b89b10 ----------   01180  GOSUB 5040
+    0x620647b89b60 ----------   01190  STOP
+    0x620647b8a3f0 ---------A T 02000  REM
+    0x620647b8a4a0 ---------A   02010  REM     BOARD PRINTOUT ROUTINE
+    0x620647b8a530 ---------A   02020  REM
+    0x620647b8a5c0 ----------   02025  PRINT
+    0x620647b8a740 ----------   02030  PRINT "BOARD"
+    0x620647b8a8c0 ----------   02040  PRINT "MOVE     GUESS          BLACK     WHITE"
+    0x620647b8ada0 ----------   02050  FOR Z=1 TO M-1
+    0x620647b8b9e0 ----------   02060  PRINT Z;TAB(9);S$(Z);TAB(25);S(Z,1);TAB(35);S(Z,2)
+    0x620647b8bb20 ----------   02070  NEXT Z
+    0x620647b8bbb0 ----------   02075  PRINT
+    0x620647b8bc30 ----------   02080  GOTO 380
+    0x620647b8bca0 ---------A T 02500  REM
+    0x620647b8bd40 ---------A   02510  REM     QUIT ROUTINE
+    0x620647b8bdd0 ---------A   02520  REM
+    0x620647b8bf90 ----------   02530  PRINT "QUITTER!  MY COMBINATION WAS: ";
+    0x620647b8c010 ----------   02535  GOSUB 4000
+    0x620647b8c300 ----------   02540  FOR X=1 TO P9
+    0x620647b8c560 ----------   02550  PRINT A$(X);
+    0x620647b8c6a0 ----------   02560  NEXT X
+    0x620647b8c730 ----------   02565  PRINT
+    0x620647b8c890 ----------   02570  PRINT "GOOD BYE"
+    0x620647b8c8f0 ----------   02580  STOP
+    0x620647b8c970 ---------B G 03000  REM
+    0x620647b8ca30 ---------B   03010  REM     INITIALIZE Q(1-P9) TO ZEROS
+    0x620647b8cac0 ---------B   03020  REM
+    0x620647b8cdd0 ---------B   03030  FOR S=1 TO P9
+    0x620647b8d0d0 ---------B   03040  Q(S)=0
+    0x620647b8d200 ---------B   03050  NEXT S
+    0x620647b8d270 ---------B   03060  RETURN
+    0x620647b8d2f0 ---------C G 03500  REM
+    0x620647b8d3a0 ---------C   03510  REM     INCREMENT Q(1-P9)
+    0x620647b8d430 ---------C   03520  REM
+    0x620647b8d7a0 ---------C   03522  IF Q(1)>0 THEN 3530
+    0x620647b8d850 ---------C   03524  REM  IF ZERO, THIS IS OUR FIRST INCREMENT: MAKE ALL ONES
+    0x620647b8db60 ---------C   03526  FOR S=1 TO P9
+    0x620647b8de60 ---------C   03527  Q(S)=1
+    0x620647b8df90 ---------C   03528  NEXT S
+    0x620647b8e000 ---------C   03529  RETURN
+    0x620647b8e220 ---------C T 03530  Q=1
+    0x620647b8e720 ---------C T 03540  Q(Q)=Q(Q)+1
+    0x620647b8eab0 ---------C   03550  IF Q(Q)<=C9 THEN RETURN
+    0x620647b8edb0 ---------C   03560  Q(Q)=1
+    0x620647b8f0e0 ---------C   03570  Q=Q+1
+    0x620647b8f150 ---------C   03580  GOTO 3540
+    0x620647b8f1c0 ---------D G 04000  REM
+    0x620647b8f280 ---------D   04010  REM     CONVERT Q(1-P9) TO A$(1-P9)
+    0x620647b8f310 ---------D   04020  REM
+    0x620647b8f630 ---------D   04030  FOR S=1 TO P9
+    0x620647b8fcb0 ---------D   04040  A$(S)=MID$(L$,Q(S),1)
+    0x620647b8fde0 ---------D   04050  NEXT S
+    0x620647b8fe50 ---------D   04060  RETURN
+    0x620647b8fed0 ---------E G 04500  REM
+    0x620647b8ffa0 ---------E   04510  REM     GET NUMBER OF BLACKS (B) AND WHITES (W)
+    0x620647b90060 ---------E   04520  REM     MASHES G$ AND A$ IN THE PROCESS
+    0x620647b900f0 ---------E   04530  REM
+    0x620647b907c0 ---------E   04540  B=0:W=0:F=0
+    0x620647b90ac0 ---------E   04550  FOR S=1 TO P9
+    0x620647b90f00 ---------E   04560  IF G$(S)<>A$(S) THEN 4620
+    0x620647b91240 ---------E   04570  B=B+1
+    0x620647b91630 ---------E   04580  G$(S)=CHR$(F)
+    0x620647b91b20 ---------E   04590  A$(S)=CHR$(F+1)
+    0x620647b91e50 ---------E   04600  F=F+2
+    0x620647b91ec0 ---------E   04610  GOTO 4660
+    0x620647b92280 ---------E T 04620  FOR T=1 TO P9
+    0x620647b926d0 ---------E   04630  IF G$(S)<>A$(T) THEN 4650
+    0x620647b92b40 ---------E   04640  IF G$(T)=A$(T) THEN 4650
+    0x620647b93a80 ---------E   04645  W=W+1:A$(T)=CHR$(F):G$(S)=CHR$(F+1):F=F+2:GOTO 4660
+    0x620647b93bb0 ---------E T 04650  NEXT T
+    0x620647b93d00 ---------E T 04660  NEXT S
+    0x620647b93d70 ---------E   04670  RETURN
+    0x620647b93df0 ---------F G 05000  REM
+    0x620647b93e90 ---------F   05010  REM     PRINT SCORE
+    0x620647b93f20 ---------F   05020  REM
+    0x620647b940a0 ---------F   05030  PRINT "SCORE:"
+    0x620647b94310 ---------F G 05040  PRINT "     COMPUTER ";C
+    0x620647b94570 ---------F   05050  PRINT "     HUMAN    ";H
+    0x620647b945f0 ---------F   05060  PRINT
+    0x620647b94650 ---------F   05070  RETURN
+    0x620647b946d0 ---------A   05500  REM
+    0x620647b94790 ---------A   05510  REM     CONVERT Q(1-P9) INTO G$(1-P9)
+    0x620647b94820 ---------A   05520  REM
+    0x620647b94b40 ----------   05530  FOR S=1 TO P9
+    0x620647b951c0 ----------   05540  G$(S)=MID$(L$,Q(S),1)
+    0x620647b952f0 ----------   05550  NEXT S
+    0x620647b95360 ----------   05560  RETURN
+    0x620647b953e0 ---------G G 06000  REM
+    0x620647b954a0 ---------G   06010  REM     CONVERT Q(1-P9) TO H$(1-P9)
+    0x620647b95530 ---------G   06020  REM
+    0x620647b95850 ---------G   06030  FOR S=1 TO P9
+    0x620647b95ed0 ---------G   06040  H$(S)=MID$(L$,Q(S),1)
+    0x620647b96000 ---------G   06050  NEXT S
+    0x620647b96070 ---------G   06060  RETURN
+    0x620647b960f0 ---------H G 06500  REM
+    0x620647b96190 ---------H   06510  REM     COPY H$ INTO G$
+    0x620647b96220 ---------H   06520  REM
+    0x620647b96530 ---------H   06530  FOR S=1 TO P9
+    0x620647b96930 ---------H   06540  G$(S)=H$(S)
+    0x620647b96a60 ---------H   06550  NEXT S
+    0x620647b96ad0 ---------H   06560  RETURN
+    0x620647b96b80 ---------A   08000  REM     PROGRAM DATA FOR COLOR NAMES
+    0x620647b97360 ---------A   08010  DATA BLACK,WHITE,RED,GREEN,ORANGE,YELLOW,PURPLE,TAN
+    0x620647b973f0 ---------A   09998  REM   ...WE'RE SORRY BUT IT'S TIME TO GO...
+    0x620647b97460 ---------A   09999  END
  */
 
 /*
@@ -284,14 +284,14 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x59fae12d2b80 (00002)   0x59fae12d2b80 (00002)   0x59fae12f7a90 (09999)   0x59fae12f7a90 (09999)   
-   B) 0x59fae12ed250 (03000)   0x59fae12ed250 (03000)   0x59fae12edb10 (03060)   0x59fae12edb10 (03060)   
-   C) 0x59fae12edb90 (03500)   0x59fae12edb90 (03500)   0x59fae12ee850 (03529)   0x59fae12ef9a0 (03580)   
-   D) 0x59fae12efa00 (04000)   0x59fae12efa00 (04000)   0x59fae12f0650 (04060)   0x59fae12f0650 (04060)   
-   E) 0x59fae12f06d0 (04500)   0x59fae12f06d0 (04500)   0x59fae12f44f0 (04670)   0x59fae12f44f0 (04670)   
-   F) 0x59fae12f4570 (05000)   0x59fae12f4570 (05000)   0x59fae12f4d60 (05070)   0x59fae12f4d60 (05070)   
-   G) 0x59fae12f5ab0 (06000)   0x59fae12f5ab0 (06000)   0x59fae12f6700 (06060)   0x59fae12f6700 (06060)   
-   H) 0x59fae12f6780 (06500)   0x59fae12f6780 (06500)   0x59fae12f7120 (06560)   0x59fae12f7120 (06560)   
+   A) 0x620647b706d0 (00002)   0x620647b706d0 (00002)   0x620647b97460 (09999)   0x620647b97460 (09999)   
+   B) 0x620647b8c970 (03000)   0x620647b8c970 (03000)   0x620647b8d270 (03060)   0x620647b8d270 (03060)   
+   C) 0x620647b8d2f0 (03500)   0x620647b8d2f0 (03500)   0x620647b8e000 (03529)   0x620647b8f150 (03580)   
+   D) 0x620647b8f1c0 (04000)   0x620647b8f1c0 (04000)   0x620647b8fe50 (04060)   0x620647b8fe50 (04060)   
+   E) 0x620647b8fed0 (04500)   0x620647b8fed0 (04500)   0x620647b93d70 (04670)   0x620647b93d70 (04670)   
+   F) 0x620647b93df0 (05000)   0x620647b93df0 (05000)   0x620647b94650 (05070)   0x620647b94650 (05070)   
+   G) 0x620647b953e0 (06000)   0x620647b953e0 (06000)   0x620647b96070 (06060)   0x620647b96070 (06060)   
+   H) 0x620647b960f0 (06500)   0x620647b960f0 (06500)   0x620647b96ad0 (06560)   0x620647b96ad0 (06560)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
     NOTE: Routine C overlaps, or is tangled with, routine A!
@@ -303,6 +303,524 @@
 
  */
 
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/mastrmnd.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x620647b706d0 ---------A   00002  PRINT TAB(30);"MASTERMIND"
+    0x620647b70670 ---------A   00004  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x620647b612b0 ----------   00006  PRINT
+    0x620647b709e0 ----------        a PRINT
+    0x620647b707f0 ---------A        b PRINT
+    0x620647b71b80 ---------A   00010  REM
+    0x620647b72f30 ---------A   00020  REM     MASTERMIND II
+    0x620647b72ff0 ---------A   00030  REM     STEVE NORTH
+    0x620647b730b0 ---------A   00040  REM     CREATIVE COMPUTING
+    0x620647b71040 ---------A   00050  REM     PO BOX 789-M MORRISTOWN NEW JERSEY 07960
+    0x620647b70e40 ---------A   00060  REM
+    0x620647b72e70 ---------A   00070  REM
+    0x620647b714e0 ---------A T 00080  INPUT "NUMBER OF COLORS";C9
+    0x620647b731a0 ----------   00090  IF C9>8 THEN PRINT "NO MORE THAN 8, PLEASE!"
+    0x620647b73200 ---------A        a GOTO 80
+    0x620647b71760 ----------   00100  INPUT "NUMBER OF POSITIONS";P9
+    0x620647b78940 ----------   00110  INPUT "NUMBER OF ROUNDS";R9
+    0x620647b78cc0 ----------   00120  P=C9^P9
+    0x620647b78ef0 ----------   00130  PRINT "TOTAL POSSIBILITIES =";P
+    0x620647b791b0 ----------   00140  H=0
+    0x620647b794a0 ----------        a C=0
+    0x620647b7a710 ----------   00150  DIM Q(P9),S(10,2),S$(10),A$(P9),G$(P9),I(P),H$(P9)
+    0x620647b7aa00 ----------   00160  L$="BWRGOYPT"
+    0x620647b7aa70 ----------   00170  PRINT
+    0x620647b7ab00 ----------   00180  PRINT
+    0x620647b7ac70 ----------   00190  PRINT "COLOR     LETTER"
+    0x620647b7add0 ----------   00200  PRINT "=====     ======"
+    0x620647b7b190 ----------   00210  FOR X=1 TO C9
+    0x620647b7b3c0 ----------   00220  READ X$
+    0x620647b7b9d0 ----------   00230  PRINT X$;TAB(13);MID$(L$,X,1)
+    0x620647b7bb10 ----------   00240  NEXT X
+    0x620647b7bba0 ----------   00250  PRINT
+    0x620647b7bf60 ----------   00260  FOR R=1 TO R9
+    0x620647b7bff0 ----------   00270  PRINT 
+    0x620647b7c350 ----------   00280  PRINT "ROUND NUMBER";R;"----"
+    0x620647b7c3e0 ----------   00290  PRINT
+    0x620647b7c520 ----------   00300  PRINT "GUESS MY COMBINATION."
+    0x620647b7c5b0 ----------        a PRINT
+    0x620647b7c850 ---------A   00310  REM     GET A COMBINATION
+    0x620647b7cf20 ----------   00320  A=INT(P*RND(1)+1)
+    0x620647b7cf90 ----------   00330  GOSUB 3000
+    0x620647b7d280 ----------   00340  FOR X=1 TO A
+    0x620647b7d300 ----------   00350  GOSUB 3500
+    0x620647b7d430 ----------   00360  NEXT X
+    0x620647b7d800 ----------   00370  FOR M=1 TO 10
+    0x620647b7db60 ---------- T 00380  PRINT "MOVE # ";M;" GUESS ";
+    0x620647b7dcd0 ---------- T      a INPUT X$
+    0x620647b7df60 ----------   00390  IF X$="BOARD" THEN 2000
+    0x620647b7e210 ----------   00400  IF X$="QUIT" THEN 2500
+    0x620647b7e6a0 ----------   00410  IF LEN(X$)<>P9 THEN PRINT "BAD NUMBER OF POSITIONS."
+    0x620647b7e730 ----------        a GOTO 380
+    0x620647b7e7b0 ---------A   00420  REM     UNPACK X$ INTO G$(1-P9)
+    0x620647b7eac0 ----------   00430  FOR X=1 TO P9
+    0x620647b7eea0 ----------   00440  FOR Y=1 TO C9
+    0x620647b7f620 ----------   00450  IF MID$(X$,X,1)=MID$(L$,Y,1) THEN 480
+    0x620647b7f760 ----------   00460  NEXT Y
+    0x620647b7fd60 ----------   00470  PRINT "'"; MID$(X$,X,1); "' IS UNRECOGNIZED."
+    0x620647b7fde0 ----------        a GOTO 380
+    0x620647b80370 ---------- T 00480  G$(X)=MID$(X$,X,1)
+    0x620647b804a0 ----------   00490  NEXT X
+    0x620647b80590 ---------A   00500  REM     NOW WE CONVERT Q(1-P9) INTO A$(1-P9) [ACTUAL GUESS]
+    0x620647b80640 ----------   00510  GOSUB 4000
+    0x620647b806d0 ---------A   00520  REM     AND GET NUMBER OF BLACKS AND WHITES
+    0x620647b80760 ----------   00530  GOSUB 4500
+    0x620647b80aa0 ----------   00540  IF B=P9 THEN 630
+    0x620647b80b30 ---------A   00550  REM     TELL HUMAN RESULTS
+    0x620647b811b0 ----------   00560  PRINT "YOU HAVE ";B;" BLACKS AND ";W;" WHITES."
+    0x620647b81250 ---------A   00570  REM     SAVE ALL THIS STUFF FOR BOARD PRINTOUT LATER
+    0x620647b81580 ----------   00580  S$(M)=X$
+    0x620647b81950 ----------   00590  S(M,1)=B
+    0x620647b81d20 ----------   00600  S(M,2)=W
+    0x620647b81e50 ----------   00610  NEXT M
+    0x620647b81ff0 ----------   00620  PRINT "YOU RAN OUT OF MOVES!  THAT'S ALL YOU GET!"
+    0x620647b82070 ----------        a GOTO 640
+    0x620647b82510 ----------   00622  GOSUB 4000
+    0x620647b82690 ----------   00623  PRINT "THE ACTUAL COMBINATION WAS: ";
+    0x620647b82990 ----------   00624  FOR X=1 TO P9
+    0x620647b82bf0 ----------   00625  PRINT A$(X);
+    0x620647b82d30 ----------   00626  NEXT X
+    0x620647b82de0 ----------   00627  PRINT
+    0x620647b83140 ---------- T 00630  PRINT "YOU GUESSED IT IN ";M;" MOVES!"
+    0x620647b834a0 ---------- T 00640  H=H+M
+    0x620647b83510 ----------   00650  GOSUB 5000
+    0x620647b83580 ---------A T 00660  REM
+    0x620647b83630 ---------A   00670  REM     NOW COMPUTER GUESSES
+    0x620647b836c0 ---------A   00680  REM
+    0x620647b839d0 ----------   00690  FOR X=1 TO P
+    0x620647b83cd0 ----------   00700  I(X)=1
+    0x620647b83e00 ----------   00710  NEXT X
+    0x620647b83fb0 ----------   00720  PRINT "NOW I GUESS.  THINK OF A COMBINATION."
+    0x620647b84140 ----------   00730  INPUT "HIT RETURN WHEN READY:";X$
+    0x620647b84420 ----------   00740  FOR M=1 TO 10
+    0x620647b844b0 ----------   00750  GOSUB 3000
+    0x620647b84520 ---------A   00760  REM     FIND A GUESS
+    0x620647b84bf0 ----------   00770  G=INT(P*RND(1)+1)
+    0x620647b84f20 ----------   00780  IF I(G)=1 THEN 890
+    0x620647b85240 ----------   00790  FOR X=G TO P
+    0x620647b85580 ----------   00800  IF I(X)=1 THEN 880
+    0x620647b856c0 ----------   00810  NEXT X
+    0x620647b859d0 ----------   00820  FOR X=1 TO G
+    0x620647b85d10 ----------   00830  IF I(X)=1 THEN 880
+    0x620647b85e50 ----------   00840  NEXT X
+    0x620647b86030 ----------   00850  PRINT "YOU HAVE GIVEN ME INCONSISTENT INFORMATION."
+    0x620647b861b0 ----------   00860  PRINT "TRY AGAIN, AND THIS TIME PLEASE BE MORE CAREFUL."
+    0x620647b86230 ----------   00870  GOTO 660
+    0x620647b86480 ---------- T 00880  G=X
+    0x620647b86500 ---------A T 00890  REM     NOW WE CONVERT GUESS #G INTO G$
+    0x620647b86810 ----------   00900  FOR X=1 TO G
+    0x620647b86890 ----------   00910  GOSUB 3500
+    0x620647b869c0 ----------   00920  NEXT X
+    0x620647b86a60 ----------   00930  GOSUB 6000
+    0x620647b86bd0 ----------   00940  PRINT "MY GUESS IS: ";
+    0x620647b86ed0 ----------   00950  FOR X=1 TO P9
+    0x620647b87130 ----------   00960  PRINT H$(X);
+    0x620647b87270 ----------   00970  NEXT X
+    0x620647b87670 ----------   00980  INPUT "  BLACKS, WHITES ";B1,W1
+    0x620647b878f0 ----------   00990  IF B1=P9 THEN 1120
+    0x620647b87970 ----------   01000  GOSUB 3000
+    0x620647b87c60 ----------   01010  FOR X=1 TO P
+    0x620647b87cf0 ----------   01020  GOSUB 3500
+    0x620647b88020 ----------   01030  IF I(X)=0 THEN 1070
+    0x620647b880a0 ----------   01035  GOSUB 6500
+    0x620647b88110 ----------   01040  GOSUB 4000
+    0x620647b88190 ----------   01050  GOSUB 4500
+    0x620647b88910 ----------   01060  IF B1<>B OR W1<>W THEN I(X)=0
+    0x620647b88a50 ---------- T 01070  NEXT X
+    0x620647b88ba0 ----------   01080  NEXT M
+    0x620647b88d50 ----------   01090  PRINT "I USED UP ALL MY MOVES!"
+    0x620647b88ed0 ----------   01100  PRINT "I GUESS MY CPU IS JUST HAVING AN OFF DAY."
+    0x620647b88f60 ----------   01110  GOTO 1130
+    0x620647b892b0 ---------- T 01120  PRINT "I GOT IT IN ";M;" MOVES!"
+    0x620647b89610 ---------- T 01130  C=C+M
+    0x620647b89680 ----------   01140  GOSUB 5000
+    0x620647b897b0 ----------   01150  NEXT R
+    0x620647b89930 ----------   01160  PRINT "GAME OVER"
+    0x620647b89a90 ----------   01170  PRINT "FINAL SCORE:"
+    0x620647b89b10 ----------   01180  GOSUB 5040
+    0x620647b89b60 ----------   01190  STOP
+    0x620647b8a3f0 ---------A T 02000  REM
+    0x620647b8a4a0 ---------A   02010  REM     BOARD PRINTOUT ROUTINE
+    0x620647b8a530 ---------A   02020  REM
+    0x620647b8a5c0 ----------   02025  PRINT
+    0x620647b8a740 ----------   02030  PRINT "BOARD"
+    0x620647b8a8c0 ----------   02040  PRINT "MOVE     GUESS          BLACK     WHITE"
+    0x620647b8ada0 ----------   02050  FOR Z=1 TO M-1
+    0x620647b8b9e0 ----------   02060  PRINT Z;TAB(9);S$(Z);TAB(25);S(Z,1);TAB(35);S(Z,2)
+    0x620647b8bb20 ----------   02070  NEXT Z
+    0x620647b8bbb0 ----------   02075  PRINT
+    0x620647b8bc30 ----------   02080  GOTO 380
+    0x620647b8bca0 ---------A T 02500  REM
+    0x620647b8bd40 ---------A   02510  REM     QUIT ROUTINE
+    0x620647b8bdd0 ---------A   02520  REM
+    0x620647b8bf90 ----------   02530  PRINT "QUITTER!  MY COMBINATION WAS: ";
+    0x620647b8c010 ----------   02535  GOSUB 4000
+    0x620647b8c300 ----------   02540  FOR X=1 TO P9
+    0x620647b8c560 ----------   02550  PRINT A$(X);
+    0x620647b8c6a0 ----------   02560  NEXT X
+    0x620647b8c730 ----------   02565  PRINT
+    0x620647b8c890 ----------   02570  PRINT "GOOD BYE"
+    0x620647b8c8f0 ----------   02580  STOP
+    0x620647b8c970 ---------B G 03000  REM
+    0x620647b8ca30 ---------B   03010  REM     INITIALIZE Q(1-P9) TO ZEROS
+    0x620647b8cac0 ---------B   03020  REM
+    0x620647b8cdd0 ---------B   03030  FOR S=1 TO P9
+    0x620647b8d0d0 ---------B   03040  Q(S)=0
+    0x620647b8d200 ---------B   03050  NEXT S
+    0x620647b8d270 ---------B   03060  RETURN
+    0x620647b8d2f0 ---------C G 03500  REM
+    0x620647b8d3a0 ---------C   03510  REM     INCREMENT Q(1-P9)
+    0x620647b8d430 ---------C   03520  REM
+    0x620647b8d7a0 ---------C   03522  IF Q(1)>0 THEN 3530
+    0x620647b8d850 ---------C   03524  REM  IF ZERO, THIS IS OUR FIRST INCREMENT
+    0x620647b8db60 ---------C   03526  FOR S=1 TO P9
+    0x620647b8de60 ---------C   03527  Q(S)=1
+    0x620647b8df90 ---------C   03528  NEXT S
+    0x620647b8e000 ---------C   03529  RETURN
+    0x620647b8e220 ---------C T 03530  Q=1
+    0x620647b8e720 ---------C T 03540  Q(Q)=Q(Q)+1
+    0x620647b8eab0 ---------C   03550  IF Q(Q)<=C9 THEN RETURN
+    0x620647b8edb0 ---------C   03560  Q(Q)=1
+    0x620647b8f0e0 ---------C   03570  Q=Q+1
+    0x620647b8f150 ---------C   03580  GOTO 3540
+    0x620647b8f1c0 ---------D G 04000  REM
+    0x620647b8f280 ---------D   04010  REM     CONVERT Q(1-P9) TO A$(1-P9)
+    0x620647b8f310 ---------D   04020  REM
+    0x620647b8f630 ---------D   04030  FOR S=1 TO P9
+    0x620647b8fcb0 ---------D   04040  A$(S)=MID$(L$,Q(S),1)
+    0x620647b8fde0 ---------D   04050  NEXT S
+    0x620647b8fe50 ---------D   04060  RETURN
+    0x620647b8fed0 ---------E G 04500  REM
+    0x620647b8ffa0 ---------E   04510  REM     GET NUMBER OF BLACKS (B) AND WHITES (W)
+    0x620647b90060 ---------E   04520  REM     MASHES G$ AND A$ IN THE PROCESS
+    0x620647b900f0 ---------E   04530  REM
+    0x620647b90300 ----------   04540  B=0
+    0x620647b904f0 ----------        a W=0
+    0x620647b907c0 ---------E        b F=0
+    0x620647b90ac0 ---------E   04550  FOR S=1 TO P9
+    0x620647b90f00 ---------E   04560  IF G$(S)<>A$(S) THEN 4620
+    0x620647b91240 ---------E   04570  B=B+1
+    0x620647b91630 ---------E   04580  G$(S)=CHR$(F)
+    0x620647b91b20 ---------E   04590  A$(S)=CHR$(F+1)
+    0x620647b91e50 ---------E   04600  F=F+2
+    0x620647b91ec0 ---------E   04610  GOTO 4660
+    0x620647b92280 ---------E T 04620  FOR T=1 TO P9
+    0x620647b926d0 ---------E   04630  IF G$(S)<>A$(T) THEN 4650
+    0x620647b92b40 ---------E   04640  IF G$(T)=A$(T) THEN 4650
+    0x620647b92e60 ----------   04645  W=W+1
+    0x620647b93230 ----------        a A$(T)=CHR$(F)
+    0x620647b93700 ----------        b G$(S)=CHR$(F+1)
+    0x620647b93a10 ----------        c F=F+2
+    0x620647b93a80 ---------E        d GOTO 4660
+    0x620647b93bb0 ---------E T 04650  NEXT T
+    0x620647b93d00 ---------E T 04660  NEXT S
+    0x620647b93d70 ---------E   04670  RETURN
+    0x620647b93df0 ---------F G 05000  REM
+    0x620647b93e90 ---------F   05010  REM     PRINT SCORE
+    0x620647b93f20 ---------F   05020  REM
+    0x620647b940a0 ---------F   05030  PRINT "SCORE:"
+    0x620647b94310 ---------F G 05040  PRINT "     COMPUTER ";C
+    0x620647b94570 ---------F   05050  PRINT "     HUMAN    ";H
+    0x620647b945f0 ---------F   05060  PRINT
+    0x620647b94650 ---------F   05070  RETURN
+    0x620647b946d0 ---------A   05500  REM
+    0x620647b94790 ---------A   05510  REM     CONVERT Q(1-P9) INTO G$(1-P9)
+    0x620647b94820 ---------A   05520  REM
+    0x620647b94b40 ----------   05530  FOR S=1 TO P9
+    0x620647b951c0 ----------   05540  G$(S)=MID$(L$,Q(S),1)
+    0x620647b952f0 ----------   05550  NEXT S
+    0x620647b95360 ----------   05560  RETURN
+    0x620647b953e0 ---------G G 06000  REM
+    0x620647b954a0 ---------G   06010  REM     CONVERT Q(1-P9) TO H$(1-P9)
+    0x620647b95530 ---------G   06020  REM
+    0x620647b95850 ---------G   06030  FOR S=1 TO P9
+    0x620647b95ed0 ---------G   06040  H$(S)=MID$(L$,Q(S),1)
+    0x620647b96000 ---------G   06050  NEXT S
+    0x620647b96070 ---------G   06060  RETURN
+    0x620647b960f0 ---------H G 06500  REM
+    0x620647b96190 ---------H   06510  REM     COPY H$ INTO G$
+    0x620647b96220 ---------H   06520  REM
+    0x620647b96530 ---------H   06530  FOR S=1 TO P9
+    0x620647b96930 ---------H   06540  G$(S)=H$(S)
+    0x620647b96a60 ---------H   06550  NEXT S
+    0x620647b96ad0 ---------H   06560  RETURN
+    0x620647b96b80 ---------A   08000  REM     PROGRAM DATA FOR COLOR NAMES
+    0x620647b97360 ---------A   08010  DATA BLACK,WHITE,RED,GREEN,ORANGE,YELLOW,PURPLE,TAN
+    0x620647b973f0 ---------A   09998  REM   ...WE'RE SORRY BUT IT'S TIME TO GO...
+    0x620647b97460 ---------A   09999  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/mastrmnd.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x620647b706d0 ---------A   01000  PRINT TAB(30);"MASTERMIND"
+    0x620647b70670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x620647b612b0 ----------   01020  PRINT
+    0x620647b709e0 ----------   01030  PRINT
+    0x620647b707f0 ---------A   01040  PRINT
+    0x620647b71b80 ---------A   01050  REM
+    0x620647b72f30 ---------A   01060  REM     MASTERMIND II
+    0x620647b72ff0 ---------A T 01070  REM     STEVE NORTH
+    0x620647b730b0 ---------A   01080  REM     CREATIVE COMPUTING
+    0x620647b71040 ---------A   01090  REM     PO BOX 789-M MORRISTOWN NEW JERSEY 07960
+    0x620647b70e40 ---------A   01100  REM
+    0x620647b72e70 ---------A   01110  REM
+    0x620647b714e0 ---------A T 01120  INPUT "NUMBER OF COLORS";C9
+    0x620647b731a0 ---------- T 01130  IF C9>8 THEN PRINT "NO MORE THAN 8, PLEASE!"
+    0x620647b73200 ---------A   01140  GOTO 1120
+    0x620647b71760 ----------   01150  INPUT "NUMBER OF POSITIONS";P9
+    0x620647b78940 ----------   01160  INPUT "NUMBER OF ROUNDS";R9
+    0x620647b78cc0 ----------   01170  P=C9^P9
+    0x620647b78ef0 ----------   01180  PRINT "TOTAL POSSIBILITIES =";P
+    0x620647b791b0 ----------   01190  H=0
+    0x620647b794a0 ----------   01200  C=0
+    0x620647b7a710 ----------   01210  DIM Q(P9),S(10,2),S$(10),A$(P9),G$(P9),I(P),H$(P9)
+    0x620647b7aa00 ----------   01220  L$="BWRGOYPT"
+    0x620647b7aa70 ----------   01230  PRINT
+    0x620647b7ab00 ----------   01240  PRINT
+    0x620647b7ac70 ----------   01250  PRINT "COLOR     LETTER"
+    0x620647b7add0 ----------   01260  PRINT "=====     ======"
+    0x620647b7b190 ----------   01270  FOR X=1 TO C9
+    0x620647b7b3c0 ----------   01280  READ X$
+    0x620647b7b9d0 ----------   01290  PRINT X$;TAB(13);MID$(L$,X,1)
+    0x620647b7bb10 ----------   01300  NEXT X
+    0x620647b7bba0 ----------   01310  PRINT
+    0x620647b7bf60 ----------   01320  FOR R=1 TO R9
+    0x620647b7bff0 ----------   01330  PRINT 
+    0x620647b7c350 ----------   01340  PRINT "ROUND NUMBER";R;"----"
+    0x620647b7c3e0 ----------   01350  PRINT
+    0x620647b7c520 ----------   01360  PRINT "GUESS MY COMBINATION."
+    0x620647b7c5b0 ----------   01370  PRINT
+    0x620647b7c850 ---------A   01380  REM     GET A COMBINATION
+    0x620647b7cf20 ----------   01390  A=INT(P*RND(1)+1)
+    0x620647b7cf90 ----------   01400  GOSUB 2600
+    0x620647b7d280 ----------   01410  FOR X=1 TO A
+    0x620647b7d300 ----------   01420  GOSUB 14200
+    0x620647b7d430 ----------   01430  NEXT X
+    0x620647b7d800 ----------   01440  FOR M=1 TO 10
+    0x620647b7db60 ----------   01450  PRINT "MOVE # ";M;" GUESS ";
+    0x620647b7dcd0 ----------   01460  INPUT X$
+    0x620647b7df60 ----------   01470  IF X$="BOARD" THEN 2380
+    0x620647b7e210 ----------   01480  IF X$="QUIT" THEN 2490
+    0x620647b7e6a0 ----------   01490  IF LEN(X$)<>P9 THEN PRINT "BAD NUMBER OF POSITIONS."
+    0x620647b7e730 ----------   01500  GOTO 1460
+    0x620647b7e7b0 ---------A   01510  REM     UNPACK X$ INTO G$(1-P9)
+    0x620647b7eac0 ----------   01520  FOR X=1 TO P9
+    0x620647b7eea0 ----------   01530  FOR Y=1 TO C9
+    0x620647b7f620 ----------   01540  IF MID$(X$,X,1)=MID$(L$,Y,1) THEN 1580
+    0x620647b7f760 ----------   01550  NEXT Y
+    0x620647b7fd60 ----------   01560  PRINT "'"; MID$(X$,X,1); "' IS UNRECOGNIZED."
+    0x620647b7fde0 ----------   01570  GOTO 1460
+    0x620647b80370 ----------   01580  G$(X)=MID$(X$,X,1)
+    0x620647b804a0 ----------   01590  NEXT X
+    0x620647b80590 ---------A   01600  REM     NOW WE CONVERT Q(1-P9) INTO A$(1-P9) [ACTUAL GUESS]
+    0x620647b80640 ----------   01610  GOSUB 2820
+    0x620647b806d0 ---------A   01620  REM     AND GET NUMBER OF BLACKS AND WHITES
+    0x620647b80760 ----------   01630  GOSUB 2890
+    0x620647b80aa0 ----------   01640  IF B=P9 THEN 1800
+    0x620647b80b30 ---------A   01650  REM     TELL HUMAN RESULTS
+    0x620647b811b0 ----------   01660  PRINT "YOU HAVE ";B;" BLACKS AND ";W;" WHITES."
+    0x620647b81250 ---------A   01670  REM     SAVE ALL THIS STUFF FOR BOARD PRINTOUT LATER
+    0x620647b81580 ----------   01680  S$(M)=X$
+    0x620647b81950 ----------   01690  S(M,1)=B
+    0x620647b81d20 ----------   01700  S(M,2)=W
+    0x620647b81e50 ----------   01710  NEXT M
+    0x620647b81ff0 ----------   01720  PRINT "YOU RAN OUT OF MOVES!  THAT'S ALL YOU GET!"
+    0x620647b82070 ----------   01730  GOTO 1810
+    0x620647b82510 ----------   01740  GOSUB 2820
+    0x620647b82690 ----------   01750  PRINT "THE ACTUAL COMBINATION WAS: ";
+    0x620647b82990 ----------   01760  FOR X=1 TO P9
+    0x620647b82bf0 ----------   01770  PRINT A$(X);
+    0x620647b82d30 ----------   01780  NEXT X
+    0x620647b82de0 ----------   01790  PRINT
+    0x620647b83140 ----------   01800  PRINT "YOU GUESSED IT IN ";M;" MOVES!"
+    0x620647b834a0 ----------   01810  H=H+M
+    0x620647b83510 ----------   01820  GOSUB 3140
+    0x620647b83580 ---------A   01830  REM
+    0x620647b83630 ---------A   01840  REM     NOW COMPUTER GUESSES
+    0x620647b836c0 ---------A   01850  REM
+    0x620647b839d0 ----------   01860  FOR X=1 TO P
+    0x620647b83cd0 ----------   01870  I(X)=1
+    0x620647b83e00 ----------   01880  NEXT X
+    0x620647b83fb0 ----------   01890  PRINT "NOW I GUESS.  THINK OF A COMBINATION."
+    0x620647b84140 ----------   01900  INPUT "HIT RETURN WHEN READY:";X$
+    0x620647b84420 ----------   01910  FOR M=1 TO 10
+    0x620647b844b0 ----------   01920  GOSUB 2600
+    0x620647b84520 ---------A   01930  REM     FIND A GUESS
+    0x620647b84bf0 ----------   01940  G=INT(P*RND(1)+1)
+    0x620647b84f20 ----------   01950  IF I(G)=1 THEN 2060
+    0x620647b85240 ----------   01960  FOR X=G TO P
+    0x620647b85580 ----------   01970  IF I(X)=1 THEN 2050
+    0x620647b856c0 ----------   01980  NEXT X
+    0x620647b859d0 ----------   01990  FOR X=1 TO G
+    0x620647b85d10 ---------- T 02000  IF I(X)=1 THEN 2050
+    0x620647b85e50 ----------   02010  NEXT X
+    0x620647b86030 ----------   02020  PRINT "YOU HAVE GIVEN ME INCONSISTENT INFORMATION."
+    0x620647b861b0 ----------   02030  PRINT "TRY AGAIN, AND THIS TIME PLEASE BE MORE CAREFUL."
+    0x620647b86230 ----------   02040  GOTO 1830
+    0x620647b86480 ----------   02050  G=X
+    0x620647b86500 ---------A   02060  REM     NOW WE CONVERT GUESS #G INTO G$
+    0x620647b86810 ----------   02070  FOR X=1 TO G
+    0x620647b86890 ----------   02080  GOSUB 2670
+    0x620647b869c0 ----------   02090  NEXT X
+    0x620647b86a60 ----------   02100  GOSUB 3290
+    0x620647b86bd0 ----------   02110  PRINT "MY GUESS IS: ";
+    0x620647b86ed0 ----------   02120  FOR X=1 TO P9
+    0x620647b87130 ----------   02130  PRINT H$(X);
+    0x620647b87270 ----------   02140  NEXT X
+    0x620647b87670 ----------   02150  INPUT "  BLACKS, WHITES ";B1,W1
+    0x620647b878f0 ----------   02160  IF B1=P9 THEN 2300
+    0x620647b87970 ----------   02170  GOSUB 2600
+    0x620647b87c60 ----------   02180  FOR X=1 TO P
+    0x620647b87cf0 ----------   02190  GOSUB 2670
+    0x620647b88020 ----------   02200  IF I(X)=0 THEN 2250
+    0x620647b880a0 ----------   02210  GOSUB 3360
+    0x620647b88110 ----------   02220  GOSUB 2820
+    0x620647b88190 ----------   02230  GOSUB 2890
+    0x620647b88910 ----------   02240  IF B1<>B OR W1<>W THEN I(X)=0
+    0x620647b88a50 ----------   02250  NEXT X
+    0x620647b88ba0 ----------   02260  NEXT M
+    0x620647b88d50 ----------   02270  PRINT "I USED UP ALL MY MOVES!"
+    0x620647b88ed0 ----------   02280  PRINT "I GUESS MY CPU IS JUST HAVING AN OFF DAY."
+    0x620647b88f60 ----------   02290  GOTO 2310
+    0x620647b892b0 ----------   02300  PRINT "I GOT IT IN ";M;" MOVES!"
+    0x620647b89610 ----------   02310  C=C+M
+    0x620647b89680 ----------   02320  GOSUB 3140
+    0x620647b897b0 ----------   02330  NEXT R
+    0x620647b89930 ----------   02340  PRINT "GAME OVER"
+    0x620647b89a90 ----------   02350  PRINT "FINAL SCORE:"
+    0x620647b89b10 ----------   02360  GOSUB 3180
+    0x620647b89b60 ----------   02370  STOP
+    0x620647b8a3f0 ---------A   02380  REM
+    0x620647b8a4a0 ---------A   02390  REM     BOARD PRINTOUT ROUTINE
+    0x620647b8a530 ---------A   02400  REM
+    0x620647b8a5c0 ----------   02410  PRINT
+    0x620647b8a740 ----------   02420  PRINT "BOARD"
+    0x620647b8a8c0 ----------   02430  PRINT "MOVE     GUESS          BLACK     WHITE"
+    0x620647b8ada0 ----------   02440  FOR Z=1 TO M-1
+    0x620647b8b9e0 ----------   02450  PRINT Z;TAB(9);S$(Z);TAB(25);S(Z,1);TAB(35);S(Z,2)
+    0x620647b8bb20 ----------   02460  NEXT Z
+    0x620647b8bbb0 ----------   02470  PRINT
+    0x620647b8bc30 ----------   02480  GOTO 1460
+    0x620647b8bca0 ---------A   02490  REM
+    0x620647b8bd40 ---------A T 02500  REM     QUIT ROUTINE
+    0x620647b8bdd0 ---------A   02510  REM
+    0x620647b8bf90 ----------   02520  PRINT "QUITTER!  MY COMBINATION WAS: ";
+    0x620647b8c010 ----------   02530  GOSUB 2820
+    0x620647b8c300 ----------   02540  FOR X=1 TO P9
+    0x620647b8c560 ----------   02550  PRINT A$(X);
+    0x620647b8c6a0 ----------   02560  NEXT X
+    0x620647b8c730 ----------   02570  PRINT
+    0x620647b8c890 ----------   02580  PRINT "GOOD BYE"
+    0x620647b8c8f0 ----------   02590  STOP
+    0x620647b8c970 ---------B   02600  REM
+    0x620647b8ca30 ---------B   02610  REM     INITIALIZE Q(1-P9) TO ZEROS
+    0x620647b8cac0 ---------B   02620  REM
+    0x620647b8cdd0 ---------B   02630  FOR S=1 TO P9
+    0x620647b8d0d0 ---------B   02640  Q(S)=0
+    0x620647b8d200 ---------B   02650  NEXT S
+    0x620647b8d270 ---------B   02660  RETURN
+    0x620647b8d2f0 ---------C   02670  REM
+    0x620647b8d3a0 ---------C   02680  REM     INCREMENT Q(1-P9)
+    0x620647b8d430 ---------C   02690  REM
+    0x620647b8d7a0 ---------C   02700  IF Q(1)>0 THEN 2760
+    0x620647b8d850 ---------C   02710  REM  IF ZERO, THIS IS OUR FIRST INCREMENT
+    0x620647b8db60 ---------C   02720  FOR S=1 TO P9
+    0x620647b8de60 ---------C   02730  Q(S)=1
+    0x620647b8df90 ---------C   02740  NEXT S
+    0x620647b8e000 ---------C   02750  RETURN
+    0x620647b8e220 ---------C   02760  Q=1
+    0x620647b8e720 ---------C   02770  Q(Q)=Q(Q)+1
+    0x620647b8eab0 ---------C   02780  IF Q(Q)<=C9 THEN RETURN
+    0x620647b8edb0 ---------C   02790  Q(Q)=1
+    0x620647b8f0e0 ---------C   02800  Q=Q+1
+    0x620647b8f150 ---------C   02810  GOTO 2770
+    0x620647b8f1c0 ---------D   02820  REM
+    0x620647b8f280 ---------D   02830  REM     CONVERT Q(1-P9) TO A$(1-P9)
+    0x620647b8f310 ---------D   02840  REM
+    0x620647b8f630 ---------D   02850  FOR S=1 TO P9
+    0x620647b8fcb0 ---------D   02860  A$(S)=MID$(L$,Q(S),1)
+    0x620647b8fde0 ---------D   02870  NEXT S
+    0x620647b8fe50 ---------D   02880  RETURN
+    0x620647b8fed0 ---------E   02890  REM
+    0x620647b8ffa0 ---------E   02900  REM     GET NUMBER OF BLACKS (B) AND WHITES (W)
+    0x620647b90060 ---------E   02910  REM     MASHES G$ AND A$ IN THE PROCESS
+    0x620647b900f0 ---------E   02920  REM
+    0x620647b90300 ----------   02930  B=0
+    0x620647b904f0 ----------   02940  W=0
+    0x620647b907c0 ---------E   02950  F=0
+    0x620647b90ac0 ---------E   02960  FOR S=1 TO P9
+    0x620647b90f00 ---------E   02970  IF G$(S)<>A$(S) THEN 3030
+    0x620647b91240 ---------E   02980  B=B+1
+    0x620647b91630 ---------E   02990  G$(S)=CHR$(F)
+    0x620647b91b20 ---------E G 03000  A$(S)=CHR$(F+1)
+    0x620647b91e50 ---------E   03010  F=F+2
+    0x620647b91ec0 ---------E   03020  GOTO 3120
+    0x620647b92280 ---------E   03030  FOR T=1 TO P9
+    0x620647b926d0 ---------E   03040  IF G$(S)<>A$(T) THEN 3110
+    0x620647b92b40 ---------E   03050  IF G$(T)=A$(T) THEN 3110
+    0x620647b92e60 ----------   03060  W=W+1
+    0x620647b93230 ----------   03070  A$(T)=CHR$(F)
+    0x620647b93700 ----------   03080  G$(S)=CHR$(F+1)
+    0x620647b93a10 ----------   03090  F=F+2
+    0x620647b93a80 ---------E   03100  GOTO 3120
+    0x620647b93bb0 ---------E   03110  NEXT T
+    0x620647b93d00 ---------E   03120  NEXT S
+    0x620647b93d70 ---------E   03130  RETURN
+    0x620647b93df0 ---------F   03140  REM
+    0x620647b93e90 ---------F   03150  REM     PRINT SCORE
+    0x620647b93f20 ---------F   03160  REM
+    0x620647b940a0 ---------F   03170  PRINT "SCORE:"
+    0x620647b94310 ---------F   03180  PRINT "     COMPUTER ";C
+    0x620647b94570 ---------F   03190  PRINT "     HUMAN    ";H
+    0x620647b945f0 ---------F   03200  PRINT
+    0x620647b94650 ---------F   03210  RETURN
+    0x620647b946d0 ---------A   03220  REM
+    0x620647b94790 ---------A   03230  REM     CONVERT Q(1-P9) INTO G$(1-P9)
+    0x620647b94820 ---------A   03240  REM
+    0x620647b94b40 ----------   03250  FOR S=1 TO P9
+    0x620647b951c0 ----------   03260  G$(S)=MID$(L$,Q(S),1)
+    0x620647b952f0 ----------   03270  NEXT S
+    0x620647b95360 ----------   03280  RETURN
+    0x620647b953e0 ---------G   03290  REM
+    0x620647b954a0 ---------G   03300  REM     CONVERT Q(1-P9) TO H$(1-P9)
+    0x620647b95530 ---------G   03310  REM
+    0x620647b95850 ---------G   03320  FOR S=1 TO P9
+    0x620647b95ed0 ---------G   03330  H$(S)=MID$(L$,Q(S),1)
+    0x620647b96000 ---------G   03340  NEXT S
+    0x620647b96070 ---------G   03350  RETURN
+    0x620647b960f0 ---------H   03360  REM
+    0x620647b96190 ---------H   03370  REM     COPY H$ INTO G$
+    0x620647b96220 ---------H   03380  REM
+    0x620647b96530 ---------H   03390  FOR S=1 TO P9
+    0x620647b96930 ---------H   03400  G$(S)=H$(S)
+    0x620647b96a60 ---------H   03410  NEXT S
+    0x620647b96ad0 ---------H   03420  RETURN
+    0x620647b96b80 ---------A   03430  REM     PROGRAM DATA FOR COLOR NAMES
+    0x620647b97360 ---------A   03440  DATA BLACK,WHITE,RED,GREEN,ORANGE,YELLOW,PURPLE,TAN
+    0x620647b973f0 ---------A   03450  REM   ...WE'RE SORRY BUT IT'S TIME TO GO...
+    0x620647b97460 ---------A   03460  END
+ */
+
 
 
 /*
@@ -311,7 +829,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     02130 - 10000    7880 
+     02220 - 10000    7790 
 
  */
 
@@ -421,119 +939,128 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x59fae12d2b80 ---------A   01000 PRINT TAB(30);"MASTERMIND"
-    0x59fae12d3f30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x59fae12d40b0 ---------A   01020 PRINT: PRINT: PRINT
-    0x59fae12c22b0 ---------A   01030 REM
-    0x59fae12d19e0 ---------A   01040 REM     MASTERMIND II
-    0x59fae12d1840 ---------A   01050 REM     STEVE NORTH
-    0x59fae12d3aa0 ---------A   01060 REM     CREATIVE COMPUTING
-    0x59fae12d2040 ---------A   01070 REM     PO BOX 789-M MORRISTOWN NEW JERSEY 07960
-    0x59fae12d20c0 ---------A   01080 REM
-    0x59fae12d1e40 ---------A   01090 REM
-    0x59fae12d16d0 ---------A T 01100 INPUT "NUMBER OF COLORS";C9
-    0x59fae12d4100 ---------A   01110 IF C9>8 THEN PRINT "NO MORE THAN 8, PLEASE!":GOTO 1100
-    0x59fae12dd660 ---------A   01120 REM     GET A COMBINATION
-    0x59fae12df550 ---------A   01130 REM     UNPACK X$ INTO G$(1-P9)
-    0x59fae12e12e0 ---------A   01140 REM     NOW WE CONVERT Q(1-P9) INTO A$(1-P9) [ACTUAL GUESS]
-    0x59fae12e1400 ---------A   01150 REM     AND GET NUMBER OF BLACKS AND WHITES
-    0x59fae12e1840 ---------A   01160 REM     TELL HUMAN RESULTS
-    0x59fae12e1f40 ---------A   01170 REM     SAVE ALL THIS STUFF FOR BOARD PRINTOUT LATER
-    0x59fae12e41c0 ---------A   01180 REM
-    0x59fae12e4260 ---------A   01190 REM     NOW COMPUTER GUESSES
-    0x59fae12e42e0 ---------A   01200 REM
-    0x59fae12e5100 ---------A   01210 REM     FIND A GUESS
-    0x59fae12e7080 ---------A   01220 REM     NOW WE CONVERT GUESS #G INTO G$
-    0x59fae12eae00 ---------A   01230 REM
-    0x59fae12eaea0 ---------A   01240 REM     BOARD PRINTOUT ROUTINE
-    0x59fae12eaf20 ---------A   01250 REM
-    0x59fae12ec610 ---------A   01260 REM
-    0x59fae12ec6a0 ---------A   01270 REM     QUIT ROUTINE
-    0x59fae12ec720 ---------A   01280 REM
-    0x59fae12f4de0 ---------A   01290 REM
-    0x59fae12f4e90 ---------A   01300 REM     CONVERT Q(1-P9) INTO G$(1-P9)
-    0x59fae12f4f10 ---------A   01310 REM
-    0x59fae12f71d0 ---------A   01320 REM     PROGRAM DATA FOR COLOR NAMES
-    0x59fae12f79a0 ---------A   01330 DATA BLACK,WHITE,RED,GREEN,ORANGE,YELLOW,PURPLE,TAN
-    0x59fae12f7a30 ---------A   01340 REM   ...WE'RE SORRY BUT IT'S TIME TO GO...
-    0x59fae12f7a90 ---------A   01350 END
-    0x59fae12ed250 ---------A   01360 REM
-    0x59fae12ed300 ---------A   01370 REM     INITIALIZE Q(1-P9) TO ZEROS
-    0x59fae12ed380 ---------A   01380 REM
-    0x59fae12ed680 ----------   01390 FOR S=1 TO P9
-    0x59fae12ed980 ----------   01400 Q(S)=0
-    0x59fae12edab0 ----------   01410 NEXT S
-    0x59fae12fd7a0 ----------   01420 GOTO 01430
-    0x59fae12fd7e0 ---------- T 01430 RETURN
-    0x59fae12edb90 ---------A   01440 REM
-    0x59fae12edc30 ---------A   01450 REM     INCREMENT Q(1-P9)
-    0x59fae12edcb0 ---------A   01460 REM
-    0x59fae12ee010 ----------   01470 IF Q(1)>0 THEN 1530
-    0x59fae12ee0c0 ---------A   01480 REM  IF ZERO, THIS IS OUR FIRST INCREMENT: MAKE ALL ONES
-    0x59fae12ee3c0 ----------   01490 FOR S=1 TO P9
-    0x59fae12ee6c0 ----------   01500 Q(S)=1
-    0x59fae12ee7f0 ----------   01510 NEXT S
-    0x59fae12fd820 ----------   01520 GOTO 01590
-    0x59fae12eea70 ---------- T 01530 Q=1
-    0x59fae12eef70 ---------- T 01540 Q(Q)=Q(Q)+1
-    0x59fae12ef300 ----------   01550 IF Q(Q)<=C9 THEN RETURN
-    0x59fae12ef600 ----------   01560 Q(Q)=1
-    0x59fae12ef930 ----------   01570 Q=Q+1
-    0x59fae12ef9a0 ----------   01580 GOTO 1540
-    0x59fae12fd880 ---------- T 01590 RETURN
-    0x59fae12efa00 ---------A   01600 REM
-    0x59fae12efab0 ---------A   01610 REM     CONVERT Q(1-P9) TO A$(1-P9)
-    0x59fae12efb30 ---------A   01620 REM
-    0x59fae12efe40 ----------   01630 FOR S=1 TO P9
-    0x59fae12f04c0 ----------   01640 A$(S)=MID$(L$,Q(S),1)
-    0x59fae12f05f0 ----------   01650 NEXT S
-    0x59fae12fd8e0 ----------   01660 GOTO 01670
-    0x59fae12fd940 ---------- T 01670 RETURN
-    0x59fae12f06d0 ---------A   01680 REM
-    0x59fae12f0790 ---------A   01690 REM     GET NUMBER OF BLACKS (B) AND WHITES (W)
-    0x59fae12f0840 ---------A   01700 REM     MASHES G$ AND A$ IN THE PROCESS
-    0x59fae12f08c0 ---------A   01710 REM
-    0x59fae12f0f80 ----------   01720 B=0:W=0:F=0
-    0x59fae12f1280 ----------   01730 FOR S=1 TO P9
-    0x59fae12f16c0 ----------   01740 IF G$(S)<>A$(S) THEN 1800
-    0x59fae12f1a00 ----------   01750 B=B+1
-    0x59fae12f1df0 ----------   01760 G$(S)=CHR$(F)
-    0x59fae12f22e0 ----------   01770 A$(S)=CHR$(F+1)
-    0x59fae12f2610 ----------   01780 F=F+2
-    0x59fae12f2680 ----------   01790 GOTO 4690
-    0x59fae12f2a30 ---------- T 01800 FOR T=1 TO P9
-    0x59fae12f2e80 ----------   01810 IF G$(S)<>A$(T) THEN 1840
-    0x59fae12f32f0 ----------   01820 IF G$(T)=A$(T) THEN 1840
-    0x59fae12f4230 ----------   01830 W=W+1:A$(T)=CHR$(F):G$(S)=CHR$(F+1):F=F+2:GOTO 4690
-    0x59fae12f4350 ---------- T 01840 NEXT T
-    0x59fae12f4490 ---------- T 01850 NEXT S
-    0x59fae12fd9a0 ----------   01860 GOTO 01870
-    0x59fae12fda00 ---------- T 01870 RETURN
-    0x59fae12f4570 ---------A   01880 REM
-    0x59fae12f4600 ---------A   01890 REM     PRINT SCORE
-    0x59fae12f4680 ---------A   01900 REM
-    0x59fae12f47f0 ----------   01910 PRINT "SCORE:"
-    0x59fae12f4a50 ----------   01920 PRINT "     COMPUTER ";C
-    0x59fae12f4ca0 ----------   01930 PRINT "     HUMAN    ";H
-    0x59fae12f4d10 ----------   01940 PRINT
-    0x59fae12fda60 ----------   01950 GOTO 01960
-    0x59fae12fdac0 ---------- T 01960 RETURN
-    0x59fae12f5ab0 ---------A   01970 REM
-    0x59fae12f5b60 ---------A   01980 REM     CONVERT Q(1-P9) TO H$(1-P9)
-    0x59fae12f5be0 ---------A   01990 REM
-    0x59fae12f5ef0 ----------   02000 FOR S=1 TO P9
-    0x59fae12f6570 ----------   02010 H$(S)=MID$(L$,Q(S),1)
-    0x59fae12f66a0 ----------   02020 NEXT S
-    0x59fae12fdb20 ----------   02030 GOTO 02040
-    0x59fae12fdb80 ---------- T 02040 RETURN
-    0x59fae12f6780 ---------A   02050 REM
-    0x59fae12f6810 ---------A   02060 REM     COPY H$ INTO G$
-    0x59fae12f6890 ---------A   02070 REM
-    0x59fae12f6b90 ----------   02080 FOR S=1 TO P9
-    0x59fae12f6f90 ----------   02090 G$(S)=H$(S)
-    0x59fae12f70c0 ----------   02100 NEXT S
-    0x59fae12fdbe0 ----------   02110 GOTO 02120
-    0x59fae12fdc40 ---------- T 02120 RETURN
+    0x620647b706d0 ---------A   01000  PRINT TAB(30);"MASTERMIND"
+    0x620647b70670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x620647b612b0 ---------A   01020  PRINT
+    0x620647b709e0 ---------A   01030  PRINT
+    0x620647b707f0 ---------A   01040  PRINT
+    0x620647b71b80 ---------A   01050  REM
+    0x620647b72f30 ---------A   01060  REM     MASTERMIND II
+    0x620647b72ff0 ---------A   01070  REM     STEVE NORTH
+    0x620647b730b0 ---------A   01080  REM     CREATIVE COMPUTING
+    0x620647b71040 ---------A   01090  REM     PO BOX 789-M MORRISTOWN NEW JERSEY 07960
+    0x620647b70e40 ---------A   01100  REM
+    0x620647b72e70 ---------A   01110  REM
+    0x620647b714e0 ---------A T 01120  INPUT "NUMBER OF COLORS";C9
+    0x620647b731a0 ---------A   01130  IF C9>8 THEN PRINT "NO MORE THAN 8, PLEASE!"
+    0x620647b73200 ---------A   01140  GOTO 1120
+    0x620647b7c850 ---------A   01150  REM     GET A COMBINATION
+    0x620647b7e7b0 ---------A   01160  REM     UNPACK X$ INTO G$(1-P9)
+    0x620647b80590 ---------A   01170  REM     NOW WE CONVERT Q(1-P9) INTO A$(1-P9) [ACTUAL GUESS]
+    0x620647b806d0 ---------A   01180  REM     AND GET NUMBER OF BLACKS AND WHITES
+    0x620647b80b30 ---------A   01190  REM     TELL HUMAN RESULTS
+    0x620647b81250 ---------A   01200  REM     SAVE ALL THIS STUFF FOR BOARD PRINTOUT LATER
+    0x620647b83580 ---------A   01210  REM
+    0x620647b83630 ---------A   01220  REM     NOW COMPUTER GUESSES
+    0x620647b836c0 ---------A   01230  REM
+    0x620647b84520 ---------A   01240  REM     FIND A GUESS
+    0x620647b86500 ---------A   01250  REM     NOW WE CONVERT GUESS #G INTO G$
+    0x620647b8a3f0 ---------A   01260  REM
+    0x620647b8a4a0 ---------A   01270  REM     BOARD PRINTOUT ROUTINE
+    0x620647b8a530 ---------A   01280  REM
+    0x620647b8bca0 ---------A   01290  REM
+    0x620647b8bd40 ---------A   01300  REM     QUIT ROUTINE
+    0x620647b8bdd0 ---------A   01310  REM
+    0x620647b946d0 ---------A   01320  REM
+    0x620647b94790 ---------A   01330  REM     CONVERT Q(1-P9) INTO G$(1-P9)
+    0x620647b94820 ---------A   01340  REM
+    0x620647b96b80 ---------A   01350  REM     PROGRAM DATA FOR COLOR NAMES
+    0x620647b97360 ---------A   01360  DATA BLACK,WHITE,RED,GREEN,ORANGE,YELLOW,PURPLE,TAN
+    0x620647b973f0 ---------A   01370  REM   ...WE'RE SORRY BUT IT'S TIME TO GO...
+    0x620647b97460 ---------A   01380  END
+    0x620647b8c970 ---------A   01390  REM
+    0x620647b8ca30 ---------A   01400  REM     INITIALIZE Q(1-P9) TO ZEROS
+    0x620647b8cac0 ---------A   01410  REM
+    0x620647b8cdd0 ----------   01420  FOR S=1 TO P9
+    0x620647b8d0d0 ----------   01430  Q(S)=0
+    0x620647b8d200 ----------   01440  NEXT S
+    0x620647ba6ec0 ----------   01450  GOTO 01460
+    0x620647ba8ec0 ---------- T 01460  RETURN
+    0x620647b8d2f0 ---------A   01470  REM
+    0x620647b8d3a0 ---------A   01480  REM     INCREMENT Q(1-P9)
+    0x620647b8d430 ---------A   01490  REM
+    0x620647b8d7a0 ----------   01500  IF Q(1)>0 THEN 1560
+    0x620647b8d850 ---------A   01510  REM  IF ZERO, THIS IS OUR FIRST INCREMENT
+    0x620647b8db60 ----------   01520  FOR S=1 TO P9
+    0x620647b8de60 ----------   01530  Q(S)=1
+    0x620647b8df90 ----------   01540  NEXT S
+    0x620647ba70f0 ----------   01550  GOTO 01620
+    0x620647b8e220 ---------- T 01560  Q=1
+    0x620647b8e720 ---------- T 01570  Q(Q)=Q(Q)+1
+    0x620647b8eab0 ----------   01580  IF Q(Q)<=C9 THEN RETURN
+    0x620647b8edb0 ----------   01590  Q(Q)=1
+    0x620647b8f0e0 ----------   01600  Q=Q+1
+    0x620647b8f150 ----------   01610  GOTO 1570
+    0x620647ba8f40 ---------- T 01620  RETURN
+    0x620647b8f1c0 ---------A   01630  REM
+    0x620647b8f280 ---------A   01640  REM     CONVERT Q(1-P9) TO A$(1-P9)
+    0x620647b8f310 ---------A   01650  REM
+    0x620647b8f630 ----------   01660  FOR S=1 TO P9
+    0x620647b8fcb0 ----------   01670  A$(S)=MID$(L$,Q(S),1)
+    0x620647b8fde0 ----------   01680  NEXT S
+    0x620647ba70a0 ----------   01690  GOTO 01700
+    0x620647ba8fc0 ---------- T 01700  RETURN
+    0x620647b8fed0 ---------A   01710  REM
+    0x620647b8ffa0 ---------A   01720  REM     GET NUMBER OF BLACKS (B) AND WHITES (W)
+    0x620647b90060 ---------A   01730  REM     MASHES G$ AND A$ IN THE PROCESS
+    0x620647b900f0 ---------A   01740  REM
+    0x620647b90300 ----------   01750  B=0
+    0x620647b904f0 ----------   01760  W=0
+    0x620647b907c0 ----------   01770  F=0
+    0x620647b90ac0 ----------   01780  FOR S=1 TO P9
+    0x620647b90f00 ----------   01790  IF G$(S)<>A$(S) THEN 1850
+    0x620647b91240 ----------   01800  B=B+1
+    0x620647b91630 ----------   01810  G$(S)=CHR$(F)
+    0x620647b91b20 ----------   01820  A$(S)=CHR$(F+1)
+    0x620647b91e50 ----------   01830  F=F+2
+    0x620647b91ec0 ----------   01840  GOTO 1940
+    0x620647b92280 ---------- T 01850  FOR T=1 TO P9
+    0x620647b926d0 ----------   01860  IF G$(S)<>A$(T) THEN 1930
+    0x620647b92b40 ----------   01870  IF G$(T)=A$(T) THEN 1930
+    0x620647b92e60 ----------   01880  W=W+1
+    0x620647b93230 ----------   01890  A$(T)=CHR$(F)
+    0x620647b93700 ----------   01900  G$(S)=CHR$(F+1)
+    0x620647b93a10 ----------   01910  F=F+2
+    0x620647b93a80 ----------   01920  GOTO 1940
+    0x620647b93bb0 ---------- T 01930  NEXT T
+    0x620647b93d00 ---------- T 01940  NEXT S
+    0x620647ba7050 ----------   01950  GOTO 01960
+    0x620647ba9040 ---------- T 01960  RETURN
+    0x620647b93df0 ---------A   01970  REM
+    0x620647b93e90 ---------A   01980  REM     PRINT SCORE
+    0x620647b93f20 ---------A   01990  REM
+    0x620647b940a0 ----------   02000  PRINT "SCORE:"
+    0x620647b94310 ----------   02010  PRINT "     COMPUTER ";C
+    0x620647b94570 ----------   02020  PRINT "     HUMAN    ";H
+    0x620647b945f0 ----------   02030  PRINT
+    0x620647ba7000 ----------   02040  GOTO 02050
+    0x620647ba90c0 ---------- T 02050  RETURN
+    0x620647b953e0 ---------A   02060  REM
+    0x620647b954a0 ---------A   02070  REM     CONVERT Q(1-P9) TO H$(1-P9)
+    0x620647b95530 ---------A   02080  REM
+    0x620647b95850 ----------   02090  FOR S=1 TO P9
+    0x620647b95ed0 ----------   02100  H$(S)=MID$(L$,Q(S),1)
+    0x620647b96000 ----------   02110  NEXT S
+    0x620647ba6fb0 ----------   02120  GOTO 02130
+    0x620647ba9140 ---------- T 02130  RETURN
+    0x620647b960f0 ---------A   02140  REM
+    0x620647b96190 ---------A   02150  REM     COPY H$ INTO G$
+    0x620647b96220 ---------A   02160  REM
+    0x620647b96530 ----------   02170  FOR S=1 TO P9
+    0x620647b96930 ----------   02180  G$(S)=H$(S)
+    0x620647b96a60 ----------   02190  NEXT S
+    0x620647ba6f60 ----------   02200  GOTO 02210
+    0x620647ba91c0 ---------- T 02210  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -551,7 +1078,7 @@
 //---------------------------------------------------------------------------
 // Global data area.
 //---------------------------------------------------------------------------
-char* data_01330s[]={"BLACK","WHITE","RED","GREEN","ORANGE","YELLOW","PURPLE","TAN"};
+char* data_01360s[]={"BLACK","WHITE","RED","GREEN","ORANGE","YELLOW","PURPLE","TAN"};
 //---------------------------------------------------------------------------
 
 
@@ -564,7 +1091,7 @@ typedef struct{
     char** SData;
 }t_data;
 t_data ProgramData[] = {
-    { 1330,  8,data_01330s},
+    { 1360,  8,data_01360s},
     {    0,  0,nullptr       }
 };
 
@@ -653,3 +1180,98 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(30);"MASTERMIND"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,30);strcat(buf,"MASTERMIND");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 REM
+    // 01060 REM     MASTERMIND II
+    // 01070 REM     STEVE NORTH
+    // 01080 REM     CREATIVE COMPUTING
+    // 01090 REM     PO BOX 789-M MORRISTOWN NEW JERSEY 07960
+    // 01100 REM
+    // 01110 REM
+
+  Lbl_01120:
+    // 01120 INPUT "NUMBER OF COLORS";C9
+    // Start of Basic INPUT statement 01120
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout,"NUMBER OF COLORS");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&C9_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01120
+    // 01130 IF C9>8 THEN PRINT "NO MORE THAN 8, PLEASE!"
+    if(C9_int>8) {
+    }
+    // 01140 GOTO 1120
+    goto Lbl_01120;
+    // 01150 REM     GET A COMBINATION
+    // 01160 REM     UNPACK X$ INTO G$(1-P9)
+    // 01170 REM     NOW WE CONVERT Q(1-P9) INTO A$(1-P9) [ACTUAL GUESS]
+    // 01180 REM     AND GET NUMBER OF BLACKS AND WHITES
+    // 01190 REM     TELL HUMAN RESULTS
+    // 01200 REM     SAVE ALL THIS STUFF FOR BOARD PRINTOUT LATER
+    // 01210 REM
+    // 01220 REM     NOW COMPUTER GUESSES
+    // 01230 REM
+    // 01240 REM     FIND A GUESS
+    // 01250 REM     NOW WE CONVERT GUESS #G INTO G$
+    // 01260 REM
+    // 01270 REM     BOARD PRINTOUT ROUTINE
+    // 01280 REM
+    // 01290 REM
+    // 01300 REM     QUIT ROUTINE
+    // 01310 REM
+    // 01320 REM
+    // 01330 REM     CONVERT Q(1-P9) INTO G$(1-P9)
+    // 01340 REM
+    // 01350 REM     PROGRAM DATA FOR COLOR NAMES
+    // 01360 DATA BLACK,WHITE,RED,GREEN,ORANGE,YELLOW,PURPLE,TAN
+    // 01370 REM   ...WE'RE SORRY BUT IT'S TIME TO GO...
+    // 01380 END
+    // 01390 REM
+    // 01400 REM     INITIALIZE Q(1-P9) TO ZEROS
+    // 01410 REM
+    // 01470 REM
+    // 01480 REM     INCREMENT Q(1-P9)
+    // 01490 REM
+    // 01510 REM  IF ZERO, THIS IS OUR FIRST INCREMENT
+    // 01630 REM
+    // 01640 REM     CONVERT Q(1-P9) TO A$(1-P9)
+    // 01650 REM
+    // 01710 REM
+    // 01720 REM     GET NUMBER OF BLACKS (B) AND WHITES (W)
+    // 01730 REM     MASHES G$ AND A$ IN THE PROCESS
+    // 01740 REM
+    // 01970 REM
+    // 01980 REM     PRINT SCORE
+    // 01990 REM
+    // 02060 REM
+    // 02070 REM     CONVERT Q(1-P9) TO H$(1-P9)
+    // 02080 REM
+    // 02140 REM
+    // 02150 REM     COPY H$ INTO G$
+    // 02160 REM
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

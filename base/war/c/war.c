@@ -8,71 +8,71 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x616a887e1cf0 ---------A   01010 PRINT "BASIC LIBRARY--'WAR'--18-JUL-70"
-    0x616a887d05d0 ---------A   01020 REM  *  *  *  *  *  *   MAIN PROGRAM   *  *  *  *  *  *  *  *  *  *  *  *
-    0x616a887d0610 ---------A   01030 REM
-    0x616a887e1e70 ---------A   01040 PRINT "THIS IS THE CARD GAME OF WAR.  EACH CARD IS GIVEN BY SUIT-#"
-    0x616a887e1db0 ---------A   01050 PRINT "AS S-7 FOR SPADE 7.  "
-    0x616a887e1ff0 ---------A T 01060 PRINT "DO YOU WANT DIRECTIONS"
-    0x616a887e0910 ---------A   01070 INPUT B$
-    0x616a887e0080 ---------A   01080 IF B$="N" THEN 1150
-    0x616a887dfc20 ---------A   01090 IF B$="Y" THEN 1120
-    0x616a887e1f30 ---------A   01100 PRINT "Y OR N, PLEASE.  ";
-    0x616a887e2110 ---------A   01110 GO TO 1060
-    0x616a887e1630 ---------A T 01120 PRINT "THE PDP-10 GIVES YOU AND IT A 'CARD'.  THE HIGHER 'CARD' "
-    0x616a887e0730 ---------A   01130 PRINT "(NUMERICALLY) WINS.  THE GAME ENDS WHEN YOU CHOOSE NT"
-    0x616a887e7800 ---------A   01140 PRINT " TO CONTINUE OR WHEN YOU HAVE FINISHED THE PACK."
-    0x616a887e7850 ---------A T 01150 PRINT
-    0x616a887e78a0 ---------A   01160 PRINT
-    0x616a887e7d90 ---------A   01170 DIM A$(52), L(54)
-    0x616a887e8110 ---------A   01180 FOR I=1 TO 52
-    0x616a887e8350 ---------A   01190 READ A$(I)
-    0x616a887e8470 ---------A   01200 NEXT I
-    0x616a887e84f0 ---------A   01210 RANDOM
-    0x616a887e8890 ---------A   01220 FOR J=1 TO 52
-    0x616a887e8e90 ---------A   01230 LET L(J)=INT(52*RND+1)
-    0x616a887e9350 ---------A   01240 FOR K=1 TO J-1
-    0x616a887e9790 ---------A   01250 IF L(K)<>L(J) THEN 1280
-    0x616a887e9ad0 ---------A   01260 LET J=J-1
-    0x616a887e9b40 ---------A   01270 GO TO 1290
-    0x616a887e9c60 ---------A T 01280 NEXT K
-    0x616a887e9da0 ---------A T 01290 NEXT J
-    0x616a887ea1a0 ---------A T 01300 LET P=P+1
-    0x616a887ea570 ---------A   01310 LET M1=L(P)
-    0x616a887ea8a0 ---------A   01320 LET P=P+1
-    0x616a887eac70 ---------A   01330 LET M2=L(P)
-    0x616a887eaef0 ---------A   01340 PRINT
-    0x616a887eaf80 ---------A   01350 PRINT
-    0x616a887eb5c0 ---------A   01360 PRINT "YOU: ";A$(M1), "PDP-10: ";A$(M2),
-    0x616a887ebbe0 ---------A   01370 LET N1=INT((M1-.5)/4)
-    0x616a887ec200 ---------A   01380 LET N2=INT((M2-.5)/4)
-    0x616a887ec470 ---------A   01390 IF N1>=N2 THEN 1430
-    0x616a887ec890 ---------A   01400 LET A1=A1+1
-    0x616a887ecda0 ---------A   01410 PRINT"PDP-10 WINS. YOU HAVE";B1;"; PDP-10 HAS";A1
-    0x616a887ece10 ---------A   01420 GO TO 1480
-    0x616a887ed070 ---------A T 01430 IF N1=N2 THEN 1470
-    0x616a887ed3d0 ---------A   01440 LET B1=B1+1
-    0x616a887ed820 ---------A   01450 PRINT "YOU WIN.  YOU HAVE";B1;"; PDP-10 HAS";A1
-    0x616a887ed8a0 ---------A   01460 GO TO 1480
-    0x616a887ed9f0 ---------A T 01470 PRINT "TIE. N SCORE CHANGE."
-    0x616a887ede30 ---------A T 01480 IF L(P+1)= 0 THEN 1550
-    0x616a887edfc0 ---------A   01490 PRINT "DO YOU WANT TO CONTINUE";
-    0x616a887ee1e0 ---------A T 01500 INPUT V$
-    0x616a887ee470 ---------A   01510 IF V$="Y" THEN 1300
-    0x616a887ee700 ---------A   01520 IF V$="NO" THEN 1590
-    0x616a887ee880 ---------A   01530 PRINT"Y OR NO, PLEASE.  ";
-    0x616a887ee8f0 ---------A   01540 GO TO 1500
-    0x616a887ee950 ---------A T 01550 PRINT
-    0x616a887eead0 ---------A   01560 PRINT" "
-    0x616a887eed50 ---------A   01570 PRINT"YOU HAVE RUN OUT OF CARDS. FINAL SCORE: YOU--";B1
-    0x616a887ef100 ---------A   01580 PRINTTAB(40);"PDP-10--";A1
-    0x616a887ef290 ---------A T 01590 PRINT"THANKS FOR PLAYING. IT WAS FUN."
-    0x616a887f0050 ---------A   01600 DATA S-2,H-2,C-2,D-2,S-3,H-3,C-3,D-3,S-4,H-4,C-4,D-4,S-5,H-5,C-5
-    0x616a887f0e10 ---------A   01610 DATA D-5,S-6,H-6,C-6,D-6,S-7,H-7,C-7,D-7,S-8,H-8,C-8,D-8,S-9,H-9
-    0x616a887f1ae0 ---------A   01620 DATA C-9,D-9,S10,H-10,C-10,D-10,S-J,H-J,C-J,D-J,S-Q,H-Q,C-Q,D-Q
-    0x616a887f2250 ---------A   01630 DATA S-K,H-K,C-K,D-K,S-A,H-A,C-A,D-A
-    0x616a887f22a0 ---------A   01640 STOP
-    0x616a887f2300 ---------A   01650 END
+    0x57b5ca587670 ---------A   01010  PRINT "BASIC LIBRARY--'WAR'--18-JUL-70"
+    0x57b5ca589cf0 ---------A   01020  REM  *  *  *  *  *  *   MAIN PROGRAM   *  *  *  *  *  *  *  *  *  *  *  *
+    0x57b5ca588b60 ---------A   01030  REM
+    0x57b5ca588910 ---------A   01040  PRINT "THIS IS THE CARD GAME OF WAR.  EACH CARD IS GIVEN BY SUIT-#"
+    0x57b5ca5782b0 ---------A   01050  PRINT "AS S-7 FOR SPADE 7.  "
+    0x57b5ca5899e0 ---------A T 01060  PRINT "DO YOU WANT DIRECTIONS"
+    0x57b5ca589a40 ---------A   01070  INPUT B$
+    0x57b5ca588480 ---------A   01080  IF B$="N" THEN 1150
+    0x57b5ca58a080 ---------A   01090  IF B$="Y" THEN 1120
+    0x57b5ca589520 ---------A   01100  PRINT "Y OR N, PLEASE.  ";
+    0x57b5ca589f30 ---------A   01110  GO TO 1060
+    0x57b5ca588620 ---------A T 01120  PRINT "THE PDP-10 GIVES YOU AND IT A 'CARD'.  THE HIGHER 'CARD' "
+    0x57b5ca588790 ---------A   01130  PRINT "(NUMERICALLY) WINS.  THE GAME ENDS WHEN YOU CHOOSE NT"
+    0x57b5ca58f840 ---------A   01140  PRINT " TO CONTINUE OR WHEN YOU HAVE FINISHED THE PACK."
+    0x57b5ca58f8a0 ---------A T 01150  PRINT
+    0x57b5ca58f920 ---------A   01160  PRINT
+    0x57b5ca58fe60 ---------A   01170  DIM A$(52), L(54)
+    0x57b5ca5901f0 ---------A   01180  FOR I=1 TO 52
+    0x57b5ca590430 ---------A   01190  READ A$(I)
+    0x57b5ca590560 ---------A   01200  NEXT I
+    0x57b5ca5905f0 ---------A   01210  RANDOM
+    0x57b5ca590990 ---------A   01220  FOR J=1 TO 52
+    0x57b5ca590f90 ---------A   01230  LET L(J)=INT(52*RND+1)
+    0x57b5ca591450 ---------A   01240  FOR K=1 TO J-1
+    0x57b5ca591890 ---------A   01250  IF L(K)<>L(J) THEN 1280
+    0x57b5ca591bd0 ---------A   01260  LET J=J-1
+    0x57b5ca591c40 ---------A   01270  GO TO 1290
+    0x57b5ca591d70 ---------A T 01280  NEXT K
+    0x57b5ca591ec0 ---------A T 01290  NEXT J
+    0x57b5ca5922d0 ---------A T 01300  LET P=P+1
+    0x57b5ca5926a0 ---------A   01310  LET M1=L(P)
+    0x57b5ca5929d0 ---------A   01320  LET P=P+1
+    0x57b5ca592da0 ---------A   01330  LET M2=L(P)
+    0x57b5ca593020 ---------A   01340  PRINT
+    0x57b5ca5930c0 ---------A   01350  PRINT
+    0x57b5ca593710 ---------A   01360  PRINT "YOU: ";A$(M1), "PDP-10: ";A$(M2),
+    0x57b5ca593d40 ---------A   01370  LET N1=INT((M1-.5)/4)
+    0x57b5ca594360 ---------A   01380  LET N2=INT((M2-.5)/4)
+    0x57b5ca5945d0 ---------A   01390  IF N1>=N2 THEN 1430
+    0x57b5ca5949f0 ---------A   01400  LET A1=A1+1
+    0x57b5ca594f00 ---------A   01410  PRINT"PDP-10 WINS. YOU HAVE";B1;"; PDP-10 HAS";A1
+    0x57b5ca594f80 ---------A   01420  GO TO 1480
+    0x57b5ca5951f0 ---------A T 01430  IF N1=N2 THEN 1470
+    0x57b5ca595550 ---------A   01440  LET B1=B1+1
+    0x57b5ca5959a0 ---------A   01450  PRINT "YOU WIN.  YOU HAVE";B1;"; PDP-10 HAS";A1
+    0x57b5ca595a30 ---------A   01460  GO TO 1480
+    0x57b5ca595b90 ---------A T 01470  PRINT "TIE. N SCORE CHANGE."
+    0x57b5ca595fe0 ---------A T 01480  IF L(P+1)= 0 THEN 1550
+    0x57b5ca596170 ---------A   01490  PRINT "DO YOU WANT TO CONTINUE";
+    0x57b5ca5963a0 ---------A T 01500  INPUT V$
+    0x57b5ca596630 ---------A   01510  IF V$="Y" THEN 1300
+    0x57b5ca5968c0 ---------A   01520  IF V$="NO" THEN 1590
+    0x57b5ca596a40 ---------A   01530  PRINT"Y OR NO, PLEASE.  ";
+    0x57b5ca596ac0 ---------A   01540  GO TO 1500
+    0x57b5ca596b30 ---------A T 01550  PRINT
+    0x57b5ca596cc0 ---------A   01560  PRINT" "
+    0x57b5ca596f50 ---------A   01570  PRINT"YOU HAVE RUN OUT OF CARDS. FINAL SCORE: YOU--";B1
+    0x57b5ca597310 ---------A   01580  PRINTTAB(40);"PDP-10--";A1
+    0x57b5ca5974b0 ---------A T 01590  PRINT"THANKS FOR PLAYING. IT WAS FUN."
+    0x57b5ca598280 ---------A   01600  DATA S-2,H-2,C-2,D-2,S-3,H-3,C-3,D-3,S-4,H-4,C-4,D-4,S-5,H-5,C-5
+    0x57b5ca599040 ---------A   01610  DATA D-5,S-6,H-6,C-6,D-6,S-7,H-7,C-7,D-7,S-8,H-8,C-8,D-8,S-9,H-9
+    0x57b5ca599d10 ---------A   01620  DATA C-9,D-9,S10,H-10,C-10,D-10,S-J,H-J,C-J,D-J,S-Q,H-Q,C-Q,D-Q
+    0x57b5ca59a480 ---------A   01630  DATA S-K,H-K,C-K,D-K,S-A,H-A,C-A,D-A
+    0x57b5ca59a4d0 ---------A   01640  STOP
+    0x57b5ca59a530 ---------A   01650  END
  */
 
 /*
@@ -103,9 +103,163 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x616a887e1cf0 (01010)   0x616a887e1cf0 (01010)   0x616a887f2300 (01650)   0x616a887f2300 (01650)   
+   A) 0x57b5ca587670 (01010)   0x57b5ca587670 (01010)   0x57b5ca59a530 (01650)   0x57b5ca59a530 (01650)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/war.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x57b5ca587670 ---------A   01010  PRINT "BASIC LIBRARY--'WAR'--18-JUL-70"
+    0x57b5ca589cf0 ---------A   01020  REM  *  *  *  *  *  *   MAIN PROGRAM   *  *  *  *  *  *  *  *  *  *  *  *
+    0x57b5ca588b60 ---------A   01030  REM
+    0x57b5ca588910 ---------A   01040  PRINT "THIS IS THE CARD GAME OF WAR.  EACH CARD IS GIVEN BY SUIT-#"
+    0x57b5ca5782b0 ---------A   01050  PRINT "AS S-7 FOR SPADE 7.  "
+    0x57b5ca5899e0 ---------A T 01060  PRINT "DO YOU WANT DIRECTIONS"
+    0x57b5ca589a40 ---------A   01070  INPUT B$
+    0x57b5ca588480 ---------A   01080  IF B$="N" THEN 1150
+    0x57b5ca58a080 ---------A   01090  IF B$="Y" THEN 1120
+    0x57b5ca589520 ---------A   01100  PRINT "Y OR N, PLEASE.  ";
+    0x57b5ca589f30 ---------A   01110  GO TO 1060
+    0x57b5ca588620 ---------A T 01120  PRINT "THE PDP-10 GIVES YOU AND IT A 'CARD'.  THE HIGHER 'CARD' "
+    0x57b5ca588790 ---------A   01130  PRINT "(NUMERICALLY) WINS.  THE GAME ENDS WHEN YOU CHOOSE NT"
+    0x57b5ca58f840 ---------A   01140  PRINT " TO CONTINUE OR WHEN YOU HAVE FINISHED THE PACK."
+    0x57b5ca58f8a0 ---------A T 01150  PRINT
+    0x57b5ca58f920 ---------A   01160  PRINT
+    0x57b5ca58fe60 ---------A   01170  DIM A$(52), L(54)
+    0x57b5ca5901f0 ---------A   01180  FOR I=1 TO 52
+    0x57b5ca590430 ---------A   01190  READ A$(I)
+    0x57b5ca590560 ---------A   01200  NEXT I
+    0x57b5ca5905f0 ---------A   01210  RANDOM
+    0x57b5ca590990 ---------A   01220  FOR J=1 TO 52
+    0x57b5ca590f90 ---------A   01230  LET L(J)=INT(52*RND+1)
+    0x57b5ca591450 ---------A   01240  FOR K=1 TO J-1
+    0x57b5ca591890 ---------A   01250  IF L(K)<>L(J) THEN 1280
+    0x57b5ca591bd0 ---------A   01260  LET J=J-1
+    0x57b5ca591c40 ---------A   01270  GO TO 1290
+    0x57b5ca591d70 ---------A T 01280  NEXT K
+    0x57b5ca591ec0 ---------A T 01290  NEXT J
+    0x57b5ca5922d0 ---------A T 01300  LET P=P+1
+    0x57b5ca5926a0 ---------A   01310  LET M1=L(P)
+    0x57b5ca5929d0 ---------A   01320  LET P=P+1
+    0x57b5ca592da0 ---------A   01330  LET M2=L(P)
+    0x57b5ca593020 ---------A   01340  PRINT
+    0x57b5ca5930c0 ---------A   01350  PRINT
+    0x57b5ca593710 ---------A   01360  PRINT "YOU: ";A$(M1), "PDP-10: ";A$(M2),
+    0x57b5ca593d40 ---------A   01370  LET N1=INT((M1-.5)/4)
+    0x57b5ca594360 ---------A   01380  LET N2=INT((M2-.5)/4)
+    0x57b5ca5945d0 ---------A   01390  IF N1>=N2 THEN 1430
+    0x57b5ca5949f0 ---------A   01400  LET A1=A1+1
+    0x57b5ca594f00 ---------A   01410  PRINT"PDP-10 WINS. YOU HAVE";B1;"; PDP-10 HAS";A1
+    0x57b5ca594f80 ---------A   01420  GO TO 1480
+    0x57b5ca5951f0 ---------A T 01430  IF N1=N2 THEN 1470
+    0x57b5ca595550 ---------A   01440  LET B1=B1+1
+    0x57b5ca5959a0 ---------A   01450  PRINT "YOU WIN.  YOU HAVE";B1;"; PDP-10 HAS";A1
+    0x57b5ca595a30 ---------A   01460  GO TO 1480
+    0x57b5ca595b90 ---------A T 01470  PRINT "TIE. N SCORE CHANGE."
+    0x57b5ca595fe0 ---------A T 01480  IF L(P+1)= 0 THEN 1550
+    0x57b5ca596170 ---------A   01490  PRINT "DO YOU WANT TO CONTINUE";
+    0x57b5ca5963a0 ---------A T 01500  INPUT V$
+    0x57b5ca596630 ---------A   01510  IF V$="Y" THEN 1300
+    0x57b5ca5968c0 ---------A   01520  IF V$="NO" THEN 1590
+    0x57b5ca596a40 ---------A   01530  PRINT"Y OR NO, PLEASE.  ";
+    0x57b5ca596ac0 ---------A   01540  GO TO 1500
+    0x57b5ca596b30 ---------A T 01550  PRINT
+    0x57b5ca596cc0 ---------A   01560  PRINT" "
+    0x57b5ca596f50 ---------A   01570  PRINT"YOU HAVE RUN OUT OF CARDS. FINAL SCORE: YOU--";B1
+    0x57b5ca597310 ---------A   01580  PRINTTAB(40);"PDP-10--";A1
+    0x57b5ca5974b0 ---------A T 01590  PRINT"THANKS FOR PLAYING. IT WAS FUN."
+    0x57b5ca598280 ---------A   01600  DATA S-2,H-2,C-2,D-2,S-3,H-3,C-3,D-3,S-4,H-4,C-4,D-4,S-5,H-5,C-5
+    0x57b5ca599040 ---------A   01610  DATA D-5,S-6,H-6,C-6,D-6,S-7,H-7,C-7,D-7,S-8,H-8,C-8,D-8,S-9,H-9
+    0x57b5ca599d10 ---------A   01620  DATA C-9,D-9,S10,H-10,C-10,D-10,S-J,H-J,C-J,D-J,S-Q,H-Q,C-Q,D-Q
+    0x57b5ca59a480 ---------A   01630  DATA S-K,H-K,C-K,D-K,S-A,H-A,C-A,D-A
+    0x57b5ca59a4d0 ---------A   01640  STOP
+    0x57b5ca59a530 ---------A   01650  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/war.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x57b5ca587670 ---------A   01000  PRINT "BASIC LIBRARY--'WAR'--18-JUL-70"
+    0x57b5ca589cf0 ---------A   01010  REM  *  *  *  *  *  *   MAIN PROGRAM   *  *  *  *  *  *  *  *  *  *  *  *
+    0x57b5ca588b60 ---------A   01020  REM
+    0x57b5ca588910 ---------A   01030  PRINT "THIS IS THE CARD GAME OF WAR.  EACH CARD IS GIVEN BY SUIT-#"
+    0x57b5ca5782b0 ---------A   01040  PRINT "AS S-7 FOR SPADE 7.  "
+    0x57b5ca5899e0 ---------A   01050  PRINT "DO YOU WANT DIRECTIONS"
+    0x57b5ca589a40 ---------A T 01060  INPUT B$
+    0x57b5ca588480 ---------A   01070  IF B$="N" THEN 1140
+    0x57b5ca58a080 ---------A   01080  IF B$="Y" THEN 1110
+    0x57b5ca589520 ---------A   01090  PRINT "Y OR N, PLEASE.  ";
+    0x57b5ca589f30 ---------A   01100  GO TO 1050
+    0x57b5ca588620 ---------A   01110  PRINT "THE PDP-10 GIVES YOU AND IT A 'CARD'.  THE HIGHER 'CARD' "
+    0x57b5ca588790 ---------A T 01120  PRINT "(NUMERICALLY) WINS.  THE GAME ENDS WHEN YOU CHOOSE NT"
+    0x57b5ca58f840 ---------A   01130  PRINT " TO CONTINUE OR WHEN YOU HAVE FINISHED THE PACK."
+    0x57b5ca58f8a0 ---------A   01140  PRINT
+    0x57b5ca58f920 ---------A T 01150  PRINT
+    0x57b5ca58fe60 ---------A   01160  DIM A$(52), L(54)
+    0x57b5ca5901f0 ---------A   01170  FOR I=1 TO 52
+    0x57b5ca590430 ---------A   01180  READ A$(I)
+    0x57b5ca590560 ---------A   01190  NEXT I
+    0x57b5ca5905f0 ---------A   01200  RANDOM
+    0x57b5ca590990 ---------A   01210  FOR J=1 TO 52
+    0x57b5ca590f90 ---------A   01220  LET L(J)=INT(52*RND+1)
+    0x57b5ca591450 ---------A   01230  FOR K=1 TO J-1
+    0x57b5ca591890 ---------A   01240  IF L(K)<>L(J) THEN 1270
+    0x57b5ca591bd0 ---------A   01250  LET J=J-1
+    0x57b5ca591c40 ---------A   01260  GO TO 1280
+    0x57b5ca591d70 ---------A   01270  NEXT K
+    0x57b5ca591ec0 ---------A T 01280  NEXT J
+    0x57b5ca5922d0 ---------A T 01290  LET P=P+1
+    0x57b5ca5926a0 ---------A T 01300  LET M1=L(P)
+    0x57b5ca5929d0 ---------A   01310  LET P=P+1
+    0x57b5ca592da0 ---------A   01320  LET M2=L(P)
+    0x57b5ca593020 ---------A   01330  PRINT
+    0x57b5ca5930c0 ---------A   01340  PRINT
+    0x57b5ca593710 ---------A   01350  PRINT "YOU: ";A$(M1), "PDP-10: ";A$(M2),
+    0x57b5ca593d40 ---------A   01360  LET N1=INT((M1-.5)/4)
+    0x57b5ca594360 ---------A   01370  LET N2=INT((M2-.5)/4)
+    0x57b5ca5945d0 ---------A   01380  IF N1>=N2 THEN 1420
+    0x57b5ca5949f0 ---------A   01390  LET A1=A1+1
+    0x57b5ca594f00 ---------A   01400  PRINT"PDP-10 WINS. YOU HAVE";B1;"; PDP-10 HAS";A1
+    0x57b5ca594f80 ---------A   01410  GO TO 1470
+    0x57b5ca5951f0 ---------A   01420  IF N1=N2 THEN 1460
+    0x57b5ca595550 ---------A T 01430  LET B1=B1+1
+    0x57b5ca5959a0 ---------A   01440  PRINT "YOU WIN.  YOU HAVE";B1;"; PDP-10 HAS";A1
+    0x57b5ca595a30 ---------A   01450  GO TO 1470
+    0x57b5ca595b90 ---------A   01460  PRINT "TIE. N SCORE CHANGE."
+    0x57b5ca595fe0 ---------A T 01470  IF L(P+1)= 0 THEN 1540
+    0x57b5ca596170 ---------A T 01480  PRINT "DO YOU WANT TO CONTINUE";
+    0x57b5ca5963a0 ---------A   01490  INPUT V$
+    0x57b5ca596630 ---------A T 01500  IF V$="Y" THEN 1290
+    0x57b5ca5968c0 ---------A   01510  IF V$="NO" THEN 1580
+    0x57b5ca596a40 ---------A   01520  PRINT"Y OR NO, PLEASE.  ";
+    0x57b5ca596ac0 ---------A   01530  GO TO 1490
+    0x57b5ca596b30 ---------A   01540  PRINT
+    0x57b5ca596cc0 ---------A T 01550  PRINT" "
+    0x57b5ca596f50 ---------A   01560  PRINT"YOU HAVE RUN OUT OF CARDS. FINAL SCORE: YOU--";B1
+    0x57b5ca597310 ---------A   01570  PRINTTAB(40);"PDP-10--";A1
+    0x57b5ca5974b0 ---------A   01580  PRINT"THANKS FOR PLAYING. IT WAS FUN."
+    0x57b5ca598280 ---------A T 01590  DATA S-2,H-2,C-2,D-2,S-3,H-3,C-3,D-3,S-4,H-4,C-4,D-4,S-5,H-5,C-5
+    0x57b5ca599040 ---------A   01600  DATA D-5,S-6,H-6,C-6,D-6,S-7,H-7,C-7,D-7,S-8,H-8,C-8,D-8,S-9,H-9
+    0x57b5ca599d10 ---------A   01610  DATA C-9,D-9,S10,H-10,C-10,D-10,S-J,H-J,C-J,D-J,S-Q,H-Q,C-Q,D-Q
+    0x57b5ca59a480 ---------A   01620  DATA S-K,H-K,C-K,D-K,S-A,H-A,C-A,D-A
+    0x57b5ca59a4d0 ---------A   01630  STOP
+    0x57b5ca59a530 ---------A   01640  END
  */
 
 
@@ -212,71 +366,71 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x616a887e1cf0 ---------A   01000 PRINT "BASIC LIBRARY--'WAR'--18-JUL-70"
-    0x616a887d05d0 ---------A   01010 REM  *  *  *  *  *  *   MAIN PROGRAM   *  *  *  *  *  *  *  *  *  *  *  *
-    0x616a887d0610 ---------A   01020 REM
-    0x616a887e1e70 ---------A   01030 PRINT "THIS IS THE CARD GAME OF WAR.  EACH CARD IS GIVEN BY SUIT-#"
-    0x616a887e1db0 ---------A   01040 PRINT "AS S-7 FOR SPADE 7.  "
-    0x616a887e1ff0 ---------A T 01050 PRINT "DO YOU WANT DIRECTIONS"
-    0x616a887e0910 ---------A   01060 INPUT B$
-    0x616a887e0080 ---------A   01070 IF B$="N" THEN 1140
-    0x616a887dfc20 ---------A   01080 IF B$="Y" THEN 1110
-    0x616a887e1f30 ---------A   01090 PRINT "Y OR N, PLEASE.  ";
-    0x616a887e2110 ---------A   01100 GO TO 1050
-    0x616a887e1630 ---------A T 01110 PRINT "THE PDP-10 GIVES YOU AND IT A 'CARD'.  THE HIGHER 'CARD' "
-    0x616a887e0730 ---------A   01120 PRINT "(NUMERICALLY) WINS.  THE GAME ENDS WHEN YOU CHOOSE NT"
-    0x616a887e7800 ---------A   01130 PRINT " TO CONTINUE OR WHEN YOU HAVE FINISHED THE PACK."
-    0x616a887e7850 ---------A T 01140 PRINT
-    0x616a887e78a0 ---------A   01150 PRINT
-    0x616a887e7d90 ---------A   01160 DIM A$(52), L(54)
-    0x616a887e8110 ---------A   01170 FOR I=1 TO 52
-    0x616a887e8350 ---------A   01180 READ A$(I)
-    0x616a887e8470 ---------A   01190 NEXT I
-    0x616a887e84f0 ---------A   01200 RANDOM
-    0x616a887e8890 ---------A   01210 FOR J=1 TO 52
-    0x616a887e8e90 ---------A   01220 LET L(J)=INT(52*RND+1)
-    0x616a887e9350 ---------A   01230 FOR K=1 TO J-1
-    0x616a887e9790 ---------A   01240 IF L(K)<>L(J) THEN 1270
-    0x616a887e9ad0 ---------A   01250 LET J=J-1
-    0x616a887e9b40 ---------A   01260 GO TO 1280
-    0x616a887e9c60 ---------A T 01270 NEXT K
-    0x616a887e9da0 ---------A T 01280 NEXT J
-    0x616a887ea1a0 ---------A T 01290 LET P=P+1
-    0x616a887ea570 ---------A   01300 LET M1=L(P)
-    0x616a887ea8a0 ---------A   01310 LET P=P+1
-    0x616a887eac70 ---------A   01320 LET M2=L(P)
-    0x616a887eaef0 ---------A   01330 PRINT
-    0x616a887eaf80 ---------A   01340 PRINT
-    0x616a887eb5c0 ---------A   01350 PRINT "YOU: ";A$(M1), "PDP-10: ";A$(M2),
-    0x616a887ebbe0 ---------A   01360 LET N1=INT((M1-.5)/4)
-    0x616a887ec200 ---------A   01370 LET N2=INT((M2-.5)/4)
-    0x616a887ec470 ---------A   01380 IF N1>=N2 THEN 1420
-    0x616a887ec890 ---------A   01390 LET A1=A1+1
-    0x616a887ecda0 ---------A   01400 PRINT"PDP-10 WINS. YOU HAVE";B1;"; PDP-10 HAS";A1
-    0x616a887ece10 ---------A   01410 GO TO 1470
-    0x616a887ed070 ---------A T 01420 IF N1=N2 THEN 1460
-    0x616a887ed3d0 ---------A   01430 LET B1=B1+1
-    0x616a887ed820 ---------A   01440 PRINT "YOU WIN.  YOU HAVE";B1;"; PDP-10 HAS";A1
-    0x616a887ed8a0 ---------A   01450 GO TO 1470
-    0x616a887ed9f0 ---------A T 01460 PRINT "TIE. N SCORE CHANGE."
-    0x616a887ede30 ---------A T 01470 IF L(P+1)= 0 THEN 1540
-    0x616a887edfc0 ---------A   01480 PRINT "DO YOU WANT TO CONTINUE";
-    0x616a887ee1e0 ---------A T 01490 INPUT V$
-    0x616a887ee470 ---------A   01500 IF V$="Y" THEN 1290
-    0x616a887ee700 ---------A   01510 IF V$="NO" THEN 1580
-    0x616a887ee880 ---------A   01520 PRINT"Y OR NO, PLEASE.  ";
-    0x616a887ee8f0 ---------A   01530 GO TO 1490
-    0x616a887ee950 ---------A T 01540 PRINT
-    0x616a887eead0 ---------A   01550 PRINT" "
-    0x616a887eed50 ---------A   01560 PRINT"YOU HAVE RUN OUT OF CARDS. FINAL SCORE: YOU--";B1
-    0x616a887ef100 ---------A   01570 PRINTTAB(40);"PDP-10--";A1
-    0x616a887ef290 ---------A T 01580 PRINT"THANKS FOR PLAYING. IT WAS FUN."
-    0x616a887f0050 ---------A   01590 DATA S-2,H-2,C-2,D-2,S-3,H-3,C-3,D-3,S-4,H-4,C-4,D-4,S-5,H-5,C-5
-    0x616a887f0e10 ---------A   01600 DATA D-5,S-6,H-6,C-6,D-6,S-7,H-7,C-7,D-7,S-8,H-8,C-8,D-8,S-9,H-9
-    0x616a887f1ae0 ---------A   01610 DATA C-9,D-9,S10,H-10,C-10,D-10,S-J,H-J,C-J,D-J,S-Q,H-Q,C-Q,D-Q
-    0x616a887f2250 ---------A   01620 DATA S-K,H-K,C-K,D-K,S-A,H-A,C-A,D-A
-    0x616a887f22a0 ---------A   01630 STOP
-    0x616a887f2300 ---------A   01640 END
+    0x57b5ca587670 ---------A   01000  PRINT "BASIC LIBRARY--'WAR'--18-JUL-70"
+    0x57b5ca589cf0 ---------A   01010  REM  *  *  *  *  *  *   MAIN PROGRAM   *  *  *  *  *  *  *  *  *  *  *  *
+    0x57b5ca588b60 ---------A   01020  REM
+    0x57b5ca588910 ---------A   01030  PRINT "THIS IS THE CARD GAME OF WAR.  EACH CARD IS GIVEN BY SUIT-#"
+    0x57b5ca5782b0 ---------A   01040  PRINT "AS S-7 FOR SPADE 7.  "
+    0x57b5ca5899e0 ---------A T 01050  PRINT "DO YOU WANT DIRECTIONS"
+    0x57b5ca589a40 ---------A   01060  INPUT B$
+    0x57b5ca588480 ---------A   01070  IF B$="N" THEN 1140
+    0x57b5ca58a080 ---------A   01080  IF B$="Y" THEN 1110
+    0x57b5ca589520 ---------A   01090  PRINT "Y OR N, PLEASE.  ";
+    0x57b5ca589f30 ---------A   01100  GO TO 1050
+    0x57b5ca588620 ---------A T 01110  PRINT "THE PDP-10 GIVES YOU AND IT A 'CARD'.  THE HIGHER 'CARD' "
+    0x57b5ca588790 ---------A   01120  PRINT "(NUMERICALLY) WINS.  THE GAME ENDS WHEN YOU CHOOSE NT"
+    0x57b5ca58f840 ---------A   01130  PRINT " TO CONTINUE OR WHEN YOU HAVE FINISHED THE PACK."
+    0x57b5ca58f8a0 ---------A T 01140  PRINT
+    0x57b5ca58f920 ---------A   01150  PRINT
+    0x57b5ca58fe60 ---------A   01160  DIM A$(52), L(54)
+    0x57b5ca5901f0 ---------A   01170  FOR I=1 TO 52
+    0x57b5ca590430 ---------A   01180  READ A$(I)
+    0x57b5ca590560 ---------A   01190  NEXT I
+    0x57b5ca5905f0 ---------A   01200  RANDOM
+    0x57b5ca590990 ---------A   01210  FOR J=1 TO 52
+    0x57b5ca590f90 ---------A   01220  LET L(J)=INT(52*RND+1)
+    0x57b5ca591450 ---------A   01230  FOR K=1 TO J-1
+    0x57b5ca591890 ---------A   01240  IF L(K)<>L(J) THEN 1270
+    0x57b5ca591bd0 ---------A   01250  LET J=J-1
+    0x57b5ca591c40 ---------A   01260  GO TO 1280
+    0x57b5ca591d70 ---------A T 01270  NEXT K
+    0x57b5ca591ec0 ---------A T 01280  NEXT J
+    0x57b5ca5922d0 ---------A T 01290  LET P=P+1
+    0x57b5ca5926a0 ---------A   01300  LET M1=L(P)
+    0x57b5ca5929d0 ---------A   01310  LET P=P+1
+    0x57b5ca592da0 ---------A   01320  LET M2=L(P)
+    0x57b5ca593020 ---------A   01330  PRINT
+    0x57b5ca5930c0 ---------A   01340  PRINT
+    0x57b5ca593710 ---------A   01350  PRINT "YOU: ";A$(M1), "PDP-10: ";A$(M2),
+    0x57b5ca593d40 ---------A   01360  LET N1=INT((M1-.5)/4)
+    0x57b5ca594360 ---------A   01370  LET N2=INT((M2-.5)/4)
+    0x57b5ca5945d0 ---------A   01380  IF N1>=N2 THEN 1420
+    0x57b5ca5949f0 ---------A   01390  LET A1=A1+1
+    0x57b5ca594f00 ---------A   01400  PRINT"PDP-10 WINS. YOU HAVE";B1;"; PDP-10 HAS";A1
+    0x57b5ca594f80 ---------A   01410  GO TO 1470
+    0x57b5ca5951f0 ---------A T 01420  IF N1=N2 THEN 1460
+    0x57b5ca595550 ---------A   01430  LET B1=B1+1
+    0x57b5ca5959a0 ---------A   01440  PRINT "YOU WIN.  YOU HAVE";B1;"; PDP-10 HAS";A1
+    0x57b5ca595a30 ---------A   01450  GO TO 1470
+    0x57b5ca595b90 ---------A T 01460  PRINT "TIE. N SCORE CHANGE."
+    0x57b5ca595fe0 ---------A T 01470  IF L(P+1)= 0 THEN 1540
+    0x57b5ca596170 ---------A   01480  PRINT "DO YOU WANT TO CONTINUE";
+    0x57b5ca5963a0 ---------A T 01490  INPUT V$
+    0x57b5ca596630 ---------A   01500  IF V$="Y" THEN 1290
+    0x57b5ca5968c0 ---------A   01510  IF V$="NO" THEN 1580
+    0x57b5ca596a40 ---------A   01520  PRINT"Y OR NO, PLEASE.  ";
+    0x57b5ca596ac0 ---------A   01530  GO TO 1490
+    0x57b5ca596b30 ---------A T 01540  PRINT
+    0x57b5ca596cc0 ---------A   01550  PRINT" "
+    0x57b5ca596f50 ---------A   01560  PRINT"YOU HAVE RUN OUT OF CARDS. FINAL SCORE: YOU--";B1
+    0x57b5ca597310 ---------A   01570  PRINTTAB(40);"PDP-10--";A1
+    0x57b5ca5974b0 ---------A T 01580  PRINT"THANKS FOR PLAYING. IT WAS FUN."
+    0x57b5ca598280 ---------A   01590  DATA S-2,H-2,C-2,D-2,S-3,H-3,C-3,D-3,S-4,H-4,C-4,D-4,S-5,H-5,C-5
+    0x57b5ca599040 ---------A   01600  DATA D-5,S-6,H-6,C-6,D-6,S-7,H-7,C-7,D-7,S-8,H-8,C-8,D-8,S-9,H-9
+    0x57b5ca599d10 ---------A   01610  DATA C-9,D-9,S10,H-10,C-10,D-10,S-J,H-J,C-J,D-J,S-Q,H-Q,C-Q,D-Q
+    0x57b5ca59a480 ---------A   01620  DATA S-K,H-K,C-K,D-K,S-A,H-A,C-A,D-A
+    0x57b5ca59a4d0 ---------A   01630  STOP
+    0x57b5ca59a530 ---------A   01640  END
  */
 
 //---------------------------------------------------------------------------
@@ -487,7 +641,7 @@ int main(int argc,char *argv[])
     // 01340 PRINT
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01350 PRINT "YOU: ";A$(M1), "PDP-10: ";A$(M2),
-    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU: "); b2c_STR(buf,A_str_arr[M1_int]);strcat(buf,"PDP-10: "); b2c_STR(buf,A_str_arr[M2_int]);fputs(buf,fh); };
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU: "); strcat(buf,A_str_arr[M1_int]);strcat(buf,"PDP-10: "); strcat(buf,A_str_arr[M2_int]);fputs(buf,fh); };
     // 01360 LET N1=INT((M1-.5)/4)
     N1_int = INT((M1_int-0.5)/4);
     // 01370 LET N2=INT((M2-.5)/4)
@@ -556,3 +710,22 @@ int main(int argc,char *argv[])
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," ");strcat(buf,"\n");fputs(buf,fh); };
     // 01560 PRINT"YOU HAVE RUN OUT OF CARDS. FINAL SCORE: YOU--";B1
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE RUN OUT OF CARDS. FINAL SCORE: YOU--"); b2c_INT(buf,B1_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 01570 PRINTTAB(40);"PDP-10--";A1
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,40);strcat(buf,"PDP-10--"); b2c_INT(buf,A1_int);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01580:
+    // 01580 PRINT"THANKS FOR PLAYING. IT WAS FUN."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THANKS FOR PLAYING. IT WAS FUN.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01590 DATA S-2,H-2,C-2,D-2,S-3,H-3,C-3,D-3,S-4,H-4,C-4,D-4,S-5,H-5,C-5
+    // 01600 DATA D-5,S-6,H-6,C-6,D-6,S-7,H-7,C-7,D-7,S-8,H-8,C-8,D-8,S-9,H-9
+    // 01610 DATA C-9,D-9,S10,H-10,C-10,D-10,S-J,H-J,C-J,D-J,S-Q,H-Q,C-Q,D-Q
+    // 01620 DATA S-K,H-K,C-K,D-K,S-A,H-A,C-A,D-A
+    // 01630 STOP
+    exit(1);
+    // 01640 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

@@ -8,40 +8,40 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x647e5e420b80 ---------A   00010 PRINT TAB(33);"KINEMA"
-    0x647e5e421f30 ---------A   00020 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x647e5e4220b0 ---------A   00030 PRINT: PRINT: PRINT
-    0x647e5e4102b0 ---------A T 00100 PRINT
-    0x647e5e41f9e0 ---------A   00105 PRINT
-    0x647e5e420040 ---------A   00106 Q=0
-    0x647e5e4206b0 ---------A   00110 V=5+INT(35*RND(1))
-    0x647e5e427920 ---------A   00111 PRINT "A BALL IS THROWN UPWARDS AT";V;"METERS PER SECOND."
-    0x647e5e427970 ---------A   00112 PRINT
-    0x647e5e41f7f0 ---------A   00115 A=.05*V^2
-    0x647e5e427f40 ---------A   00116 PRINT "HOW HIGH WILL IT GO (IN METERS)";
-    0x647e5e427fb0 ---------A   00117 GOSUB 500
-    0x647e5e4282f0 ---------A   00120 A=V/5
-    0x647e5e428480 ---------A   00122 PRINT "HOW LONG UNTIL IT RETURNS (IN SECONDS)";
-    0x647e5e4284d0 ---------A   00124 GOSUB 500
-    0x647e5e428d70 ---------A   00130 T=1+INT(2*V*RND(1))/10
-    0x647e5e4291f0 ---------A   00132 A=V-10*T
-    0x647e5e429540 ---------A   00134 PRINT "WHAT WILL ITS VELOCITY BE AFTER";T;"SECONDS";
-    0x647e5e4295b0 ---------A   00136 GOSUB 500
-    0x647e5e4295f0 ---------A   00140 PRINT
-    0x647e5e429860 ---------A   00150 PRINT Q;"RIGHT OUT OF 3.";
-    0x647e5e41f6d0 ---------A   00160 IF Q<2 THEN 100
-    0x647e5e429bb0 ---------A   00170 PRINT "  NOT BAD."
-    0x647e5e429c20 ---------A   00180 GOTO 100
-    0x647e5e41f670 ---------B G 00500 INPUT G
-    0x647e5e42a340 ---------B   00502 IF ABS((G-A)/A)<.15 THEN 510
-    0x647e5e42a4a0 ---------B   00504 PRINT "NOT EVEN CLOSE...."
-    0x647e5e42a4f0 ---------B   00506 GOTO 512
-    0x647e5e42a630 ---------B T 00510 PRINT "CLOSE ENOUGH."
-    0x647e5e42a970 ---------B   00511 Q=Q+1
-    0x647e5e42abc0 ---------B T 00512 PRINT "CORRECT ANSWER IS ";A
-    0x647e5e42ac30 ---------B   00520 PRINT
-    0x647e5e42ac80 ---------B   00530 RETURN
-    0x647e5e42aef0 ---------A   00999 END
+    0x5e50752e76d0 ---------A   00010  PRINT TAB(33);"KINEMA"
+    0x5e50752e7670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5e50752e77f0 ---------A   00030  PRINT: PRINT: PRINT
+    0x5e50752e9aa0 ---------A T 00100  PRINT
+    0x5e50752e8040 ---------A   00105  PRINT
+    0x5e50752e9f30 ---------A   00106  Q=0
+    0x5e50752e9ff0 ---------A   00110  V=5+INT(35*RND(1))
+    0x5e50752ef960 ---------A   00111  PRINT "A BALL IS THROWN UPWARDS AT";V;"METERS PER SECOND."
+    0x5e50752ef9c0 ---------A   00112  PRINT
+    0x5e50752e8b80 ---------A   00115  A=.05*V^2
+    0x5e50752eff80 ---------A   00116  PRINT "HOW HIGH WILL IT GO (IN METERS)";
+    0x5e50752ea0b0 ---------A   00117  GOSUB 500
+    0x5e50752f0300 ---------A   00120  A=V/5
+    0x5e50752f0490 ---------A   00122  PRINT "HOW LONG UNTIL IT RETURNS (IN SECONDS)";
+    0x5e50752f04f0 ---------A   00124  GOSUB 500
+    0x5e50752f0da0 ---------A   00130  T=1+INT(2*V*RND(1))/10
+    0x5e50752f1220 ---------A   00132  A=V-10*T
+    0x5e50752f1570 ---------A   00134  PRINT "WHAT WILL ITS VELOCITY BE AFTER";T;"SECONDS";
+    0x5e50752f15f0 ---------A   00136  GOSUB 500
+    0x5e50752f1640 ---------A   00140  PRINT
+    0x5e50752f18c0 ---------A   00150  PRINT Q;"RIGHT OUT OF 3.";
+    0x5e50752f1b20 ---------A   00160  IF Q<2 THEN 100
+    0x5e50752f1c80 ---------A   00170  PRINT "  NOT BAD."
+    0x5e50752f1d00 ---------A   00180  GOTO 100
+    0x5e50752f1ef0 ---------B G 00500  INPUT G
+    0x5e50752f2490 ---------B   00502  IF ABS((G-A)/A)<.15 THEN 510
+    0x5e50752f25f0 ---------B   00504  PRINT "NOT EVEN CLOSE...."
+    0x5e50752f2650 ---------B   00506  GOTO 512
+    0x5e50752f27a0 ---------B T 00510  PRINT "CLOSE ENOUGH."
+    0x5e50752f2af0 ---------B   00511  Q=Q+1
+    0x5e50752f2d40 ---------B T 00512  PRINT "CORRECT ANSWER IS ";A
+    0x5e50752f2dc0 ---------B   00520  PRINT
+    0x5e50752f2e20 ---------B   00530  RETURN
+    0x5e50752f3090 ---------A   00999  END
  */
 
 /*
@@ -64,11 +64,107 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x647e5e420b80 (00010)   0x647e5e420b80 (00010)   0x647e5e42aef0 (00999)   0x647e5e42aef0 (00999)   
-   B) 0x647e5e41f670 (00500)   0x647e5e41f670 (00500)   0x647e5e42ac80 (00530)   0x647e5e42ac80 (00530)   
+   A) 0x5e50752e76d0 (00010)   0x5e50752e76d0 (00010)   0x5e50752f3090 (00999)   0x5e50752f3090 (00999)   
+   B) 0x5e50752f1ef0 (00500)   0x5e50752f1ef0 (00500)   0x5e50752f2e20 (00530)   0x5e50752f2e20 (00530)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/kinema.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5e50752e76d0 ---------A   00010  PRINT TAB(33);"KINEMA"
+    0x5e50752e7670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5e50752d82b0 ----------   00030  PRINT
+    0x5e50752e79e0 ----------        a PRINT
+    0x5e50752e77f0 ---------A        b PRINT
+    0x5e50752e9aa0 ---------A T 00100  PRINT
+    0x5e50752e8040 ---------A   00105  PRINT
+    0x5e50752e9f30 ---------A   00106  Q=0
+    0x5e50752e9ff0 ---------A   00110  V=5+INT(35*RND(1))
+    0x5e50752ef960 ---------A   00111  PRINT "A BALL IS THROWN UPWARDS AT";V;"METERS PER SECOND."
+    0x5e50752ef9c0 ---------A   00112  PRINT
+    0x5e50752e8b80 ---------A   00115  A=.05*V^2
+    0x5e50752eff80 ---------A   00116  PRINT "HOW HIGH WILL IT GO (IN METERS)";
+    0x5e50752ea0b0 ---------A   00117  GOSUB 500
+    0x5e50752f0300 ---------A   00120  A=V/5
+    0x5e50752f0490 ---------A   00122  PRINT "HOW LONG UNTIL IT RETURNS (IN SECONDS)";
+    0x5e50752f04f0 ---------A   00124  GOSUB 500
+    0x5e50752f0da0 ---------A   00130  T=1+INT(2*V*RND(1))/10
+    0x5e50752f1220 ---------A   00132  A=V-10*T
+    0x5e50752f1570 ---------A   00134  PRINT "WHAT WILL ITS VELOCITY BE AFTER";T;"SECONDS";
+    0x5e50752f15f0 ---------A   00136  GOSUB 500
+    0x5e50752f1640 ---------A   00140  PRINT
+    0x5e50752f18c0 ---------A   00150  PRINT Q;"RIGHT OUT OF 3.";
+    0x5e50752f1b20 ---------A   00160  IF Q<2 THEN 100
+    0x5e50752f1c80 ---------A   00170  PRINT "  NOT BAD."
+    0x5e50752f1d00 ---------A   00180  GOTO 100
+    0x5e50752f1ef0 ---------B G 00500  INPUT G
+    0x5e50752f2490 ---------B   00502  IF ABS((G-A)/A)<.15 THEN 510
+    0x5e50752f25f0 ---------B   00504  PRINT "NOT EVEN CLOSE...."
+    0x5e50752f2650 ---------B   00506  GOTO 512
+    0x5e50752f27a0 ---------B T 00510  PRINT "CLOSE ENOUGH."
+    0x5e50752f2af0 ---------B   00511  Q=Q+1
+    0x5e50752f2d40 ---------B T 00512  PRINT "CORRECT ANSWER IS ";A
+    0x5e50752f2dc0 ---------B   00520  PRINT
+    0x5e50752f2e20 ---------B   00530  RETURN
+    0x5e50752f3090 ---------A   00999  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/kinema.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5e50752e76d0 ---------A   01000  PRINT TAB(33);"KINEMA"
+    0x5e50752e7670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5e50752d82b0 ----------   01020  PRINT
+    0x5e50752e79e0 ----------   01030  PRINT
+    0x5e50752e77f0 ---------A   01040  PRINT
+    0x5e50752e9aa0 ---------A   01050  PRINT
+    0x5e50752e8040 ---------A   01060  PRINT
+    0x5e50752e9f30 ---------A   01070  Q=0
+    0x5e50752e9ff0 ---------A   01080  V=5+INT(35*RND(1))
+    0x5e50752ef960 ---------A   01090  PRINT "A BALL IS THROWN UPWARDS AT";V;"METERS PER SECOND."
+    0x5e50752ef9c0 ---------A   01100  PRINT
+    0x5e50752e8b80 ---------A   01110  A=.05*V^2
+    0x5e50752eff80 ---------A   01120  PRINT "HOW HIGH WILL IT GO (IN METERS)";
+    0x5e50752ea0b0 ---------A   01130  GOSUB 1260
+    0x5e50752f0300 ---------A   01140  A=V/5
+    0x5e50752f0490 ---------A   01150  PRINT "HOW LONG UNTIL IT RETURNS (IN SECONDS)";
+    0x5e50752f04f0 ---------A   01160  GOSUB 1260
+    0x5e50752f0da0 ---------A   01170  T=1+INT(2*V*RND(1))/10
+    0x5e50752f1220 ---------A   01180  A=V-10*T
+    0x5e50752f1570 ---------A   01190  PRINT "WHAT WILL ITS VELOCITY BE AFTER";T;"SECONDS";
+    0x5e50752f15f0 ---------A   01200  GOSUB 1260
+    0x5e50752f1640 ---------A   01210  PRINT
+    0x5e50752f18c0 ---------A   01220  PRINT Q;"RIGHT OUT OF 3.";
+    0x5e50752f1b20 ---------A   01230  IF Q<2 THEN 1050
+    0x5e50752f1c80 ---------A   01240  PRINT "  NOT BAD."
+    0x5e50752f1d00 ---------A   01250  GOTO 1050
+    0x5e50752f1ef0 ---------B   01260  INPUT G
+    0x5e50752f2490 ---------B   01270  IF ABS((G-A)/A)<.15 THEN 1300
+    0x5e50752f25f0 ---------B   01280  PRINT "NOT EVEN CLOSE...."
+    0x5e50752f2650 ---------B   01290  GOTO 1320
+    0x5e50752f27a0 ---------B   01300  PRINT "CLOSE ENOUGH."
+    0x5e50752f2af0 ---------B   01310  Q=Q+1
+    0x5e50752f2d40 ---------B   01320  PRINT "CORRECT ANSWER IS ";A
+    0x5e50752f2dc0 ---------B   01330  PRINT
+    0x5e50752f2e20 ---------B   01340  RETURN
+    0x5e50752f3090 ---------A   01350  END
  */
 
 
@@ -79,7 +175,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01350 - 10000    8660 
+     01370 - 10000    8640 
 
  */
 
@@ -166,41 +262,43 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x647e5e420b80 ---------A   01000 PRINT TAB(33);"KINEMA"
-    0x647e5e421f30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x647e5e4220b0 ---------A   01020 PRINT: PRINT: PRINT
-    0x647e5e4102b0 ---------A T 01030 PRINT
-    0x647e5e41f9e0 ---------A   01040 PRINT
-    0x647e5e420040 ---------A   01050 Q=0
-    0x647e5e4206b0 ---------A   01060 V=5+INT(35*RND(1))
-    0x647e5e427920 ---------A   01070 PRINT "A BALL IS THROWN UPWARDS AT";V;"METERS PER SECOND."
-    0x647e5e427970 ---------A   01080 PRINT
-    0x647e5e41f7f0 ---------A   01090 A=.05*V^2
-    0x647e5e427f40 ---------A   01100 PRINT "HOW HIGH WILL IT GO (IN METERS)";
-    0x647e5e427fb0 ---------A   01110 GOSUB 1250
-    0x647e5e4282f0 ---------A   01120 A=V/5
-    0x647e5e428480 ---------A   01130 PRINT "HOW LONG UNTIL IT RETURNS (IN SECONDS)";
-    0x647e5e4284d0 ---------A   01140 GOSUB 1250
-    0x647e5e428d70 ---------A   01150 T=1+INT(2*V*RND(1))/10
-    0x647e5e4291f0 ---------A   01160 A=V-10*T
-    0x647e5e429540 ---------A   01170 PRINT "WHAT WILL ITS VELOCITY BE AFTER";T;"SECONDS";
-    0x647e5e4295b0 ---------A   01180 GOSUB 1250
-    0x647e5e4295f0 ---------A   01190 PRINT
-    0x647e5e429860 ---------A   01200 PRINT Q;"RIGHT OUT OF 3.";
-    0x647e5e41f6d0 ---------A   01210 IF Q<2 THEN 1030
-    0x647e5e429bb0 ---------A   01220 PRINT "  NOT BAD."
-    0x647e5e429c20 ---------A   01230 GOTO 1030
-    0x647e5e42aef0 ---------A   01240 END
-    0x647e5e41f670 ---------B G 01250 INPUT G
-    0x647e5e42a340 ---------B   01260 IF ABS((G-A)/A)<.15 THEN 1290
-    0x647e5e42a4a0 ---------B   01270 PRINT "NOT EVEN CLOSE...."
-    0x647e5e42a4f0 ---------B   01280 GOTO 1310
-    0x647e5e42a630 ---------B T 01290 PRINT "CLOSE ENOUGH."
-    0x647e5e42a970 ---------B   01300 Q=Q+1
-    0x647e5e42abc0 ---------B T 01310 PRINT "CORRECT ANSWER IS ";A
-    0x647e5e42ac30 ---------B   01320 PRINT
-    0x647e5e42cd40 ---------B   01330 GOTO 01340
-    0x647e5e42cd80 ---------B T 01340 RETURN
+    0x5e50752e76d0 ---------A   01000  PRINT TAB(33);"KINEMA"
+    0x5e50752e7670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5e50752d82b0 ---------A   01020  PRINT
+    0x5e50752e79e0 ---------A   01030  PRINT
+    0x5e50752e77f0 ---------A   01040  PRINT
+    0x5e50752e9aa0 ---------A T 01050  PRINT
+    0x5e50752e8040 ---------A   01060  PRINT
+    0x5e50752e9f30 ---------A   01070  Q=0
+    0x5e50752e9ff0 ---------A   01080  V=5+INT(35*RND(1))
+    0x5e50752ef960 ---------A   01090  PRINT "A BALL IS THROWN UPWARDS AT";V;"METERS PER SECOND."
+    0x5e50752ef9c0 ---------A   01100  PRINT
+    0x5e50752e8b80 ---------A   01110  A=.05*V^2
+    0x5e50752eff80 ---------A   01120  PRINT "HOW HIGH WILL IT GO (IN METERS)";
+    0x5e50752ea0b0 ---------A   01130  GOSUB 1270
+    0x5e50752f0300 ---------A   01140  A=V/5
+    0x5e50752f0490 ---------A   01150  PRINT "HOW LONG UNTIL IT RETURNS (IN SECONDS)";
+    0x5e50752f04f0 ---------A   01160  GOSUB 1270
+    0x5e50752f0da0 ---------A   01170  T=1+INT(2*V*RND(1))/10
+    0x5e50752f1220 ---------A   01180  A=V-10*T
+    0x5e50752f1570 ---------A   01190  PRINT "WHAT WILL ITS VELOCITY BE AFTER";T;"SECONDS";
+    0x5e50752f15f0 ---------A   01200  GOSUB 1270
+    0x5e50752f1640 ---------A   01210  PRINT
+    0x5e50752f18c0 ---------A   01220  PRINT Q;"RIGHT OUT OF 3.";
+    0x5e50752f1b20 ---------A   01230  IF Q<2 THEN 1050
+    0x5e50752f1c80 ---------A   01240  PRINT "  NOT BAD."
+    0x5e50752f1d00 ---------A   01250  GOTO 1050
+    0x5e50752f3090 ---------A   01260  END
+    0x5e50752f1ef0 ---------B G 01270  INPUT G
+    0x5e50752f2490 ---------B   01280  IF ABS((G-A)/A)<.15 THEN 1310
+    0x5e50752f25f0 ---------B   01290  PRINT "NOT EVEN CLOSE...."
+    0x5e50752f2650 ---------B   01300  GOTO 1330
+    0x5e50752f27a0 ---------B T 01310  PRINT "CLOSE ENOUGH."
+    0x5e50752f2af0 ---------B   01320  Q=Q+1
+    0x5e50752f2d40 ---------B T 01330  PRINT "CORRECT ANSWER IS ";A
+    0x5e50752f2dc0 ---------B   01340  PRINT
+    0x5e50752f3a70 ---------B   01350  GOTO 01360
+    0x5e50752f6b40 ---------B T 01360  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -255,7 +353,7 @@ char* GLBpStr=nullptr;
 //---------------------------------------------------------------------------
 // Subroutine Prototypes.
 //---------------------------------------------------------------------------
-void Routine_01250();
+void Routine_01270();
 
 //---------------------------------------------------------------------------
 // Program Functions.
@@ -295,9 +393,9 @@ void Routine_01250();
 // Routine B
 //---------------------------------------------------------------------------
 
-void Routine_01250(){
-    // 01250 INPUT G
-    // Start of Basic INPUT statement 01250
+void Routine_01270(){
+    // 01270 INPUT G
+    // Start of Basic INPUT statement 01270
     {
         int numargs=1;
         char *args[numargs+1];
@@ -313,30 +411,30 @@ void Routine_01250(){
                 break;
             };
         };
-    }; // End of Basic INPUT statement 01250
-    // 01260 IF ABS((G-A)/A)<.15 THEN 1290
-    if(ABS((G_int-A_int)/A_int)<0.15)goto Lbl_01290;
-    // 01270 PRINT "NOT EVEN CLOSE...."
+    }; // End of Basic INPUT statement 01270
+    // 01280 IF ABS((G-A)/A)<.15 THEN 1310
+    if(ABS((G_int-A_int)/A_int)<0.15)goto Lbl_01310;
+    // 01290 PRINT "NOT EVEN CLOSE...."
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"NOT EVEN CLOSE....");strcat(buf,"\n");fputs(buf,fh); };
-    // 01280 GOTO 1310
-    goto Lbl_01310;
-
-  Lbl_01290:
-    // 01290 PRINT "CLOSE ENOUGH."
-    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"CLOSE ENOUGH.");strcat(buf,"\n");fputs(buf,fh); };
-    // 01300 Q=Q+1
-    Q_int = Q_int+1;
+    // 01300 GOTO 1330
+    goto Lbl_01330;
 
   Lbl_01310:
-    // 01310 PRINT "CORRECT ANSWER IS ";A
-    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"CORRECT ANSWER IS "); b2c_INT(buf,A_int);strcat(buf,"\n");fputs(buf,fh); };
-    // 01320 PRINT
-    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
-    // 01330 GOTO 01340
-    goto Lbl_01340;
+    // 01310 PRINT "CLOSE ENOUGH."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"CLOSE ENOUGH.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01320 Q=Q+1
+    Q_int = Q_int+1;
 
-  Lbl_01340:
-    // 01340 RETURN
+  Lbl_01330:
+    // 01330 PRINT "CORRECT ANSWER IS ";A
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"CORRECT ANSWER IS "); b2c_INT(buf,A_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 01340 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01350 GOTO 01360
+    goto Lbl_01360;
+
+  Lbl_01360:
+    // 01360 RETURN
     return;
 };
 
@@ -346,3 +444,64 @@ void Routine_01250(){
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(33);"KINEMA"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,33);strcat(buf,"KINEMA");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01050:
+    // 01050 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01060 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 Q=0
+    Q_int = 0;
+    // 01080 V=5+INT(35*RND(1))
+    V_int = 5+INT(35*RND(1));
+    // 01090 PRINT "A BALL IS THROWN UPWARDS AT";V;"METERS PER SECOND."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"A BALL IS THROWN UPWARDS AT"); b2c_INT(buf,V_int);strcat(buf,"METERS PER SECOND.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 A=.05*V^2
+    A_int = 0.05*IPower(V_int,2);
+    // 01120 PRINT "HOW HIGH WILL IT GO (IN METERS)";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HOW HIGH WILL IT GO (IN METERS)");fputs(buf,fh); };
+    // 01130 GOSUB 1270
+    Routine_01270();
+    // 01140 A=V/5
+    A_int = V_int/5;
+    // 01150 PRINT "HOW LONG UNTIL IT RETURNS (IN SECONDS)";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HOW LONG UNTIL IT RETURNS (IN SECONDS)");fputs(buf,fh); };
+    // 01160 GOSUB 1270
+    Routine_01270();
+    // 01170 T=1+INT(2*V*RND(1))/10
+    T_int = 1+INT(2*V_int*RND(1))/10;
+    // 01180 A=V-10*T
+    A_int = V_int-10*T_int;
+    // 01190 PRINT "WHAT WILL ITS VELOCITY BE AFTER";T;"SECONDS";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WHAT WILL ITS VELOCITY BE AFTER"); b2c_INT(buf,T_int);strcat(buf,"SECONDS");fputs(buf,fh); };
+    // 01200 GOSUB 1270
+    Routine_01270();
+    // 01210 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01220 PRINT Q;"RIGHT OUT OF 3.";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,Q_int);strcat(buf,"RIGHT OUT OF 3.");fputs(buf,fh); };
+    // 01230 IF Q<2 THEN 1050
+    if(Q_int<2)goto Lbl_01050;
+    // 01240 PRINT "  NOT BAD."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"  NOT BAD.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01250 GOTO 1050
+    goto Lbl_01050;
+    // 01260 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

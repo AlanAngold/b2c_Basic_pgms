@@ -8,55 +8,55 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5f2fbb50db80 ---------A   00001 PRINT TAB(34);"TRAP"
-    0x5f2fbb50eed0 ---------A   00002 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5f2fbb50f050 ---------A   00003 PRINT:PRINT:PRINT
-    0x5f2fbb4fd2b0 ---------A   00010 G=6
-    0x5f2fbb50e1f0 ---------A   00020 N=100
-    0x5f2fbb50ceb0 ---------A   00030 REM-TRAP
-    0x5f2fbb50d480 ---------A   00040 REM-STEVE ULLMAN, 8-1-72
-    0x5f2fbb50e6c0 ---------A   00050 PRINT "INSTRUCTIONS";
-    0x5f2fbb50c6d0 ---------A   00060 INPUT Z$
-    0x5f2fbb50c670 ---------A   00070 IF LEFT$(Z$,1)<>"Y" THEN 180
-    0x5f2fbb50ce40 ---------A   00080 PRINT "I AM THINKING OF A NUMBER BETWEEN 1 AND";N
-    0x5f2fbb514bc0 ---------A   00090 PRINT "TRY TO GUESS MY NUMBER. ON EACH GUESS,"
-    0x5f2fbb514d50 ---------A   00100 PRINT "YOU ARE TO ENTER 2 NUMBERS, TRYING TO TRAP"
-    0x5f2fbb514ef0 ---------A   00110 PRINT "MY NUMBER BETWEEN THE TWO NUMBERS. I WILL"
-    0x5f2fbb515090 ---------A   00120 PRINT "TELL YOU IF YOU HAVE TRAPPED MY NUMBER, IF MY"
-    0x5f2fbb515220 ---------A   00130 PRINT "NUMBER IS LARGER THAN YOUR TWO NUMBERS, OR IF"
-    0x5f2fbb5153c0 ---------A   00140 PRINT "MY NUMBER IS SMALLER THAN YOUR TWO NUMBERS."
-    0x5f2fbb515550 ---------A   00150 PRINT "IF YOU WANT TO GUESS ONE SINGLE NUMBER, TYPE"
-    0x5f2fbb5156e0 ---------A   00160 PRINT "YOUR GUESS FOR BOTH YOUR TRAP NUMBERS."
-    0x5f2fbb515a10 ---------A   00170 PRINT "YOU GET";G;"GUESSES TO GET MY NUMBER."
-    0x5f2fbb5160c0 ---------A T 00180 X=INT(N*RND(1))+1
-    0x5f2fbb516470 ---------A   00190 FOR Q=1 TO G
-    0x5f2fbb5164f0 ---------A   00200 PRINT 
-    0x5f2fbb516760 ---------A   00210 PRINT "GUESS #";Q;
-    0x5f2fbb516af0 ---------A   00220 INPUT A,B
-    0x5f2fbb516fb0 ---------A   00230 IF A=B AND X=A THEN 400
-    0x5f2fbb517230 ---------A   00240 IF A <= B THEN 260
-    0x5f2fbb517290 ---------A   00250 GOSUB 360
-    0x5f2fbb517730 ---------A T 00260 IF A <= X AND X <= B THEN 320
-    0x5f2fbb5179d0 ---------A   00270 IF X<A THEN 300
-    0x5f2fbb517b50 ---------A   00280 PRINT "MY NUMBER IS LARGER THAN YOUR TRAP NUMBERS."
-    0x5f2fbb517bf0 ---------A   00290 GOTO 330
-    0x5f2fbb517d50 ---------A T 00300 PRINT "MY NUMBER IS SMALLER THAN YOUR TRAP NUMBERS."
-    0x5f2fbb517fe0 ---------A   00310 GOTO 330
-    0x5f2fbb518130 ---------A T 00320 PRINT "YOU HAVE TRAPPED MY NUMBER."
-    0x5f2fbb518260 ---------A T 00330 NEXT Q
-    0x5f2fbb5186f0 ---------A   00340 PRINT "SORRY, THAT'S";G;"GUESSES. THE NUMBER WAS";X
-    0x5f2fbb518760 ---------A   00345 PRINT
-    0x5f2fbb5187d0 ---------A   00350 GOTO 410
-    0x5f2fbb518ab0 ---------B G 00360 R=A
-    0x5f2fbb518ce0 ---------B   00370 A=B
-    0x5f2fbb518f10 ---------B   00380 B=R
-    0x5f2fbb518f60 ---------B   00390 RETURN 
-    0x5f2fbb5190d0 ---------A T 00400 PRINT "YOU GOT IT!!!"
-    0x5f2fbb519140 ---------A T 00410 PRINT 
-    0x5f2fbb519290 ---------A   00420 PRINT "TRY AGAIN."
-    0x5f2fbb519300 ---------A   00430 PRINT
-    0x5f2fbb519370 ---------A   00440 GOTO 180
-    0x5f2fbb5193b0 ---------A   00450 END
+    0x59075e5216d0 ---------A   00001  PRINT TAB(34);"TRAP"
+    0x59075e521670 ---------A   00002  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x59075e5122b0 ---------A   00003  PRINT:PRINT:PRINT
+    0x59075e522b80 ---------A   00010  G=6
+    0x59075e523ed0 ---------A   00020  N=100
+    0x59075e523f90 ---------A   00030  REM-TRAP
+    0x59075e524050 ---------A   00040  REM-STEVE ULLMAN, 8-1-72
+    0x59075e522500 ---------A   00050  PRINT "INSTRUCTIONS";
+    0x59075e524140 ---------A   00060  INPUT Z$
+    0x59075e5298c0 ---------A   00070  IF LEFT$(Z$,1)<>"Y" THEN 180
+    0x59075e529b20 ---------A   00080  PRINT "I AM THINKING OF A NUMBER BETWEEN 1 AND";N
+    0x59075e529cc0 ---------A   00090  PRINT "TRY TO GUESS MY NUMBER. ON EACH GUESS,"
+    0x59075e529e60 ---------A   00100  PRINT "YOU ARE TO ENTER 2 NUMBERS, TRYING TO TRAP"
+    0x59075e529fc0 ---------A   00110  PRINT "MY NUMBER BETWEEN THE TWO NUMBERS. I WILL"
+    0x59075e52a170 ---------A   00120  PRINT "TELL YOU IF YOU HAVE TRAPPED MY NUMBER, IF MY"
+    0x59075e52a310 ---------A   00130  PRINT "NUMBER IS LARGER THAN YOUR TWO NUMBERS, OR IF"
+    0x59075e52a4c0 ---------A   00140  PRINT "MY NUMBER IS SMALLER THAN YOUR TWO NUMBERS."
+    0x59075e52a660 ---------A   00150  PRINT "IF YOU WANT TO GUESS ONE SINGLE NUMBER, TYPE"
+    0x59075e52a800 ---------A   00160  PRINT "YOUR GUESS FOR BOTH YOUR TRAP NUMBERS."
+    0x59075e52ab40 ---------A   00170  PRINT "YOU GET";G;"GUESSES TO GET MY NUMBER."
+    0x59075e52b200 ---------A T 00180  X=INT(N*RND(1))+1
+    0x59075e52b5b0 ---------A   00190  FOR Q=1 TO G
+    0x59075e52b630 ---------A   00200  PRINT 
+    0x59075e52b8b0 ---------A   00210  PRINT "GUESS #";Q;
+    0x59075e52bc50 ---------A   00220  INPUT A,B
+    0x59075e52c110 ---------A   00230  IF A=B AND X=A THEN 400
+    0x59075e52c390 ---------A   00240  IF A <= B THEN 260
+    0x59075e52c3f0 ---------A   00250  GOSUB 360
+    0x59075e52c8a0 ---------A T 00260  IF A <= X AND X <= B THEN 320
+    0x59075e52cb40 ---------A   00270  IF X<A THEN 300
+    0x59075e52ccc0 ---------A   00280  PRINT "MY NUMBER IS LARGER THAN YOUR TRAP NUMBERS."
+    0x59075e52cd70 ---------A   00290  GOTO 330
+    0x59075e52cee0 ---------A T 00300  PRINT "MY NUMBER IS SMALLER THAN YOUR TRAP NUMBERS."
+    0x59075e52d180 ---------A   00310  GOTO 330
+    0x59075e52d2e0 ---------A T 00320  PRINT "YOU HAVE TRAPPED MY NUMBER."
+    0x59075e52d420 ---------A T 00330  NEXT Q
+    0x59075e52d8c0 ---------A   00340  PRINT "SORRY, THAT'S";G;"GUESSES. THE NUMBER WAS";X
+    0x59075e52d940 ---------A   00345  PRINT
+    0x59075e52d9c0 ---------A   00350  GOTO 410
+    0x59075e52dcb0 ---------B G 00360  R=A
+    0x59075e52dee0 ---------B   00370  A=B
+    0x59075e52e110 ---------B   00380  B=R
+    0x59075e52e160 ---------B   00390  RETURN 
+    0x59075e52e2d0 ---------A T 00400  PRINT "YOU GOT IT!!!"
+    0x59075e52e350 ---------A T 00410  PRINT 
+    0x59075e52e4b0 ---------A   00420  PRINT "TRY AGAIN."
+    0x59075e52e530 ---------A   00430  PRINT
+    0x59075e52e5b0 ---------A   00440  GOTO 180
+    0x59075e52e600 ---------A   00450  END
  */
 
 /*
@@ -83,11 +83,137 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x5f2fbb50db80 (00001)   0x5f2fbb50db80 (00001)   0x5f2fbb5193b0 (00450)   0x5f2fbb5193b0 (00450)   
-   B) 0x5f2fbb518ab0 (00360)   0x5f2fbb518ab0 (00360)   0x5f2fbb518f60 (00390)   0x5f2fbb518f60 (00390)   
+   A) 0x59075e5216d0 (00001)   0x59075e5216d0 (00001)   0x59075e52e600 (00450)   0x59075e52e600 (00450)   
+   B) 0x59075e52dcb0 (00360)   0x59075e52dcb0 (00360)   0x59075e52e160 (00390)   0x59075e52e160 (00390)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/trap.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x59075e5216d0 ---------A   00001  PRINT TAB(34);"TRAP"
+    0x59075e521670 ---------A   00002  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x59075e5222d0 ----------   00003  PRINT
+    0x59075e522910 ----------        a PRINT
+    0x59075e5122b0 ---------A        b PRINT
+    0x59075e522b80 ---------A   00010  G=6
+    0x59075e523ed0 ---------A   00020  N=100
+    0x59075e523f90 ---------A   00030  REM-TRAP
+    0x59075e524050 ---------A   00040  REM-STEVE ULLMAN, 8-1-72
+    0x59075e522500 ---------A   00050  PRINT "INSTRUCTIONS";
+    0x59075e524140 ---------A   00060  INPUT Z$
+    0x59075e5298c0 ---------A   00070  IF LEFT$(Z$,1)<>"Y" THEN 180
+    0x59075e529b20 ---------A   00080  PRINT "I AM THINKING OF A NUMBER BETWEEN 1 AND";N
+    0x59075e529cc0 ---------A   00090  PRINT "TRY TO GUESS MY NUMBER. ON EACH GUESS,"
+    0x59075e529e60 ---------A   00100  PRINT "YOU ARE TO ENTER 2 NUMBERS, TRYING TO TRAP"
+    0x59075e529fc0 ---------A   00110  PRINT "MY NUMBER BETWEEN THE TWO NUMBERS. I WILL"
+    0x59075e52a170 ---------A   00120  PRINT "TELL YOU IF YOU HAVE TRAPPED MY NUMBER, IF MY"
+    0x59075e52a310 ---------A   00130  PRINT "NUMBER IS LARGER THAN YOUR TWO NUMBERS, OR IF"
+    0x59075e52a4c0 ---------A   00140  PRINT "MY NUMBER IS SMALLER THAN YOUR TWO NUMBERS."
+    0x59075e52a660 ---------A   00150  PRINT "IF YOU WANT TO GUESS ONE SINGLE NUMBER, TYPE"
+    0x59075e52a800 ---------A   00160  PRINT "YOUR GUESS FOR BOTH YOUR TRAP NUMBERS."
+    0x59075e52ab40 ---------A   00170  PRINT "YOU GET";G;"GUESSES TO GET MY NUMBER."
+    0x59075e52b200 ---------A T 00180  X=INT(N*RND(1))+1
+    0x59075e52b5b0 ---------A   00190  FOR Q=1 TO G
+    0x59075e52b630 ---------A   00200  PRINT 
+    0x59075e52b8b0 ---------A   00210  PRINT "GUESS #";Q;
+    0x59075e52bc50 ---------A   00220  INPUT A,B
+    0x59075e52c110 ---------A   00230  IF A=B AND X=A THEN 400
+    0x59075e52c390 ---------A   00240  IF A <= B THEN 260
+    0x59075e52c3f0 ---------A   00250  GOSUB 360
+    0x59075e52c8a0 ---------A T 00260  IF A <= X AND X <= B THEN 320
+    0x59075e52cb40 ---------A   00270  IF X<A THEN 300
+    0x59075e52ccc0 ---------A   00280  PRINT "MY NUMBER IS LARGER THAN YOUR TRAP NUMBERS."
+    0x59075e52cd70 ---------A   00290  GOTO 330
+    0x59075e52cee0 ---------A T 00300  PRINT "MY NUMBER IS SMALLER THAN YOUR TRAP NUMBERS."
+    0x59075e52d180 ---------A   00310  GOTO 330
+    0x59075e52d2e0 ---------A T 00320  PRINT "YOU HAVE TRAPPED MY NUMBER."
+    0x59075e52d420 ---------A T 00330  NEXT Q
+    0x59075e52d8c0 ---------A   00340  PRINT "SORRY, THAT'S";G;"GUESSES. THE NUMBER WAS";X
+    0x59075e52d940 ---------A   00345  PRINT
+    0x59075e52d9c0 ---------A   00350  GOTO 410
+    0x59075e52dcb0 ---------B G 00360  R=A
+    0x59075e52dee0 ---------B   00370  A=B
+    0x59075e52e110 ---------B   00380  B=R
+    0x59075e52e160 ---------B   00390  RETURN 
+    0x59075e52e2d0 ---------A T 00400  PRINT "YOU GOT IT!!!"
+    0x59075e52e350 ---------A T 00410  PRINT 
+    0x59075e52e4b0 ---------A   00420  PRINT "TRY AGAIN."
+    0x59075e52e530 ---------A   00430  PRINT
+    0x59075e52e5b0 ---------A   00440  GOTO 180
+    0x59075e52e600 ---------A   00450  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/trap.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x59075e5216d0 ---------A   01000  PRINT TAB(34);"TRAP"
+    0x59075e521670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x59075e5222d0 ----------   01020  PRINT
+    0x59075e522910 ----------   01030  PRINT
+    0x59075e5122b0 ---------A   01040  PRINT
+    0x59075e522b80 ---------A   01050  G=6
+    0x59075e523ed0 ---------A   01060  N=100
+    0x59075e523f90 ---------A   01070  REM-TRAP
+    0x59075e524050 ---------A   01080  REM-STEVE ULLMAN, 8-1-72
+    0x59075e522500 ---------A   01090  PRINT "INSTRUCTIONS";
+    0x59075e524140 ---------A   01100  INPUT Z$
+    0x59075e5298c0 ---------A   01110  IF LEFT$(Z$,1)<>"Y" THEN 1220
+    0x59075e529b20 ---------A   01120  PRINT "I AM THINKING OF A NUMBER BETWEEN 1 AND";N
+    0x59075e529cc0 ---------A   01130  PRINT "TRY TO GUESS MY NUMBER. ON EACH GUESS,"
+    0x59075e529e60 ---------A   01140  PRINT "YOU ARE TO ENTER 2 NUMBERS, TRYING TO TRAP"
+    0x59075e529fc0 ---------A   01150  PRINT "MY NUMBER BETWEEN THE TWO NUMBERS. I WILL"
+    0x59075e52a170 ---------A   01160  PRINT "TELL YOU IF YOU HAVE TRAPPED MY NUMBER, IF MY"
+    0x59075e52a310 ---------A   01170  PRINT "NUMBER IS LARGER THAN YOUR TWO NUMBERS, OR IF"
+    0x59075e52a4c0 ---------A   01180  PRINT "MY NUMBER IS SMALLER THAN YOUR TWO NUMBERS."
+    0x59075e52a660 ---------A   01190  PRINT "IF YOU WANT TO GUESS ONE SINGLE NUMBER, TYPE"
+    0x59075e52a800 ---------A   01200  PRINT "YOUR GUESS FOR BOTH YOUR TRAP NUMBERS."
+    0x59075e52ab40 ---------A   01210  PRINT "YOU GET";G;"GUESSES TO GET MY NUMBER."
+    0x59075e52b200 ---------A   01220  X=INT(N*RND(1))+1
+    0x59075e52b5b0 ---------A   01230  FOR Q=1 TO G
+    0x59075e52b630 ---------A   01240  PRINT 
+    0x59075e52b8b0 ---------A   01250  PRINT "GUESS #";Q;
+    0x59075e52bc50 ---------A   01260  INPUT A,B
+    0x59075e52c110 ---------A   01270  IF A=B AND X=A THEN 1450
+    0x59075e52c390 ---------A   01280  IF A <= B THEN 1300
+    0x59075e52c3f0 ---------A   01290  GOSUB 1410
+    0x59075e52c8a0 ---------A   01300  IF A <= X AND X <= B THEN 1360
+    0x59075e52cb40 ---------A   01310  IF X<A THEN 1340
+    0x59075e52ccc0 ---------A   01320  PRINT "MY NUMBER IS LARGER THAN YOUR TRAP NUMBERS."
+    0x59075e52cd70 ---------A   01330  GOTO 1370
+    0x59075e52cee0 ---------A   01340  PRINT "MY NUMBER IS SMALLER THAN YOUR TRAP NUMBERS."
+    0x59075e52d180 ---------A   01350  GOTO 1370
+    0x59075e52d2e0 ---------A   01360  PRINT "YOU HAVE TRAPPED MY NUMBER."
+    0x59075e52d420 ---------A   01370  NEXT Q
+    0x59075e52d8c0 ---------A   01380  PRINT "SORRY, THAT'S";G;"GUESSES. THE NUMBER WAS";X
+    0x59075e52d940 ---------A   01390  PRINT
+    0x59075e52d9c0 ---------A   01400  GOTO 1460
+    0x59075e52dcb0 ---------B   01410  R=A
+    0x59075e52dee0 ---------B   01420  A=B
+    0x59075e52e110 ---------B   01430  B=R
+    0x59075e52e160 ---------B   01440  RETURN 
+    0x59075e52e2d0 ---------A   01450  PRINT "YOU GOT IT!!!"
+    0x59075e52e350 ---------A   01460  PRINT 
+    0x59075e52e4b0 ---------A   01470  PRINT "TRY AGAIN."
+    0x59075e52e530 ---------A   01480  PRINT
+    0x59075e52e5b0 ---------A   01490  GOTO 1220
+    0x59075e52e600 ---------A   01500  END
  */
 
 
@@ -98,7 +224,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01500 - 10000    8510 
+     01520 - 10000    8490 
 
  */
 
@@ -188,56 +314,58 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5f2fbb50db80 ---------A   01000 PRINT TAB(34);"TRAP"
-    0x5f2fbb50eed0 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5f2fbb50f050 ---------A   01020 PRINT:PRINT:PRINT
-    0x5f2fbb4fd2b0 ---------A   01030 G=6
-    0x5f2fbb50e1f0 ---------A   01040 N=100
-    0x5f2fbb50ceb0 ---------A   01050 REM-TRAP
-    0x5f2fbb50d480 ---------A   01060 REM-STEVE ULLMAN, 8-1-72
-    0x5f2fbb50e6c0 ---------A   01070 PRINT "INSTRUCTIONS";
-    0x5f2fbb50c6d0 ---------A   01080 INPUT Z$
-    0x5f2fbb50c670 ---------A   01090 IF LEFT$(Z$,1)<>"Y" THEN 1200
-    0x5f2fbb50ce40 ---------A   01100 PRINT "I AM THINKING OF A NUMBER BETWEEN 1 AND";N
-    0x5f2fbb514bc0 ---------A   01110 PRINT "TRY TO GUESS MY NUMBER. ON EACH GUESS,"
-    0x5f2fbb514d50 ---------A   01120 PRINT "YOU ARE TO ENTER 2 NUMBERS, TRYING TO TRAP"
-    0x5f2fbb514ef0 ---------A   01130 PRINT "MY NUMBER BETWEEN THE TWO NUMBERS. I WILL"
-    0x5f2fbb515090 ---------A   01140 PRINT "TELL YOU IF YOU HAVE TRAPPED MY NUMBER, IF MY"
-    0x5f2fbb515220 ---------A   01150 PRINT "NUMBER IS LARGER THAN YOUR TWO NUMBERS, OR IF"
-    0x5f2fbb5153c0 ---------A   01160 PRINT "MY NUMBER IS SMALLER THAN YOUR TWO NUMBERS."
-    0x5f2fbb515550 ---------A   01170 PRINT "IF YOU WANT TO GUESS ONE SINGLE NUMBER, TYPE"
-    0x5f2fbb5156e0 ---------A   01180 PRINT "YOUR GUESS FOR BOTH YOUR TRAP NUMBERS."
-    0x5f2fbb515a10 ---------A   01190 PRINT "YOU GET";G;"GUESSES TO GET MY NUMBER."
-    0x5f2fbb5160c0 ---------A T 01200 X=INT(N*RND(1))+1
-    0x5f2fbb516470 ---------A   01210 FOR Q=1 TO G
-    0x5f2fbb5164f0 ---------A   01220 PRINT 
-    0x5f2fbb516760 ---------A   01230 PRINT "GUESS #";Q;
-    0x5f2fbb516af0 ---------A   01240 INPUT A,B
-    0x5f2fbb516fb0 ---------A   01250 IF A=B AND X=A THEN 1390
-    0x5f2fbb517230 ---------A   01260 IF A <= B THEN 1280
-    0x5f2fbb517290 ---------A   01270 GOSUB 1450
-    0x5f2fbb517730 ---------A T 01280 IF A <= X AND X <= B THEN 1340
-    0x5f2fbb5179d0 ---------A   01290 IF X<A THEN 1320
-    0x5f2fbb517b50 ---------A   01300 PRINT "MY NUMBER IS LARGER THAN YOUR TRAP NUMBERS."
-    0x5f2fbb517bf0 ---------A   01310 GOTO 1350
-    0x5f2fbb517d50 ---------A T 01320 PRINT "MY NUMBER IS SMALLER THAN YOUR TRAP NUMBERS."
-    0x5f2fbb517fe0 ---------A   01330 GOTO 1350
-    0x5f2fbb518130 ---------A T 01340 PRINT "YOU HAVE TRAPPED MY NUMBER."
-    0x5f2fbb518260 ---------A T 01350 NEXT Q
-    0x5f2fbb5186f0 ---------A   01360 PRINT "SORRY, THAT'S";G;"GUESSES. THE NUMBER WAS";X
-    0x5f2fbb518760 ---------A   01370 PRINT
-    0x5f2fbb5187d0 ---------A   01380 GOTO 1400
-    0x5f2fbb5190d0 ---------A T 01390 PRINT "YOU GOT IT!!!"
-    0x5f2fbb519140 ---------A T 01400 PRINT 
-    0x5f2fbb519290 ---------A   01410 PRINT "TRY AGAIN."
-    0x5f2fbb519300 ---------A   01420 PRINT
-    0x5f2fbb519370 ---------A   01430 GOTO 1200
-    0x5f2fbb5193b0 ---------A   01440 END
-    0x5f2fbb518ab0 ---------B G 01450 R=A
-    0x5f2fbb518ce0 ---------B   01460 A=B
-    0x5f2fbb518f10 ---------B   01470 B=R
-    0x5f2fbb51b720 ---------B   01480 GOTO 01490
-    0x5f2fbb51b760 ---------B T 01490 RETURN
+    0x59075e5216d0 ---------A   01000  PRINT TAB(34);"TRAP"
+    0x59075e521670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x59075e5222d0 ---------A   01020  PRINT
+    0x59075e522910 ---------A   01030  PRINT
+    0x59075e5122b0 ---------A   01040  PRINT
+    0x59075e522b80 ---------A   01050  G=6
+    0x59075e523ed0 ---------A   01060  N=100
+    0x59075e523f90 ---------A   01070  REM-TRAP
+    0x59075e524050 ---------A   01080  REM-STEVE ULLMAN, 8-1-72
+    0x59075e522500 ---------A   01090  PRINT "INSTRUCTIONS";
+    0x59075e524140 ---------A   01100  INPUT Z$
+    0x59075e5298c0 ---------A   01110  IF LEFT$(Z$,1)<>"Y" THEN 1220
+    0x59075e529b20 ---------A   01120  PRINT "I AM THINKING OF A NUMBER BETWEEN 1 AND";N
+    0x59075e529cc0 ---------A   01130  PRINT "TRY TO GUESS MY NUMBER. ON EACH GUESS,"
+    0x59075e529e60 ---------A   01140  PRINT "YOU ARE TO ENTER 2 NUMBERS, TRYING TO TRAP"
+    0x59075e529fc0 ---------A   01150  PRINT "MY NUMBER BETWEEN THE TWO NUMBERS. I WILL"
+    0x59075e52a170 ---------A   01160  PRINT "TELL YOU IF YOU HAVE TRAPPED MY NUMBER, IF MY"
+    0x59075e52a310 ---------A   01170  PRINT "NUMBER IS LARGER THAN YOUR TWO NUMBERS, OR IF"
+    0x59075e52a4c0 ---------A   01180  PRINT "MY NUMBER IS SMALLER THAN YOUR TWO NUMBERS."
+    0x59075e52a660 ---------A   01190  PRINT "IF YOU WANT TO GUESS ONE SINGLE NUMBER, TYPE"
+    0x59075e52a800 ---------A   01200  PRINT "YOUR GUESS FOR BOTH YOUR TRAP NUMBERS."
+    0x59075e52ab40 ---------A   01210  PRINT "YOU GET";G;"GUESSES TO GET MY NUMBER."
+    0x59075e52b200 ---------A T 01220  X=INT(N*RND(1))+1
+    0x59075e52b5b0 ---------A   01230  FOR Q=1 TO G
+    0x59075e52b630 ---------A   01240  PRINT 
+    0x59075e52b8b0 ---------A   01250  PRINT "GUESS #";Q;
+    0x59075e52bc50 ---------A   01260  INPUT A,B
+    0x59075e52c110 ---------A   01270  IF A=B AND X=A THEN 1410
+    0x59075e52c390 ---------A   01280  IF A <= B THEN 1300
+    0x59075e52c3f0 ---------A   01290  GOSUB 1470
+    0x59075e52c8a0 ---------A T 01300  IF A <= X AND X <= B THEN 1360
+    0x59075e52cb40 ---------A   01310  IF X<A THEN 1340
+    0x59075e52ccc0 ---------A   01320  PRINT "MY NUMBER IS LARGER THAN YOUR TRAP NUMBERS."
+    0x59075e52cd70 ---------A   01330  GOTO 1370
+    0x59075e52cee0 ---------A T 01340  PRINT "MY NUMBER IS SMALLER THAN YOUR TRAP NUMBERS."
+    0x59075e52d180 ---------A   01350  GOTO 1370
+    0x59075e52d2e0 ---------A T 01360  PRINT "YOU HAVE TRAPPED MY NUMBER."
+    0x59075e52d420 ---------A T 01370  NEXT Q
+    0x59075e52d8c0 ---------A   01380  PRINT "SORRY, THAT'S";G;"GUESSES. THE NUMBER WAS";X
+    0x59075e52d940 ---------A   01390  PRINT
+    0x59075e52d9c0 ---------A   01400  GOTO 1420
+    0x59075e52e2d0 ---------A T 01410  PRINT "YOU GOT IT!!!"
+    0x59075e52e350 ---------A T 01420  PRINT 
+    0x59075e52e4b0 ---------A   01430  PRINT "TRY AGAIN."
+    0x59075e52e530 ---------A   01440  PRINT
+    0x59075e52e5b0 ---------A   01450  GOTO 1220
+    0x59075e52e600 ---------A   01460  END
+    0x59075e52dcb0 ---------B G 01470  R=A
+    0x59075e52dee0 ---------B   01480  A=B
+    0x59075e52e110 ---------B   01490  B=R
+    0x59075e52e660 ---------B   01500  GOTO 01510
+    0x59075e533400 ---------B T 01510  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -295,7 +423,7 @@ char* GLBpStr=nullptr;
 //---------------------------------------------------------------------------
 // Subroutine Prototypes.
 //---------------------------------------------------------------------------
-void Routine_01450();
+void Routine_01470();
 
 //---------------------------------------------------------------------------
 // Program Functions.
@@ -335,18 +463,18 @@ void Routine_01450();
 // Routine B
 //---------------------------------------------------------------------------
 
-void Routine_01450(){
-    // 01450 R=A
+void Routine_01470(){
+    // 01470 R=A
     R_int = A_int;
-    // 01460 A=B
+    // 01480 A=B
     A_int = B_int;
-    // 01470 B=R
+    // 01490 B=R
     B_int = R_int;
-    // 01480 GOTO 01490
-    goto Lbl_01490;
+    // 01500 GOTO 01510
+    goto Lbl_01510;
 
-  Lbl_01490:
-    // 01490 RETURN
+  Lbl_01510:
+    // 01510 RETURN
     return;
 };
 
@@ -356,3 +484,148 @@ void Routine_01450(){
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(34);"TRAP"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,34);strcat(buf,"TRAP");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 G=6
+    G_int = 6;
+    // 01060 N=100
+    N_int = 100;
+    // 01070 REM-TRAP
+    // 01080 REM-STEVE ULLMAN, 8-1-72
+    // 01090 PRINT "INSTRUCTIONS";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"INSTRUCTIONS");fputs(buf,fh); };
+    // 01100 INPUT Z$
+    // Start of Basic INPUT statement 01100
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&Z_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01100
+    // 01110 IF LEFT$(Z$,1)<>"Y" THEN 1220
+    if(LEFT$(Z_str,1)=='Y')goto Lbl_01220;
+    // 01120 PRINT "I AM THINKING OF A NUMBER BETWEEN 1 AND";N
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I AM THINKING OF A NUMBER BETWEEN 1 AND"); b2c_INT(buf,N_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 01130 PRINT "TRY TO GUESS MY NUMBER. ON EACH GUESS,"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TRY TO GUESS MY NUMBER. ON EACH GUESS,");strcat(buf,"\n");fputs(buf,fh); };
+    // 01140 PRINT "YOU ARE TO ENTER 2 NUMBERS, TRYING TO TRAP"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU ARE TO ENTER 2 NUMBERS, TRYING TO TRAP");strcat(buf,"\n");fputs(buf,fh); };
+    // 01150 PRINT "MY NUMBER BETWEEN THE TWO NUMBERS. I WILL"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"MY NUMBER BETWEEN THE TWO NUMBERS. I WILL");strcat(buf,"\n");fputs(buf,fh); };
+    // 01160 PRINT "TELL YOU IF YOU HAVE TRAPPED MY NUMBER, IF MY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TELL YOU IF YOU HAVE TRAPPED MY NUMBER, IF MY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01170 PRINT "NUMBER IS LARGER THAN YOUR TWO NUMBERS, OR IF"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"NUMBER IS LARGER THAN YOUR TWO NUMBERS, OR IF");strcat(buf,"\n");fputs(buf,fh); };
+    // 01180 PRINT "MY NUMBER IS SMALLER THAN YOUR TWO NUMBERS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"MY NUMBER IS SMALLER THAN YOUR TWO NUMBERS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01190 PRINT "IF YOU WANT TO GUESS ONE SINGLE NUMBER, TYPE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"IF YOU WANT TO GUESS ONE SINGLE NUMBER, TYPE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01200 PRINT "YOUR GUESS FOR BOTH YOUR TRAP NUMBERS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR GUESS FOR BOTH YOUR TRAP NUMBERS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01210 PRINT "YOU GET";G;"GUESSES TO GET MY NUMBER."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU GET"); b2c_INT(buf,G_int);strcat(buf,"GUESSES TO GET MY NUMBER.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01220:
+    // 01220 X=INT(N*RND(1))+1
+    X_int = INT(N_int*RND(1))+1;
+    // 01230 FOR Q=1 TO G
+    for(Q_int=1;Q_int<=G_int;Q_int++){
+        // 01240 PRINT 
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 01250 PRINT "GUESS #";Q;
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"GUESS #"); b2c_INT(buf,Q_int);fputs(buf,fh); };
+        // 01260 INPUT A,B
+        // Start of Basic INPUT statement 01260
+        {
+            int numargs=2;
+            char *args[numargs+1];
+            bool echoeol=true;
+            while(true){
+                fprintf(stdout," ? ");
+                int err=input(args,numargs,echoeol);
+                if(err==0x03) break;
+                if(err || 
+                    (err += b2c_strtoi(&A_int,args,0)) ||
+                    (err += b2c_strtoi(&B_int,args,1)) ){
+                     printf("?Redo from start\n");
+                }else{
+                    break;
+                };
+            };
+        }; // End of Basic INPUT statement 01260
+        // 01270 IF A=B AND X=A THEN 1410
+        if(A_int==B_int&&X_int==A_int)goto Lbl_01410;
+        // 01280 IF A <= B THEN 1300
+        if(A_int<=B_int)goto Lbl_01300;
+        // 01290 GOSUB 1470
+        Routine_01470();
+
+  Lbl_01300:
+        // 01300 IF A <= X AND X <= B THEN 1360
+        if(A_int<=X_int&&X_int<=B_int)goto Lbl_01360;
+        // 01310 IF X<A THEN 1340
+        if(X_int<A_int)goto Lbl_01340;
+        // 01320 PRINT "MY NUMBER IS LARGER THAN YOUR TRAP NUMBERS."
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"MY NUMBER IS LARGER THAN YOUR TRAP NUMBERS.");strcat(buf,"\n");fputs(buf,fh); };
+        // 01330 GOTO 1370
+        goto Lbl_01370;
+
+  Lbl_01340:
+        // 01340 PRINT "MY NUMBER IS SMALLER THAN YOUR TRAP NUMBERS."
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"MY NUMBER IS SMALLER THAN YOUR TRAP NUMBERS.");strcat(buf,"\n");fputs(buf,fh); };
+        // 01350 GOTO 1370
+        goto Lbl_01370;
+
+  Lbl_01360:
+        // 01360 PRINT "YOU HAVE TRAPPED MY NUMBER."
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE TRAPPED MY NUMBER.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01370:
+        // 01370 NEXT Q
+        int dummy_1370=0; // Ignore this line.
+    }; // End-For(Q_int)
+    // 01380 PRINT "SORRY, THAT'S";G;"GUESSES. THE NUMBER WAS";X
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SORRY, THAT'S"); b2c_INT(buf,G_int);strcat(buf,"GUESSES. THE NUMBER WAS"); b2c_INT(buf,X_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 01390 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01400 GOTO 1420
+    goto Lbl_01420;
+
+  Lbl_01410:
+    // 01410 PRINT "YOU GOT IT!!!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU GOT IT!!!");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01420:
+    // 01420 PRINT 
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01430 PRINT "TRY AGAIN."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TRY AGAIN.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01440 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01450 GOTO 1220
+    goto Lbl_01220;
+    // 01460 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

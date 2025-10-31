@@ -8,156 +8,156 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5ecf79724b80 ---------A   00010 PRINT TAB(32);"WEEKDAY"
-    0x5ecf79725f30 ---------A   00020 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5ecf797260b0 ---------A   00030 PRINT:PRINT:PRINT
-    0x5ecf797237f0 ---------A   00100 PRINT "WEEKDAY IS A COMPUTER DEMONSTRATION THAT"
-    0x5ecf79725ae0 ---------A   00110 PRINT"GIVES FACTS ABOUT A DATE OF INTEREST TO YOU."
-    0x5ecf79723e40 ---------A   00120 PRINT
-    0x5ecf797244e0 ---------A   00130 PRINT "ENTER TODAY'S DATE IN THE FORM: 3,24,1979  ";
-    0x5ecf797236d0 ---------A   00140 INPUT M1,D1,Y1
-    0x5ecf797247c0 ---------A   00150 REM THIS PROGRAM DETERMINES THE DAY OF THE WEEK
-    0x5ecf79724800 ---------A   00160 REM  FOR A DATE AFTER 1582
-    0x5ecf79724040 ---------A   00170 DEF FNA(A)=INT(A/4)
-    0x5ecf7972bfc0 ---------A   00180 DIM T(12)
-    0x5ecf7972c570 ---------A   00190 DEF FNB(A)=INT(A/7)
-    0x5ecf7972c600 ---------A   00200 REM SPACE OUTPUT AND READ IN INITIAL VALUES FOR MONTHS.
-    0x5ecf79723670 ---------A   00210 FOR I= 1 TO 12
-    0x5ecf7972cb80 ---------A   00220 READ T(I)
-    0x5ecf7972cca0 ---------A   00230 NEXT I
-    0x5ecf7972ce70 ---------A   00240 PRINT"ENTER DAY OF BIRTH (OR OTHER DAY OF INTEREST)";
-    0x5ecf7972d3c0 ---------A   00250 INPUT M,D,Y
-    0x5ecf7972d420 ---------A   00260 PRINT
-    0x5ecf7972da50 ---------A   00270 LET I1 = INT((Y-1500)/100)
-    0x5ecf7972dae0 ---------A   00280 REM TEST FOR DATE BEFORE CURRENT CALENDAR.
-    0x5ecf7972de00 ---------A   00290 IF Y-1582 <0 THEN 1300
-    0x5ecf7972e480 ---------A   00300 LET A = I1*5+(I1+3)/4
-    0x5ecf7972eb50 ---------A   00310 LET I2=INT(A-FNB(A)*7)
-    0x5ecf7972f000 ---------A   00320 LET Y2=INT(Y/100)
-    0x5ecf7972f5d0 ---------A   00330 LET Y3 =INT(Y-Y2*100)
-    0x5ecf7972fe70 ---------A   00340 LET A =Y3/4+Y3+D+T(M)+I2
-    0x5ecf79730640 ---------A   00350 LET B=INT(A-FNB(A)*7)+1
-    0x5ecf79730890 ---------A   00360 IF M > 2 THEN 470
-    0x5ecf79730b00 ---------A   00370 IF Y3 = 0 THEN 440
-    0x5ecf797311e0 ---------A   00380 LET T1=INT(Y-FNA(Y)*4)
-    0x5ecf79731430 ---------A   00390 IF T1 <> 0 THEN 470
-    0x5ecf797318a0 ---------A T 00400 IF B<>0 THEN 420
-    0x5ecf79731ac0 ---------A   00410 LET B=6
-    0x5ecf79731df0 ---------A T 00420 LET B = B-1
-    0x5ecf79731e60 ---------A   00430 GOTO 470
-    0x5ecf79732190 ---------A T 00440 LET A = I1-1
-    0x5ecf797327a0 ---------A   00450 LET T1=INT(A-FNA(A)*4)
-    0x5ecf797329f0 ---------A   00460 IF T1 = 0 THEN 400
-    0x5ecf79732c50 ---------A T 00470 IF B <>0 THEN 490
-    0x5ecf79732e90 ---------A   00480 LET B = 7
-    0x5ecf79733a20 ---------A T 00490 IF (Y1*12+M1)*31+D1<(Y*12+M)*31+D THEN 550
-    0x5ecf797345b0 ---------A   00500 IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 530
-    0x5ecf79734c30 ---------A   00510 PRINT M;"/";D;"/";Y;" WAS A ";
-    0x5ecf79734cb0 ---------A   00520 GOTO 570
-    0x5ecf79735310 ---------A T 00530 PRINT M;"/";D;"/";Y;" IS A ";
-    0x5ecf79735390 ---------A   00540 GOTO 570
-    0x5ecf79735a10 ---------A T 00550 PRINT M;"/";D;"/";Y;" WILL BE A ";
-    0x5ecf79735aa0 ---------A   00560 REM PRINT THE DAY OF THE WEEK THE DATE FALLS ON.
-    0x5ecf79735d00 ---------A T 00570 IF B <>1 THEN 590
-    0x5ecf79735e60 ---------A   00580 PRINT "SUNDAY."
-    0x5ecf797360b0 ---------A T 00590 IF B<>2 THEN 610
-    0x5ecf79736210 ---------A   00600 PRINT "MONDAY."
-    0x5ecf79736460 ---------A T 00610 IF B<>3 THEN 630
-    0x5ecf797365c0 ---------A   00620 PRINT "TUESDAY."
-    0x5ecf79736810 ---------A T 00630 IF B<>4 THEN 650
-    0x5ecf79736970 ---------A   00640 PRINT "WEDNESDAY."
-    0x5ecf79736bc0 ---------A T 00650 IF B<>5 THEN 670
-    0x5ecf79736d20 ---------A   00660 PRINT "THURSDAY."
-    0x5ecf79736f70 ---------A T 00670 IF B<>6 THEN 690
-    0x5ecf79736ff0 ---------A   00680 GOTO 1250
-    0x5ecf79737230 ---------A T 00690 IF B<>7 THEN 710
-    0x5ecf797373b0 ---------A   00700 PRINT "SATURDAY."
-    0x5ecf79737f20 ---------A T 00710 IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 1120
-    0x5ecf79738750 ---------A   00720 LET I5=Y1-Y
-    0x5ecf797387c0 ---------A   00730 PRINT
-    0x5ecf79738bd0 ---------A   00740 LET I6=M1-M
-    0x5ecf79738fe0 ---------A   00750 LET I7=D1-D
-    0x5ecf79739230 ---------A   00760 IF I7>=0 THEN 790
-    0x5ecf79739570 ---------A   00770 LET I6= I6-1
-    0x5ecf797398a0 ---------A   00780 LET I7=I7+30
-    0x5ecf79739af0 ---------A T 00790 IF I6>=0 THEN 820
-    0x5ecf79739e30 ---------A   00800 LET I5=I5-1
-    0x5ecf7973a160 ---------A   00810 LET I6=I6+12
-    0x5ecf7973a3b0 ---------A T 00820 IF I5<0 THEN 1310
-    0x5ecf7973a610 ---------A   00830 IF I7 <> 0 THEN 850
-    0x5ecf7973a880 ---------A   00835 IF I6 <> 0 THEN 850
-    0x5ecf7973aa00 ---------A   00840 PRINT"***HAPPY BIRTHDAY***"
-    0x5ecf7973af70 ---------A T 00850 PRINT " "," ","YEARS","MONTHS","DAYS"
-    0x5ecf7973b4e0 ---------A   00855 PRINT " "," ","-----","------","----"
-    0x5ecf7973b960 ---------A   00860 PRINT "YOUR AGE (IF BIRTHDATE) ",I5,I6,I7
-    0x5ecf7973c410 ---------A   00870 LET A8 = (I5*365)+(I6*30)+I7+INT(I6/2)
-    0x5ecf7973c700 ---------A   00880 LET K5 = I5
-    0x5ecf7973c9f0 ---------A   00890 LET K6 = I6
-    0x5ecf7973ccf0 ---------A   00900 LET K7 = I7
-    0x5ecf7973cd70 ---------A   00910 REM CALCULATE RETIREMENT DATE.
-    0x5ecf7973d1a0 ---------A   00920 LET E = Y+65
-    0x5ecf7973d230 ---------A   00930 REM CALCULATE TIME SPENT IN THE FOLLOWING FUNCTIONS.
-    0x5ecf7973d520 ---------A   00940 LET F = .35
-    0x5ecf7973d690 ---------A   00950 PRINT "YOU HAVE SLEPT ",
-    0x5ecf7973d700 ---------A   00960 GOSUB 1370
-    0x5ecf7973d910 ---------A   00970 LET F = .17
-    0x5ecf7973da80 ---------A   00980 PRINT "YOU HAVE EATEN ",
-    0x5ecf7973daf0 ---------A   00990 GOSUB 1370
-    0x5ecf7973dd00 ---------A   01000 LET F = .23
-    0x5ecf7973df60 ---------A   01010 IF K5 > 3 THEN 1040
-    0x5ecf7973e0e0 ---------A   01020 PRINT "YOU HAVE PLAYED",
-    0x5ecf7973e160 ---------A   01030 GOTO 1080
-    0x5ecf7973e3b0 ---------A T 01040 IF K5 > 9 THEN 1070
-    0x5ecf7973e540 ---------A   01050 PRINT "YOU HAVE PLAYED/STUDIED",
-    0x5ecf7973e5c0 ---------A   01060 GOTO  1080
-    0x5ecf7973e730 ---------A T 01070 PRINT "YOU HAVE WORKED/PLAYED",
-    0x5ecf7973e7a0 ---------A T 01080 GOSUB 1370
-    0x5ecf7973e810 ---------A   01085 GOTO 1530
-    0x5ecf7973ec50 ---------A T 01090 PRINT "YOU HAVE RELAXED ",K5,K6,K7
-    0x5ecf7973ece0 ---------A   01100 PRINT 
-    0x5ecf7973f180 ---------A   01110 PRINT TAB(16);"***  YOU MAY RETIRE IN";E;" ***"
-    0x5ecf7973f1f0 ---------A T 01120 PRINT
-    0x5ecf7973f260 ---------A T 01140 PRINT
-    0x5ecf7973f2d0 ---------A   01200 PRINT
-    0x5ecf7973f340 ---------A   01210 PRINT
-    0x5ecf7973f3b0 ---------A   01220 PRINT
-    0x5ecf7973f420 ---------A   01230 PRINT
-    0x5ecf7973f470 ---------A   01240 END
-    0x5ecf7973f6d0 ---------A T 01250 IF D=13 THEN 1280
-    0x5ecf7973f830 ---------A   01260 PRINT "FRIDAY."
-    0x5ecf7973f8c0 ---------A   01270 GOTO 710
-    0x5ecf7973fa10 ---------A T 01280 PRINT "FRIDAY THE THIRTEENTH---BEWARE!"
-    0x5ecf7973fab0 ---------A   01290 GOTO 710
-    0x5ecf7973fc10 ---------A T 01300 PRINT "NOT PREPARED TO GIVE DAY OF WEEK PRIOR TO MDLXXXII. "
-    0x5ecf7973fcb0 ---------A T 01310 GOTO 1140
-    0x5ecf7973fd40 ---------A   01320 REM TABLE OF VALUES FOR THE MONTHS TO BE USED IN CALCULATIONS.
-    0x5ecf79740890 ---------A   01330 DATA 0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5
-    0x5ecf79740920 ---------B   01340 REM THIS IS THE CURRENT DATE USED IN THE CALCULATIONS.
-    0x5ecf797409e0 ---------B   01350 REM THIS IS THE DATE TO BE CALCULATED ON.
-    0x5ecf79740aa0 ---------B   01360 REM CALCULATE TIME IN YEARS, MONTHS, AND DAYS
-    0x5ecf79740fb0 ---------B G 01370 LET K1=INT(F*A8)
-    0x5ecf797413d0 ---------B   01380 LET I5 = INT(K1/365)
-    0x5ecf79742080 ---------B   01390 LET K1 = K1- (I5*365)
-    0x5ecf797424a0 ---------B   01400 LET I6 = INT(K1/30)
-    0x5ecf79742930 ---------B   01410 LET I7 = K1 -(I6*30)
-    0x5ecf79742c80 ---------B   01420 LET K5 = K5-I5
-    0x5ecf79742fd0 ---------B   01430 LET K6 =K6-I6
-    0x5ecf79743320 ---------B   01440 LET K7 = K7-I7
-    0x5ecf79743570 ---------B   01450 IF K7>=0 THEN 1480
-    0x5ecf797438b0 ---------B   01460 LET K7=K7+30
-    0x5ecf79743be0 ---------B   01470 LET K6=K6-1
-    0x5ecf79743e30 ---------B T 01480 IF K6>0 THEN 1510
-    0x5ecf79744170 ---------B   01490 LET K6=K6+12
-    0x5ecf797444a0 ---------B   01500 LET K5=K5-1
-    0x5ecf797447f0 ---------B T 01510 PRINT I5,I6,I7
-    0x5ecf79744840 ---------B   01520 RETURN
-    0x5ecf79744aa0 ---------A T 01530 IF K6=12 THEN 1550
-    0x5ecf79744b20 ---------A   01540 GOTO 1090
-    0x5ecf79744e40 ---------A T 01550 LET K5=K5+1
-    0x5ecf79745050 ---------A   01560 LET K6=0
-    0x5ecf797450c0 ---------A   01570 GOTO 1090
-    0x5ecf79745120 ---------A   01580 REM
-    0x5ecf79745180 ---------A   01590 END
+    0x5c7d94f536d0 ---------A   00010  PRINT TAB(32);"WEEKDAY"
+    0x5c7d94f53670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5c7d94f55aa0 ---------A   00030  PRINT:PRINT:PRINT
+    0x5c7d94f54080 ---------A   00100  PRINT "WEEKDAY IS A COMPUTER DEMONSTRATION THAT"
+    0x5c7d94f54480 ---------A   00110  PRINT"GIVES FACTS ABOUT A DATE OF INTEREST TO YOU."
+    0x5c7d94f544e0 ---------A   00120  PRINT
+    0x5c7d94f556e0 ---------A   00130  PRINT "ENTER TODAY'S DATE IN THE FORM: 3,24,1979  ";
+    0x5c7d94f5b8a0 ---------A   00140  INPUT M1,D1,Y1
+    0x5c7d94f55e70 ---------A   00150  REM THIS PROGRAM DETERMINES THE DAY OF THE WEEK
+    0x5c7d94f54b80 ---------A   00160  REM  FOR A DATE AFTER 1582
+    0x5c7d94f55ff0 ---------A   00170  DEF FNA(A)=INT(A/4)
+    0x5c7d94f560b0 ---------A   00180  DIM T(12)
+    0x5c7d94f5c5b0 ---------A   00190  DEF FNB(A)=INT(A/7)
+    0x5c7d94f5c640 ---------A   00200  REM SPACE OUTPUT AND READ IN INITIAL VALUES FOR MONTHS.
+    0x5c7d94f5c9f0 ---------A   00210  FOR I= 1 TO 12
+    0x5c7d94f5cc30 ---------A   00220  READ T(I)
+    0x5c7d94f5cd60 ---------A   00230  NEXT I
+    0x5c7d94f5cf40 ---------A   00240  PRINT"ENTER DAY OF BIRTH (OR OTHER DAY OF INTEREST)";
+    0x5c7d94f5d4a0 ---------A   00250  INPUT M,D,Y
+    0x5c7d94f5d500 ---------A   00260  PRINT
+    0x5c7d94f5db40 ---------A   00270  LET I1 = INT((Y-1500)/100)
+    0x5c7d94f5dbd0 ---------A   00280  REM TEST FOR DATE BEFORE CURRENT CALENDAR.
+    0x5c7d94f5df00 ---------A   00290  IF Y-1582 <0 THEN 1300
+    0x5c7d94f5e580 ---------A   00300  LET A = I1*5+(I1+3)/4
+    0x5c7d94f5ec50 ---------A   00310  LET I2=INT(A-FNB(A)*7)
+    0x5c7d94f5f100 ---------A   00320  LET Y2=INT(Y/100)
+    0x5c7d94f5f6d0 ---------A   00330  LET Y3 =INT(Y-Y2*100)
+    0x5c7d94f5ff70 ---------A   00340  LET A =Y3/4+Y3+D+T(M)+I2
+    0x5c7d94f60740 ---------A   00350  LET B=INT(A-FNB(A)*7)+1
+    0x5c7d94f60990 ---------A   00360  IF M > 2 THEN 470
+    0x5c7d94f60c00 ---------A   00370  IF Y3 = 0 THEN 440
+    0x5c7d94f612e0 ---------A   00380  LET T1=INT(Y-FNA(Y)*4)
+    0x5c7d94f61530 ---------A   00390  IF T1 <> 0 THEN 470
+    0x5c7d94f619a0 ---------A T 00400  IF B<>0 THEN 420
+    0x5c7d94f61bc0 ---------A   00410  LET B=6
+    0x5c7d94f61ef0 ---------A T 00420  LET B = B-1
+    0x5c7d94f61f60 ---------A   00430  GOTO 470
+    0x5c7d94f622a0 ---------A T 00440  LET A = I1-1
+    0x5c7d94f628b0 ---------A   00450  LET T1=INT(A-FNA(A)*4)
+    0x5c7d94f62b00 ---------A   00460  IF T1 = 0 THEN 400
+    0x5c7d94f62d60 ---------A T 00470  IF B <>0 THEN 490
+    0x5c7d94f62fa0 ---------A   00480  LET B = 7
+    0x5c7d94f63b30 ---------A T 00490  IF (Y1*12+M1)*31+D1<(Y*12+M)*31+D THEN 550
+    0x5c7d94f646c0 ---------A   00500  IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 530
+    0x5c7d94f64d40 ---------A   00510  PRINT M;"/";D;"/";Y;" WAS A ";
+    0x5c7d94f64dd0 ---------A   00520  GOTO 570
+    0x5c7d94f65440 ---------A T 00530  PRINT M;"/";D;"/";Y;" IS A ";
+    0x5c7d94f654d0 ---------A   00540  GOTO 570
+    0x5c7d94f65b60 ---------A T 00550  PRINT M;"/";D;"/";Y;" WILL BE A ";
+    0x5c7d94f65c00 ---------A   00560  REM PRINT THE DAY OF THE WEEK THE DATE FALLS ON.
+    0x5c7d94f65e70 ---------A T 00570  IF B <>1 THEN 590
+    0x5c7d94f65fd0 ---------A   00580  PRINT "SUNDAY."
+    0x5c7d94f66230 ---------A T 00590  IF B<>2 THEN 610
+    0x5c7d94f66390 ---------A   00600  PRINT "MONDAY."
+    0x5c7d94f665f0 ---------A T 00610  IF B<>3 THEN 630
+    0x5c7d94f66750 ---------A   00620  PRINT "TUESDAY."
+    0x5c7d94f669b0 ---------A T 00630  IF B<>4 THEN 650
+    0x5c7d94f66b10 ---------A   00640  PRINT "WEDNESDAY."
+    0x5c7d94f66d70 ---------A T 00650  IF B<>5 THEN 670
+    0x5c7d94f66ed0 ---------A   00660  PRINT "THURSDAY."
+    0x5c7d94f67130 ---------A T 00670  IF B<>6 THEN 690
+    0x5c7d94f671b0 ---------A   00680  GOTO 1250
+    0x5c7d94f67400 ---------A T 00690  IF B<>7 THEN 710
+    0x5c7d94f67580 ---------A   00700  PRINT "SATURDAY."
+    0x5c7d94f68100 ---------A T 00710  IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 1120
+    0x5c7d94f68930 ---------A   00720  LET I5=Y1-Y
+    0x5c7d94f689a0 ---------A   00730  PRINT
+    0x5c7d94f68dc0 ---------A   00740  LET I6=M1-M
+    0x5c7d94f691d0 ---------A   00750  LET I7=D1-D
+    0x5c7d94f69420 ---------A   00760  IF I7>=0 THEN 790
+    0x5c7d94f69760 ---------A   00770  LET I6= I6-1
+    0x5c7d94f69a90 ---------A   00780  LET I7=I7+30
+    0x5c7d94f69ce0 ---------A T 00790  IF I6>=0 THEN 820
+    0x5c7d94f6a020 ---------A   00800  LET I5=I5-1
+    0x5c7d94f6a350 ---------A   00810  LET I6=I6+12
+    0x5c7d94f6a5a0 ---------A T 00820  IF I5<0 THEN 1310
+    0x5c7d94f6a800 ---------A   00830  IF I7 <> 0 THEN 850
+    0x5c7d94f6aa70 ---------A   00835  IF I6 <> 0 THEN 850
+    0x5c7d94f6abf0 ---------A   00840  PRINT"***HAPPY BIRTHDAY***"
+    0x5c7d94f6b170 ---------A T 00850  PRINT " "," ","YEARS","MONTHS","DAYS"
+    0x5c7d94f6b6f0 ---------A   00855  PRINT " "," ","-----","------","----"
+    0x5c7d94f6bb80 ---------A   00860  PRINT "YOUR AGE (IF BIRTHDATE) ",I5,I6,I7
+    0x5c7d94f6c640 ---------A   00870  LET A8 = (I5*365)+(I6*30)+I7+INT(I6/2)
+    0x5c7d94f6c930 ---------A   00880  LET K5 = I5
+    0x5c7d94f6cc20 ---------A   00890  LET K6 = I6
+    0x5c7d94f6cf20 ---------A   00900  LET K7 = I7
+    0x5c7d94f6cfa0 ---------A   00910  REM CALCULATE RETIREMENT DATE.
+    0x5c7d94f6d3e0 ---------A   00920  LET E = Y+65
+    0x5c7d94f6d470 ---------A   00930  REM CALCULATE TIME SPENT IN THE FOLLOWING FUNCTIONS.
+    0x5c7d94f6d770 ---------A   00940  LET F = .35
+    0x5c7d94f6d8e0 ---------A   00950  PRINT "YOU HAVE SLEPT ",
+    0x5c7d94f6d960 ---------A   00960  GOSUB 1370
+    0x5c7d94f6db80 ---------A   00970  LET F = .17
+    0x5c7d94f6dcf0 ---------A   00980  PRINT "YOU HAVE EATEN ",
+    0x5c7d94f6dd70 ---------A   00990  GOSUB 1370
+    0x5c7d94f6df90 ---------A   01000  LET F = .23
+    0x5c7d94f6e1f0 ---------A   01010  IF K5 > 3 THEN 1040
+    0x5c7d94f6e370 ---------A   01020  PRINT "YOU HAVE PLAYED",
+    0x5c7d94f6e400 ---------A   01030  GOTO 1080
+    0x5c7d94f6e660 ---------A T 01040  IF K5 > 9 THEN 1070
+    0x5c7d94f6e7f0 ---------A   01050  PRINT "YOU HAVE PLAYED/STUDIED",
+    0x5c7d94f6e880 ---------A   01060  GOTO  1080
+    0x5c7d94f6ea00 ---------A T 01070  PRINT "YOU HAVE WORKED/PLAYED",
+    0x5c7d94f6ea80 ---------A T 01080  GOSUB 1370
+    0x5c7d94f6eb00 ---------A   01085  GOTO 1530
+    0x5c7d94f6ef50 ---------A T 01090  PRINT "YOU HAVE RELAXED ",K5,K6,K7
+    0x5c7d94f6eff0 ---------A   01100  PRINT 
+    0x5c7d94f6f4a0 ---------A   01110  PRINT TAB(16);"***  YOU MAY RETIRE IN";E;" ***"
+    0x5c7d94f6f520 ---------A T 01120  PRINT
+    0x5c7d94f6f5a0 ---------A T 01140  PRINT
+    0x5c7d94f6f620 ---------A   01200  PRINT
+    0x5c7d94f6f6a0 ---------A   01210  PRINT
+    0x5c7d94f6f720 ---------A   01220  PRINT
+    0x5c7d94f6f7a0 ---------A   01230  PRINT
+    0x5c7d94f6f800 ---------A   01240  END
+    0x5c7d94f6fa60 ---------A T 01250  IF D=13 THEN 1280
+    0x5c7d94f6fbc0 ---------A   01260  PRINT "FRIDAY."
+    0x5c7d94f6fc60 ---------A   01270  GOTO 710
+    0x5c7d94f6fdc0 ---------A T 01280  PRINT "FRIDAY THE THIRTEENTH---BEWARE!"
+    0x5c7d94f6fe70 ---------A   01290  GOTO 710
+    0x5c7d94f6ffe0 ---------A T 01300  PRINT "NOT PREPARED TO GIVE DAY OF WEEK PRIOR TO MDLXXXII. "
+    0x5c7d94f70090 ---------A T 01310  GOTO 1140
+    0x5c7d94f70130 ---------A   01320  REM TABLE OF VALUES FOR THE MONTHS TO BE USED IN CALCULATIONS.
+    0x5c7d94f70c90 ---------A   01330  DATA 0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5
+    0x5c7d94f70d20 ---------B   01340  REM THIS IS THE CURRENT DATE USED IN THE CALCULATIONS.
+    0x5c7d94f70df0 ---------B   01350  REM THIS IS THE DATE TO BE CALCULATED ON.
+    0x5c7d94f70ec0 ---------B   01360  REM CALCULATE TIME IN YEARS, MONTHS, AND DAYS
+    0x5c7d94f713e0 ---------B G 01370  LET K1=INT(F*A8)
+    0x5c7d94f71800 ---------B   01380  LET I5 = INT(K1/365)
+    0x5c7d94f724b0 ---------B   01390  LET K1 = K1- (I5*365)
+    0x5c7d94f728d0 ---------B   01400  LET I6 = INT(K1/30)
+    0x5c7d94f72d60 ---------B   01410  LET I7 = K1 -(I6*30)
+    0x5c7d94f730b0 ---------B   01420  LET K5 = K5-I5
+    0x5c7d94f73400 ---------B   01430  LET K6 =K6-I6
+    0x5c7d94f73750 ---------B   01440  LET K7 = K7-I7
+    0x5c7d94f739a0 ---------B   01450  IF K7>=0 THEN 1480
+    0x5c7d94f73ce0 ---------B   01460  LET K7=K7+30
+    0x5c7d94f74010 ---------B   01470  LET K6=K6-1
+    0x5c7d94f74260 ---------B T 01480  IF K6>0 THEN 1510
+    0x5c7d94f745a0 ---------B   01490  LET K6=K6+12
+    0x5c7d94f748d0 ---------B   01500  LET K5=K5-1
+    0x5c7d94f74c20 ---------B T 01510  PRINT I5,I6,I7
+    0x5c7d94f74c80 ---------B   01520  RETURN
+    0x5c7d94f74ee0 ---------A T 01530  IF K6=12 THEN 1550
+    0x5c7d94f74f60 ---------A   01540  GOTO 1090
+    0x5c7d94f75290 ---------A T 01550  LET K5=K5+1
+    0x5c7d94f754a0 ---------A   01560  LET K6=0
+    0x5c7d94f75510 ---------A   01570  GOTO 1090
+    0x5c7d94f75580 ---------A   01580  REM
+    0x5c7d94f755f0 ---------A   01590  END
  */
 
 /*
@@ -209,11 +209,339 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x5ecf79724b80 (00010)   0x5ecf79724b80 (00010)   0x5ecf79745180 (01590)   0x5ecf79745180 (01590)   
-   B) 0x5ecf79740920 (01340)   0x5ecf79740fb0 (01370)   0x5ecf79744840 (01520)   0x5ecf79744840 (01520)   
+   A) 0x5c7d94f536d0 (00010)   0x5c7d94f536d0 (00010)   0x5c7d94f755f0 (01590)   0x5c7d94f755f0 (01590)   
+   B) 0x5c7d94f70d20 (01340)   0x5c7d94f713e0 (01370)   0x5c7d94f74c80 (01520)   0x5c7d94f74c80 (01520)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/weekday.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5c7d94f536d0 ---------A   00010  PRINT TAB(32);"WEEKDAY"
+    0x5c7d94f53670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5c7d94f442b0 ----------   00030  PRINT
+    0x5c7d94f539e0 ----------        a PRINT
+    0x5c7d94f55aa0 ---------A        b PRINT
+    0x5c7d94f54080 ---------A   00100  PRINT "WEEKDAY IS A COMPUTER DEMONSTRATION THAT"
+    0x5c7d94f54480 ---------A   00110  PRINT"GIVES FACTS ABOUT A DATE OF INTEREST TO YOU."
+    0x5c7d94f544e0 ---------A   00120  PRINT
+    0x5c7d94f556e0 ---------A   00130  PRINT "ENTER TODAY'S DATE IN THE FORM: 3,24,1979  ";
+    0x5c7d94f5b8a0 ---------A   00140  INPUT M1,D1,Y1
+    0x5c7d94f55e70 ---------A   00150  REM THIS PROGRAM DETERMINES THE DAY OF THE WEEK
+    0x5c7d94f54b80 ---------A   00160  REM  FOR A DATE AFTER 1582
+    0x5c7d94f55ff0 ---------A   00170  DEF FNA(A)=INT(A/4)
+    0x5c7d94f560b0 ---------A   00180  DIM T(12)
+    0x5c7d94f5c5b0 ---------A   00190  DEF FNB(A)=INT(A/7)
+    0x5c7d94f5c640 ---------A   00200  REM SPACE OUTPUT AND READ IN INITIAL VALUES FOR MONTHS.
+    0x5c7d94f5c9f0 ---------A   00210  FOR I= 1 TO 12
+    0x5c7d94f5cc30 ---------A   00220  READ T(I)
+    0x5c7d94f5cd60 ---------A   00230  NEXT I
+    0x5c7d94f5cf40 ---------A   00240  PRINT"ENTER DAY OF BIRTH (OR OTHER DAY OF INTEREST)";
+    0x5c7d94f5d4a0 ---------A   00250  INPUT M,D,Y
+    0x5c7d94f5d500 ---------A   00260  PRINT
+    0x5c7d94f5db40 ---------A   00270  LET I1 = INT((Y-1500)/100)
+    0x5c7d94f5dbd0 ---------A   00280  REM TEST FOR DATE BEFORE CURRENT CALENDAR.
+    0x5c7d94f5df00 ---------A   00290  IF Y-1582 <0 THEN 1300
+    0x5c7d94f5e580 ---------A   00300  LET A = I1*5+(I1+3)/4
+    0x5c7d94f5ec50 ---------A   00310  LET I2=INT(A-FNB(A)*7)
+    0x5c7d94f5f100 ---------A   00320  LET Y2=INT(Y/100)
+    0x5c7d94f5f6d0 ---------A   00330  LET Y3 =INT(Y-Y2*100)
+    0x5c7d94f5ff70 ---------A   00340  LET A =Y3/4+Y3+D+T(M)+I2
+    0x5c7d94f60740 ---------A   00350  LET B=INT(A-FNB(A)*7)+1
+    0x5c7d94f60990 ---------A   00360  IF M > 2 THEN 470
+    0x5c7d94f60c00 ---------A   00370  IF Y3 = 0 THEN 440
+    0x5c7d94f612e0 ---------A   00380  LET T1=INT(Y-FNA(Y)*4)
+    0x5c7d94f61530 ---------A   00390  IF T1 <> 0 THEN 470
+    0x5c7d94f619a0 ---------A T 00400  IF B<>0 THEN 420
+    0x5c7d94f61bc0 ---------A   00410  LET B=6
+    0x5c7d94f61ef0 ---------A T 00420  LET B = B-1
+    0x5c7d94f61f60 ---------A   00430  GOTO 470
+    0x5c7d94f622a0 ---------A T 00440  LET A = I1-1
+    0x5c7d94f628b0 ---------A   00450  LET T1=INT(A-FNA(A)*4)
+    0x5c7d94f62b00 ---------A   00460  IF T1 = 0 THEN 400
+    0x5c7d94f62d60 ---------A T 00470  IF B <>0 THEN 490
+    0x5c7d94f62fa0 ---------A   00480  LET B = 7
+    0x5c7d94f63b30 ---------A T 00490  IF (Y1*12+M1)*31+D1<(Y*12+M)*31+D THEN 550
+    0x5c7d94f646c0 ---------A   00500  IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 530
+    0x5c7d94f64d40 ---------A   00510  PRINT M;"/";D;"/";Y;" WAS A ";
+    0x5c7d94f64dd0 ---------A   00520  GOTO 570
+    0x5c7d94f65440 ---------A T 00530  PRINT M;"/";D;"/";Y;" IS A ";
+    0x5c7d94f654d0 ---------A   00540  GOTO 570
+    0x5c7d94f65b60 ---------A T 00550  PRINT M;"/";D;"/";Y;" WILL BE A ";
+    0x5c7d94f65c00 ---------A   00560  REM PRINT THE DAY OF THE WEEK THE DATE FALLS ON.
+    0x5c7d94f65e70 ---------A T 00570  IF B <>1 THEN 590
+    0x5c7d94f65fd0 ---------A   00580  PRINT "SUNDAY."
+    0x5c7d94f66230 ---------A T 00590  IF B<>2 THEN 610
+    0x5c7d94f66390 ---------A   00600  PRINT "MONDAY."
+    0x5c7d94f665f0 ---------A T 00610  IF B<>3 THEN 630
+    0x5c7d94f66750 ---------A   00620  PRINT "TUESDAY."
+    0x5c7d94f669b0 ---------A T 00630  IF B<>4 THEN 650
+    0x5c7d94f66b10 ---------A   00640  PRINT "WEDNESDAY."
+    0x5c7d94f66d70 ---------A T 00650  IF B<>5 THEN 670
+    0x5c7d94f66ed0 ---------A   00660  PRINT "THURSDAY."
+    0x5c7d94f67130 ---------A T 00670  IF B<>6 THEN 690
+    0x5c7d94f671b0 ---------A   00680  GOTO 1250
+    0x5c7d94f67400 ---------A T 00690  IF B<>7 THEN 710
+    0x5c7d94f67580 ---------A   00700  PRINT "SATURDAY."
+    0x5c7d94f68100 ---------A T 00710  IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 1120
+    0x5c7d94f68930 ---------A   00720  LET I5=Y1-Y
+    0x5c7d94f689a0 ---------A   00730  PRINT
+    0x5c7d94f68dc0 ---------A   00740  LET I6=M1-M
+    0x5c7d94f691d0 ---------A   00750  LET I7=D1-D
+    0x5c7d94f69420 ---------A   00760  IF I7>=0 THEN 790
+    0x5c7d94f69760 ---------A   00770  LET I6= I6-1
+    0x5c7d94f69a90 ---------A   00780  LET I7=I7+30
+    0x5c7d94f69ce0 ---------A T 00790  IF I6>=0 THEN 820
+    0x5c7d94f6a020 ---------A   00800  LET I5=I5-1
+    0x5c7d94f6a350 ---------A   00810  LET I6=I6+12
+    0x5c7d94f6a5a0 ---------A T 00820  IF I5<0 THEN 1310
+    0x5c7d94f6a800 ---------A   00830  IF I7 <> 0 THEN 850
+    0x5c7d94f6aa70 ---------A   00835  IF I6 <> 0 THEN 850
+    0x5c7d94f6abf0 ---------A   00840  PRINT"***HAPPY BIRTHDAY***"
+    0x5c7d94f6b170 ---------A T 00850  PRINT " "," ","YEARS","MONTHS","DAYS"
+    0x5c7d94f6b6f0 ---------A   00855  PRINT " "," ","-----","------","----"
+    0x5c7d94f6bb80 ---------A   00860  PRINT "YOUR AGE (IF BIRTHDATE) ",I5,I6,I7
+    0x5c7d94f6c640 ---------A   00870  LET A8 = (I5*365)+(I6*30)+I7+INT(I6/2)
+    0x5c7d94f6c930 ---------A   00880  LET K5 = I5
+    0x5c7d94f6cc20 ---------A   00890  LET K6 = I6
+    0x5c7d94f6cf20 ---------A   00900  LET K7 = I7
+    0x5c7d94f6cfa0 ---------A   00910  REM CALCULATE RETIREMENT DATE.
+    0x5c7d94f6d3e0 ---------A   00920  LET E = Y+65
+    0x5c7d94f6d470 ---------A   00930  REM CALCULATE TIME SPENT IN THE FOLLOWING FUNCTIONS.
+    0x5c7d94f6d770 ---------A   00940  LET F = .35
+    0x5c7d94f6d8e0 ---------A   00950  PRINT "YOU HAVE SLEPT ",
+    0x5c7d94f6d960 ---------A   00960  GOSUB 1370
+    0x5c7d94f6db80 ---------A   00970  LET F = .17
+    0x5c7d94f6dcf0 ---------A   00980  PRINT "YOU HAVE EATEN ",
+    0x5c7d94f6dd70 ---------A   00990  GOSUB 1370
+    0x5c7d94f6df90 ---------A   01000  LET F = .23
+    0x5c7d94f6e1f0 ---------A   01010  IF K5 > 3 THEN 1040
+    0x5c7d94f6e370 ---------A   01020  PRINT "YOU HAVE PLAYED",
+    0x5c7d94f6e400 ---------A   01030  GOTO 1080
+    0x5c7d94f6e660 ---------A T 01040  IF K5 > 9 THEN 1070
+    0x5c7d94f6e7f0 ---------A   01050  PRINT "YOU HAVE PLAYED/STUDIED",
+    0x5c7d94f6e880 ---------A   01060  GOTO  1080
+    0x5c7d94f6ea00 ---------A T 01070  PRINT "YOU HAVE WORKED/PLAYED",
+    0x5c7d94f6ea80 ---------A T 01080  GOSUB 1370
+    0x5c7d94f6eb00 ---------A   01085  GOTO 1530
+    0x5c7d94f6ef50 ---------A T 01090  PRINT "YOU HAVE RELAXED ",K5,K6,K7
+    0x5c7d94f6eff0 ---------A   01100  PRINT 
+    0x5c7d94f6f4a0 ---------A   01110  PRINT TAB(16);"***  YOU MAY RETIRE IN";E;" ***"
+    0x5c7d94f6f520 ---------A T 01120  PRINT
+    0x5c7d94f6f5a0 ---------A T 01140  PRINT
+    0x5c7d94f6f620 ---------A   01200  PRINT
+    0x5c7d94f6f6a0 ---------A   01210  PRINT
+    0x5c7d94f6f720 ---------A   01220  PRINT
+    0x5c7d94f6f7a0 ---------A   01230  PRINT
+    0x5c7d94f6f800 ---------A   01240  END
+    0x5c7d94f6fa60 ---------A T 01250  IF D=13 THEN 1280
+    0x5c7d94f6fbc0 ---------A   01260  PRINT "FRIDAY."
+    0x5c7d94f6fc60 ---------A   01270  GOTO 710
+    0x5c7d94f6fdc0 ---------A T 01280  PRINT "FRIDAY THE THIRTEENTH---BEWARE!"
+    0x5c7d94f6fe70 ---------A   01290  GOTO 710
+    0x5c7d94f6ffe0 ---------A T 01300  PRINT "NOT PREPARED TO GIVE DAY OF WEEK PRIOR TO MDLXXXII. "
+    0x5c7d94f70090 ---------A T 01310  GOTO 1140
+    0x5c7d94f70130 ---------A   01320  REM TABLE OF VALUES FOR THE MONTHS TO BE USED IN CALCULATIONS.
+    0x5c7d94f70c90 ---------A   01330  DATA 0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5
+    0x5c7d94f70d20 ---------B   01340  REM THIS IS THE CURRENT DATE USED IN THE CALCULATIONS.
+    0x5c7d94f70df0 ---------B   01350  REM THIS IS THE DATE TO BE CALCULATED ON.
+    0x5c7d94f70ec0 ---------B   01360  REM CALCULATE TIME IN YEARS, MONTHS, AND DAYS
+    0x5c7d94f713e0 ---------B G 01370  LET K1=INT(F*A8)
+    0x5c7d94f71800 ---------B   01380  LET I5 = INT(K1/365)
+    0x5c7d94f724b0 ---------B   01390  LET K1 = K1- (I5*365)
+    0x5c7d94f728d0 ---------B   01400  LET I6 = INT(K1/30)
+    0x5c7d94f72d60 ---------B   01410  LET I7 = K1 -(I6*30)
+    0x5c7d94f730b0 ---------B   01420  LET K5 = K5-I5
+    0x5c7d94f73400 ---------B   01430  LET K6 =K6-I6
+    0x5c7d94f73750 ---------B   01440  LET K7 = K7-I7
+    0x5c7d94f739a0 ---------B   01450  IF K7>=0 THEN 1480
+    0x5c7d94f73ce0 ---------B   01460  LET K7=K7+30
+    0x5c7d94f74010 ---------B   01470  LET K6=K6-1
+    0x5c7d94f74260 ---------B T 01480  IF K6>0 THEN 1510
+    0x5c7d94f745a0 ---------B   01490  LET K6=K6+12
+    0x5c7d94f748d0 ---------B   01500  LET K5=K5-1
+    0x5c7d94f74c20 ---------B T 01510  PRINT I5,I6,I7
+    0x5c7d94f74c80 ---------B   01520  RETURN
+    0x5c7d94f74ee0 ---------A T 01530  IF K6=12 THEN 1550
+    0x5c7d94f74f60 ---------A   01540  GOTO 1090
+    0x5c7d94f75290 ---------A T 01550  LET K5=K5+1
+    0x5c7d94f754a0 ---------A   01560  LET K6=0
+    0x5c7d94f75510 ---------A   01570  GOTO 1090
+    0x5c7d94f75580 ---------A   01580  REM
+    0x5c7d94f755f0 ---------A   01590  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/weekday.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5c7d94f536d0 ---------A   01000  PRINT TAB(32);"WEEKDAY"
+    0x5c7d94f53670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5c7d94f442b0 ----------   01020  PRINT
+    0x5c7d94f539e0 ----------   01030  PRINT
+    0x5c7d94f55aa0 ---------A T 01040  PRINT
+    0x5c7d94f54080 ---------A   01050  PRINT "WEEKDAY IS A COMPUTER DEMONSTRATION THAT"
+    0x5c7d94f54480 ---------A   01060  PRINT"GIVES FACTS ABOUT A DATE OF INTEREST TO YOU."
+    0x5c7d94f544e0 ---------A T 01070  PRINT
+    0x5c7d94f556e0 ---------A T 01080  PRINT "ENTER TODAY'S DATE IN THE FORM: 3,24,1979  ";
+    0x5c7d94f5b8a0 ---------A T 01090  INPUT M1,D1,Y1
+    0x5c7d94f55e70 ---------A   01100  REM THIS PROGRAM DETERMINES THE DAY OF THE WEEK
+    0x5c7d94f54b80 ---------A   01110  REM  FOR A DATE AFTER 1582
+    0x5c7d94f55ff0 ---------A T 01120  DEF FNA(A)=INT(A/4)
+    0x5c7d94f560b0 ---------A   01130  DIM T(12)
+    0x5c7d94f5c5b0 ---------A T 01140  DEF FNB(A)=INT(A/7)
+    0x5c7d94f5c640 ---------A   01150  REM SPACE OUTPUT AND READ IN INITIAL VALUES FOR MONTHS.
+    0x5c7d94f5c9f0 ---------A   01160  FOR I= 1 TO 12
+    0x5c7d94f5cc30 ---------A   01170  READ T(I)
+    0x5c7d94f5cd60 ---------A   01180  NEXT I
+    0x5c7d94f5cf40 ---------A   01190  PRINT"ENTER DAY OF BIRTH (OR OTHER DAY OF INTEREST)";
+    0x5c7d94f5d4a0 ---------A   01200  INPUT M,D,Y
+    0x5c7d94f5d500 ---------A   01210  PRINT
+    0x5c7d94f5db40 ---------A   01220  LET I1 = INT((Y-1500)/100)
+    0x5c7d94f5dbd0 ---------A   01230  REM TEST FOR DATE BEFORE CURRENT CALENDAR.
+    0x5c7d94f5df00 ---------A   01240  IF Y-1582 <0 THEN 2220
+    0x5c7d94f5e580 ---------A T 01250  LET A = I1*5+(I1+3)/4
+    0x5c7d94f5ec50 ---------A   01260  LET I2=INT(A-FNB(A)*7)
+    0x5c7d94f5f100 ---------A   01270  LET Y2=INT(Y/100)
+    0x5c7d94f5f6d0 ---------A T 01280  LET Y3 =INT(Y-Y2*100)
+    0x5c7d94f5ff70 ---------A   01290  LET A =Y3/4+Y3+D+T(M)+I2
+    0x5c7d94f60740 ---------A T 01300  LET B=INT(A-FNB(A)*7)+1
+    0x5c7d94f60990 ---------A T 01310  IF M > 2 THEN 1420
+    0x5c7d94f60c00 ---------A   01320  IF Y3 = 0 THEN 1390
+    0x5c7d94f612e0 ---------A   01330  LET T1=INT(Y-FNA(Y)*4)
+    0x5c7d94f61530 ---------A   01340  IF T1 <> 0 THEN 1420
+    0x5c7d94f619a0 ---------A   01350  IF B<>0 THEN 1370
+    0x5c7d94f61bc0 ---------A   01360  LET B=6
+    0x5c7d94f61ef0 ---------A G 01370  LET B = B-1
+    0x5c7d94f61f60 ---------A   01380  GOTO 1420
+    0x5c7d94f622a0 ---------A   01390  LET A = I1-1
+    0x5c7d94f628b0 ---------A   01400  LET T1=INT(A-FNA(A)*4)
+    0x5c7d94f62b00 ---------A   01410  IF T1 = 0 THEN 1350
+    0x5c7d94f62d60 ---------A   01420  IF B <>0 THEN 1440
+    0x5c7d94f62fa0 ---------A   01430  LET B = 7
+    0x5c7d94f63b30 ---------A   01440  IF (Y1*12+M1)*31+D1<(Y*12+M)*31+D THEN 1500
+    0x5c7d94f646c0 ---------A   01450  IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 1480
+    0x5c7d94f64d40 ---------A   01460  PRINT M;"/";D;"/";Y;" WAS A ";
+    0x5c7d94f64dd0 ---------A   01470  GOTO 1520
+    0x5c7d94f65440 ---------A T 01480  PRINT M;"/";D;"/";Y;" IS A ";
+    0x5c7d94f654d0 ---------A   01490  GOTO 1520
+    0x5c7d94f65b60 ---------A   01500  PRINT M;"/";D;"/";Y;" WILL BE A ";
+    0x5c7d94f65c00 ---------A T 01510  REM PRINT THE DAY OF THE WEEK THE DATE FALLS ON.
+    0x5c7d94f65e70 ---------A   01520  IF B <>1 THEN 1540
+    0x5c7d94f65fd0 ---------A T 01530  PRINT "SUNDAY."
+    0x5c7d94f66230 ---------A   01540  IF B<>2 THEN 1560
+    0x5c7d94f66390 ---------A T 01550  PRINT "MONDAY."
+    0x5c7d94f665f0 ---------A   01560  IF B<>3 THEN 1580
+    0x5c7d94f66750 ---------A   01570  PRINT "TUESDAY."
+    0x5c7d94f669b0 ---------A   01580  IF B<>4 THEN 1600
+    0x5c7d94f66b10 ---------A   01590  PRINT "WEDNESDAY."
+    0x5c7d94f66d70 ---------A   01600  IF B<>5 THEN 1620
+    0x5c7d94f66ed0 ---------A   01610  PRINT "THURSDAY."
+    0x5c7d94f67130 ---------A   01620  IF B<>6 THEN 1640
+    0x5c7d94f671b0 ---------A   01630  GOTO 2170
+    0x5c7d94f67400 ---------A   01640  IF B<>7 THEN 1660
+    0x5c7d94f67580 ---------A   01650  PRINT "SATURDAY."
+    0x5c7d94f68100 ---------A   01660  IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 2100
+    0x5c7d94f68930 ---------A   01670  LET I5=Y1-Y
+    0x5c7d94f689a0 ---------A   01680  PRINT
+    0x5c7d94f68dc0 ---------A   01690  LET I6=M1-M
+    0x5c7d94f691d0 ---------A   01700  LET I7=D1-D
+    0x5c7d94f69420 ---------A   01710  IF I7>=0 THEN 1740
+    0x5c7d94f69760 ---------A   01720  LET I6= I6-1
+    0x5c7d94f69a90 ---------A   01730  LET I7=I7+30
+    0x5c7d94f69ce0 ---------A   01740  IF I6>=0 THEN 1770
+    0x5c7d94f6a020 ---------A   01750  LET I5=I5-1
+    0x5c7d94f6a350 ---------A   01760  LET I6=I6+12
+    0x5c7d94f6a5a0 ---------A   01770  IF I5<0 THEN 2230
+    0x5c7d94f6a800 ---------A   01780  IF I7 <> 0 THEN 1810
+    0x5c7d94f6aa70 ---------A   01790  IF I6 <> 0 THEN 1810
+    0x5c7d94f6abf0 ---------A   01800  PRINT"***HAPPY BIRTHDAY***"
+    0x5c7d94f6b170 ---------A   01810  PRINT " "," ","YEARS","MONTHS","DAYS"
+    0x5c7d94f6b6f0 ---------A   01820  PRINT " "," ","-----","------","----"
+    0x5c7d94f6bb80 ---------A   01830  PRINT "YOUR AGE (IF BIRTHDATE) ",I5,I6,I7
+    0x5c7d94f6c640 ---------A   01840  LET A8 = (I5*365)+(I6*30)+I7+INT(I6/2)
+    0x5c7d94f6c930 ---------A   01850  LET K5 = I5
+    0x5c7d94f6cc20 ---------A   01860  LET K6 = I6
+    0x5c7d94f6cf20 ---------A   01870  LET K7 = I7
+    0x5c7d94f6cfa0 ---------A   01880  REM CALCULATE RETIREMENT DATE.
+    0x5c7d94f6d3e0 ---------A   01890  LET E = Y+65
+    0x5c7d94f6d470 ---------A   01900  REM CALCULATE TIME SPENT IN THE FOLLOWING FUNCTIONS.
+    0x5c7d94f6d770 ---------A   01910  LET F = .35
+    0x5c7d94f6d8e0 ---------A   01920  PRINT "YOU HAVE SLEPT ",
+    0x5c7d94f6d960 ---------A   01930  GOSUB 2290
+    0x5c7d94f6db80 ---------A   01940  LET F = .17
+    0x5c7d94f6dcf0 ---------A   01950  PRINT "YOU HAVE EATEN ",
+    0x5c7d94f6dd70 ---------A   01960  GOSUB 2290
+    0x5c7d94f6df90 ---------A   01970  LET F = .23
+    0x5c7d94f6e1f0 ---------A   01980  IF K5 > 3 THEN 2010
+    0x5c7d94f6e370 ---------A   01990  PRINT "YOU HAVE PLAYED",
+    0x5c7d94f6e400 ---------A   02000  GOTO 2050
+    0x5c7d94f6e660 ---------A   02010  IF K5 > 9 THEN 2040
+    0x5c7d94f6e7f0 ---------A   02020  PRINT "YOU HAVE PLAYED/STUDIED",
+    0x5c7d94f6e880 ---------A   02030  GOTO  2050
+    0x5c7d94f6ea00 ---------A   02040  PRINT "YOU HAVE WORKED/PLAYED",
+    0x5c7d94f6ea80 ---------A   02050  GOSUB 2290
+    0x5c7d94f6eb00 ---------A   02060  GOTO 2450
+    0x5c7d94f6ef50 ---------A   02070  PRINT "YOU HAVE RELAXED ",K5,K6,K7
+    0x5c7d94f6eff0 ---------A   02080  PRINT 
+    0x5c7d94f6f4a0 ---------A   02090  PRINT TAB(16);"***  YOU MAY RETIRE IN";E;" ***"
+    0x5c7d94f6f520 ---------A   02100  PRINT
+    0x5c7d94f6f5a0 ---------A   02110  PRINT
+    0x5c7d94f6f620 ---------A   02120  PRINT
+    0x5c7d94f6f6a0 ---------A   02130  PRINT
+    0x5c7d94f6f720 ---------A   02140  PRINT
+    0x5c7d94f6f7a0 ---------A   02150  PRINT
+    0x5c7d94f6f800 ---------A   02160  END
+    0x5c7d94f6fa60 ---------A   02170  IF D=13 THEN 2200
+    0x5c7d94f6fbc0 ---------A   02180  PRINT "FRIDAY."
+    0x5c7d94f6fc60 ---------A   02190  GOTO 1660
+    0x5c7d94f6fdc0 ---------A   02200  PRINT "FRIDAY THE THIRTEENTH---BEWARE!"
+    0x5c7d94f6fe70 ---------A   02210  GOTO 1660
+    0x5c7d94f6ffe0 ---------A   02220  PRINT "NOT PREPARED TO GIVE DAY OF WEEK PRIOR TO MDLXXXII. "
+    0x5c7d94f70090 ---------A   02230  GOTO 2110
+    0x5c7d94f70130 ---------A   02240  REM TABLE OF VALUES FOR THE MONTHS TO BE USED IN CALCULATIONS.
+    0x5c7d94f70c90 ---------A   02250  DATA 0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5
+    0x5c7d94f70d20 ---------B   02260  REM THIS IS THE CURRENT DATE USED IN THE CALCULATIONS.
+    0x5c7d94f70df0 ---------B   02270  REM THIS IS THE DATE TO BE CALCULATED ON.
+    0x5c7d94f70ec0 ---------B   02280  REM CALCULATE TIME IN YEARS, MONTHS, AND DAYS
+    0x5c7d94f713e0 ---------B   02290  LET K1=INT(F*A8)
+    0x5c7d94f71800 ---------B   02300  LET I5 = INT(K1/365)
+    0x5c7d94f724b0 ---------B   02310  LET K1 = K1- (I5*365)
+    0x5c7d94f728d0 ---------B   02320  LET I6 = INT(K1/30)
+    0x5c7d94f72d60 ---------B   02330  LET I7 = K1 -(I6*30)
+    0x5c7d94f730b0 ---------B   02340  LET K5 = K5-I5
+    0x5c7d94f73400 ---------B   02350  LET K6 =K6-I6
+    0x5c7d94f73750 ---------B   02360  LET K7 = K7-I7
+    0x5c7d94f739a0 ---------B   02370  IF K7>=0 THEN 2400
+    0x5c7d94f73ce0 ---------B   02380  LET K7=K7+30
+    0x5c7d94f74010 ---------B   02390  LET K6=K6-1
+    0x5c7d94f74260 ---------B   02400  IF K6>0 THEN 2430
+    0x5c7d94f745a0 ---------B   02410  LET K6=K6+12
+    0x5c7d94f748d0 ---------B   02420  LET K5=K5-1
+    0x5c7d94f74c20 ---------B   02430  PRINT I5,I6,I7
+    0x5c7d94f74c80 ---------B   02440  RETURN
+    0x5c7d94f74ee0 ---------A   02450  IF K6=12 THEN 2470
+    0x5c7d94f74f60 ---------A   02460  GOTO 2070
+    0x5c7d94f75290 ---------A   02470  LET K5=K5+1
+    0x5c7d94f754a0 ---------A   02480  LET K6=0
+    0x5c7d94f75510 ---------A   02490  GOTO 2070
+    0x5c7d94f75580 ---------A   02500  REM
+    0x5c7d94f755f0 ---------A   02510  END
  */
 
 
@@ -224,7 +552,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     02510 - 10000    7500 
+     02530 - 10000    7480 
 
  */
 
@@ -333,157 +661,159 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5ecf79724b80 ---------A   01000 PRINT TAB(32);"WEEKDAY"
-    0x5ecf79725f30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5ecf797260b0 ---------A   01020 PRINT:PRINT:PRINT
-    0x5ecf797237f0 ---------A   01030 PRINT "WEEKDAY IS A COMPUTER DEMONSTRATION THAT"
-    0x5ecf79725ae0 ---------A   01040 PRINT"GIVES FACTS ABOUT A DATE OF INTEREST TO YOU."
-    0x5ecf79723e40 ---------A   01050 PRINT
-    0x5ecf797244e0 ---------A   01060 PRINT "ENTER TODAY'S DATE IN THE FORM: 3,24,1979  ";
-    0x5ecf797236d0 ---------A   01070 INPUT M1,D1,Y1
-    0x5ecf797247c0 ---------A   01080 REM THIS PROGRAM DETERMINES THE DAY OF THE WEEK
-    0x5ecf79724800 ---------A   01090 REM  FOR A DATE AFTER 1582
-    0x5ecf79724040 ---------A   01100 DEF FNA(A)=INT(A/4)
-    0x5ecf7972bfc0 ---------A   01110 DIM T(12)
-    0x5ecf7972c570 ---------A   01120 DEF FNB(A)=INT(A/7)
-    0x5ecf7972c600 ---------A   01130 REM SPACE OUTPUT AND READ IN INITIAL VALUES FOR MONTHS.
-    0x5ecf79723670 ---------A   01140 FOR I= 1 TO 12
-    0x5ecf7972cb80 ---------A   01150 READ T(I)
-    0x5ecf7972cca0 ---------A   01160 NEXT I
-    0x5ecf7972ce70 ---------A   01170 PRINT"ENTER DAY OF BIRTH (OR OTHER DAY OF INTEREST)";
-    0x5ecf7972d3c0 ---------A   01180 INPUT M,D,Y
-    0x5ecf7972d420 ---------A   01190 PRINT
-    0x5ecf7972da50 ---------A   01200 LET I1 = INT((Y-1500)/100)
-    0x5ecf7972dae0 ---------A   01210 REM TEST FOR DATE BEFORE CURRENT CALENDAR.
-    0x5ecf7972de00 ---------A   01220 IF Y-1582 <0 THEN 2200
-    0x5ecf7972e480 ---------A   01230 LET A = I1*5+(I1+3)/4
-    0x5ecf7972eb50 ---------A   01240 LET I2=INT(A-FNB(A)*7)
-    0x5ecf7972f000 ---------A   01250 LET Y2=INT(Y/100)
-    0x5ecf7972f5d0 ---------A   01260 LET Y3 =INT(Y-Y2*100)
-    0x5ecf7972fe70 ---------A   01270 LET A =Y3/4+Y3+D+T(M)+I2
-    0x5ecf79730640 ---------A   01280 LET B=INT(A-FNB(A)*7)+1
-    0x5ecf79730890 ---------A   01290 IF M > 2 THEN 1400
-    0x5ecf79730b00 ---------A   01300 IF Y3 = 0 THEN 1370
-    0x5ecf797311e0 ---------A   01310 LET T1=INT(Y-FNA(Y)*4)
-    0x5ecf79731430 ---------A   01320 IF T1 <> 0 THEN 1400
-    0x5ecf797318a0 ---------A T 01330 IF B<>0 THEN 1350
-    0x5ecf79731ac0 ---------A   01340 LET B=6
-    0x5ecf79731df0 ---------A T 01350 LET B = B-1
-    0x5ecf79731e60 ---------A   01360 GOTO 1400
-    0x5ecf79732190 ---------A T 01370 LET A = I1-1
-    0x5ecf797327a0 ---------A   01380 LET T1=INT(A-FNA(A)*4)
-    0x5ecf797329f0 ---------A   01390 IF T1 = 0 THEN 1330
-    0x5ecf79732c50 ---------A T 01400 IF B <>0 THEN 1420
-    0x5ecf79732e90 ---------A   01410 LET B = 7
-    0x5ecf79733a20 ---------A T 01420 IF (Y1*12+M1)*31+D1<(Y*12+M)*31+D THEN 1480
-    0x5ecf797345b0 ---------A   01430 IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 1460
-    0x5ecf79734c30 ---------A   01440 PRINT M;"/";D;"/";Y;" WAS A ";
-    0x5ecf79734cb0 ---------A   01450 GOTO 1500
-    0x5ecf79735310 ---------A T 01460 PRINT M;"/";D;"/";Y;" IS A ";
-    0x5ecf79735390 ---------A   01470 GOTO 1500
-    0x5ecf79735a10 ---------A T 01480 PRINT M;"/";D;"/";Y;" WILL BE A ";
-    0x5ecf79735aa0 ---------A   01490 REM PRINT THE DAY OF THE WEEK THE DATE FALLS ON.
-    0x5ecf79735d00 ---------A T 01500 IF B <>1 THEN 1520
-    0x5ecf79735e60 ---------A   01510 PRINT "SUNDAY."
-    0x5ecf797360b0 ---------A T 01520 IF B<>2 THEN 1540
-    0x5ecf79736210 ---------A   01530 PRINT "MONDAY."
-    0x5ecf79736460 ---------A T 01540 IF B<>3 THEN 1560
-    0x5ecf797365c0 ---------A   01550 PRINT "TUESDAY."
-    0x5ecf79736810 ---------A T 01560 IF B<>4 THEN 1580
-    0x5ecf79736970 ---------A   01570 PRINT "WEDNESDAY."
-    0x5ecf79736bc0 ---------A T 01580 IF B<>5 THEN 1600
-    0x5ecf79736d20 ---------A   01590 PRINT "THURSDAY."
-    0x5ecf79736f70 ---------A T 01600 IF B<>6 THEN 1620
-    0x5ecf79736ff0 ---------A   01610 GOTO 2150
-    0x5ecf79737230 ---------A T 01620 IF B<>7 THEN 1640
-    0x5ecf797373b0 ---------A   01630 PRINT "SATURDAY."
-    0x5ecf79737f20 ---------A T 01640 IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 2080
-    0x5ecf79738750 ---------A   01650 LET I5=Y1-Y
-    0x5ecf797387c0 ---------A   01660 PRINT
-    0x5ecf79738bd0 ---------A   01670 LET I6=M1-M
-    0x5ecf79738fe0 ---------A   01680 LET I7=D1-D
-    0x5ecf79739230 ---------A   01690 IF I7>=0 THEN 1720
-    0x5ecf79739570 ---------A   01700 LET I6= I6-1
-    0x5ecf797398a0 ---------A   01710 LET I7=I7+30
-    0x5ecf79739af0 ---------A T 01720 IF I6>=0 THEN 1750
-    0x5ecf79739e30 ---------A   01730 LET I5=I5-1
-    0x5ecf7973a160 ---------A   01740 LET I6=I6+12
-    0x5ecf7973a3b0 ---------A T 01750 IF I5<0 THEN 2210
-    0x5ecf7973a610 ---------A   01760 IF I7 <> 0 THEN 1790
-    0x5ecf7973a880 ---------A   01770 IF I6 <> 0 THEN 1790
-    0x5ecf7973aa00 ---------A   01780 PRINT"***HAPPY BIRTHDAY***"
-    0x5ecf7973af70 ---------A T 01790 PRINT " "," ","YEARS","MONTHS","DAYS"
-    0x5ecf7973b4e0 ---------A   01800 PRINT " "," ","-----","------","----"
-    0x5ecf7973b960 ---------A   01810 PRINT "YOUR AGE (IF BIRTHDATE) ",I5,I6,I7
-    0x5ecf7973c410 ---------A   01820 LET A8 = (I5*365)+(I6*30)+I7+INT(I6/2)
-    0x5ecf7973c700 ---------A   01830 LET K5 = I5
-    0x5ecf7973c9f0 ---------A   01840 LET K6 = I6
-    0x5ecf7973ccf0 ---------A   01850 LET K7 = I7
-    0x5ecf7973cd70 ---------A   01860 REM CALCULATE RETIREMENT DATE.
-    0x5ecf7973d1a0 ---------A   01870 LET E = Y+65
-    0x5ecf7973d230 ---------A   01880 REM CALCULATE TIME SPENT IN THE FOLLOWING FUNCTIONS.
-    0x5ecf7973d520 ---------A   01890 LET F = .35
-    0x5ecf7973d690 ---------A   01900 PRINT "YOU HAVE SLEPT ",
-    0x5ecf7973d700 ---------A   01910 GOSUB 2340
-    0x5ecf7973d910 ---------A   01920 LET F = .17
-    0x5ecf7973da80 ---------A   01930 PRINT "YOU HAVE EATEN ",
-    0x5ecf7973daf0 ---------A   01940 GOSUB 2340
-    0x5ecf7973dd00 ---------A   01950 LET F = .23
-    0x5ecf7973df60 ---------A   01960 IF K5 > 3 THEN 1990
-    0x5ecf7973e0e0 ---------A   01970 PRINT "YOU HAVE PLAYED",
-    0x5ecf7973e160 ---------A   01980 GOTO 2030
-    0x5ecf7973e3b0 ---------A T 01990 IF K5 > 9 THEN 2020
-    0x5ecf7973e540 ---------A   02000 PRINT "YOU HAVE PLAYED/STUDIED",
-    0x5ecf7973e5c0 ---------A   02010 GOTO  2030
-    0x5ecf7973e730 ---------A T 02020 PRINT "YOU HAVE WORKED/PLAYED",
-    0x5ecf7973e7a0 ---------A T 02030 GOSUB 2340
-    0x5ecf7973e810 ---------A   02040 GOTO 2240
-    0x5ecf7973ec50 ---------A T 02050 PRINT "YOU HAVE RELAXED ",K5,K6,K7
-    0x5ecf7973ece0 ---------A   02060 PRINT 
-    0x5ecf7973f180 ---------A   02070 PRINT TAB(16);"***  YOU MAY RETIRE IN";E;" ***"
-    0x5ecf7973f1f0 ---------A T 02080 PRINT
-    0x5ecf7973f260 ---------A T 02090 PRINT
-    0x5ecf7973f2d0 ---------A   02100 PRINT
-    0x5ecf7973f340 ---------A   02110 PRINT
-    0x5ecf7973f3b0 ---------A   02120 PRINT
-    0x5ecf7973f420 ---------A   02130 PRINT
-    0x5ecf7973f470 ---------A   02140 END
-    0x5ecf7973f6d0 ---------A T 02150 IF D=13 THEN 2180
-    0x5ecf7973f830 ---------A   02160 PRINT "FRIDAY."
-    0x5ecf7973f8c0 ---------A   02170 GOTO 1640
-    0x5ecf7973fa10 ---------A T 02180 PRINT "FRIDAY THE THIRTEENTH---BEWARE!"
-    0x5ecf7973fab0 ---------A   02190 GOTO 1640
-    0x5ecf7973fc10 ---------A T 02200 PRINT "NOT PREPARED TO GIVE DAY OF WEEK PRIOR TO MDLXXXII. "
-    0x5ecf7973fcb0 ---------A T 02210 GOTO 2090
-    0x5ecf7973fd40 ---------A   02220 REM TABLE OF VALUES FOR THE MONTHS TO BE USED IN CALCULATIONS.
-    0x5ecf79740890 ---------A   02230 DATA 0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5
-    0x5ecf79744aa0 ---------A T 02240 IF K6=12 THEN 2260
-    0x5ecf79744b20 ---------A   02250 GOTO 2050
-    0x5ecf79744e40 ---------A T 02260 LET K5=K5+1
-    0x5ecf79745050 ---------A   02270 LET K6=0
-    0x5ecf797450c0 ---------A   02280 GOTO 2050
-    0x5ecf79745120 ---------A   02290 REM
-    0x5ecf79745180 ---------A   02300 END
-    0x5ecf79740920 ---------B   02310 REM THIS IS THE CURRENT DATE USED IN THE CALCULATIONS.
-    0x5ecf797409e0 ---------B   02320 REM THIS IS THE DATE TO BE CALCULATED ON.
-    0x5ecf79740aa0 ---------B   02330 REM CALCULATE TIME IN YEARS, MONTHS, AND DAYS
-    0x5ecf79740fb0 ---------B G 02340 LET K1=INT(F*A8)
-    0x5ecf797413d0 ---------B   02350 LET I5 = INT(K1/365)
-    0x5ecf79742080 ---------B   02360 LET K1 = K1- (I5*365)
-    0x5ecf797424a0 ---------B   02370 LET I6 = INT(K1/30)
-    0x5ecf79742930 ---------B   02380 LET I7 = K1 -(I6*30)
-    0x5ecf79742c80 ---------B   02390 LET K5 = K5-I5
-    0x5ecf79742fd0 ---------B   02400 LET K6 =K6-I6
-    0x5ecf79743320 ---------B   02410 LET K7 = K7-I7
-    0x5ecf79743570 ---------B   02420 IF K7>=0 THEN 2450
-    0x5ecf797438b0 ---------B   02430 LET K7=K7+30
-    0x5ecf79743be0 ---------B   02440 LET K6=K6-1
-    0x5ecf79743e30 ---------B T 02450 IF K6>0 THEN 2480
-    0x5ecf79744170 ---------B   02460 LET K6=K6+12
-    0x5ecf797444a0 ---------B   02470 LET K5=K5-1
-    0x5ecf797447f0 ---------B T 02480 PRINT I5,I6,I7
-    0x5ecf79749dd0 ---------B   02490 GOTO 02500
-    0x5ecf79749e10 ---------B T 02500 RETURN
+    0x5c7d94f536d0 ---------A   01000  PRINT TAB(32);"WEEKDAY"
+    0x5c7d94f53670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5c7d94f442b0 ---------A   01020  PRINT
+    0x5c7d94f539e0 ---------A   01030  PRINT
+    0x5c7d94f55aa0 ---------A   01040  PRINT
+    0x5c7d94f54080 ---------A   01050  PRINT "WEEKDAY IS A COMPUTER DEMONSTRATION THAT"
+    0x5c7d94f54480 ---------A   01060  PRINT"GIVES FACTS ABOUT A DATE OF INTEREST TO YOU."
+    0x5c7d94f544e0 ---------A   01070  PRINT
+    0x5c7d94f556e0 ---------A   01080  PRINT "ENTER TODAY'S DATE IN THE FORM: 3,24,1979  ";
+    0x5c7d94f5b8a0 ---------A   01090  INPUT M1,D1,Y1
+    0x5c7d94f55e70 ---------A   01100  REM THIS PROGRAM DETERMINES THE DAY OF THE WEEK
+    0x5c7d94f54b80 ---------A   01110  REM  FOR A DATE AFTER 1582
+    0x5c7d94f55ff0 ---------A   01120  DEF FNA(A)=INT(A/4)
+    0x5c7d94f560b0 ---------A   01130  DIM T(12)
+    0x5c7d94f5c5b0 ---------A   01140  DEF FNB(A)=INT(A/7)
+    0x5c7d94f5c640 ---------A   01150  REM SPACE OUTPUT AND READ IN INITIAL VALUES FOR MONTHS.
+    0x5c7d94f5c9f0 ---------A   01160  FOR I= 1 TO 12
+    0x5c7d94f5cc30 ---------A   01170  READ T(I)
+    0x5c7d94f5cd60 ---------A   01180  NEXT I
+    0x5c7d94f5cf40 ---------A   01190  PRINT"ENTER DAY OF BIRTH (OR OTHER DAY OF INTEREST)";
+    0x5c7d94f5d4a0 ---------A   01200  INPUT M,D,Y
+    0x5c7d94f5d500 ---------A   01210  PRINT
+    0x5c7d94f5db40 ---------A   01220  LET I1 = INT((Y-1500)/100)
+    0x5c7d94f5dbd0 ---------A   01230  REM TEST FOR DATE BEFORE CURRENT CALENDAR.
+    0x5c7d94f5df00 ---------A   01240  IF Y-1582 <0 THEN 2220
+    0x5c7d94f5e580 ---------A   01250  LET A = I1*5+(I1+3)/4
+    0x5c7d94f5ec50 ---------A   01260  LET I2=INT(A-FNB(A)*7)
+    0x5c7d94f5f100 ---------A   01270  LET Y2=INT(Y/100)
+    0x5c7d94f5f6d0 ---------A   01280  LET Y3 =INT(Y-Y2*100)
+    0x5c7d94f5ff70 ---------A   01290  LET A =Y3/4+Y3+D+T(M)+I2
+    0x5c7d94f60740 ---------A   01300  LET B=INT(A-FNB(A)*7)+1
+    0x5c7d94f60990 ---------A   01310  IF M > 2 THEN 1420
+    0x5c7d94f60c00 ---------A   01320  IF Y3 = 0 THEN 1390
+    0x5c7d94f612e0 ---------A   01330  LET T1=INT(Y-FNA(Y)*4)
+    0x5c7d94f61530 ---------A   01340  IF T1 <> 0 THEN 1420
+    0x5c7d94f619a0 ---------A T 01350  IF B<>0 THEN 1370
+    0x5c7d94f61bc0 ---------A   01360  LET B=6
+    0x5c7d94f61ef0 ---------A T 01370  LET B = B-1
+    0x5c7d94f61f60 ---------A   01380  GOTO 1420
+    0x5c7d94f622a0 ---------A T 01390  LET A = I1-1
+    0x5c7d94f628b0 ---------A   01400  LET T1=INT(A-FNA(A)*4)
+    0x5c7d94f62b00 ---------A   01410  IF T1 = 0 THEN 1350
+    0x5c7d94f62d60 ---------A T 01420  IF B <>0 THEN 1440
+    0x5c7d94f62fa0 ---------A   01430  LET B = 7
+    0x5c7d94f63b30 ---------A T 01440  IF (Y1*12+M1)*31+D1<(Y*12+M)*31+D THEN 1500
+    0x5c7d94f646c0 ---------A   01450  IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 1480
+    0x5c7d94f64d40 ---------A   01460  PRINT M;"/";D;"/";Y;" WAS A ";
+    0x5c7d94f64dd0 ---------A   01470  GOTO 1520
+    0x5c7d94f65440 ---------A T 01480  PRINT M;"/";D;"/";Y;" IS A ";
+    0x5c7d94f654d0 ---------A   01490  GOTO 1520
+    0x5c7d94f65b60 ---------A T 01500  PRINT M;"/";D;"/";Y;" WILL BE A ";
+    0x5c7d94f65c00 ---------A   01510  REM PRINT THE DAY OF THE WEEK THE DATE FALLS ON.
+    0x5c7d94f65e70 ---------A T 01520  IF B <>1 THEN 1540
+    0x5c7d94f65fd0 ---------A   01530  PRINT "SUNDAY."
+    0x5c7d94f66230 ---------A T 01540  IF B<>2 THEN 1560
+    0x5c7d94f66390 ---------A   01550  PRINT "MONDAY."
+    0x5c7d94f665f0 ---------A T 01560  IF B<>3 THEN 1580
+    0x5c7d94f66750 ---------A   01570  PRINT "TUESDAY."
+    0x5c7d94f669b0 ---------A T 01580  IF B<>4 THEN 1600
+    0x5c7d94f66b10 ---------A   01590  PRINT "WEDNESDAY."
+    0x5c7d94f66d70 ---------A T 01600  IF B<>5 THEN 1620
+    0x5c7d94f66ed0 ---------A   01610  PRINT "THURSDAY."
+    0x5c7d94f67130 ---------A T 01620  IF B<>6 THEN 1640
+    0x5c7d94f671b0 ---------A   01630  GOTO 2170
+    0x5c7d94f67400 ---------A T 01640  IF B<>7 THEN 1660
+    0x5c7d94f67580 ---------A   01650  PRINT "SATURDAY."
+    0x5c7d94f68100 ---------A T 01660  IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 2100
+    0x5c7d94f68930 ---------A   01670  LET I5=Y1-Y
+    0x5c7d94f689a0 ---------A   01680  PRINT
+    0x5c7d94f68dc0 ---------A   01690  LET I6=M1-M
+    0x5c7d94f691d0 ---------A   01700  LET I7=D1-D
+    0x5c7d94f69420 ---------A   01710  IF I7>=0 THEN 1740
+    0x5c7d94f69760 ---------A   01720  LET I6= I6-1
+    0x5c7d94f69a90 ---------A   01730  LET I7=I7+30
+    0x5c7d94f69ce0 ---------A T 01740  IF I6>=0 THEN 1770
+    0x5c7d94f6a020 ---------A   01750  LET I5=I5-1
+    0x5c7d94f6a350 ---------A   01760  LET I6=I6+12
+    0x5c7d94f6a5a0 ---------A T 01770  IF I5<0 THEN 2230
+    0x5c7d94f6a800 ---------A   01780  IF I7 <> 0 THEN 1810
+    0x5c7d94f6aa70 ---------A   01790  IF I6 <> 0 THEN 1810
+    0x5c7d94f6abf0 ---------A   01800  PRINT"***HAPPY BIRTHDAY***"
+    0x5c7d94f6b170 ---------A T 01810  PRINT " "," ","YEARS","MONTHS","DAYS"
+    0x5c7d94f6b6f0 ---------A   01820  PRINT " "," ","-----","------","----"
+    0x5c7d94f6bb80 ---------A   01830  PRINT "YOUR AGE (IF BIRTHDATE) ",I5,I6,I7
+    0x5c7d94f6c640 ---------A   01840  LET A8 = (I5*365)+(I6*30)+I7+INT(I6/2)
+    0x5c7d94f6c930 ---------A   01850  LET K5 = I5
+    0x5c7d94f6cc20 ---------A   01860  LET K6 = I6
+    0x5c7d94f6cf20 ---------A   01870  LET K7 = I7
+    0x5c7d94f6cfa0 ---------A   01880  REM CALCULATE RETIREMENT DATE.
+    0x5c7d94f6d3e0 ---------A   01890  LET E = Y+65
+    0x5c7d94f6d470 ---------A   01900  REM CALCULATE TIME SPENT IN THE FOLLOWING FUNCTIONS.
+    0x5c7d94f6d770 ---------A   01910  LET F = .35
+    0x5c7d94f6d8e0 ---------A   01920  PRINT "YOU HAVE SLEPT ",
+    0x5c7d94f6d960 ---------A   01930  GOSUB 2360
+    0x5c7d94f6db80 ---------A   01940  LET F = .17
+    0x5c7d94f6dcf0 ---------A   01950  PRINT "YOU HAVE EATEN ",
+    0x5c7d94f6dd70 ---------A   01960  GOSUB 2360
+    0x5c7d94f6df90 ---------A   01970  LET F = .23
+    0x5c7d94f6e1f0 ---------A   01980  IF K5 > 3 THEN 2010
+    0x5c7d94f6e370 ---------A   01990  PRINT "YOU HAVE PLAYED",
+    0x5c7d94f6e400 ---------A   02000  GOTO 2050
+    0x5c7d94f6e660 ---------A T 02010  IF K5 > 9 THEN 2040
+    0x5c7d94f6e7f0 ---------A   02020  PRINT "YOU HAVE PLAYED/STUDIED",
+    0x5c7d94f6e880 ---------A   02030  GOTO  2050
+    0x5c7d94f6ea00 ---------A T 02040  PRINT "YOU HAVE WORKED/PLAYED",
+    0x5c7d94f6ea80 ---------A T 02050  GOSUB 2360
+    0x5c7d94f6eb00 ---------A   02060  GOTO 2260
+    0x5c7d94f6ef50 ---------A T 02070  PRINT "YOU HAVE RELAXED ",K5,K6,K7
+    0x5c7d94f6eff0 ---------A   02080  PRINT 
+    0x5c7d94f6f4a0 ---------A   02090  PRINT TAB(16);"***  YOU MAY RETIRE IN";E;" ***"
+    0x5c7d94f6f520 ---------A T 02100  PRINT
+    0x5c7d94f6f5a0 ---------A T 02110  PRINT
+    0x5c7d94f6f620 ---------A   02120  PRINT
+    0x5c7d94f6f6a0 ---------A   02130  PRINT
+    0x5c7d94f6f720 ---------A   02140  PRINT
+    0x5c7d94f6f7a0 ---------A   02150  PRINT
+    0x5c7d94f6f800 ---------A   02160  END
+    0x5c7d94f6fa60 ---------A T 02170  IF D=13 THEN 2200
+    0x5c7d94f6fbc0 ---------A   02180  PRINT "FRIDAY."
+    0x5c7d94f6fc60 ---------A   02190  GOTO 1660
+    0x5c7d94f6fdc0 ---------A T 02200  PRINT "FRIDAY THE THIRTEENTH---BEWARE!"
+    0x5c7d94f6fe70 ---------A   02210  GOTO 1660
+    0x5c7d94f6ffe0 ---------A T 02220  PRINT "NOT PREPARED TO GIVE DAY OF WEEK PRIOR TO MDLXXXII. "
+    0x5c7d94f70090 ---------A T 02230  GOTO 2110
+    0x5c7d94f70130 ---------A   02240  REM TABLE OF VALUES FOR THE MONTHS TO BE USED IN CALCULATIONS.
+    0x5c7d94f70c90 ---------A   02250  DATA 0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5
+    0x5c7d94f74ee0 ---------A T 02260  IF K6=12 THEN 2280
+    0x5c7d94f74f60 ---------A   02270  GOTO 2070
+    0x5c7d94f75290 ---------A T 02280  LET K5=K5+1
+    0x5c7d94f754a0 ---------A   02290  LET K6=0
+    0x5c7d94f75510 ---------A   02300  GOTO 2070
+    0x5c7d94f75580 ---------A   02310  REM
+    0x5c7d94f755f0 ---------A   02320  END
+    0x5c7d94f70d20 ---------B   02330  REM THIS IS THE CURRENT DATE USED IN THE CALCULATIONS.
+    0x5c7d94f70df0 ---------B   02340  REM THIS IS THE DATE TO BE CALCULATED ON.
+    0x5c7d94f70ec0 ---------B   02350  REM CALCULATE TIME IN YEARS, MONTHS, AND DAYS
+    0x5c7d94f713e0 ---------B G 02360  LET K1=INT(F*A8)
+    0x5c7d94f71800 ---------B   02370  LET I5 = INT(K1/365)
+    0x5c7d94f724b0 ---------B   02380  LET K1 = K1- (I5*365)
+    0x5c7d94f728d0 ---------B   02390  LET I6 = INT(K1/30)
+    0x5c7d94f72d60 ---------B   02400  LET I7 = K1 -(I6*30)
+    0x5c7d94f730b0 ---------B   02410  LET K5 = K5-I5
+    0x5c7d94f73400 ---------B   02420  LET K6 =K6-I6
+    0x5c7d94f73750 ---------B   02430  LET K7 = K7-I7
+    0x5c7d94f739a0 ---------B   02440  IF K7>=0 THEN 2470
+    0x5c7d94f73ce0 ---------B   02450  LET K7=K7+30
+    0x5c7d94f74010 ---------B   02460  LET K6=K6-1
+    0x5c7d94f74260 ---------B T 02470  IF K6>0 THEN 2500
+    0x5c7d94f745a0 ---------B   02480  LET K6=K6+12
+    0x5c7d94f748d0 ---------B   02490  LET K5=K5-1
+    0x5c7d94f74c20 ---------B T 02500  PRINT I5,I6,I7
+    0x5c7d94f75cd0 ---------B   02510  GOTO 02520
+    0x5c7d94f80e80 ---------B T 02520  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -501,7 +831,7 @@
 //---------------------------------------------------------------------------
 // Global data area.
 //---------------------------------------------------------------------------
-char* data_02230s[]={"0","3","3","6","1","4","6","2","5","0","3","5"};
+char* data_02250s[]={"0","3","3","6","1","4","6","2","5","0","3","5"};
 //---------------------------------------------------------------------------
 
 
@@ -514,7 +844,7 @@ typedef struct{
     char** SData;
 }t_data;
 t_data ProgramData[] = {
-    { 2230, 12,data_02230s},
+    { 2250, 12,data_02250s},
     {    0,  0,nullptr       }
 };
 
@@ -562,7 +892,7 @@ char* GLBpStr=nullptr;
 //---------------------------------------------------------------------------
 // Subroutine Prototypes.
 //---------------------------------------------------------------------------
-void Routine_02340();
+void Routine_02360();
 
 //---------------------------------------------------------------------------
 // Program Functions.
@@ -613,50 +943,50 @@ int FNB(int A){
 //---------------------------------------------------------------------------
 // Routine B
 //---------------------------------------------------------------------------
-    // 02310 REM THIS IS THE CURRENT DATE USED IN THE CALCULATIONS.
-    // 02320 REM THIS IS THE DATE TO BE CALCULATED ON.
-    // 02330 REM CALCULATE TIME IN YEARS, MONTHS, AND DAYS
+    // 02330 REM THIS IS THE CURRENT DATE USED IN THE CALCULATIONS.
+    // 02340 REM THIS IS THE DATE TO BE CALCULATED ON.
+    // 02350 REM CALCULATE TIME IN YEARS, MONTHS, AND DAYS
 
-void Routine_02340(){
-    // 02340 LET K1=INT(F*A8)
+void Routine_02360(){
+    // 02360 LET K1=INT(F*A8)
     K1_int = INT(F_int*A8_int);
-    // 02350 LET I5 = INT(K1/365)
+    // 02370 LET I5 = INT(K1/365)
     I5_int = INT(K1_int/365);
-    // 02360 LET K1 = K1- (I5*365)
+    // 02380 LET K1 = K1- (I5*365)
     K1_int = K1_int-(I5_int*365);
-    // 02370 LET I6 = INT(K1/30)
+    // 02390 LET I6 = INT(K1/30)
     I6_int = INT(K1_int/30);
-    // 02380 LET I7 = K1 -(I6*30)
+    // 02400 LET I7 = K1 -(I6*30)
     I7_int = K1_int-(I6_int*30);
-    // 02390 LET K5 = K5-I5
+    // 02410 LET K5 = K5-I5
     K5_int = K5_int-I5_int;
-    // 02400 LET K6 =K6-I6
+    // 02420 LET K6 =K6-I6
     K6_int = K6_int-I6_int;
-    // 02410 LET K7 = K7-I7
+    // 02430 LET K7 = K7-I7
     K7_int = K7_int-I7_int;
-    // 02420 IF K7>=0 THEN 2450
-    if(K7_int>=0)goto Lbl_02450;
-    // 02430 LET K7=K7+30
+    // 02440 IF K7>=0 THEN 2470
+    if(K7_int>=0)goto Lbl_02470;
+    // 02450 LET K7=K7+30
     K7_int = K7_int+30;
-    // 02440 LET K6=K6-1
+    // 02460 LET K6=K6-1
     K6_int = K6_int-1;
 
-  Lbl_02450:
-    // 02450 IF K6>0 THEN 2480
-    if(K6_int>0)goto Lbl_02480;
-    // 02460 LET K6=K6+12
+  Lbl_02470:
+    // 02470 IF K6>0 THEN 2500
+    if(K6_int>0)goto Lbl_02500;
+    // 02480 LET K6=K6+12
     K6_int = K6_int+12;
-    // 02470 LET K5=K5-1
+    // 02490 LET K5=K5-1
     K5_int = K5_int-1;
 
-  Lbl_02480:
-    // 02480 PRINT I5,I6,I7
-    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,I5_int); b2c_INT(buf,I6_int); b2c_INT(buf,I7_int);strcat(buf,"\n");fputs(buf,fh); };
-    // 02490 GOTO 02500
-    goto Lbl_02500;
-
   Lbl_02500:
-    // 02500 RETURN
+    // 02500 PRINT I5,I6,I7
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,I5_int); b2c_INT(buf,I6_int); b2c_INT(buf,I7_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 02510 GOTO 02520
+    goto Lbl_02520;
+
+  Lbl_02520:
+    // 02520 RETURN
     return;
 };
 
@@ -666,3 +996,357 @@ void Routine_02340(){
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(32);"WEEKDAY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,32);strcat(buf,"WEEKDAY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 PRINT "WEEKDAY IS A COMPUTER DEMONSTRATION THAT"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WEEKDAY IS A COMPUTER DEMONSTRATION THAT");strcat(buf,"\n");fputs(buf,fh); };
+    // 01060 PRINT"GIVES FACTS ABOUT A DATE OF INTEREST TO YOU."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"GIVES FACTS ABOUT A DATE OF INTEREST TO YOU.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01080 PRINT "ENTER TODAY'S DATE IN THE FORM: 3,24,1979  ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"ENTER TODAY'S DATE IN THE FORM: 3,24,1979  ");fputs(buf,fh); };
+    // 01090 INPUT M1,D1,Y1
+    // Start of Basic INPUT statement 01090
+    {
+        int numargs=3;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&M1_int,args,0)) ||
+                (err += b2c_strtoi(&D1_int,args,1)) ||
+                (err += b2c_strtoi(&Y1_int,args,2)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01090
+    // 01100 REM THIS PROGRAM DETERMINES THE DAY OF THE WEEK
+    // 01110 REM  FOR A DATE AFTER 1582
+    // 01120 DEF FNA(A)=INT(A/4)
+    // 01130 DIM T(12)
+    // 01140 DEF FNB(A)=INT(A/7)
+    // 01150 REM SPACE OUTPUT AND READ IN INITIAL VALUES FOR MONTHS.
+    // 01160 FOR I= 1 TO 12
+    for(I_int=1;I_int<=12;I_int++){
+        // 01170 READ T(I)
+        T_int_arr[I_int] = Get_Data_Int();
+        // 01180 NEXT I
+        int dummy_1180=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 01190 PRINT"ENTER DAY OF BIRTH (OR OTHER DAY OF INTEREST)";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"ENTER DAY OF BIRTH (OR OTHER DAY OF INTEREST)");fputs(buf,fh); };
+    // 01200 INPUT M,D,Y
+    // Start of Basic INPUT statement 01200
+    {
+        int numargs=3;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&M_int,args,0)) ||
+                (err += b2c_strtoi(&D_int,args,1)) ||
+                (err += b2c_strtoi(&Y_int,args,2)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01200
+    // 01210 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01220 LET I1 = INT((Y-1500)/100)
+    I1_int = INT((Y_int-1500)/100);
+    // 01230 REM TEST FOR DATE BEFORE CURRENT CALENDAR.
+    // 01240 IF Y-1582 <0 THEN 2220
+    if(Y_int-1582<0)goto Lbl_02220;
+    // 01250 LET A = I1*5+(I1+3)/4
+    A_int = I1_int*5+(I1_int+3)/4;
+    // 01260 LET I2=INT(A-FNB(A)*7)
+    I2_int = INT(A_int-FNB_int_arr[A_int]*7);
+    // 01270 LET Y2=INT(Y/100)
+    Y2_int = INT(Y_int/100);
+    // 01280 LET Y3 =INT(Y-Y2*100)
+    Y3_int = INT(Y_int-Y2_int*100);
+    // 01290 LET A =Y3/4+Y3+D+T(M)+I2
+    A_int = Y3_int/4+Y3_int+D_int+T_int_arr[M_int]+I2_int;
+    // 01300 LET B=INT(A-FNB(A)*7)+1
+    B_int = INT(A_int-FNB_int_arr[A_int]*7)+1;
+    // 01310 IF M > 2 THEN 1420
+    if(M_int>2)goto Lbl_01420;
+    // 01320 IF Y3 = 0 THEN 1390
+    if(Y3_int==0)goto Lbl_01390;
+    // 01330 LET T1=INT(Y-FNA(Y)*4)
+    T1_int = INT(Y_int-FNA_int_arr[Y_int]*4);
+    // 01340 IF T1 <> 0 THEN 1420
+    if(T1_int!=0)goto Lbl_01420;
+
+  Lbl_01350:
+    // 01350 IF B<>0 THEN 1370
+    if(B_int!=0)goto Lbl_01370;
+    // 01360 LET B=6
+    B_int = 6;
+
+  Lbl_01370:
+    // 01370 LET B = B-1
+    B_int = B_int-1;
+    // 01380 GOTO 1420
+    goto Lbl_01420;
+
+  Lbl_01390:
+    // 01390 LET A = I1-1
+    A_int = I1_int-1;
+    // 01400 LET T1=INT(A-FNA(A)*4)
+    T1_int = INT(A_int-FNA_int_arr[A_int]*4);
+    // 01410 IF T1 = 0 THEN 1350
+    if(T1_int==0)goto Lbl_01350;
+
+  Lbl_01420:
+    // 01420 IF B <>0 THEN 1440
+    if(B_int!=0)goto Lbl_01440;
+    // 01430 LET B = 7
+    B_int = 7;
+
+  Lbl_01440:
+    // 01440 IF (Y1*12+M1)*31+D1<(Y*12+M)*31+D THEN 1500
+    if((Y1_int*12+M1_int)*31+D1_int<(Y_int*12+M_int)*31+D_int)goto Lbl_01500;
+    // 01450 IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 1480
+    if((Y1_int*12+M1_int)*31+D1_int==(Y_int*12+M_int)*31+D_int)goto Lbl_01480;
+    // 01460 PRINT M;"/";D;"/";Y;" WAS A ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,M_int);strcat(buf,"/"); b2c_INT(buf,D_int);strcat(buf,"/"); b2c_INT(buf,Y_int);strcat(buf," WAS A ");fputs(buf,fh); };
+    // 01470 GOTO 1520
+    goto Lbl_01520;
+
+  Lbl_01480:
+    // 01480 PRINT M;"/";D;"/";Y;" IS A ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,M_int);strcat(buf,"/"); b2c_INT(buf,D_int);strcat(buf,"/"); b2c_INT(buf,Y_int);strcat(buf," IS A ");fputs(buf,fh); };
+    // 01490 GOTO 1520
+    goto Lbl_01520;
+
+  Lbl_01500:
+    // 01500 PRINT M;"/";D;"/";Y;" WILL BE A ";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,M_int);strcat(buf,"/"); b2c_INT(buf,D_int);strcat(buf,"/"); b2c_INT(buf,Y_int);strcat(buf," WILL BE A ");fputs(buf,fh); };
+    // 01510 REM PRINT THE DAY OF THE WEEK THE DATE FALLS ON.
+
+  Lbl_01520:
+    // 01520 IF B <>1 THEN 1540
+    if(B_int!=1)goto Lbl_01540;
+    // 01530 PRINT "SUNDAY."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SUNDAY.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01540:
+    // 01540 IF B<>2 THEN 1560
+    if(B_int!=2)goto Lbl_01560;
+    // 01550 PRINT "MONDAY."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"MONDAY.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01560:
+    // 01560 IF B<>3 THEN 1580
+    if(B_int!=3)goto Lbl_01580;
+    // 01570 PRINT "TUESDAY."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TUESDAY.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01580:
+    // 01580 IF B<>4 THEN 1600
+    if(B_int!=4)goto Lbl_01600;
+    // 01590 PRINT "WEDNESDAY."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WEDNESDAY.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01600:
+    // 01600 IF B<>5 THEN 1620
+    if(B_int!=5)goto Lbl_01620;
+    // 01610 PRINT "THURSDAY."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THURSDAY.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01620:
+    // 01620 IF B<>6 THEN 1640
+    if(B_int!=6)goto Lbl_01640;
+    // 01630 GOTO 2170
+    goto Lbl_02170;
+
+  Lbl_01640:
+    // 01640 IF B<>7 THEN 1660
+    if(B_int!=7)goto Lbl_01660;
+    // 01650 PRINT "SATURDAY."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SATURDAY.");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01660:
+    // 01660 IF (Y1*12+M1)*31+D1=(Y*12+M)*31+D THEN 2100
+    if((Y1_int*12+M1_int)*31+D1_int==(Y_int*12+M_int)*31+D_int)goto Lbl_02100;
+    // 01670 LET I5=Y1-Y
+    I5_int = Y1_int-Y_int;
+    // 01680 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01690 LET I6=M1-M
+    I6_int = M1_int-M_int;
+    // 01700 LET I7=D1-D
+    I7_int = D1_int-D_int;
+    // 01710 IF I7>=0 THEN 1740
+    if(I7_int>=0)goto Lbl_01740;
+    // 01720 LET I6= I6-1
+    I6_int = I6_int-1;
+    // 01730 LET I7=I7+30
+    I7_int = I7_int+30;
+
+  Lbl_01740:
+    // 01740 IF I6>=0 THEN 1770
+    if(I6_int>=0)goto Lbl_01770;
+    // 01750 LET I5=I5-1
+    I5_int = I5_int-1;
+    // 01760 LET I6=I6+12
+    I6_int = I6_int+12;
+
+  Lbl_01770:
+    // 01770 IF I5<0 THEN 2230
+    if(I5_int<0)goto Lbl_02230;
+    // 01780 IF I7 <> 0 THEN 1810
+    if(I7_int!=0)goto Lbl_01810;
+    // 01790 IF I6 <> 0 THEN 1810
+    if(I6_int!=0)goto Lbl_01810;
+    // 01800 PRINT"***HAPPY BIRTHDAY***"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"***HAPPY BIRTHDAY***");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01810:
+    // 01810 PRINT " "," ","YEARS","MONTHS","DAYS"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," ");strcat(buf," ");strcat(buf,"YEARS");strcat(buf,"MONTHS");strcat(buf,"DAYS");strcat(buf,"\n");fputs(buf,fh); };
+    // 01820 PRINT " "," ","-----","------","----"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," ");strcat(buf," ");strcat(buf,"-----");strcat(buf,"------");strcat(buf,"----");strcat(buf,"\n");fputs(buf,fh); };
+    // 01830 PRINT "YOUR AGE (IF BIRTHDATE) ",I5,I6,I7
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR AGE (IF BIRTHDATE) "); b2c_INT(buf,I5_int); b2c_INT(buf,I6_int); b2c_INT(buf,I7_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 01840 LET A8 = (I5*365)+(I6*30)+I7+INT(I6/2)
+    A8_int = (I5_int*365)+(I6_int*30)+I7_int+INT(I6_int/2);
+    // 01850 LET K5 = I5
+    K5_int = I5_int;
+    // 01860 LET K6 = I6
+    K6_int = I6_int;
+    // 01870 LET K7 = I7
+    K7_int = I7_int;
+    // 01880 REM CALCULATE RETIREMENT DATE.
+    // 01890 LET E = Y+65
+    E_int = Y_int+65;
+    // 01900 REM CALCULATE TIME SPENT IN THE FOLLOWING FUNCTIONS.
+    // 01910 LET F = .35
+    F_int = 0.35;
+    // 01920 PRINT "YOU HAVE SLEPT ",
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE SLEPT ");fputs(buf,fh); };
+    // 01930 GOSUB 2360
+    Routine_02360();
+    // 01940 LET F = .17
+    F_int = 0.17;
+    // 01950 PRINT "YOU HAVE EATEN ",
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE EATEN ");fputs(buf,fh); };
+    // 01960 GOSUB 2360
+    Routine_02360();
+    // 01970 LET F = .23
+    F_int = 0.23;
+    // 01980 IF K5 > 3 THEN 2010
+    if(K5_int>3)goto Lbl_02010;
+    // 01990 PRINT "YOU HAVE PLAYED",
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE PLAYED");fputs(buf,fh); };
+    // 02000 GOTO 2050
+    goto Lbl_02050;
+
+  Lbl_02010:
+    // 02010 IF K5 > 9 THEN 2040
+    if(K5_int>9)goto Lbl_02040;
+    // 02020 PRINT "YOU HAVE PLAYED/STUDIED",
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE PLAYED/STUDIED");fputs(buf,fh); };
+    // 02030 GOTO  2050
+    goto Lbl_02050;
+
+  Lbl_02040:
+    // 02040 PRINT "YOU HAVE WORKED/PLAYED",
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE WORKED/PLAYED");fputs(buf,fh); };
+
+  Lbl_02050:
+    // 02050 GOSUB 2360
+    Routine_02360();
+    // 02060 GOTO 2260
+    goto Lbl_02260;
+
+  Lbl_02070:
+    // 02070 PRINT "YOU HAVE RELAXED ",K5,K6,K7
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU HAVE RELAXED "); b2c_INT(buf,K5_int); b2c_INT(buf,K6_int); b2c_INT(buf,K7_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 02080 PRINT 
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 02090 PRINT TAB(16);"***  YOU MAY RETIRE IN";E;" ***"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,16);strcat(buf,"***  YOU MAY RETIRE IN"); b2c_INT(buf,E_int);strcat(buf," ***");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_02100:
+    // 02100 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_02110:
+    // 02110 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 02120 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 02130 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 02140 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 02150 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 02160 END
+
+  Lbl_02170:
+    // 02170 IF D=13 THEN 2200
+    if(D_int==13)goto Lbl_02200;
+    // 02180 PRINT "FRIDAY."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"FRIDAY.");strcat(buf,"\n");fputs(buf,fh); };
+    // 02190 GOTO 1660
+    goto Lbl_01660;
+
+  Lbl_02200:
+    // 02200 PRINT "FRIDAY THE THIRTEENTH---BEWARE!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"FRIDAY THE THIRTEENTH---BEWARE!");strcat(buf,"\n");fputs(buf,fh); };
+    // 02210 GOTO 1660
+    goto Lbl_01660;
+
+  Lbl_02220:
+    // 02220 PRINT "NOT PREPARED TO GIVE DAY OF WEEK PRIOR TO MDLXXXII. "
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"NOT PREPARED TO GIVE DAY OF WEEK PRIOR TO MDLXXXII. ");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_02230:
+    // 02230 GOTO 2110
+    goto Lbl_02110;
+    // 02240 REM TABLE OF VALUES FOR THE MONTHS TO BE USED IN CALCULATIONS.
+    // 02250 DATA 0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5
+
+  Lbl_02260:
+    // 02260 IF K6=12 THEN 2280
+    if(K6_int==12)goto Lbl_02280;
+    // 02270 GOTO 2070
+    goto Lbl_02070;
+
+  Lbl_02280:
+    // 02280 LET K5=K5+1
+    K5_int = K5_int+1;
+    // 02290 LET K6=0
+    K6_int = 0;
+    // 02300 GOTO 2070
+    goto Lbl_02070;
+    // 02310 REM
+    // 02320 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

@@ -8,35 +8,35 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5ec862ed5b80 ---------A   00010 PRINT TAB(34);"HI LO"
-    0x5ec862ed6ed0 ---------A   00020 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5ec862ed7050 ---------A   00030 PRINT:PRINT:PRINT
-    0x5ec862ed6580 ---------A   00100 PRINT "THIS IS THE GAME OF HI LO.":PRINT
-    0x5ec862ed5040 ---------A   00110 PRINT "YOU WILL HAVE 6 TRIES TO GUESS THE AMOUNT OF MONEY IN THE"
-    0x5ec862ed5480 ---------A   00120 PRINT "HI LO JACKPOT, WHICH IS BETWEEN 1 AND 100 DOLLARS.  IF YOU"
-    0x5ec862ed4be0 ---------A   00130 PRINT "GUESS THE AMOUNT, YOU WIN ALL THE MONEY IN THE JACKPOT!"
-    0x5ec862ed7130 ---------A   00140 PRINT "THEN YOU GET ANOTHER CHANCE TO WIN MORE MONEY.  HOWEVER,"
-    0x5ec862ed5730 ---------A   00150 PRINT "IF YOU DO NOT GUESS THE AMOUNT, THE GAME ENDS.":PRINT
-    0x5ec862ed5090 ---------A   00160 R=0
-    0x5ec862edcb30 ---------A T 00170 B=0:PRINT
-    0x5ec862edd120 ---------A   00180 Y=INT(100*RND(1)+1)
-    0x5ec862edd290 ---------A T 00200 PRINT "YOUR GUESS";
-    0x5ec862ed46d0 ---------A   00210 INPUT A
-    0x5ec862edd780 ---------A   00220 B=B+1
-    0x5ec862ed4670 ---------A   00230 IF A=Y THEN 300
-    0x5ec862eddc30 ---------A   00240 IF A>Y THEN 270
-    0x5ec862eddda0 ---------A   00250 PRINT "YOUR GUESS IS TOO LOW.":GOTO 280
-    0x5ec862eddea0 ---------A T 00270 PRINT "YOUR GUESS IS TOO HIGH."
-    0x5ec862ede160 ---------A T 00280 PRINT:IF B<6 THEN 200
-    0x5ec862ede3e0 ---------A   00290 PRINT "YOU BLEW IT...TOO BAD...THE NUMBER WAS";Y
-    0x5ec862ede660 ---------A   00295 R=0:GOTO 350
-    0x5ec862ede980 ---------A T 00300 PRINT "GOT IT!!!!!!!!!!   YOU WIN";Y;"DOLLARS."
-    0x5ec862edecf0 ---------A   00310 R=R+Y
-    0x5ec862edf040 ---------A   00320 PRINT "YOUR TOTAL WINNINGS ARE NOW";R;"DOLLARS."
-    0x5ec862edf220 ---------A T 00350 PRINT:PRINT "PLAY AGAIN (YES OR NO)";
-    0x5ec862edf6c0 ---------A   00360 INPUT A$:IF A$="YES" THEN 170
-    0x5ec862edf890 ---------A   00380 PRINT:PRINT "SO LONG.  HOPE YOU ENJOYED YOURSELF!!!"
-    0x5ec862edf8e0 ---------A   00390 END
+    0x62be3af596d0 ---------A   00010  PRINT TAB(34);"HI LO"
+    0x62be3af59670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x62be3af4a2b0 ---------A   00030  PRINT:PRINT:PRINT
+    0x62be3af5baa0 ---------A   00100  PRINT "THIS IS THE GAME OF HI LO.":PRINT
+    0x62be3af5a040 ---------A   00110  PRINT "YOU WILL HAVE 6 TRIES TO GUESS THE AMOUNT OF MONEY IN THE"
+    0x62be3af59e90 ---------A   00120  PRINT "HI LO JACKPOT, WHICH IS BETWEEN 1 AND 100 DOLLARS.  IF YOU"
+    0x62be3af5b6d0 ---------A   00130  PRINT "GUESS THE AMOUNT, YOU WIN ALL THE MONEY IN THE JACKPOT!"
+    0x62be3af5c0f0 ---------A   00140  PRINT "THEN YOU GET ANOTHER CHANCE TO WIN MORE MONEY.  HOWEVER,"
+    0x62be3af5a6c0 ---------A   00150  PRINT "IF YOU DO NOT GUESS THE AMOUNT, THE GAME ENDS.":PRINT
+    0x62be3af5bf90 ---------A   00160  R=0
+    0x62be3af61b30 ---------A T 00170  B=0:PRINT
+    0x62be3af62190 ---------A   00180  Y=INT(100*RND(1)+1)
+    0x62be3af62300 ---------A T 00200  PRINT "YOUR GUESS";
+    0x62be3af62520 ---------A   00210  INPUT A
+    0x62be3af62860 ---------A   00220  B=B+1
+    0x62be3af62ad0 ---------A   00230  IF A=Y THEN 300
+    0x62be3af62d70 ---------A   00240  IF A>Y THEN 270
+    0x62be3af62ef0 ---------A   00250  PRINT "YOUR GUESS IS TOO LOW.":GOTO 280
+    0x62be3af63000 ---------A T 00270  PRINT "YOUR GUESS IS TOO HIGH."
+    0x62be3af632e0 ---------A T 00280  PRINT:IF B<6 THEN 200
+    0x62be3af63560 ---------A   00290  PRINT "YOU BLEW IT...TOO BAD...THE NUMBER WAS";Y
+    0x62be3af637f0 ---------A   00295  R=0:GOTO 350
+    0x62be3af63b20 ---------A T 00300  PRINT "GOT IT!!!!!!!!!!   YOU WIN";Y;"DOLLARS."
+    0x62be3af63ea0 ---------A   00310  R=R+Y
+    0x62be3af641f0 ---------A   00320  PRINT "YOUR TOTAL WINNINGS ARE NOW";R;"DOLLARS."
+    0x62be3af643f0 ---------A T 00350  PRINT:PRINT "PLAY AGAIN (YES OR NO)";
+    0x62be3af648a0 ---------A   00360  INPUT A$:IF A$="YES" THEN 170
+    0x62be3af64a80 ---------A   00380  PRINT:PRINT "SO LONG.  HOPE YOU ENJOYED YOURSELF!!!"
+    0x62be3af64ae0 ---------A   00390  END
  */
 
 /*
@@ -61,9 +61,113 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x5ec862ed5b80 (00010)   0x5ec862ed5b80 (00010)   0x5ec862edf8e0 (00390)   0x5ec862edf8e0 (00390)   
+   A) 0x62be3af596d0 (00010)   0x62be3af596d0 (00010)   0x62be3af64ae0 (00390)   0x62be3af64ae0 (00390)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/hilo.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x62be3af596d0 ---------A   00010  PRINT TAB(34);"HI LO"
+    0x62be3af59670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x62be3af5afc0 ----------   00030  PRINT
+    0x62be3af5a2d0 ----------        a PRINT
+    0x62be3af4a2b0 ---------A        b PRINT
+    0x62be3af5ba40 ----------   00100  PRINT "THIS IS THE GAME OF HI LO."
+    0x62be3af5baa0 ---------A        a PRINT
+    0x62be3af5a040 ---------A   00110  PRINT "YOU WILL HAVE 6 TRIES TO GUESS THE AMOUNT OF MONEY IN THE"
+    0x62be3af59e90 ---------A   00120  PRINT "HI LO JACKPOT, WHICH IS BETWEEN 1 AND 100 DOLLARS.  IF YOU"
+    0x62be3af5b6d0 ---------A   00130  PRINT "GUESS THE AMOUNT, YOU WIN ALL THE MONEY IN THE JACKPOT!"
+    0x62be3af5c0f0 ---------A   00140  PRINT "THEN YOU GET ANOTHER CHANCE TO WIN MORE MONEY.  HOWEVER,"
+    0x62be3af5a660 ----------   00150  PRINT "IF YOU DO NOT GUESS THE AMOUNT, THE GAME ENDS."
+    0x62be3af5a6c0 ---------A        a PRINT
+    0x62be3af5bf90 ---------A   00160  R=0
+    0x62be3af61ae0 ---------- T 00170  B=0
+    0x62be3af61b30 ---------A T      a PRINT
+    0x62be3af62190 ---------A   00180  Y=INT(100*RND(1)+1)
+    0x62be3af62300 ---------A T 00200  PRINT "YOUR GUESS";
+    0x62be3af62520 ---------A   00210  INPUT A
+    0x62be3af62860 ---------A   00220  B=B+1
+    0x62be3af62ad0 ---------A   00230  IF A=Y THEN 300
+    0x62be3af62d70 ---------A   00240  IF A>Y THEN 270
+    0x62be3af62e90 ----------   00250  PRINT "YOUR GUESS IS TOO LOW."
+    0x62be3af62ef0 ---------A        a GOTO 280
+    0x62be3af63000 ---------A T 00270  PRINT "YOUR GUESS IS TOO HIGH."
+    0x62be3af63060 ---------- T 00280  PRINT
+    0x62be3af632e0 ---------A T      a IF B<6 THEN 200
+    0x62be3af63560 ---------A   00290  PRINT "YOU BLEW IT...TOO BAD...THE NUMBER WAS";Y
+    0x62be3af63760 ----------   00295  R=0
+    0x62be3af637f0 ---------A        a GOTO 350
+    0x62be3af63b20 ---------A T 00300  PRINT "GOT IT!!!!!!!!!!   YOU WIN";Y;"DOLLARS."
+    0x62be3af63ea0 ---------A   00310  R=R+Y
+    0x62be3af641f0 ---------A   00320  PRINT "YOUR TOTAL WINNINGS ARE NOW";R;"DOLLARS."
+    0x62be3af64250 ---------- T 00350  PRINT
+    0x62be3af643f0 ---------A T      a PRINT "PLAY AGAIN (YES OR NO)";
+    0x62be3af645f0 ----------   00360  INPUT A$
+    0x62be3af648a0 ---------A        a IF A$="YES" THEN 170
+    0x62be3af64900 ----------   00380  PRINT
+    0x62be3af64a80 ---------A        a PRINT "SO LONG.  HOPE YOU ENJOYED YOURSELF!!!"
+    0x62be3af64ae0 ---------A   00390  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/hilo.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x62be3af596d0 ---------A   01000  PRINT TAB(34);"HI LO"
+    0x62be3af59670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x62be3af5afc0 ----------   01020  PRINT
+    0x62be3af5a2d0 ----------   01030  PRINT
+    0x62be3af4a2b0 ---------A   01040  PRINT
+    0x62be3af5ba40 ----------   01050  PRINT "THIS IS THE GAME OF HI LO."
+    0x62be3af5baa0 ---------A   01060  PRINT
+    0x62be3af5a040 ---------A   01070  PRINT "YOU WILL HAVE 6 TRIES TO GUESS THE AMOUNT OF MONEY IN THE"
+    0x62be3af59e90 ---------A   01080  PRINT "HI LO JACKPOT, WHICH IS BETWEEN 1 AND 100 DOLLARS.  IF YOU"
+    0x62be3af5b6d0 ---------A   01090  PRINT "GUESS THE AMOUNT, YOU WIN ALL THE MONEY IN THE JACKPOT!"
+    0x62be3af5c0f0 ---------A   01100  PRINT "THEN YOU GET ANOTHER CHANCE TO WIN MORE MONEY.  HOWEVER,"
+    0x62be3af5a660 ----------   01110  PRINT "IF YOU DO NOT GUESS THE AMOUNT, THE GAME ENDS."
+    0x62be3af5a6c0 ---------A   01120  PRINT
+    0x62be3af5bf90 ---------A   01130  R=0
+    0x62be3af61ae0 ----------   01140  B=0
+    0x62be3af61b30 ---------A   01150  PRINT
+    0x62be3af62190 ---------A   01160  Y=INT(100*RND(1)+1)
+    0x62be3af62300 ---------A   01170  PRINT "YOUR GUESS";
+    0x62be3af62520 ---------A   01180  INPUT A
+    0x62be3af62860 ---------A   01190  B=B+1
+    0x62be3af62ad0 ---------A   01200  IF A=Y THEN 1300
+    0x62be3af62d70 ---------A   01210  IF A>Y THEN 1240
+    0x62be3af62e90 ----------   01220  PRINT "YOUR GUESS IS TOO LOW."
+    0x62be3af62ef0 ---------A   01230  GOTO 1260
+    0x62be3af63000 ---------A   01240  PRINT "YOUR GUESS IS TOO HIGH."
+    0x62be3af63060 ----------   01250  PRINT
+    0x62be3af632e0 ---------A   01260  IF B<6 THEN 1170
+    0x62be3af63560 ---------A   01270  PRINT "YOU BLEW IT...TOO BAD...THE NUMBER WAS";Y
+    0x62be3af63760 ----------   01280  R=0
+    0x62be3af637f0 ---------A   01290  GOTO 1340
+    0x62be3af63b20 ---------A   01300  PRINT "GOT IT!!!!!!!!!!   YOU WIN";Y;"DOLLARS."
+    0x62be3af63ea0 ---------A   01310  R=R+Y
+    0x62be3af641f0 ---------A   01320  PRINT "YOUR TOTAL WINNINGS ARE NOW";R;"DOLLARS."
+    0x62be3af64250 ----------   01330  PRINT
+    0x62be3af643f0 ---------A   01340  PRINT "PLAY AGAIN (YES OR NO)";
+    0x62be3af645f0 ----------   01350  INPUT A$
+    0x62be3af648a0 ---------A   01360  IF A$="YES" THEN 1150
+    0x62be3af64900 ----------   01370  PRINT
+    0x62be3af64a80 ---------A   01380  PRINT "SO LONG.  HOPE YOU ENJOYED YOURSELF!!!"
+    0x62be3af64ae0 ---------A   01390  END
  */
 
 
@@ -74,7 +178,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01290 - 10000    8720 
+     01400 - 10000    8610 
 
  */
 
@@ -161,35 +265,46 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5ec862ed5b80 ---------A   01000 PRINT TAB(34);"HI LO"
-    0x5ec862ed6ed0 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5ec862ed7050 ---------A   01020 PRINT:PRINT:PRINT
-    0x5ec862ed6580 ---------A   01030 PRINT "THIS IS THE GAME OF HI LO.":PRINT
-    0x5ec862ed5040 ---------A   01040 PRINT "YOU WILL HAVE 6 TRIES TO GUESS THE AMOUNT OF MONEY IN THE"
-    0x5ec862ed5480 ---------A   01050 PRINT "HI LO JACKPOT, WHICH IS BETWEEN 1 AND 100 DOLLARS.  IF YOU"
-    0x5ec862ed4be0 ---------A   01060 PRINT "GUESS THE AMOUNT, YOU WIN ALL THE MONEY IN THE JACKPOT!"
-    0x5ec862ed7130 ---------A   01070 PRINT "THEN YOU GET ANOTHER CHANCE TO WIN MORE MONEY.  HOWEVER,"
-    0x5ec862ed5730 ---------A   01080 PRINT "IF YOU DO NOT GUESS THE AMOUNT, THE GAME ENDS.":PRINT
-    0x5ec862ed5090 ---------A   01090 R=0
-    0x5ec862edcb30 ---------A T 01100 B=0:PRINT
-    0x5ec862edd120 ---------A   01110 Y=INT(100*RND(1)+1)
-    0x5ec862edd290 ---------A T 01120 PRINT "YOUR GUESS";
-    0x5ec862ed46d0 ---------A   01130 INPUT A
-    0x5ec862edd780 ---------A   01140 B=B+1
-    0x5ec862ed4670 ---------A   01150 IF A=Y THEN 1220
-    0x5ec862eddc30 ---------A   01160 IF A>Y THEN 1180
-    0x5ec862eddda0 ---------A   01170 PRINT "YOUR GUESS IS TOO LOW.":GOTO 1190
-    0x5ec862eddea0 ---------A T 01180 PRINT "YOUR GUESS IS TOO HIGH."
-    0x5ec862ede160 ---------A T 01190 PRINT:IF B<6 THEN 1120
-    0x5ec862ede3e0 ---------A   01200 PRINT "YOU BLEW IT...TOO BAD...THE NUMBER WAS";Y
-    0x5ec862ede660 ---------A   01210 R=0:GOTO 1250
-    0x5ec862ede980 ---------A T 01220 PRINT "GOT IT!!!!!!!!!!   YOU WIN";Y;"DOLLARS."
-    0x5ec862edecf0 ---------A   01230 R=R+Y
-    0x5ec862edf040 ---------A   01240 PRINT "YOUR TOTAL WINNINGS ARE NOW";R;"DOLLARS."
-    0x5ec862edf220 ---------A T 01250 PRINT:PRINT "PLAY AGAIN (YES OR NO)";
-    0x5ec862edf6c0 ---------A   01260 INPUT A$:IF A$="YES" THEN 1100
-    0x5ec862edf890 ---------A   01270 PRINT:PRINT "SO LONG.  HOPE YOU ENJOYED YOURSELF!!!"
-    0x5ec862edf8e0 ---------A   01280 END
+    0x62be3af596d0 ---------A   01000  PRINT TAB(34);"HI LO"
+    0x62be3af59670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x62be3af5afc0 ---------A   01020  PRINT
+    0x62be3af5a2d0 ---------A   01030  PRINT
+    0x62be3af4a2b0 ---------A   01040  PRINT
+    0x62be3af5ba40 ---------A   01050  PRINT "THIS IS THE GAME OF HI LO."
+    0x62be3af5baa0 ---------A   01060  PRINT
+    0x62be3af5a040 ---------A   01070  PRINT "YOU WILL HAVE 6 TRIES TO GUESS THE AMOUNT OF MONEY IN THE"
+    0x62be3af59e90 ---------A   01080  PRINT "HI LO JACKPOT, WHICH IS BETWEEN 1 AND 100 DOLLARS.  IF YOU"
+    0x62be3af5b6d0 ---------A   01090  PRINT "GUESS THE AMOUNT, YOU WIN ALL THE MONEY IN THE JACKPOT!"
+    0x62be3af5c0f0 ---------A   01100  PRINT "THEN YOU GET ANOTHER CHANCE TO WIN MORE MONEY.  HOWEVER,"
+    0x62be3af5a660 ---------A   01110  PRINT "IF YOU DO NOT GUESS THE AMOUNT, THE GAME ENDS."
+    0x62be3af5a6c0 ---------A   01120  PRINT
+    0x62be3af5bf90 ---------A   01130  R=0
+    0x62be3af61ae0 ---------A   01140  B=0
+    0x62be3af61b30 ---------A T 01150  PRINT
+    0x62be3af62190 ---------A   01160  Y=INT(100*RND(1)+1)
+    0x62be3af62300 ---------A T 01170  PRINT "YOUR GUESS";
+    0x62be3af62520 ---------A   01180  INPUT A
+    0x62be3af62860 ---------A   01190  B=B+1
+    0x62be3af62ad0 ---------A   01200  IF A=Y THEN 1300
+    0x62be3af62d70 ---------A   01210  IF A>Y THEN 1240
+    0x62be3af62e90 ---------A   01220  PRINT "YOUR GUESS IS TOO LOW."
+    0x62be3af62ef0 ---------A   01230  GOTO 1260
+    0x62be3af63000 ---------A T 01240  PRINT "YOUR GUESS IS TOO HIGH."
+    0x62be3af63060 ---------A   01250  PRINT
+    0x62be3af632e0 ---------A T 01260  IF B<6 THEN 1170
+    0x62be3af63560 ---------A   01270  PRINT "YOU BLEW IT...TOO BAD...THE NUMBER WAS";Y
+    0x62be3af63760 ---------A   01280  R=0
+    0x62be3af637f0 ---------A   01290  GOTO 1340
+    0x62be3af63b20 ---------A T 01300  PRINT "GOT IT!!!!!!!!!!   YOU WIN";Y;"DOLLARS."
+    0x62be3af63ea0 ---------A   01310  R=R+Y
+    0x62be3af641f0 ---------A   01320  PRINT "YOUR TOTAL WINNINGS ARE NOW";R;"DOLLARS."
+    0x62be3af64250 ---------A   01330  PRINT
+    0x62be3af643f0 ---------A T 01340  PRINT "PLAY AGAIN (YES OR NO)";
+    0x62be3af645f0 ---------A   01350  INPUT A$
+    0x62be3af648a0 ---------A   01360  IF A$="YES" THEN 1150
+    0x62be3af64900 ---------A   01370  PRINT
+    0x62be3af64a80 ---------A   01380  PRINT "SO LONG.  HOPE YOU ENJOYED YOURSELF!!!"
+    0x62be3af64ae0 ---------A   01390  END
  */
 
 //---------------------------------------------------------------------------
@@ -284,3 +399,132 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(34);"HI LO"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,34);strcat(buf,"HI LO");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 PRINT "THIS IS THE GAME OF HI LO."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THIS IS THE GAME OF HI LO.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01060 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 PRINT "YOU WILL HAVE 6 TRIES TO GUESS THE AMOUNT OF MONEY IN THE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU WILL HAVE 6 TRIES TO GUESS THE AMOUNT OF MONEY IN THE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01080 PRINT "HI LO JACKPOT, WHICH IS BETWEEN 1 AND 100 DOLLARS.  IF YOU"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HI LO JACKPOT, WHICH IS BETWEEN 1 AND 100 DOLLARS.  IF YOU");strcat(buf,"\n");fputs(buf,fh); };
+    // 01090 PRINT "GUESS THE AMOUNT, YOU WIN ALL THE MONEY IN THE JACKPOT!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"GUESS THE AMOUNT, YOU WIN ALL THE MONEY IN THE JACKPOT!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT "THEN YOU GET ANOTHER CHANCE TO WIN MORE MONEY.  HOWEVER,"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THEN YOU GET ANOTHER CHANCE TO WIN MORE MONEY.  HOWEVER,");strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 PRINT "IF YOU DO NOT GUESS THE AMOUNT, THE GAME ENDS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"IF YOU DO NOT GUESS THE AMOUNT, THE GAME ENDS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01120 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01130 R=0
+    R_int = 0;
+    // 01140 B=0
+    B_int = 0;
+
+  Lbl_01150:
+    // 01150 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01160 Y=INT(100*RND(1)+1)
+    Y_int = INT(100*RND(1)+1);
+
+  Lbl_01170:
+    // 01170 PRINT "YOUR GUESS";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR GUESS");fputs(buf,fh); };
+    // 01180 INPUT A
+    // Start of Basic INPUT statement 01180
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&A_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01180
+    // 01190 B=B+1
+    B_int = B_int+1;
+    // 01200 IF A=Y THEN 1300
+    if(A_int==Y_int)goto Lbl_01300;
+    // 01210 IF A>Y THEN 1240
+    if(A_int>Y_int)goto Lbl_01240;
+    // 01220 PRINT "YOUR GUESS IS TOO LOW."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR GUESS IS TOO LOW.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01230 GOTO 1260
+    goto Lbl_01260;
+
+  Lbl_01240:
+    // 01240 PRINT "YOUR GUESS IS TOO HIGH."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR GUESS IS TOO HIGH.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01250 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01260:
+    // 01260 IF B<6 THEN 1170
+    if(B_int<6)goto Lbl_01170;
+    // 01270 PRINT "YOU BLEW IT...TOO BAD...THE NUMBER WAS";Y
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU BLEW IT...TOO BAD...THE NUMBER WAS"); b2c_INT(buf,Y_int);strcat(buf,"\n");fputs(buf,fh); };
+    // 01280 R=0
+    R_int = 0;
+    // 01290 GOTO 1340
+    goto Lbl_01340;
+
+  Lbl_01300:
+    // 01300 PRINT "GOT IT!!!!!!!!!!   YOU WIN";Y;"DOLLARS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"GOT IT!!!!!!!!!!   YOU WIN"); b2c_INT(buf,Y_int);strcat(buf,"DOLLARS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01310 R=R+Y
+    R_int = R_int+Y_int;
+    // 01320 PRINT "YOUR TOTAL WINNINGS ARE NOW";R;"DOLLARS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR TOTAL WINNINGS ARE NOW"); b2c_INT(buf,R_int);strcat(buf,"DOLLARS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01330 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01340:
+    // 01340 PRINT "PLAY AGAIN (YES OR NO)";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"PLAY AGAIN (YES OR NO)");fputs(buf,fh); };
+    // 01350 INPUT A$
+    // Start of Basic INPUT statement 01350
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&A_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01350
+    // 01360 IF A$="YES" THEN 1150
+    if(strcmp(A_str,"YES")==0)goto Lbl_01150;
+    // 01370 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01380 PRINT "SO LONG.  HOPE YOU ENJOYED YOURSELF!!!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SO LONG.  HOPE YOU ENJOYED YOURSELF!!!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01390 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

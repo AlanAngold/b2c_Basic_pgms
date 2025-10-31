@@ -8,127 +8,127 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x61537faa0db0 ---------A   01010 PRINT "BASIC LIBRARY--'HORSES'--18-JUL-70"
-    0x61537fa8f5d0 ---------A   01020 REM  *  *  *  *  *  *  *    MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *  *
-    0x61537fa8f610 ---------A   01030 REM
-    0x61537fa9fb80 ---------A   01040 RANDOM
-    0x61537faa0f30 ---------A   01050 PRINT"WELCOME TO DATALINE SYSTEMS RACETRACK"
-    0x61537faa0ff0 ---------A   01060 PRINT
-    0x61537faa10b0 ---------A   01070 PRINT "DO YOU WANT DIRECTIONS";
-    0x61537faa05e0 ---------A   01080 INPUT X$
-    0x61537fa9f090 ---------A   01090 IF X$="NO" THEN1150
-    0x61537fa9f480 ---------A   01100 PRINT"UP TO 10 MAY PLAY.A TABLE OF ODDS WILL BE PRINTED. YOU"
-    0x61537fa9ebe0 ---------A   01110 PRINT"MAY BET ANY + AMOUNT UNDER 100000 ON ONE HORSE."
-    0x61537faa1180 ---------A   01120 PRINT "DURING THE RACE , A HORSE WILL BE SHOWN BY ITS"
-    0x61537fa9f680 ---------A   01130 PRINT"NUMBER.THE HORSES RACE DOWN THE PAPER!"
-    0x61537fa9f6d0 ---------A   01140 PRINT
-    0x61537fa9f840 ---------A T 01150 PRINT "HOW MANY WANT TO BET";
-    0x61537faa6a00 ---------A   01160 INPUT C
-    0x61537faa6b20 ---------A   01170 PRINT "WHEN ? APPEARS,TYPE NAME"
-    0x61537faa6e70 ---------A   01180 FOR A=1 TO C
-    0x61537faa7170 ---------A   01190 INPUT W$(A)
-    0x61537faa72b0 ---------A   01200 NEXT A
-    0x61537faa7310 ---------A   01210 PRINT
-    0x61537faa7760 ---------A   01220 PRINT"HORSE"," ","NUMBER","ODDS"
-    0x61537faa77d0 ---------A   01230 PRINT
-    0x61537faa7de0 ---------A   01240 LET S(M(I))=0
-    0x61537faa80b0 ---------A   01250 LET R=0
-    0x61537faa8360 ---------A   01260 FOR A=1 TO 8
-    0x61537faa8a20 ---------A   01270 LET D(A)=INT(10*RND+1)
-    0x61537faa8b50 ---------A   01280 NEXT A
-    0x61537faa8e30 ---------A   01290 FOR A=1TO 8
-    0x61537faa9270 ---------A   01300 LET R=R+D(A)
-    0x61537faa93a0 ---------A   01310 NEXT A
-    0x61537faa9740 ---------A   01320 LET V$(1)="JOE MAW"
-    0x61537faa9a10 ---------A   01330 LET V$(2)="L.B.J."
-    0x61537faa9ef0 ---------A   01340 LET V$(3)="MR.WASHBURN"
-    0x61537faaa1e0 ---------A   01350 LET V$(4)="MISS KAREN"
-    0x61537faaa4d0 ---------A   01360 LET V$(5)="JOLLY"
-    0x61537faaa7a0 ---------A   01370 LET V$(6)="FOR Q."
-    0x61537faaaa70 ---------A   01380 LET V$(7)="JELLY DO NOT"
-    0x61537faaad60 ---------A   01390 LET V$(8)="ACID ROCK"
-    0x61537faab100 ---------A   01400 FOR N=1 TO8
-    0x61537faab940 ---------A   01410 PRINT V$(N)," ",N,R/D(N);":1"
-    0x61537faaba70 ---------A   01420 NEXT N
-    0x61537faabc40 ---------A   01430 PRINT"--------------------------------------------------"
-    0x61537faabda0 ---------A   01440 PRINT "PLACE YOUR BETS...HORSE # THEN AMOUNT"
-    0x61537faac150 ---------A   01450 FOR J=1 TO C
-    0x61537faac3b0 ---------A T 01460 PRINT W$(J);
-    0x61537faac930 ---------A   01470 INPUT Q(J),P(J)
-    0x61537faacc80 ---------A   01480 IF P(J)<1 THEN 1500
-    0x61537faacfd0 ---------A   01490 IF P(J)<100000 THEN 1520
-    0x61537faad130 ---------A T 01500 PRINT"  YOU CAN'T DO THAT!"
-    0x61537faad1a0 ---------A   01510 GOTO 1460
-    0x61537faad2c0 ---------A T 01520 NEXT J
-    0x61537faad350 ---------A   01530 PRINT
-    0x61537faad4b0 ---------A   01540 PRINT"1 2 3 4 5 6 7 8"
-    0x61537faad620 ---------A T 01550 PRINT"XXXXSTARTXXXX";
-    0x61537faad910 ---------A   01560 FOR I=1 TON
-    0x61537faadb50 ---------A   01570 LET M=I
-    0x61537faade70 ---------A   01580 LET M(I)=M
-    0x61537faae610 ---------A   01590 LET Y(M(I))=INT(100*RND+1)
-    0x61537faaea30 ---------A   01600 IF Y(M(I))<10 THEN1690
-    0x61537faaf060 ---------A   01610 LET S=INT(R/D(I)+.5)
-    0x61537faaf5a0 ---------A   01620 IF Y(M(I))<S+17 THEN 1710
-    0x61537faafaf0 ---------A   01630 IF Y(M(I))<S+37 THEN 1730
-    0x61537fab0040 ---------A   01640 IF Y(M(I))<S+57 THEN1750
-    0x61537fab0590 ---------A   01650 IF Y(M(I))<77+S THEN1770
-    0x61537fab0ee0 ---------A   01660 IF Y(M(I))<S+92 THEN1790
-    0x61537fab12c0 ---------A   01670 LET Y(M(I))=7
-    0x61537fab1330 ---------A   01680 GOTO 1800
-    0x61537fab16f0 ---------A T 01690 LET Y(M(I))=1
-    0x61537fab1760 ---------A   01700 GOTO 1800
-    0x61537fab1b20 ---------A T 01710 LET Y(M(I))=2
-    0x61537fab1b90 ---------A   01720 GOTO 1800
-    0x61537fab1f50 ---------A T 01730 LET Y(M(I))=3
-    0x61537fab1fc0 ---------A   01740 GOTO 1800
-    0x61537fab2380 ---------A T 01750 LET Y(M(I))=4
-    0x61537fab23f0 ---------A   01760 GOTO 1800
-    0x61537fab27b0 ---------A T 01770 LET Y(M(I))=5
-    0x61537fab2820 ---------A   01780 GOTO 1800
-    0x61537fab2be0 ---------A T 01790 LET Y(M(I))=6
-    0x61537fab2d10 ---------A T 01800 NEXTI
-    0x61537fab2f50 ---------A   01810 LET M=I
-    0x61537fab3230 ---------A   01820 FOR I=1TO8
-    0x61537fab3ad0 ---------A   01830 LET S(M(I))=S(M(I))+Y(M(I))
-    0x61537fab3c00 ---------A   01840 NEXTI
-    0x61537fab3e20 ---------A   01850 LET I=1
-    0x61537fab41b0 ---------A   01860 FOR L=1 TO8
-    0x61537fab45c0 ---------A   01870 FORI=1TO 8-L
-    0x61537fab4cc0 ---------A   01880 IF S(M(I))<S(M(I+1))THEN 1920
-    0x61537fab50a0 ---------A   01890 LET H=M(I)
-    0x61537fab5590 ---------A   01900 LET M(I)=M(I+1)
-    0x61537fab59a0 ---------A   01910 LET M(I+1)=H
-    0x61537fab5ad0 ---------A T 01920 NEXT I
-    0x61537fab5c10 ---------A   01930 NEXT L
-    0x61537fab60b0 ---------A   01940 LET T=S(M(8))
-    0x61537fab6390 ---------A   01950 FOR I=1 TO8
-    0x61537fab6c30 ---------A   01960 LET B=S(M(I))-S(M(I-1))
-    0x61537fab6e80 ---------A   01970 IF B=0 THEN 2020
-    0x61537fab7180 ---------A   01980 FOR A=1 TO B
-    0x61537fab7210 ---------A   01990 PRINT
-    0x61537fab7620 ---------A   02000 IF S(M(I))>27 THEN2070
-    0x61537fab7760 ---------A   02010 NEXT A
-    0x61537fab79c0 ---------A T 02020 PRINT M(I);
-    0x61537fab7af0 ---------A   02030 NEXT I
-    0x61537fab7ef0 ---------A   02040 FOR A=1 TO 28-T
-    0x61537fab7f70 ---------A   02050 PRINT
-    0x61537fab80a0 ---------A   02060 NEXT A
-    0x61537fab8210 ---------A T 02070 PRINT"XXXXFINISHXXXX"
-    0x61537fab8470 ---------A   02080 IF T<28 THEN 1550
-    0x61537fab85d0 ---------A   02090 PRINT"**************"
-    0x61537fab8740 ---------A   02100 PRINT"WINNER IS ";
-    0x61537fab8ad0 ---------A   02110 FOR I=8 TO 1STEP-1
-    0x61537fab8eb0 ---------A   02120 LET F=M(I)
-    0x61537fab8f30 ---------A   02130 PRINT
-    0x61537fab9360 ---------A   02140 PRINT "HORSE NO." F, V$(F)
-    0x61537fab9490 ---------A   02150 NEXT I
-    0x61537fab97a0 ---------A   02160 FOR J=1 TO C
-    0x61537fab9bc0 ---------A   02170 IF Q(J)<>M(8) THEN 2200
-    0x61537fab9ef0 ---------A   02180 LET N=Q(J)
-    0x61537faba760 ---------A   02190 PRINT W$(J);"WINS $";(R/D(N))*P(J)
-    0x61537faba890 ---------A T 02200 NEXT J
-    0x61537faba8f0 ---------A   02210 END
+    0x6066f5b0c670 ---------A   01010  PRINT "BASIC LIBRARY--'HORSES'--18-JUL-70"
+    0x6066f5b0edb0 ---------A   01020  REM  *  *  *  *  *  *  *    MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *  *
+    0x6066f5b0db80 ---------A   01030  REM
+    0x6066f5b0ef30 ---------A   01040  RANDOM
+    0x6066f5b0d2d0 ---------A   01050  PRINT"WELCOME TO DATALINE SYSTEMS RACETRACK"
+    0x6066f5b0d910 ---------A   01060  PRINT
+    0x6066f5b0e5e0 ---------A   01070  PRINT "DO YOU WANT DIRECTIONS";
+    0x6066f5b0c9e0 ---------A   01080  INPUT X$
+    0x6066f5b0ce40 ---------A   01090  IF X$="NO" THEN1150
+    0x6066f5b0cea0 ---------A   01100  PRINT"UP TO 10 MAY PLAY.A TABLE OF ODDS WILL BE PRINTED. YOU"
+    0x6066f5b0e730 ---------A   01110  PRINT"MAY BET ANY + AMOUNT UNDER 100000 ON ONE HORSE."
+    0x6066f5b0f140 ---------A   01120  PRINT "DURING THE RACE , A HORSE WILL BE SHOWN BY ITS"
+    0x6066f5b0d660 ---------A   01130  PRINT"NUMBER.THE HORSES RACE DOWN THE PAPER!"
+    0x6066f5b0d6c0 ---------A   01140  PRINT
+    0x6066f5b0d820 ---------A T 01150  PRINT "HOW MANY WANT TO BET";
+    0x6066f5b149c0 ---------A   01160  INPUT C
+    0x6066f5b14b00 ---------A   01170  PRINT "WHEN ? APPEARS,TYPE NAME"
+    0x6066f5b14ec0 ---------A   01180  FOR A=1 TO C
+    0x6066f5b151c0 ---------A   01190  INPUT W$(A)
+    0x6066f5b15300 ---------A   01200  NEXT A
+    0x6066f5b15370 ---------A   01210  PRINT
+    0x6066f5b157d0 ---------A   01220  PRINT"HORSE"," ","NUMBER","ODDS"
+    0x6066f5b15850 ---------A   01230  PRINT
+    0x6066f5b15e70 ---------A   01240  LET S(M(I))=0
+    0x6066f5b16140 ---------A   01250  LET R=0
+    0x6066f5b163f0 ---------A   01260  FOR A=1 TO 8
+    0x6066f5b16ab0 ---------A   01270  LET D(A)=INT(10*RND+1)
+    0x6066f5b16be0 ---------A   01280  NEXT A
+    0x6066f5b16ed0 ---------A   01290  FOR A=1TO 8
+    0x6066f5b17310 ---------A   01300  LET R=R+D(A)
+    0x6066f5b17440 ---------A   01310  NEXT A
+    0x6066f5b177f0 ---------A   01320  LET V$(1)="JOE MAW"
+    0x6066f5b17ac0 ---------A   01330  LET V$(2)="L.B.J."
+    0x6066f5b17fa0 ---------A   01340  LET V$(3)="MR.WASHBURN"
+    0x6066f5b18290 ---------A   01350  LET V$(4)="MISS KAREN"
+    0x6066f5b18580 ---------A   01360  LET V$(5)="JOLLY"
+    0x6066f5b18880 ---------A   01370  LET V$(6)="FOR Q."
+    0x6066f5b18b80 ---------A   01380  LET V$(7)="JELLY DO NOT"
+    0x6066f5b18e70 ---------A   01390  LET V$(8)="ACID ROCK"
+    0x6066f5b19210 ---------A   01400  FOR N=1 TO8
+    0x6066f5b19a50 ---------A   01410  PRINT V$(N)," ",N,R/D(N);":1"
+    0x6066f5b19b90 ---------A   01420  NEXT N
+    0x6066f5b19d70 ---------A   01430  PRINT"--------------------------------------------------"
+    0x6066f5b19ee0 ---------A   01440  PRINT "PLACE YOUR BETS...HORSE # THEN AMOUNT"
+    0x6066f5b1a2a0 ---------A   01450  FOR J=1 TO C
+    0x6066f5b1a500 ---------A T 01460  PRINT W$(J);
+    0x6066f5b1aa90 ---------A   01470  INPUT Q(J),P(J)
+    0x6066f5b1ade0 ---------A   01480  IF P(J)<1 THEN 1500
+    0x6066f5b1b130 ---------A   01490  IF P(J)<100000 THEN 1520
+    0x6066f5b1b290 ---------A T 01500  PRINT"  YOU CAN'T DO THAT!"
+    0x6066f5b1b310 ---------A   01510  GOTO 1460
+    0x6066f5b1b440 ---------A T 01520  NEXT J
+    0x6066f5b1b4e0 ---------A   01530  PRINT
+    0x6066f5b1b650 ---------A   01540  PRINT"1 2 3 4 5 6 7 8"
+    0x6066f5b1b7d0 ---------A T 01550  PRINT"XXXXSTARTXXXX";
+    0x6066f5b1bad0 ---------A   01560  FOR I=1 TON
+    0x6066f5b1bd10 ---------A   01570  LET M=I
+    0x6066f5b1c030 ---------A   01580  LET M(I)=M
+    0x6066f5b1c7d0 ---------A   01590  LET Y(M(I))=INT(100*RND+1)
+    0x6066f5b1cbf0 ---------A   01600  IF Y(M(I))<10 THEN1690
+    0x6066f5b1d220 ---------A   01610  LET S=INT(R/D(I)+.5)
+    0x6066f5b1d760 ---------A   01620  IF Y(M(I))<S+17 THEN 1710
+    0x6066f5b1dcb0 ---------A   01630  IF Y(M(I))<S+37 THEN 1730
+    0x6066f5b1e200 ---------A   01640  IF Y(M(I))<S+57 THEN1750
+    0x6066f5b1e750 ---------A   01650  IF Y(M(I))<77+S THEN1770
+    0x6066f5b1f0a0 ---------A   01660  IF Y(M(I))<S+92 THEN1790
+    0x6066f5b1f480 ---------A   01670  LET Y(M(I))=7
+    0x6066f5b1f4f0 ---------A   01680  GOTO 1800
+    0x6066f5b1f8c0 ---------A T 01690  LET Y(M(I))=1
+    0x6066f5b1f930 ---------A   01700  GOTO 1800
+    0x6066f5b1fd00 ---------A T 01710  LET Y(M(I))=2
+    0x6066f5b1fd70 ---------A   01720  GOTO 1800
+    0x6066f5b20140 ---------A T 01730  LET Y(M(I))=3
+    0x6066f5b201b0 ---------A   01740  GOTO 1800
+    0x6066f5b20580 ---------A T 01750  LET Y(M(I))=4
+    0x6066f5b205f0 ---------A   01760  GOTO 1800
+    0x6066f5b209c0 ---------A T 01770  LET Y(M(I))=5
+    0x6066f5b20a30 ---------A   01780  GOTO 1800
+    0x6066f5b20e00 ---------A T 01790  LET Y(M(I))=6
+    0x6066f5b20f30 ---------A T 01800  NEXTI
+    0x6066f5b21180 ---------A   01810  LET M=I
+    0x6066f5b21460 ---------A   01820  FOR I=1TO8
+    0x6066f5b21d00 ---------A   01830  LET S(M(I))=S(M(I))+Y(M(I))
+    0x6066f5b21e30 ---------A   01840  NEXTI
+    0x6066f5b22060 ---------A   01850  LET I=1
+    0x6066f5b223f0 ---------A   01860  FOR L=1 TO8
+    0x6066f5b22800 ---------A   01870  FORI=1TO 8-L
+    0x6066f5b22f00 ---------A   01880  IF S(M(I))<S(M(I+1))THEN 1920
+    0x6066f5b232e0 ---------A   01890  LET H=M(I)
+    0x6066f5b237d0 ---------A   01900  LET M(I)=M(I+1)
+    0x6066f5b23be0 ---------A   01910  LET M(I+1)=H
+    0x6066f5b23d10 ---------A T 01920  NEXT I
+    0x6066f5b23e60 ---------A   01930  NEXT L
+    0x6066f5b24310 ---------A   01940  LET T=S(M(8))
+    0x6066f5b245f0 ---------A   01950  FOR I=1 TO8
+    0x6066f5b24e90 ---------A   01960  LET B=S(M(I))-S(M(I-1))
+    0x6066f5b250e0 ---------A   01970  IF B=0 THEN 2020
+    0x6066f5b253e0 ---------A   01980  FOR A=1 TO B
+    0x6066f5b25470 ---------A   01990  PRINT
+    0x6066f5b25890 ---------A   02000  IF S(M(I))>27 THEN2070
+    0x6066f5b259d0 ---------A   02010  NEXT A
+    0x6066f5b25c40 ---------A T 02020  PRINT M(I);
+    0x6066f5b25d80 ---------A   02030  NEXT I
+    0x6066f5b26190 ---------A   02040  FOR A=1 TO 28-T
+    0x6066f5b26210 ---------A   02050  PRINT
+    0x6066f5b26350 ---------A   02060  NEXT A
+    0x6066f5b264d0 ---------A T 02070  PRINT"XXXXFINISHXXXX"
+    0x6066f5b26740 ---------A   02080  IF T<28 THEN 1550
+    0x6066f5b268a0 ---------A   02090  PRINT"**************"
+    0x6066f5b26a20 ---------A   02100  PRINT"WINNER IS ";
+    0x6066f5b26dc0 ---------A   02110  FOR I=8 TO 1STEP-1
+    0x6066f5b271a0 ---------A   02120  LET F=M(I)
+    0x6066f5b27220 ---------A   02130  PRINT
+    0x6066f5b27660 ---------A   02140  PRINT "HORSE NO." F, V$(F)
+    0x6066f5b277a0 ---------A   02150  NEXT I
+    0x6066f5b27ac0 ---------A   02160  FOR J=1 TO C
+    0x6066f5b27ee0 ---------A   02170  IF Q(J)<>M(8) THEN 2200
+    0x6066f5b28210 ---------A   02180  LET N=Q(J)
+    0x6066f5b28a80 ---------A   02190  PRINT W$(J);"WINS $";(R/D(N))*P(J)
+    0x6066f5b28bc0 ---------A T 02200  NEXT J
+    0x6066f5b28c30 ---------A   02210  END
  */
 
 /*
@@ -163,9 +163,275 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x61537faa0db0 (01010)   0x61537faa0db0 (01010)   0x61537faba8f0 (02210)   0x61537faba8f0 (02210)   
+   A) 0x6066f5b0c670 (01010)   0x6066f5b0c670 (01010)   0x6066f5b28c30 (02210)   0x6066f5b28c30 (02210)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/horses.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x6066f5b0c670 ---------A   01010  PRINT "BASIC LIBRARY--'HORSES'--18-JUL-70"
+    0x6066f5b0edb0 ---------A   01020  REM  *  *  *  *  *  *  *    MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *  *
+    0x6066f5b0db80 ---------A   01030  REM
+    0x6066f5b0ef30 ---------A   01040  RANDOM
+    0x6066f5b0d2d0 ---------A   01050  PRINT"WELCOME TO DATALINE SYSTEMS RACETRACK"
+    0x6066f5b0d910 ---------A   01060  PRINT
+    0x6066f5b0e5e0 ---------A   01070  PRINT "DO YOU WANT DIRECTIONS";
+    0x6066f5b0c9e0 ---------A   01080  INPUT X$
+    0x6066f5b0ce40 ---------A   01090  IF X$="NO" THEN1150
+    0x6066f5b0cea0 ---------A   01100  PRINT"UP TO 10 MAY PLAY.A TABLE OF ODDS WILL BE PRINTED. YOU"
+    0x6066f5b0e730 ---------A   01110  PRINT"MAY BET ANY + AMOUNT UNDER 100000 ON ONE HORSE."
+    0x6066f5b0f140 ---------A   01120  PRINT "DURING THE RACE , A HORSE WILL BE SHOWN BY ITS"
+    0x6066f5b0d660 ---------A   01130  PRINT"NUMBER.THE HORSES RACE DOWN THE PAPER!"
+    0x6066f5b0d6c0 ---------A   01140  PRINT
+    0x6066f5b0d820 ---------A T 01150  PRINT "HOW MANY WANT TO BET";
+    0x6066f5b149c0 ---------A   01160  INPUT C
+    0x6066f5b14b00 ---------A   01170  PRINT "WHEN ? APPEARS,TYPE NAME"
+    0x6066f5b14ec0 ---------A   01180  FOR A=1 TO C
+    0x6066f5b151c0 ---------A   01190  INPUT W$(A)
+    0x6066f5b15300 ---------A   01200  NEXT A
+    0x6066f5b15370 ---------A   01210  PRINT
+    0x6066f5b157d0 ---------A   01220  PRINT"HORSE"," ","NUMBER","ODDS"
+    0x6066f5b15850 ---------A   01230  PRINT
+    0x6066f5b15e70 ---------A   01240  LET S(M(I))=0
+    0x6066f5b16140 ---------A   01250  LET R=0
+    0x6066f5b163f0 ---------A   01260  FOR A=1 TO 8
+    0x6066f5b16ab0 ---------A   01270  LET D(A)=INT(10*RND+1)
+    0x6066f5b16be0 ---------A   01280  NEXT A
+    0x6066f5b16ed0 ---------A   01290  FOR A=1TO 8
+    0x6066f5b17310 ---------A   01300  LET R=R+D(A)
+    0x6066f5b17440 ---------A   01310  NEXT A
+    0x6066f5b177f0 ---------A   01320  LET V$(1)="JOE MAW"
+    0x6066f5b17ac0 ---------A   01330  LET V$(2)="L.B.J."
+    0x6066f5b17fa0 ---------A   01340  LET V$(3)="MR.WASHBURN"
+    0x6066f5b18290 ---------A   01350  LET V$(4)="MISS KAREN"
+    0x6066f5b18580 ---------A   01360  LET V$(5)="JOLLY"
+    0x6066f5b18880 ---------A   01370  LET V$(6)="FOR Q."
+    0x6066f5b18b80 ---------A   01380  LET V$(7)="JELLY DO NOT"
+    0x6066f5b18e70 ---------A   01390  LET V$(8)="ACID ROCK"
+    0x6066f5b19210 ---------A   01400  FOR N=1 TO8
+    0x6066f5b19a50 ---------A   01410  PRINT V$(N)," ",N,R/D(N);":1"
+    0x6066f5b19b90 ---------A   01420  NEXT N
+    0x6066f5b19d70 ---------A   01430  PRINT"--------------------------------------------------"
+    0x6066f5b19ee0 ---------A   01440  PRINT "PLACE YOUR BETS...HORSE # THEN AMOUNT"
+    0x6066f5b1a2a0 ---------A   01450  FOR J=1 TO C
+    0x6066f5b1a500 ---------A T 01460  PRINT W$(J);
+    0x6066f5b1aa90 ---------A   01470  INPUT Q(J),P(J)
+    0x6066f5b1ade0 ---------A   01480  IF P(J)<1 THEN 1500
+    0x6066f5b1b130 ---------A   01490  IF P(J)<100000 THEN 1520
+    0x6066f5b1b290 ---------A T 01500  PRINT"  YOU CAN'T DO THAT!"
+    0x6066f5b1b310 ---------A   01510  GOTO 1460
+    0x6066f5b1b440 ---------A T 01520  NEXT J
+    0x6066f5b1b4e0 ---------A   01530  PRINT
+    0x6066f5b1b650 ---------A   01540  PRINT"1 2 3 4 5 6 7 8"
+    0x6066f5b1b7d0 ---------A T 01550  PRINT"XXXXSTARTXXXX";
+    0x6066f5b1bad0 ---------A   01560  FOR I=1 TON
+    0x6066f5b1bd10 ---------A   01570  LET M=I
+    0x6066f5b1c030 ---------A   01580  LET M(I)=M
+    0x6066f5b1c7d0 ---------A   01590  LET Y(M(I))=INT(100*RND+1)
+    0x6066f5b1cbf0 ---------A   01600  IF Y(M(I))<10 THEN1690
+    0x6066f5b1d220 ---------A   01610  LET S=INT(R/D(I)+.5)
+    0x6066f5b1d760 ---------A   01620  IF Y(M(I))<S+17 THEN 1710
+    0x6066f5b1dcb0 ---------A   01630  IF Y(M(I))<S+37 THEN 1730
+    0x6066f5b1e200 ---------A   01640  IF Y(M(I))<S+57 THEN1750
+    0x6066f5b1e750 ---------A   01650  IF Y(M(I))<77+S THEN1770
+    0x6066f5b1f0a0 ---------A   01660  IF Y(M(I))<S+92 THEN1790
+    0x6066f5b1f480 ---------A   01670  LET Y(M(I))=7
+    0x6066f5b1f4f0 ---------A   01680  GOTO 1800
+    0x6066f5b1f8c0 ---------A T 01690  LET Y(M(I))=1
+    0x6066f5b1f930 ---------A   01700  GOTO 1800
+    0x6066f5b1fd00 ---------A T 01710  LET Y(M(I))=2
+    0x6066f5b1fd70 ---------A   01720  GOTO 1800
+    0x6066f5b20140 ---------A T 01730  LET Y(M(I))=3
+    0x6066f5b201b0 ---------A   01740  GOTO 1800
+    0x6066f5b20580 ---------A T 01750  LET Y(M(I))=4
+    0x6066f5b205f0 ---------A   01760  GOTO 1800
+    0x6066f5b209c0 ---------A T 01770  LET Y(M(I))=5
+    0x6066f5b20a30 ---------A   01780  GOTO 1800
+    0x6066f5b20e00 ---------A T 01790  LET Y(M(I))=6
+    0x6066f5b20f30 ---------A T 01800  NEXTI
+    0x6066f5b21180 ---------A   01810  LET M=I
+    0x6066f5b21460 ---------A   01820  FOR I=1TO8
+    0x6066f5b21d00 ---------A   01830  LET S(M(I))=S(M(I))+Y(M(I))
+    0x6066f5b21e30 ---------A   01840  NEXTI
+    0x6066f5b22060 ---------A   01850  LET I=1
+    0x6066f5b223f0 ---------A   01860  FOR L=1 TO8
+    0x6066f5b22800 ---------A   01870  FORI=1TO 8-L
+    0x6066f5b22f00 ---------A   01880  IF S(M(I))<S(M(I+1))THEN 1920
+    0x6066f5b232e0 ---------A   01890  LET H=M(I)
+    0x6066f5b237d0 ---------A   01900  LET M(I)=M(I+1)
+    0x6066f5b23be0 ---------A   01910  LET M(I+1)=H
+    0x6066f5b23d10 ---------A T 01920  NEXT I
+    0x6066f5b23e60 ---------A   01930  NEXT L
+    0x6066f5b24310 ---------A   01940  LET T=S(M(8))
+    0x6066f5b245f0 ---------A   01950  FOR I=1 TO8
+    0x6066f5b24e90 ---------A   01960  LET B=S(M(I))-S(M(I-1))
+    0x6066f5b250e0 ---------A   01970  IF B=0 THEN 2020
+    0x6066f5b253e0 ---------A   01980  FOR A=1 TO B
+    0x6066f5b25470 ---------A   01990  PRINT
+    0x6066f5b25890 ---------A   02000  IF S(M(I))>27 THEN2070
+    0x6066f5b259d0 ---------A   02010  NEXT A
+    0x6066f5b25c40 ---------A T 02020  PRINT M(I);
+    0x6066f5b25d80 ---------A   02030  NEXT I
+    0x6066f5b26190 ---------A   02040  FOR A=1 TO 28-T
+    0x6066f5b26210 ---------A   02050  PRINT
+    0x6066f5b26350 ---------A   02060  NEXT A
+    0x6066f5b264d0 ---------A T 02070  PRINT"XXXXFINISHXXXX"
+    0x6066f5b26740 ---------A   02080  IF T<28 THEN 1550
+    0x6066f5b268a0 ---------A   02090  PRINT"**************"
+    0x6066f5b26a20 ---------A   02100  PRINT"WINNER IS ";
+    0x6066f5b26dc0 ---------A   02110  FOR I=8 TO 1STEP-1
+    0x6066f5b271a0 ---------A   02120  LET F=M(I)
+    0x6066f5b27220 ---------A   02130  PRINT
+    0x6066f5b27660 ---------A   02140  PRINT "HORSE NO." F, V$(F)
+    0x6066f5b277a0 ---------A   02150  NEXT I
+    0x6066f5b27ac0 ---------A   02160  FOR J=1 TO C
+    0x6066f5b27ee0 ---------A   02170  IF Q(J)<>M(8) THEN 2200
+    0x6066f5b28210 ---------A   02180  LET N=Q(J)
+    0x6066f5b28a80 ---------A   02190  PRINT W$(J);"WINS $";(R/D(N))*P(J)
+    0x6066f5b28bc0 ---------A T 02200  NEXT J
+    0x6066f5b28c30 ---------A   02210  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/horses.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x6066f5b0c670 ---------A   01000  PRINT "BASIC LIBRARY--'HORSES'--18-JUL-70"
+    0x6066f5b0edb0 ---------A   01010  REM  *  *  *  *  *  *  *    MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *  *
+    0x6066f5b0db80 ---------A   01020  REM
+    0x6066f5b0ef30 ---------A   01030  RANDOM
+    0x6066f5b0d2d0 ---------A   01040  PRINT"WELCOME TO DATALINE SYSTEMS RACETRACK"
+    0x6066f5b0d910 ---------A   01050  PRINT
+    0x6066f5b0e5e0 ---------A   01060  PRINT "DO YOU WANT DIRECTIONS";
+    0x6066f5b0c9e0 ---------A   01070  INPUT X$
+    0x6066f5b0ce40 ---------A   01080  IF X$="NO" THEN1140
+    0x6066f5b0cea0 ---------A   01090  PRINT"UP TO 10 MAY PLAY.A TABLE OF ODDS WILL BE PRINTED. YOU"
+    0x6066f5b0e730 ---------A   01100  PRINT"MAY BET ANY + AMOUNT UNDER 100000 ON ONE HORSE."
+    0x6066f5b0f140 ---------A   01110  PRINT "DURING THE RACE , A HORSE WILL BE SHOWN BY ITS"
+    0x6066f5b0d660 ---------A   01120  PRINT"NUMBER.THE HORSES RACE DOWN THE PAPER!"
+    0x6066f5b0d6c0 ---------A   01130  PRINT
+    0x6066f5b0d820 ---------A   01140  PRINT "HOW MANY WANT TO BET";
+    0x6066f5b149c0 ---------A T 01150  INPUT C
+    0x6066f5b14b00 ---------A   01160  PRINT "WHEN ? APPEARS,TYPE NAME"
+    0x6066f5b14ec0 ---------A   01170  FOR A=1 TO C
+    0x6066f5b151c0 ---------A   01180  INPUT W$(A)
+    0x6066f5b15300 ---------A   01190  NEXT A
+    0x6066f5b15370 ---------A   01200  PRINT
+    0x6066f5b157d0 ---------A   01210  PRINT"HORSE"," ","NUMBER","ODDS"
+    0x6066f5b15850 ---------A   01220  PRINT
+    0x6066f5b15e70 ---------A   01230  LET S(M(I))=0
+    0x6066f5b16140 ---------A   01240  LET R=0
+    0x6066f5b163f0 ---------A   01250  FOR A=1 TO 8
+    0x6066f5b16ab0 ---------A   01260  LET D(A)=INT(10*RND+1)
+    0x6066f5b16be0 ---------A   01270  NEXT A
+    0x6066f5b16ed0 ---------A   01280  FOR A=1TO 8
+    0x6066f5b17310 ---------A   01290  LET R=R+D(A)
+    0x6066f5b17440 ---------A   01300  NEXT A
+    0x6066f5b177f0 ---------A   01310  LET V$(1)="JOE MAW"
+    0x6066f5b17ac0 ---------A   01320  LET V$(2)="L.B.J."
+    0x6066f5b17fa0 ---------A   01330  LET V$(3)="MR.WASHBURN"
+    0x6066f5b18290 ---------A   01340  LET V$(4)="MISS KAREN"
+    0x6066f5b18580 ---------A   01350  LET V$(5)="JOLLY"
+    0x6066f5b18880 ---------A   01360  LET V$(6)="FOR Q."
+    0x6066f5b18b80 ---------A   01370  LET V$(7)="JELLY DO NOT"
+    0x6066f5b18e70 ---------A   01380  LET V$(8)="ACID ROCK"
+    0x6066f5b19210 ---------A   01390  FOR N=1 TO8
+    0x6066f5b19a50 ---------A   01400  PRINT V$(N)," ",N,R/D(N);":1"
+    0x6066f5b19b90 ---------A   01410  NEXT N
+    0x6066f5b19d70 ---------A   01420  PRINT"--------------------------------------------------"
+    0x6066f5b19ee0 ---------A   01430  PRINT "PLACE YOUR BETS...HORSE # THEN AMOUNT"
+    0x6066f5b1a2a0 ---------A   01440  FOR J=1 TO C
+    0x6066f5b1a500 ---------A   01450  PRINT W$(J);
+    0x6066f5b1aa90 ---------A T 01460  INPUT Q(J),P(J)
+    0x6066f5b1ade0 ---------A   01470  IF P(J)<1 THEN 1490
+    0x6066f5b1b130 ---------A   01480  IF P(J)<100000 THEN 1510
+    0x6066f5b1b290 ---------A   01490  PRINT"  YOU CAN'T DO THAT!"
+    0x6066f5b1b310 ---------A T 01500  GOTO 1450
+    0x6066f5b1b440 ---------A   01510  NEXT J
+    0x6066f5b1b4e0 ---------A T 01520  PRINT
+    0x6066f5b1b650 ---------A   01530  PRINT"1 2 3 4 5 6 7 8"
+    0x6066f5b1b7d0 ---------A   01540  PRINT"XXXXSTARTXXXX";
+    0x6066f5b1bad0 ---------A T 01550  FOR I=1 TON
+    0x6066f5b1bd10 ---------A   01560  LET M=I
+    0x6066f5b1c030 ---------A   01570  LET M(I)=M
+    0x6066f5b1c7d0 ---------A   01580  LET Y(M(I))=INT(100*RND+1)
+    0x6066f5b1cbf0 ---------A   01590  IF Y(M(I))<10 THEN1680
+    0x6066f5b1d220 ---------A   01600  LET S=INT(R/D(I)+.5)
+    0x6066f5b1d760 ---------A   01610  IF Y(M(I))<S+17 THEN 1700
+    0x6066f5b1dcb0 ---------A   01620  IF Y(M(I))<S+37 THEN 1720
+    0x6066f5b1e200 ---------A   01630  IF Y(M(I))<S+57 THEN1740
+    0x6066f5b1e750 ---------A   01640  IF Y(M(I))<77+S THEN1760
+    0x6066f5b1f0a0 ---------A   01650  IF Y(M(I))<S+92 THEN1780
+    0x6066f5b1f480 ---------A   01660  LET Y(M(I))=7
+    0x6066f5b1f4f0 ---------A   01670  GOTO 1790
+    0x6066f5b1f8c0 ---------A   01680  LET Y(M(I))=1
+    0x6066f5b1f930 ---------A T 01690  GOTO 1790
+    0x6066f5b1fd00 ---------A   01700  LET Y(M(I))=2
+    0x6066f5b1fd70 ---------A T 01710  GOTO 1790
+    0x6066f5b20140 ---------A   01720  LET Y(M(I))=3
+    0x6066f5b201b0 ---------A T 01730  GOTO 1790
+    0x6066f5b20580 ---------A   01740  LET Y(M(I))=4
+    0x6066f5b205f0 ---------A T 01750  GOTO 1790
+    0x6066f5b209c0 ---------A   01760  LET Y(M(I))=5
+    0x6066f5b20a30 ---------A T 01770  GOTO 1790
+    0x6066f5b20e00 ---------A   01780  LET Y(M(I))=6
+    0x6066f5b20f30 ---------A T 01790  NEXTI
+    0x6066f5b21180 ---------A T 01800  LET M=I
+    0x6066f5b21460 ---------A   01810  FOR I=1TO8
+    0x6066f5b21d00 ---------A   01820  LET S(M(I))=S(M(I))+Y(M(I))
+    0x6066f5b21e30 ---------A   01830  NEXTI
+    0x6066f5b22060 ---------A   01840  LET I=1
+    0x6066f5b223f0 ---------A   01850  FOR L=1 TO8
+    0x6066f5b22800 ---------A   01860  FORI=1TO 8-L
+    0x6066f5b22f00 ---------A   01870  IF S(M(I))<S(M(I+1))THEN 1910
+    0x6066f5b232e0 ---------A   01880  LET H=M(I)
+    0x6066f5b237d0 ---------A   01890  LET M(I)=M(I+1)
+    0x6066f5b23be0 ---------A   01900  LET M(I+1)=H
+    0x6066f5b23d10 ---------A   01910  NEXT I
+    0x6066f5b23e60 ---------A T 01920  NEXT L
+    0x6066f5b24310 ---------A   01930  LET T=S(M(8))
+    0x6066f5b245f0 ---------A   01940  FOR I=1 TO8
+    0x6066f5b24e90 ---------A   01950  LET B=S(M(I))-S(M(I-1))
+    0x6066f5b250e0 ---------A   01960  IF B=0 THEN 2010
+    0x6066f5b253e0 ---------A   01970  FOR A=1 TO B
+    0x6066f5b25470 ---------A   01980  PRINT
+    0x6066f5b25890 ---------A   01990  IF S(M(I))>27 THEN2060
+    0x6066f5b259d0 ---------A   02000  NEXT A
+    0x6066f5b25c40 ---------A   02010  PRINT M(I);
+    0x6066f5b25d80 ---------A T 02020  NEXT I
+    0x6066f5b26190 ---------A   02030  FOR A=1 TO 28-T
+    0x6066f5b26210 ---------A   02040  PRINT
+    0x6066f5b26350 ---------A   02050  NEXT A
+    0x6066f5b264d0 ---------A   02060  PRINT"XXXXFINISHXXXX"
+    0x6066f5b26740 ---------A T 02070  IF T<28 THEN 1540
+    0x6066f5b268a0 ---------A   02080  PRINT"**************"
+    0x6066f5b26a20 ---------A   02090  PRINT"WINNER IS ";
+    0x6066f5b26dc0 ---------A   02100  FOR I=8 TO 1STEP-1
+    0x6066f5b271a0 ---------A   02110  LET F=M(I)
+    0x6066f5b27220 ---------A   02120  PRINT
+    0x6066f5b27660 ---------A   02130  PRINT "HORSE NO." F, V$(F)
+    0x6066f5b277a0 ---------A   02140  NEXT I
+    0x6066f5b27ac0 ---------A   02150  FOR J=1 TO C
+    0x6066f5b27ee0 ---------A   02160  IF Q(J)<>M(8) THEN 2190
+    0x6066f5b28210 ---------A   02170  LET N=Q(J)
+    0x6066f5b28a80 ---------A   02180  PRINT W$(J);"WINS $";(R/D(N))*P(J)
+    0x6066f5b28bc0 ---------A   02190  NEXT J
+    0x6066f5b28c30 ---------A T 02200  END
  */
 
 
@@ -278,127 +544,127 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x61537faa0db0 ---------A   01000 PRINT "BASIC LIBRARY--'HORSES'--18-JUL-70"
-    0x61537fa8f5d0 ---------A   01010 REM  *  *  *  *  *  *  *    MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *  *
-    0x61537fa8f610 ---------A   01020 REM
-    0x61537fa9fb80 ---------A   01030 RANDOM
-    0x61537faa0f30 ---------A   01040 PRINT"WELCOME TO DATALINE SYSTEMS RACETRACK"
-    0x61537faa0ff0 ---------A   01050 PRINT
-    0x61537faa10b0 ---------A   01060 PRINT "DO YOU WANT DIRECTIONS";
-    0x61537faa05e0 ---------A   01070 INPUT X$
-    0x61537fa9f090 ---------A   01080 IF X$="NO" THEN1140
-    0x61537fa9f480 ---------A   01090 PRINT"UP TO 10 MAY PLAY.A TABLE OF ODDS WILL BE PRINTED. YOU"
-    0x61537fa9ebe0 ---------A   01100 PRINT"MAY BET ANY + AMOUNT UNDER 100000 ON ONE HORSE."
-    0x61537faa1180 ---------A   01110 PRINT "DURING THE RACE , A HORSE WILL BE SHOWN BY ITS"
-    0x61537fa9f680 ---------A   01120 PRINT"NUMBER.THE HORSES RACE DOWN THE PAPER!"
-    0x61537fa9f6d0 ---------A   01130 PRINT
-    0x61537fa9f840 ---------A T 01140 PRINT "HOW MANY WANT TO BET";
-    0x61537faa6a00 ---------A   01150 INPUT C
-    0x61537faa6b20 ---------A   01160 PRINT "WHEN ? APPEARS,TYPE NAME"
-    0x61537faa6e70 ---------A   01170 FOR A=1 TO C
-    0x61537faa7170 ---------A   01180 INPUT W$(A)
-    0x61537faa72b0 ---------A   01190 NEXT A
-    0x61537faa7310 ---------A   01200 PRINT
-    0x61537faa7760 ---------A   01210 PRINT"HORSE"," ","NUMBER","ODDS"
-    0x61537faa77d0 ---------A   01220 PRINT
-    0x61537faa7de0 ---------A   01230 LET S(M(I))=0
-    0x61537faa80b0 ---------A   01240 LET R=0
-    0x61537faa8360 ---------A   01250 FOR A=1 TO 8
-    0x61537faa8a20 ---------A   01260 LET D(A)=INT(10*RND+1)
-    0x61537faa8b50 ---------A   01270 NEXT A
-    0x61537faa8e30 ---------A   01280 FOR A=1TO 8
-    0x61537faa9270 ---------A   01290 LET R=R+D(A)
-    0x61537faa93a0 ---------A   01300 NEXT A
-    0x61537faa9740 ---------A   01310 LET V$(1)="JOE MAW"
-    0x61537faa9a10 ---------A   01320 LET V$(2)="L.B.J."
-    0x61537faa9ef0 ---------A   01330 LET V$(3)="MR.WASHBURN"
-    0x61537faaa1e0 ---------A   01340 LET V$(4)="MISS KAREN"
-    0x61537faaa4d0 ---------A   01350 LET V$(5)="JOLLY"
-    0x61537faaa7a0 ---------A   01360 LET V$(6)="FOR Q."
-    0x61537faaaa70 ---------A   01370 LET V$(7)="JELLY DO NOT"
-    0x61537faaad60 ---------A   01380 LET V$(8)="ACID ROCK"
-    0x61537faab100 ---------A   01390 FOR N=1 TO8
-    0x61537faab940 ---------A   01400 PRINT V$(N)," ",N,R/D(N);":1"
-    0x61537faaba70 ---------A   01410 NEXT N
-    0x61537faabc40 ---------A   01420 PRINT"--------------------------------------------------"
-    0x61537faabda0 ---------A   01430 PRINT "PLACE YOUR BETS...HORSE # THEN AMOUNT"
-    0x61537faac150 ---------A   01440 FOR J=1 TO C
-    0x61537faac3b0 ---------A T 01450 PRINT W$(J);
-    0x61537faac930 ---------A   01460 INPUT Q(J),P(J)
-    0x61537faacc80 ---------A   01470 IF P(J)<1 THEN 1490
-    0x61537faacfd0 ---------A   01480 IF P(J)<100000 THEN 1510
-    0x61537faad130 ---------A T 01490 PRINT"  YOU CAN'T DO THAT!"
-    0x61537faad1a0 ---------A   01500 GOTO 1450
-    0x61537faad2c0 ---------A T 01510 NEXT J
-    0x61537faad350 ---------A   01520 PRINT
-    0x61537faad4b0 ---------A   01530 PRINT"1 2 3 4 5 6 7 8"
-    0x61537faad620 ---------A T 01540 PRINT"XXXXSTARTXXXX";
-    0x61537faad910 ---------A   01550 FOR I=1 TON
-    0x61537faadb50 ---------A   01560 LET M=I
-    0x61537faade70 ---------A   01570 LET M(I)=M
-    0x61537faae610 ---------A   01580 LET Y(M(I))=INT(100*RND+1)
-    0x61537faaea30 ---------A   01590 IF Y(M(I))<10 THEN1680
-    0x61537faaf060 ---------A   01600 LET S=INT(R/D(I)+.5)
-    0x61537faaf5a0 ---------A   01610 IF Y(M(I))<S+17 THEN 1700
-    0x61537faafaf0 ---------A   01620 IF Y(M(I))<S+37 THEN 1720
-    0x61537fab0040 ---------A   01630 IF Y(M(I))<S+57 THEN1740
-    0x61537fab0590 ---------A   01640 IF Y(M(I))<77+S THEN1760
-    0x61537fab0ee0 ---------A   01650 IF Y(M(I))<S+92 THEN1780
-    0x61537fab12c0 ---------A   01660 LET Y(M(I))=7
-    0x61537fab1330 ---------A   01670 GOTO 1790
-    0x61537fab16f0 ---------A T 01680 LET Y(M(I))=1
-    0x61537fab1760 ---------A   01690 GOTO 1790
-    0x61537fab1b20 ---------A T 01700 LET Y(M(I))=2
-    0x61537fab1b90 ---------A   01710 GOTO 1790
-    0x61537fab1f50 ---------A T 01720 LET Y(M(I))=3
-    0x61537fab1fc0 ---------A   01730 GOTO 1790
-    0x61537fab2380 ---------A T 01740 LET Y(M(I))=4
-    0x61537fab23f0 ---------A   01750 GOTO 1790
-    0x61537fab27b0 ---------A T 01760 LET Y(M(I))=5
-    0x61537fab2820 ---------A   01770 GOTO 1790
-    0x61537fab2be0 ---------A T 01780 LET Y(M(I))=6
-    0x61537fab2d10 ---------A T 01790 NEXTI
-    0x61537fab2f50 ---------A   01800 LET M=I
-    0x61537fab3230 ---------A   01810 FOR I=1TO8
-    0x61537fab3ad0 ---------A   01820 LET S(M(I))=S(M(I))+Y(M(I))
-    0x61537fab3c00 ---------A   01830 NEXTI
-    0x61537fab3e20 ---------A   01840 LET I=1
-    0x61537fab41b0 ---------A   01850 FOR L=1 TO8
-    0x61537fab45c0 ---------A   01860 FORI=1TO 8-L
-    0x61537fab4cc0 ---------A   01870 IF S(M(I))<S(M(I+1))THEN 1910
-    0x61537fab50a0 ---------A   01880 LET H=M(I)
-    0x61537fab5590 ---------A   01890 LET M(I)=M(I+1)
-    0x61537fab59a0 ---------A   01900 LET M(I+1)=H
-    0x61537fab5ad0 ---------A T 01910 NEXT I
-    0x61537fab5c10 ---------A   01920 NEXT L
-    0x61537fab60b0 ---------A   01930 LET T=S(M(8))
-    0x61537fab6390 ---------A   01940 FOR I=1 TO8
-    0x61537fab6c30 ---------A   01950 LET B=S(M(I))-S(M(I-1))
-    0x61537fab6e80 ---------A   01960 IF B=0 THEN 2010
-    0x61537fab7180 ---------A   01970 FOR A=1 TO B
-    0x61537fab7210 ---------A   01980 PRINT
-    0x61537fab7620 ---------A   01990 IF S(M(I))>27 THEN2060
-    0x61537fab7760 ---------A   02000 NEXT A
-    0x61537fab79c0 ---------A T 02010 PRINT M(I);
-    0x61537fab7af0 ---------A   02020 NEXT I
-    0x61537fab7ef0 ---------A   02030 FOR A=1 TO 28-T
-    0x61537fab7f70 ---------A   02040 PRINT
-    0x61537fab80a0 ---------A   02050 NEXT A
-    0x61537fab8210 ---------A T 02060 PRINT"XXXXFINISHXXXX"
-    0x61537fab8470 ---------A   02070 IF T<28 THEN 1540
-    0x61537fab85d0 ---------A   02080 PRINT"**************"
-    0x61537fab8740 ---------A   02090 PRINT"WINNER IS ";
-    0x61537fab8ad0 ---------A   02100 FOR I=8 TO 1STEP-1
-    0x61537fab8eb0 ---------A   02110 LET F=M(I)
-    0x61537fab8f30 ---------A   02120 PRINT
-    0x61537fab9360 ---------A   02130 PRINT "HORSE NO." F, V$(F)
-    0x61537fab9490 ---------A   02140 NEXT I
-    0x61537fab97a0 ---------A   02150 FOR J=1 TO C
-    0x61537fab9bc0 ---------A   02160 IF Q(J)<>M(8) THEN 2190
-    0x61537fab9ef0 ---------A   02170 LET N=Q(J)
-    0x61537faba760 ---------A   02180 PRINT W$(J);"WINS $";(R/D(N))*P(J)
-    0x61537faba890 ---------A T 02190 NEXT J
-    0x61537faba8f0 ---------A   02200 END
+    0x6066f5b0c670 ---------A   01000  PRINT "BASIC LIBRARY--'HORSES'--18-JUL-70"
+    0x6066f5b0edb0 ---------A   01010  REM  *  *  *  *  *  *  *    MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *  *
+    0x6066f5b0db80 ---------A   01020  REM
+    0x6066f5b0ef30 ---------A   01030  RANDOM
+    0x6066f5b0d2d0 ---------A   01040  PRINT"WELCOME TO DATALINE SYSTEMS RACETRACK"
+    0x6066f5b0d910 ---------A   01050  PRINT
+    0x6066f5b0e5e0 ---------A   01060  PRINT "DO YOU WANT DIRECTIONS";
+    0x6066f5b0c9e0 ---------A   01070  INPUT X$
+    0x6066f5b0ce40 ---------A   01080  IF X$="NO" THEN1140
+    0x6066f5b0cea0 ---------A   01090  PRINT"UP TO 10 MAY PLAY.A TABLE OF ODDS WILL BE PRINTED. YOU"
+    0x6066f5b0e730 ---------A   01100  PRINT"MAY BET ANY + AMOUNT UNDER 100000 ON ONE HORSE."
+    0x6066f5b0f140 ---------A   01110  PRINT "DURING THE RACE , A HORSE WILL BE SHOWN BY ITS"
+    0x6066f5b0d660 ---------A   01120  PRINT"NUMBER.THE HORSES RACE DOWN THE PAPER!"
+    0x6066f5b0d6c0 ---------A   01130  PRINT
+    0x6066f5b0d820 ---------A T 01140  PRINT "HOW MANY WANT TO BET";
+    0x6066f5b149c0 ---------A   01150  INPUT C
+    0x6066f5b14b00 ---------A   01160  PRINT "WHEN ? APPEARS,TYPE NAME"
+    0x6066f5b14ec0 ---------A   01170  FOR A=1 TO C
+    0x6066f5b151c0 ---------A   01180  INPUT W$(A)
+    0x6066f5b15300 ---------A   01190  NEXT A
+    0x6066f5b15370 ---------A   01200  PRINT
+    0x6066f5b157d0 ---------A   01210  PRINT"HORSE"," ","NUMBER","ODDS"
+    0x6066f5b15850 ---------A   01220  PRINT
+    0x6066f5b15e70 ---------A   01230  LET S(M(I))=0
+    0x6066f5b16140 ---------A   01240  LET R=0
+    0x6066f5b163f0 ---------A   01250  FOR A=1 TO 8
+    0x6066f5b16ab0 ---------A   01260  LET D(A)=INT(10*RND+1)
+    0x6066f5b16be0 ---------A   01270  NEXT A
+    0x6066f5b16ed0 ---------A   01280  FOR A=1TO 8
+    0x6066f5b17310 ---------A   01290  LET R=R+D(A)
+    0x6066f5b17440 ---------A   01300  NEXT A
+    0x6066f5b177f0 ---------A   01310  LET V$(1)="JOE MAW"
+    0x6066f5b17ac0 ---------A   01320  LET V$(2)="L.B.J."
+    0x6066f5b17fa0 ---------A   01330  LET V$(3)="MR.WASHBURN"
+    0x6066f5b18290 ---------A   01340  LET V$(4)="MISS KAREN"
+    0x6066f5b18580 ---------A   01350  LET V$(5)="JOLLY"
+    0x6066f5b18880 ---------A   01360  LET V$(6)="FOR Q."
+    0x6066f5b18b80 ---------A   01370  LET V$(7)="JELLY DO NOT"
+    0x6066f5b18e70 ---------A   01380  LET V$(8)="ACID ROCK"
+    0x6066f5b19210 ---------A   01390  FOR N=1 TO8
+    0x6066f5b19a50 ---------A   01400  PRINT V$(N)," ",N,R/D(N);":1"
+    0x6066f5b19b90 ---------A   01410  NEXT N
+    0x6066f5b19d70 ---------A   01420  PRINT"--------------------------------------------------"
+    0x6066f5b19ee0 ---------A   01430  PRINT "PLACE YOUR BETS...HORSE # THEN AMOUNT"
+    0x6066f5b1a2a0 ---------A   01440  FOR J=1 TO C
+    0x6066f5b1a500 ---------A T 01450  PRINT W$(J);
+    0x6066f5b1aa90 ---------A   01460  INPUT Q(J),P(J)
+    0x6066f5b1ade0 ---------A   01470  IF P(J)<1 THEN 1490
+    0x6066f5b1b130 ---------A   01480  IF P(J)<100000 THEN 1510
+    0x6066f5b1b290 ---------A T 01490  PRINT"  YOU CAN'T DO THAT!"
+    0x6066f5b1b310 ---------A   01500  GOTO 1450
+    0x6066f5b1b440 ---------A T 01510  NEXT J
+    0x6066f5b1b4e0 ---------A   01520  PRINT
+    0x6066f5b1b650 ---------A   01530  PRINT"1 2 3 4 5 6 7 8"
+    0x6066f5b1b7d0 ---------A T 01540  PRINT"XXXXSTARTXXXX";
+    0x6066f5b1bad0 ---------A   01550  FOR I=1 TON
+    0x6066f5b1bd10 ---------A   01560  LET M=I
+    0x6066f5b1c030 ---------A   01570  LET M(I)=M
+    0x6066f5b1c7d0 ---------A   01580  LET Y(M(I))=INT(100*RND+1)
+    0x6066f5b1cbf0 ---------A   01590  IF Y(M(I))<10 THEN1680
+    0x6066f5b1d220 ---------A   01600  LET S=INT(R/D(I)+.5)
+    0x6066f5b1d760 ---------A   01610  IF Y(M(I))<S+17 THEN 1700
+    0x6066f5b1dcb0 ---------A   01620  IF Y(M(I))<S+37 THEN 1720
+    0x6066f5b1e200 ---------A   01630  IF Y(M(I))<S+57 THEN1740
+    0x6066f5b1e750 ---------A   01640  IF Y(M(I))<77+S THEN1760
+    0x6066f5b1f0a0 ---------A   01650  IF Y(M(I))<S+92 THEN1780
+    0x6066f5b1f480 ---------A   01660  LET Y(M(I))=7
+    0x6066f5b1f4f0 ---------A   01670  GOTO 1790
+    0x6066f5b1f8c0 ---------A T 01680  LET Y(M(I))=1
+    0x6066f5b1f930 ---------A   01690  GOTO 1790
+    0x6066f5b1fd00 ---------A T 01700  LET Y(M(I))=2
+    0x6066f5b1fd70 ---------A   01710  GOTO 1790
+    0x6066f5b20140 ---------A T 01720  LET Y(M(I))=3
+    0x6066f5b201b0 ---------A   01730  GOTO 1790
+    0x6066f5b20580 ---------A T 01740  LET Y(M(I))=4
+    0x6066f5b205f0 ---------A   01750  GOTO 1790
+    0x6066f5b209c0 ---------A T 01760  LET Y(M(I))=5
+    0x6066f5b20a30 ---------A   01770  GOTO 1790
+    0x6066f5b20e00 ---------A T 01780  LET Y(M(I))=6
+    0x6066f5b20f30 ---------A T 01790  NEXTI
+    0x6066f5b21180 ---------A   01800  LET M=I
+    0x6066f5b21460 ---------A   01810  FOR I=1TO8
+    0x6066f5b21d00 ---------A   01820  LET S(M(I))=S(M(I))+Y(M(I))
+    0x6066f5b21e30 ---------A   01830  NEXTI
+    0x6066f5b22060 ---------A   01840  LET I=1
+    0x6066f5b223f0 ---------A   01850  FOR L=1 TO8
+    0x6066f5b22800 ---------A   01860  FORI=1TO 8-L
+    0x6066f5b22f00 ---------A   01870  IF S(M(I))<S(M(I+1))THEN 1910
+    0x6066f5b232e0 ---------A   01880  LET H=M(I)
+    0x6066f5b237d0 ---------A   01890  LET M(I)=M(I+1)
+    0x6066f5b23be0 ---------A   01900  LET M(I+1)=H
+    0x6066f5b23d10 ---------A T 01910  NEXT I
+    0x6066f5b23e60 ---------A   01920  NEXT L
+    0x6066f5b24310 ---------A   01930  LET T=S(M(8))
+    0x6066f5b245f0 ---------A   01940  FOR I=1 TO8
+    0x6066f5b24e90 ---------A   01950  LET B=S(M(I))-S(M(I-1))
+    0x6066f5b250e0 ---------A   01960  IF B=0 THEN 2010
+    0x6066f5b253e0 ---------A   01970  FOR A=1 TO B
+    0x6066f5b25470 ---------A   01980  PRINT
+    0x6066f5b25890 ---------A   01990  IF S(M(I))>27 THEN2060
+    0x6066f5b259d0 ---------A   02000  NEXT A
+    0x6066f5b25c40 ---------A T 02010  PRINT M(I);
+    0x6066f5b25d80 ---------A   02020  NEXT I
+    0x6066f5b26190 ---------A   02030  FOR A=1 TO 28-T
+    0x6066f5b26210 ---------A   02040  PRINT
+    0x6066f5b26350 ---------A   02050  NEXT A
+    0x6066f5b264d0 ---------A T 02060  PRINT"XXXXFINISHXXXX"
+    0x6066f5b26740 ---------A   02070  IF T<28 THEN 1540
+    0x6066f5b268a0 ---------A   02080  PRINT"**************"
+    0x6066f5b26a20 ---------A   02090  PRINT"WINNER IS ";
+    0x6066f5b26dc0 ---------A   02100  FOR I=8 TO 1STEP-1
+    0x6066f5b271a0 ---------A   02110  LET F=M(I)
+    0x6066f5b27220 ---------A   02120  PRINT
+    0x6066f5b27660 ---------A   02130  PRINT "HORSE NO." F, V$(F)
+    0x6066f5b277a0 ---------A   02140  NEXT I
+    0x6066f5b27ac0 ---------A   02150  FOR J=1 TO C
+    0x6066f5b27ee0 ---------A   02160  IF Q(J)<>M(8) THEN 2190
+    0x6066f5b28210 ---------A   02170  LET N=Q(J)
+    0x6066f5b28a80 ---------A   02180  PRINT W$(J);"WINS $";(R/D(N))*P(J)
+    0x6066f5b28bc0 ---------A T 02190  NEXT J
+    0x6066f5b28c30 ---------A   02200  END
  */
 
 //---------------------------------------------------------------------------
@@ -648,7 +914,7 @@ int main(int argc,char *argv[])
     // 01390 FOR N=1 TO8
     for(N_int=1;N_int<=8;N_int++){
         // 01400 PRINT V$(N)," ",N,R/D(N);":1"
-        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_STR(buf,V_str_arr[N_int]);strcat(buf," "); b2c_INT(buf,N_int); b2c_INT(buf,R_int/D_int_arr[N_int]);strcat(buf,":1");strcat(buf,"\n");fputs(buf,fh); };
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,V_str_arr[N_int]);strcat(buf," "); b2c_INT(buf,N_int); b2c_INT(buf,R_int/D_int_arr[N_int]);strcat(buf,":1");strcat(buf,"\n");fputs(buf,fh); };
         // 01410 NEXT N
         int dummy_1410=0; // Ignore this line.
     }; // End-For(N_int)
@@ -661,7 +927,7 @@ int main(int argc,char *argv[])
 
   Lbl_01450:
         // 01450 PRINT W$(J);
-        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_STR(buf,W_str_arr[J_int]);fputs(buf,fh); };
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,W_str_arr[J_int]);fputs(buf,fh); };
         // 01460 INPUT Q(J),P(J)
         // Start of Basic INPUT statement 01460
         {
@@ -848,7 +1114,7 @@ int main(int argc,char *argv[])
         // 02120 PRINT
         { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
         // 02130 PRINT "HORSE NO." F, V$(F)
-        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HORSE NO."); b2c_INT(buf,F_int); b2c_STR(buf,V_str_arr[F_int]);strcat(buf,"\n");fputs(buf,fh); };
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"HORSE NO."); b2c_INT(buf,F_int); strcat(buf,V_str_arr[F_int]);strcat(buf,"\n");fputs(buf,fh); };
         // 02140 NEXT I
         int dummy_2140=0; // Ignore this line.
     }; // End-For(I_int)
@@ -859,7 +1125,7 @@ int main(int argc,char *argv[])
         // 02170 LET N=Q(J)
         N_int = Q_int_arr[J_int];
         // 02180 PRINT W$(J);"WINS $";(R/D(N))*P(J)
-        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_STR(buf,W_str_arr[J_int]);strcat(buf,"WINS $"); b2c_INT(buf,(R_int/D_int_arr[N_int])*P_int_arr[J_int]);strcat(buf,"\n");fputs(buf,fh); };
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,W_str_arr[J_int]);strcat(buf,"WINS $"); b2c_INT(buf,(R_int/D_int_arr[N_int])*P_int_arr[J_int]);strcat(buf,"\n");fputs(buf,fh); };
 
   Lbl_02190:
         // 02190 NEXT J

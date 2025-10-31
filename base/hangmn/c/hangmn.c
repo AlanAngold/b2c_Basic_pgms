@@ -8,272 +8,272 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x6554f2a82db0 ---------A   01010 PRINT "BASIC LIBRARY--'HANGMN'--18-JUL-70"
-    0x6554f2a715d0 ---------A   01020 REM  *  *  *  *  *  *  *  MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *
-    0x6554f2a71610 ---------A   01030 REM
-    0x6554f2a82f30 ---------A   01040 RANDOMIZE
-    0x6554f2a82e70 ---------A   01050 LET S7=1
-    0x6554f2a830b0 ---------A T 01060 PRINT"DO YOU WANT TO SEE THE INSTRUCTIONS";
-    0x6554f2a80670 ---------A   01070 INPUT N7$
-    0x6554f2a80e40 ---------A   01080 IF N7$="N" THEN 1170
-    0x6554f2a81480 ---------A   01090 PRINT
-    0x6554f2a82730 ---------A   01100 PRINT"THIS GAME IS SOMETHING LIKE HANGMAN.  THE MACHINE CHOOSES"
-    0x6554f2a83160 ---------A   01110 PRINT"A WORD OUT OF ITS STORAGE AND YOU ARE REQUIRED TO GUESS THE"
-    0x6554f2a816b0 ---------A   01120 PRINT"WORD LETTER BY LETTER.  AFTER EACH MISTAKE, YOU WILL BE ASKED"
-    0x6554f2a81860 ---------A   01130 PRINT"WHETHER YOU WANT TO SEE A PICTURE OF YOURSELF.  THE MORE"
-    0x6554f2a88a00 ---------A   01140 PRINT"MISTAKES YOU MAKE, THE LESS OF YOU THERE WILL BE. UNTIL"
-    0x6554f2a88b50 ---------A   01150 PRINT"AFTER 9 MISTAKES, YOU WILL BE ALL GONE, AND YOU WILL"
-    0x6554f2a88c60 ---------A   01160 PRINT"LOSE."
-    0x6554f2a88ed0 ---------A T 01170 LET T2=0
-    0x6554f2a88f80 ---------A   01180 PRINT
-    0x6554f2a890e0 ---------A   01190 PRINT"WOULD YOU LIKE TO SEE THE WHOLE PICTURE BEFORE THE GAME STARTS";
-    0x6554f2a89290 ---------A   01200 INPUT Q9$
-    0x6554f2a89510 ---------A   01210 IF Q9$="Y" THEN 2030
-    0x6554f2a89730 ---------A T 01220 LET T2=1
-    0x6554f2a89980 ---------A   01230 IF S7=0 THEN 1430
-    0x6554f2a89c60 ---------A   01240 LET Q=0
-    0x6554f2a89f30 ---------A   01250 LET L=1
-    0x6554f2a8a200 ---------A   01260 DIM S(200)
-    0x6554f2a8a4c0 ---------A   01270 DIM F$(2000)
-    0x6554f2a8a780 ---------A   01280 DIM A$(20)
-    0x6554f2a8aa40 ---------A   01290 DIM B$(20)
-    0x6554f2a8ad00 ---------A   01300 DIM I(200)
-    0x6554f2a8afc0 ---------A   01310 LET O1=1
-    0x6554f2a8b1d0 ---------A T 01320 READ S(O1)
-    0x6554f2a8b4f0 ---------A   01330 IF S(O1)<0 THEN 1420
-    0x6554f2a8ba00 ---------A   01340 LET I(O1)=L
-    0x6554f2a8c0d0 ---------A   01350 FOR O=L TO L+S(O1)-1
-    0x6554f2a8c310 ---------A   01360 READ F$(O)
-    0x6554f2a8c430 ---------A   01370 NEXT O
-    0x6554f2a8c770 ---------A   01380 LET Q=Q+1
-    0x6554f2a8cba0 ---------A   01390 LET L=L+S(O1)
-    0x6554f2a8ced0 ---------A   01400 LET O1=O1+1
-    0x6554f2a8cf40 ---------A   01410 GO TO 1320
-    0x6554f2a8d240 ---------A T 01420 LET O1=O1-1
-    0x6554f2a8d830 ---------A T 01430 LET R=INT(1+O1*RND)
-    0x6554f2a8db40 ---------A   01440 LET S=S(R)
-    0x6554f2a8df10 ---------A   01450 LET O6=I(R)
-    0x6554f2a8e3a0 ---------A   01460 FOR Z2=1 TO S(R)
-    0x6554f2a8e6d0 ---------A   01470 LET O6=I(R)
-    0x6554f2a8ece0 ---------A   01480 LET A$(Z2)=F$(O6+Z2-1)
-    0x6554f2a8ee10 ---------A   01490 NEXT Z2
-    0x6554f2a8f0f0 ---------A   01500 DIM U$(26)
-    0x6554f2a8f3b0 ---------A   01510 DIM E$(26)
-    0x6554f2a8f670 ---------A   01520 LET V=1
-    0x6554f2a8f960 ---------A   01530 FOR I=1 TO S
-    0x6554f2a8fc80 ---------A   01540 LET B$(I)=" - "
-    0x6554f2a8fdb0 ---------A   01550 NEXT I
-    0x6554f2a8fe30 ---------A   01560 GO TO 1740
-    0x6554f2a8fea0 ----------   01570 PRINT
-    0x6554f2a90010 ---------A T 01580 PRINT"WHAT IS YOUR GUESS";
-    0x6554f2a902e0 ---------A   01590 LET K=1
-    0x6554f2a904f0 ---------A   01600 INPUT G$
-    0x6554f2a908c0 ---------A   01610 FOR Y=1 TO S
-    0x6554f2a90c20 ---------A   01620 IF G$=A$(Y) THEN 1640
-    0x6554f2a90ca0 ---------A   01630 GO TO 1650
-    0x6554f2a90ea0 ---------A T 01640 LET K=0
-    0x6554f2a90fd0 ---------A T 01650 NEXT Y
-    0x6554f2a91640 ---------A   01660 IF K=0 THEN 1690
-    0x6554f2a91960 ---------A   01670 LET E$(V)=G$
-    0x6554f2a91c90 ---------A   01680 LET V=V+1
-    0x6554f2a92050 ---------A T 01690 FOR T=1 TO S 
-    0x6554f2a923b0 ---------A   01700 IF G$=A$(T) THEN 1720
-    0x6554f2a92430 ---------A   01710 GO TO 1730
-    0x6554f2a92730 ---------A T 01720 LET B$(T)=G$
-    0x6554f2a92860 ---------A T 01730 NEXT T
-    0x6554f2a928e0 ---------A T 01740 PRINT
-    0x6554f2a92bd0 ---------A   01750 FOR I=1 TO S
-    0x6554f2a92e30 ---------A   01760 PRINT B$(I);
-    0x6554f2a92f60 ---------A   01770 NEXT I
-    0x6554f2a930e0 ---------A   01780 PRINT " ",
-    0x6554f2a93590 ---------A   01790 FOR G6=1 TO V-1
-    0x6554f2a937f0 ---------A   01800 PRINT E$(G6);
-    0x6554f2a93920 ---------A   01810 NEXT G6
-    0x6554f2a939a0 ---------A   01820 PRINT
-    0x6554f2a93d90 ---------A   01830 LET E1=V-1
-    0x6554f2a93fe0 ---------A   01840 IF E1<9 THEN 1970
-    0x6554f2a94150 ---------A   01850 PRINT"I WIN..."
-    0x6554f2a942d0 ---------A   01860 PRINT"THE CORRECT ANSWER IS ";
-    0x6554f2a945c0 ---------A   01870 FOR Z2=1 TO S
-    0x6554f2a94820 ---------A   01880 PRINT A$(Z2);
-    0x6554f2a94950 ---------A   01890 NEXT Z2
-    0x6554f2a949f0 ---------A   01900 PRINT
-    0x6554f2a94b70 ---------A   01910 PRINT " DO YOU WANT TO PLAY AGAIN";
-    0x6554f2a94e40 ---------A   01920 LET W=1
-    0x6554f2a95050 ---------A   01930 INPUT T$
-    0x6554f2a95280 ---------A   01940 LET S7=0
-    0x6554f2a954f0 ---------A   01950 IF T$="Y" THEN 1060
-    0x6554f2a95570 ---------A   01960 GO TO 3660
-    0x6554f2a955d0 ---------A T 01970 PRINT
-    0x6554f2a95820 ---------A   01980 IF K=0 THEN 2380
-    0x6554f2a95aa0 ---------A   01990 IF W=1 THEN 2360
-    0x6554f2a95c30 ---------A   02000 PRINT"DO YOU WANT TO SEE THE PICTURE";
-    0x6554f2a95e50 ---------A   02010 INPUT T2$
-    0x6554f2a960e0 ---------A   02020 IF T2$="N" THEN2380
-    0x6554f2a96250 ---------A T 02030 PRINT"       *-:-*"
-    0x6554f2a963b0 ---------A   02040 PRINT"     %&     &%"
-    0x6554f2a96500 ---------A   02050 PRINT"    #         #"
-    0x6554f2a96760 ---------A   02060 IF E1=8 THEN 2380
-    0x6554f2a968c0 ---------A   02070 PRINT"   ^  (.) (.)  ^"
-    0x6554f2a96b20 ---------A   02080 IF E1=7 THEN 2380
-    0x6554f2a96c80 ---------A   02090 PRINT" <<<           >>>"
-    0x6554f2a96ee0 ---------A   02100 IF E1=6 THEN 2380
-    0x6554f2a97040 ---------A   02110 PRINT"   !    :?:    !"
-    0x6554f2a972a0 ---------A   02120 IF E1=5 THEN 2380
-    0x6554f2a97410 ---------A   02130 PRINT"   *  -     -  *"
-    0x6554f2a97570 ---------A   02140 PRINT"   '   +++++   '"
-    0x6554f2a976d0 ---------A   02150 PRINT"   &           &"
-    0x6554f2a97830 ---------A   02160 PRINT"    %%%     %%%"
-    0x6554f2a97980 ---------A   02170 PRINT"      :!#$#!:"
-    0x6554f2a97bd0 ---------A   02180 IF E1=4 THEN 2380
-    0x6554f2a97d30 ---------A   02190 PRINT"         I"
-    0x6554f2a97e80 ---------A   02200 PRINT"         I"
-    0x6554f2a97fd0 ---------A   02210 PRINT"         I"
-    0x6554f2a98230 ---------A   02220 IF E1=3 THEN 2380
-    0x6554f2a98390 ---------A   02230 PRINT"???????????????????"
-    0x6554f2a985e0 ---------A   02240 IF E1=2 THEN 2380
-    0x6554f2a98740 ---------A   02250 PRINT"         @"
-    0x6554f2a98890 ---------A   02260 PRINT"         @"
-    0x6554f2a989e0 ---------A   02270 PRINT"         @"
-    0x6554f2a98c30 ---------A   02280 IF E1=1 THEN 2380
-    0x6554f2a98da0 ---------A   02290 PRINT"        ( )"
-    0x6554f2a99710 ---------A   02300 PRINT"       (   )"
-    0x6554f2a99870 ---------A   02310 PRINT"      (     )"
-    0x6554f2a999d0 ---------A   02320 PRINT"     (       )"
-    0x6554f2a99b30 ---------A   02330 PRINT"    (         )"
-    0x6554f2a99c90 ---------A   02340 PRINT"   (           )"
-    0x6554f2a99de0 ---------A   02350 PRINT"  (#$%&     &%$#)"
-    0x6554f2a99ff0 ---------A T 02360 LETW=0
-    0x6554f2a9a240 ---------A   02370 IF T2=0 THEN 1220
-    0x6554f2a9a550 ---------A T 02380 FOR I=1 TO S
-    0x6554f2a9a990 ---------A   02390 IF A$(I)=B$(I) THEN 2410
-    0x6554f2a9aa10 ---------A   02400 GO TO 1580
-    0x6554f2a9ab30 ---------A T 02410 NEXT I
-    0x6554f2a9acb0 ---------A   02420 PRINT"VERY GOOD! YOU WIN!"
-    0x6554f2a9ae30 ---------A   02430 PRINT"DO YOU WANT TO PLAY AGAIN";
-    0x6554f2a9b040 ---------A   02440 LET S7=0
-    0x6554f2a9b260 ---------A   02450 INPUT H8$
-    0x6554f2a9b4e0 ---------A   02460 IF H8$="Y" THEN 1060
-    0x6554f2a9b580 ---------A   02470 GO TO 3660
-    0x6554f2a9c4d0 ---------A   02480 DATA 10,I,M,P,O,S,S,I,B,L,E,  5,I,D,I,O,T
-    0x6554f2a9ce10 ---------A   02490 DATA 9,A,P,A,T,H,E,T,I,C
-    0x6554f2a9d830 ---------A   02500 DATA10,W,A,T,E,R,F,R,O,N,T
-    0x6554f2a9e330 ---------A   02510 DATA11,C,O,L,L,E,C,T,I,O,N,S
-    0x6554f2a9ec70 ---------A   02520 DATA 9,Y,E,S,T,E,R,D,A,Y
-    0x6554f2a9f850 ---------A   02530 DATA12,K,I,N,D,E,R,G,A,R,T,E,N
-    0x6554f2aa05f0 ---------A   02540 DATA14,A,D,M,I,N,I,S,T,R,A,T,I,O,N
-    0x6554f2aa0e50 ---------A   02550 DATA 8,E,M,P,H,A,S,I,S
-    0x6554f2aa1790 ---------A   02560 DATA 9,E,D,U,C,A,T,I,O,N
-    0x6554f2aa21b0 ---------A   02570 DATA 10,R,E,C,I,P,R,O,C,A,L
-    0x6554f2aa2cb0 ---------A   02580 DATA  11,D,E,C,L,A,R,A,T,I,O,N
-    0x6554f2aa3430 ---------A   02590 DATA 7,P,I,T,C,H,E,R
-    0x6554f2aa3e50 ---------A   02600 DATA 10,S,U,P,E,R,S,O,N,I,C
-    0x6554f2aa4950 ---------A   02610 DATA 11,C,O,M,M,E,N,D,A,B,L,E
-    0x6554f2aa50d0 ---------A   02620 DATA 7,P,A,S,S,A,G,E
-    0x6554f2aa5ae0 ---------A   02630 DATA 10,P,E,R,C,E,N,T,A,G,E
-    0x6554f2aa60a0 ---------A   02640 DATA 5,J,O,I,N,T
-    0x6554f2aa6900 ---------A   02650 DATA8,G,O,V,E,R,N,O,R
-    0x6554f2aa7080 ---------A   02660 DATA 7,P,R,O,G,R,A,M
-    0x6554f2aa7d40 ---------A   02670 DATA 13,D,I,S,A,P,P,E,A,R,A,N,C,E
-    0x6554f2aa85a0 ---------A   02680 DATA 8,S,E,C,U,R,I,T,Y
-    0x6554f2aa8d10 ---------A   02690 DATA 7,W,E,L,C,O,M,E
-    0x6554f2aa91f0 ---------A   02700 DATA 4,Z,E,R,O
-    0x6554f2aa9b30 ---------A   02710 DATA9,P,O,T,E,N,T,I,A,L
-    0x6554f2aaa390 ---------A   02720 DATA 8,C,O,M,P,O,S,E,D
-    0x6554f2aaae90 ---------A   02730 DATA 11,P,O,S,S,I,B,I,L,I,T,Y
-    0x6554f2aab6e0 ---------A   02740 DATA 8,D,I,R,E,C,T,O,R
-    0x6554f2aabd80 ---------A   02750 DATA 6,R,E,S,U,L,T
-    0x6554f2aac5e0 ---------A   02760 DATA 8,C,H,I,L,D,R,E,N
-    0x6554f2aacf20 ---------A   02770 DATA 9,C,L,A,S,S,R,O,O,M
-    0x6554f2aad780 ---------A   02780 DATA 8,E,C,O,N,O,M,I,C
-    0x6554f2aae0c0 ---------A   02790 DATA 9,E,Q,U,I,V,O,C,A,L
-    0x6554f2aae840 ---------A   02800 DATA 7,H,O,S,T,I,L,E
-    0x6554f2aaefc0 ---------A   02810 DATA 7,R,O,G,U,I,S,H
-    0x6554f2aaf900 ---------A   02820 DATA 9,M,I,G,R,A,T,I,O,N
-    0x6554f2ab05c0 ---------A   02830 DATA 13,A,U,T,H,O,R,I,Z,A,T,I,O,N
-    0x6554f2ab0d30 ---------A   02840 DATA 7,C,U,R,S,O,R,Y
-    0x6554f2ab12f0 ---------A   02850 DATA 5,M,O,N,E,Y
-    0x6554f2ab1a70 ---------A   02860 DATA 7,A,B,S,O,L,V,E
-    0x6554f2ab2650 ---------A   02870 DATA 12,P,R,E,R,E,Q,U,I,S,I,T,E
-    0x6554f2ab2de0 ---------A   02880 DATA 7,I,N,S,I,P,I,D
-    0x6554f2ab3b80 ---------A   02890 DATA 14 ,C,O,N,G,L,O,M,E,R,A,T,I,O,N
-    0x6554f2ab45a0 ---------A   02900 DATA 10,N,E,G,O,T,I,A,B,L,E
-    0x6554f2ab4d10 ---------A   02910 DATA 7,D,E,P,O,S,I,T
-    0x6554f2ab51f0 ---------A   02920 DATA 4,L,A,M,P
-    0x6554f2ab5b30 ---------A   02930 DATA 9,Q,U,A,L,I,F,I,E,D
-    0x6554f2ab6630 ---------A   02940 DATA 11,M,A,I,N,T,E,N,A,N,C,E
-    0x6554f2ab6db0 ---------A   02950 DATA 7,F,U,N,E,R,A,L
-    0x6554f2ab76e0 ---------A   02960 DATA 9,C,A,R,P,E,N,T,E,R
-    0x6554f2ab7ca0 ---------A   02970 DATA 5,F,U,G,U,E
-    0x6554f2ab8790 ---------A   02980 DATA 11,M,A,N,U,F,A,C,T,U,R,E
-    0x6554f2ab8e30 ---------A   02990 DATA 6,B,A,K,E,R,Y
-    0x6554f2ab9680 ---------A   03000 DATA 8,M,I,L,I,T,A,R,Y
-    0x6554f2ab9c40 ---------A   03010 DATA 5,G,U,A,R,D
-    0x6554f2aba580 ---------A   03020 DATA 9,T,E,C,H,N,I,C,A,L
-    0x6554f2abade0 ---------A   03030 DATA 8,S,Y,M,P,H,O,N,Y
-    0x6554f2abb560 ---------A   03040 DATA 7,A,D,V,A,N,C,E
-    0x6554f2abbce0 ---------A   03050 DATA 7,M,I,N,I,M,U,M
-    0x6554f2abc620 ---------A   03060 DATA 9,A,L,E,R,T,N,E,S,S
-    0x6554f2abcd90 ---------A   03070 DATA 7,Q,U,A,R,T,E,T
-    0x6554f2abd430 ---------A   03080 DATA 6,P,O,L,I,S,H
-    0x6554f2abdbb0 ---------A   03090 DATA 7,B,E,N,E,F,I,T
-    0x6554f2abe400 ---------A   03100 DATA 8,C,O,M,P,O,S,E,R
-    0x6554f2abe8d0 ---------A   03110 DATA 4,H,E,R,O
-    0x6554f2abef60 ---------A   03120 DATA 6,D,E,S,I,S,T
-    0x6554f2abf5f0 ---------A   03130 DATA 6,C,I,T,I,E,S
-    0x6554f2abfac0 ---------A   03140 DATA 4,S,L,U,M
-    0x6554f2ac0150 ---------A   03150 DATA 6,R,E,G,I,M,E
-    0x6554f2ac0700 ---------A   03160 DATA 5,D,O,U,B,T
-    0x6554f2ac0be0 ---------A   03170 DATA 4,J,O,K,E
-    0x6554f2ac1520 ---------A   03180 DATA 9,P,R,O,T,E,S,T,E,R
-    0x6554f2ac1c90 ---------A   03190 DATA 7,S,I,M,I,L,A,R
-    0x6554f2ac2160 ---------A   03200 DATA 4,C,U,R,B
-    0x6554f2ac2720 ---------A   03210 DATA 5,E,L,I,T,E
-    0x6554f2ac2f70 ---------A   03220 DATA 8,M,E,D,I,C,A,R,E
-    0x6554f2ac3520 ---------A   03230 DATA 5,M,A,Y,O,R
-    0x6554f2ac39f0 ---------A   03240 DATA 4,F,U,N,D
-    0x6554f2ac4080 ---------A   03250 DATA 6,A,C,T,I,O,N
-    0x6554f2ac4710 ---------A   03260 DATA 6,C,L,O,U,D,Y
-    0x6554f2ac4be0 ---------A   03270 DATA 4,N,E,W,S
-    0x6554f2ac5190 ---------A   03280 DATA 5,Y,O,U,N,G
-    0x6554f2ac5750 ---------A   03290 DATA 5,M,A,F,I,A
-    0x6554f2ac6090 ---------A   03300 DATA 9,G,U,E,R,R,I,L,L,A
-    0x6554f2ac6810 ---------A   03310 DATA 7,R,E,Q,U,E,S,T
-    0x6554f2ac6f80 ---------A   03320 DATA 7,G,O,U,R,M,E,T
-    0x6554f2ac7380 ---------A   03330 DATA 3,P,U,B
-    0x6554f2ac7bd0 ---------A   03340 DATA 8,S,K,I,R,M,I,S,H
-    0x6554f2ac8180 ---------A   03350 DATA 5,B,L,A,C,K
-    0x6554f2ac8740 ---------A   03360 DATA 5,W,H,I,T,E
-    0x6554f2ac8eb0 ---------A   03370 DATA 7,H,I,S,T,O,R,Y
-    0x6554f2ac9550 ---------A   03380 DATA 6,P,O,L,I,C,Y
-    0x6554f2ac9e90 ---------A   03390 DATA 9,G,Y,M,N,A,S,I,U,M
-    0x6554f2aca610 ---------A   03400 DATA 7,V,E,H,I,C,L,E
-    0x6554f2acaf40 ---------A   03410 DATA 9,A,U,T,O,M,O,T,O,N
-    0x6554f2acb5d0 ---------A   03420 DATA 6,B,L,I,G,H,T
-    0x6554f2acb9c0 ---------A   03430 DATA 3,S,I,X
-    0x6554f2acbea0 ---------A   03440 DATA 4,C,A,L,L
-    0x6554f2acc7e0 ---------A   03450 DATA 9,P,S,Y,C,H,O,T,I,C
-    0x6554f2acd040 ---------A   03460 DATA 8,N,E,U,R,O,T,I,C
-    0x6554f2acd7c0 ---------A   03470 DATA 7,A,N,X,I,E,T,Y
-    0x6554f2acdf40 ---------A   03480 DATA 7,S,Y,M,P,T,O,M
-    0x6554f2acebf0 ---------A   03490 DATA13,H,Y,P,O,C,H,O,N,D,R,I,A,C
-    0x6554f2acf290 ---------A   03500 DATA 6,P,H,O,B,I,A
-    0x6554f2acfbd0 ---------A   03510 DATA 9,O,B,S,E,S,S,I,O,N
-    0x6554f2ad05f0 ---------A   03520 DATA10,C,O,M,P,U,L,S,I,O,N
-    0x6554f2ad0e50 ---------A   03530 DATA 8,H,Y,S,T,E,R,I,A
-    0x6554f2ad15d0 ---------A   03540 DATA 7,A,M,N,E,S,I,A
-    0x6554f2ad2290 ---------A   03550 DATA13,S,C,H,I,Z,O,P,H,R,E,N,I,A
-    0x6554f2ad2bd0 ---------A   03560 DATA 9,P,R,O,G,N,O,S,I,S
-    0x6554f2ad3430 ---------A   03570 DATA 8,P,A,R,A,N,O,I,D
-    0x6554f2ad4580 ---------A   03580 DATA 9,C,A,T,A,T,O,N,I,C
-    0x6554f2ad4d00 ---------A   03590 DATA 7,A,L,C,O,H,O,L
-    0x6554f2ad5560 ---------A   03600 DATA 8,C,O,M,P,U,T,E,R
-    0x6554f2ad5db0 ---------A   03610 DATA 8,T,E,R,M,I,N,A,L
-    0x6554f2ad6280 ---------A   03620 DATA 4,C,U,T,E
-    0x6554f2ad6680 ---------A   03630 DATA 3,F,U,N
-    0x6554f2ad7090 ---------A   03640 DATA10,A,C,C,E,S,S,A,B,L,E
-    0x6554f2ad71e0 ---------A   03650 DATA -103
-    0x6554f2ad7230 ---------A T 03660 END
+    0x569fb02e6670 ---------A   01010  PRINT "BASIC LIBRARY--'HANGMN'--18-JUL-70"
+    0x569fb02e7b80 ---------A   01020  REM  *  *  *  *  *  *  *  MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *
+    0x569fb02e8f30 ---------A   01030  REM
+    0x569fb02e8e70 ---------A   01040  RANDOMIZE
+    0x569fb02e8ff0 ---------A   01050  LET S7=1
+    0x569fb02e7910 ---------A T 01060  PRINT"DO YOU WANT TO SEE THE INSTRUCTIONS";
+    0x569fb02e85e0 ---------A   01070  INPUT N7$
+    0x569fb02e6e40 ---------A   01080  IF N7$="N" THEN 1170
+    0x569fb02e7480 ---------A   01090  PRINT
+    0x569fb02e8730 ---------A   01100  PRINT"THIS GAME IS SOMETHING LIKE HANGMAN.  THE MACHINE CHOOSES"
+    0x569fb02e9160 ---------A   01110  PRINT"A WORD OUT OF ITS STORAGE AND YOU ARE REQUIRED TO GUESS THE"
+    0x569fb02e76b0 ---------A   01120  PRINT"WORD LETTER BY LETTER.  AFTER EACH MISTAKE, YOU WILL BE ASKED"
+    0x569fb02e7870 ---------A   01130  PRINT"WHETHER YOU WANT TO SEE A PICTURE OF YOURSELF.  THE MORE"
+    0x569fb02eea00 ---------A   01140  PRINT"MISTAKES YOU MAKE, THE LESS OF YOU THERE WILL BE. UNTIL"
+    0x569fb02eeb60 ---------A   01150  PRINT"AFTER 9 MISTAKES, YOU WILL BE ALL GONE, AND YOU WILL"
+    0x569fb02eec80 ---------A   01160  PRINT"LOSE."
+    0x569fb02eef00 ---------A T 01170  LET T2=0
+    0x569fb02eefb0 ---------A   01180  PRINT
+    0x569fb02ef140 ---------A   01190  PRINT"WOULD YOU LIKE TO SEE THE WHOLE PICTURE BEFORE THE GAME STARTS";
+    0x569fb02ef340 ---------A   01200  INPUT Q9$
+    0x569fb02ef5c0 ---------A   01210  IF Q9$="Y" THEN 2030
+    0x569fb02ef7e0 ---------A T 01220  LET T2=1
+    0x569fb02efa30 ---------A   01230  IF S7=0 THEN 1430
+    0x569fb02efd10 ---------A   01240  LET Q=0
+    0x569fb02effe0 ---------A   01250  LET L=1
+    0x569fb02f02b0 ---------A   01260  DIM S(200)
+    0x569fb02f0580 ---------A   01270  DIM F$(2000)
+    0x569fb02f0850 ---------A   01280  DIM A$(20)
+    0x569fb02f0b20 ---------A   01290  DIM B$(20)
+    0x569fb02f0df0 ---------A   01300  DIM I(200)
+    0x569fb02f10c0 ---------A   01310  LET O1=1
+    0x569fb02f12d0 ---------A T 01320  READ S(O1)
+    0x569fb02f1600 ---------A   01330  IF S(O1)<0 THEN 1420
+    0x569fb02f1b10 ---------A   01340  LET I(O1)=L
+    0x569fb02f21e0 ---------A   01350  FOR O=L TO L+S(O1)-1
+    0x569fb02f2420 ---------A   01360  READ F$(O)
+    0x569fb02f2550 ---------A   01370  NEXT O
+    0x569fb02f28a0 ---------A   01380  LET Q=Q+1
+    0x569fb02f2cd0 ---------A   01390  LET L=L+S(O1)
+    0x569fb02f3000 ---------A   01400  LET O1=O1+1
+    0x569fb02f3070 ---------A   01410  GO TO 1320
+    0x569fb02f3380 ---------A T 01420  LET O1=O1-1
+    0x569fb02f3970 ---------A T 01430  LET R=INT(1+O1*RND)
+    0x569fb02f3c80 ---------A   01440  LET S=S(R)
+    0x569fb02f4050 ---------A   01450  LET O6=I(R)
+    0x569fb02f44e0 ---------A   01460  FOR Z2=1 TO S(R)
+    0x569fb02f4810 ---------A   01470  LET O6=I(R)
+    0x569fb02f4e20 ---------A   01480  LET A$(Z2)=F$(O6+Z2-1)
+    0x569fb02f4f50 ---------A   01490  NEXT Z2
+    0x569fb02f5240 ---------A   01500  DIM U$(26)
+    0x569fb02f5510 ---------A   01510  DIM E$(26)
+    0x569fb02f57e0 ---------A   01520  LET V=1
+    0x569fb02f5ad0 ---------A   01530  FOR I=1 TO S
+    0x569fb02f5df0 ---------A   01540  LET B$(I)=" - "
+    0x569fb02f5f20 ---------A   01550  NEXT I
+    0x569fb02f5fb0 ---------A   01560  GO TO 1740
+    0x569fb02f6030 ----------   01570  PRINT
+    0x569fb02f61b0 ---------A T 01580  PRINT"WHAT IS YOUR GUESS";
+    0x569fb02f6490 ---------A   01590  LET K=1
+    0x569fb02f66a0 ---------A   01600  INPUT G$
+    0x569fb02f6a70 ---------A   01610  FOR Y=1 TO S
+    0x569fb02f6dd0 ---------A   01620  IF G$=A$(Y) THEN 1640
+    0x569fb02f6e50 ---------A   01630  GO TO 1650
+    0x569fb02f7060 ---------A T 01640  LET K=0
+    0x569fb02f7190 ---------A T 01650  NEXT Y
+    0x569fb02f7810 ---------A   01660  IF K=0 THEN 1690
+    0x569fb02f7b30 ---------A   01670  LET E$(V)=G$
+    0x569fb02f7e60 ---------A   01680  LET V=V+1
+    0x569fb02f8220 ---------A T 01690  FOR T=1 TO S 
+    0x569fb02f8580 ---------A   01700  IF G$=A$(T) THEN 1720
+    0x569fb02f8600 ---------A   01710  GO TO 1730
+    0x569fb02f8910 ---------A T 01720  LET B$(T)=G$
+    0x569fb02f8a40 ---------A T 01730  NEXT T
+    0x569fb02f8ad0 ---------A T 01740  PRINT
+    0x569fb02f8dd0 ---------A   01750  FOR I=1 TO S
+    0x569fb02f9030 ---------A   01760  PRINT B$(I);
+    0x569fb02f9170 ---------A   01770  NEXT I
+    0x569fb02f9300 ---------A   01780  PRINT " ",
+    0x569fb02f97c0 ---------A   01790  FOR G6=1 TO V-1
+    0x569fb02f9a20 ---------A   01800  PRINT E$(G6);
+    0x569fb02f9b60 ---------A   01810  NEXT G6
+    0x569fb02f9bf0 ---------A   01820  PRINT
+    0x569fb02f9ff0 ---------A   01830  LET E1=V-1
+    0x569fb02fa240 ---------A   01840  IF E1<9 THEN 1970
+    0x569fb02fa3b0 ---------A   01850  PRINT"I WIN..."
+    0x569fb02fa540 ---------A   01860  PRINT"THE CORRECT ANSWER IS ";
+    0x569fb02fa840 ---------A   01870  FOR Z2=1 TO S
+    0x569fb02faaa0 ---------A   01880  PRINT A$(Z2);
+    0x569fb02fabe0 ---------A   01890  NEXT Z2
+    0x569fb02fac90 ---------A   01900  PRINT
+    0x569fb02fae20 ---------A   01910  PRINT " DO YOU WANT TO PLAY AGAIN";
+    0x569fb02fb100 ---------A   01920  LET W=1
+    0x569fb02fb310 ---------A   01930  INPUT T$
+    0x569fb02fb540 ---------A   01940  LET S7=0
+    0x569fb02fb7b0 ---------A   01950  IF T$="Y" THEN 1060
+    0x569fb02fb830 ---------A   01960  GO TO 3660
+    0x569fb02fb8a0 ---------A T 01970  PRINT
+    0x569fb02fbb00 ---------A   01980  IF K=0 THEN 2380
+    0x569fb02fbd80 ---------A   01990  IF W=1 THEN 2360
+    0x569fb02fbf10 ---------A   02000  PRINT"DO YOU WANT TO SEE THE PICTURE";
+    0x569fb02fc140 ---------A   02010  INPUT T2$
+    0x569fb02fc3d0 ---------A   02020  IF T2$="N" THEN2380
+    0x569fb02fc540 ---------A T 02030  PRINT"       *-:-*"
+    0x569fb02fc6b0 ---------A   02040  PRINT"     %&     &%"
+    0x569fb02fc810 ---------A   02050  PRINT"    #         #"
+    0x569fb02fca80 ---------A   02060  IF E1=8 THEN 2380
+    0x569fb02fcbe0 ---------A   02070  PRINT"   ^  (.) (.)  ^"
+    0x569fb02fce50 ---------A   02080  IF E1=7 THEN 2380
+    0x569fb02fcfb0 ---------A   02090  PRINT" <<<           >>>"
+    0x569fb02fd220 ---------A   02100  IF E1=6 THEN 2380
+    0x569fb02fd380 ---------A   02110  PRINT"   !    :?:    !"
+    0x569fb02fd5f0 ---------A   02120  IF E1=5 THEN 2380
+    0x569fb02fd760 ---------A   02130  PRINT"   *  -     -  *"
+    0x569fb02fd8d0 ---------A   02140  PRINT"   '   +++++   '"
+    0x569fb02fda40 ---------A   02150  PRINT"   &           &"
+    0x569fb02fdbb0 ---------A   02160  PRINT"    %%%     %%%"
+    0x569fb02fdd10 ---------A   02170  PRINT"      :!#$#!:"
+    0x569fb02fdf70 ---------A   02180  IF E1=4 THEN 2380
+    0x569fb02fe0d0 ---------A   02190  PRINT"         I"
+    0x569fb02fe230 ---------A   02200  PRINT"         I"
+    0x569fb02fe390 ---------A   02210  PRINT"         I"
+    0x569fb02fe600 ---------A   02220  IF E1=3 THEN 2380
+    0x569fb02fe760 ---------A   02230  PRINT"???????????????????"
+    0x569fb02fe9c0 ---------A   02240  IF E1=2 THEN 2380
+    0x569fb02feb20 ---------A   02250  PRINT"         @"
+    0x569fb02fec80 ---------A   02260  PRINT"         @"
+    0x569fb02fede0 ---------A   02270  PRINT"         @"
+    0x569fb02ff040 ---------A   02280  IF E1=1 THEN 2380
+    0x569fb02ff1b0 ---------A   02290  PRINT"        ( )"
+    0x569fb02ffb30 ---------A   02300  PRINT"       (   )"
+    0x569fb02ffca0 ---------A   02310  PRINT"      (     )"
+    0x569fb02ffe10 ---------A   02320  PRINT"     (       )"
+    0x569fb02fff80 ---------A   02330  PRINT"    (         )"
+    0x569fb03000f0 ---------A   02340  PRINT"   (           )"
+    0x569fb0300250 ---------A   02350  PRINT"  (#$%&     &%$#)"
+    0x569fb0300470 ---------A T 02360  LETW=0
+    0x569fb03006c0 ---------A   02370  IF T2=0 THEN 1220
+    0x569fb03009d0 ---------A T 02380  FOR I=1 TO S
+    0x569fb0300e10 ---------A   02390  IF A$(I)=B$(I) THEN 2410
+    0x569fb0300e90 ---------A   02400  GO TO 1580
+    0x569fb0300fc0 ---------A T 02410  NEXT I
+    0x569fb0301150 ---------A   02420  PRINT"VERY GOOD! YOU WIN!"
+    0x569fb03012e0 ---------A   02430  PRINT"DO YOU WANT TO PLAY AGAIN";
+    0x569fb0301500 ---------A   02440  LET S7=0
+    0x569fb0301720 ---------A   02450  INPUT H8$
+    0x569fb03019a0 ---------A   02460  IF H8$="Y" THEN 1060
+    0x569fb0301a40 ---------A   02470  GO TO 3660
+    0x569fb03029a0 ---------A   02480  DATA 10,I,M,P,O,S,S,I,B,L,E,  5,I,D,I,O,T
+    0x569fb03032e0 ---------A   02490  DATA 9,A,P,A,T,H,E,T,I,C
+    0x569fb0303d00 ---------A   02500  DATA10,W,A,T,E,R,F,R,O,N,T
+    0x569fb0304800 ---------A   02510  DATA11,C,O,L,L,E,C,T,I,O,N,S
+    0x569fb0305140 ---------A   02520  DATA 9,Y,E,S,T,E,R,D,A,Y
+    0x569fb0305d20 ---------A   02530  DATA12,K,I,N,D,E,R,G,A,R,T,E,N
+    0x569fb0306ac0 ---------A   02540  DATA14,A,D,M,I,N,I,S,T,R,A,T,I,O,N
+    0x569fb0307320 ---------A   02550  DATA 8,E,M,P,H,A,S,I,S
+    0x569fb0307c60 ---------A   02560  DATA 9,E,D,U,C,A,T,I,O,N
+    0x569fb0308680 ---------A   02570  DATA 10,R,E,C,I,P,R,O,C,A,L
+    0x569fb0309180 ---------A   02580  DATA  11,D,E,C,L,A,R,A,T,I,O,N
+    0x569fb0309900 ---------A   02590  DATA 7,P,I,T,C,H,E,R
+    0x569fb030a320 ---------A   02600  DATA 10,S,U,P,E,R,S,O,N,I,C
+    0x569fb030ae20 ---------A   02610  DATA 11,C,O,M,M,E,N,D,A,B,L,E
+    0x569fb030b5a0 ---------A   02620  DATA 7,P,A,S,S,A,G,E
+    0x569fb030bfb0 ---------A   02630  DATA 10,P,E,R,C,E,N,T,A,G,E
+    0x569fb030c570 ---------A   02640  DATA 5,J,O,I,N,T
+    0x569fb030cdd0 ---------A   02650  DATA8,G,O,V,E,R,N,O,R
+    0x569fb030d550 ---------A   02660  DATA 7,P,R,O,G,R,A,M
+    0x569fb030e210 ---------A   02670  DATA 13,D,I,S,A,P,P,E,A,R,A,N,C,E
+    0x569fb030ea70 ---------A   02680  DATA 8,S,E,C,U,R,I,T,Y
+    0x569fb030f1e0 ---------A   02690  DATA 7,W,E,L,C,O,M,E
+    0x569fb030f6c0 ---------A   02700  DATA 4,Z,E,R,O
+    0x569fb0310000 ---------A   02710  DATA9,P,O,T,E,N,T,I,A,L
+    0x569fb0310860 ---------A   02720  DATA 8,C,O,M,P,O,S,E,D
+    0x569fb0311360 ---------A   02730  DATA 11,P,O,S,S,I,B,I,L,I,T,Y
+    0x569fb0311bb0 ---------A   02740  DATA 8,D,I,R,E,C,T,O,R
+    0x569fb0312250 ---------A   02750  DATA 6,R,E,S,U,L,T
+    0x569fb0312ab0 ---------A   02760  DATA 8,C,H,I,L,D,R,E,N
+    0x569fb03133f0 ---------A   02770  DATA 9,C,L,A,S,S,R,O,O,M
+    0x569fb0313c50 ---------A   02780  DATA 8,E,C,O,N,O,M,I,C
+    0x569fb0314590 ---------A   02790  DATA 9,E,Q,U,I,V,O,C,A,L
+    0x569fb0314d10 ---------A   02800  DATA 7,H,O,S,T,I,L,E
+    0x569fb0315490 ---------A   02810  DATA 7,R,O,G,U,I,S,H
+    0x569fb0315dd0 ---------A   02820  DATA 9,M,I,G,R,A,T,I,O,N
+    0x569fb0316a90 ---------A   02830  DATA 13,A,U,T,H,O,R,I,Z,A,T,I,O,N
+    0x569fb0317200 ---------A   02840  DATA 7,C,U,R,S,O,R,Y
+    0x569fb03177c0 ---------A   02850  DATA 5,M,O,N,E,Y
+    0x569fb0317f40 ---------A   02860  DATA 7,A,B,S,O,L,V,E
+    0x569fb0318b20 ---------A   02870  DATA 12,P,R,E,R,E,Q,U,I,S,I,T,E
+    0x569fb03192b0 ---------A   02880  DATA 7,I,N,S,I,P,I,D
+    0x569fb031a050 ---------A   02890  DATA 14 ,C,O,N,G,L,O,M,E,R,A,T,I,O,N
+    0x569fb031aa70 ---------A   02900  DATA 10,N,E,G,O,T,I,A,B,L,E
+    0x569fb031b1e0 ---------A   02910  DATA 7,D,E,P,O,S,I,T
+    0x569fb031b6c0 ---------A   02920  DATA 4,L,A,M,P
+    0x569fb031c000 ---------A   02930  DATA 9,Q,U,A,L,I,F,I,E,D
+    0x569fb031cb00 ---------A   02940  DATA 11,M,A,I,N,T,E,N,A,N,C,E
+    0x569fb031d280 ---------A   02950  DATA 7,F,U,N,E,R,A,L
+    0x569fb031dbb0 ---------A   02960  DATA 9,C,A,R,P,E,N,T,E,R
+    0x569fb031e170 ---------A   02970  DATA 5,F,U,G,U,E
+    0x569fb031ec60 ---------A   02980  DATA 11,M,A,N,U,F,A,C,T,U,R,E
+    0x569fb031f300 ---------A   02990  DATA 6,B,A,K,E,R,Y
+    0x569fb031fb50 ---------A   03000  DATA 8,M,I,L,I,T,A,R,Y
+    0x569fb0320110 ---------A   03010  DATA 5,G,U,A,R,D
+    0x569fb0320a50 ---------A   03020  DATA 9,T,E,C,H,N,I,C,A,L
+    0x569fb03212b0 ---------A   03030  DATA 8,S,Y,M,P,H,O,N,Y
+    0x569fb0321a30 ---------A   03040  DATA 7,A,D,V,A,N,C,E
+    0x569fb03221b0 ---------A   03050  DATA 7,M,I,N,I,M,U,M
+    0x569fb0322af0 ---------A   03060  DATA 9,A,L,E,R,T,N,E,S,S
+    0x569fb0323260 ---------A   03070  DATA 7,Q,U,A,R,T,E,T
+    0x569fb0323900 ---------A   03080  DATA 6,P,O,L,I,S,H
+    0x569fb0324080 ---------A   03090  DATA 7,B,E,N,E,F,I,T
+    0x569fb03248d0 ---------A   03100  DATA 8,C,O,M,P,O,S,E,R
+    0x569fb0324da0 ---------A   03110  DATA 4,H,E,R,O
+    0x569fb0325430 ---------A   03120  DATA 6,D,E,S,I,S,T
+    0x569fb0325ac0 ---------A   03130  DATA 6,C,I,T,I,E,S
+    0x569fb0325f90 ---------A   03140  DATA 4,S,L,U,M
+    0x569fb0326620 ---------A   03150  DATA 6,R,E,G,I,M,E
+    0x569fb0326bd0 ---------A   03160  DATA 5,D,O,U,B,T
+    0x569fb03270b0 ---------A   03170  DATA 4,J,O,K,E
+    0x569fb03279f0 ---------A   03180  DATA 9,P,R,O,T,E,S,T,E,R
+    0x569fb0328160 ---------A   03190  DATA 7,S,I,M,I,L,A,R
+    0x569fb0328630 ---------A   03200  DATA 4,C,U,R,B
+    0x569fb0328bf0 ---------A   03210  DATA 5,E,L,I,T,E
+    0x569fb0329440 ---------A   03220  DATA 8,M,E,D,I,C,A,R,E
+    0x569fb03299f0 ---------A   03230  DATA 5,M,A,Y,O,R
+    0x569fb0329ec0 ---------A   03240  DATA 4,F,U,N,D
+    0x569fb032a550 ---------A   03250  DATA 6,A,C,T,I,O,N
+    0x569fb032abe0 ---------A   03260  DATA 6,C,L,O,U,D,Y
+    0x569fb032b0b0 ---------A   03270  DATA 4,N,E,W,S
+    0x569fb032b660 ---------A   03280  DATA 5,Y,O,U,N,G
+    0x569fb032bc20 ---------A   03290  DATA 5,M,A,F,I,A
+    0x569fb032c560 ---------A   03300  DATA 9,G,U,E,R,R,I,L,L,A
+    0x569fb032cce0 ---------A   03310  DATA 7,R,E,Q,U,E,S,T
+    0x569fb032d450 ---------A   03320  DATA 7,G,O,U,R,M,E,T
+    0x569fb032d850 ---------A   03330  DATA 3,P,U,B
+    0x569fb032e0a0 ---------A   03340  DATA 8,S,K,I,R,M,I,S,H
+    0x569fb032e650 ---------A   03350  DATA 5,B,L,A,C,K
+    0x569fb032ec10 ---------A   03360  DATA 5,W,H,I,T,E
+    0x569fb032f380 ---------A   03370  DATA 7,H,I,S,T,O,R,Y
+    0x569fb032fa20 ---------A   03380  DATA 6,P,O,L,I,C,Y
+    0x569fb0330360 ---------A   03390  DATA 9,G,Y,M,N,A,S,I,U,M
+    0x569fb0330ae0 ---------A   03400  DATA 7,V,E,H,I,C,L,E
+    0x569fb0331410 ---------A   03410  DATA 9,A,U,T,O,M,O,T,O,N
+    0x569fb0331aa0 ---------A   03420  DATA 6,B,L,I,G,H,T
+    0x569fb0331e90 ---------A   03430  DATA 3,S,I,X
+    0x569fb0332370 ---------A   03440  DATA 4,C,A,L,L
+    0x569fb0332cb0 ---------A   03450  DATA 9,P,S,Y,C,H,O,T,I,C
+    0x569fb0333510 ---------A   03460  DATA 8,N,E,U,R,O,T,I,C
+    0x569fb0333c90 ---------A   03470  DATA 7,A,N,X,I,E,T,Y
+    0x569fb0334410 ---------A   03480  DATA 7,S,Y,M,P,T,O,M
+    0x569fb03350c0 ---------A   03490  DATA13,H,Y,P,O,C,H,O,N,D,R,I,A,C
+    0x569fb0335760 ---------A   03500  DATA 6,P,H,O,B,I,A
+    0x569fb03360a0 ---------A   03510  DATA 9,O,B,S,E,S,S,I,O,N
+    0x569fb0336ac0 ---------A   03520  DATA10,C,O,M,P,U,L,S,I,O,N
+    0x569fb0337320 ---------A   03530  DATA 8,H,Y,S,T,E,R,I,A
+    0x569fb0337aa0 ---------A   03540  DATA 7,A,M,N,E,S,I,A
+    0x569fb0338760 ---------A   03550  DATA13,S,C,H,I,Z,O,P,H,R,E,N,I,A
+    0x569fb03390a0 ---------A   03560  DATA 9,P,R,O,G,N,O,S,I,S
+    0x569fb0339900 ---------A   03570  DATA 8,P,A,R,A,N,O,I,D
+    0x569fb033aa50 ---------A   03580  DATA 9,C,A,T,A,T,O,N,I,C
+    0x569fb033b1d0 ---------A   03590  DATA 7,A,L,C,O,H,O,L
+    0x569fb033ba30 ---------A   03600  DATA 8,C,O,M,P,U,T,E,R
+    0x569fb033c280 ---------A   03610  DATA 8,T,E,R,M,I,N,A,L
+    0x569fb033c750 ---------A   03620  DATA 4,C,U,T,E
+    0x569fb033cb50 ---------A   03630  DATA 3,F,U,N
+    0x569fb033d560 ---------A   03640  DATA10,A,C,C,E,S,S,A,B,L,E
+    0x569fb033d6b0 ---------A   03650  DATA -103
+    0x569fb033d700 ---------A T 03660  END
  */
 
 /*
@@ -312,9 +312,565 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x6554f2a82db0 (01010)   0x6554f2a82db0 (01010)   0x6554f2ad7230 (03660)   0x6554f2ad7230 (03660)   
+   A) 0x569fb02e6670 (01010)   0x569fb02e6670 (01010)   0x569fb033d700 (03660)   0x569fb033d700 (03660)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/hangmn.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x569fb02e6670 ---------A   01010  PRINT "BASIC LIBRARY--'HANGMN'--18-JUL-70"
+    0x569fb02e7b80 ---------A   01020  REM  *  *  *  *  *  *  *  MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *
+    0x569fb02e8f30 ---------A   01030  REM
+    0x569fb02e8e70 ---------A   01040  RANDOMIZE
+    0x569fb02e8ff0 ---------A   01050  LET S7=1
+    0x569fb02e7910 ---------A T 01060  PRINT"DO YOU WANT TO SEE THE INSTRUCTIONS";
+    0x569fb02e85e0 ---------A   01070  INPUT N7$
+    0x569fb02e6e40 ---------A   01080  IF N7$="N" THEN 1170
+    0x569fb02e7480 ---------A   01090  PRINT
+    0x569fb02e8730 ---------A   01100  PRINT"THIS GAME IS SOMETHING LIKE HANGMAN.  THE MACHINE CHOOSES"
+    0x569fb02e9160 ---------A   01110  PRINT"A WORD OUT OF ITS STORAGE AND YOU ARE REQUIRED TO GUESS THE"
+    0x569fb02e76b0 ---------A   01120  PRINT"WORD LETTER BY LETTER.  AFTER EACH MISTAKE, YOU WILL BE ASKED"
+    0x569fb02e7870 ---------A   01130  PRINT"WHETHER YOU WANT TO SEE A PICTURE OF YOURSELF.  THE MORE"
+    0x569fb02eea00 ---------A   01140  PRINT"MISTAKES YOU MAKE, THE LESS OF YOU THERE WILL BE. UNTIL"
+    0x569fb02eeb60 ---------A   01150  PRINT"AFTER 9 MISTAKES, YOU WILL BE ALL GONE, AND YOU WILL"
+    0x569fb02eec80 ---------A   01160  PRINT"LOSE."
+    0x569fb02eef00 ---------A T 01170  LET T2=0
+    0x569fb02eefb0 ---------A   01180  PRINT
+    0x569fb02ef140 ---------A   01190  PRINT"WOULD YOU LIKE TO SEE THE WHOLE PICTURE BEFORE THE GAME STARTS";
+    0x569fb02ef340 ---------A   01200  INPUT Q9$
+    0x569fb02ef5c0 ---------A   01210  IF Q9$="Y" THEN 2030
+    0x569fb02ef7e0 ---------A T 01220  LET T2=1
+    0x569fb02efa30 ---------A   01230  IF S7=0 THEN 1430
+    0x569fb02efd10 ---------A   01240  LET Q=0
+    0x569fb02effe0 ---------A   01250  LET L=1
+    0x569fb02f02b0 ---------A   01260  DIM S(200)
+    0x569fb02f0580 ---------A   01270  DIM F$(2000)
+    0x569fb02f0850 ---------A   01280  DIM A$(20)
+    0x569fb02f0b20 ---------A   01290  DIM B$(20)
+    0x569fb02f0df0 ---------A   01300  DIM I(200)
+    0x569fb02f10c0 ---------A   01310  LET O1=1
+    0x569fb02f12d0 ---------A T 01320  READ S(O1)
+    0x569fb02f1600 ---------A   01330  IF S(O1)<0 THEN 1420
+    0x569fb02f1b10 ---------A   01340  LET I(O1)=L
+    0x569fb02f21e0 ---------A   01350  FOR O=L TO L+S(O1)-1
+    0x569fb02f2420 ---------A   01360  READ F$(O)
+    0x569fb02f2550 ---------A   01370  NEXT O
+    0x569fb02f28a0 ---------A   01380  LET Q=Q+1
+    0x569fb02f2cd0 ---------A   01390  LET L=L+S(O1)
+    0x569fb02f3000 ---------A   01400  LET O1=O1+1
+    0x569fb02f3070 ---------A   01410  GO TO 1320
+    0x569fb02f3380 ---------A T 01420  LET O1=O1-1
+    0x569fb02f3970 ---------A T 01430  LET R=INT(1+O1*RND)
+    0x569fb02f3c80 ---------A   01440  LET S=S(R)
+    0x569fb02f4050 ---------A   01450  LET O6=I(R)
+    0x569fb02f44e0 ---------A   01460  FOR Z2=1 TO S(R)
+    0x569fb02f4810 ---------A   01470  LET O6=I(R)
+    0x569fb02f4e20 ---------A   01480  LET A$(Z2)=F$(O6+Z2-1)
+    0x569fb02f4f50 ---------A   01490  NEXT Z2
+    0x569fb02f5240 ---------A   01500  DIM U$(26)
+    0x569fb02f5510 ---------A   01510  DIM E$(26)
+    0x569fb02f57e0 ---------A   01520  LET V=1
+    0x569fb02f5ad0 ---------A   01530  FOR I=1 TO S
+    0x569fb02f5df0 ---------A   01540  LET B$(I)=" - "
+    0x569fb02f5f20 ---------A   01550  NEXT I
+    0x569fb02f5fb0 ---------A   01560  GO TO 1740
+    0x569fb02f6030 ----------   01570  PRINT
+    0x569fb02f61b0 ---------A T 01580  PRINT"WHAT IS YOUR GUESS";
+    0x569fb02f6490 ---------A   01590  LET K=1
+    0x569fb02f66a0 ---------A   01600  INPUT G$
+    0x569fb02f6a70 ---------A   01610  FOR Y=1 TO S
+    0x569fb02f6dd0 ---------A   01620  IF G$=A$(Y) THEN 1640
+    0x569fb02f6e50 ---------A   01630  GO TO 1650
+    0x569fb02f7060 ---------A T 01640  LET K=0
+    0x569fb02f7190 ---------A T 01650  NEXT Y
+    0x569fb02f7810 ---------A   01660  IF K=0 THEN 1690
+    0x569fb02f7b30 ---------A   01670  LET E$(V)=G$
+    0x569fb02f7e60 ---------A   01680  LET V=V+1
+    0x569fb02f8220 ---------A T 01690  FOR T=1 TO S 
+    0x569fb02f8580 ---------A   01700  IF G$=A$(T) THEN 1720
+    0x569fb02f8600 ---------A   01710  GO TO 1730
+    0x569fb02f8910 ---------A T 01720  LET B$(T)=G$
+    0x569fb02f8a40 ---------A T 01730  NEXT T
+    0x569fb02f8ad0 ---------A T 01740  PRINT
+    0x569fb02f8dd0 ---------A   01750  FOR I=1 TO S
+    0x569fb02f9030 ---------A   01760  PRINT B$(I);
+    0x569fb02f9170 ---------A   01770  NEXT I
+    0x569fb02f9300 ---------A   01780  PRINT " ",
+    0x569fb02f97c0 ---------A   01790  FOR G6=1 TO V-1
+    0x569fb02f9a20 ---------A   01800  PRINT E$(G6);
+    0x569fb02f9b60 ---------A   01810  NEXT G6
+    0x569fb02f9bf0 ---------A   01820  PRINT
+    0x569fb02f9ff0 ---------A   01830  LET E1=V-1
+    0x569fb02fa240 ---------A   01840  IF E1<9 THEN 1970
+    0x569fb02fa3b0 ---------A   01850  PRINT"I WIN..."
+    0x569fb02fa540 ---------A   01860  PRINT"THE CORRECT ANSWER IS ";
+    0x569fb02fa840 ---------A   01870  FOR Z2=1 TO S
+    0x569fb02faaa0 ---------A   01880  PRINT A$(Z2);
+    0x569fb02fabe0 ---------A   01890  NEXT Z2
+    0x569fb02fac90 ---------A   01900  PRINT
+    0x569fb02fae20 ---------A   01910  PRINT " DO YOU WANT TO PLAY AGAIN";
+    0x569fb02fb100 ---------A   01920  LET W=1
+    0x569fb02fb310 ---------A   01930  INPUT T$
+    0x569fb02fb540 ---------A   01940  LET S7=0
+    0x569fb02fb7b0 ---------A   01950  IF T$="Y" THEN 1060
+    0x569fb02fb830 ---------A   01960  GO TO 3660
+    0x569fb02fb8a0 ---------A T 01970  PRINT
+    0x569fb02fbb00 ---------A   01980  IF K=0 THEN 2380
+    0x569fb02fbd80 ---------A   01990  IF W=1 THEN 2360
+    0x569fb02fbf10 ---------A   02000  PRINT"DO YOU WANT TO SEE THE PICTURE";
+    0x569fb02fc140 ---------A   02010  INPUT T2$
+    0x569fb02fc3d0 ---------A   02020  IF T2$="N" THEN2380
+    0x569fb02fc540 ---------A T 02030  PRINT"       *-:-*"
+    0x569fb02fc6b0 ---------A   02040  PRINT"     %&     &%"
+    0x569fb02fc810 ---------A   02050  PRINT"    #         #"
+    0x569fb02fca80 ---------A   02060  IF E1=8 THEN 2380
+    0x569fb02fcbe0 ---------A   02070  PRINT"   ^  (.) (.)  ^"
+    0x569fb02fce50 ---------A   02080  IF E1=7 THEN 2380
+    0x569fb02fcfb0 ---------A   02090  PRINT" <<<           >>>"
+    0x569fb02fd220 ---------A   02100  IF E1=6 THEN 2380
+    0x569fb02fd380 ---------A   02110  PRINT"   !    :?:    !"
+    0x569fb02fd5f0 ---------A   02120  IF E1=5 THEN 2380
+    0x569fb02fd760 ---------A   02130  PRINT"   *  -     -  *"
+    0x569fb02fd8d0 ---------A   02140  PRINT"   '   +++++   '"
+    0x569fb02fda40 ---------A   02150  PRINT"   &           &"
+    0x569fb02fdbb0 ---------A   02160  PRINT"    %%%     %%%"
+    0x569fb02fdd10 ---------A   02170  PRINT"      :!#$#!:"
+    0x569fb02fdf70 ---------A   02180  IF E1=4 THEN 2380
+    0x569fb02fe0d0 ---------A   02190  PRINT"         I"
+    0x569fb02fe230 ---------A   02200  PRINT"         I"
+    0x569fb02fe390 ---------A   02210  PRINT"         I"
+    0x569fb02fe600 ---------A   02220  IF E1=3 THEN 2380
+    0x569fb02fe760 ---------A   02230  PRINT"???????????????????"
+    0x569fb02fe9c0 ---------A   02240  IF E1=2 THEN 2380
+    0x569fb02feb20 ---------A   02250  PRINT"         @"
+    0x569fb02fec80 ---------A   02260  PRINT"         @"
+    0x569fb02fede0 ---------A   02270  PRINT"         @"
+    0x569fb02ff040 ---------A   02280  IF E1=1 THEN 2380
+    0x569fb02ff1b0 ---------A   02290  PRINT"        ( )"
+    0x569fb02ffb30 ---------A   02300  PRINT"       (   )"
+    0x569fb02ffca0 ---------A   02310  PRINT"      (     )"
+    0x569fb02ffe10 ---------A   02320  PRINT"     (       )"
+    0x569fb02fff80 ---------A   02330  PRINT"    (         )"
+    0x569fb03000f0 ---------A   02340  PRINT"   (           )"
+    0x569fb0300250 ---------A   02350  PRINT"  (#$%&     &%$#)"
+    0x569fb0300470 ---------A T 02360  LETW=0
+    0x569fb03006c0 ---------A   02370  IF T2=0 THEN 1220
+    0x569fb03009d0 ---------A T 02380  FOR I=1 TO S
+    0x569fb0300e10 ---------A   02390  IF A$(I)=B$(I) THEN 2410
+    0x569fb0300e90 ---------A   02400  GO TO 1580
+    0x569fb0300fc0 ---------A T 02410  NEXT I
+    0x569fb0301150 ---------A   02420  PRINT"VERY GOOD! YOU WIN!"
+    0x569fb03012e0 ---------A   02430  PRINT"DO YOU WANT TO PLAY AGAIN";
+    0x569fb0301500 ---------A   02440  LET S7=0
+    0x569fb0301720 ---------A   02450  INPUT H8$
+    0x569fb03019a0 ---------A   02460  IF H8$="Y" THEN 1060
+    0x569fb0301a40 ---------A   02470  GO TO 3660
+    0x569fb03029a0 ---------A   02480  DATA 10,I,M,P,O,S,S,I,B,L,E,  5,I,D,I,O,T
+    0x569fb03032e0 ---------A   02490  DATA 9,A,P,A,T,H,E,T,I,C
+    0x569fb0303d00 ---------A   02500  DATA10,W,A,T,E,R,F,R,O,N,T
+    0x569fb0304800 ---------A   02510  DATA11,C,O,L,L,E,C,T,I,O,N,S
+    0x569fb0305140 ---------A   02520  DATA 9,Y,E,S,T,E,R,D,A,Y
+    0x569fb0305d20 ---------A   02530  DATA12,K,I,N,D,E,R,G,A,R,T,E,N
+    0x569fb0306ac0 ---------A   02540  DATA14,A,D,M,I,N,I,S,T,R,A,T,I,O,N
+    0x569fb0307320 ---------A   02550  DATA 8,E,M,P,H,A,S,I,S
+    0x569fb0307c60 ---------A   02560  DATA 9,E,D,U,C,A,T,I,O,N
+    0x569fb0308680 ---------A   02570  DATA 10,R,E,C,I,P,R,O,C,A,L
+    0x569fb0309180 ---------A   02580  DATA  11,D,E,C,L,A,R,A,T,I,O,N
+    0x569fb0309900 ---------A   02590  DATA 7,P,I,T,C,H,E,R
+    0x569fb030a320 ---------A   02600  DATA 10,S,U,P,E,R,S,O,N,I,C
+    0x569fb030ae20 ---------A   02610  DATA 11,C,O,M,M,E,N,D,A,B,L,E
+    0x569fb030b5a0 ---------A   02620  DATA 7,P,A,S,S,A,G,E
+    0x569fb030bfb0 ---------A   02630  DATA 10,P,E,R,C,E,N,T,A,G,E
+    0x569fb030c570 ---------A   02640  DATA 5,J,O,I,N,T
+    0x569fb030cdd0 ---------A   02650  DATA8,G,O,V,E,R,N,O,R
+    0x569fb030d550 ---------A   02660  DATA 7,P,R,O,G,R,A,M
+    0x569fb030e210 ---------A   02670  DATA 13,D,I,S,A,P,P,E,A,R,A,N,C,E
+    0x569fb030ea70 ---------A   02680  DATA 8,S,E,C,U,R,I,T,Y
+    0x569fb030f1e0 ---------A   02690  DATA 7,W,E,L,C,O,M,E
+    0x569fb030f6c0 ---------A   02700  DATA 4,Z,E,R,O
+    0x569fb0310000 ---------A   02710  DATA9,P,O,T,E,N,T,I,A,L
+    0x569fb0310860 ---------A   02720  DATA 8,C,O,M,P,O,S,E,D
+    0x569fb0311360 ---------A   02730  DATA 11,P,O,S,S,I,B,I,L,I,T,Y
+    0x569fb0311bb0 ---------A   02740  DATA 8,D,I,R,E,C,T,O,R
+    0x569fb0312250 ---------A   02750  DATA 6,R,E,S,U,L,T
+    0x569fb0312ab0 ---------A   02760  DATA 8,C,H,I,L,D,R,E,N
+    0x569fb03133f0 ---------A   02770  DATA 9,C,L,A,S,S,R,O,O,M
+    0x569fb0313c50 ---------A   02780  DATA 8,E,C,O,N,O,M,I,C
+    0x569fb0314590 ---------A   02790  DATA 9,E,Q,U,I,V,O,C,A,L
+    0x569fb0314d10 ---------A   02800  DATA 7,H,O,S,T,I,L,E
+    0x569fb0315490 ---------A   02810  DATA 7,R,O,G,U,I,S,H
+    0x569fb0315dd0 ---------A   02820  DATA 9,M,I,G,R,A,T,I,O,N
+    0x569fb0316a90 ---------A   02830  DATA 13,A,U,T,H,O,R,I,Z,A,T,I,O,N
+    0x569fb0317200 ---------A   02840  DATA 7,C,U,R,S,O,R,Y
+    0x569fb03177c0 ---------A   02850  DATA 5,M,O,N,E,Y
+    0x569fb0317f40 ---------A   02860  DATA 7,A,B,S,O,L,V,E
+    0x569fb0318b20 ---------A   02870  DATA 12,P,R,E,R,E,Q,U,I,S,I,T,E
+    0x569fb03192b0 ---------A   02880  DATA 7,I,N,S,I,P,I,D
+    0x569fb031a050 ---------A   02890  DATA 14 ,C,O,N,G,L,O,M,E,R,A,T,I,O,N
+    0x569fb031aa70 ---------A   02900  DATA 10,N,E,G,O,T,I,A,B,L,E
+    0x569fb031b1e0 ---------A   02910  DATA 7,D,E,P,O,S,I,T
+    0x569fb031b6c0 ---------A   02920  DATA 4,L,A,M,P
+    0x569fb031c000 ---------A   02930  DATA 9,Q,U,A,L,I,F,I,E,D
+    0x569fb031cb00 ---------A   02940  DATA 11,M,A,I,N,T,E,N,A,N,C,E
+    0x569fb031d280 ---------A   02950  DATA 7,F,U,N,E,R,A,L
+    0x569fb031dbb0 ---------A   02960  DATA 9,C,A,R,P,E,N,T,E,R
+    0x569fb031e170 ---------A   02970  DATA 5,F,U,G,U,E
+    0x569fb031ec60 ---------A   02980  DATA 11,M,A,N,U,F,A,C,T,U,R,E
+    0x569fb031f300 ---------A   02990  DATA 6,B,A,K,E,R,Y
+    0x569fb031fb50 ---------A   03000  DATA 8,M,I,L,I,T,A,R,Y
+    0x569fb0320110 ---------A   03010  DATA 5,G,U,A,R,D
+    0x569fb0320a50 ---------A   03020  DATA 9,T,E,C,H,N,I,C,A,L
+    0x569fb03212b0 ---------A   03030  DATA 8,S,Y,M,P,H,O,N,Y
+    0x569fb0321a30 ---------A   03040  DATA 7,A,D,V,A,N,C,E
+    0x569fb03221b0 ---------A   03050  DATA 7,M,I,N,I,M,U,M
+    0x569fb0322af0 ---------A   03060  DATA 9,A,L,E,R,T,N,E,S,S
+    0x569fb0323260 ---------A   03070  DATA 7,Q,U,A,R,T,E,T
+    0x569fb0323900 ---------A   03080  DATA 6,P,O,L,I,S,H
+    0x569fb0324080 ---------A   03090  DATA 7,B,E,N,E,F,I,T
+    0x569fb03248d0 ---------A   03100  DATA 8,C,O,M,P,O,S,E,R
+    0x569fb0324da0 ---------A   03110  DATA 4,H,E,R,O
+    0x569fb0325430 ---------A   03120  DATA 6,D,E,S,I,S,T
+    0x569fb0325ac0 ---------A   03130  DATA 6,C,I,T,I,E,S
+    0x569fb0325f90 ---------A   03140  DATA 4,S,L,U,M
+    0x569fb0326620 ---------A   03150  DATA 6,R,E,G,I,M,E
+    0x569fb0326bd0 ---------A   03160  DATA 5,D,O,U,B,T
+    0x569fb03270b0 ---------A   03170  DATA 4,J,O,K,E
+    0x569fb03279f0 ---------A   03180  DATA 9,P,R,O,T,E,S,T,E,R
+    0x569fb0328160 ---------A   03190  DATA 7,S,I,M,I,L,A,R
+    0x569fb0328630 ---------A   03200  DATA 4,C,U,R,B
+    0x569fb0328bf0 ---------A   03210  DATA 5,E,L,I,T,E
+    0x569fb0329440 ---------A   03220  DATA 8,M,E,D,I,C,A,R,E
+    0x569fb03299f0 ---------A   03230  DATA 5,M,A,Y,O,R
+    0x569fb0329ec0 ---------A   03240  DATA 4,F,U,N,D
+    0x569fb032a550 ---------A   03250  DATA 6,A,C,T,I,O,N
+    0x569fb032abe0 ---------A   03260  DATA 6,C,L,O,U,D,Y
+    0x569fb032b0b0 ---------A   03270  DATA 4,N,E,W,S
+    0x569fb032b660 ---------A   03280  DATA 5,Y,O,U,N,G
+    0x569fb032bc20 ---------A   03290  DATA 5,M,A,F,I,A
+    0x569fb032c560 ---------A   03300  DATA 9,G,U,E,R,R,I,L,L,A
+    0x569fb032cce0 ---------A   03310  DATA 7,R,E,Q,U,E,S,T
+    0x569fb032d450 ---------A   03320  DATA 7,G,O,U,R,M,E,T
+    0x569fb032d850 ---------A   03330  DATA 3,P,U,B
+    0x569fb032e0a0 ---------A   03340  DATA 8,S,K,I,R,M,I,S,H
+    0x569fb032e650 ---------A   03350  DATA 5,B,L,A,C,K
+    0x569fb032ec10 ---------A   03360  DATA 5,W,H,I,T,E
+    0x569fb032f380 ---------A   03370  DATA 7,H,I,S,T,O,R,Y
+    0x569fb032fa20 ---------A   03380  DATA 6,P,O,L,I,C,Y
+    0x569fb0330360 ---------A   03390  DATA 9,G,Y,M,N,A,S,I,U,M
+    0x569fb0330ae0 ---------A   03400  DATA 7,V,E,H,I,C,L,E
+    0x569fb0331410 ---------A   03410  DATA 9,A,U,T,O,M,O,T,O,N
+    0x569fb0331aa0 ---------A   03420  DATA 6,B,L,I,G,H,T
+    0x569fb0331e90 ---------A   03430  DATA 3,S,I,X
+    0x569fb0332370 ---------A   03440  DATA 4,C,A,L,L
+    0x569fb0332cb0 ---------A   03450  DATA 9,P,S,Y,C,H,O,T,I,C
+    0x569fb0333510 ---------A   03460  DATA 8,N,E,U,R,O,T,I,C
+    0x569fb0333c90 ---------A   03470  DATA 7,A,N,X,I,E,T,Y
+    0x569fb0334410 ---------A   03480  DATA 7,S,Y,M,P,T,O,M
+    0x569fb03350c0 ---------A   03490  DATA13,H,Y,P,O,C,H,O,N,D,R,I,A,C
+    0x569fb0335760 ---------A   03500  DATA 6,P,H,O,B,I,A
+    0x569fb03360a0 ---------A   03510  DATA 9,O,B,S,E,S,S,I,O,N
+    0x569fb0336ac0 ---------A   03520  DATA10,C,O,M,P,U,L,S,I,O,N
+    0x569fb0337320 ---------A   03530  DATA 8,H,Y,S,T,E,R,I,A
+    0x569fb0337aa0 ---------A   03540  DATA 7,A,M,N,E,S,I,A
+    0x569fb0338760 ---------A   03550  DATA13,S,C,H,I,Z,O,P,H,R,E,N,I,A
+    0x569fb03390a0 ---------A   03560  DATA 9,P,R,O,G,N,O,S,I,S
+    0x569fb0339900 ---------A   03570  DATA 8,P,A,R,A,N,O,I,D
+    0x569fb033aa50 ---------A   03580  DATA 9,C,A,T,A,T,O,N,I,C
+    0x569fb033b1d0 ---------A   03590  DATA 7,A,L,C,O,H,O,L
+    0x569fb033ba30 ---------A   03600  DATA 8,C,O,M,P,U,T,E,R
+    0x569fb033c280 ---------A   03610  DATA 8,T,E,R,M,I,N,A,L
+    0x569fb033c750 ---------A   03620  DATA 4,C,U,T,E
+    0x569fb033cb50 ---------A   03630  DATA 3,F,U,N
+    0x569fb033d560 ---------A   03640  DATA10,A,C,C,E,S,S,A,B,L,E
+    0x569fb033d6b0 ---------A   03650  DATA -103
+    0x569fb033d700 ---------A T 03660  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/hangmn.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x569fb02e6670 ---------A   01000  PRINT "BASIC LIBRARY--'HANGMN'--18-JUL-70"
+    0x569fb02e7b80 ---------A   01010  REM  *  *  *  *  *  *  *  MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *
+    0x569fb02e8f30 ---------A   01020  REM
+    0x569fb02e8e70 ---------A   01030  RANDOMIZE
+    0x569fb02e8ff0 ---------A   01040  LET S7=1
+    0x569fb02e7910 ---------A   01050  PRINT"DO YOU WANT TO SEE THE INSTRUCTIONS";
+    0x569fb02e85e0 ---------A T 01060  INPUT N7$
+    0x569fb02e6e40 ---------A   01070  IF N7$="N" THEN 1160
+    0x569fb02e7480 ---------A   01080  PRINT
+    0x569fb02e8730 ---------A   01090  PRINT"THIS GAME IS SOMETHING LIKE HANGMAN.  THE MACHINE CHOOSES"
+    0x569fb02e9160 ---------A   01100  PRINT"A WORD OUT OF ITS STORAGE AND YOU ARE REQUIRED TO GUESS THE"
+    0x569fb02e76b0 ---------A   01110  PRINT"WORD LETTER BY LETTER.  AFTER EACH MISTAKE, YOU WILL BE ASKED"
+    0x569fb02e7870 ---------A   01120  PRINT"WHETHER YOU WANT TO SEE A PICTURE OF YOURSELF.  THE MORE"
+    0x569fb02eea00 ---------A   01130  PRINT"MISTAKES YOU MAKE, THE LESS OF YOU THERE WILL BE. UNTIL"
+    0x569fb02eeb60 ---------A   01140  PRINT"AFTER 9 MISTAKES, YOU WILL BE ALL GONE, AND YOU WILL"
+    0x569fb02eec80 ---------A   01150  PRINT"LOSE."
+    0x569fb02eef00 ---------A   01160  LET T2=0
+    0x569fb02eefb0 ---------A T 01170  PRINT
+    0x569fb02ef140 ---------A   01180  PRINT"WOULD YOU LIKE TO SEE THE WHOLE PICTURE BEFORE THE GAME STARTS";
+    0x569fb02ef340 ---------A   01190  INPUT Q9$
+    0x569fb02ef5c0 ---------A   01200  IF Q9$="Y" THEN 2020
+    0x569fb02ef7e0 ---------A   01210  LET T2=1
+    0x569fb02efa30 ---------A T 01220  IF S7=0 THEN 1420
+    0x569fb02efd10 ---------A   01230  LET Q=0
+    0x569fb02effe0 ---------A   01240  LET L=1
+    0x569fb02f02b0 ---------A   01250  DIM S(200)
+    0x569fb02f0580 ---------A   01260  DIM F$(2000)
+    0x569fb02f0850 ---------A   01270  DIM A$(20)
+    0x569fb02f0b20 ---------A   01280  DIM B$(20)
+    0x569fb02f0df0 ---------A   01290  DIM I(200)
+    0x569fb02f10c0 ---------A   01300  LET O1=1
+    0x569fb02f12d0 ---------A   01310  READ S(O1)
+    0x569fb02f1600 ---------A T 01320  IF S(O1)<0 THEN 1410
+    0x569fb02f1b10 ---------A   01330  LET I(O1)=L
+    0x569fb02f21e0 ---------A   01340  FOR O=L TO L+S(O1)-1
+    0x569fb02f2420 ---------A   01350  READ F$(O)
+    0x569fb02f2550 ---------A   01360  NEXT O
+    0x569fb02f28a0 ---------A   01370  LET Q=Q+1
+    0x569fb02f2cd0 ---------A   01380  LET L=L+S(O1)
+    0x569fb02f3000 ---------A   01390  LET O1=O1+1
+    0x569fb02f3070 ---------A   01400  GO TO 1310
+    0x569fb02f3380 ---------A   01410  LET O1=O1-1
+    0x569fb02f3970 ---------A T 01420  LET R=INT(1+O1*RND)
+    0x569fb02f3c80 ---------A T 01430  LET S=S(R)
+    0x569fb02f4050 ---------A   01440  LET O6=I(R)
+    0x569fb02f44e0 ---------A   01450  FOR Z2=1 TO S(R)
+    0x569fb02f4810 ---------A   01460  LET O6=I(R)
+    0x569fb02f4e20 ---------A   01470  LET A$(Z2)=F$(O6+Z2-1)
+    0x569fb02f4f50 ---------A   01480  NEXT Z2
+    0x569fb02f5240 ---------A   01490  DIM U$(26)
+    0x569fb02f5510 ---------A   01500  DIM E$(26)
+    0x569fb02f57e0 ---------A   01510  LET V=1
+    0x569fb02f5ad0 ---------A   01520  FOR I=1 TO S
+    0x569fb02f5df0 ---------A   01530  LET B$(I)=" - "
+    0x569fb02f5f20 ---------A   01540  NEXT I
+    0x569fb02f5fb0 ---------A   01550  GO TO 1730
+    0x569fb02f6030 ----------   01560  PRINT
+    0x569fb02f61b0 ---------A   01570  PRINT"WHAT IS YOUR GUESS";
+    0x569fb02f6490 ---------A T 01580  LET K=1
+    0x569fb02f66a0 ---------A   01590  INPUT G$
+    0x569fb02f6a70 ---------A   01600  FOR Y=1 TO S
+    0x569fb02f6dd0 ---------A   01610  IF G$=A$(Y) THEN 1630
+    0x569fb02f6e50 ---------A   01620  GO TO 1640
+    0x569fb02f7060 ---------A   01630  LET K=0
+    0x569fb02f7190 ---------A T 01640  NEXT Y
+    0x569fb02f7810 ---------A T 01650  IF K=0 THEN 1680
+    0x569fb02f7b30 ---------A   01660  LET E$(V)=G$
+    0x569fb02f7e60 ---------A   01670  LET V=V+1
+    0x569fb02f8220 ---------A   01680  FOR T=1 TO S 
+    0x569fb02f8580 ---------A T 01690  IF G$=A$(T) THEN 1710
+    0x569fb02f8600 ---------A   01700  GO TO 1720
+    0x569fb02f8910 ---------A   01710  LET B$(T)=G$
+    0x569fb02f8a40 ---------A T 01720  NEXT T
+    0x569fb02f8ad0 ---------A T 01730  PRINT
+    0x569fb02f8dd0 ---------A T 01740  FOR I=1 TO S
+    0x569fb02f9030 ---------A   01750  PRINT B$(I);
+    0x569fb02f9170 ---------A   01760  NEXT I
+    0x569fb02f9300 ---------A   01770  PRINT " ",
+    0x569fb02f97c0 ---------A   01780  FOR G6=1 TO V-1
+    0x569fb02f9a20 ---------A   01790  PRINT E$(G6);
+    0x569fb02f9b60 ---------A   01800  NEXT G6
+    0x569fb02f9bf0 ---------A   01810  PRINT
+    0x569fb02f9ff0 ---------A   01820  LET E1=V-1
+    0x569fb02fa240 ---------A   01830  IF E1<9 THEN 1960
+    0x569fb02fa3b0 ---------A   01840  PRINT"I WIN..."
+    0x569fb02fa540 ---------A   01850  PRINT"THE CORRECT ANSWER IS ";
+    0x569fb02fa840 ---------A   01860  FOR Z2=1 TO S
+    0x569fb02faaa0 ---------A   01870  PRINT A$(Z2);
+    0x569fb02fabe0 ---------A   01880  NEXT Z2
+    0x569fb02fac90 ---------A   01890  PRINT
+    0x569fb02fae20 ---------A   01900  PRINT " DO YOU WANT TO PLAY AGAIN";
+    0x569fb02fb100 ---------A   01910  LET W=1
+    0x569fb02fb310 ---------A   01920  INPUT T$
+    0x569fb02fb540 ---------A   01930  LET S7=0
+    0x569fb02fb7b0 ---------A   01940  IF T$="Y" THEN 1050
+    0x569fb02fb830 ---------A   01950  GO TO 3650
+    0x569fb02fb8a0 ---------A   01960  PRINT
+    0x569fb02fbb00 ---------A T 01970  IF K=0 THEN 2370
+    0x569fb02fbd80 ---------A   01980  IF W=1 THEN 2350
+    0x569fb02fbf10 ---------A   01990  PRINT"DO YOU WANT TO SEE THE PICTURE";
+    0x569fb02fc140 ---------A   02000  INPUT T2$
+    0x569fb02fc3d0 ---------A   02010  IF T2$="N" THEN2370
+    0x569fb02fc540 ---------A   02020  PRINT"       *-:-*"
+    0x569fb02fc6b0 ---------A T 02030  PRINT"     %&     &%"
+    0x569fb02fc810 ---------A   02040  PRINT"    #         #"
+    0x569fb02fca80 ---------A   02050  IF E1=8 THEN 2370
+    0x569fb02fcbe0 ---------A   02060  PRINT"   ^  (.) (.)  ^"
+    0x569fb02fce50 ---------A   02070  IF E1=7 THEN 2370
+    0x569fb02fcfb0 ---------A   02080  PRINT" <<<           >>>"
+    0x569fb02fd220 ---------A   02090  IF E1=6 THEN 2370
+    0x569fb02fd380 ---------A   02100  PRINT"   !    :?:    !"
+    0x569fb02fd5f0 ---------A   02110  IF E1=5 THEN 2370
+    0x569fb02fd760 ---------A   02120  PRINT"   *  -     -  *"
+    0x569fb02fd8d0 ---------A   02130  PRINT"   '   +++++   '"
+    0x569fb02fda40 ---------A   02140  PRINT"   &           &"
+    0x569fb02fdbb0 ---------A   02150  PRINT"    %%%     %%%"
+    0x569fb02fdd10 ---------A   02160  PRINT"      :!#$#!:"
+    0x569fb02fdf70 ---------A   02170  IF E1=4 THEN 2370
+    0x569fb02fe0d0 ---------A   02180  PRINT"         I"
+    0x569fb02fe230 ---------A   02190  PRINT"         I"
+    0x569fb02fe390 ---------A   02200  PRINT"         I"
+    0x569fb02fe600 ---------A   02210  IF E1=3 THEN 2370
+    0x569fb02fe760 ---------A   02220  PRINT"???????????????????"
+    0x569fb02fe9c0 ---------A   02230  IF E1=2 THEN 2370
+    0x569fb02feb20 ---------A   02240  PRINT"         @"
+    0x569fb02fec80 ---------A   02250  PRINT"         @"
+    0x569fb02fede0 ---------A   02260  PRINT"         @"
+    0x569fb02ff040 ---------A   02270  IF E1=1 THEN 2370
+    0x569fb02ff1b0 ---------A   02280  PRINT"        ( )"
+    0x569fb02ffb30 ---------A   02290  PRINT"       (   )"
+    0x569fb02ffca0 ---------A   02300  PRINT"      (     )"
+    0x569fb02ffe10 ---------A   02310  PRINT"     (       )"
+    0x569fb02fff80 ---------A   02320  PRINT"    (         )"
+    0x569fb03000f0 ---------A   02330  PRINT"   (           )"
+    0x569fb0300250 ---------A   02340  PRINT"  (#$%&     &%$#)"
+    0x569fb0300470 ---------A   02350  LETW=0
+    0x569fb03006c0 ---------A T 02360  IF T2=0 THEN 1210
+    0x569fb03009d0 ---------A   02370  FOR I=1 TO S
+    0x569fb0300e10 ---------A T 02380  IF A$(I)=B$(I) THEN 2400
+    0x569fb0300e90 ---------A   02390  GO TO 1570
+    0x569fb0300fc0 ---------A   02400  NEXT I
+    0x569fb0301150 ---------A T 02410  PRINT"VERY GOOD! YOU WIN!"
+    0x569fb03012e0 ---------A   02420  PRINT"DO YOU WANT TO PLAY AGAIN";
+    0x569fb0301500 ---------A   02430  LET S7=0
+    0x569fb0301720 ---------A   02440  INPUT H8$
+    0x569fb03019a0 ---------A   02450  IF H8$="Y" THEN 1050
+    0x569fb0301a40 ---------A   02460  GO TO 3650
+    0x569fb03029a0 ---------A   02470  DATA 10,I,M,P,O,S,S,I,B,L,E,  5,I,D,I,O,T
+    0x569fb03032e0 ---------A   02480  DATA 9,A,P,A,T,H,E,T,I,C
+    0x569fb0303d00 ---------A   02490  DATA10,W,A,T,E,R,F,R,O,N,T
+    0x569fb0304800 ---------A   02500  DATA11,C,O,L,L,E,C,T,I,O,N,S
+    0x569fb0305140 ---------A   02510  DATA 9,Y,E,S,T,E,R,D,A,Y
+    0x569fb0305d20 ---------A   02520  DATA12,K,I,N,D,E,R,G,A,R,T,E,N
+    0x569fb0306ac0 ---------A   02530  DATA14,A,D,M,I,N,I,S,T,R,A,T,I,O,N
+    0x569fb0307320 ---------A   02540  DATA 8,E,M,P,H,A,S,I,S
+    0x569fb0307c60 ---------A   02550  DATA 9,E,D,U,C,A,T,I,O,N
+    0x569fb0308680 ---------A   02560  DATA 10,R,E,C,I,P,R,O,C,A,L
+    0x569fb0309180 ---------A   02570  DATA  11,D,E,C,L,A,R,A,T,I,O,N
+    0x569fb0309900 ---------A   02580  DATA 7,P,I,T,C,H,E,R
+    0x569fb030a320 ---------A   02590  DATA 10,S,U,P,E,R,S,O,N,I,C
+    0x569fb030ae20 ---------A   02600  DATA 11,C,O,M,M,E,N,D,A,B,L,E
+    0x569fb030b5a0 ---------A   02610  DATA 7,P,A,S,S,A,G,E
+    0x569fb030bfb0 ---------A   02620  DATA 10,P,E,R,C,E,N,T,A,G,E
+    0x569fb030c570 ---------A   02630  DATA 5,J,O,I,N,T
+    0x569fb030cdd0 ---------A   02640  DATA8,G,O,V,E,R,N,O,R
+    0x569fb030d550 ---------A   02650  DATA 7,P,R,O,G,R,A,M
+    0x569fb030e210 ---------A   02660  DATA 13,D,I,S,A,P,P,E,A,R,A,N,C,E
+    0x569fb030ea70 ---------A   02670  DATA 8,S,E,C,U,R,I,T,Y
+    0x569fb030f1e0 ---------A   02680  DATA 7,W,E,L,C,O,M,E
+    0x569fb030f6c0 ---------A   02690  DATA 4,Z,E,R,O
+    0x569fb0310000 ---------A   02700  DATA9,P,O,T,E,N,T,I,A,L
+    0x569fb0310860 ---------A   02710  DATA 8,C,O,M,P,O,S,E,D
+    0x569fb0311360 ---------A   02720  DATA 11,P,O,S,S,I,B,I,L,I,T,Y
+    0x569fb0311bb0 ---------A   02730  DATA 8,D,I,R,E,C,T,O,R
+    0x569fb0312250 ---------A   02740  DATA 6,R,E,S,U,L,T
+    0x569fb0312ab0 ---------A   02750  DATA 8,C,H,I,L,D,R,E,N
+    0x569fb03133f0 ---------A   02760  DATA 9,C,L,A,S,S,R,O,O,M
+    0x569fb0313c50 ---------A   02770  DATA 8,E,C,O,N,O,M,I,C
+    0x569fb0314590 ---------A   02780  DATA 9,E,Q,U,I,V,O,C,A,L
+    0x569fb0314d10 ---------A   02790  DATA 7,H,O,S,T,I,L,E
+    0x569fb0315490 ---------A   02800  DATA 7,R,O,G,U,I,S,H
+    0x569fb0315dd0 ---------A   02810  DATA 9,M,I,G,R,A,T,I,O,N
+    0x569fb0316a90 ---------A   02820  DATA 13,A,U,T,H,O,R,I,Z,A,T,I,O,N
+    0x569fb0317200 ---------A   02830  DATA 7,C,U,R,S,O,R,Y
+    0x569fb03177c0 ---------A   02840  DATA 5,M,O,N,E,Y
+    0x569fb0317f40 ---------A   02850  DATA 7,A,B,S,O,L,V,E
+    0x569fb0318b20 ---------A   02860  DATA 12,P,R,E,R,E,Q,U,I,S,I,T,E
+    0x569fb03192b0 ---------A   02870  DATA 7,I,N,S,I,P,I,D
+    0x569fb031a050 ---------A   02880  DATA 14 ,C,O,N,G,L,O,M,E,R,A,T,I,O,N
+    0x569fb031aa70 ---------A   02890  DATA 10,N,E,G,O,T,I,A,B,L,E
+    0x569fb031b1e0 ---------A   02900  DATA 7,D,E,P,O,S,I,T
+    0x569fb031b6c0 ---------A   02910  DATA 4,L,A,M,P
+    0x569fb031c000 ---------A   02920  DATA 9,Q,U,A,L,I,F,I,E,D
+    0x569fb031cb00 ---------A   02930  DATA 11,M,A,I,N,T,E,N,A,N,C,E
+    0x569fb031d280 ---------A   02940  DATA 7,F,U,N,E,R,A,L
+    0x569fb031dbb0 ---------A   02950  DATA 9,C,A,R,P,E,N,T,E,R
+    0x569fb031e170 ---------A   02960  DATA 5,F,U,G,U,E
+    0x569fb031ec60 ---------A   02970  DATA 11,M,A,N,U,F,A,C,T,U,R,E
+    0x569fb031f300 ---------A   02980  DATA 6,B,A,K,E,R,Y
+    0x569fb031fb50 ---------A   02990  DATA 8,M,I,L,I,T,A,R,Y
+    0x569fb0320110 ---------A   03000  DATA 5,G,U,A,R,D
+    0x569fb0320a50 ---------A   03010  DATA 9,T,E,C,H,N,I,C,A,L
+    0x569fb03212b0 ---------A   03020  DATA 8,S,Y,M,P,H,O,N,Y
+    0x569fb0321a30 ---------A   03030  DATA 7,A,D,V,A,N,C,E
+    0x569fb03221b0 ---------A   03040  DATA 7,M,I,N,I,M,U,M
+    0x569fb0322af0 ---------A   03050  DATA 9,A,L,E,R,T,N,E,S,S
+    0x569fb0323260 ---------A   03060  DATA 7,Q,U,A,R,T,E,T
+    0x569fb0323900 ---------A   03070  DATA 6,P,O,L,I,S,H
+    0x569fb0324080 ---------A   03080  DATA 7,B,E,N,E,F,I,T
+    0x569fb03248d0 ---------A   03090  DATA 8,C,O,M,P,O,S,E,R
+    0x569fb0324da0 ---------A   03100  DATA 4,H,E,R,O
+    0x569fb0325430 ---------A   03110  DATA 6,D,E,S,I,S,T
+    0x569fb0325ac0 ---------A   03120  DATA 6,C,I,T,I,E,S
+    0x569fb0325f90 ---------A   03130  DATA 4,S,L,U,M
+    0x569fb0326620 ---------A   03140  DATA 6,R,E,G,I,M,E
+    0x569fb0326bd0 ---------A   03150  DATA 5,D,O,U,B,T
+    0x569fb03270b0 ---------A   03160  DATA 4,J,O,K,E
+    0x569fb03279f0 ---------A   03170  DATA 9,P,R,O,T,E,S,T,E,R
+    0x569fb0328160 ---------A   03180  DATA 7,S,I,M,I,L,A,R
+    0x569fb0328630 ---------A   03190  DATA 4,C,U,R,B
+    0x569fb0328bf0 ---------A   03200  DATA 5,E,L,I,T,E
+    0x569fb0329440 ---------A   03210  DATA 8,M,E,D,I,C,A,R,E
+    0x569fb03299f0 ---------A   03220  DATA 5,M,A,Y,O,R
+    0x569fb0329ec0 ---------A   03230  DATA 4,F,U,N,D
+    0x569fb032a550 ---------A   03240  DATA 6,A,C,T,I,O,N
+    0x569fb032abe0 ---------A   03250  DATA 6,C,L,O,U,D,Y
+    0x569fb032b0b0 ---------A   03260  DATA 4,N,E,W,S
+    0x569fb032b660 ---------A   03270  DATA 5,Y,O,U,N,G
+    0x569fb032bc20 ---------A   03280  DATA 5,M,A,F,I,A
+    0x569fb032c560 ---------A   03290  DATA 9,G,U,E,R,R,I,L,L,A
+    0x569fb032cce0 ---------A   03300  DATA 7,R,E,Q,U,E,S,T
+    0x569fb032d450 ---------A   03310  DATA 7,G,O,U,R,M,E,T
+    0x569fb032d850 ---------A   03320  DATA 3,P,U,B
+    0x569fb032e0a0 ---------A   03330  DATA 8,S,K,I,R,M,I,S,H
+    0x569fb032e650 ---------A   03340  DATA 5,B,L,A,C,K
+    0x569fb032ec10 ---------A   03350  DATA 5,W,H,I,T,E
+    0x569fb032f380 ---------A   03360  DATA 7,H,I,S,T,O,R,Y
+    0x569fb032fa20 ---------A   03370  DATA 6,P,O,L,I,C,Y
+    0x569fb0330360 ---------A   03380  DATA 9,G,Y,M,N,A,S,I,U,M
+    0x569fb0330ae0 ---------A   03390  DATA 7,V,E,H,I,C,L,E
+    0x569fb0331410 ---------A   03400  DATA 9,A,U,T,O,M,O,T,O,N
+    0x569fb0331aa0 ---------A   03410  DATA 6,B,L,I,G,H,T
+    0x569fb0331e90 ---------A   03420  DATA 3,S,I,X
+    0x569fb0332370 ---------A   03430  DATA 4,C,A,L,L
+    0x569fb0332cb0 ---------A   03440  DATA 9,P,S,Y,C,H,O,T,I,C
+    0x569fb0333510 ---------A   03450  DATA 8,N,E,U,R,O,T,I,C
+    0x569fb0333c90 ---------A   03460  DATA 7,A,N,X,I,E,T,Y
+    0x569fb0334410 ---------A   03470  DATA 7,S,Y,M,P,T,O,M
+    0x569fb03350c0 ---------A   03480  DATA13,H,Y,P,O,C,H,O,N,D,R,I,A,C
+    0x569fb0335760 ---------A   03490  DATA 6,P,H,O,B,I,A
+    0x569fb03360a0 ---------A   03500  DATA 9,O,B,S,E,S,S,I,O,N
+    0x569fb0336ac0 ---------A   03510  DATA10,C,O,M,P,U,L,S,I,O,N
+    0x569fb0337320 ---------A   03520  DATA 8,H,Y,S,T,E,R,I,A
+    0x569fb0337aa0 ---------A   03530  DATA 7,A,M,N,E,S,I,A
+    0x569fb0338760 ---------A   03540  DATA13,S,C,H,I,Z,O,P,H,R,E,N,I,A
+    0x569fb03390a0 ---------A   03550  DATA 9,P,R,O,G,N,O,S,I,S
+    0x569fb0339900 ---------A   03560  DATA 8,P,A,R,A,N,O,I,D
+    0x569fb033aa50 ---------A   03570  DATA 9,C,A,T,A,T,O,N,I,C
+    0x569fb033b1d0 ---------A   03580  DATA 7,A,L,C,O,H,O,L
+    0x569fb033ba30 ---------A   03590  DATA 8,C,O,M,P,U,T,E,R
+    0x569fb033c280 ---------A   03600  DATA 8,T,E,R,M,I,N,A,L
+    0x569fb033c750 ---------A   03610  DATA 4,C,U,T,E
+    0x569fb033cb50 ---------A   03620  DATA 3,F,U,N
+    0x569fb033d560 ---------A   03630  DATA10,A,C,C,E,S,S,A,B,L,E
+    0x569fb033d6b0 ---------A   03640  DATA -103
+    0x569fb033d700 ---------A   03650  END
  */
 
 
@@ -436,271 +992,271 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x6554f2a82db0 ---------A   01000 PRINT "BASIC LIBRARY--'HANGMN'--18-JUL-70"
-    0x6554f2a715d0 ---------A   01010 REM  *  *  *  *  *  *  *  MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *
-    0x6554f2a71610 ---------A   01020 REM
-    0x6554f2a82f30 ---------A   01030 RANDOMIZE
-    0x6554f2a82e70 ---------A   01040 LET S7=1
-    0x6554f2a830b0 ---------A T 01050 PRINT"DO YOU WANT TO SEE THE INSTRUCTIONS";
-    0x6554f2a80670 ---------A   01060 INPUT N7$
-    0x6554f2a80e40 ---------A   01070 IF N7$="N" THEN 1160
-    0x6554f2a81480 ---------A   01080 PRINT
-    0x6554f2a82730 ---------A   01090 PRINT"THIS GAME IS SOMETHING LIKE HANGMAN.  THE MACHINE CHOOSES"
-    0x6554f2a83160 ---------A   01100 PRINT"A WORD OUT OF ITS STORAGE AND YOU ARE REQUIRED TO GUESS THE"
-    0x6554f2a816b0 ---------A   01110 PRINT"WORD LETTER BY LETTER.  AFTER EACH MISTAKE, YOU WILL BE ASKED"
-    0x6554f2a81860 ---------A   01120 PRINT"WHETHER YOU WANT TO SEE A PICTURE OF YOURSELF.  THE MORE"
-    0x6554f2a88a00 ---------A   01130 PRINT"MISTAKES YOU MAKE, THE LESS OF YOU THERE WILL BE. UNTIL"
-    0x6554f2a88b50 ---------A   01140 PRINT"AFTER 9 MISTAKES, YOU WILL BE ALL GONE, AND YOU WILL"
-    0x6554f2a88c60 ---------A   01150 PRINT"LOSE."
-    0x6554f2a88ed0 ---------A T 01160 LET T2=0
-    0x6554f2a88f80 ---------A   01170 PRINT
-    0x6554f2a890e0 ---------A   01180 PRINT"WOULD YOU LIKE TO SEE THE WHOLE PICTURE BEFORE THE GAME STARTS";
-    0x6554f2a89290 ---------A   01190 INPUT Q9$
-    0x6554f2a89510 ---------A   01200 IF Q9$="Y" THEN 2010
-    0x6554f2a89730 ---------A T 01210 LET T2=1
-    0x6554f2a89980 ---------A   01220 IF S7=0 THEN 1420
-    0x6554f2a89c60 ---------A   01230 LET Q=0
-    0x6554f2a89f30 ---------A   01240 LET L=1
-    0x6554f2a8a200 ---------A   01250 DIM S(200)
-    0x6554f2a8a4c0 ---------A   01260 DIM F$(2000)
-    0x6554f2a8a780 ---------A   01270 DIM A$(20)
-    0x6554f2a8aa40 ---------A   01280 DIM B$(20)
-    0x6554f2a8ad00 ---------A   01290 DIM I(200)
-    0x6554f2a8afc0 ---------A   01300 LET O1=1
-    0x6554f2a8b1d0 ---------A T 01310 READ S(O1)
-    0x6554f2a8b4f0 ---------A   01320 IF S(O1)<0 THEN 1410
-    0x6554f2a8ba00 ---------A   01330 LET I(O1)=L
-    0x6554f2a8c0d0 ---------A   01340 FOR O=L TO L+S(O1)-1
-    0x6554f2a8c310 ---------A   01350 READ F$(O)
-    0x6554f2a8c430 ---------A   01360 NEXT O
-    0x6554f2a8c770 ---------A   01370 LET Q=Q+1
-    0x6554f2a8cba0 ---------A   01380 LET L=L+S(O1)
-    0x6554f2a8ced0 ---------A   01390 LET O1=O1+1
-    0x6554f2a8cf40 ---------A   01400 GO TO 1310
-    0x6554f2a8d240 ---------A T 01410 LET O1=O1-1
-    0x6554f2a8d830 ---------A T 01420 LET R=INT(1+O1*RND)
-    0x6554f2a8db40 ---------A   01430 LET S=S(R)
-    0x6554f2a8df10 ---------A   01440 LET O6=I(R)
-    0x6554f2a8e3a0 ---------A   01450 FOR Z2=1 TO S(R)
-    0x6554f2a8e6d0 ---------A   01460 LET O6=I(R)
-    0x6554f2a8ece0 ---------A   01470 LET A$(Z2)=F$(O6+Z2-1)
-    0x6554f2a8ee10 ---------A   01480 NEXT Z2
-    0x6554f2a8f0f0 ---------A   01490 DIM U$(26)
-    0x6554f2a8f3b0 ---------A   01500 DIM E$(26)
-    0x6554f2a8f670 ---------A   01510 LET V=1
-    0x6554f2a8f960 ---------A   01520 FOR I=1 TO S
-    0x6554f2a8fc80 ---------A   01530 LET B$(I)=" - "
-    0x6554f2a8fdb0 ---------A   01540 NEXT I
-    0x6554f2a8fe30 ---------A   01550 GO TO 1720
-    0x6554f2a90010 ---------A T 01560 PRINT"WHAT IS YOUR GUESS";
-    0x6554f2a902e0 ---------A   01570 LET K=1
-    0x6554f2a904f0 ---------A   01580 INPUT G$
-    0x6554f2a908c0 ---------A   01590 FOR Y=1 TO S
-    0x6554f2a90c20 ---------A   01600 IF G$=A$(Y) THEN 1620
-    0x6554f2a90ca0 ---------A   01610 GO TO 1630
-    0x6554f2a90ea0 ---------A T 01620 LET K=0
-    0x6554f2a90fd0 ---------A T 01630 NEXT Y
-    0x6554f2a91640 ---------A   01640 IF K=0 THEN 1670
-    0x6554f2a91960 ---------A   01650 LET E$(V)=G$
-    0x6554f2a91c90 ---------A   01660 LET V=V+1
-    0x6554f2a92050 ---------A T 01670 FOR T=1 TO S 
-    0x6554f2a923b0 ---------A   01680 IF G$=A$(T) THEN 1700
-    0x6554f2a92430 ---------A   01690 GO TO 1710
-    0x6554f2a92730 ---------A T 01700 LET B$(T)=G$
-    0x6554f2a92860 ---------A T 01710 NEXT T
-    0x6554f2a928e0 ---------A T 01720 PRINT
-    0x6554f2a92bd0 ---------A   01730 FOR I=1 TO S
-    0x6554f2a92e30 ---------A   01740 PRINT B$(I);
-    0x6554f2a92f60 ---------A   01750 NEXT I
-    0x6554f2a930e0 ---------A   01760 PRINT " ",
-    0x6554f2a93590 ---------A   01770 FOR G6=1 TO V-1
-    0x6554f2a937f0 ---------A   01780 PRINT E$(G6);
-    0x6554f2a93920 ---------A   01790 NEXT G6
-    0x6554f2a939a0 ---------A   01800 PRINT
-    0x6554f2a93d90 ---------A   01810 LET E1=V-1
-    0x6554f2a93fe0 ---------A   01820 IF E1<9 THEN 1950
-    0x6554f2a94150 ---------A   01830 PRINT"I WIN..."
-    0x6554f2a942d0 ---------A   01840 PRINT"THE CORRECT ANSWER IS ";
-    0x6554f2a945c0 ---------A   01850 FOR Z2=1 TO S
-    0x6554f2a94820 ---------A   01860 PRINT A$(Z2);
-    0x6554f2a94950 ---------A   01870 NEXT Z2
-    0x6554f2a949f0 ---------A   01880 PRINT
-    0x6554f2a94b70 ---------A   01890 PRINT " DO YOU WANT TO PLAY AGAIN";
-    0x6554f2a94e40 ---------A   01900 LET W=1
-    0x6554f2a95050 ---------A   01910 INPUT T$
-    0x6554f2a95280 ---------A   01920 LET S7=0
-    0x6554f2a954f0 ---------A   01930 IF T$="Y" THEN 1050
-    0x6554f2a95570 ---------A   01940 GO TO 3640
-    0x6554f2a955d0 ---------A T 01950 PRINT
-    0x6554f2a95820 ---------A   01960 IF K=0 THEN 2360
-    0x6554f2a95aa0 ---------A   01970 IF W=1 THEN 2340
-    0x6554f2a95c30 ---------A   01980 PRINT"DO YOU WANT TO SEE THE PICTURE";
-    0x6554f2a95e50 ---------A   01990 INPUT T2$
-    0x6554f2a960e0 ---------A   02000 IF T2$="N" THEN2360
-    0x6554f2a96250 ---------A T 02010 PRINT"       *-:-*"
-    0x6554f2a963b0 ---------A   02020 PRINT"     %&     &%"
-    0x6554f2a96500 ---------A   02030 PRINT"    #         #"
-    0x6554f2a96760 ---------A   02040 IF E1=8 THEN 2360
-    0x6554f2a968c0 ---------A   02050 PRINT"   ^  (.) (.)  ^"
-    0x6554f2a96b20 ---------A   02060 IF E1=7 THEN 2360
-    0x6554f2a96c80 ---------A   02070 PRINT" <<<           >>>"
-    0x6554f2a96ee0 ---------A   02080 IF E1=6 THEN 2360
-    0x6554f2a97040 ---------A   02090 PRINT"   !    :?:    !"
-    0x6554f2a972a0 ---------A   02100 IF E1=5 THEN 2360
-    0x6554f2a97410 ---------A   02110 PRINT"   *  -     -  *"
-    0x6554f2a97570 ---------A   02120 PRINT"   '   +++++   '"
-    0x6554f2a976d0 ---------A   02130 PRINT"   &           &"
-    0x6554f2a97830 ---------A   02140 PRINT"    %%%     %%%"
-    0x6554f2a97980 ---------A   02150 PRINT"      :!#$#!:"
-    0x6554f2a97bd0 ---------A   02160 IF E1=4 THEN 2360
-    0x6554f2a97d30 ---------A   02170 PRINT"         I"
-    0x6554f2a97e80 ---------A   02180 PRINT"         I"
-    0x6554f2a97fd0 ---------A   02190 PRINT"         I"
-    0x6554f2a98230 ---------A   02200 IF E1=3 THEN 2360
-    0x6554f2a98390 ---------A   02210 PRINT"???????????????????"
-    0x6554f2a985e0 ---------A   02220 IF E1=2 THEN 2360
-    0x6554f2a98740 ---------A   02230 PRINT"         @"
-    0x6554f2a98890 ---------A   02240 PRINT"         @"
-    0x6554f2a989e0 ---------A   02250 PRINT"         @"
-    0x6554f2a98c30 ---------A   02260 IF E1=1 THEN 2360
-    0x6554f2a98da0 ---------A   02270 PRINT"        ( )"
-    0x6554f2a99710 ---------A   02280 PRINT"       (   )"
-    0x6554f2a99870 ---------A   02290 PRINT"      (     )"
-    0x6554f2a999d0 ---------A   02300 PRINT"     (       )"
-    0x6554f2a99b30 ---------A   02310 PRINT"    (         )"
-    0x6554f2a99c90 ---------A   02320 PRINT"   (           )"
-    0x6554f2a99de0 ---------A   02330 PRINT"  (#$%&     &%$#)"
-    0x6554f2a99ff0 ---------A T 02340 LETW=0
-    0x6554f2a9a240 ---------A   02350 IF T2=0 THEN 1210
-    0x6554f2a9a550 ---------A T 02360 FOR I=1 TO S
-    0x6554f2a9a990 ---------A   02370 IF A$(I)=B$(I) THEN 2390
-    0x6554f2a9aa10 ---------A   02380 GO TO 1560
-    0x6554f2a9ab30 ---------A T 02390 NEXT I
-    0x6554f2a9acb0 ---------A   02400 PRINT"VERY GOOD! YOU WIN!"
-    0x6554f2a9ae30 ---------A   02410 PRINT"DO YOU WANT TO PLAY AGAIN";
-    0x6554f2a9b040 ---------A   02420 LET S7=0
-    0x6554f2a9b260 ---------A   02430 INPUT H8$
-    0x6554f2a9b4e0 ---------A   02440 IF H8$="Y" THEN 1050
-    0x6554f2a9b580 ---------A   02450 GO TO 3640
-    0x6554f2a9c4d0 ---------A   02460 DATA 10,I,M,P,O,S,S,I,B,L,E,  5,I,D,I,O,T
-    0x6554f2a9ce10 ---------A   02470 DATA 9,A,P,A,T,H,E,T,I,C
-    0x6554f2a9d830 ---------A   02480 DATA10,W,A,T,E,R,F,R,O,N,T
-    0x6554f2a9e330 ---------A   02490 DATA11,C,O,L,L,E,C,T,I,O,N,S
-    0x6554f2a9ec70 ---------A   02500 DATA 9,Y,E,S,T,E,R,D,A,Y
-    0x6554f2a9f850 ---------A   02510 DATA12,K,I,N,D,E,R,G,A,R,T,E,N
-    0x6554f2aa05f0 ---------A   02520 DATA14,A,D,M,I,N,I,S,T,R,A,T,I,O,N
-    0x6554f2aa0e50 ---------A   02530 DATA 8,E,M,P,H,A,S,I,S
-    0x6554f2aa1790 ---------A   02540 DATA 9,E,D,U,C,A,T,I,O,N
-    0x6554f2aa21b0 ---------A   02550 DATA 10,R,E,C,I,P,R,O,C,A,L
-    0x6554f2aa2cb0 ---------A   02560 DATA  11,D,E,C,L,A,R,A,T,I,O,N
-    0x6554f2aa3430 ---------A   02570 DATA 7,P,I,T,C,H,E,R
-    0x6554f2aa3e50 ---------A   02580 DATA 10,S,U,P,E,R,S,O,N,I,C
-    0x6554f2aa4950 ---------A   02590 DATA 11,C,O,M,M,E,N,D,A,B,L,E
-    0x6554f2aa50d0 ---------A   02600 DATA 7,P,A,S,S,A,G,E
-    0x6554f2aa5ae0 ---------A   02610 DATA 10,P,E,R,C,E,N,T,A,G,E
-    0x6554f2aa60a0 ---------A   02620 DATA 5,J,O,I,N,T
-    0x6554f2aa6900 ---------A   02630 DATA8,G,O,V,E,R,N,O,R
-    0x6554f2aa7080 ---------A   02640 DATA 7,P,R,O,G,R,A,M
-    0x6554f2aa7d40 ---------A   02650 DATA 13,D,I,S,A,P,P,E,A,R,A,N,C,E
-    0x6554f2aa85a0 ---------A   02660 DATA 8,S,E,C,U,R,I,T,Y
-    0x6554f2aa8d10 ---------A   02670 DATA 7,W,E,L,C,O,M,E
-    0x6554f2aa91f0 ---------A   02680 DATA 4,Z,E,R,O
-    0x6554f2aa9b30 ---------A   02690 DATA9,P,O,T,E,N,T,I,A,L
-    0x6554f2aaa390 ---------A   02700 DATA 8,C,O,M,P,O,S,E,D
-    0x6554f2aaae90 ---------A   02710 DATA 11,P,O,S,S,I,B,I,L,I,T,Y
-    0x6554f2aab6e0 ---------A   02720 DATA 8,D,I,R,E,C,T,O,R
-    0x6554f2aabd80 ---------A   02730 DATA 6,R,E,S,U,L,T
-    0x6554f2aac5e0 ---------A   02740 DATA 8,C,H,I,L,D,R,E,N
-    0x6554f2aacf20 ---------A   02750 DATA 9,C,L,A,S,S,R,O,O,M
-    0x6554f2aad780 ---------A   02760 DATA 8,E,C,O,N,O,M,I,C
-    0x6554f2aae0c0 ---------A   02770 DATA 9,E,Q,U,I,V,O,C,A,L
-    0x6554f2aae840 ---------A   02780 DATA 7,H,O,S,T,I,L,E
-    0x6554f2aaefc0 ---------A   02790 DATA 7,R,O,G,U,I,S,H
-    0x6554f2aaf900 ---------A   02800 DATA 9,M,I,G,R,A,T,I,O,N
-    0x6554f2ab05c0 ---------A   02810 DATA 13,A,U,T,H,O,R,I,Z,A,T,I,O,N
-    0x6554f2ab0d30 ---------A   02820 DATA 7,C,U,R,S,O,R,Y
-    0x6554f2ab12f0 ---------A   02830 DATA 5,M,O,N,E,Y
-    0x6554f2ab1a70 ---------A   02840 DATA 7,A,B,S,O,L,V,E
-    0x6554f2ab2650 ---------A   02850 DATA 12,P,R,E,R,E,Q,U,I,S,I,T,E
-    0x6554f2ab2de0 ---------A   02860 DATA 7,I,N,S,I,P,I,D
-    0x6554f2ab3b80 ---------A   02870 DATA 14 ,C,O,N,G,L,O,M,E,R,A,T,I,O,N
-    0x6554f2ab45a0 ---------A   02880 DATA 10,N,E,G,O,T,I,A,B,L,E
-    0x6554f2ab4d10 ---------A   02890 DATA 7,D,E,P,O,S,I,T
-    0x6554f2ab51f0 ---------A   02900 DATA 4,L,A,M,P
-    0x6554f2ab5b30 ---------A   02910 DATA 9,Q,U,A,L,I,F,I,E,D
-    0x6554f2ab6630 ---------A   02920 DATA 11,M,A,I,N,T,E,N,A,N,C,E
-    0x6554f2ab6db0 ---------A   02930 DATA 7,F,U,N,E,R,A,L
-    0x6554f2ab76e0 ---------A   02940 DATA 9,C,A,R,P,E,N,T,E,R
-    0x6554f2ab7ca0 ---------A   02950 DATA 5,F,U,G,U,E
-    0x6554f2ab8790 ---------A   02960 DATA 11,M,A,N,U,F,A,C,T,U,R,E
-    0x6554f2ab8e30 ---------A   02970 DATA 6,B,A,K,E,R,Y
-    0x6554f2ab9680 ---------A   02980 DATA 8,M,I,L,I,T,A,R,Y
-    0x6554f2ab9c40 ---------A   02990 DATA 5,G,U,A,R,D
-    0x6554f2aba580 ---------A   03000 DATA 9,T,E,C,H,N,I,C,A,L
-    0x6554f2abade0 ---------A   03010 DATA 8,S,Y,M,P,H,O,N,Y
-    0x6554f2abb560 ---------A   03020 DATA 7,A,D,V,A,N,C,E
-    0x6554f2abbce0 ---------A   03030 DATA 7,M,I,N,I,M,U,M
-    0x6554f2abc620 ---------A   03040 DATA 9,A,L,E,R,T,N,E,S,S
-    0x6554f2abcd90 ---------A   03050 DATA 7,Q,U,A,R,T,E,T
-    0x6554f2abd430 ---------A   03060 DATA 6,P,O,L,I,S,H
-    0x6554f2abdbb0 ---------A   03070 DATA 7,B,E,N,E,F,I,T
-    0x6554f2abe400 ---------A   03080 DATA 8,C,O,M,P,O,S,E,R
-    0x6554f2abe8d0 ---------A   03090 DATA 4,H,E,R,O
-    0x6554f2abef60 ---------A   03100 DATA 6,D,E,S,I,S,T
-    0x6554f2abf5f0 ---------A   03110 DATA 6,C,I,T,I,E,S
-    0x6554f2abfac0 ---------A   03120 DATA 4,S,L,U,M
-    0x6554f2ac0150 ---------A   03130 DATA 6,R,E,G,I,M,E
-    0x6554f2ac0700 ---------A   03140 DATA 5,D,O,U,B,T
-    0x6554f2ac0be0 ---------A   03150 DATA 4,J,O,K,E
-    0x6554f2ac1520 ---------A   03160 DATA 9,P,R,O,T,E,S,T,E,R
-    0x6554f2ac1c90 ---------A   03170 DATA 7,S,I,M,I,L,A,R
-    0x6554f2ac2160 ---------A   03180 DATA 4,C,U,R,B
-    0x6554f2ac2720 ---------A   03190 DATA 5,E,L,I,T,E
-    0x6554f2ac2f70 ---------A   03200 DATA 8,M,E,D,I,C,A,R,E
-    0x6554f2ac3520 ---------A   03210 DATA 5,M,A,Y,O,R
-    0x6554f2ac39f0 ---------A   03220 DATA 4,F,U,N,D
-    0x6554f2ac4080 ---------A   03230 DATA 6,A,C,T,I,O,N
-    0x6554f2ac4710 ---------A   03240 DATA 6,C,L,O,U,D,Y
-    0x6554f2ac4be0 ---------A   03250 DATA 4,N,E,W,S
-    0x6554f2ac5190 ---------A   03260 DATA 5,Y,O,U,N,G
-    0x6554f2ac5750 ---------A   03270 DATA 5,M,A,F,I,A
-    0x6554f2ac6090 ---------A   03280 DATA 9,G,U,E,R,R,I,L,L,A
-    0x6554f2ac6810 ---------A   03290 DATA 7,R,E,Q,U,E,S,T
-    0x6554f2ac6f80 ---------A   03300 DATA 7,G,O,U,R,M,E,T
-    0x6554f2ac7380 ---------A   03310 DATA 3,P,U,B
-    0x6554f2ac7bd0 ---------A   03320 DATA 8,S,K,I,R,M,I,S,H
-    0x6554f2ac8180 ---------A   03330 DATA 5,B,L,A,C,K
-    0x6554f2ac8740 ---------A   03340 DATA 5,W,H,I,T,E
-    0x6554f2ac8eb0 ---------A   03350 DATA 7,H,I,S,T,O,R,Y
-    0x6554f2ac9550 ---------A   03360 DATA 6,P,O,L,I,C,Y
-    0x6554f2ac9e90 ---------A   03370 DATA 9,G,Y,M,N,A,S,I,U,M
-    0x6554f2aca610 ---------A   03380 DATA 7,V,E,H,I,C,L,E
-    0x6554f2acaf40 ---------A   03390 DATA 9,A,U,T,O,M,O,T,O,N
-    0x6554f2acb5d0 ---------A   03400 DATA 6,B,L,I,G,H,T
-    0x6554f2acb9c0 ---------A   03410 DATA 3,S,I,X
-    0x6554f2acbea0 ---------A   03420 DATA 4,C,A,L,L
-    0x6554f2acc7e0 ---------A   03430 DATA 9,P,S,Y,C,H,O,T,I,C
-    0x6554f2acd040 ---------A   03440 DATA 8,N,E,U,R,O,T,I,C
-    0x6554f2acd7c0 ---------A   03450 DATA 7,A,N,X,I,E,T,Y
-    0x6554f2acdf40 ---------A   03460 DATA 7,S,Y,M,P,T,O,M
-    0x6554f2acebf0 ---------A   03470 DATA13,H,Y,P,O,C,H,O,N,D,R,I,A,C
-    0x6554f2acf290 ---------A   03480 DATA 6,P,H,O,B,I,A
-    0x6554f2acfbd0 ---------A   03490 DATA 9,O,B,S,E,S,S,I,O,N
-    0x6554f2ad05f0 ---------A   03500 DATA10,C,O,M,P,U,L,S,I,O,N
-    0x6554f2ad0e50 ---------A   03510 DATA 8,H,Y,S,T,E,R,I,A
-    0x6554f2ad15d0 ---------A   03520 DATA 7,A,M,N,E,S,I,A
-    0x6554f2ad2290 ---------A   03530 DATA13,S,C,H,I,Z,O,P,H,R,E,N,I,A
-    0x6554f2ad2bd0 ---------A   03540 DATA 9,P,R,O,G,N,O,S,I,S
-    0x6554f2ad3430 ---------A   03550 DATA 8,P,A,R,A,N,O,I,D
-    0x6554f2ad4580 ---------A   03560 DATA 9,C,A,T,A,T,O,N,I,C
-    0x6554f2ad4d00 ---------A   03570 DATA 7,A,L,C,O,H,O,L
-    0x6554f2ad5560 ---------A   03580 DATA 8,C,O,M,P,U,T,E,R
-    0x6554f2ad5db0 ---------A   03590 DATA 8,T,E,R,M,I,N,A,L
-    0x6554f2ad6280 ---------A   03600 DATA 4,C,U,T,E
-    0x6554f2ad6680 ---------A   03610 DATA 3,F,U,N
-    0x6554f2ad7090 ---------A   03620 DATA10,A,C,C,E,S,S,A,B,L,E
-    0x6554f2ad71e0 ---------A   03630 DATA -103
-    0x6554f2ad7230 ---------A T 03640 END
+    0x569fb02e6670 ---------A   01000  PRINT "BASIC LIBRARY--'HANGMN'--18-JUL-70"
+    0x569fb02e7b80 ---------A   01010  REM  *  *  *  *  *  *  *  MAIN PROGRAM  *  *  *  *  *  *  *  *  *  *
+    0x569fb02e8f30 ---------A   01020  REM
+    0x569fb02e8e70 ---------A   01030  RANDOMIZE
+    0x569fb02e8ff0 ---------A   01040  LET S7=1
+    0x569fb02e7910 ---------A T 01050  PRINT"DO YOU WANT TO SEE THE INSTRUCTIONS";
+    0x569fb02e85e0 ---------A   01060  INPUT N7$
+    0x569fb02e6e40 ---------A   01070  IF N7$="N" THEN 1160
+    0x569fb02e7480 ---------A   01080  PRINT
+    0x569fb02e8730 ---------A   01090  PRINT"THIS GAME IS SOMETHING LIKE HANGMAN.  THE MACHINE CHOOSES"
+    0x569fb02e9160 ---------A   01100  PRINT"A WORD OUT OF ITS STORAGE AND YOU ARE REQUIRED TO GUESS THE"
+    0x569fb02e76b0 ---------A   01110  PRINT"WORD LETTER BY LETTER.  AFTER EACH MISTAKE, YOU WILL BE ASKED"
+    0x569fb02e7870 ---------A   01120  PRINT"WHETHER YOU WANT TO SEE A PICTURE OF YOURSELF.  THE MORE"
+    0x569fb02eea00 ---------A   01130  PRINT"MISTAKES YOU MAKE, THE LESS OF YOU THERE WILL BE. UNTIL"
+    0x569fb02eeb60 ---------A   01140  PRINT"AFTER 9 MISTAKES, YOU WILL BE ALL GONE, AND YOU WILL"
+    0x569fb02eec80 ---------A   01150  PRINT"LOSE."
+    0x569fb02eef00 ---------A T 01160  LET T2=0
+    0x569fb02eefb0 ---------A   01170  PRINT
+    0x569fb02ef140 ---------A   01180  PRINT"WOULD YOU LIKE TO SEE THE WHOLE PICTURE BEFORE THE GAME STARTS";
+    0x569fb02ef340 ---------A   01190  INPUT Q9$
+    0x569fb02ef5c0 ---------A   01200  IF Q9$="Y" THEN 2010
+    0x569fb02ef7e0 ---------A T 01210  LET T2=1
+    0x569fb02efa30 ---------A   01220  IF S7=0 THEN 1420
+    0x569fb02efd10 ---------A   01230  LET Q=0
+    0x569fb02effe0 ---------A   01240  LET L=1
+    0x569fb02f02b0 ---------A   01250  DIM S(200)
+    0x569fb02f0580 ---------A   01260  DIM F$(2000)
+    0x569fb02f0850 ---------A   01270  DIM A$(20)
+    0x569fb02f0b20 ---------A   01280  DIM B$(20)
+    0x569fb02f0df0 ---------A   01290  DIM I(200)
+    0x569fb02f10c0 ---------A   01300  LET O1=1
+    0x569fb02f12d0 ---------A T 01310  READ S(O1)
+    0x569fb02f1600 ---------A   01320  IF S(O1)<0 THEN 1410
+    0x569fb02f1b10 ---------A   01330  LET I(O1)=L
+    0x569fb02f21e0 ---------A   01340  FOR O=L TO L+S(O1)-1
+    0x569fb02f2420 ---------A   01350  READ F$(O)
+    0x569fb02f2550 ---------A   01360  NEXT O
+    0x569fb02f28a0 ---------A   01370  LET Q=Q+1
+    0x569fb02f2cd0 ---------A   01380  LET L=L+S(O1)
+    0x569fb02f3000 ---------A   01390  LET O1=O1+1
+    0x569fb02f3070 ---------A   01400  GO TO 1310
+    0x569fb02f3380 ---------A T 01410  LET O1=O1-1
+    0x569fb02f3970 ---------A T 01420  LET R=INT(1+O1*RND)
+    0x569fb02f3c80 ---------A   01430  LET S=S(R)
+    0x569fb02f4050 ---------A   01440  LET O6=I(R)
+    0x569fb02f44e0 ---------A   01450  FOR Z2=1 TO S(R)
+    0x569fb02f4810 ---------A   01460  LET O6=I(R)
+    0x569fb02f4e20 ---------A   01470  LET A$(Z2)=F$(O6+Z2-1)
+    0x569fb02f4f50 ---------A   01480  NEXT Z2
+    0x569fb02f5240 ---------A   01490  DIM U$(26)
+    0x569fb02f5510 ---------A   01500  DIM E$(26)
+    0x569fb02f57e0 ---------A   01510  LET V=1
+    0x569fb02f5ad0 ---------A   01520  FOR I=1 TO S
+    0x569fb02f5df0 ---------A   01530  LET B$(I)=" - "
+    0x569fb02f5f20 ---------A   01540  NEXT I
+    0x569fb02f5fb0 ---------A   01550  GO TO 1720
+    0x569fb02f61b0 ---------A T 01560  PRINT"WHAT IS YOUR GUESS";
+    0x569fb02f6490 ---------A   01570  LET K=1
+    0x569fb02f66a0 ---------A   01580  INPUT G$
+    0x569fb02f6a70 ---------A   01590  FOR Y=1 TO S
+    0x569fb02f6dd0 ---------A   01600  IF G$=A$(Y) THEN 1620
+    0x569fb02f6e50 ---------A   01610  GO TO 1630
+    0x569fb02f7060 ---------A T 01620  LET K=0
+    0x569fb02f7190 ---------A T 01630  NEXT Y
+    0x569fb02f7810 ---------A   01640  IF K=0 THEN 1670
+    0x569fb02f7b30 ---------A   01650  LET E$(V)=G$
+    0x569fb02f7e60 ---------A   01660  LET V=V+1
+    0x569fb02f8220 ---------A T 01670  FOR T=1 TO S 
+    0x569fb02f8580 ---------A   01680  IF G$=A$(T) THEN 1700
+    0x569fb02f8600 ---------A   01690  GO TO 1710
+    0x569fb02f8910 ---------A T 01700  LET B$(T)=G$
+    0x569fb02f8a40 ---------A T 01710  NEXT T
+    0x569fb02f8ad0 ---------A T 01720  PRINT
+    0x569fb02f8dd0 ---------A   01730  FOR I=1 TO S
+    0x569fb02f9030 ---------A   01740  PRINT B$(I);
+    0x569fb02f9170 ---------A   01750  NEXT I
+    0x569fb02f9300 ---------A   01760  PRINT " ",
+    0x569fb02f97c0 ---------A   01770  FOR G6=1 TO V-1
+    0x569fb02f9a20 ---------A   01780  PRINT E$(G6);
+    0x569fb02f9b60 ---------A   01790  NEXT G6
+    0x569fb02f9bf0 ---------A   01800  PRINT
+    0x569fb02f9ff0 ---------A   01810  LET E1=V-1
+    0x569fb02fa240 ---------A   01820  IF E1<9 THEN 1950
+    0x569fb02fa3b0 ---------A   01830  PRINT"I WIN..."
+    0x569fb02fa540 ---------A   01840  PRINT"THE CORRECT ANSWER IS ";
+    0x569fb02fa840 ---------A   01850  FOR Z2=1 TO S
+    0x569fb02faaa0 ---------A   01860  PRINT A$(Z2);
+    0x569fb02fabe0 ---------A   01870  NEXT Z2
+    0x569fb02fac90 ---------A   01880  PRINT
+    0x569fb02fae20 ---------A   01890  PRINT " DO YOU WANT TO PLAY AGAIN";
+    0x569fb02fb100 ---------A   01900  LET W=1
+    0x569fb02fb310 ---------A   01910  INPUT T$
+    0x569fb02fb540 ---------A   01920  LET S7=0
+    0x569fb02fb7b0 ---------A   01930  IF T$="Y" THEN 1050
+    0x569fb02fb830 ---------A   01940  GO TO 3640
+    0x569fb02fb8a0 ---------A T 01950  PRINT
+    0x569fb02fbb00 ---------A   01960  IF K=0 THEN 2360
+    0x569fb02fbd80 ---------A   01970  IF W=1 THEN 2340
+    0x569fb02fbf10 ---------A   01980  PRINT"DO YOU WANT TO SEE THE PICTURE";
+    0x569fb02fc140 ---------A   01990  INPUT T2$
+    0x569fb02fc3d0 ---------A   02000  IF T2$="N" THEN2360
+    0x569fb02fc540 ---------A T 02010  PRINT"       *-:-*"
+    0x569fb02fc6b0 ---------A   02020  PRINT"     %&     &%"
+    0x569fb02fc810 ---------A   02030  PRINT"    #         #"
+    0x569fb02fca80 ---------A   02040  IF E1=8 THEN 2360
+    0x569fb02fcbe0 ---------A   02050  PRINT"   ^  (.) (.)  ^"
+    0x569fb02fce50 ---------A   02060  IF E1=7 THEN 2360
+    0x569fb02fcfb0 ---------A   02070  PRINT" <<<           >>>"
+    0x569fb02fd220 ---------A   02080  IF E1=6 THEN 2360
+    0x569fb02fd380 ---------A   02090  PRINT"   !    :?:    !"
+    0x569fb02fd5f0 ---------A   02100  IF E1=5 THEN 2360
+    0x569fb02fd760 ---------A   02110  PRINT"   *  -     -  *"
+    0x569fb02fd8d0 ---------A   02120  PRINT"   '   +++++   '"
+    0x569fb02fda40 ---------A   02130  PRINT"   &           &"
+    0x569fb02fdbb0 ---------A   02140  PRINT"    %%%     %%%"
+    0x569fb02fdd10 ---------A   02150  PRINT"      :!#$#!:"
+    0x569fb02fdf70 ---------A   02160  IF E1=4 THEN 2360
+    0x569fb02fe0d0 ---------A   02170  PRINT"         I"
+    0x569fb02fe230 ---------A   02180  PRINT"         I"
+    0x569fb02fe390 ---------A   02190  PRINT"         I"
+    0x569fb02fe600 ---------A   02200  IF E1=3 THEN 2360
+    0x569fb02fe760 ---------A   02210  PRINT"???????????????????"
+    0x569fb02fe9c0 ---------A   02220  IF E1=2 THEN 2360
+    0x569fb02feb20 ---------A   02230  PRINT"         @"
+    0x569fb02fec80 ---------A   02240  PRINT"         @"
+    0x569fb02fede0 ---------A   02250  PRINT"         @"
+    0x569fb02ff040 ---------A   02260  IF E1=1 THEN 2360
+    0x569fb02ff1b0 ---------A   02270  PRINT"        ( )"
+    0x569fb02ffb30 ---------A   02280  PRINT"       (   )"
+    0x569fb02ffca0 ---------A   02290  PRINT"      (     )"
+    0x569fb02ffe10 ---------A   02300  PRINT"     (       )"
+    0x569fb02fff80 ---------A   02310  PRINT"    (         )"
+    0x569fb03000f0 ---------A   02320  PRINT"   (           )"
+    0x569fb0300250 ---------A   02330  PRINT"  (#$%&     &%$#)"
+    0x569fb0300470 ---------A T 02340  LETW=0
+    0x569fb03006c0 ---------A   02350  IF T2=0 THEN 1210
+    0x569fb03009d0 ---------A T 02360  FOR I=1 TO S
+    0x569fb0300e10 ---------A   02370  IF A$(I)=B$(I) THEN 2390
+    0x569fb0300e90 ---------A   02380  GO TO 1560
+    0x569fb0300fc0 ---------A T 02390  NEXT I
+    0x569fb0301150 ---------A   02400  PRINT"VERY GOOD! YOU WIN!"
+    0x569fb03012e0 ---------A   02410  PRINT"DO YOU WANT TO PLAY AGAIN";
+    0x569fb0301500 ---------A   02420  LET S7=0
+    0x569fb0301720 ---------A   02430  INPUT H8$
+    0x569fb03019a0 ---------A   02440  IF H8$="Y" THEN 1050
+    0x569fb0301a40 ---------A   02450  GO TO 3640
+    0x569fb03029a0 ---------A   02460  DATA 10,I,M,P,O,S,S,I,B,L,E,  5,I,D,I,O,T
+    0x569fb03032e0 ---------A   02470  DATA 9,A,P,A,T,H,E,T,I,C
+    0x569fb0303d00 ---------A   02480  DATA10,W,A,T,E,R,F,R,O,N,T
+    0x569fb0304800 ---------A   02490  DATA11,C,O,L,L,E,C,T,I,O,N,S
+    0x569fb0305140 ---------A   02500  DATA 9,Y,E,S,T,E,R,D,A,Y
+    0x569fb0305d20 ---------A   02510  DATA12,K,I,N,D,E,R,G,A,R,T,E,N
+    0x569fb0306ac0 ---------A   02520  DATA14,A,D,M,I,N,I,S,T,R,A,T,I,O,N
+    0x569fb0307320 ---------A   02530  DATA 8,E,M,P,H,A,S,I,S
+    0x569fb0307c60 ---------A   02540  DATA 9,E,D,U,C,A,T,I,O,N
+    0x569fb0308680 ---------A   02550  DATA 10,R,E,C,I,P,R,O,C,A,L
+    0x569fb0309180 ---------A   02560  DATA  11,D,E,C,L,A,R,A,T,I,O,N
+    0x569fb0309900 ---------A   02570  DATA 7,P,I,T,C,H,E,R
+    0x569fb030a320 ---------A   02580  DATA 10,S,U,P,E,R,S,O,N,I,C
+    0x569fb030ae20 ---------A   02590  DATA 11,C,O,M,M,E,N,D,A,B,L,E
+    0x569fb030b5a0 ---------A   02600  DATA 7,P,A,S,S,A,G,E
+    0x569fb030bfb0 ---------A   02610  DATA 10,P,E,R,C,E,N,T,A,G,E
+    0x569fb030c570 ---------A   02620  DATA 5,J,O,I,N,T
+    0x569fb030cdd0 ---------A   02630  DATA8,G,O,V,E,R,N,O,R
+    0x569fb030d550 ---------A   02640  DATA 7,P,R,O,G,R,A,M
+    0x569fb030e210 ---------A   02650  DATA 13,D,I,S,A,P,P,E,A,R,A,N,C,E
+    0x569fb030ea70 ---------A   02660  DATA 8,S,E,C,U,R,I,T,Y
+    0x569fb030f1e0 ---------A   02670  DATA 7,W,E,L,C,O,M,E
+    0x569fb030f6c0 ---------A   02680  DATA 4,Z,E,R,O
+    0x569fb0310000 ---------A   02690  DATA9,P,O,T,E,N,T,I,A,L
+    0x569fb0310860 ---------A   02700  DATA 8,C,O,M,P,O,S,E,D
+    0x569fb0311360 ---------A   02710  DATA 11,P,O,S,S,I,B,I,L,I,T,Y
+    0x569fb0311bb0 ---------A   02720  DATA 8,D,I,R,E,C,T,O,R
+    0x569fb0312250 ---------A   02730  DATA 6,R,E,S,U,L,T
+    0x569fb0312ab0 ---------A   02740  DATA 8,C,H,I,L,D,R,E,N
+    0x569fb03133f0 ---------A   02750  DATA 9,C,L,A,S,S,R,O,O,M
+    0x569fb0313c50 ---------A   02760  DATA 8,E,C,O,N,O,M,I,C
+    0x569fb0314590 ---------A   02770  DATA 9,E,Q,U,I,V,O,C,A,L
+    0x569fb0314d10 ---------A   02780  DATA 7,H,O,S,T,I,L,E
+    0x569fb0315490 ---------A   02790  DATA 7,R,O,G,U,I,S,H
+    0x569fb0315dd0 ---------A   02800  DATA 9,M,I,G,R,A,T,I,O,N
+    0x569fb0316a90 ---------A   02810  DATA 13,A,U,T,H,O,R,I,Z,A,T,I,O,N
+    0x569fb0317200 ---------A   02820  DATA 7,C,U,R,S,O,R,Y
+    0x569fb03177c0 ---------A   02830  DATA 5,M,O,N,E,Y
+    0x569fb0317f40 ---------A   02840  DATA 7,A,B,S,O,L,V,E
+    0x569fb0318b20 ---------A   02850  DATA 12,P,R,E,R,E,Q,U,I,S,I,T,E
+    0x569fb03192b0 ---------A   02860  DATA 7,I,N,S,I,P,I,D
+    0x569fb031a050 ---------A   02870  DATA 14 ,C,O,N,G,L,O,M,E,R,A,T,I,O,N
+    0x569fb031aa70 ---------A   02880  DATA 10,N,E,G,O,T,I,A,B,L,E
+    0x569fb031b1e0 ---------A   02890  DATA 7,D,E,P,O,S,I,T
+    0x569fb031b6c0 ---------A   02900  DATA 4,L,A,M,P
+    0x569fb031c000 ---------A   02910  DATA 9,Q,U,A,L,I,F,I,E,D
+    0x569fb031cb00 ---------A   02920  DATA 11,M,A,I,N,T,E,N,A,N,C,E
+    0x569fb031d280 ---------A   02930  DATA 7,F,U,N,E,R,A,L
+    0x569fb031dbb0 ---------A   02940  DATA 9,C,A,R,P,E,N,T,E,R
+    0x569fb031e170 ---------A   02950  DATA 5,F,U,G,U,E
+    0x569fb031ec60 ---------A   02960  DATA 11,M,A,N,U,F,A,C,T,U,R,E
+    0x569fb031f300 ---------A   02970  DATA 6,B,A,K,E,R,Y
+    0x569fb031fb50 ---------A   02980  DATA 8,M,I,L,I,T,A,R,Y
+    0x569fb0320110 ---------A   02990  DATA 5,G,U,A,R,D
+    0x569fb0320a50 ---------A   03000  DATA 9,T,E,C,H,N,I,C,A,L
+    0x569fb03212b0 ---------A   03010  DATA 8,S,Y,M,P,H,O,N,Y
+    0x569fb0321a30 ---------A   03020  DATA 7,A,D,V,A,N,C,E
+    0x569fb03221b0 ---------A   03030  DATA 7,M,I,N,I,M,U,M
+    0x569fb0322af0 ---------A   03040  DATA 9,A,L,E,R,T,N,E,S,S
+    0x569fb0323260 ---------A   03050  DATA 7,Q,U,A,R,T,E,T
+    0x569fb0323900 ---------A   03060  DATA 6,P,O,L,I,S,H
+    0x569fb0324080 ---------A   03070  DATA 7,B,E,N,E,F,I,T
+    0x569fb03248d0 ---------A   03080  DATA 8,C,O,M,P,O,S,E,R
+    0x569fb0324da0 ---------A   03090  DATA 4,H,E,R,O
+    0x569fb0325430 ---------A   03100  DATA 6,D,E,S,I,S,T
+    0x569fb0325ac0 ---------A   03110  DATA 6,C,I,T,I,E,S
+    0x569fb0325f90 ---------A   03120  DATA 4,S,L,U,M
+    0x569fb0326620 ---------A   03130  DATA 6,R,E,G,I,M,E
+    0x569fb0326bd0 ---------A   03140  DATA 5,D,O,U,B,T
+    0x569fb03270b0 ---------A   03150  DATA 4,J,O,K,E
+    0x569fb03279f0 ---------A   03160  DATA 9,P,R,O,T,E,S,T,E,R
+    0x569fb0328160 ---------A   03170  DATA 7,S,I,M,I,L,A,R
+    0x569fb0328630 ---------A   03180  DATA 4,C,U,R,B
+    0x569fb0328bf0 ---------A   03190  DATA 5,E,L,I,T,E
+    0x569fb0329440 ---------A   03200  DATA 8,M,E,D,I,C,A,R,E
+    0x569fb03299f0 ---------A   03210  DATA 5,M,A,Y,O,R
+    0x569fb0329ec0 ---------A   03220  DATA 4,F,U,N,D
+    0x569fb032a550 ---------A   03230  DATA 6,A,C,T,I,O,N
+    0x569fb032abe0 ---------A   03240  DATA 6,C,L,O,U,D,Y
+    0x569fb032b0b0 ---------A   03250  DATA 4,N,E,W,S
+    0x569fb032b660 ---------A   03260  DATA 5,Y,O,U,N,G
+    0x569fb032bc20 ---------A   03270  DATA 5,M,A,F,I,A
+    0x569fb032c560 ---------A   03280  DATA 9,G,U,E,R,R,I,L,L,A
+    0x569fb032cce0 ---------A   03290  DATA 7,R,E,Q,U,E,S,T
+    0x569fb032d450 ---------A   03300  DATA 7,G,O,U,R,M,E,T
+    0x569fb032d850 ---------A   03310  DATA 3,P,U,B
+    0x569fb032e0a0 ---------A   03320  DATA 8,S,K,I,R,M,I,S,H
+    0x569fb032e650 ---------A   03330  DATA 5,B,L,A,C,K
+    0x569fb032ec10 ---------A   03340  DATA 5,W,H,I,T,E
+    0x569fb032f380 ---------A   03350  DATA 7,H,I,S,T,O,R,Y
+    0x569fb032fa20 ---------A   03360  DATA 6,P,O,L,I,C,Y
+    0x569fb0330360 ---------A   03370  DATA 9,G,Y,M,N,A,S,I,U,M
+    0x569fb0330ae0 ---------A   03380  DATA 7,V,E,H,I,C,L,E
+    0x569fb0331410 ---------A   03390  DATA 9,A,U,T,O,M,O,T,O,N
+    0x569fb0331aa0 ---------A   03400  DATA 6,B,L,I,G,H,T
+    0x569fb0331e90 ---------A   03410  DATA 3,S,I,X
+    0x569fb0332370 ---------A   03420  DATA 4,C,A,L,L
+    0x569fb0332cb0 ---------A   03430  DATA 9,P,S,Y,C,H,O,T,I,C
+    0x569fb0333510 ---------A   03440  DATA 8,N,E,U,R,O,T,I,C
+    0x569fb0333c90 ---------A   03450  DATA 7,A,N,X,I,E,T,Y
+    0x569fb0334410 ---------A   03460  DATA 7,S,Y,M,P,T,O,M
+    0x569fb03350c0 ---------A   03470  DATA13,H,Y,P,O,C,H,O,N,D,R,I,A,C
+    0x569fb0335760 ---------A   03480  DATA 6,P,H,O,B,I,A
+    0x569fb03360a0 ---------A   03490  DATA 9,O,B,S,E,S,S,I,O,N
+    0x569fb0336ac0 ---------A   03500  DATA10,C,O,M,P,U,L,S,I,O,N
+    0x569fb0337320 ---------A   03510  DATA 8,H,Y,S,T,E,R,I,A
+    0x569fb0337aa0 ---------A   03520  DATA 7,A,M,N,E,S,I,A
+    0x569fb0338760 ---------A   03530  DATA13,S,C,H,I,Z,O,P,H,R,E,N,I,A
+    0x569fb03390a0 ---------A   03540  DATA 9,P,R,O,G,N,O,S,I,S
+    0x569fb0339900 ---------A   03550  DATA 8,P,A,R,A,N,O,I,D
+    0x569fb033aa50 ---------A   03560  DATA 9,C,A,T,A,T,O,N,I,C
+    0x569fb033b1d0 ---------A   03570  DATA 7,A,L,C,O,H,O,L
+    0x569fb033ba30 ---------A   03580  DATA 8,C,O,M,P,U,T,E,R
+    0x569fb033c280 ---------A   03590  DATA 8,T,E,R,M,I,N,A,L
+    0x569fb033c750 ---------A   03600  DATA 4,C,U,T,E
+    0x569fb033cb50 ---------A   03610  DATA 3,F,U,N
+    0x569fb033d560 ---------A   03620  DATA10,A,C,C,E,S,S,A,B,L,E
+    0x569fb033d6b0 ---------A   03630  DATA -103
+    0x569fb033d700 ---------A T 03640  END
  */
 
 //---------------------------------------------------------------------------
@@ -1278,7 +1834,7 @@ int main(int argc,char *argv[])
     // 01730 FOR I=1 TO S
     for(I_int_arr[0]=1;I_int_arr[0]<=S_int_arr[0];I_int_arr[0]++){
         // 01740 PRINT B$(I);
-        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_STR(buf,B_str_arr[I_int_arr[0]]);fputs(buf,fh); };
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,B_str_arr[I_int_arr[0]]);fputs(buf,fh); };
         // 01750 NEXT I
         int dummy_1750=0; // Ignore this line.
     }; // End-For(I_int_arr[0])
@@ -1287,7 +1843,7 @@ int main(int argc,char *argv[])
     // 01770 FOR G6=1 TO V-1
     for(G6_int=1;G6_int<=V_int-1;G6_int++){
         // 01780 PRINT E$(G6);
-        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_STR(buf,E_str_arr[G6_int]);fputs(buf,fh); };
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,E_str_arr[G6_int]);fputs(buf,fh); };
         // 01790 NEXT G6
         int dummy_1790=0; // Ignore this line.
     }; // End-For(G6_int)
@@ -1304,7 +1860,7 @@ int main(int argc,char *argv[])
     // 01850 FOR Z2=1 TO S
     for(Z2_int=1;Z2_int<=S_int_arr[0];Z2_int++){
         // 01860 PRINT A$(Z2);
-        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_STR(buf,A_str_arr[Z2_int]);fputs(buf,fh); };
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,A_str_arr[Z2_int]);fputs(buf,fh); };
         // 01870 NEXT Z2
         int dummy_1870=0; // Ignore this line.
     }; // End-For(Z2_int)

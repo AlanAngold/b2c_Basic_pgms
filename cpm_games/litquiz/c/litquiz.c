@@ -8,55 +8,55 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x607bc4f89e70 ---------A   00001 PRINT CHR$(26):PRINT TAB(25);"LITERATURE QUIZ":PRINT
-    0x607bc4f89ff0 ---------A   00002 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x607bc4f877f0 ---------A   00003 PRINT:PRINT:PRINT
-    0x607bc4f87e90 ---------A   00005 R=0
-    0x607bc4f896e0 ---------A   00010 PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
-    0x607bc4f8a150 ---------A   00012 PRINT: PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
-    0x607bc4f886a0 ---------A   00013 PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
-    0x607bc4f8f8a0 ---------A   00015 PRINT: PRINT "GOOD LUCK!": PRINT: PRINT
-    0x607bc4f8fa30 ---------A   00040 PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
-    0x607bc4f8fb80 ---------A   00042 PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
-    0x607bc4f876d0 ---------A   00043 INPUT A: IF A=3 THEN 46
-    0x607bc4f90040 ---------A   00044 PRINT "SORRY...FIGARO WAS HIS NAME.": GOTO 50
-    0x607bc4f90140 ---------A T 00046 PRINT "VERY GOOD!  HERE'S ANOTHER."
-    0x607bc4f90410 ---------A   00047 R=R+1
-    0x607bc4f90500 ---------A T 00050 PRINT: PRINT
-    0x607bc4f906a0 ---------A   00051 PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
-    0x607bc4f90820 ---------A   00052 PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
-    0x607bc4f90b80 ---------A   00053 INPUT A: IF A=2 THEN 56
-    0x607bc4f90d10 ---------A   00054 PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN.": GOTO 60
-    0x607bc4f90e50 ---------A T 00056 PRINT "PRETTY GOOD!"
-    0x607bc4f91180 ---------A   00057 R=R+1
-    0x607bc4f91260 ---------A T 00060 PRINT: PRINT
-    0x607bc4f913f0 ---------A   00061 PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
-    0x607bc4f91550 ---------A   00062 PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
-    0x607bc4f91910 ---------A   00063 INPUT A: IF A=4 THEN 66
-    0x607bc4f91b00 ---------A   00064 PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME.": GOTO 70
-    0x607bc4f91c50 ---------A T 00066 PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
-    0x607bc4f91f80 ---------A   00067 R=R+1
-    0x607bc4f92070 ---------A T 00070 PRINT:PRINT
-    0x607bc4f92210 ---------A   00071 PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
-    0x607bc4f923c0 ---------A   00072 PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
-    0x607bc4f92770 ---------A   00073 INPUT A: IF A=3 THEN 76
-    0x607bc4f928e0 ---------A   00074 PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
-    0x607bc4f92b60 ---------A   00075 GOTO 80
-    0x607bc4f92ca0 ---------A T 00076 PRINT "GOOD MEMORY!"
-    0x607bc4f92fd0 ---------A   00077 R=R+1
-    0x607bc4f93090 ---------A T 00080 PRINT:PRINT
-    0x607bc4f932e0 ---------A   00085 IF R=4 THEN 100
-    0x607bc4f93570 ---------A   00090 IF R<2 THEN 200
-    0x607bc4f93700 ---------A   00092 PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
-    0x607bc4f93870 ---------A   00094 PRINT "READING THE NURSERY GREATS."
-    0x607bc4f93ca0 ---------A   00096 FOR XX=1 TO 2000:NEXT:RUN "MENU"
-    0x607bc4f93e80 ---------A T 00100 PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
-    0x607bc4f94000 ---------A   00110 PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
-    0x607bc4f94170 ---------A   00120 PRINT "LITERATURE (HA, HA, HA)"
-    0x607bc4f944e0 ---------A   00130 FOR XX=1 TO 2000:NEXT:RUN "MENU"
-    0x607bc4f946b0 ---------A T 00200 PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
-    0x607bc4f94820 ---------A   00205 PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
-    0x607bc4f94b90 ---------A   00999 FOR XX=1 TO 2000:NEXT:RUN "MENU"
+    0x61f6bba78910 ---------A   00001  PRINT CHR$(26):PRINT TAB(25);"LITERATURE QUIZ":PRINT
+    0x61f6bba779e0 ---------A   00002  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x61f6bba79b00 ---------A   00003  PRINT:PRINT:PRINT
+    0x61f6bba79f30 ---------A   00005  R=0
+    0x61f6bba77c20 ---------A   00010  PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
+    0x61f6bba7a1c0 ---------A   00012  PRINT: PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
+    0x61f6bba78720 ---------A   00013  PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
+    0x61f6bba7f960 ---------A   00015  PRINT: PRINT "GOOD LUCK!": PRINT: PRINT
+    0x61f6bba7fb00 ---------A   00040  PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
+    0x61f6bba7fc60 ---------A   00042  PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
+    0x61f6bba80080 ---------A   00043  INPUT A: IF A=3 THEN 46
+    0x61f6bba79e70 ---------A   00044  PRINT "SORRY...FIGARO WAS HIS NAME.": GOTO 50
+    0x61f6bba802c0 ---------A T 00046  PRINT "VERY GOOD!  HERE'S ANOTHER."
+    0x61f6bba7a0b0 ---------A   00047  R=R+1
+    0x61f6bba80650 ---------A T 00050  PRINT: PRINT
+    0x61f6bba80800 ---------A   00051  PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
+    0x61f6bba80970 ---------A   00052  PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
+    0x61f6bba80d20 ---------A   00053  INPUT A: IF A=2 THEN 56
+    0x61f6bba80ec0 ---------A   00054  PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN.": GOTO 60
+    0x61f6bba81010 ---------A T 00056  PRINT "PRETTY GOOD!"
+    0x61f6bba81350 ---------A   00057  R=R+1
+    0x61f6bba81440 ---------A T 00060  PRINT: PRINT
+    0x61f6bba815e0 ---------A   00061  PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
+    0x61f6bba81750 ---------A   00062  PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
+    0x61f6bba81b20 ---------A   00063  INPUT A: IF A=4 THEN 66
+    0x61f6bba81d20 ---------A   00064  PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME.": GOTO 70
+    0x61f6bba81e80 ---------A T 00066  PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
+    0x61f6bba821c0 ---------A   00067  R=R+1
+    0x61f6bba822c0 ---------A T 00070  PRINT:PRINT
+    0x61f6bba82470 ---------A   00071  PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
+    0x61f6bba82630 ---------A   00072  PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
+    0x61f6bba829f0 ---------A   00073  INPUT A: IF A=3 THEN 76
+    0x61f6bba82b60 ---------A   00074  PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
+    0x61f6bba82df0 ---------A   00075  GOTO 80
+    0x61f6bba82f40 ---------A T 00076  PRINT "GOOD MEMORY!"
+    0x61f6bba83280 ---------A   00077  R=R+1
+    0x61f6bba83350 ---------A T 00080  PRINT:PRINT
+    0x61f6bba835b0 ---------A   00085  IF R=4 THEN 100
+    0x61f6bba83840 ---------A   00090  IF R<2 THEN 200
+    0x61f6bba839d0 ---------A   00092  PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
+    0x61f6bba83b50 ---------A   00094  PRINT "READING THE NURSERY GREATS."
+    0x61f6bba83fa0 ---------A   00096  FOR XX=1 TO 2000:NEXT:RUN "MENU"
+    0x61f6bba84190 ---------A T 00100  PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
+    0x61f6bba84320 ---------A   00110  PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
+    0x61f6bba844a0 ---------A   00120  PRINT "LITERATURE (HA, HA, HA)"
+    0x61f6bba84830 ---------A   00130  FOR XX=1 TO 2000:NEXT:RUN "MENU"
+    0x61f6bba84a10 ---------A T 00200  PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
+    0x61f6bba84b90 ---------A   00205  PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
+    0x61f6bba84f20 ---------A   00999  FOR XX=1 TO 2000:NEXT:RUN "MENU"
  */
 
 /*
@@ -85,9 +85,181 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x607bc4f89e70 (00001)   0x607bc4f89e70 (00001)   0x607bc4f94b90 (00999)   0x607bc4f94b90 (00999)   
+   A) 0x61f6bba78910 (00001)   0x61f6bba78910 (00001)   0x61f6bba84f20 (00999)   0x61f6bba84f20 (00999)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/litquiz.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x61f6bba776d0 ----------   00001  PRINT CHR$(26)
+    0x61f6bba77670 ----------        a PRINT TAB(25);"LITERATURE QUIZ"
+    0x61f6bba78910 ---------A        b PRINT
+    0x61f6bba779e0 ---------A   00002  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x61f6bba777f0 ----------   00003  PRINT
+    0x61f6bba79aa0 ----------        a PRINT
+    0x61f6bba79b00 ---------A        b PRINT
+    0x61f6bba79f30 ---------A   00005  R=0
+    0x61f6bba77c20 ---------A   00010  PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
+    0x61f6bba77c80 ----------   00012  PRINT
+    0x61f6bba7a1c0 ---------A        a PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
+    0x61f6bba78720 ---------A   00013  PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
+    0x61f6bba78780 ----------   00015  PRINT
+    0x61f6bba7f8a0 ----------        a PRINT "GOOD LUCK!"
+    0x61f6bba7f900 ----------        b PRINT
+    0x61f6bba7f960 ---------A        c PRINT
+    0x61f6bba7fb00 ---------A   00040  PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
+    0x61f6bba7fc60 ---------A   00042  PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
+    0x61f6bba7fe20 ----------   00043  INPUT A
+    0x61f6bba80080 ---------A        a IF A=3 THEN 46
+    0x61f6bba801a0 ----------   00044  PRINT "SORRY...FIGARO WAS HIS NAME."
+    0x61f6bba79e70 ---------A        a GOTO 50
+    0x61f6bba802c0 ---------A T 00046  PRINT "VERY GOOD!  HERE'S ANOTHER."
+    0x61f6bba7a0b0 ---------A   00047  R=R+1
+    0x61f6bba805a0 ---------- T 00050  PRINT
+    0x61f6bba80650 ---------A T      a PRINT
+    0x61f6bba80800 ---------A   00051  PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
+    0x61f6bba80970 ---------A   00052  PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
+    0x61f6bba80a90 ----------   00053  INPUT A
+    0x61f6bba80d20 ---------A        a IF A=2 THEN 56
+    0x61f6bba80e40 ----------   00054  PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN."
+    0x61f6bba80ec0 ---------A        a GOTO 60
+    0x61f6bba81010 ---------A T 00056  PRINT "PRETTY GOOD!"
+    0x61f6bba81350 ---------A   00057  R=R+1
+    0x61f6bba813a0 ---------- T 00060  PRINT
+    0x61f6bba81440 ---------A T      a PRINT
+    0x61f6bba815e0 ---------A   00061  PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
+    0x61f6bba81750 ---------A   00062  PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
+    0x61f6bba81890 ----------   00063  INPUT A
+    0x61f6bba81b20 ---------A        a IF A=4 THEN 66
+    0x61f6bba81c80 ----------   00064  PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME."
+    0x61f6bba81d20 ---------A        a GOTO 70
+    0x61f6bba81e80 ---------A T 00066  PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
+    0x61f6bba821c0 ---------A   00067  R=R+1
+    0x61f6bba82210 ---------- T 00070  PRINT
+    0x61f6bba822c0 ---------A T      a PRINT
+    0x61f6bba82470 ---------A   00071  PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
+    0x61f6bba82630 ---------A   00072  PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
+    0x61f6bba82770 ----------   00073  INPUT A
+    0x61f6bba829f0 ---------A        a IF A=3 THEN 76
+    0x61f6bba82b60 ---------A   00074  PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
+    0x61f6bba82df0 ---------A   00075  GOTO 80
+    0x61f6bba82f40 ---------A T 00076  PRINT "GOOD MEMORY!"
+    0x61f6bba83280 ---------A   00077  R=R+1
+    0x61f6bba832d0 ---------- T 00080  PRINT
+    0x61f6bba83350 ---------A T      a PRINT
+    0x61f6bba835b0 ---------A   00085  IF R=4 THEN 100
+    0x61f6bba83840 ---------A   00090  IF R<2 THEN 200
+    0x61f6bba839d0 ---------A   00092  PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
+    0x61f6bba83b50 ---------A   00094  PRINT "READING THE NURSERY GREATS."
+    0x61f6bba83ed0 ----------   00096  FOR XX=1 TO 2000
+    0x61f6bba83f30 ----------        a NEXT
+    0x61f6bba83fa0 ---------A        b RUN "MENU"
+    0x61f6bba84190 ---------A T 00100  PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
+    0x61f6bba84320 ---------A   00110  PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
+    0x61f6bba844a0 ---------A   00120  PRINT "LITERATURE (HA, HA, HA)"
+    0x61f6bba84760 ----------   00130  FOR XX=1 TO 2000
+    0x61f6bba847c0 ----------        a NEXT
+    0x61f6bba84830 ---------A        b RUN "MENU"
+    0x61f6bba84a10 ---------A T 00200  PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
+    0x61f6bba84b90 ---------A   00205  PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
+    0x61f6bba84e50 ----------   00999  FOR XX=1 TO 2000
+    0x61f6bba84eb0 ----------        a NEXT
+    0x61f6bba84f20 ---------A        b RUN "MENU"
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/litquiz.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x61f6bba776d0 ----------   01000  PRINT CHR$(26)
+    0x61f6bba77670 ----------   01010  PRINT TAB(25);"LITERATURE QUIZ"
+    0x61f6bba78910 ---------A   01020  PRINT
+    0x61f6bba779e0 ---------A   01030  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x61f6bba777f0 ----------   01040  PRINT
+    0x61f6bba79aa0 ----------   01050  PRINT
+    0x61f6bba79b00 ---------A   01060  PRINT
+    0x61f6bba79f30 ---------A   01070  R=0
+    0x61f6bba77c20 ---------A   01080  PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
+    0x61f6bba77c80 ----------   01090  PRINT
+    0x61f6bba7a1c0 ---------A   01100  PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
+    0x61f6bba78720 ---------A   01110  PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
+    0x61f6bba78780 ----------   01120  PRINT
+    0x61f6bba7f8a0 ----------   01130  PRINT "GOOD LUCK!"
+    0x61f6bba7f900 ----------   01140  PRINT
+    0x61f6bba7f960 ---------A   01150  PRINT
+    0x61f6bba7fb00 ---------A   01160  PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
+    0x61f6bba7fc60 ---------A   01170  PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
+    0x61f6bba7fe20 ----------   01180  INPUT A
+    0x61f6bba80080 ---------A   01190  IF A=3 THEN 1220
+    0x61f6bba801a0 ----------   01200  PRINT "SORRY...FIGARO WAS HIS NAME."
+    0x61f6bba79e70 ---------A   01210  GOTO 1250
+    0x61f6bba802c0 ---------A   01220  PRINT "VERY GOOD!  HERE'S ANOTHER."
+    0x61f6bba7a0b0 ---------A   01230  R=R+1
+    0x61f6bba805a0 ----------   01240  PRINT
+    0x61f6bba80650 ---------A   01250  PRINT
+    0x61f6bba80800 ---------A   01260  PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
+    0x61f6bba80970 ---------A   01270  PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
+    0x61f6bba80a90 ----------   01280  INPUT A
+    0x61f6bba80d20 ---------A   01290  IF A=2 THEN 1320
+    0x61f6bba80e40 ----------   01300  PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN."
+    0x61f6bba80ec0 ---------A   01310  GOTO 1350
+    0x61f6bba81010 ---------A   01320  PRINT "PRETTY GOOD!"
+    0x61f6bba81350 ---------A   01330  R=R+1
+    0x61f6bba813a0 ----------   01340  PRINT
+    0x61f6bba81440 ---------A   01350  PRINT
+    0x61f6bba815e0 ---------A   01360  PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
+    0x61f6bba81750 ---------A   01370  PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
+    0x61f6bba81890 ----------   01380  INPUT A
+    0x61f6bba81b20 ---------A   01390  IF A=4 THEN 1420
+    0x61f6bba81c80 ----------   01400  PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME."
+    0x61f6bba81d20 ---------A   01410  GOTO 1450
+    0x61f6bba81e80 ---------A   01420  PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
+    0x61f6bba821c0 ---------A   01430  R=R+1
+    0x61f6bba82210 ----------   01440  PRINT
+    0x61f6bba822c0 ---------A   01450  PRINT
+    0x61f6bba82470 ---------A   01460  PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
+    0x61f6bba82630 ---------A   01470  PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
+    0x61f6bba82770 ----------   01480  INPUT A
+    0x61f6bba829f0 ---------A   01490  IF A=3 THEN 1520
+    0x61f6bba82b60 ---------A   01500  PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
+    0x61f6bba82df0 ---------A   01510  GOTO 1550
+    0x61f6bba82f40 ---------A   01520  PRINT "GOOD MEMORY!"
+    0x61f6bba83280 ---------A   01530  R=R+1
+    0x61f6bba832d0 ----------   01540  PRINT
+    0x61f6bba83350 ---------A   01550  PRINT
+    0x61f6bba835b0 ---------A   01560  IF R=4 THEN 1630
+    0x61f6bba83840 ---------A   01570  IF R<2 THEN 1690
+    0x61f6bba839d0 ---------A   01580  PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
+    0x61f6bba83b50 ---------A   01590  PRINT "READING THE NURSERY GREATS."
+    0x61f6bba83ed0 ----------   01600  FOR XX=1 TO 2000
+    0x61f6bba83f30 ----------   01610  NEXT
+    0x61f6bba83fa0 ---------A   01620  RUN "MENU"
+    0x61f6bba84190 ---------A   01630  PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
+    0x61f6bba84320 ---------A   01640  PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
+    0x61f6bba844a0 ---------A   01650  PRINT "LITERATURE (HA, HA, HA)"
+    0x61f6bba84760 ----------   01660  FOR XX=1 TO 2000
+    0x61f6bba847c0 ----------   01670  NEXT
+    0x61f6bba84830 ---------A   01680  RUN "MENU"
+    0x61f6bba84a10 ---------A   01690  PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
+    0x61f6bba84b90 ---------A   01700  PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
+    0x61f6bba84e50 ----------   01710  FOR XX=1 TO 2000
+    0x61f6bba84eb0 ----------   01720  NEXT
+    0x61f6bba84f20 ---------A   01730  RUN "MENU"
  */
 
 
@@ -98,7 +270,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01490 - 10000    8520 
+     01740 - 10000    8270 
 
  */
 
@@ -183,55 +355,80 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x607bc4f89e70 ---------A   01000 PRINT CHR$(26):PRINT TAB(25);"LITERATURE QUIZ":PRINT
-    0x607bc4f89ff0 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x607bc4f877f0 ---------A   01020 PRINT:PRINT:PRINT
-    0x607bc4f87e90 ---------A   01030 R=0
-    0x607bc4f896e0 ---------A   01040 PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
-    0x607bc4f8a150 ---------A   01050 PRINT: PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
-    0x607bc4f886a0 ---------A   01060 PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
-    0x607bc4f8f8a0 ---------A   01070 PRINT: PRINT "GOOD LUCK!": PRINT: PRINT
-    0x607bc4f8fa30 ---------A   01080 PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
-    0x607bc4f8fb80 ---------A   01090 PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
-    0x607bc4f876d0 ---------A   01100 INPUT A: IF A=3 THEN 1120
-    0x607bc4f90040 ---------A   01110 PRINT "SORRY...FIGARO WAS HIS NAME.": GOTO 1140
-    0x607bc4f90140 ---------A T 01120 PRINT "VERY GOOD!  HERE'S ANOTHER."
-    0x607bc4f90410 ---------A   01130 R=R+1
-    0x607bc4f90500 ---------A T 01140 PRINT: PRINT
-    0x607bc4f906a0 ---------A   01150 PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
-    0x607bc4f90820 ---------A   01160 PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
-    0x607bc4f90b80 ---------A   01170 INPUT A: IF A=2 THEN 1190
-    0x607bc4f90d10 ---------A   01180 PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN.": GOTO 1210
-    0x607bc4f90e50 ---------A T 01190 PRINT "PRETTY GOOD!"
-    0x607bc4f91180 ---------A   01200 R=R+1
-    0x607bc4f91260 ---------A T 01210 PRINT: PRINT
-    0x607bc4f913f0 ---------A   01220 PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
-    0x607bc4f91550 ---------A   01230 PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
-    0x607bc4f91910 ---------A   01240 INPUT A: IF A=4 THEN 1260
-    0x607bc4f91b00 ---------A   01250 PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME.": GOTO 1280
-    0x607bc4f91c50 ---------A T 01260 PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
-    0x607bc4f91f80 ---------A   01270 R=R+1
-    0x607bc4f92070 ---------A T 01280 PRINT:PRINT
-    0x607bc4f92210 ---------A   01290 PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
-    0x607bc4f923c0 ---------A   01300 PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
-    0x607bc4f92770 ---------A   01310 INPUT A: IF A=3 THEN 1340
-    0x607bc4f928e0 ---------A   01320 PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
-    0x607bc4f92b60 ---------A   01330 GOTO 1360
-    0x607bc4f92ca0 ---------A T 01340 PRINT "GOOD MEMORY!"
-    0x607bc4f92fd0 ---------A   01350 R=R+1
-    0x607bc4f93090 ---------A T 01360 PRINT:PRINT
-    0x607bc4f932e0 ---------A   01370 IF R=4 THEN 1420
-    0x607bc4f93570 ---------A   01380 IF R<2 THEN 1460
-    0x607bc4f93700 ---------A   01390 PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
-    0x607bc4f93870 ---------A   01400 PRINT "READING THE NURSERY GREATS."
-    0x607bc4f93ca0 ---------A   01410 FOR XX=1 TO 2000:NEXT:RUN "MENU"
-    0x607bc4f93e80 ---------A T 01420 PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
-    0x607bc4f94000 ---------A   01430 PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
-    0x607bc4f94170 ---------A   01440 PRINT "LITERATURE (HA, HA, HA)"
-    0x607bc4f944e0 ---------A   01450 FOR XX=1 TO 2000:NEXT:RUN "MENU"
-    0x607bc4f946b0 ---------A T 01460 PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
-    0x607bc4f94820 ---------A   01470 PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
-    0x607bc4f94b90 ---------A   01480 FOR XX=1 TO 2000:NEXT:RUN "MENU"
+    0x61f6bba776d0 ---------A   01000  PRINT CHR$(26)
+    0x61f6bba77670 ---------A   01010  PRINT TAB(25);"LITERATURE QUIZ"
+    0x61f6bba78910 ---------A   01020  PRINT
+    0x61f6bba779e0 ---------A   01030  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x61f6bba777f0 ---------A   01040  PRINT
+    0x61f6bba79aa0 ---------A   01050  PRINT
+    0x61f6bba79b00 ---------A   01060  PRINT
+    0x61f6bba79f30 ---------A   01070  R=0
+    0x61f6bba77c20 ---------A   01080  PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
+    0x61f6bba77c80 ---------A   01090  PRINT
+    0x61f6bba7a1c0 ---------A   01100  PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
+    0x61f6bba78720 ---------A   01110  PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
+    0x61f6bba78780 ---------A   01120  PRINT
+    0x61f6bba7f8a0 ---------A   01130  PRINT "GOOD LUCK!"
+    0x61f6bba7f900 ---------A   01140  PRINT
+    0x61f6bba7f960 ---------A   01150  PRINT
+    0x61f6bba7fb00 ---------A   01160  PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
+    0x61f6bba7fc60 ---------A   01170  PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
+    0x61f6bba7fe20 ---------A   01180  INPUT A
+    0x61f6bba80080 ---------A   01190  IF A=3 THEN 1220
+    0x61f6bba801a0 ---------A   01200  PRINT "SORRY...FIGARO WAS HIS NAME."
+    0x61f6bba79e70 ---------A   01210  GOTO 1250
+    0x61f6bba802c0 ---------A T 01220  PRINT "VERY GOOD!  HERE'S ANOTHER."
+    0x61f6bba7a0b0 ---------A   01230  R=R+1
+    0x61f6bba805a0 ---------A   01240  PRINT
+    0x61f6bba80650 ---------A T 01250  PRINT
+    0x61f6bba80800 ---------A   01260  PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
+    0x61f6bba80970 ---------A   01270  PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
+    0x61f6bba80a90 ---------A   01280  INPUT A
+    0x61f6bba80d20 ---------A   01290  IF A=2 THEN 1320
+    0x61f6bba80e40 ---------A   01300  PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN."
+    0x61f6bba80ec0 ---------A   01310  GOTO 1350
+    0x61f6bba81010 ---------A T 01320  PRINT "PRETTY GOOD!"
+    0x61f6bba81350 ---------A   01330  R=R+1
+    0x61f6bba813a0 ---------A   01340  PRINT
+    0x61f6bba81440 ---------A T 01350  PRINT
+    0x61f6bba815e0 ---------A   01360  PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
+    0x61f6bba81750 ---------A   01370  PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
+    0x61f6bba81890 ---------A   01380  INPUT A
+    0x61f6bba81b20 ---------A   01390  IF A=4 THEN 1420
+    0x61f6bba81c80 ---------A   01400  PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME."
+    0x61f6bba81d20 ---------A   01410  GOTO 1450
+    0x61f6bba81e80 ---------A T 01420  PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
+    0x61f6bba821c0 ---------A   01430  R=R+1
+    0x61f6bba82210 ---------A   01440  PRINT
+    0x61f6bba822c0 ---------A T 01450  PRINT
+    0x61f6bba82470 ---------A   01460  PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
+    0x61f6bba82630 ---------A   01470  PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
+    0x61f6bba82770 ---------A   01480  INPUT A
+    0x61f6bba829f0 ---------A   01490  IF A=3 THEN 1520
+    0x61f6bba82b60 ---------A   01500  PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
+    0x61f6bba82df0 ---------A   01510  GOTO 1550
+    0x61f6bba82f40 ---------A T 01520  PRINT "GOOD MEMORY!"
+    0x61f6bba83280 ---------A   01530  R=R+1
+    0x61f6bba832d0 ---------A   01540  PRINT
+    0x61f6bba83350 ---------A T 01550  PRINT
+    0x61f6bba835b0 ---------A   01560  IF R=4 THEN 1630
+    0x61f6bba83840 ---------A   01570  IF R<2 THEN 1690
+    0x61f6bba839d0 ---------A   01580  PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
+    0x61f6bba83b50 ---------A   01590  PRINT "READING THE NURSERY GREATS."
+    0x61f6bba83ed0 ---------A   01600  FOR XX=1 TO 2000
+    0x61f6bba83f30 ---------A   01610  NEXT
+    0x61f6bba83fa0 ---------A   01620  RUN "MENU"
+    0x61f6bba84190 ---------A T 01630  PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
+    0x61f6bba84320 ---------A   01640  PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
+    0x61f6bba844a0 ---------A   01650  PRINT "LITERATURE (HA, HA, HA)"
+    0x61f6bba84760 ---------A   01660  FOR XX=1 TO 2000
+    0x61f6bba847c0 ---------A   01670  NEXT
+    0x61f6bba84830 ---------A   01680  RUN "MENU"
+    0x61f6bba84a10 ---------A T 01690  PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
+    0x61f6bba84b90 ---------A   01700  PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
+    0x61f6bba84e50 ---------A   01710  FOR XX=1 TO 2000
+    0x61f6bba84eb0 ---------A   01720  NEXT
+    0x61f6bba84f20 ---------A   01730  RUN "MENU"
  */
 
 //---------------------------------------------------------------------------
@@ -324,5 +521,244 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
-    // 01000 PRINT CHR$(26):PRINT TAB(25);"LITERATURE QUIZ":PRINT
+    // 01000 PRINT CHR$(26)
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcpy(buf,CHR$(26));strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(25);"LITERATURE QUIZ"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,25);strcat(buf,"LITERATURE QUIZ");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01060 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 R=0
+    R_int = 0;
+    // 01080 PRINT "TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TEST YOUR KNOWLEDGE OF CHILDREN'S LITERATURE.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01090 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT "THIS IS A MULTIPLE-CHOICE QUIZ."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THIS IS A MULTIPLE-CHOICE QUIZ.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 PRINT "TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TYPE A 1, 2, 3, OR 4 AFTER THE QUESTION MARK.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01120 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01130 PRINT "GOOD LUCK!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"GOOD LUCK!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01140 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01150 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01160 PRINT "IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"IN PINOCCHIO, WHAT WAS THE NAME OF THE CAT");strcat(buf,"\n");fputs(buf,fh); };
+    // 01170 PRINT "1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"1)TIGGER, 2)CICERO, 3)FIGARO, 4)GUIPETTO");fputs(buf,fh); };
+    // 01180 INPUT A
+    // Start of Basic INPUT statement 01180
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&A_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01180
+    // 01190 IF A=3 THEN 1220
+    if(A_int==3)goto Lbl_01220;
+    // 01200 PRINT "SORRY...FIGARO WAS HIS NAME."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"SORRY...FIGARO WAS HIS NAME.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01210 GOTO 1250
+    goto Lbl_01250;
+
+  Lbl_01220:
+    // 01220 PRINT "VERY GOOD!  HERE'S ANOTHER."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"VERY GOOD!  HERE'S ANOTHER.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01230 R=R+1
+    R_int = R_int+1;
+    // 01240 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01250:
+    // 01250 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01260 PRINT "FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"FROM WHOSE GARDEN DID BUGS BUNNY STEAL THE CARROTS?");strcat(buf,"\n");fputs(buf,fh); };
+    // 01270 PRINT "1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"1)MR. NIXON'S, 2)ELMER FUDD'S, 3)CLEM JUDD'S, 4)STROMBOLI'S");fputs(buf,fh); };
+    // 01280 INPUT A
+    // Start of Basic INPUT statement 01280
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&A_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01280
+    // 01290 IF A=2 THEN 1320
+    if(A_int==2)goto Lbl_01320;
+    // 01300 PRINT "TOO BAD...IT WAS ELMER FUDD'S GARDEN."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TOO BAD...IT WAS ELMER FUDD'S GARDEN.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01310 GOTO 1350
+    goto Lbl_01350;
+
+  Lbl_01320:
+    // 01320 PRINT "PRETTY GOOD!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"PRETTY GOOD!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01330 R=R+1
+    R_int = R_int+1;
+    // 01340 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01350:
+    // 01350 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01360 PRINT "IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"IN THE WIZARD OF OS, DOROTHY'S DOG WAS NAMED");strcat(buf,"\n");fputs(buf,fh); };
+    // 01370 PRINT "1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"1)CICERO, 2)TRIXIA, 3)KING, 4)TOTO");fputs(buf,fh); };
+    // 01380 INPUT A
+    // Start of Basic INPUT statement 01380
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&A_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01380
+    // 01390 IF A=4 THEN 1420
+    if(A_int==4)goto Lbl_01420;
+    // 01400 PRINT "BACK TO THE BOOKS,...TOTO WAS HIS NAME."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"BACK TO THE BOOKS,...TOTO WAS HIS NAME.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01410 GOTO 1450
+    goto Lbl_01450;
+
+  Lbl_01420:
+    // 01420 PRINT "YEA!  YOU'RE A REAL LITERATURE GIANT."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YEA!  YOU'RE A REAL LITERATURE GIANT.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01430 R=R+1
+    R_int = R_int+1;
+    // 01440 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01450:
+    // 01450 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01460 PRINT "WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WHO WAS THE FAIR MAIDEN WHO ATE THE POISON APPLE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01470 PRINT "1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"1)SLEEPING BEAUTY, 2)CINDERELLA, 3)SNOW WHITE, 4)WENDY");fputs(buf,fh); };
+    // 01480 INPUT A
+    // Start of Basic INPUT statement 01480
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&A_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01480
+    // 01490 IF A=3 THEN 1520
+    if(A_int==3)goto Lbl_01520;
+    // 01500 PRINT "OH, COME ON NOW...IT WAS SNOW WHITE."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"OH, COME ON NOW...IT WAS SNOW WHITE.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01510 GOTO 1550
+    goto Lbl_01550;
+
+  Lbl_01520:
+    // 01520 PRINT "GOOD MEMORY!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"GOOD MEMORY!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01530 R=R+1
+    R_int = R_int+1;
+    // 01540 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01550:
+    // 01550 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01560 IF R=4 THEN 1630
+    if(R_int==4)goto Lbl_01630;
+    // 01570 IF R<2 THEN 1690
+    if(R_int<2)goto Lbl_01690;
+    // 01580 PRINT "NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"NOT BAD, BUT YOU MIGHT SPEND A LITTLE MORE TIME");strcat(buf,"\n");fputs(buf,fh); };
+    // 01590 PRINT "READING THE NURSERY GREATS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"READING THE NURSERY GREATS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01600 FOR XX=1 TO 2000
+    for(XX_int=1;XX_int<=2000;XX_int++){
+        // 01610 NEXT
+        int dummy_1610=0; // Ignore this line.
+    };
+    // 01620 RUN "MENU"
+    system("MENU");
+
+  Lbl_01630:
+    // 01630 PRINT "WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WOW!  THAT'S SUPER!  YOU REALLY KNOW YOUR NURSERY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01640 PRINT "YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR NEXT QUIZ WILL BE ON 2ND CENTURY CHINESE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01650 PRINT "LITERATURE (HA, HA, HA)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"LITERATURE (HA, HA, HA)");strcat(buf,"\n");fputs(buf,fh); };
+    // 01660 FOR XX=1 TO 2000
+    for(XX_int=1;XX_int<=2000;XX_int++){
+        // 01670 NEXT
+        int dummy_1670=0; // Ignore this line.
+    };
+    // 01680 RUN "MENU"
+    system("MENU");
+
+  Lbl_01690:
+    // 01690 PRINT "UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"UGH.  THAT WAS DEFINITELY NOT TOO SWIFT.  BACK TO");strcat(buf,"\n");fputs(buf,fh); };
+    // 01700 PRINT "NURSERY SCHOOL FOR YOU, MY FRIEND."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"NURSERY SCHOOL FOR YOU, MY FRIEND.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01710 FOR XX=1 TO 2000
+    for(XX_int=1;XX_int<=2000;XX_int++){
+        // 01720 NEXT
+        int dummy_1720=0; // Ignore this line.
+    };
+    // 01730 RUN "MENU"
+    system("MENU");
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

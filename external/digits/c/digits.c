@@ -8,84 +8,84 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5adb7e29db80 ---------A   00010 PRINT TAB(33);"DIGITS"
-    0x5adb7e29ef30 ---------A   00020 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5adb7e29f0b0 ---------A   00030 PRINT:PRINT:PRINT
-    0x5adb7e29c9e0 ---------A   00210 PRINT "THIS IS A GAME OF GUESSING."
-    0x5adb7e29eaa0 ---------A   00220 PRINT "FOR INSTRUCTIONS, TYPE '1', ELSE TYPE '0'";
-    0x5adb7e29c6d0 ---------A   00230 INPUT E
-    0x5adb7e29c670 ---------A   00240 IF E=0 THEN 360
-    0x5adb7e29cc20 ---------A   00250 PRINT
-    0x5adb7e29f1c0 ---------A   00260 PRINT "PLEASE TAKE A PIECE OF PAPER AND WRITE DOWN"
-    0x5adb7e29d6a0 ---------A   00270 PRINT "THE DIGITS '0', '1', OR '2' THIRTY TIMES AT RANDOM."
-    0x5adb7e29d830 ---------A   00280 PRINT "ARRANGE THEM IN THREE LINES OF TEN DIGITS EACH."
-    0x5adb7e2a4970 ---------A   00290 PRINT "I WILL ASK FOR THEN TEN AT A TIME."
-    0x5adb7e2a4b10 ---------A   00300 PRINT "I WILL ALWAYS GUESS THEM FIRST AND THEN LOOK AT YOUR"
-    0x5adb7e2a4cb0 ---------A   00310 PRINT "NEXT NUMBER TO SEE IF I WAS RIGHT. BY PURE LUCK,"
-    0x5adb7e2a4e10 ---------A   00320 PRINT "I OUGHT TO BE RIGHT TEN TIMES. BUT I HOPE TO DO BETTER"
-    0x5adb7e2a4f20 ---------A   00330 PRINT "THAN THAT *****"
-    0x5adb7e2a4fc0 ---------A   00340 PRINT:PRINT
-    0x5adb7e2a5430 ---------A T 00360 READ A,B,C
-    0x5adb7e2a56f0 ---------A   00370 DATA 0,1,3
-    0x5adb7e2a60f0 ---------A   00380 DIM M(26,2),K(2,2),L(8,2)
-    0x5adb7e2a6de0 ---------A T 00400 FOR I=0 TO 26: FOR J=0 TO 2: M(I,J)=1: NEXT J: NEXT I
-    0x5adb7e2a79a0 ---------A   00410 FOR I=0 TO 2: FOR J=0 TO 2: K(I,J)=9: NEXT J: NEXT I
-    0x5adb7e2a8560 ---------A   00420 FOR I=0 TO 8: FOR J=0 TO 2: L(I,J)=3: NEXT J: NEXT I
-    0x5adb7e2a8fc0 ---------A   00450 L(0,0)=2: L(4,1)=2: L(8,2)=2
-    0x5adb7e2a97f0 ---------A   00480 Z=26: Z1=8: Z2=2
-    0x5adb7e2a9ac0 ---------A   00510 X=0
-    0x5adb7e2a9e50 ---------A   00520 FOR T=1 TO 3
-    0x5adb7e2a9eb0 ---------A T 00530 PRINT
-    0x5adb7e2aa050 ---------A   00540 PRINT "TEN NUMBERS, PLEASE";
-    0x5adb7e2ab1c0 ---------A   00550 INPUT N(1),N(2),N(3),N(4),N(5),N(6),N(7),N(8),N(9),N(10)
-    0x5adb7e2ab4a0 ---------A   00560 FOR I=1 TO 10
-    0x5adb7e2ab960 ---------A   00570 W=N(I)-1
-    0x5adb7e2abcd0 ---------A   00580 IF W=SGN(W) THEN 620
-    0x5adb7e2ac060 ---------A   00590 PRINT "ONLY USE THE DIGITS '0', '1', OR '2'."
-    0x5adb7e2ac200 ---------A   00600 PRINT "LET'S TRY AGAIN.":GOTO 530
-    0x5adb7e2ac320 ---------A T 00620 NEXT I
-    0x5adb7e2ac850 ---------A   00630 PRINT: PRINT "MY GUESS","YOUR NO.","RESULT","NO. RIGHT":PRINT
-    0x5adb7e2acbe0 ---------A   00660 FOR U=1 TO 10
-    0x5adb7e2ad1b0 ---------A   00670 N=N(U): S=0
-    0x5adb7e2ad490 ---------A   00690 FOR J=0 TO 2
-    0x5adb7e2ae270 ---------A   00700 S1=A*K(Z2,J)+B*L(Z1,J)+C*M(Z,J)
-    0x5adb7e2ae4e0 ---------A   00710 IF S>S1 THEN 760
-    0x5adb7e2ae770 ---------A   00720 IF S<S1 THEN 740
-    0x5adb7e2aea90 ---------A   00730 IF RND(1)<.5 THEN 760
-    0x5adb7e2aefa0 ---------A T 00740 S=S1: G=J
-    0x5adb7e2af0d0 ---------A T 00760 NEXT J
-    0x5adb7e2af640 ---------A   00770 PRINT "  ";G,"   ";N(U),
-    0x5adb7e2af990 ---------A   00780 IF G=N(U) THEN 810
-    0x5adb7e2afbf0 ---------A   00790 PRINT " WRONG",X
-    0x5adb7e2afc60 ---------A   00800 GOTO 880
-    0x5adb7e2aff80 ---------A T 00810 X=X+1
-    0x5adb7e2b01d0 ---------A   00820 PRINT " RIGHT",X
-    0x5adb7e2b0880 ---------A   00830 M(Z,N)=M(Z,N)+1
-    0x5adb7e2b0f30 ---------A   00840 L(Z1,N)=L(Z1,N)+1
-    0x5adb7e2b15e0 ---------A   00850 K(Z2,N)=K(Z2,N)+1
-    0x5adb7e2b1c10 ---------A   00860 Z=Z-INT(Z/9)*9
-    0x5adb7e2b2140 ---------A   00870 Z=3*Z+N(U)
-    0x5adb7e2b2770 ---------A T 00880 Z1=Z-INT(Z/9)*9
-    0x5adb7e2b2a80 ---------A   00890 Z2=N(U)
-    0x5adb7e2b2bb0 ---------A   00900 NEXT U
-    0x5adb7e2b2cf0 ---------A   00910 NEXT T
-    0x5adb7e2b2d70 ---------A   00920 PRINT
-    0x5adb7e2b2fc0 ---------A   00930 IF X>10 THEN 980
-    0x5adb7e2b3240 ---------A   00940 IF X<10 THEN 1010
-    0x5adb7e2b33d0 ---------A   00950 PRINT "I GUESSED EXACTLY 1/3 OF YOUR NUMBERS."
-    0x5adb7e2b3930 ---------A   00960 PRINT "IT'S A TIE GAME."
-    0x5adb7e2b39c0 ---------A   00970 GOTO 1030
-    0x5adb7e2b3b50 ---------A T 00980 PRINT "I GUESSED MORE THAN 1/3 OF YOUR NUMBERS."
-    0x5adb7e2b4340 ---------A   00990 PRINT "I WIN.": FOR Q=1 TO 10: PRINT CHR$(7);: NEXT Q
-    0x5adb7e2b43e0 ---------A   01000 GOTO 1030
-    0x5adb7e2b4560 ---------A T 01010 PRINT "I GUESSED LESS THAN 1/3 OF YOUR NUMBERS."
-    0x5adb7e2b46c0 ---------A   01020 PRINT "YOU BEAT ME.  CONGRATULATIONS *****"
-    0x5adb7e2b4760 ---------A T 01030 PRINT
-    0x5adb7e2b48f0 ---------A   01040 PRINT "DO YOU WANT TO TRY AGAIN (1 FOR YES, 0 FOR NO)";
-    0x5adb7e2b4a40 ---------A   01060 INPUT X
-    0x5adb7e2b4cb0 ---------A   01070 IF X=1 THEN 400
-    0x5adb7e2b4e60 ---------A   01080 PRINT:PRINT "THANKS FOR THE GAME."
-    0x5adb7e2b4eb0 ---------A   01090 END
+    0x5746825526d0 ---------A   00010  PRINT TAB(33);"DIGITS"
+    0x574682552670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5746825527f0 ---------A   00030  PRINT:PRINT:PRINT
+    0x574682553040 ---------A   00210  PRINT "THIS IS A GAME OF GUESSING."
+    0x574682552e40 ---------A   00220  PRINT "FOR INSTRUCTIONS, TYPE '1', ELSE TYPE '0'";
+    0x5746825546a0 ---------A   00230  INPUT E
+    0x574682555140 ---------A   00240  IF E=0 THEN 360
+    0x5746825551e0 ---------A   00250  PRINT
+    0x5746825536e0 ---------A   00260  PRINT "PLEASE TAKE A PIECE OF PAPER AND WRITE DOWN"
+    0x574682553840 ---------A   00270  PRINT "THE DIGITS '0', '1', OR '2' THIRTY TIMES AT RANDOM."
+    0x57468255a9a0 ---------A   00280  PRINT "ARRANGE THEM IN THREE LINES OF TEN DIGITS EACH."
+    0x57468255aac0 ---------A   00290  PRINT "I WILL ASK FOR THEN TEN AT A TIME."
+    0x57468255ac20 ---------A   00300  PRINT "I WILL ALWAYS GUESS THEM FIRST AND THEN LOOK AT YOUR"
+    0x57468255ad80 ---------A   00310  PRINT "NEXT NUMBER TO SEE IF I WAS RIGHT. BY PURE LUCK,"
+    0x57468255aef0 ---------A   00320  PRINT "I OUGHT TO BE RIGHT TEN TIMES. BUT I HOPE TO DO BETTER"
+    0x57468255b010 ---------A   00330  PRINT "THAN THAT *****"
+    0x57468255b0d0 ---------A   00340  PRINT:PRINT
+    0x57468255b550 ---------A T 00360  READ A,B,C
+    0x57468255b840 ---------A   00370  DATA 0,1,3
+    0x57468255c240 ---------A   00380  DIM M(26,2),K(2,2),L(8,2)
+    0x57468255cf50 ---------A T 00400  FOR I=0 TO 26: FOR J=0 TO 2: M(I,J)=1: NEXT J: NEXT I
+    0x57468255db30 ---------A   00410  FOR I=0 TO 2: FOR J=0 TO 2: K(I,J)=9: NEXT J: NEXT I
+    0x57468255e710 ---------A   00420  FOR I=0 TO 8: FOR J=0 TO 2: L(I,J)=3: NEXT J: NEXT I
+    0x57468255f180 ---------A   00450  L(0,0)=2: L(4,1)=2: L(8,2)=2
+    0x57468255f9b0 ---------A   00480  Z=26: Z1=8: Z2=2
+    0x57468255fc80 ---------A   00510  X=0
+    0x574682560010 ---------A   00520  FOR T=1 TO 3
+    0x574682560070 ---------A T 00530  PRINT
+    0x574682560220 ---------A   00540  PRINT "TEN NUMBERS, PLEASE";
+    0x5746825613a0 ---------A   00550  INPUT N(1),N(2),N(3),N(4),N(5),N(6),N(7),N(8),N(9),N(10)
+    0x574682561680 ---------A   00560  FOR I=1 TO 10
+    0x574682561b40 ---------A   00570  W=N(I)-1
+    0x574682561eb0 ---------A   00580  IF W=SGN(W) THEN 620
+    0x574682562240 ---------A   00590  PRINT "ONLY USE THE DIGITS '0', '1', OR '2'."
+    0x574682562400 ---------A   00600  PRINT "LET'S TRY AGAIN.":GOTO 530
+    0x574682562530 ---------A T 00620  NEXT I
+    0x574682562a90 ---------A   00630  PRINT: PRINT "MY GUESS","YOUR NO.","RESULT","NO. RIGHT":PRINT
+    0x574682562e30 ---------A   00660  FOR U=1 TO 10
+    0x574682563400 ---------A   00670  N=N(U): S=0
+    0x5746825636e0 ---------A   00690  FOR J=0 TO 2
+    0x5746825644c0 ---------A   00700  S1=A*K(Z2,J)+B*L(Z1,J)+C*M(Z,J)
+    0x574682564730 ---------A   00710  IF S>S1 THEN 760
+    0x5746825649c0 ---------A   00720  IF S<S1 THEN 740
+    0x574682564ce0 ---------A   00730  IF RND(1)<.5 THEN 760
+    0x5746825651f0 ---------A T 00740  S=S1: G=J
+    0x574682565320 ---------A T 00760  NEXT J
+    0x5746825658a0 ---------A   00770  PRINT "  ";G,"   ";N(U),
+    0x574682565c00 ---------A   00780  IF G=N(U) THEN 810
+    0x574682565e60 ---------A   00790  PRINT " WRONG",X
+    0x574682565ee0 ---------A   00800  GOTO 880
+    0x574682566210 ---------A T 00810  X=X+1
+    0x574682566460 ---------A   00820  PRINT " RIGHT",X
+    0x574682566b20 ---------A   00830  M(Z,N)=M(Z,N)+1
+    0x5746825671d0 ---------A   00840  L(Z1,N)=L(Z1,N)+1
+    0x574682567880 ---------A   00850  K(Z2,N)=K(Z2,N)+1
+    0x574682567eb0 ---------A   00860  Z=Z-INT(Z/9)*9
+    0x5746825683e0 ---------A   00870  Z=3*Z+N(U)
+    0x574682568a10 ---------A T 00880  Z1=Z-INT(Z/9)*9
+    0x574682568d20 ---------A   00890  Z2=N(U)
+    0x574682568e50 ---------A   00900  NEXT U
+    0x574682568fa0 ---------A   00910  NEXT T
+    0x574682569030 ---------A   00920  PRINT
+    0x574682569290 ---------A   00930  IF X>10 THEN 980
+    0x574682569510 ---------A   00940  IF X<10 THEN 1010
+    0x5746825696a0 ---------A   00950  PRINT "I GUESSED EXACTLY 1/3 OF YOUR NUMBERS."
+    0x574682569c10 ---------A   00960  PRINT "IT'S A TIE GAME."
+    0x574682569cb0 ---------A   00970  GOTO 1030
+    0x574682569e50 ---------A T 00980  PRINT "I GUESSED MORE THAN 1/3 OF YOUR NUMBERS."
+    0x57468256a670 ---------A   00990  PRINT "I WIN.": FOR Q=1 TO 10: PRINT CHR$(7);: NEXT Q
+    0x57468256a720 ---------A   01000  GOTO 1030
+    0x57468256a8b0 ---------A T 01010  PRINT "I GUESSED LESS THAN 1/3 OF YOUR NUMBERS."
+    0x57468256aa20 ---------A   01020  PRINT "YOU BEAT ME.  CONGRATULATIONS *****"
+    0x57468256aad0 ---------A T 01030  PRINT
+    0x57468256ac70 ---------A   01040  PRINT "DO YOU WANT TO TRY AGAIN (1 FOR YES, 0 FOR NO)";
+    0x57468256add0 ---------A   01060  INPUT X
+    0x57468256b040 ---------A   01070  IF X=1 THEN 400
+    0x57468256b200 ---------A   01080  PRINT:PRINT "THANKS FOR THE GAME."
+    0x57468256b260 ---------A   01090  END
  */
 
 /*
@@ -115,9 +115,245 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x5adb7e29db80 (00010)   0x5adb7e29db80 (00010)   0x5adb7e2b4eb0 (01090)   0x5adb7e2b4eb0 (01090)   
+   A) 0x5746825526d0 (00010)   0x5746825526d0 (00010)   0x57468256b260 (01090)   0x57468256b260 (01090)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/digits.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5746825526d0 ---------A   00010  PRINT TAB(33);"DIGITS"
+    0x574682552670 ---------A   00020  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5746825432b0 ----------   00030  PRINT
+    0x5746825529e0 ----------        a PRINT
+    0x5746825527f0 ---------A        b PRINT
+    0x574682553040 ---------A   00210  PRINT "THIS IS A GAME OF GUESSING."
+    0x574682552e40 ---------A   00220  PRINT "FOR INSTRUCTIONS, TYPE '1', ELSE TYPE '0'";
+    0x5746825546a0 ---------A   00230  INPUT E
+    0x574682555140 ---------A   00240  IF E=0 THEN 360
+    0x5746825551e0 ---------A   00250  PRINT
+    0x5746825536e0 ---------A   00260  PRINT "PLEASE TAKE A PIECE OF PAPER AND WRITE DOWN"
+    0x574682553840 ---------A   00270  PRINT "THE DIGITS '0', '1', OR '2' THIRTY TIMES AT RANDOM."
+    0x57468255a9a0 ---------A   00280  PRINT "ARRANGE THEM IN THREE LINES OF TEN DIGITS EACH."
+    0x57468255aac0 ---------A   00290  PRINT "I WILL ASK FOR THEN TEN AT A TIME."
+    0x57468255ac20 ---------A   00300  PRINT "I WILL ALWAYS GUESS THEM FIRST AND THEN LOOK AT YOUR"
+    0x57468255ad80 ---------A   00310  PRINT "NEXT NUMBER TO SEE IF I WAS RIGHT. BY PURE LUCK,"
+    0x57468255aef0 ---------A   00320  PRINT "I OUGHT TO BE RIGHT TEN TIMES. BUT I HOPE TO DO BETTER"
+    0x57468255b010 ---------A   00330  PRINT "THAN THAT *****"
+    0x57468255b070 ----------   00340  PRINT
+    0x57468255b0d0 ---------A        a PRINT
+    0x57468255b550 ---------A T 00360  READ A,B,C
+    0x57468255b840 ---------A   00370  DATA 0,1,3
+    0x57468255c240 ---------A   00380  DIM M(26,2),K(2,2),L(8,2)
+    0x57468255c5b0 ---------- T 00400  FOR I=0 TO 26
+    0x57468255c930 ---------- T      a FOR J=0 TO 2
+    0x57468255ccf0 ---------- T      b M(I,J)=1
+    0x57468255ce20 ---------- T      c NEXT J
+    0x57468255cf50 ---------A T      d NEXT I
+    0x57468255d250 ----------   00410  FOR I=0 TO 2
+    0x57468255d510 ----------        a FOR J=0 TO 2
+    0x57468255d8d0 ----------        b K(I,J)=9
+    0x57468255da00 ----------        c NEXT J
+    0x57468255db30 ---------A        d NEXT I
+    0x57468255de30 ----------   00420  FOR I=0 TO 8
+    0x57468255e0f0 ----------        a FOR J=0 TO 2
+    0x57468255e4b0 ----------        b L(I,J)=3
+    0x57468255e5e0 ----------        c NEXT J
+    0x57468255e710 ---------A        d NEXT I
+    0x57468255ea80 ----------   00450  L(0,0)=2
+    0x57468255edf0 ----------        a L(4,1)=2
+    0x57468255f180 ---------A        b L(8,2)=2
+    0x57468255f430 ----------   00480  Z=26
+    0x57468255f6e0 ----------        a Z1=8
+    0x57468255f9b0 ---------A        b Z2=2
+    0x57468255fc80 ---------A   00510  X=0
+    0x574682560010 ---------A   00520  FOR T=1 TO 3
+    0x574682560070 ---------A T 00530  PRINT
+    0x574682560220 ---------A   00540  PRINT "TEN NUMBERS, PLEASE";
+    0x5746825613a0 ---------A   00550  INPUT N(1),N(2),N(3),N(4),N(5),N(6),N(7),N(8),N(9),N(10)
+    0x574682561680 ---------A   00560  FOR I=1 TO 10
+    0x574682561b40 ---------A   00570  W=N(I)-1
+    0x574682561eb0 ---------A   00580  IF W=SGN(W) THEN 620
+    0x574682562240 ---------A   00590  PRINT "ONLY USE THE DIGITS '0', '1', OR '2'."
+    0x574682562380 ----------   00600  PRINT "LET'S TRY AGAIN."
+    0x574682562400 ---------A        a GOTO 530
+    0x574682562530 ---------A T 00620  NEXT I
+    0x5746825625d0 ----------   00630  PRINT
+    0x574682562a10 ----------        a PRINT "MY GUESS","YOUR NO.","RESULT","NO. RIGHT"
+    0x574682562a90 ---------A        b PRINT
+    0x574682562e30 ---------A   00660  FOR U=1 TO 10
+    0x574682563130 ----------   00670  N=N(U)
+    0x574682563400 ---------A        a S=0
+    0x5746825636e0 ---------A   00690  FOR J=0 TO 2
+    0x5746825644c0 ---------A   00700  S1=A*K(Z2,J)+B*L(Z1,J)+C*M(Z,J)
+    0x574682564730 ---------A   00710  IF S>S1 THEN 760
+    0x5746825649c0 ---------A   00720  IF S<S1 THEN 740
+    0x574682564ce0 ---------A   00730  IF RND(1)<.5 THEN 760
+    0x574682564f00 ---------- T 00740  S=S1
+    0x5746825651f0 ---------A T      a G=J
+    0x574682565320 ---------A T 00760  NEXT J
+    0x5746825658a0 ---------A   00770  PRINT "  ";G,"   ";N(U),
+    0x574682565c00 ---------A   00780  IF G=N(U) THEN 810
+    0x574682565e60 ---------A   00790  PRINT " WRONG",X
+    0x574682565ee0 ---------A   00800  GOTO 880
+    0x574682566210 ---------A T 00810  X=X+1
+    0x574682566460 ---------A   00820  PRINT " RIGHT",X
+    0x574682566b20 ---------A   00830  M(Z,N)=M(Z,N)+1
+    0x5746825671d0 ---------A   00840  L(Z1,N)=L(Z1,N)+1
+    0x574682567880 ---------A   00850  K(Z2,N)=K(Z2,N)+1
+    0x574682567eb0 ---------A   00860  Z=Z-INT(Z/9)*9
+    0x5746825683e0 ---------A   00870  Z=3*Z+N(U)
+    0x574682568a10 ---------A T 00880  Z1=Z-INT(Z/9)*9
+    0x574682568d20 ---------A   00890  Z2=N(U)
+    0x574682568e50 ---------A   00900  NEXT U
+    0x574682568fa0 ---------A   00910  NEXT T
+    0x574682569030 ---------A   00920  PRINT
+    0x574682569290 ---------A   00930  IF X>10 THEN 980
+    0x574682569510 ---------A   00940  IF X<10 THEN 1010
+    0x5746825696a0 ---------A   00950  PRINT "I GUESSED EXACTLY 1/3 OF YOUR NUMBERS."
+    0x574682569c10 ---------A   00960  PRINT "IT'S A TIE GAME."
+    0x574682569cb0 ---------A   00970  GOTO 1030
+    0x574682569e50 ---------A T 00980  PRINT "I GUESSED MORE THAN 1/3 OF YOUR NUMBERS."
+    0x574682569f90 ----------   00990  PRINT "I WIN."
+    0x57468256a310 ----------        a FOR Q=1 TO 10
+    0x57468256a530 ----------        b PRINT CHR$(7);
+    0x57468256a670 ---------A        c NEXT Q
+    0x57468256a720 ---------A   01000  GOTO 1030
+    0x57468256a8b0 ---------A T 01010  PRINT "I GUESSED LESS THAN 1/3 OF YOUR NUMBERS."
+    0x57468256aa20 ---------A   01020  PRINT "YOU BEAT ME.  CONGRATULATIONS *****"
+    0x57468256aad0 ---------A T 01030  PRINT
+    0x57468256ac70 ---------A   01040  PRINT "DO YOU WANT TO TRY AGAIN (1 FOR YES, 0 FOR NO)";
+    0x57468256add0 ---------A   01060  INPUT X
+    0x57468256b040 ---------A   01070  IF X=1 THEN 400
+    0x57468256b0a0 ----------   01080  PRINT
+    0x57468256b200 ---------A        a PRINT "THANKS FOR THE GAME."
+    0x57468256b260 ---------A   01090  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/digits.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5746825526d0 ---------A   01000  PRINT TAB(33);"DIGITS"
+    0x574682552670 ---------A T 01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5746825432b0 ----------   01020  PRINT
+    0x5746825529e0 ---------- T 01030  PRINT
+    0x5746825527f0 ---------A   01040  PRINT
+    0x574682553040 ---------A   01050  PRINT "THIS IS A GAME OF GUESSING."
+    0x574682552e40 ---------A   01060  PRINT "FOR INSTRUCTIONS, TYPE '1', ELSE TYPE '0'";
+    0x5746825546a0 ---------A   01070  INPUT E
+    0x574682555140 ---------A   01080  IF E=0 THEN 1200
+    0x5746825551e0 ---------A   01090  PRINT
+    0x5746825536e0 ---------A   01100  PRINT "PLEASE TAKE A PIECE OF PAPER AND WRITE DOWN"
+    0x574682553840 ---------A   01110  PRINT "THE DIGITS '0', '1', OR '2' THIRTY TIMES AT RANDOM."
+    0x57468255a9a0 ---------A   01120  PRINT "ARRANGE THEM IN THREE LINES OF TEN DIGITS EACH."
+    0x57468255aac0 ---------A   01130  PRINT "I WILL ASK FOR THEN TEN AT A TIME."
+    0x57468255ac20 ---------A   01140  PRINT "I WILL ALWAYS GUESS THEM FIRST AND THEN LOOK AT YOUR"
+    0x57468255ad80 ---------A   01150  PRINT "NEXT NUMBER TO SEE IF I WAS RIGHT. BY PURE LUCK,"
+    0x57468255aef0 ---------A   01160  PRINT "I OUGHT TO BE RIGHT TEN TIMES. BUT I HOPE TO DO BETTER"
+    0x57468255b010 ---------A   01170  PRINT "THAN THAT *****"
+    0x57468255b070 ----------   01180  PRINT
+    0x57468255b0d0 ---------A   01190  PRINT
+    0x57468255b550 ---------A   01200  READ A,B,C
+    0x57468255b840 ---------A   01210  DATA 0,1,3
+    0x57468255c240 ---------A   01220  DIM M(26,2),K(2,2),L(8,2)
+    0x57468255c5b0 ----------   01230  FOR I=0 TO 26
+    0x57468255c930 ----------   01240  FOR J=0 TO 2
+    0x57468255ccf0 ----------   01250  M(I,J)=1
+    0x57468255ce20 ----------   01260  NEXT J
+    0x57468255cf50 ---------A   01270  NEXT I
+    0x57468255d250 ----------   01280  FOR I=0 TO 2
+    0x57468255d510 ----------   01290  FOR J=0 TO 2
+    0x57468255d8d0 ----------   01300  K(I,J)=9
+    0x57468255da00 ----------   01310  NEXT J
+    0x57468255db30 ---------A   01320  NEXT I
+    0x57468255de30 ----------   01330  FOR I=0 TO 8
+    0x57468255e0f0 ----------   01340  FOR J=0 TO 2
+    0x57468255e4b0 ----------   01350  L(I,J)=3
+    0x57468255e5e0 ----------   01360  NEXT J
+    0x57468255e710 ---------A   01370  NEXT I
+    0x57468255ea80 ----------   01380  L(0,0)=2
+    0x57468255edf0 ----------   01390  L(4,1)=2
+    0x57468255f180 ---------A   01400  L(8,2)=2
+    0x57468255f430 ----------   01410  Z=26
+    0x57468255f6e0 ----------   01420  Z1=8
+    0x57468255f9b0 ---------A   01430  Z2=2
+    0x57468255fc80 ---------A   01440  X=0
+    0x574682560010 ---------A   01450  FOR T=1 TO 3
+    0x574682560070 ---------A   01460  PRINT
+    0x574682560220 ---------A   01470  PRINT "TEN NUMBERS, PLEASE";
+    0x5746825613a0 ---------A   01480  INPUT N(1),N(2),N(3),N(4),N(5),N(6),N(7),N(8),N(9),N(10)
+    0x574682561680 ---------A   01490  FOR I=1 TO 10
+    0x574682561b40 ---------A   01500  W=N(I)-1
+    0x574682561eb0 ---------A   01510  IF W=SGN(W) THEN 1550
+    0x574682562240 ---------A   01520  PRINT "ONLY USE THE DIGITS '0', '1', OR '2'."
+    0x574682562380 ----------   01530  PRINT "LET'S TRY AGAIN."
+    0x574682562400 ---------A   01540  GOTO 1460
+    0x574682562530 ---------A   01550  NEXT I
+    0x5746825625d0 ----------   01560  PRINT
+    0x574682562a10 ----------   01570  PRINT "MY GUESS","YOUR NO.","RESULT","NO. RIGHT"
+    0x574682562a90 ---------A   01580  PRINT
+    0x574682562e30 ---------A   01590  FOR U=1 TO 10
+    0x574682563130 ----------   01600  N=N(U)
+    0x574682563400 ---------A   01610  S=0
+    0x5746825636e0 ---------A   01620  FOR J=0 TO 2
+    0x5746825644c0 ---------A   01630  S1=A*K(Z2,J)+B*L(Z1,J)+C*M(Z,J)
+    0x574682564730 ---------A   01640  IF S>S1 THEN 1690
+    0x5746825649c0 ---------A   01650  IF S<S1 THEN 1680
+    0x574682564ce0 ---------A   01660  IF RND(1)<.5 THEN 1690
+    0x574682564f00 ----------   01670  S=S1
+    0x5746825651f0 ---------A   01680  G=J
+    0x574682565320 ---------A   01690  NEXT J
+    0x5746825658a0 ---------A   01700  PRINT "  ";G,"   ";N(U),
+    0x574682565c00 ---------A   01710  IF G=N(U) THEN 1740
+    0x574682565e60 ---------A   01720  PRINT " WRONG",X
+    0x574682565ee0 ---------A   01730  GOTO 1810
+    0x574682566210 ---------A   01740  X=X+1
+    0x574682566460 ---------A   01750  PRINT " RIGHT",X
+    0x574682566b20 ---------A   01760  M(Z,N)=M(Z,N)+1
+    0x5746825671d0 ---------A   01770  L(Z1,N)=L(Z1,N)+1
+    0x574682567880 ---------A   01780  K(Z2,N)=K(Z2,N)+1
+    0x574682567eb0 ---------A   01790  Z=Z-INT(Z/9)*9
+    0x5746825683e0 ---------A   01800  Z=3*Z+N(U)
+    0x574682568a10 ---------A   01810  Z1=Z-INT(Z/9)*9
+    0x574682568d20 ---------A   01820  Z2=N(U)
+    0x574682568e50 ---------A   01830  NEXT U
+    0x574682568fa0 ---------A   01840  NEXT T
+    0x574682569030 ---------A   01850  PRINT
+    0x574682569290 ---------A   01860  IF X>10 THEN 1910
+    0x574682569510 ---------A   01870  IF X<10 THEN 1970
+    0x5746825696a0 ---------A   01880  PRINT "I GUESSED EXACTLY 1/3 OF YOUR NUMBERS."
+    0x574682569c10 ---------A   01890  PRINT "IT'S A TIE GAME."
+    0x574682569cb0 ---------A   01900  GOTO 1990
+    0x574682569e50 ---------A   01910  PRINT "I GUESSED MORE THAN 1/3 OF YOUR NUMBERS."
+    0x574682569f90 ----------   01920  PRINT "I WIN."
+    0x57468256a310 ----------   01930  FOR Q=1 TO 10
+    0x57468256a530 ----------   01940  PRINT CHR$(7);
+    0x57468256a670 ---------A   01950  NEXT Q
+    0x57468256a720 ---------A   01960  GOTO 1990
+    0x57468256a8b0 ---------A   01970  PRINT "I GUESSED LESS THAN 1/3 OF YOUR NUMBERS."
+    0x57468256aa20 ---------A   01980  PRINT "YOU BEAT ME.  CONGRATULATIONS *****"
+    0x57468256aad0 ---------A   01990  PRINT
+    0x57468256ac70 ---------A   02000  PRINT "DO YOU WANT TO TRY AGAIN (1 FOR YES, 0 FOR NO)";
+    0x57468256add0 ---------A   02010  INPUT X
+    0x57468256b040 ---------A   02020  IF X=1 THEN 1270
+    0x57468256b0a0 ----------   02030  PRINT
+    0x57468256b200 ---------A   02040  PRINT "THANKS FOR THE GAME."
+    0x57468256b260 ---------A   02050  END
  */
 
 
@@ -128,7 +364,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01780 - 10000    8230 
+     02060 - 10000    7950 
 
  */
 
@@ -231,84 +467,112 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5adb7e29db80 ---------A   01000 PRINT TAB(33);"DIGITS"
-    0x5adb7e29ef30 ---------A   01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x5adb7e29f0b0 ---------A   01020 PRINT:PRINT:PRINT
-    0x5adb7e29c9e0 ---------A   01030 PRINT "THIS IS A GAME OF GUESSING."
-    0x5adb7e29eaa0 ---------A   01040 PRINT "FOR INSTRUCTIONS, TYPE '1', ELSE TYPE '0'";
-    0x5adb7e29c6d0 ---------A   01050 INPUT E
-    0x5adb7e29c670 ---------A   01060 IF E=0 THEN 1170
-    0x5adb7e29cc20 ---------A   01070 PRINT
-    0x5adb7e29f1c0 ---------A   01080 PRINT "PLEASE TAKE A PIECE OF PAPER AND WRITE DOWN"
-    0x5adb7e29d6a0 ---------A   01090 PRINT "THE DIGITS '0', '1', OR '2' THIRTY TIMES AT RANDOM."
-    0x5adb7e29d830 ---------A   01100 PRINT "ARRANGE THEM IN THREE LINES OF TEN DIGITS EACH."
-    0x5adb7e2a4970 ---------A   01110 PRINT "I WILL ASK FOR THEN TEN AT A TIME."
-    0x5adb7e2a4b10 ---------A   01120 PRINT "I WILL ALWAYS GUESS THEM FIRST AND THEN LOOK AT YOUR"
-    0x5adb7e2a4cb0 ---------A   01130 PRINT "NEXT NUMBER TO SEE IF I WAS RIGHT. BY PURE LUCK,"
-    0x5adb7e2a4e10 ---------A   01140 PRINT "I OUGHT TO BE RIGHT TEN TIMES. BUT I HOPE TO DO BETTER"
-    0x5adb7e2a4f20 ---------A   01150 PRINT "THAN THAT *****"
-    0x5adb7e2a4fc0 ---------A   01160 PRINT:PRINT
-    0x5adb7e2a5430 ---------A T 01170 READ A,B,C
-    0x5adb7e2a56f0 ---------A   01180 DATA 0,1,3
-    0x5adb7e2a60f0 ---------A   01190 DIM M(26,2),K(2,2),L(8,2)
-    0x5adb7e2a6de0 ---------A T 01200 FOR I=0 TO 26: FOR J=0 TO 2: M(I,J)=1: NEXT J: NEXT I
-    0x5adb7e2a79a0 ---------A   01210 FOR I=0 TO 2: FOR J=0 TO 2: K(I,J)=9: NEXT J: NEXT I
-    0x5adb7e2a8560 ---------A   01220 FOR I=0 TO 8: FOR J=0 TO 2: L(I,J)=3: NEXT J: NEXT I
-    0x5adb7e2a8fc0 ---------A   01230 L(0,0)=2: L(4,1)=2: L(8,2)=2
-    0x5adb7e2a97f0 ---------A   01240 Z=26: Z1=8: Z2=2
-    0x5adb7e2a9ac0 ---------A   01250 X=0
-    0x5adb7e2a9e50 ---------A   01260 FOR T=1 TO 3
-    0x5adb7e2a9eb0 ---------A T 01270 PRINT
-    0x5adb7e2aa050 ---------A   01280 PRINT "TEN NUMBERS, PLEASE";
-    0x5adb7e2ab1c0 ---------A   01290 INPUT N(1),N(2),N(3),N(4),N(5),N(6),N(7),N(8),N(9),N(10)
-    0x5adb7e2ab4a0 ---------A   01300 FOR I=1 TO 10
-    0x5adb7e2ab960 ---------A   01310 W=N(I)-1
-    0x5adb7e2abcd0 ---------A   01320 IF W=SGN(W) THEN 1350
-    0x5adb7e2ac060 ---------A   01330 PRINT "ONLY USE THE DIGITS '0', '1', OR '2'."
-    0x5adb7e2ac200 ---------A   01340 PRINT "LET'S TRY AGAIN.":GOTO 1270
-    0x5adb7e2ac320 ---------A T 01350 NEXT I
-    0x5adb7e2ac850 ---------A   01360 PRINT: PRINT "MY GUESS","YOUR NO.","RESULT","NO. RIGHT":PRINT
-    0x5adb7e2acbe0 ---------A   01370 FOR U=1 TO 10
-    0x5adb7e2ad1b0 ---------A   01380 N=N(U): S=0
-    0x5adb7e2ad490 ---------A   01390 FOR J=0 TO 2
-    0x5adb7e2ae270 ---------A   01400 S1=A*K(Z2,J)+B*L(Z1,J)+C*M(Z,J)
-    0x5adb7e2ae4e0 ---------A   01410 IF S>S1 THEN 1450
-    0x5adb7e2ae770 ---------A   01420 IF S<S1 THEN 1440
-    0x5adb7e2aea90 ---------A   01430 IF RND(1)<.5 THEN 1450
-    0x5adb7e2aefa0 ---------A T 01440 S=S1: G=J
-    0x5adb7e2af0d0 ---------A T 01450 NEXT J
-    0x5adb7e2af640 ---------A   01460 PRINT "  ";G,"   ";N(U),
-    0x5adb7e2af990 ---------A   01470 IF G=N(U) THEN 1500
-    0x5adb7e2afbf0 ---------A   01480 PRINT " WRONG",X
-    0x5adb7e2afc60 ---------A   01490 GOTO 1570
-    0x5adb7e2aff80 ---------A T 01500 X=X+1
-    0x5adb7e2b01d0 ---------A   01510 PRINT " RIGHT",X
-    0x5adb7e2b0880 ---------A   01520 M(Z,N)=M(Z,N)+1
-    0x5adb7e2b0f30 ---------A   01530 L(Z1,N)=L(Z1,N)+1
-    0x5adb7e2b15e0 ---------A   01540 K(Z2,N)=K(Z2,N)+1
-    0x5adb7e2b1c10 ---------A   01550 Z=Z-INT(Z/9)*9
-    0x5adb7e2b2140 ---------A   01560 Z=3*Z+N(U)
-    0x5adb7e2b2770 ---------A T 01570 Z1=Z-INT(Z/9)*9
-    0x5adb7e2b2a80 ---------A   01580 Z2=N(U)
-    0x5adb7e2b2bb0 ---------A   01590 NEXT U
-    0x5adb7e2b2cf0 ---------A   01600 NEXT T
-    0x5adb7e2b2d70 ---------A   01610 PRINT
-    0x5adb7e2b2fc0 ---------A   01620 IF X>10 THEN 1670
-    0x5adb7e2b3240 ---------A   01630 IF X<10 THEN 1700
-    0x5adb7e2b33d0 ---------A   01640 PRINT "I GUESSED EXACTLY 1/3 OF YOUR NUMBERS."
-    0x5adb7e2b3930 ---------A   01650 PRINT "IT'S A TIE GAME."
-    0x5adb7e2b39c0 ---------A   01660 GOTO 1720
-    0x5adb7e2b3b50 ---------A T 01670 PRINT "I GUESSED MORE THAN 1/3 OF YOUR NUMBERS."
-    0x5adb7e2b4340 ---------A   01680 PRINT "I WIN.": FOR Q=1 TO 10: PRINT CHR$(7);: NEXT Q
-    0x5adb7e2b43e0 ---------A   01690 GOTO 1720
-    0x5adb7e2b4560 ---------A T 01700 PRINT "I GUESSED LESS THAN 1/3 OF YOUR NUMBERS."
-    0x5adb7e2b46c0 ---------A   01710 PRINT "YOU BEAT ME.  CONGRATULATIONS *****"
-    0x5adb7e2b4760 ---------A T 01720 PRINT
-    0x5adb7e2b48f0 ---------A   01730 PRINT "DO YOU WANT TO TRY AGAIN (1 FOR YES, 0 FOR NO)";
-    0x5adb7e2b4a40 ---------A   01740 INPUT X
-    0x5adb7e2b4cb0 ---------A   01750 IF X=1 THEN 1200
-    0x5adb7e2b4e60 ---------A   01760 PRINT:PRINT "THANKS FOR THE GAME."
-    0x5adb7e2b4eb0 ---------A   01770 END
+    0x5746825526d0 ---------A   01000  PRINT TAB(33);"DIGITS"
+    0x574682552670 ---------A   01010  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5746825432b0 ---------A   01020  PRINT
+    0x5746825529e0 ---------A   01030  PRINT
+    0x5746825527f0 ---------A   01040  PRINT
+    0x574682553040 ---------A   01050  PRINT "THIS IS A GAME OF GUESSING."
+    0x574682552e40 ---------A   01060  PRINT "FOR INSTRUCTIONS, TYPE '1', ELSE TYPE '0'";
+    0x5746825546a0 ---------A   01070  INPUT E
+    0x574682555140 ---------A   01080  IF E=0 THEN 1200
+    0x5746825551e0 ---------A   01090  PRINT
+    0x5746825536e0 ---------A   01100  PRINT "PLEASE TAKE A PIECE OF PAPER AND WRITE DOWN"
+    0x574682553840 ---------A   01110  PRINT "THE DIGITS '0', '1', OR '2' THIRTY TIMES AT RANDOM."
+    0x57468255a9a0 ---------A   01120  PRINT "ARRANGE THEM IN THREE LINES OF TEN DIGITS EACH."
+    0x57468255aac0 ---------A   01130  PRINT "I WILL ASK FOR THEN TEN AT A TIME."
+    0x57468255ac20 ---------A   01140  PRINT "I WILL ALWAYS GUESS THEM FIRST AND THEN LOOK AT YOUR"
+    0x57468255ad80 ---------A   01150  PRINT "NEXT NUMBER TO SEE IF I WAS RIGHT. BY PURE LUCK,"
+    0x57468255aef0 ---------A   01160  PRINT "I OUGHT TO BE RIGHT TEN TIMES. BUT I HOPE TO DO BETTER"
+    0x57468255b010 ---------A   01170  PRINT "THAN THAT *****"
+    0x57468255b070 ---------A   01180  PRINT
+    0x57468255b0d0 ---------A   01190  PRINT
+    0x57468255b550 ---------A T 01200  READ A,B,C
+    0x57468255b840 ---------A   01210  DATA 0,1,3
+    0x57468255c240 ---------A   01220  DIM M(26,2),K(2,2),L(8,2)
+    0x57468255c5b0 ---------A   01230  FOR I=0 TO 26
+    0x57468255c930 ---------A   01240  FOR J=0 TO 2
+    0x57468255ccf0 ---------A   01250  M(I,J)=1
+    0x57468255ce20 ---------A   01260  NEXT J
+    0x57468255cf50 ---------A T 01270  NEXT I
+    0x57468255d250 ---------A   01280  FOR I=0 TO 2
+    0x57468255d510 ---------A   01290  FOR J=0 TO 2
+    0x57468255d8d0 ---------A   01300  K(I,J)=9
+    0x57468255da00 ---------A   01310  NEXT J
+    0x57468255db30 ---------A   01320  NEXT I
+    0x57468255de30 ---------A   01330  FOR I=0 TO 8
+    0x57468255e0f0 ---------A   01340  FOR J=0 TO 2
+    0x57468255e4b0 ---------A   01350  L(I,J)=3
+    0x57468255e5e0 ---------A   01360  NEXT J
+    0x57468255e710 ---------A   01370  NEXT I
+    0x57468255ea80 ---------A   01380  L(0,0)=2
+    0x57468255edf0 ---------A   01390  L(4,1)=2
+    0x57468255f180 ---------A   01400  L(8,2)=2
+    0x57468255f430 ---------A   01410  Z=26
+    0x57468255f6e0 ---------A   01420  Z1=8
+    0x57468255f9b0 ---------A   01430  Z2=2
+    0x57468255fc80 ---------A   01440  X=0
+    0x574682560010 ---------A   01450  FOR T=1 TO 3
+    0x574682560070 ---------A T 01460  PRINT
+    0x574682560220 ---------A   01470  PRINT "TEN NUMBERS, PLEASE";
+    0x5746825613a0 ---------A   01480  INPUT N(1),N(2),N(3),N(4),N(5),N(6),N(7),N(8),N(9),N(10)
+    0x574682561680 ---------A   01490  FOR I=1 TO 10
+    0x574682561b40 ---------A   01500  W=N(I)-1
+    0x574682561eb0 ---------A   01510  IF W=SGN(W) THEN 1550
+    0x574682562240 ---------A   01520  PRINT "ONLY USE THE DIGITS '0', '1', OR '2'."
+    0x574682562380 ---------A   01530  PRINT "LET'S TRY AGAIN."
+    0x574682562400 ---------A   01540  GOTO 1460
+    0x574682562530 ---------A T 01550  NEXT I
+    0x5746825625d0 ---------A   01560  PRINT
+    0x574682562a10 ---------A   01570  PRINT "MY GUESS","YOUR NO.","RESULT","NO. RIGHT"
+    0x574682562a90 ---------A   01580  PRINT
+    0x574682562e30 ---------A   01590  FOR U=1 TO 10
+    0x574682563130 ---------A   01600  N=N(U)
+    0x574682563400 ---------A   01610  S=0
+    0x5746825636e0 ---------A   01620  FOR J=0 TO 2
+    0x5746825644c0 ---------A   01630  S1=A*K(Z2,J)+B*L(Z1,J)+C*M(Z,J)
+    0x574682564730 ---------A   01640  IF S>S1 THEN 1690
+    0x5746825649c0 ---------A   01650  IF S<S1 THEN 1680
+    0x574682564ce0 ---------A   01660  IF RND(1)<.5 THEN 1690
+    0x574682564f00 ---------A   01670  S=S1
+    0x5746825651f0 ---------A T 01680  G=J
+    0x574682565320 ---------A T 01690  NEXT J
+    0x5746825658a0 ---------A   01700  PRINT "  ";G,"   ";N(U),
+    0x574682565c00 ---------A   01710  IF G=N(U) THEN 1740
+    0x574682565e60 ---------A   01720  PRINT " WRONG",X
+    0x574682565ee0 ---------A   01730  GOTO 1810
+    0x574682566210 ---------A T 01740  X=X+1
+    0x574682566460 ---------A   01750  PRINT " RIGHT",X
+    0x574682566b20 ---------A   01760  M(Z,N)=M(Z,N)+1
+    0x5746825671d0 ---------A   01770  L(Z1,N)=L(Z1,N)+1
+    0x574682567880 ---------A   01780  K(Z2,N)=K(Z2,N)+1
+    0x574682567eb0 ---------A   01790  Z=Z-INT(Z/9)*9
+    0x5746825683e0 ---------A   01800  Z=3*Z+N(U)
+    0x574682568a10 ---------A T 01810  Z1=Z-INT(Z/9)*9
+    0x574682568d20 ---------A   01820  Z2=N(U)
+    0x574682568e50 ---------A   01830  NEXT U
+    0x574682568fa0 ---------A   01840  NEXT T
+    0x574682569030 ---------A   01850  PRINT
+    0x574682569290 ---------A   01860  IF X>10 THEN 1910
+    0x574682569510 ---------A   01870  IF X<10 THEN 1970
+    0x5746825696a0 ---------A   01880  PRINT "I GUESSED EXACTLY 1/3 OF YOUR NUMBERS."
+    0x574682569c10 ---------A   01890  PRINT "IT'S A TIE GAME."
+    0x574682569cb0 ---------A   01900  GOTO 1990
+    0x574682569e50 ---------A T 01910  PRINT "I GUESSED MORE THAN 1/3 OF YOUR NUMBERS."
+    0x574682569f90 ---------A   01920  PRINT "I WIN."
+    0x57468256a310 ---------A   01930  FOR Q=1 TO 10
+    0x57468256a530 ---------A   01940  PRINT CHR$(7);
+    0x57468256a670 ---------A   01950  NEXT Q
+    0x57468256a720 ---------A   01960  GOTO 1990
+    0x57468256a8b0 ---------A T 01970  PRINT "I GUESSED LESS THAN 1/3 OF YOUR NUMBERS."
+    0x57468256aa20 ---------A   01980  PRINT "YOU BEAT ME.  CONGRATULATIONS *****"
+    0x57468256aad0 ---------A T 01990  PRINT
+    0x57468256ac70 ---------A   02000  PRINT "DO YOU WANT TO TRY AGAIN (1 FOR YES, 0 FOR NO)";
+    0x57468256add0 ---------A   02010  INPUT X
+    0x57468256b040 ---------A   02020  IF X=1 THEN 1270
+    0x57468256b0a0 ---------A   02030  PRINT
+    0x57468256b200 ---------A   02040  PRINT "THANKS FOR THE GAME."
+    0x57468256b260 ---------A   02050  END
  */
 
 //---------------------------------------------------------------------------
@@ -326,7 +590,7 @@
 //---------------------------------------------------------------------------
 // Global data area.
 //---------------------------------------------------------------------------
-char* data_01180s[]={"0","1","3"};
+char* data_01210s[]={"0","1","3"};
 //---------------------------------------------------------------------------
 
 
@@ -339,7 +603,7 @@ typedef struct{
     char** SData;
 }t_data;
 t_data ProgramData[] = {
-    { 1180,  3,data_01180s},
+    { 1210,  3,data_01210s},
     {    0,  0,nullptr       }
 };
 
@@ -421,3 +685,310 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT TAB(33);"DIGITS"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,33);strcat(buf,"DIGITS");strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 PRINT "THIS IS A GAME OF GUESSING."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THIS IS A GAME OF GUESSING.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01060 PRINT "FOR INSTRUCTIONS, TYPE '1', ELSE TYPE '0'";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"FOR INSTRUCTIONS, TYPE '1', ELSE TYPE '0'");fputs(buf,fh); };
+    // 01070 INPUT E
+    // Start of Basic INPUT statement 01070
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&E_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01070
+    // 01080 IF E=0 THEN 1200
+    if(E_int==0)goto Lbl_01200;
+    // 01090 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT "PLEASE TAKE A PIECE OF PAPER AND WRITE DOWN"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"PLEASE TAKE A PIECE OF PAPER AND WRITE DOWN");strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 PRINT "THE DIGITS '0', '1', OR '2' THIRTY TIMES AT RANDOM."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE DIGITS '0', '1', OR '2' THIRTY TIMES AT RANDOM.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01120 PRINT "ARRANGE THEM IN THREE LINES OF TEN DIGITS EACH."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"ARRANGE THEM IN THREE LINES OF TEN DIGITS EACH.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01130 PRINT "I WILL ASK FOR THEN TEN AT A TIME."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I WILL ASK FOR THEN TEN AT A TIME.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01140 PRINT "I WILL ALWAYS GUESS THEM FIRST AND THEN LOOK AT YOUR"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I WILL ALWAYS GUESS THEM FIRST AND THEN LOOK AT YOUR");strcat(buf,"\n");fputs(buf,fh); };
+    // 01150 PRINT "NEXT NUMBER TO SEE IF I WAS RIGHT. BY PURE LUCK,"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"NEXT NUMBER TO SEE IF I WAS RIGHT. BY PURE LUCK,");strcat(buf,"\n");fputs(buf,fh); };
+    // 01160 PRINT "I OUGHT TO BE RIGHT TEN TIMES. BUT I HOPE TO DO BETTER"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I OUGHT TO BE RIGHT TEN TIMES. BUT I HOPE TO DO BETTER");strcat(buf,"\n");fputs(buf,fh); };
+    // 01170 PRINT "THAN THAT *****"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THAN THAT *****");strcat(buf,"\n");fputs(buf,fh); };
+    // 01180 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01190 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01200:
+    // 01200 READ A,B,C
+    A_int = Get_Data_Int();
+    B_int = Get_Data_Int();
+    C_int = Get_Data_Int();
+    // 01210 DATA 0,1,3
+    // 01220 DIM M(26,2),K(2,2),L(8,2)
+    // 01230 FOR I=0 TO 26
+    for(I_int=0;I_int<=26;I_int++){
+        // 01240 FOR J=0 TO 2
+        for(J_int=0;J_int<=2;J_int++){
+            // 01250 M(I,J)=1
+            M_int_arr[I_int][J_int] = 1;
+            // 01260 NEXT J
+            int dummy_1260=0; // Ignore this line.
+        }; // End-For(J_int)
+
+  Lbl_01270:
+        // 01270 NEXT I
+        int dummy_1270=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 01280 FOR I=0 TO 2
+    for(I_int=0;I_int<=2;I_int++){
+        // 01290 FOR J=0 TO 2
+        for(J_int=0;J_int<=2;J_int++){
+            // 01300 K(I,J)=9
+            K_int_arr[I_int][J_int] = 9;
+            // 01310 NEXT J
+            int dummy_1310=0; // Ignore this line.
+        }; // End-For(J_int)
+        // 01320 NEXT I
+        int dummy_1320=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 01330 FOR I=0 TO 8
+    for(I_int=0;I_int<=8;I_int++){
+        // 01340 FOR J=0 TO 2
+        for(J_int=0;J_int<=2;J_int++){
+            // 01350 L(I,J)=3
+            L_int_arr[I_int][J_int] = 3;
+            // 01360 NEXT J
+            int dummy_1360=0; // Ignore this line.
+        }; // End-For(J_int)
+        // 01370 NEXT I
+        int dummy_1370=0; // Ignore this line.
+    }; // End-For(I_int)
+    // 01380 L(0,0)=2
+    L_int_arr[0][0] = 2;
+    // 01390 L(4,1)=2
+    L_int_arr[4][1] = 2;
+    // 01400 L(8,2)=2
+    L_int_arr[8][2] = 2;
+    // 01410 Z=26
+    Z_int = 26;
+    // 01420 Z1=8
+    Z1_int = 8;
+    // 01430 Z2=2
+    Z2_int = 2;
+    // 01440 X=0
+    X_int = 0;
+    // 01450 FOR T=1 TO 3
+    for(T_int=1;T_int<=3;T_int++){
+
+  Lbl_01460:
+        // 01460 PRINT
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 01470 PRINT "TEN NUMBERS, PLEASE";
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"TEN NUMBERS, PLEASE");fputs(buf,fh); };
+        // 01480 INPUT N(1),N(2),N(3),N(4),N(5),N(6),N(7),N(8),N(9),N(10)
+        // Start of Basic INPUT statement 01480
+        {
+            int numargs=10;
+            char *args[numargs+1];
+            bool echoeol=true;
+            while(true){
+                fprintf(stdout," ? ");
+                int err=input(args,numargs,echoeol);
+                if(err==0x03) break;
+                if(err || 
+                    (err += b2c_strtoi(&N_int_arr[1],args,0)) ||
+                    (err += b2c_strtoi(&N_int_arr[2],args,1)) ||
+                    (err += b2c_strtoi(&N_int_arr[3],args,2)) ||
+                    (err += b2c_strtoi(&N_int_arr[4],args,3)) ||
+                    (err += b2c_strtoi(&N_int_arr[5],args,4)) ||
+                    (err += b2c_strtoi(&N_int_arr[6],args,5)) ||
+                    (err += b2c_strtoi(&N_int_arr[7],args,6)) ||
+                    (err += b2c_strtoi(&N_int_arr[8],args,7)) ||
+                    (err += b2c_strtoi(&N_int_arr[9],args,8)) ||
+                    (err += b2c_strtoi(&N_int_arr[10],args,9)) ){
+                     printf("?Redo from start\n");
+                }else{
+                    break;
+                };
+            };
+        }; // End of Basic INPUT statement 01480
+        // 01490 FOR I=1 TO 10
+        for(I_int=1;I_int<=10;I_int++){
+            // 01500 W=N(I)-1
+            W_int = N_int_arr[I_int]-1;
+            // 01510 IF W=SGN(W) THEN 1550
+            if(W_int==SGN(W_int))goto Lbl_01550;
+            // 01520 PRINT "ONLY USE THE DIGITS '0', '1', OR '2'."
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"ONLY USE THE DIGITS '0', '1', OR '2'.");strcat(buf,"\n");fputs(buf,fh); };
+            // 01530 PRINT "LET'S TRY AGAIN."
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"LET'S TRY AGAIN.");strcat(buf,"\n");fputs(buf,fh); };
+            // 01540 GOTO 1460
+            goto Lbl_01460;
+
+  Lbl_01550:
+            // 01550 NEXT I
+            int dummy_1550=0; // Ignore this line.
+        }; // End-For(I_int)
+        // 01560 PRINT
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 01570 PRINT "MY GUESS","YOUR NO.","RESULT","NO. RIGHT"
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"MY GUESS");strcat(buf,"YOUR NO.");strcat(buf,"RESULT");strcat(buf,"NO. RIGHT");strcat(buf,"\n");fputs(buf,fh); };
+        // 01580 PRINT
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 01590 FOR U=1 TO 10
+        for(U_int=1;U_int<=10;U_int++){
+            // 01600 N=N(U)
+            N_int_arr[0] = N_int_arr[U_int];
+            // 01610 S=0
+            S_int = 0;
+            // 01620 FOR J=0 TO 2
+            for(J_int=0;J_int<=2;J_int++){
+                // 01630 S1=A*K(Z2,J)+B*L(Z1,J)+C*M(Z,J)
+                S1_int = A_int*K_int_arr[Z2_int][J_int]+B_int*L_int_arr[Z1_int][J_int]+C_int*M_int_arr[Z_int][J_int];
+                // 01640 IF S>S1 THEN 1690
+                if(S_int>S1_int)goto Lbl_01690;
+                // 01650 IF S<S1 THEN 1680
+                if(S_int<S1_int)goto Lbl_01680;
+                // 01660 IF RND(1)<.5 THEN 1690
+                if(RND(1)<0.5)goto Lbl_01690;
+                // 01670 S=S1
+                S_int = S1_int;
+
+  Lbl_01680:
+                // 01680 G=J
+                G_int = J_int;
+
+  Lbl_01690:
+                // 01690 NEXT J
+                int dummy_1690=0; // Ignore this line.
+            }; // End-For(J_int)
+            // 01700 PRINT "  ";G,"   ";N(U),
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"  "); b2c_INT(buf,G_int);strcat(buf,"   "); b2c_INT(buf,N_int_arr[U_int]);fputs(buf,fh); };
+            // 01710 IF G=N(U) THEN 1740
+            if(G_int==N_int_arr[U_int])goto Lbl_01740;
+            // 01720 PRINT " WRONG",X
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," WRONG"); b2c_INT(buf,X_int);strcat(buf,"\n");fputs(buf,fh); };
+            // 01730 GOTO 1810
+            goto Lbl_01810;
+
+  Lbl_01740:
+            // 01740 X=X+1
+            X_int = X_int+1;
+            // 01750 PRINT " RIGHT",X
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," RIGHT"); b2c_INT(buf,X_int);strcat(buf,"\n");fputs(buf,fh); };
+            // 01760 M(Z,N)=M(Z,N)+1
+            M_int_arr[Z_int][N_int_arr[0]] = M_int_arr[Z_int][N_int_arr[0]]+1;
+            // 01770 L(Z1,N)=L(Z1,N)+1
+            L_int_arr[Z1_int][N_int_arr[0]] = L_int_arr[Z1_int][N_int_arr[0]]+1;
+            // 01780 K(Z2,N)=K(Z2,N)+1
+            K_int_arr[Z2_int][N_int_arr[0]] = K_int_arr[Z2_int][N_int_arr[0]]+1;
+            // 01790 Z=Z-INT(Z/9)*9
+            Z_int = Z_int-INT(Z_int/9)*9;
+            // 01800 Z=3*Z+N(U)
+            Z_int = 3*Z_int+N_int_arr[U_int];
+
+  Lbl_01810:
+            // 01810 Z1=Z-INT(Z/9)*9
+            Z1_int = Z_int-INT(Z_int/9)*9;
+            // 01820 Z2=N(U)
+            Z2_int = N_int_arr[U_int];
+            // 01830 NEXT U
+            int dummy_1830=0; // Ignore this line.
+        }; // End-For(U_int)
+        // 01840 NEXT T
+        int dummy_1840=0; // Ignore this line.
+    }; // End-For(T_int)
+    // 01850 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01860 IF X>10 THEN 1910
+    if(X_int>10)goto Lbl_01910;
+    // 01870 IF X<10 THEN 1970
+    if(X_int<10)goto Lbl_01970;
+    // 01880 PRINT "I GUESSED EXACTLY 1/3 OF YOUR NUMBERS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I GUESSED EXACTLY 1/3 OF YOUR NUMBERS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01890 PRINT "IT'S A TIE GAME."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"IT'S A TIE GAME.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01900 GOTO 1990
+    goto Lbl_01990;
+
+  Lbl_01910:
+    // 01910 PRINT "I GUESSED MORE THAN 1/3 OF YOUR NUMBERS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I GUESSED MORE THAN 1/3 OF YOUR NUMBERS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01920 PRINT "I WIN."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I WIN.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01930 FOR Q=1 TO 10
+    for(Q_int=1;Q_int<=10;Q_int++){
+        // 01940 PRINT CHR$(7);
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcpy(buf,CHR$(7));fputs(buf,fh); };
+        // 01950 NEXT Q
+        int dummy_1950=0; // Ignore this line.
+    }; // End-For(Q_int)
+    // 01960 GOTO 1990
+    goto Lbl_01990;
+
+  Lbl_01970:
+    // 01970 PRINT "I GUESSED LESS THAN 1/3 OF YOUR NUMBERS."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"I GUESSED LESS THAN 1/3 OF YOUR NUMBERS.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01980 PRINT "YOU BEAT ME.  CONGRATULATIONS *****"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU BEAT ME.  CONGRATULATIONS *****");strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01990:
+    // 01990 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 02000 PRINT "DO YOU WANT TO TRY AGAIN (1 FOR YES, 0 FOR NO)";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DO YOU WANT TO TRY AGAIN (1 FOR YES, 0 FOR NO)");fputs(buf,fh); };
+    // 02010 INPUT X
+    // Start of Basic INPUT statement 02010
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&X_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 02010
+    // 02020 IF X=1 THEN 1270
+    if(X_int==1)goto Lbl_01270;
+    // 02030 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 02040 PRINT "THANKS FOR THE GAME."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THANKS FOR THE GAME.");strcat(buf,"\n");fputs(buf,fh); };
+    // 02050 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

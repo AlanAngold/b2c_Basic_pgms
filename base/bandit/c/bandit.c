@@ -8,88 +8,88 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5fd58c6445d0 ---------A   01000 REM THIS PROGRAM SIMULATES THE MECHANICAL
-    0x5fd58c644610 ---------A   01010 REM THREE WHEEL ONE-ARM-BANDIT
-    0x5fd58c655db0 ---------A T 01020 PRINT"ARE INTRUCTIONS REQUIRED?"
-    0x5fd58c654b80 ---------A   01030 PRINT"TYPE EITHER 'YES' OR 'NO'"
-    0x5fd58c6536d0 ---------A   01040 INPUT L$
-    0x5fd58c653670 ---------A   01050 IF L$="YES" THEN 1090
-    0x5fd58c654fc0 ---------A   01060 IF L$="NO" THEN 1160
-    0x5fd58c655e70 ---------A   01070 PRINT"INVALID COMMAND"
-    0x5fd58c657be0 ---------A   01080 GOTO 1020
-    0x5fd58c655f30 ---------A T 01090 PRINT"SCORING IS SIMPLE; 3 ORANGES, LEMONS OR"
-    0x5fd58c655ff0 ---------A   01100 PRINT"BANANAS EARN $10. 3 CHERRIES EARN $90."
-    0x5fd58c6540b0 ---------A   01110 PRINT"IF THE FIRST FRUIT IS AN APPLE, YOU EARN $2"
-    0x5fd58c653eb0 ---------A   01120 PRINT"IF THE FIRST AND SECOND ARE APPLES, YOU EARN $3."
-    0x5fd58c658210 ---------A   01130 PRINT"IF THE LAST FRUIT IS A CHERRY AND THE"
-    0x5fd58c6583a0 ---------A   01140 PRINT"OTHER TWO ARE THE SAME BUT NOT APPLES YOU"
-    0x5fd58c6584f0 ---------A   01150 PRINT"EARN $10. EACH TURN COSTS $1. GOOD LUCK"
-    0x5fd58c6587a0 ---------A T 01160 LET J=0
-    0x5fd58c658810 ---------A   01170 PRINT
-    0x5fd58c65cd80 ---------A T 01180 GOSUB 1580
-    0x5fd58c65d100 ---------A   01190 LET S1=S
-    0x5fd58c65d170 ---------A   01200 GOSUB 1580
-    0x5fd58c65d450 ---------A   01210 LET S2=S
-    0x5fd58c65d4c0 ---------A   01220 GOSUB 1580
-    0x5fd58c65d7a0 ---------A   01230 LET S3=S
-    0x5fd58c65d9d0 ---------A   01240 LET S=S1
-    0x5fd58c65da40 ---------A   01250 GOSUB 1600
-    0x5fd58c65dde0 ---------A   01260 LET S1$=S$
-    0x5fd58c65e010 ---------A   01270 LET S=S2
-    0x5fd58c65e080 ---------A   01280 GOSUB 1600
-    0x5fd58c65e360 ---------A   01290 LET S2$=S$
-    0x5fd58c65e590 ---------A   01300 LET S=S3
-    0x5fd58c65e600 ---------A   01310 GOSUB 1600
-    0x5fd58c65e8f0 ---------A   01320 LET S3$=S$
-    0x5fd58c65ed80 ---------A   01330 IF S1$="CHERRY" THEN 1370
-    0x5fd58c65f010 ---------A   01340 IF S1$="APPLE" THEN 1410
-    0x5fd58c65f290 ---------A   01350 IF S1$=S2$ THEN 1430
-    0x5fd58c65f320 ---------A   01360 GOTO 1450
-    0x5fd58c65f580 ---------A T 01370 IF S1$=S2$ THEN 1390
-    0x5fd58c65f610 ---------A   01380 GOTO 1450
-    0x5fd58c65f870 ---------A T 01390 IF S2$=S3$ THEN 1470
-    0x5fd58c65f900 ---------A   01400 GOTO 1450
-    0x5fd58c65fb60 ---------A T 01410 IF S1$=S2$ THEN 1490
-    0x5fd58c65fbf0 ---------A   01420 GOTO 1510
-    0x5fd58c65fe60 ---------A T 01430 IF S2$=S3$ THEN 1530
-    0x5fd58c6600e0 ---------A   01440 IF S3$="CHERRY" THEN 1530
-    0x5fd58c660420 ---------A T 01450 LET J=J-1
-    0x5fd58c660490 ---------A   01460 GOTO 1540
-    0x5fd58c6607b0 ---------A T 01470 LET J=J+89
-    0x5fd58c660820 ---------A   01480 GOTO 1540
-    0x5fd58c660b40 ---------A T 01490 LET J=J+2
-    0x5fd58c660bb0 ---------A   01500 GOTO 1540
-    0x5fd58c660ed0 ---------A T 01510 LET J=J+1
-    0x5fd58c660f40 ---------A   01520 GOTO 1540
-    0x5fd58c661260 ---------A T 01530 LET J=J+9
-    0x5fd58c6612e0 ---------A T 01540 PRINT
-    0x5fd58c661850 ---------A   01550 PRINT S1$;" ";S2$;" ";S3$
-    0x5fd58c661ab0 ---------A   01560 PRINT"YOUR TOTAL EARNINGS ARE NOW $";J
-    0x5fd58c661b00 ---------A   01570 GOTO 1710
-    0x5fd58c662020 ---------B G 01580 LET S=1+INT(5*RND)
-    0x5fd58c662070 ---------B   01590 RETURN
-    0x5fd58c6625a0 ---------C G 01600 ON S GOTO 1610,1630,1650,1670,1690
-    0x5fd58c6627d0 ---------C T 01610 LET S$="CHERRY"
-    0x5fd58c662840 ---------C   01620 GOTO 1700
-    0x5fd58c662a60 ---------C T 01630 LET S$="APPLE"
-    0x5fd58c662ad0 ---------C   01640 GOTO 1700
-    0x5fd58c663100 ---------C T 01650 LET S$="LEMON"
-    0x5fd58c663170 ---------C   01660 GOTO 1700
-    0x5fd58c663390 ---------C T 01670 LET S$="ORANGE"
-    0x5fd58c663400 ---------C   01680 GOTO 1700
-    0x5fd58c663620 ---------C T 01690 LET S$="BANANA"
-    0x5fd58c663670 ---------C T 01700 RETURN
-    0x5fd58c663710 ---------A T 01710 PRINT
-    0x5fd58c663870 ---------A   01720 PRINT"TO CONTINUE TYPE 'Y', IF NOT TYPE 'N'"
-    0x5fd58c663a90 ---------A   01730 INPUT Z$
-    0x5fd58c663d20 ---------A   01740 IF Z$="Y" THEN 1790
-    0x5fd58c663fb0 ---------A   01750 IF Z$="N" THEN 1770
-    0x5fd58c664130 ---------A   01760 PRINT"INVALID RESPONSE"
-    0x5fd58c664290 ---------A T 01770 PRINT"ONE-ARM-BANDIT SAYS GOOD-BYE"
-    0x5fd58c6642e0 ---------A   01780 STOP
-    0x5fd58c664360 ---------A T 01790 PRINT
-    0x5fd58c6643d0 ---------A   01800 GOTO 1180
-    0x5fd58c664410 ---------A   01810 END
+    0x5e8e806fedb0 ---------A   01000  REM THIS PROGRAM SIMULATES THE MECHANICAL
+    0x5e8e806fdb80 ---------A   01010  REM THREE WHEEL ONE-ARM-BANDIT
+    0x5e8e806fc6d0 ---------A T 01020  PRINT"ARE INTRUCTIONS REQUIRED?"
+    0x5e8e806fc670 ---------A   01030  PRINT"TYPE EITHER 'YES' OR 'NO'"
+    0x5e8e806fdfc0 ---------A   01040  INPUT L$
+    0x5e8e807009b0 ---------A   01050  IF L$="YES" THEN 1090
+    0x5e8e80700b00 ---------A   01060  IF L$="NO" THEN 1160
+    0x5e8e80700c20 ---------A   01070  PRINT"INVALID COMMAND"
+    0x5e8e806fee70 ---------A   01080  GOTO 1020
+    0x5e8e80700e00 ---------A T 01090  PRINT"SCORING IS SIMPLE; 3 ORANGES, LEMONS OR"
+    0x5e8e80700fa0 ---------A   01100  PRINT"BANANAS EARN $10. 3 CHERRIES EARN $90."
+    0x5e8e80701100 ---------A   01110  PRINT"IF THE FIRST FRUIT IS AN APPLE, YOU EARN $2"
+    0x5e8e807012a0 ---------A   01120  PRINT"IF THE FIRST AND SECOND ARE APPLES, YOU EARN $3."
+    0x5e8e80701430 ---------A   01130  PRINT"IF THE LAST FRUIT IS A CHERRY AND THE"
+    0x5e8e807015d0 ---------A   01140  PRINT"OTHER TWO ARE THE SAME BUT NOT APPLES YOU"
+    0x5e8e80701730 ---------A   01150  PRINT"EARN $10. EACH TURN COSTS $1. GOOD LUCK"
+    0x5e8e806feff0 ---------A T 01160  LET J=0
+    0x5e8e80705ea0 ---------A   01170  PRINT
+    0x5e8e806ff0b0 ---------A T 01180  GOSUB 1580
+    0x5e8e80706220 ---------A   01190  LET S1=S
+    0x5e8e80706290 ---------A   01200  GOSUB 1580
+    0x5e8e80706580 ---------A   01210  LET S2=S
+    0x5e8e807065f0 ---------A   01220  GOSUB 1580
+    0x5e8e807068e0 ---------A   01230  LET S3=S
+    0x5e8e80706b10 ---------A   01240  LET S=S1
+    0x5e8e80706b80 ---------A   01250  GOSUB 1600
+    0x5e8e80706f30 ---------A   01260  LET S1$=S$
+    0x5e8e80707160 ---------A   01270  LET S=S2
+    0x5e8e807071d0 ---------A   01280  GOSUB 1600
+    0x5e8e807074c0 ---------A   01290  LET S2$=S$
+    0x5e8e807076f0 ---------A   01300  LET S=S3
+    0x5e8e80707760 ---------A   01310  GOSUB 1600
+    0x5e8e80707a60 ---------A   01320  LET S3$=S$
+    0x5e8e80707ef0 ---------A   01330  IF S1$="CHERRY" THEN 1370
+    0x5e8e80708180 ---------A   01340  IF S1$="APPLE" THEN 1410
+    0x5e8e80708400 ---------A   01350  IF S1$=S2$ THEN 1430
+    0x5e8e80708490 ---------A   01360  GOTO 1450
+    0x5e8e80708700 ---------A T 01370  IF S1$=S2$ THEN 1390
+    0x5e8e80708790 ---------A   01380  GOTO 1450
+    0x5e8e80708a00 ---------A T 01390  IF S2$=S3$ THEN 1470
+    0x5e8e80708a90 ---------A   01400  GOTO 1450
+    0x5e8e80708d00 ---------A T 01410  IF S1$=S2$ THEN 1490
+    0x5e8e80708d90 ---------A   01420  GOTO 1510
+    0x5e8e80709010 ---------A T 01430  IF S2$=S3$ THEN 1530
+    0x5e8e80709290 ---------A   01440  IF S3$="CHERRY" THEN 1530
+    0x5e8e807095d0 ---------A T 01450  LET J=J-1
+    0x5e8e80709640 ---------A   01460  GOTO 1540
+    0x5e8e80709970 ---------A T 01470  LET J=J+89
+    0x5e8e807099e0 ---------A   01480  GOTO 1540
+    0x5e8e80709d10 ---------A T 01490  LET J=J+2
+    0x5e8e80709d80 ---------A   01500  GOTO 1540
+    0x5e8e8070a0b0 ---------A T 01510  LET J=J+1
+    0x5e8e8070a120 ---------A   01520  GOTO 1540
+    0x5e8e8070a450 ---------A T 01530  LET J=J+9
+    0x5e8e8070a4d0 ---------A T 01540  PRINT
+    0x5e8e8070aa50 ---------A   01550  PRINT S1$;" ";S2$;" ";S3$
+    0x5e8e8070acc0 ---------A   01560  PRINT"YOUR TOTAL EARNINGS ARE NOW $";J
+    0x5e8e8070ad20 ---------A   01570  GOTO 1710
+    0x5e8e8070b250 ---------B G 01580  LET S=1+INT(5*RND)
+    0x5e8e8070b2a0 ---------B   01590  RETURN
+    0x5e8e8070b7d0 ---------C G 01600  ON S GOTO 1610,1630,1650,1670,1690
+    0x5e8e8070ba10 ---------C T 01610  LET S$="CHERRY"
+    0x5e8e8070ba80 ---------C   01620  GOTO 1700
+    0x5e8e8070bcb0 ---------C T 01630  LET S$="APPLE"
+    0x5e8e8070bd20 ---------C   01640  GOTO 1700
+    0x5e8e8070c360 ---------C T 01650  LET S$="LEMON"
+    0x5e8e8070c3d0 ---------C   01660  GOTO 1700
+    0x5e8e8070c600 ---------C T 01670  LET S$="ORANGE"
+    0x5e8e8070c670 ---------C   01680  GOTO 1700
+    0x5e8e8070c8a0 ---------C T 01690  LET S$="BANANA"
+    0x5e8e8070c8f0 ---------C T 01700  RETURN
+    0x5e8e8070c990 ---------A T 01710  PRINT
+    0x5e8e8070cb00 ---------A   01720  PRINT"TO CONTINUE TYPE 'Y', IF NOT TYPE 'N'"
+    0x5e8e8070cd30 ---------A   01730  INPUT Z$
+    0x5e8e8070cfc0 ---------A   01740  IF Z$="Y" THEN 1790
+    0x5e8e8070d250 ---------A   01750  IF Z$="N" THEN 1770
+    0x5e8e8070d3d0 ---------A   01760  PRINT"INVALID RESPONSE"
+    0x5e8e8070d540 ---------A T 01770  PRINT"ONE-ARM-BANDIT SAYS GOOD-BYE"
+    0x5e8e8070d5a0 ---------A   01780  STOP
+    0x5e8e8070d620 ---------A T 01790  PRINT
+    0x5e8e8070d6a0 ---------A   01800  GOTO 1180
+    0x5e8e8070d6f0 ---------A   01810  END
  */
 
 /*
@@ -133,13 +133,201 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x5fd58c6445d0 (01000)   0x5fd58c6445d0 (01000)   0x5fd58c664410 (01810)   0x5fd58c664410 (01810)   
-   B) 0x5fd58c662020 (01580)   0x5fd58c662020 (01580)   0x5fd58c662070 (01590)   0x5fd58c662070 (01590)   
-   C) 0x5fd58c6625a0 (01600)   0x5fd58c6625a0 (01600)   0x5fd58c663670 (01700)   0x5fd58c663670 (01700)   
+   A) 0x5e8e806fedb0 (01000)   0x5e8e806fedb0 (01000)   0x5e8e8070d6f0 (01810)   0x5e8e8070d6f0 (01810)   
+   B) 0x5e8e8070b250 (01580)   0x5e8e8070b250 (01580)   0x5e8e8070b2a0 (01590)   0x5e8e8070b2a0 (01590)   
+   C) 0x5e8e8070b7d0 (01600)   0x5e8e8070b7d0 (01600)   0x5e8e8070c8f0 (01700)   0x5e8e8070c8f0 (01700)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
     NOTE: Routine C overlaps, or is tangled with, routine A!
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/bandit.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5e8e806fedb0 ---------A   01000  REM THIS PROGRAM SIMULATES THE MECHANICAL
+    0x5e8e806fdb80 ---------A   01010  REM THREE WHEEL ONE-ARM-BANDIT
+    0x5e8e806fc6d0 ---------A T 01020  PRINT"ARE INTRUCTIONS REQUIRED?"
+    0x5e8e806fc670 ---------A   01030  PRINT"TYPE EITHER 'YES' OR 'NO'"
+    0x5e8e806fdfc0 ---------A   01040  INPUT L$
+    0x5e8e807009b0 ---------A   01050  IF L$="YES" THEN 1090
+    0x5e8e80700b00 ---------A   01060  IF L$="NO" THEN 1160
+    0x5e8e80700c20 ---------A   01070  PRINT"INVALID COMMAND"
+    0x5e8e806fee70 ---------A   01080  GOTO 1020
+    0x5e8e80700e00 ---------A T 01090  PRINT"SCORING IS SIMPLE; 3 ORANGES, LEMONS OR"
+    0x5e8e80700fa0 ---------A   01100  PRINT"BANANAS EARN $10. 3 CHERRIES EARN $90."
+    0x5e8e80701100 ---------A   01110  PRINT"IF THE FIRST FRUIT IS AN APPLE, YOU EARN $2"
+    0x5e8e807012a0 ---------A   01120  PRINT"IF THE FIRST AND SECOND ARE APPLES, YOU EARN $3."
+    0x5e8e80701430 ---------A   01130  PRINT"IF THE LAST FRUIT IS A CHERRY AND THE"
+    0x5e8e807015d0 ---------A   01140  PRINT"OTHER TWO ARE THE SAME BUT NOT APPLES YOU"
+    0x5e8e80701730 ---------A   01150  PRINT"EARN $10. EACH TURN COSTS $1. GOOD LUCK"
+    0x5e8e806feff0 ---------A T 01160  LET J=0
+    0x5e8e80705ea0 ---------A   01170  PRINT
+    0x5e8e806ff0b0 ---------A T 01180  GOSUB 1580
+    0x5e8e80706220 ---------A   01190  LET S1=S
+    0x5e8e80706290 ---------A   01200  GOSUB 1580
+    0x5e8e80706580 ---------A   01210  LET S2=S
+    0x5e8e807065f0 ---------A   01220  GOSUB 1580
+    0x5e8e807068e0 ---------A   01230  LET S3=S
+    0x5e8e80706b10 ---------A   01240  LET S=S1
+    0x5e8e80706b80 ---------A   01250  GOSUB 1600
+    0x5e8e80706f30 ---------A   01260  LET S1$=S$
+    0x5e8e80707160 ---------A   01270  LET S=S2
+    0x5e8e807071d0 ---------A   01280  GOSUB 1600
+    0x5e8e807074c0 ---------A   01290  LET S2$=S$
+    0x5e8e807076f0 ---------A   01300  LET S=S3
+    0x5e8e80707760 ---------A   01310  GOSUB 1600
+    0x5e8e80707a60 ---------A   01320  LET S3$=S$
+    0x5e8e80707ef0 ---------A   01330  IF S1$="CHERRY" THEN 1370
+    0x5e8e80708180 ---------A   01340  IF S1$="APPLE" THEN 1410
+    0x5e8e80708400 ---------A   01350  IF S1$=S2$ THEN 1430
+    0x5e8e80708490 ---------A   01360  GOTO 1450
+    0x5e8e80708700 ---------A T 01370  IF S1$=S2$ THEN 1390
+    0x5e8e80708790 ---------A   01380  GOTO 1450
+    0x5e8e80708a00 ---------A T 01390  IF S2$=S3$ THEN 1470
+    0x5e8e80708a90 ---------A   01400  GOTO 1450
+    0x5e8e80708d00 ---------A T 01410  IF S1$=S2$ THEN 1490
+    0x5e8e80708d90 ---------A   01420  GOTO 1510
+    0x5e8e80709010 ---------A T 01430  IF S2$=S3$ THEN 1530
+    0x5e8e80709290 ---------A   01440  IF S3$="CHERRY" THEN 1530
+    0x5e8e807095d0 ---------A T 01450  LET J=J-1
+    0x5e8e80709640 ---------A   01460  GOTO 1540
+    0x5e8e80709970 ---------A T 01470  LET J=J+89
+    0x5e8e807099e0 ---------A   01480  GOTO 1540
+    0x5e8e80709d10 ---------A T 01490  LET J=J+2
+    0x5e8e80709d80 ---------A   01500  GOTO 1540
+    0x5e8e8070a0b0 ---------A T 01510  LET J=J+1
+    0x5e8e8070a120 ---------A   01520  GOTO 1540
+    0x5e8e8070a450 ---------A T 01530  LET J=J+9
+    0x5e8e8070a4d0 ---------A T 01540  PRINT
+    0x5e8e8070aa50 ---------A   01550  PRINT S1$;" ";S2$;" ";S3$
+    0x5e8e8070acc0 ---------A   01560  PRINT"YOUR TOTAL EARNINGS ARE NOW $";J
+    0x5e8e8070ad20 ---------A   01570  GOTO 1710
+    0x5e8e8070b250 ---------B G 01580  LET S=1+INT(5*RND)
+    0x5e8e8070b2a0 ---------B   01590  RETURN
+    0x5e8e8070b7d0 ---------C G 01600  ON S GOTO 1610,1630,1650,1670,1690
+    0x5e8e8070ba10 ---------C T 01610  LET S$="CHERRY"
+    0x5e8e8070ba80 ---------C   01620  GOTO 1700
+    0x5e8e8070bcb0 ---------C T 01630  LET S$="APPLE"
+    0x5e8e8070bd20 ---------C   01640  GOTO 1700
+    0x5e8e8070c360 ---------C T 01650  LET S$="LEMON"
+    0x5e8e8070c3d0 ---------C   01660  GOTO 1700
+    0x5e8e8070c600 ---------C T 01670  LET S$="ORANGE"
+    0x5e8e8070c670 ---------C   01680  GOTO 1700
+    0x5e8e8070c8a0 ---------C T 01690  LET S$="BANANA"
+    0x5e8e8070c8f0 ---------C T 01700  RETURN
+    0x5e8e8070c990 ---------A T 01710  PRINT
+    0x5e8e8070cb00 ---------A   01720  PRINT"TO CONTINUE TYPE 'Y', IF NOT TYPE 'N'"
+    0x5e8e8070cd30 ---------A   01730  INPUT Z$
+    0x5e8e8070cfc0 ---------A   01740  IF Z$="Y" THEN 1790
+    0x5e8e8070d250 ---------A   01750  IF Z$="N" THEN 1770
+    0x5e8e8070d3d0 ---------A   01760  PRINT"INVALID RESPONSE"
+    0x5e8e8070d540 ---------A T 01770  PRINT"ONE-ARM-BANDIT SAYS GOOD-BYE"
+    0x5e8e8070d5a0 ---------A   01780  STOP
+    0x5e8e8070d620 ---------A T 01790  PRINT
+    0x5e8e8070d6a0 ---------A   01800  GOTO 1180
+    0x5e8e8070d6f0 ---------A   01810  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/bandit.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5e8e806fedb0 ---------A   01000  REM THIS PROGRAM SIMULATES THE MECHANICAL
+    0x5e8e806fdb80 ---------A   01010  REM THREE WHEEL ONE-ARM-BANDIT
+    0x5e8e806fc6d0 ---------A T 01020  PRINT"ARE INTRUCTIONS REQUIRED?"
+    0x5e8e806fc670 ---------A   01030  PRINT"TYPE EITHER 'YES' OR 'NO'"
+    0x5e8e806fdfc0 ---------A   01040  INPUT L$
+    0x5e8e807009b0 ---------A   01050  IF L$="YES" THEN 1090
+    0x5e8e80700b00 ---------A   01060  IF L$="NO" THEN 1160
+    0x5e8e80700c20 ---------A   01070  PRINT"INVALID COMMAND"
+    0x5e8e806fee70 ---------A   01080  GOTO 1020
+    0x5e8e80700e00 ---------A T 01090  PRINT"SCORING IS SIMPLE; 3 ORANGES, LEMONS OR"
+    0x5e8e80700fa0 ---------A   01100  PRINT"BANANAS EARN $10. 3 CHERRIES EARN $90."
+    0x5e8e80701100 ---------A   01110  PRINT"IF THE FIRST FRUIT IS AN APPLE, YOU EARN $2"
+    0x5e8e807012a0 ---------A   01120  PRINT"IF THE FIRST AND SECOND ARE APPLES, YOU EARN $3."
+    0x5e8e80701430 ---------A   01130  PRINT"IF THE LAST FRUIT IS A CHERRY AND THE"
+    0x5e8e807015d0 ---------A   01140  PRINT"OTHER TWO ARE THE SAME BUT NOT APPLES YOU"
+    0x5e8e80701730 ---------A   01150  PRINT"EARN $10. EACH TURN COSTS $1. GOOD LUCK"
+    0x5e8e806feff0 ---------A T 01160  LET J=0
+    0x5e8e80705ea0 ---------A   01170  PRINT
+    0x5e8e806ff0b0 ---------A T 01180  GOSUB 1580
+    0x5e8e80706220 ---------A   01190  LET S1=S
+    0x5e8e80706290 ---------A   01200  GOSUB 1580
+    0x5e8e80706580 ---------A   01210  LET S2=S
+    0x5e8e807065f0 ---------A   01220  GOSUB 1580
+    0x5e8e807068e0 ---------A   01230  LET S3=S
+    0x5e8e80706b10 ---------A   01240  LET S=S1
+    0x5e8e80706b80 ---------A   01250  GOSUB 1600
+    0x5e8e80706f30 ---------A   01260  LET S1$=S$
+    0x5e8e80707160 ---------A   01270  LET S=S2
+    0x5e8e807071d0 ---------A   01280  GOSUB 1600
+    0x5e8e807074c0 ---------A   01290  LET S2$=S$
+    0x5e8e807076f0 ---------A   01300  LET S=S3
+    0x5e8e80707760 ---------A   01310  GOSUB 1600
+    0x5e8e80707a60 ---------A   01320  LET S3$=S$
+    0x5e8e80707ef0 ---------A   01330  IF S1$="CHERRY" THEN 1370
+    0x5e8e80708180 ---------A   01340  IF S1$="APPLE" THEN 1410
+    0x5e8e80708400 ---------A   01350  IF S1$=S2$ THEN 1430
+    0x5e8e80708490 ---------A   01360  GOTO 1450
+    0x5e8e80708700 ---------A T 01370  IF S1$=S2$ THEN 1390
+    0x5e8e80708790 ---------A   01380  GOTO 1450
+    0x5e8e80708a00 ---------A T 01390  IF S2$=S3$ THEN 1470
+    0x5e8e80708a90 ---------A   01400  GOTO 1450
+    0x5e8e80708d00 ---------A T 01410  IF S1$=S2$ THEN 1490
+    0x5e8e80708d90 ---------A   01420  GOTO 1510
+    0x5e8e80709010 ---------A T 01430  IF S2$=S3$ THEN 1530
+    0x5e8e80709290 ---------A   01440  IF S3$="CHERRY" THEN 1530
+    0x5e8e807095d0 ---------A T 01450  LET J=J-1
+    0x5e8e80709640 ---------A   01460  GOTO 1540
+    0x5e8e80709970 ---------A T 01470  LET J=J+89
+    0x5e8e807099e0 ---------A   01480  GOTO 1540
+    0x5e8e80709d10 ---------A T 01490  LET J=J+2
+    0x5e8e80709d80 ---------A   01500  GOTO 1540
+    0x5e8e8070a0b0 ---------A T 01510  LET J=J+1
+    0x5e8e8070a120 ---------A   01520  GOTO 1540
+    0x5e8e8070a450 ---------A T 01530  LET J=J+9
+    0x5e8e8070a4d0 ---------A T 01540  PRINT
+    0x5e8e8070aa50 ---------A   01550  PRINT S1$;" ";S2$;" ";S3$
+    0x5e8e8070acc0 ---------A   01560  PRINT"YOUR TOTAL EARNINGS ARE NOW $";J
+    0x5e8e8070ad20 ---------A   01570  GOTO 1710
+    0x5e8e8070b250 ---------B G 01580  LET S=1+INT(5*RND)
+    0x5e8e8070b2a0 ---------B   01590  RETURN
+    0x5e8e8070b7d0 ---------C G 01600  ON S GOTO 1610,1630,1650,1670,1690
+    0x5e8e8070ba10 ---------C T 01610  LET S$="CHERRY"
+    0x5e8e8070ba80 ---------C   01620  GOTO 1700
+    0x5e8e8070bcb0 ---------C T 01630  LET S$="APPLE"
+    0x5e8e8070bd20 ---------C   01640  GOTO 1700
+    0x5e8e8070c360 ---------C T 01650  LET S$="LEMON"
+    0x5e8e8070c3d0 ---------C   01660  GOTO 1700
+    0x5e8e8070c600 ---------C T 01670  LET S$="ORANGE"
+    0x5e8e8070c670 ---------C   01680  GOTO 1700
+    0x5e8e8070c8a0 ---------C T 01690  LET S$="BANANA"
+    0x5e8e8070c8f0 ---------C T 01700  RETURN
+    0x5e8e8070c990 ---------A T 01710  PRINT
+    0x5e8e8070cb00 ---------A   01720  PRINT"TO CONTINUE TYPE 'Y', IF NOT TYPE 'N'"
+    0x5e8e8070cd30 ---------A   01730  INPUT Z$
+    0x5e8e8070cfc0 ---------A   01740  IF Z$="Y" THEN 1790
+    0x5e8e8070d250 ---------A   01750  IF Z$="N" THEN 1770
+    0x5e8e8070d3d0 ---------A   01760  PRINT"INVALID RESPONSE"
+    0x5e8e8070d540 ---------A T 01770  PRINT"ONE-ARM-BANDIT SAYS GOOD-BYE"
+    0x5e8e8070d5a0 ---------A   01780  STOP
+    0x5e8e8070d620 ---------A T 01790  PRINT
+    0x5e8e8070d6a0 ---------A   01800  GOTO 1180
+    0x5e8e8070d6f0 ---------A   01810  END
  */
 
 
@@ -243,90 +431,90 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5fd58c6445d0 ---------A   01000 REM THIS PROGRAM SIMULATES THE MECHANICAL
-    0x5fd58c644610 ---------A   01010 REM THREE WHEEL ONE-ARM-BANDIT
-    0x5fd58c655db0 ---------A T 01020 PRINT"ARE INTRUCTIONS REQUIRED?"
-    0x5fd58c654b80 ---------A   01030 PRINT"TYPE EITHER 'YES' OR 'NO'"
-    0x5fd58c6536d0 ---------A   01040 INPUT L$
-    0x5fd58c653670 ---------A   01050 IF L$="YES" THEN 1090
-    0x5fd58c654fc0 ---------A   01060 IF L$="NO" THEN 1160
-    0x5fd58c655e70 ---------A   01070 PRINT"INVALID COMMAND"
-    0x5fd58c657be0 ---------A   01080 GOTO 1020
-    0x5fd58c655f30 ---------A T 01090 PRINT"SCORING IS SIMPLE; 3 ORANGES, LEMONS OR"
-    0x5fd58c655ff0 ---------A   01100 PRINT"BANANAS EARN $10. 3 CHERRIES EARN $90."
-    0x5fd58c6540b0 ---------A   01110 PRINT"IF THE FIRST FRUIT IS AN APPLE, YOU EARN $2"
-    0x5fd58c653eb0 ---------A   01120 PRINT"IF THE FIRST AND SECOND ARE APPLES, YOU EARN $3."
-    0x5fd58c658210 ---------A   01130 PRINT"IF THE LAST FRUIT IS A CHERRY AND THE"
-    0x5fd58c6583a0 ---------A   01140 PRINT"OTHER TWO ARE THE SAME BUT NOT APPLES YOU"
-    0x5fd58c6584f0 ---------A   01150 PRINT"EARN $10. EACH TURN COSTS $1. GOOD LUCK"
-    0x5fd58c6587a0 ---------A T 01160 LET J=0
-    0x5fd58c658810 ---------A   01170 PRINT
-    0x5fd58c65cd80 ---------A T 01180 GOSUB 1690
-    0x5fd58c65d100 ---------A   01190 LET S1=S
-    0x5fd58c65d170 ---------A   01200 GOSUB 1690
-    0x5fd58c65d450 ---------A   01210 LET S2=S
-    0x5fd58c65d4c0 ---------A   01220 GOSUB 1690
-    0x5fd58c65d7a0 ---------A   01230 LET S3=S
-    0x5fd58c65d9d0 ---------A   01240 LET S=S1
-    0x5fd58c65da40 ---------A   01250 GOSUB 1720
-    0x5fd58c65dde0 ---------A   01260 LET S1$=S$
-    0x5fd58c65e010 ---------A   01270 LET S=S2
-    0x5fd58c65e080 ---------A   01280 GOSUB 1720
-    0x5fd58c65e360 ---------A   01290 LET S2$=S$
-    0x5fd58c65e590 ---------A   01300 LET S=S3
-    0x5fd58c65e600 ---------A   01310 GOSUB 1720
-    0x5fd58c65e8f0 ---------A   01320 LET S3$=S$
-    0x5fd58c65ed80 ---------A   01330 IF S1$="CHERRY" THEN 1370
-    0x5fd58c65f010 ---------A   01340 IF S1$="APPLE" THEN 1410
-    0x5fd58c65f290 ---------A   01350 IF S1$=S2$ THEN 1430
-    0x5fd58c65f320 ---------A   01360 GOTO 1450
-    0x5fd58c65f580 ---------A T 01370 IF S1$=S2$ THEN 1390
-    0x5fd58c65f610 ---------A   01380 GOTO 1450
-    0x5fd58c65f870 ---------A T 01390 IF S2$=S3$ THEN 1470
-    0x5fd58c65f900 ---------A   01400 GOTO 1450
-    0x5fd58c65fb60 ---------A T 01410 IF S1$=S2$ THEN 1490
-    0x5fd58c65fbf0 ---------A   01420 GOTO 1510
-    0x5fd58c65fe60 ---------A T 01430 IF S2$=S3$ THEN 1530
-    0x5fd58c6600e0 ---------A   01440 IF S3$="CHERRY" THEN 1530
-    0x5fd58c660420 ---------A T 01450 LET J=J-1
-    0x5fd58c660490 ---------A   01460 GOTO 1540
-    0x5fd58c6607b0 ---------A T 01470 LET J=J+89
-    0x5fd58c660820 ---------A   01480 GOTO 1540
-    0x5fd58c660b40 ---------A T 01490 LET J=J+2
-    0x5fd58c660bb0 ---------A   01500 GOTO 1540
-    0x5fd58c660ed0 ---------A T 01510 LET J=J+1
-    0x5fd58c660f40 ---------A   01520 GOTO 1540
-    0x5fd58c661260 ---------A T 01530 LET J=J+9
-    0x5fd58c6612e0 ---------A T 01540 PRINT
-    0x5fd58c661850 ---------A   01550 PRINT S1$;" ";S2$;" ";S3$
-    0x5fd58c661ab0 ---------A   01560 PRINT"YOUR TOTAL EARNINGS ARE NOW $";J
-    0x5fd58c661b00 ---------A   01570 GOTO 1580
-    0x5fd58c663710 ---------A T 01580 PRINT
-    0x5fd58c663870 ---------A   01590 PRINT"TO CONTINUE TYPE 'Y', IF NOT TYPE 'N'"
-    0x5fd58c663a90 ---------A   01600 INPUT Z$
-    0x5fd58c663d20 ---------A   01610 IF Z$="Y" THEN 1660
-    0x5fd58c663fb0 ---------A   01620 IF Z$="N" THEN 1640
-    0x5fd58c664130 ---------A   01630 PRINT"INVALID RESPONSE"
-    0x5fd58c664290 ---------A T 01640 PRINT"ONE-ARM-BANDIT SAYS GOOD-BYE"
-    0x5fd58c6642e0 ---------A   01650 STOP
-    0x5fd58c664360 ---------A T 01660 PRINT
-    0x5fd58c6643d0 ---------A   01670 GOTO 1180
-    0x5fd58c664410 ---------A   01680 END
-    0x5fd58c662020 ---------B G 01690 LET S=1+INT(5*RND)
-    0x5fd58c667640 ---------B   01700 GOTO 01710
-    0x5fd58c667680 ---------B T 01710 RETURN
-    0x5fd58c6625a0 ---------C G 01720 ON S GOTO 1730,1750,1770,1790,1810
-    0x5fd58c6627d0 ---------C T 01730 LET S$="CHERRY"
-    0x5fd58c662840 ---------C   01740 GOTO 1820
-    0x5fd58c662a60 ---------C T 01750 LET S$="APPLE"
-    0x5fd58c662ad0 ---------C   01760 GOTO 1820
-    0x5fd58c663100 ---------C T 01770 LET S$="LEMON"
-    0x5fd58c663170 ---------C   01780 GOTO 1820
-    0x5fd58c663390 ---------C T 01790 LET S$="ORANGE"
-    0x5fd58c663400 ---------C   01800 GOTO 1820
-    0x5fd58c663620 ---------C T 01810 LET S$="BANANA"
-    0x5fd58c6676c0 ---------C T 01820 GOTO 01830
-    0x5fd58c667720 ---------C T 01830 RETURN
+    0x5e8e806fedb0 ---------A   01000  REM THIS PROGRAM SIMULATES THE MECHANICAL
+    0x5e8e806fdb80 ---------A   01010  REM THREE WHEEL ONE-ARM-BANDIT
+    0x5e8e806fc6d0 ---------A T 01020  PRINT"ARE INTRUCTIONS REQUIRED?"
+    0x5e8e806fc670 ---------A   01030  PRINT"TYPE EITHER 'YES' OR 'NO'"
+    0x5e8e806fdfc0 ---------A   01040  INPUT L$
+    0x5e8e807009b0 ---------A   01050  IF L$="YES" THEN 1090
+    0x5e8e80700b00 ---------A   01060  IF L$="NO" THEN 1160
+    0x5e8e80700c20 ---------A   01070  PRINT"INVALID COMMAND"
+    0x5e8e806fee70 ---------A   01080  GOTO 1020
+    0x5e8e80700e00 ---------A T 01090  PRINT"SCORING IS SIMPLE; 3 ORANGES, LEMONS OR"
+    0x5e8e80700fa0 ---------A   01100  PRINT"BANANAS EARN $10. 3 CHERRIES EARN $90."
+    0x5e8e80701100 ---------A   01110  PRINT"IF THE FIRST FRUIT IS AN APPLE, YOU EARN $2"
+    0x5e8e807012a0 ---------A   01120  PRINT"IF THE FIRST AND SECOND ARE APPLES, YOU EARN $3."
+    0x5e8e80701430 ---------A   01130  PRINT"IF THE LAST FRUIT IS A CHERRY AND THE"
+    0x5e8e807015d0 ---------A   01140  PRINT"OTHER TWO ARE THE SAME BUT NOT APPLES YOU"
+    0x5e8e80701730 ---------A   01150  PRINT"EARN $10. EACH TURN COSTS $1. GOOD LUCK"
+    0x5e8e806feff0 ---------A T 01160  LET J=0
+    0x5e8e80705ea0 ---------A   01170  PRINT
+    0x5e8e806ff0b0 ---------A T 01180  GOSUB 1690
+    0x5e8e80706220 ---------A   01190  LET S1=S
+    0x5e8e80706290 ---------A   01200  GOSUB 1690
+    0x5e8e80706580 ---------A   01210  LET S2=S
+    0x5e8e807065f0 ---------A   01220  GOSUB 1690
+    0x5e8e807068e0 ---------A   01230  LET S3=S
+    0x5e8e80706b10 ---------A   01240  LET S=S1
+    0x5e8e80706b80 ---------A   01250  GOSUB 1720
+    0x5e8e80706f30 ---------A   01260  LET S1$=S$
+    0x5e8e80707160 ---------A   01270  LET S=S2
+    0x5e8e807071d0 ---------A   01280  GOSUB 1720
+    0x5e8e807074c0 ---------A   01290  LET S2$=S$
+    0x5e8e807076f0 ---------A   01300  LET S=S3
+    0x5e8e80707760 ---------A   01310  GOSUB 1720
+    0x5e8e80707a60 ---------A   01320  LET S3$=S$
+    0x5e8e80707ef0 ---------A   01330  IF S1$="CHERRY" THEN 1370
+    0x5e8e80708180 ---------A   01340  IF S1$="APPLE" THEN 1410
+    0x5e8e80708400 ---------A   01350  IF S1$=S2$ THEN 1430
+    0x5e8e80708490 ---------A   01360  GOTO 1450
+    0x5e8e80708700 ---------A T 01370  IF S1$=S2$ THEN 1390
+    0x5e8e80708790 ---------A   01380  GOTO 1450
+    0x5e8e80708a00 ---------A T 01390  IF S2$=S3$ THEN 1470
+    0x5e8e80708a90 ---------A   01400  GOTO 1450
+    0x5e8e80708d00 ---------A T 01410  IF S1$=S2$ THEN 1490
+    0x5e8e80708d90 ---------A   01420  GOTO 1510
+    0x5e8e80709010 ---------A T 01430  IF S2$=S3$ THEN 1530
+    0x5e8e80709290 ---------A   01440  IF S3$="CHERRY" THEN 1530
+    0x5e8e807095d0 ---------A T 01450  LET J=J-1
+    0x5e8e80709640 ---------A   01460  GOTO 1540
+    0x5e8e80709970 ---------A T 01470  LET J=J+89
+    0x5e8e807099e0 ---------A   01480  GOTO 1540
+    0x5e8e80709d10 ---------A T 01490  LET J=J+2
+    0x5e8e80709d80 ---------A   01500  GOTO 1540
+    0x5e8e8070a0b0 ---------A T 01510  LET J=J+1
+    0x5e8e8070a120 ---------A   01520  GOTO 1540
+    0x5e8e8070a450 ---------A T 01530  LET J=J+9
+    0x5e8e8070a4d0 ---------A T 01540  PRINT
+    0x5e8e8070aa50 ---------A   01550  PRINT S1$;" ";S2$;" ";S3$
+    0x5e8e8070acc0 ---------A   01560  PRINT"YOUR TOTAL EARNINGS ARE NOW $";J
+    0x5e8e8070ad20 ---------A   01570  GOTO 1580
+    0x5e8e8070c990 ---------A T 01580  PRINT
+    0x5e8e8070cb00 ---------A   01590  PRINT"TO CONTINUE TYPE 'Y', IF NOT TYPE 'N'"
+    0x5e8e8070cd30 ---------A   01600  INPUT Z$
+    0x5e8e8070cfc0 ---------A   01610  IF Z$="Y" THEN 1660
+    0x5e8e8070d250 ---------A   01620  IF Z$="N" THEN 1640
+    0x5e8e8070d3d0 ---------A   01630  PRINT"INVALID RESPONSE"
+    0x5e8e8070d540 ---------A T 01640  PRINT"ONE-ARM-BANDIT SAYS GOOD-BYE"
+    0x5e8e8070d5a0 ---------A   01650  STOP
+    0x5e8e8070d620 ---------A T 01660  PRINT
+    0x5e8e8070d6a0 ---------A   01670  GOTO 1180
+    0x5e8e8070d6f0 ---------A   01680  END
+    0x5e8e8070b250 ---------B G 01690  LET S=1+INT(5*RND)
+    0x5e8e807131b0 ---------B   01700  GOTO 01710
+    0x5e8e80713220 ---------B T 01710  RETURN
+    0x5e8e8070b7d0 ---------C G 01720  ON S GOTO 1730,1750,1770,1790,1810
+    0x5e8e8070ba10 ---------C T 01730  LET S$="CHERRY"
+    0x5e8e8070ba80 ---------C   01740  GOTO 1820
+    0x5e8e8070bcb0 ---------C T 01750  LET S$="APPLE"
+    0x5e8e8070bd20 ---------C   01760  GOTO 1820
+    0x5e8e8070c360 ---------C T 01770  LET S$="LEMON"
+    0x5e8e8070c3d0 ---------C   01780  GOTO 1820
+    0x5e8e8070c600 ---------C T 01790  LET S$="ORANGE"
+    0x5e8e8070c670 ---------C   01800  GOTO 1820
+    0x5e8e8070c8a0 ---------C T 01810  LET S$="BANANA"
+    0x5e8e80713280 ---------C T 01820  GOTO 01830
+    0x5e8e807132f0 ---------C T 01830  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -659,7 +847,7 @@ int main(int argc,char *argv[])
     // 01540 PRINT
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
     // 01550 PRINT S1$;" ";S2$;" ";S3$
-    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_STR(buf,Roll1Fruit);strcat(buf," "); b2c_STR(buf,Roll2Fruit);strcat(buf," "); b2c_STR(buf,Roll3Fruit);strcat(buf,"\n");fputs(buf,fh); };
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); strcat(buf,Roll1Fruit);strcat(buf," "); strcat(buf,Roll2Fruit);strcat(buf," "); strcat(buf,Roll3Fruit);strcat(buf,"\n");fputs(buf,fh); };
     // 01560 PRINT"YOUR TOTAL EARNINGS ARE NOW $";J
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOUR TOTAL EARNINGS ARE NOW $"); b2c_INT(buf,Earnings);strcat(buf,"\n");fputs(buf,fh); };
     // 01570 GOTO 1580

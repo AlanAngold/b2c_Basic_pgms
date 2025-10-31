@@ -8,53 +8,53 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5e12019535d0 ---------A   00001 REM NOTE: Basic language type forced to be:
-    0x5e1201963fc0 ---------A   00002 REM       trs2 - TRS-80 Level II BASIC tokenized file
-    0x5e12019632d0 ---------A   00010 CLS
-    0x5e1201963b80 ---------A   00020 PRINT@283,"3-D PLOT"
-    0x5e1201964f30 ---------A   00030 PRINT@409,"COPYRIGHT BY"
-    0x5e1201964ff0 ---------A   00040 PRINT@534,"CREATIVE COMPUTING"
-    0x5e12019650b0 ---------A   00050 PRINT@657,"MORRISTOWN, NEW JERSEY 07960"
-    0x5e12019626d0 ---------A   00060 FOR QZ=1 TO 1500
-    0x5e1201963040 ---------A   00070 NEXT
-    0x5e12019630a0 ---------A   00080 CLS
-    0x5e1201964e70 ---------A   00160 Q=0
-    0x5e1201962be0 ---------A   00170 GOTO190
-    0x5e1201965190 ---------A T 00180 PRINT"THERE ARE ONLY SIX FUNCTIONS. ONE THROUGH SIX INCLUSIVE"
-    0x5e12019636e0 ---------A T 00190 CLS:PRINT"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)"
-    0x5e120196ac60 ---------A   00200 INPUT A: IF A<1 OR A>6 THEN 180
-    0x5e120196acc0 ---------A   00210 CLS
-    0x5e120196b0a0 ---------A   00220 FOR X=-30 TO 30 STEP 1.5
-    0x5e120196b320 ---------A   00230 L=0
-    0x5e120196bc00 ---------A   00240 Y1=5*INT(SQR(900-X*X)/5)
-    0x5e120196c090 ---------A   00250 FOR Y=Y1 TO -Y1 STEP -5
-    0x5e120196c7d0 ---------A   00260 P=SQR(X*X+Y*Y)
-    0x5e120196c840 ---------A   00270 GOSUB 390
-    0x5e120196cb60 ---------A   00280 IF Z<=L THEN 330
-    0x5e120196cda0 ---------A   00290 L=Z
-    0x5e120196cff0 ---------A   00300 IF Q=0 THEN 320
-    0x5e120196d2d0 ---------A T 00320 PRINT TAB(Z);"*";
-    0x5e120196d400 ---------A T 00330 NEXT Y
-    0x5e120196d660 ---------A   00340 IF Q=0 THEN 360
-    0x5e120196d6e0 ---------A T 00360 PRINT
-    0x5e120196d810 ---------A   00370 NEXT X
-    0x5e120196d8a0 ---------A   00380 GOTO 520
-    0x5e120196de80 ---------B G 00390 ON A GOTO 400,420,440,460,480,500
-    0x5e120196e9f0 ---------B T 00400 Z=INT(25+(SQR(900.01-P*P)*.9-2)-.7*Y)
-    0x5e120196ec90 ---------B   00410 GOTO510
-    0x5e120196f6f0 ---------B T 00420 Z=INT(25+(30*CSNG(-P*P/100))-.7*Y)
-    0x5e120196f770 ---------B   00430 GOTO510
-    0x5e12019701f0 ---------B T 00440 Z=INT(25+(30*(COS(P/16)^2))-.7*Y)
-    0x5e1201970270 ---------B   00450 GOTO510
-    0x5e1201970cb0 ---------B T 00460 Z=INT(25+(30-30*SIN(P/19))-.7*Y)
-    0x5e1201970d40 ---------B   00470 GOTO510
-    0x5e1201971860 ---------B T 00480 Z=INT(25+(30*CSNG(-COS(P/16))-30)-.7*Y)
-    0x5e12019718e0 ---------B   00490 GOTO510
-    0x5e1201972320 ---------B T 00500 Z=INT(25+(30+4*SIN(P/15))-.7*Y)
-    0x5e1201972370 ---------B T 00510 RETURN
-    0x5e1201972550 ---------A T 00520 PRINT"WOULD YOU LIKE ME TO PRINT ANOTHER FUNCTION";
-    0x5e1201972b60 ---------A   00530 INPUTB$:IF LEFT$(B$,1)="Y"THEN190
-    0x5e1201972bc0 ---------A   00540 END
+    0x62e713751db0 ---------A   00001  REM NOTE: Basic language type forced to be:
+    0x62e713751f30 ---------A   00002  REM       trs2 - TRS-80 Level II BASIC tokenized file
+    0x62e713751e70 ---------A   00010  CLS
+    0x62e71374f6d0 ---------A   00020  PRINT@283,"3-D PLOT"
+    0x62e71374f670 ---------A   00030  PRINT@409,"COPYRIGHT BY"
+    0x62e7137402b0 ---------A   00040  PRINT@534,"CREATIVE COMPUTING"
+    0x62e71374f9e0 ---------A   00050  PRINT@657,"MORRISTOWN, NEW JERSEY 07960"
+    0x62e713750040 ---------A   00060  FOR QZ=1 TO 1500
+    0x62e7137520b0 ---------A   00070  NEXT
+    0x62e713751ff0 ---------A   00080  CLS
+    0x62e713751740 ---------A   00160  Q=0
+    0x62e71374fc30 ---------A   00170  GOTO190
+    0x62e7137521d0 ---------A T 00180  PRINT"THERE ARE ONLY SIX FUNCTIONS. ONE THROUGH SIX INCLUSIVE"
+    0x62e713750720 ---------A T 00190  CLS:PRINT"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)"
+    0x62e713757d00 ---------A   00200  INPUT A: IF A<1 OR A>6 THEN 180
+    0x62e713757d60 ---------A   00210  CLS
+    0x62e713758150 ---------A   00220  FOR X=-30 TO 30 STEP 1.5
+    0x62e7137583f0 ---------A   00230  L=0
+    0x62e713758cd0 ---------A   00240  Y1=5*INT(SQR(900-X*X)/5)
+    0x62e713759160 ---------A   00250  FOR Y=Y1 TO -Y1 STEP -5
+    0x62e7137598a0 ---------A   00260  P=SQR(X*X+Y*Y)
+    0x62e713759910 ---------A   00270  GOSUB 390
+    0x62e713759c40 ---------A   00280  IF Z<=L THEN 330
+    0x62e713759e80 ---------A   00290  L=Z
+    0x62e71375a0d0 ---------A   00300  IF Q=0 THEN 320
+    0x62e71375a3b0 ---------A T 00320  PRINT TAB(Z);"*";
+    0x62e71375a4f0 ---------A T 00330  NEXT Y
+    0x62e71375a760 ---------A   00340  IF Q=0 THEN 360
+    0x62e71375a7e0 ---------A T 00360  PRINT
+    0x62e71375a920 ---------A   00370  NEXT X
+    0x62e71375a9c0 ---------A   00380  GOTO 520
+    0x62e71375afb0 ---------B G 00390  ON A GOTO 400,420,440,460,480,500
+    0x62e71375bb30 ---------B T 00400  Z=INT(25+(SQR(900.01-P*P)*.9-2)-.7*Y)
+    0x62e71375bdd0 ---------B   00410  GOTO510
+    0x62e71375c840 ---------B T 00420  Z=INT(25+(30*CSNG(-P*P/100))-.7*Y)
+    0x62e71375c8c0 ---------B   00430  GOTO510
+    0x62e71375d350 ---------B T 00440  Z=INT(25+(30*(COS(P/16)^2))-.7*Y)
+    0x62e71375d3d0 ---------B   00450  GOTO510
+    0x62e71375de20 ---------B T 00460  Z=INT(25+(30-30*SIN(P/19))-.7*Y)
+    0x62e71375deb0 ---------B   00470  GOTO510
+    0x62e71375e9e0 ---------B T 00480  Z=INT(25+(30*CSNG(-COS(P/16))-30)-.7*Y)
+    0x62e71375ea60 ---------B   00490  GOTO510
+    0x62e71375f4b0 ---------B T 00500  Z=INT(25+(30+4*SIN(P/15))-.7*Y)
+    0x62e71375f500 ---------B T 00510  RETURN
+    0x62e71375f6e0 ---------A T 00520  PRINT"WOULD YOU LIKE ME TO PRINT ANOTHER FUNCTION";
+    0x62e71375fd00 ---------A   00530  INPUTB$:IF LEFT$(B$,1)="Y"THEN190
+    0x62e71375fd60 ---------A   00540  END
  */
 
 /*
@@ -87,11 +87,135 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x5e12019535d0 (00001)   0x5e12019535d0 (00001)   0x5e1201972bc0 (00540)   0x5e1201972bc0 (00540)   
-   B) 0x5e120196de80 (00390)   0x5e120196de80 (00390)   0x5e1201972370 (00510)   0x5e1201972370 (00510)   
+   A) 0x62e713751db0 (00001)   0x62e713751db0 (00001)   0x62e71375fd60 (00540)   0x62e71375fd60 (00540)   
+   B) 0x62e71375afb0 (00390)   0x62e71375afb0 (00390)   0x62e71375f500 (00510)   0x62e71375f500 (00510)   
 
     NOTE: Routine B overlaps, or is tangled with, routine A!
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/3dpltcc1.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x62e713751db0 ---------A   00001  REM NOTE
+    0x62e713751f30 ---------A   00002  REM       trs2 - TRS-80 Level II BASIC tokenized file
+    0x62e713751e70 ---------A   00010  CLS
+    0x62e71374f6d0 ---------A   00020  PRINT@283,"3-D PLOT"
+    0x62e71374f670 ---------A   00030  PRINT@409,"COPYRIGHT BY"
+    0x62e7137402b0 ---------A   00040  PRINT@534,"CREATIVE COMPUTING"
+    0x62e71374f9e0 ---------A   00050  PRINT@657,"MORRISTOWN, NEW JERSEY 07960"
+    0x62e713750040 ---------A   00060  FOR QZ=1 TO 1500
+    0x62e7137520b0 ---------A   00070  NEXT
+    0x62e713751ff0 ---------A   00080  CLS
+    0x62e713751740 ---------A   00160  Q=0
+    0x62e71374fc30 ---------A   00170  GOTO190
+    0x62e7137521d0 ---------A T 00180  PRINT"THERE ARE ONLY SIX FUNCTIONS. ONE THROUGH SIX INCLUSIVE"
+    0x62e713752230 ---------- T 00190  CLS
+    0x62e713750720 ---------A T      a PRINT"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)"
+    0x62e713750880 ----------   00200  INPUT A
+    0x62e713757d00 ---------A        a IF A<1 OR A>6 THEN 180
+    0x62e713757d60 ---------A   00210  CLS
+    0x62e713758150 ---------A   00220  FOR X=-30 TO 30 STEP 1.5
+    0x62e7137583f0 ---------A   00230  L=0
+    0x62e713758cd0 ---------A   00240  Y1=5*INT(SQR(900-X*X)/5)
+    0x62e713759160 ---------A   00250  FOR Y=Y1 TO -Y1 STEP -5
+    0x62e7137598a0 ---------A   00260  P=SQR(X*X+Y*Y)
+    0x62e713759910 ---------A   00270  GOSUB 390
+    0x62e713759c40 ---------A   00280  IF Z<=L THEN 330
+    0x62e713759e80 ---------A   00290  L=Z
+    0x62e71375a0d0 ---------A   00300  IF Q=0 THEN 320
+    0x62e71375a3b0 ---------A T 00320  PRINT TAB(Z);"*";
+    0x62e71375a4f0 ---------A T 00330  NEXT Y
+    0x62e71375a760 ---------A   00340  IF Q=0 THEN 360
+    0x62e71375a7e0 ---------A T 00360  PRINT
+    0x62e71375a920 ---------A   00370  NEXT X
+    0x62e71375a9c0 ---------A   00380  GOTO 520
+    0x62e71375afb0 ---------B G 00390  ON A GOTO 400,420,440,460,480,500
+    0x62e71375bb30 ---------B T 00400  Z=INT(25+(SQR(900.01-P*P)*.9-2)-.7*Y)
+    0x62e71375bdd0 ---------B   00410  GOTO510
+    0x62e71375c840 ---------B T 00420  Z=INT(25+(30*CSNG(-P*P/100))-.7*Y)
+    0x62e71375c8c0 ---------B   00430  GOTO510
+    0x62e71375d350 ---------B T 00440  Z=INT(25+(30*(COS(P/16)^2))-.7*Y)
+    0x62e71375d3d0 ---------B   00450  GOTO510
+    0x62e71375de20 ---------B T 00460  Z=INT(25+(30-30*SIN(P/19))-.7*Y)
+    0x62e71375deb0 ---------B   00470  GOTO510
+    0x62e71375e9e0 ---------B T 00480  Z=INT(25+(30*CSNG(-COS(P/16))-30)-.7*Y)
+    0x62e71375ea60 ---------B   00490  GOTO510
+    0x62e71375f4b0 ---------B T 00500  Z=INT(25+(30+4*SIN(P/15))-.7*Y)
+    0x62e71375f500 ---------B T 00510  RETURN
+    0x62e71375f6e0 ---------A T 00520  PRINT"WOULD YOU LIKE ME TO PRINT ANOTHER FUNCTION";
+    0x62e71375f8e0 ----------   00530  INPUTB$
+    0x62e71375fd00 ---------A        a IF LEFT$(B$,1)="Y"THEN190
+    0x62e71375fd60 ---------A   00540  END
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/3dpltcc1.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x62e713751db0 ---------A   01000  REM NOTE
+    0x62e713751f30 ---------A   01010  REM       trs2 - TRS-80 Level II BASIC tokenized file
+    0x62e713751e70 ---------A   01020  CLS
+    0x62e71374f6d0 ---------A   01030  PRINT@283,"3-D PLOT"
+    0x62e71374f670 ---------A   01040  PRINT@409,"COPYRIGHT BY"
+    0x62e7137402b0 ---------A   01050  PRINT@534,"CREATIVE COMPUTING"
+    0x62e71374f9e0 ---------A   01060  PRINT@657,"MORRISTOWN, NEW JERSEY 07960"
+    0x62e713750040 ---------A   01070  FOR QZ=1 TO 1500
+    0x62e7137520b0 ---------A   01080  NEXT
+    0x62e713751ff0 ---------A   01090  CLS
+    0x62e713751740 ---------A   01100  Q=0
+    0x62e71374fc30 ---------A   01110  GOTO1140
+    0x62e7137521d0 ---------A   01120  PRINT"THERE ARE ONLY SIX FUNCTIONS. ONE THROUGH SIX INCLUSIVE"
+    0x62e713752230 ----------   01130  CLS
+    0x62e713750720 ---------A   01140  PRINT"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)"
+    0x62e713750880 ----------   01150  INPUT A
+    0x62e713757d00 ---------A   01160  IF A<1 OR A>6 THEN 1120
+    0x62e713757d60 ---------A   01170  CLS
+    0x62e713758150 ---------A   01180  FOR X=-30 TO 30 STEP 1.5
+    0x62e7137583f0 ---------A   01190  L=0
+    0x62e713758cd0 ---------A   01200  Y1=5*INT(SQR(900-X*X)/5)
+    0x62e713759160 ---------A   01210  FOR Y=Y1 TO -Y1 STEP -5
+    0x62e7137598a0 ---------A   01220  P=SQR(X*X+Y*Y)
+    0x62e713759910 ---------A   01230  GOSUB 1330
+    0x62e713759c40 ---------A   01240  IF Z<=L THEN 1280
+    0x62e713759e80 ---------A   01250  L=Z
+    0x62e71375a0d0 ---------A   01260  IF Q=0 THEN 1270
+    0x62e71375a3b0 ---------A   01270  PRINT TAB(Z);"*";
+    0x62e71375a4f0 ---------A   01280  NEXT Y
+    0x62e71375a760 ---------A   01290  IF Q=0 THEN 1300
+    0x62e71375a7e0 ---------A   01300  PRINT
+    0x62e71375a920 ---------A   01310  NEXT X
+    0x62e71375a9c0 ---------A   01320  GOTO 1460
+    0x62e71375afb0 ---------B   01330  ON A GOTO 1340,1360,1380,1400,1420,1440
+    0x62e71375bb30 ---------B   01340  Z=INT(25+(SQR(900.01-P*P)*.9-2)-.7*Y)
+    0x62e71375bdd0 ---------B   01350  GOTO1450
+    0x62e71375c840 ---------B   01360  Z=INT(25+(30*CSNG(-P*P/100))-.7*Y)
+    0x62e71375c8c0 ---------B   01370  GOTO1450
+    0x62e71375d350 ---------B   01380  Z=INT(25+(30*(COS(P/16)^2))-.7*Y)
+    0x62e71375d3d0 ---------B   01390  GOTO1450
+    0x62e71375de20 ---------B   01400  Z=INT(25+(30-30*SIN(P/19))-.7*Y)
+    0x62e71375deb0 ---------B   01410  GOTO1450
+    0x62e71375e9e0 ---------B   01420  Z=INT(25+(30*CSNG(-COS(P/16))-30)-.7*Y)
+    0x62e71375ea60 ---------B   01430  GOTO1450
+    0x62e71375f4b0 ---------B   01440  Z=INT(25+(30+4*SIN(P/15))-.7*Y)
+    0x62e71375f500 ---------B   01450  RETURN
+    0x62e71375f6e0 ---------A   01460  PRINT"WOULD YOU LIKE ME TO PRINT ANOTHER FUNCTION";
+    0x62e71375f8e0 ----------   01470  INPUTB$
+    0x62e71375fd00 ---------A   01480  IF LEFT$(B$,1)="Y"THEN1140
+    0x62e71375fd60 ---------A   01490  END
  */
 
 
@@ -102,7 +226,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01480 - 10000    8530 
+     01510 - 10000    8500 
 
  */
 
@@ -194,54 +318,57 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x5e12019535d0 ---------A   01000 REM NOTE: Basic language type forced to be:
-    0x5e1201963fc0 ---------A   01010 REM       trs2 - TRS-80 Level II BASIC tokenized file
-    0x5e12019632d0 ---------A   01020 CLS
-    0x5e1201963b80 ---------A   01030 PRINT@283,"3-D PLOT"
-    0x5e1201964f30 ---------A   01040 PRINT@409,"COPYRIGHT BY"
-    0x5e1201964ff0 ---------A   01050 PRINT@534,"CREATIVE COMPUTING"
-    0x5e12019650b0 ---------A   01060 PRINT@657,"MORRISTOWN, NEW JERSEY 07960"
-    0x5e12019626d0 ---------A   01070 FOR QZ=1 TO 1500
-    0x5e1201963040 ---------A   01080 NEXT
-    0x5e12019630a0 ---------A   01090 CLS
-    0x5e1201964e70 ---------A   01100 Q=0
-    0x5e1201962be0 ---------A   01110 GOTO1130
-    0x5e1201965190 ---------A T 01120 PRINT"THERE ARE ONLY SIX FUNCTIONS. ONE THROUGH SIX INCLUSIVE"
-    0x5e12019636e0 ---------A T 01130 CLS:PRINT"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)"
-    0x5e120196ac60 ---------A   01140 INPUT A: IF A<1 OR A>6 THEN 1120
-    0x5e120196acc0 ---------A   01150 CLS
-    0x5e120196b0a0 ---------A   01160 FOR X=-30 TO 30 STEP 1.5
-    0x5e120196b320 ---------A   01170 L=0
-    0x5e120196bc00 ---------A   01180 Y1=5*INT(SQR(900-X*X)/5)
-    0x5e120196c090 ---------A   01190 FOR Y=Y1 TO -Y1 STEP -5
-    0x5e120196c7d0 ---------A   01200 P=SQR(X*X+Y*Y)
-    0x5e120196c840 ---------A   01210 GOSUB 1340
-    0x5e120196cb60 ---------A   01220 IF Z<=L THEN 1260
-    0x5e120196cda0 ---------A   01230 L=Z
-    0x5e120196cff0 ---------A   01240 IF Q=0 THEN 1250
-    0x5e120196d2d0 ---------A T 01250 PRINT TAB(Z);"*";
-    0x5e120196d400 ---------A T 01260 NEXT Y
-    0x5e120196d660 ---------A   01270 IF Q=0 THEN 1280
-    0x5e120196d6e0 ---------A T 01280 PRINT
-    0x5e120196d810 ---------A   01290 NEXT X
-    0x5e120196d8a0 ---------A   01300 GOTO 1310
-    0x5e1201972550 ---------A T 01310 PRINT"WOULD YOU LIKE ME TO PRINT ANOTHER FUNCTION";
-    0x5e1201972b60 ---------A   01320 INPUTB$:IF LEFT$(B$,1)="Y"THEN1130
-    0x5e1201972bc0 ---------A   01330 END
-    0x5e120196de80 ---------B G 01340 ON A GOTO 1350,1370,1390,1410,1430,1450
-    0x5e120196e9f0 ---------B T 01350 Z=INT(25+(SQR(900.01-P*P)*.9-2)-.7*Y)
-    0x5e120196ec90 ---------B   01360 GOTO1460
-    0x5e120196f6f0 ---------B T 01370 Z=INT(25+(30*CSNG(-P*P/100))-.7*Y)
-    0x5e120196f770 ---------B   01380 GOTO1460
-    0x5e12019701f0 ---------B T 01390 Z=INT(25+(30*(COS(P/16)^2))-.7*Y)
-    0x5e1201970270 ---------B   01400 GOTO1460
-    0x5e1201970cb0 ---------B T 01410 Z=INT(25+(30-30*SIN(P/19))-.7*Y)
-    0x5e1201970d40 ---------B   01420 GOTO1460
-    0x5e1201971860 ---------B T 01430 Z=INT(25+(30*CSNG(-COS(P/16))-30)-.7*Y)
-    0x5e12019718e0 ---------B   01440 GOTO1460
-    0x5e1201972320 ---------B T 01450 Z=INT(25+(30+4*SIN(P/15))-.7*Y)
-    0x5e1201974f80 ---------B T 01460 GOTO 01470
-    0x5e1201974fc0 ---------B T 01470 RETURN
+    0x62e713751db0 ---------A   01000  REM NOTE
+    0x62e713751f30 ---------A   01010  REM       trs2 - TRS-80 Level II BASIC tokenized file
+    0x62e713751e70 ---------A   01020  CLS
+    0x62e71374f6d0 ---------A   01030  PRINT@283,"3-D PLOT"
+    0x62e71374f670 ---------A   01040  PRINT@409,"COPYRIGHT BY"
+    0x62e7137402b0 ---------A   01050  PRINT@534,"CREATIVE COMPUTING"
+    0x62e71374f9e0 ---------A   01060  PRINT@657,"MORRISTOWN, NEW JERSEY 07960"
+    0x62e713750040 ---------A   01070  FOR QZ=1 TO 1500
+    0x62e7137520b0 ---------A   01080  NEXT
+    0x62e713751ff0 ---------A   01090  CLS
+    0x62e713751740 ---------A   01100  Q=0
+    0x62e71374fc30 ---------A   01110  GOTO1140
+    0x62e7137521d0 ---------A T 01120  PRINT"THERE ARE ONLY SIX FUNCTIONS. ONE THROUGH SIX INCLUSIVE"
+    0x62e713752230 ---------A   01130  CLS
+    0x62e713750720 ---------A T 01140  PRINT"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)"
+    0x62e713750880 ---------A   01150  INPUT A
+    0x62e713757d00 ---------A   01160  IF A<1 OR A>6 THEN 1120
+    0x62e713757d60 ---------A   01170  CLS
+    0x62e713758150 ---------A   01180  FOR X=-30 TO 30 STEP 1.5
+    0x62e7137583f0 ---------A   01190  L=0
+    0x62e713758cd0 ---------A   01200  Y1=5*INT(SQR(900-X*X)/5)
+    0x62e713759160 ---------A   01210  FOR Y=Y1 TO -Y1 STEP -5
+    0x62e7137598a0 ---------A   01220  P=SQR(X*X+Y*Y)
+    0x62e713759910 ---------A   01230  GOSUB 1370
+    0x62e713759c40 ---------A   01240  IF Z<=L THEN 1280
+    0x62e713759e80 ---------A   01250  L=Z
+    0x62e71375a0d0 ---------A   01260  IF Q=0 THEN 1270
+    0x62e71375a3b0 ---------A T 01270  PRINT TAB(Z);"*";
+    0x62e71375a4f0 ---------A T 01280  NEXT Y
+    0x62e71375a760 ---------A   01290  IF Q=0 THEN 1300
+    0x62e71375a7e0 ---------A T 01300  PRINT
+    0x62e71375a920 ---------A   01310  NEXT X
+    0x62e71375a9c0 ---------A   01320  GOTO 1330
+    0x62e71375f6e0 ---------A T 01330  PRINT"WOULD YOU LIKE ME TO PRINT ANOTHER FUNCTION";
+    0x62e71375f8e0 ---------A   01340  INPUTB$
+    0x62e71375fd00 ---------A   01350  IF LEFT$(B$,1)="Y"THEN1140
+    0x62e71375fd60 ---------A   01360  END
+    0x62e71375afb0 ---------B G 01370  ON A GOTO 1460,1480,1380,1400,1420,1440
+    0x62e71375bb30 ---------B T 01380  Z=INT(25+(SQR(900.01-P*P)*.9-2)-.7*Y)
+    0x62e71375bdd0 ---------B   01390  GOTO1490
+    0x62e71375c840 ---------B T 01400  Z=INT(25+(30*CSNG(-P*P/100))-.7*Y)
+    0x62e71375c8c0 ---------B   01410  GOTO1490
+    0x62e71375d350 ---------B T 01420  Z=INT(25+(30*(COS(P/16)^2))-.7*Y)
+    0x62e71375d3d0 ---------B   01430  GOTO1490
+    0x62e71375de20 ---------B T 01440  Z=INT(25+(30-30*SIN(P/19))-.7*Y)
+    0x62e71375deb0 ---------B   01450  GOTO1490
+    0x62e71375e9e0 ---------B T 01460  Z=INT(25+(30*CSNG(-COS(P/16))-30)-.7*Y)
+    0x62e71375ea60 ---------B   01470  GOTO1490
+    0x62e71375f4b0 ---------B T 01480  Z=INT(25+(30+4*SIN(P/15))-.7*Y)
+    0x62e71375fdc0 ---------B T 01490  GOTO 01500
+    0x62e713764990 ---------B T 01500  RETURN
  */
 
 //---------------------------------------------------------------------------
@@ -301,7 +428,7 @@ char* GLBpStr=nullptr;
 //---------------------------------------------------------------------------
 // Subroutine Prototypes.
 //---------------------------------------------------------------------------
-void Routine_01340();
+void Routine_01370();
 
 //---------------------------------------------------------------------------
 // Program Functions.
@@ -341,58 +468,58 @@ void Routine_01340();
 // Routine B
 //---------------------------------------------------------------------------
 
-void Routine_01340(){
-    // 01340 ON A GOTO 1350,1370,1390,1410,1430,1450
+void Routine_01370(){
+    // 01370 ON A GOTO 1460,1480,1380,1400,1420,1440
     switch((int)(A_int)){
-        case 1: goto Lbl_01350;
-        case 2: goto Lbl_01370;
-        case 3: goto Lbl_01390;
-        case 4: goto Lbl_01410;
-        case 5: goto Lbl_01430;
-        case 6: goto Lbl_01450;
+        case 1: goto Lbl_01380;
+        case 2: goto Lbl_01400;
+        case 3: goto Lbl_01420;
+        case 4: goto Lbl_01440;
+        case 5: goto Lbl_01460;
+        case 6: goto Lbl_01480;
         default: break; 
     };
 
-  Lbl_01350:
-    // 01350 Z=INT(25+(SQR(900.01-P*P)*.9-2)-.7*Y)
+  Lbl_01380:
+    // 01380 Z=INT(25+(SQR(900.01-P*P)*.9-2)-.7*Y)
     Z_int = INT(25+(SQR(900.01-P_int*P_int)*0.9-2)-0.7*Y_int);
-    // 01360 GOTO1460
-    goto Lbl_01460;
+    // 01390 GOTO1490
+    goto Lbl_01490;
 
-  Lbl_01370:
-    // 01370 Z=INT(25+(30*CSNG(-P*P/100))-.7*Y)
+  Lbl_01400:
+    // 01400 Z=INT(25+(30*CSNG(-P*P/100))-.7*Y)
     Z_int = INT(25+(30*CSNG(P_int*P_int/100))-0.7*Y_int);
-    // 01380 GOTO1460
-    goto Lbl_01460;
+    // 01410 GOTO1490
+    goto Lbl_01490;
 
-  Lbl_01390:
-    // 01390 Z=INT(25+(30*(COS(P/16)^2))-.7*Y)
+  Lbl_01420:
+    // 01420 Z=INT(25+(30*(COS(P/16)^2))-.7*Y)
     Z_int = INT(25+(30*(IPower(COS(P_int/16),2)))-0.7*Y_int);
-    // 01400 GOTO1460
-    goto Lbl_01460;
+    // 01430 GOTO1490
+    goto Lbl_01490;
 
-  Lbl_01410:
-    // 01410 Z=INT(25+(30-30*SIN(P/19))-.7*Y)
+  Lbl_01440:
+    // 01440 Z=INT(25+(30-30*SIN(P/19))-.7*Y)
     Z_int = INT(25+(30-30*SIN(P_int/19))-0.7*Y_int);
-    // 01420 GOTO1460
-    goto Lbl_01460;
-
-  Lbl_01430:
-    // 01430 Z=INT(25+(30*CSNG(-COS(P/16))-30)-.7*Y)
-    Z_int = INT(25+(30*CSNG(-COS(P_int/16))-30)-0.7*Y_int);
-    // 01440 GOTO1460
-    goto Lbl_01460;
-
-  Lbl_01450:
-    // 01450 Z=INT(25+(30+4*SIN(P/15))-.7*Y)
-    Z_int = INT(25+(30+4*SIN(P_int/15))-0.7*Y_int);
+    // 01450 GOTO1490
+    goto Lbl_01490;
 
   Lbl_01460:
-    // 01460 GOTO 01470
-    goto Lbl_01470;
+    // 01460 Z=INT(25+(30*CSNG(-COS(P/16))-30)-.7*Y)
+    Z_int = INT(25+(30*CSNG(-COS(P_int/16))-30)-0.7*Y_int);
+    // 01470 GOTO1490
+    goto Lbl_01490;
 
-  Lbl_01470:
-    // 01470 RETURN
+  Lbl_01480:
+    // 01480 Z=INT(25+(30+4*SIN(P/15))-.7*Y)
+    Z_int = INT(25+(30+4*SIN(P_int/15))-0.7*Y_int);
+
+  Lbl_01490:
+    // 01490 GOTO 01500
+    goto Lbl_01500;
+
+  Lbl_01500:
+    // 01500 RETURN
     return;
 };
 
@@ -402,7 +529,7 @@ void Routine_01340(){
 #pragma argsused
 int main(int argc,char *argv[])
 {
-    // 01000 REM NOTE: Basic language type forced to be:
+    // 01000 REM NOTE
     // 01010 REM       trs2 - TRS-80 Level II BASIC tokenized file
     // 01020 CLS
     ClearScreen(0);
@@ -423,35 +550,106 @@ int main(int argc,char *argv[])
     ClearScreen(0);
     // 01100 Q=0
     Q_int = 0;
-    // 01110 GOTO1130
-    goto Lbl_01130;
+    // 01110 GOTO1140
+    goto Lbl_01140;
 
   Lbl_01120:
     // 01120 PRINT"THERE ARE ONLY SIX FUNCTIONS. ONE THROUGH SIX INCLUSIVE"
     { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THERE ARE ONLY SIX FUNCTIONS. ONE THROUGH SIX INCLUSIVE");strcat(buf,"\n");fputs(buf,fh); };
-
-  Lbl_01130:
-    // 01130 CLS:PRINT"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)"
-    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)");strcat(buf,"\n");fputs(buf,fh); };
-    // 01140 INPUT A: IF A<1 OR A>6 THEN 1120
-    if(A_int<1||A_int>6)goto Lbl_01120;
-    // 01150 CLS
+    // 01130 CLS
     ClearScreen(0);
-    // 01160 FOR X=-30 TO 30 STEP 1.5
+
+  Lbl_01140:
+    // 01140 PRINT"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WHICH FUNCTION WOULD YOU LIKE ME TO PRINT (1-6)");strcat(buf,"\n");fputs(buf,fh); };
+    // 01150 INPUT A
+    // Start of Basic INPUT statement 01150
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&A_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01150
+    // 01160 IF A<1 OR A>6 THEN 1120
+    if(A_int<1||A_int>6)goto Lbl_01120;
+    // 01170 CLS
+    ClearScreen(0);
+    // 01180 FOR X=-30 TO 30 STEP 1.5
     for(X_int=-30;X_int<=30;X_int+=1.5){
-        // 01170 L=0
+        // 01190 L=0
         L_int = 0;
-        // 01180 Y1=5*INT(SQR(900-X*X)/5)
+        // 01200 Y1=5*INT(SQR(900-X*X)/5)
         Y1_int = 5*INT(SQR(900-X_int*X_int)/5);
-        // 01190 FOR Y=Y1 TO -Y1 STEP -5
+        // 01210 FOR Y=Y1 TO -Y1 STEP -5
         for(Y_int=Y1_int;Y_int>=Y1_int;Y_int+=-5){
-            // 01200 P=SQR(X*X+Y*Y)
+            // 01220 P=SQR(X*X+Y*Y)
             P_int = SQR(X_int*X_int+Y_int*Y_int);
-            // 01210 GOSUB 1340
-            Routine_01340();
-            // 01220 IF Z<=L THEN 1260
-            if(Z_int<=L_int)goto Lbl_01260;
-            // 01230 L=Z
+            // 01230 GOSUB 1370
+            Routine_01370();
+            // 01240 IF Z<=L THEN 1280
+            if(Z_int<=L_int)goto Lbl_01280;
+            // 01250 L=Z
             L_int = Z_int;
-            // 01240 IF Q=0 THEN 1250
-            if(Q_int==0)goto Lbl_01250;
+            // 01260 IF Q=0 THEN 1270
+            if(Q_int==0)goto Lbl_01270;
+
+  Lbl_01270:
+            // 01270 PRINT TAB(Z);"*";
+            { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,Z_int;strcat(buf,"*");fputs(buf,fh); };
+
+  Lbl_01280:
+            // 01280 NEXT Y
+            int dummy_1280=0; // Ignore this line.
+        }; // End-For(Y_int)
+        // 01290 IF Q=0 THEN 1300
+        if(Q_int==0)goto Lbl_01300;
+
+  Lbl_01300:
+        // 01300 PRINT
+        { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+        // 01310 NEXT X
+        int dummy_1310=0; // Ignore this line.
+    }; // End-For(X_int)
+    // 01320 GOTO 1330
+    goto Lbl_01330;
+
+  Lbl_01330:
+    // 01330 PRINT"WOULD YOU LIKE ME TO PRINT ANOTHER FUNCTION";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"WOULD YOU LIKE ME TO PRINT ANOTHER FUNCTION");fputs(buf,fh); };
+    // 01340 INPUTB$
+    // Start of Basic INPUT statement 01340
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtos(&B_str,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01340
+    // 01350 IF LEFT$(B$,1)="Y"THEN1140
+    if(LEFT$(B_str,1)=='Y')goto Lbl_01140;
+    // 01360 END
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------

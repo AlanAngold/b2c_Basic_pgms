@@ -8,37 +8,37 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x57d49d684db0 ---------A   00001 PRINT CHR$(26)
-    0x57d49d684e70 ---------A   00003 PRINT TAB(33);"CHEMST":PRINT
-    0x57d49d684ff0 ---------A   00006 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x57d49d6829e0 ---------A   00008 PRINT:PRINT:PRINT
-    0x57d49d683040 ---------A   00010 PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
-    0x57d49d682e90 ---------A   00020 PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
-    0x57d49d682c70 ---------A   00030 PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
-    0x57d49d685220 ---------A   00040 PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
-    0x57d49d683730 ---------A   00050 PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
-    0x57d49d683090 ---------A   00060 PRINT "YOU FACE THE CONSEQUENCES."
-    0x57d49d683890 ---------A   00070 PRINT:PRINT
-    0x57d49d68ad40 ---------A T 00100 A=INT(RND(1)*50)
-    0x57d49d68b200 ---------A   00110 W=7*A/3
-    0x57d49d68b430 ---------A   00120 PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
-    0x57d49d6826d0 ---------A   00130 INPUT R
-    0x57d49d68bae0 ---------A   00140 D=ABS(W-R)
-    0x57d49d682670 ---------A   00150 IF D>W/20 THEN 200
-    0x57d49d68bfb0 ---------A   00160 PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
-    0x57d49d68c020 ---------A   00170 PRINT
-    0x57d49d68c0c0 ---------A   00180 GOTO 100
-    0x57d49d68c240 ---------A T 00200 PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
-    0x57d49d68c3c0 ---------A   00210 PRINT " OF QUIVERING PROTOPLASM!":PRINT
-    0x57d49d68c7b0 ---------A   00220 T=T+1
-    0x57d49d68ca30 ---------A   00230 IF T=9 THEN 260
-    0x57d49d68cc00 ---------A   00240 PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE.":PRINT
-    0x57d49d68cca0 ---------A   00250 GOTO 100
-    0x57d49d68ce40 ---------A T 00260 PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
-    0x57d49d68cfc0 ---------A   00270 PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
-    0x57d49d68d0d0 ---------A   00275 PRINT:PRINT:PRINT
-    0x57d49d68d140 ---------A   00280 RUN "MENU"
-    0x57d49d68d340 ---------A   00999 INPUT L9
+    0x5ce844bb06d0 ---------A   00001  PRINT CHR$(26)
+    0x5ce844bb1fc0 ---------A   00003  PRINT TAB(33);"CHEMST":PRINT
+    0x5ce844bb25e0 ---------A   00006  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5ce844bb2b00 ---------A   00008  PRINT:PRINT:PRINT
+    0x5ce844bb1080 ---------A   00010  PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
+    0x5ce844bb14d0 ---------A   00020  PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
+    0x5ce844bb0c70 ---------A   00030  PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
+    0x5ce844bb1620 ---------A   00040  PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
+    0x5ce844bb1790 ---------A   00050  PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
+    0x5ce844bb88a0 ---------A   00060  PRINT "YOU FACE THE CONSEQUENCES."
+    0x5ce844bb8960 ---------A   00070  PRINT:PRINT
+    0x5ce844bb2ff0 ---------A T 00100  A=INT(RND(1)*50)
+    0x5ce844bb92d0 ---------A   00110  W=7*A/3
+    0x5ce844bb94e0 ---------A   00120  PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
+    0x5ce844bb96e0 ---------A   00130  INPUT R
+    0x5ce844bb9be0 ---------A   00140  D=ABS(W-R)
+    0x5ce844bb9f80 ---------A   00150  IF D>W/20 THEN 200
+    0x5ce844bba110 ---------A   00160  PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
+    0x5ce844bba190 ---------A   00170  PRINT
+    0x5ce844bba240 ---------A   00180  GOTO 100
+    0x5ce844bba3d0 ---------A T 00200  PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
+    0x5ce844bba570 ---------A   00210  PRINT " OF QUIVERING PROTOPLASM!":PRINT
+    0x5ce844bba970 ---------A   00220  T=T+1
+    0x5ce844bbabf0 ---------A   00230  IF T=9 THEN 260
+    0x5ce844bbadd0 ---------A   00240  PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE.":PRINT
+    0x5ce844bbae80 ---------A   00250  GOTO 100
+    0x5ce844bbb030 ---------A T 00260  PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
+    0x5ce844bbb1c0 ---------A   00270  PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
+    0x5ce844bbb300 ---------A   00275  PRINT:PRINT:PRINT
+    0x5ce844bbb380 ---------A   00280  RUN "MENU"
+    0x5ce844bbb590 ---------A   00999  INPUT L9
  */
 
 /*
@@ -60,9 +60,111 @@
 
   Rtn      Start     LineNum       Target     LineNum        Return    LineNum        End       LineNum  
   --- --------------  -----    --------------  -----    --------------  -----    --------------  -----   
-   A) 0x57d49d684db0 (00001)   0x57d49d684db0 (00001)   0x57d49d68d340 (00999)   0x57d49d68d340 (00999)   
+   A) 0x5ce844bb06d0 (00001)   0x5ce844bb06d0 (00001)   0x5ce844bbb590 (00999)   0x5ce844bbb590 (00999)   
 
 
+ */
+
+/*
+ * Title: The unrolled BASIC Listing
+ *
+ *  Listing of basic/chemist.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5ce844bb06d0 ---------A   00001  PRINT CHR$(26)
+    0x5ce844bb0670 ----------   00003  PRINT TAB(33);"CHEMST"
+    0x5ce844bb1fc0 ---------A        a PRINT
+    0x5ce844bb25e0 ---------A   00006  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5ce844bb09e0 ----------   00008  PRINT
+    0x5ce844bb2aa0 ----------        a PRINT
+    0x5ce844bb2b00 ---------A        b PRINT
+    0x5ce844bb1080 ---------A   00010  PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
+    0x5ce844bb14d0 ---------A   00020  PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
+    0x5ce844bb0c70 ---------A   00030  PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
+    0x5ce844bb1620 ---------A   00040  PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
+    0x5ce844bb1790 ---------A   00050  PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
+    0x5ce844bb88a0 ---------A   00060  PRINT "YOU FACE THE CONSEQUENCES."
+    0x5ce844bb8900 ----------   00070  PRINT
+    0x5ce844bb8960 ---------A        a PRINT
+    0x5ce844bb2ff0 ---------A T 00100  A=INT(RND(1)*50)
+    0x5ce844bb92d0 ---------A   00110  W=7*A/3
+    0x5ce844bb94e0 ---------A   00120  PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
+    0x5ce844bb96e0 ---------A   00130  INPUT R
+    0x5ce844bb9be0 ---------A   00140  D=ABS(W-R)
+    0x5ce844bb9f80 ---------A   00150  IF D>W/20 THEN 200
+    0x5ce844bba110 ---------A   00160  PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
+    0x5ce844bba190 ---------A   00170  PRINT
+    0x5ce844bba240 ---------A   00180  GOTO 100
+    0x5ce844bba3d0 ---------A T 00200  PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
+    0x5ce844bba4f0 ----------   00210  PRINT " OF QUIVERING PROTOPLASM!"
+    0x5ce844bba570 ---------A        a PRINT
+    0x5ce844bba970 ---------A   00220  T=T+1
+    0x5ce844bbabf0 ---------A   00230  IF T=9 THEN 260
+    0x5ce844bbad50 ----------   00240  PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE."
+    0x5ce844bbadd0 ---------A        a PRINT
+    0x5ce844bbae80 ---------A   00250  GOTO 100
+    0x5ce844bbb030 ---------A T 00260  PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
+    0x5ce844bbb1c0 ---------A   00270  PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
+    0x5ce844bbb220 ----------   00275  PRINT
+    0x5ce844bbb280 ----------        a PRINT
+    0x5ce844bbb300 ---------A        b PRINT
+    0x5ce844bbb380 ---------A   00280  RUN "MENU"
+    0x5ce844bbb590 ---------A   00999  INPUT L9
+ */
+
+/*
+ * Title: The unrolled BASIC Listing,after renumbering
+ *
+ *  Listing of basic/chemist.bas: 
+ *
+                   +--------+---- Routine IDs (Empty field=Inaccessible code, A=Main program).
+                   |        | +-- Target status (G-GOSUB, T-GOTO, B-Both GOSUB and GOTO)
+        Program    |        | |
+        Address    v        v v Original BASIC statement
+    -------------- ---------- - ------------------------------------------------------------------------------
+    0x5ce844bb06d0 ---------A   01000  PRINT CHR$(26)
+    0x5ce844bb0670 ----------   01010  PRINT TAB(10103);"CHEMST"
+    0x5ce844bb1fc0 ---------A   01020  PRINT
+    0x5ce844bb25e0 ---------A   01030  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5ce844bb09e0 ----------   01040  PRINT
+    0x5ce844bb2aa0 ----------   01050  PRINT
+    0x5ce844bb2b00 ---------A   01060  PRINT
+    0x5ce844bb1080 ---------A   01070  PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
+    0x5ce844bb14d0 ---------A   01080  PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
+    0x5ce844bb0c70 ---------A   01090  PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
+    0x5ce844bb1620 ---------A   01100  PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
+    0x5ce844bb1790 ---------A   01110  PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
+    0x5ce844bb88a0 ---------A   01120  PRINT "YOU FACE THE CONSEQUENCES."
+    0x5ce844bb8900 ----------   01130  PRINT
+    0x5ce844bb8960 ---------A   01140  PRINT
+    0x5ce844bb2ff0 ---------A   01150  A=INT(RND(1)*50)
+    0x5ce844bb92d0 ---------A   01160  W=7*A/3
+    0x5ce844bb94e0 ---------A   01170  PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
+    0x5ce844bb96e0 ---------A   01180  INPUT R
+    0x5ce844bb9be0 ---------A   01190  D=ABS(W-R)
+    0x5ce844bb9f80 ---------A   01200  IF D>W/20 THEN 1240
+    0x5ce844bba110 ---------A   01210  PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
+    0x5ce844bba190 ---------A   01220  PRINT
+    0x5ce844bba240 ---------A   01230  GOTO 1150
+    0x5ce844bba3d0 ---------A   01240  PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
+    0x5ce844bba4f0 ----------   01250  PRINT " OF QUIVERING PROTOPLASM!"
+    0x5ce844bba570 ---------A   01260  PRINT
+    0x5ce844bba970 ---------A   01270  T=T+1
+    0x5ce844bbabf0 ---------A   01280  IF T=9 THEN 1320
+    0x5ce844bbad50 ----------   01290  PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE."
+    0x5ce844bbadd0 ---------A   01300  PRINT
+    0x5ce844bbae80 ---------A   01310  GOTO 1150
+    0x5ce844bbb030 ---------A   01320  PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
+    0x5ce844bbb1c0 ---------A   01330  PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
+    0x5ce844bbb220 ----------   01340  PRINT
+    0x5ce844bbb280 ----------   01350  PRINT
+    0x5ce844bbb300 ---------A   01360  PRINT
+    0x5ce844bbb380 ---------A   01370  RUN "MENU"
+    0x5ce844bbb590 ---------A   01380  INPUT L9
  */
 
 
@@ -73,7 +175,7 @@
      Start    End    # Lines in Gap
      -----   -----   ------------------
      00000 - 00990     100 
-     01310 - 10000    8700 
+     01390 - 10000    8620 
 
  */
 
@@ -161,37 +263,45 @@
         Program    |        | |
         Address    v        v v Original BASIC statement
     -------------- ---------- - ------------------------------------------------------------------------------
-    0x57d49d684db0 ---------A   01000 PRINT CHR$(26)
-    0x57d49d684e70 ---------A   01010 PRINT TAB(10103);"CHEMST":PRINT
-    0x57d49d684ff0 ---------A   01020 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
-    0x57d49d6829e0 ---------A   01030 PRINT:PRINT:PRINT
-    0x57d49d683040 ---------A   01040 PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
-    0x57d49d682e90 ---------A   01050 PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
-    0x57d49d682c70 ---------A   01060 PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
-    0x57d49d685220 ---------A   01070 PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
-    0x57d49d683730 ---------A   01080 PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
-    0x57d49d683090 ---------A   01090 PRINT "YOU FACE THE CONSEQUENCES."
-    0x57d49d683890 ---------A   01100 PRINT:PRINT
-    0x57d49d68ad40 ---------A T 01110 A=INT(RND(1)*50)
-    0x57d49d68b200 ---------A   01120 W=7*A/3
-    0x57d49d68b430 ---------A   01130 PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
-    0x57d49d6826d0 ---------A   01140 INPUT R
-    0x57d49d68bae0 ---------A   01150 D=ABS(W-R)
-    0x57d49d682670 ---------A   01160 IF D>W/20 THEN 1200
-    0x57d49d68bfb0 ---------A   01170 PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
-    0x57d49d68c020 ---------A   01180 PRINT
-    0x57d49d68c0c0 ---------A   01190 GOTO 1110
-    0x57d49d68c240 ---------A T 01200 PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
-    0x57d49d68c3c0 ---------A   01210 PRINT " OF QUIVERING PROTOPLASM!":PRINT
-    0x57d49d68c7b0 ---------A   01220 T=T+1
-    0x57d49d68ca30 ---------A   01230 IF T=9 THEN 1260
-    0x57d49d68cc00 ---------A   01240 PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE.":PRINT
-    0x57d49d68cca0 ---------A   01250 GOTO 1110
-    0x57d49d68ce40 ---------A T 01260 PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
-    0x57d49d68cfc0 ---------A   01270 PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
-    0x57d49d68d0d0 ---------A   01280 PRINT:PRINT:PRINT
-    0x57d49d68d140 ---------A   01290 RUN "MENU"
-    0x57d49d68d340 ---------A   01300 INPUT L9
+    0x5ce844bb06d0 ---------A   01000  PRINT CHR$(26)
+    0x5ce844bb0670 ---------A   01010  PRINT TAB(10103);"CHEMST"
+    0x5ce844bb1fc0 ---------A   01020  PRINT
+    0x5ce844bb25e0 ---------A   01030  PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    0x5ce844bb09e0 ---------A   01040  PRINT
+    0x5ce844bb2aa0 ---------A   01050  PRINT
+    0x5ce844bb2b00 ---------A   01060  PRINT
+    0x5ce844bb1080 ---------A   01070  PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
+    0x5ce844bb14d0 ---------A   01080  PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
+    0x5ce844bb0c70 ---------A   01090  PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
+    0x5ce844bb1620 ---------A   01100  PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
+    0x5ce844bb1790 ---------A   01110  PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
+    0x5ce844bb88a0 ---------A   01120  PRINT "YOU FACE THE CONSEQUENCES."
+    0x5ce844bb8900 ---------A   01130  PRINT
+    0x5ce844bb8960 ---------A   01140  PRINT
+    0x5ce844bb2ff0 ---------A T 01150  A=INT(RND(1)*50)
+    0x5ce844bb92d0 ---------A   01160  W=7*A/3
+    0x5ce844bb94e0 ---------A   01170  PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
+    0x5ce844bb96e0 ---------A   01180  INPUT R
+    0x5ce844bb9be0 ---------A   01190  D=ABS(W-R)
+    0x5ce844bb9f80 ---------A   01200  IF D>W/20 THEN 1240
+    0x5ce844bba110 ---------A   01210  PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
+    0x5ce844bba190 ---------A   01220  PRINT
+    0x5ce844bba240 ---------A   01230  GOTO 1150
+    0x5ce844bba3d0 ---------A T 01240  PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
+    0x5ce844bba4f0 ---------A   01250  PRINT " OF QUIVERING PROTOPLASM!"
+    0x5ce844bba570 ---------A   01260  PRINT
+    0x5ce844bba970 ---------A   01270  T=T+1
+    0x5ce844bbabf0 ---------A   01280  IF T=9 THEN 1320
+    0x5ce844bbad50 ---------A   01290  PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE."
+    0x5ce844bbadd0 ---------A   01300  PRINT
+    0x5ce844bbae80 ---------A   01310  GOTO 1150
+    0x5ce844bbb030 ---------A T 01320  PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
+    0x5ce844bbb1c0 ---------A   01330  PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
+    0x5ce844bbb220 ---------A   01340  PRINT
+    0x5ce844bbb280 ---------A   01350  PRINT
+    0x5ce844bbb300 ---------A   01360  PRINT
+    0x5ce844bbb380 ---------A   01370  RUN "MENU"
+    0x5ce844bbb590 ---------A   01380  INPUT L9
  */
 
 //---------------------------------------------------------------------------
@@ -287,3 +397,125 @@ char* GLBpStr=nullptr;
 #pragma argsused
 int main(int argc,char *argv[])
 {
+    // 01000 PRINT CHR$(26)
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcpy(buf,CHR$(26));strcat(buf,"\n");fputs(buf,fh); };
+    // 01010 PRINT TAB(10103);"CHEMST"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,33);strcat(buf,"CHEMST");strcat(buf,"\n");fputs(buf,fh); };
+    // 01020 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01030 PRINT TAB(15);"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);b2c_TAB(buf,15);strcat(buf,"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY");strcat(buf,"\n");fputs(buf,fh); };
+    // 01040 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01050 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01060 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01070 PRINT "THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"THE FICTITIOUS CHECMICAL KRYPTOCYANIC ACID CAN ONLY BE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01080 PRINT "DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DILUTED BY THE RATIO OF 7 PARTS WATER TO 3 PARTS ACID.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01090 PRINT "IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"IF ANY OTHER RATIO IS ATTEMPTED, THE ACID BECOMES UNSTABLE");strcat(buf,"\n");fputs(buf,fh); };
+    // 01100 PRINT "AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"AND SOON EXPLODES.  GIVEN THE AMOUNT OF ACID, YOU MUST");strcat(buf,"\n");fputs(buf,fh); };
+    // 01110 PRINT "DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"DECIDE WHO MUCH WATER TO ADD FOR DILUTION.  IF YOU MISS");strcat(buf,"\n");fputs(buf,fh); };
+    // 01120 PRINT "YOU FACE THE CONSEQUENCES."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"YOU FACE THE CONSEQUENCES.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01130 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01140 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+
+  Lbl_01150:
+    // 01150 A=INT(RND(1)*50)
+    A_int = INT(RND(1)*50);
+    // 01160 W=7*A/3
+    W_int = 7*A_int/3;
+    // 01170 PRINT A;"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER";
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256); b2c_INT(buf,A_int);strcat(buf,"LITERS OF KRYPTOCYANIC ACID.  HOW MUCH WATER");fputs(buf,fh); };
+    // 01180 INPUT R
+    // Start of Basic INPUT statement 01180
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&R_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01180
+    // 01190 D=ABS(W-R)
+    D_int = ABS(W_int-R_int);
+    // 01200 IF D>W/20 THEN 1240
+    if(D_int>W_int/20)goto Lbl_01240;
+    // 01210 PRINT " GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," GOOD JOB! YOU MAY BREATHE NOW, BUT DON'T INHALE THE FUMES!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01220 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01230 GOTO 1150
+    goto Lbl_01150;
+
+  Lbl_01240:
+    // 01240 PRINT " SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," SIZZLE!  YOU HAVE JUST BEEN DESALINATED INTO A BLOB");strcat(buf,"\n");fputs(buf,fh); };
+    // 01250 PRINT " OF QUIVERING PROTOPLASM!"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," OF QUIVERING PROTOPLASM!");strcat(buf,"\n");fputs(buf,fh); };
+    // 01260 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01270 T=T+1
+    T_int = T_int+1;
+    // 01280 IF T=9 THEN 1320
+    if(T_int==9)goto Lbl_01320;
+    // 01290 PRINT " HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," HOWEVER, YOU MAY TRY AGAIN WITH ANOTHER LIFE.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01300 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01310 GOTO 1150
+    goto Lbl_01150;
+
+  Lbl_01320:
+    // 01320 PRINT " YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR"
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," YOUR 9 LIVES ARE USED, BUT YOU WILL BE LONG REMEMBERED FOR");strcat(buf,"\n");fputs(buf,fh); };
+    // 01330 PRINT " YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY."
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf," YOUR CONTRIBUTIONS TO THE FIELD OF COMIC BOOK CHEMISTRY.");strcat(buf,"\n");fputs(buf,fh); };
+    // 01340 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01350 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01360 PRINT
+    { FILE*fh=stdout;char buf[256]; memset(buf,0,256);strcat(buf,"\n");fputs(buf,fh); };
+    // 01370 RUN "MENU"
+    system("MENU");
+    // 01380 INPUT L9
+    // Start of Basic INPUT statement 01380
+    {
+        int numargs=1;
+        char *args[numargs+1];
+        bool echoeol=true;
+        while(true){
+            fprintf(stdout," ? ");
+            int err=input(args,numargs,echoeol);
+            if(err==0x03) break;
+            if(err || 
+                (err += b2c_strtoi(&L9_int,args,0)) ){
+                 printf("?Redo from start\n");
+            }else{
+                break;
+            };
+        };
+    }; // End of Basic INPUT statement 01380
+   return(0);
+};
+
+//---------------------------------------------------------------------------
+// End of $RCSfile$ 
+//---------------------------------------------------------------------------
